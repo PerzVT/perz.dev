@@ -1,0 +1,64 @@
+{ "frames": [
+   {
+    "filename": "Projectile 0.aseprite",
+    "frame": { "x": 0, "y": 0, "w": 39, "h": 16 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 39, "h": 16 },
+    "sourceSize": { "w": 39, "h": 16 },
+    "duration": 100
+   },
+   {
+    "filename": "Projectile 1.aseprite",
+    "frame": { "x": 39, "y": 0, "w": 39, "h": 16 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 39, "h": 16 },
+    "sourceSize": { "w": 39, "h": 16 },
+    "duration": 100
+   },
+   {
+    "filename": "Projectile 2.aseprite",
+    "frame": { "x": 78, "y": 0, "w": 39, "h": 16 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 39, "h": 16 },
+    "sourceSize": { "w": 39, "h": 16 },
+    "duration": 100
+   },
+   {
+    "filename": "Projectile 3.aseprite",
+    "frame": { "x": 117, "y": 0, "w": 39, "h": 16 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 39, "h": 16 },
+    "sourceSize": { "w": 39, "h": 16 },
+    "duration": 100
+   },
+   {
+    "filename": "Projectile 4.aseprite",
+    "frame": { "x": 156, "y": 0, "w": 39, "h": 16 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 39, "h": 16 },
+    "sourceSize": { "w": 39, "h": 16 },
+    "duration": 100
+   }
+ ],
+ "meta": {
+  "app": "https://www.aseprite.org/",
+  "version": "1.3.17-x64",
+  "image": "Projectile.png",
+  "format": "RGBA8888",
+  "size": { "w": 195, "h": 16 },
+  "scale": "1",
+  "frameTags": [
+   { "name": "Projectile", "from": 0, "to": 4, "direction": "forward", "color": "#000000ff" }
+  ],
+  "layers": [
+   { "name": "Projectile", "opacity": 255, "blendMode": "normal" }
+  ],
+  "slices": [
+  ]
+ }
+}

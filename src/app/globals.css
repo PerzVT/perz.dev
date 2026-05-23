@@ -1,0 +1,155 @@
+@import "tailwindcss";
+@import "shadcn/tailwind.css";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-mono: var(--font-mono);
+  --font-sans: var(--font-sans);
+  /* Display = Nunito (rounded terminals). Body = Inter. Two-font
+     system: Nunito carries headlines, role labels, and stat numbers;
+     Inter handles paragraph copy and UI. JetBrains Mono handles
+     eyebrow caps and code. */
+  --font-heading: var(--font-display);
+  --font-display: var(--font-display);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-destructive: var(--destructive);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  /* Single-mode palette — pulled from samwill.is. neutral-900 base,
+     neutral-800 card, neutral-400 body copy, soft white borders. The
+     bg-to-card step is meaningful (~10% lighter) so cards read as real
+     surfaces, not invisible panels. */
+  --background: #171717;
+  --foreground: #ededed;
+  --card: #262626;
+  --card-foreground: #ededed;
+  --popover: #262626;
+  --popover-foreground: #ededed;
+  --primary: #ededed;
+  --primary-foreground: #171717;
+  --secondary: #1f1f1f;
+  --secondary-foreground: #ededed;
+  --muted: #1f1f1f;
+  /* neutral-400 — bright enough to read long-form on near-black
+     without straining. */
+  --muted-foreground: #a3a3a3;
+  --accent: #1f1f1f;
+  --accent-foreground: #ededed;
+  --destructive: #d26b6b;
+  /* Soft white at 10% opacity — borders that hint structure without
+     declaring it. */
+  --border: rgba(255, 255, 255, 0.1);
+  --input: rgba(255, 255, 255, 0.1);
+  /* Lifted from the previous failing #3a3a3a — at 3.0+ contrast against
+     the bg for keyboard focus visibility (WCAG 1.4.11). */
+  --ring: #a3a3a3;
+
+  --radius: 0.5rem;
+  --ring-radius: 0.5rem;
+  --section-gap: 5rem;
+  --body-font: var(--font-sans, system-ui, -apple-system, "Inter", sans-serif);
+  --display-font: var(--font-display, "Nunito", system-ui, sans-serif);
+  /* Nunito is wider than Inter at the same size so it doesn't need
+     as much negative tracking to feel tight. */
+  --heading-letter-spacing: -0.01em;
+  --body-leading: 1.6;
+
+  /* Brand accent — cobalt blue. Used sparingly for hover highlights
+     and rare punctuation in MDX prose. */
+  --hl-accent: #60a5fa;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--body-font);
+    line-height: var(--body-leading);
+  }
+  h1, h2, h3 {
+    letter-spacing: var(--heading-letter-spacing);
+  }
+}
+
+/* Display class = Nunito at extra-bold. Rounded terminals + 800
+   weight carry the headline character cleanly without going into
+   black-weight territory which reads as poster type. */
+.font-display {
+  font-family: var(--display-font);
+  letter-spacing: var(--heading-letter-spacing);
+  font-weight: 800;
+}
+
+/* Pixel-hard dividers */
+.pixel-border {
+  border: 1px solid var(--border);
+  border-radius: 0;
+}
+
+/* Fade in animations */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out forwards;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.5s ease-out forwards;
+}
+
+/* Scroll cue — a tiny vertical drift on the chevron glyph at the
+   bottom of the hero. Reads as "scroll" without arrows. */
+@keyframes scroll-cue-drift {
+  0%   { transform: translateY(0);    opacity: 0.55; }
+  50%  { transform: translateY(4px);  opacity: 1; }
+  100% { transform: translateY(0);    opacity: 0.55; }
+}
+.scroll-cue {
+  animation: scroll-cue-drift 1.8s ease-in-out infinite;
+}
+
+/* Global reduced-motion baseline. Honors WCAG 2.3.3 by killing all
+   animation + transition + smooth-scroll for users who opted out.
+   Components that need to keep one specific motion under reduced
+   motion should opt back in with their own scoped @media query. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

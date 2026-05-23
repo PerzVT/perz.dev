@@ -1,0 +1,30 @@
+{
+  "headline": [
+    {
+      "name": "Game Design",
+      "iconName": "unity",
+      "context": "Systems design, progression loops, ability frameworks, and the spreadsheet authoring tools that keep them maintainable. Currently lead designer on Calamity VR's class/ability systems at Highstreet."
+    },
+    {
+      "name": "Product Design",
+      "iconName": "figma",
+      "context": "A decade of product and brand work before games — wireframes, design systems, stakeholder reviews, the engineering handoff. The muscle that makes the game-design work ship on time."
+    },
+    {
+      "name": "Unity + C#",
+      "iconName": "csharp",
+      "context": "Daily driver since 2021 — Unity 6 with DOTS and Meta XR on Calamity, traditional Unity stack on jam entries. Gameplay systems, editor tooling, data-driven authoring, the gap between ECS and OOP."
+    }
+  ],
+  "secondary": [
+    { "name": "Photoshop", "iconName": "photoshop" },
+    { "name": "Illustrator", "iconName": "illustrator" },
+    { "name": "Blender", "iconName": "blender" },
+    { "name": "Godot", "iconName": "godot" },
+    { "name": "Notion", "iconName": "notion" },
+    { "name": "Miro", "iconName": "miro" },
+    { "name": "Jira", "iconName": "jira" },
+    { "name": "Python", "iconName": "python" },
+    { "name": "TypeScript", "iconName": "typescript" }
+  ]
+}
