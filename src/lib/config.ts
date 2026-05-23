@@ -1,13 +1,13 @@
 export const siteConfig = {
   name: "perz",
   fullName: "Percy A",
-  title: "Designer / Game Designer",
+  title: "Game Designer · Product Design",
   description:
-    "Designer with a product background, now full-time on games. I build systems that feel obvious to use and surprising to play, same instinct that helped a few startups go from scrappy to shipping.",
+    "Game designer who came up through product design. I build systems that feel obvious to use and surprising to play.",
   /** Second paragraph in the hero. Kept separate from `description`
    *  so the hero can break it onto its own line. */
   descriptionExtra:
-    "Five years of it. Good at the people part, still learning the rest.",
+    "Five years of it across startups and game studios. Good at the people part, still learning the rest.",
   url: "https://perz.dev",
   links: {
     github: "https://github.com/PerzVT",
