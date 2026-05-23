@@ -5,6 +5,7 @@ import Image from "next/image";
 import { ChevronDown } from "lucide-react";
 import { siteConfig } from "@/lib/config";
 import { StatBlocks, Stat } from "@/components/stat-blocks";
+import { BLUR_DATA_URL } from "@/lib/blur";
 
 /**
  * Hero — split layout. Text column on the left, art column on the
@@ -80,6 +81,8 @@ export function Hero() {
             fill
             sizes="(min-width: 1024px) 448px, 50vw"
             priority
+            placeholder="blur"
+            blurDataURL={BLUR_DATA_URL}
             className="object-cover transition-opacity duration-300 ease-out"
             style={{ opacity: hover ? 0 : 1 }}
           />
@@ -88,6 +91,8 @@ export function Hero() {
             alt=""
             fill
             sizes="(min-width: 1024px) 448px, 50vw"
+            placeholder="blur"
+            blurDataURL={BLUR_DATA_URL}
             className="object-cover transition-opacity duration-300 ease-out"
             style={{ opacity: hover ? 1 : 0 }}
           />

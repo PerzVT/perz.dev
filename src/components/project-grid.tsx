@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Lightbox } from "@/components/lightbox";
+import { BLUR_DATA_URL } from "@/lib/blur";
 import type { BentoProject } from "@/components/project-types";
 
 /**
@@ -137,6 +138,8 @@ function ProjectCard({
               alt=""
               fill
               sizes="(min-width: 640px) 50vw, 100vw"
+              placeholder="blur"
+              blurDataURL={BLUR_DATA_URL}
               className="object-contain"
             />
           )}

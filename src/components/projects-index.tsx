@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Lightbox } from "@/components/lightbox";
+import { BLUR_DATA_URL } from "@/lib/blur";
 import type { BentoProject } from "@/components/project-types";
 
 /**
@@ -76,6 +77,8 @@ function ProjectRow({
             alt=""
             fill
             sizes="120px"
+            placeholder="blur"
+            blurDataURL={BLUR_DATA_URL}
             className="object-cover"
           />
         ) : (

@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import Image from "next/image";
 import { LazyVideo } from "@/components/lazy-video";
+import { BLUR_DATA_URL } from "@/lib/blur";
 import { getProject, getProjects, type ProjectFrontmatter } from "@/lib/content";
 import { mdxComponents } from "@/components/mdx";
 import { siteConfig } from "@/lib/config";
@@ -300,6 +301,8 @@ function HeroMedia({ src, poster }: { src: string; poster?: string }) {
           fill
           sizes="(min-width: 1024px) 768px, 100vw"
           priority
+          placeholder="blur"
+          blurDataURL={BLUR_DATA_URL}
           className="object-cover"
         />
       )}
