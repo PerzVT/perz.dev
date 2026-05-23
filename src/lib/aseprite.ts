@@ -46,9 +46,24 @@ export interface SpriteSheet {
   contentBounds: { x: number; y: number; w: number; h: number };
 }
 
+// Module-scoped cache. Each sheet is loaded, decoded, and pixel-
+// measured at most once per page lifetime. Without this the auto-
+// rotating sprite in the top nav re-fetches+remeasures every sheet
+// on each 5-second tick, which grows into a serious memory + CPU
+// leak after the page has been open for several minutes.
+const sheetCache = new Map<string, Promise<SpriteSheet>>();
+
 /** Load a sheet + JSON pair. Fails silently — `ready` stays false so
  *  callers can render a placeholder until assets exist. */
-export async function loadSheet(basePath: string): Promise<SpriteSheet> {
+export function loadSheet(basePath: string): Promise<SpriteSheet> {
+  const cached = sheetCache.get(basePath);
+  if (cached) return cached;
+  const promise = loadSheetUncached(basePath);
+  sheetCache.set(basePath, promise);
+  return promise;
+}
+
+async function loadSheetUncached(basePath: string): Promise<SpriteSheet> {
   const sheet: SpriteSheet = {
     image: new Image(),
     frames: [],

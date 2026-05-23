@@ -102,15 +102,37 @@ export function Sprite({
   }, [key]);
 
   // Auto-rotate the sprite roster. Disabled under reduced motion.
+  // Also paused when the document is hidden — there's no point
+  // cycling the mascot if no one can see it, and the per-key effect
+  // below mounts a new RAF loop on every cycle.
   useEffect(() => {
     if (reducedMotion) return;
-    const id = window.setInterval(() => {
-      setKey((prev) => {
-        const i = ROTATION.indexOf(prev);
-        return ROTATION[(i + 1) % ROTATION.length];
-      });
-    }, ROTATE_INTERVAL_MS);
-    return () => window.clearInterval(id);
+    let id: number | null = null;
+    const start = () => {
+      if (id !== null) return;
+      id = window.setInterval(() => {
+        setKey((prev) => {
+          const i = ROTATION.indexOf(prev);
+          return ROTATION[(i + 1) % ROTATION.length];
+        });
+      }, ROTATE_INTERVAL_MS);
+    };
+    const stop = () => {
+      if (id !== null) {
+        window.clearInterval(id);
+        id = null;
+      }
+    };
+    const onVis = () => {
+      if (document.hidden) stop();
+      else start();
+    };
+    if (!document.hidden) start();
+    document.addEventListener("visibilitychange", onVis);
+    return () => {
+      document.removeEventListener("visibilitychange", onVis);
+      stop();
+    };
   }, [reducedMotion]);
 
   useEffect(() => {
@@ -133,6 +155,7 @@ export function Sprite({
 
   const startLoop = () => {
     stopLoop();
+    if (typeof document !== "undefined" && document.hidden) return;
     let last = performance.now();
     const tick = (now: number) => {
       const dt = now - last;
@@ -156,6 +179,21 @@ export function Sprite({
       rafRef.current = null;
     }
   };
+
+  // Pause + resume the RAF on tab visibility. Background tabs already
+  // get rAF throttled to ~1 Hz by browsers, but explicitly stopping
+  // keeps the draw cycle from running at all and lets the canvas
+  // context settle.
+  useEffect(() => {
+    if (typeof document === "undefined") return;
+    const onVis = () => {
+      if (document.hidden) stopLoop();
+      else if (sheetRef.current?.ready) startLoop();
+    };
+    document.addEventListener("visibilitychange", onVis);
+    return () => document.removeEventListener("visibilitychange", onVis);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // Click navigates to home — the mascot is the conventional "back
   // to start" affordance in the top-nav slot.
