@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Lightbox } from "@/components/lightbox";
@@ -101,18 +101,26 @@ function ProjectCard({
   const onEnter = () => {
     setHovered(true);
     if (!primed) setPrimed(true);
-    const v = videoRef.current;
-    if (!v) return;
-    // First hover: src has just been set this frame; the play() call
-    // will queue against the metadata fetch. Subsequent hovers: src
-    // is already loaded so play() resolves immediately.
-    v.currentTime = 0;
-    v.play().catch(() => {});
   };
   const onLeave = () => {
     setHovered(false);
-    if (videoRef.current) videoRef.current.pause();
   };
+
+  // Play/pause runs in an effect so the video element is guaranteed
+  // to have its `src` attribute mounted before .play() is called.
+  // Doing both in the onMouseEnter callback hit a race: setPrimed
+  // schedules a re-render asynchronously, so the same-tick .play()
+  // ran against a sourceless <video> and silently failed.
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
+    if (hovered && primed) {
+      v.currentTime = 0;
+      v.play().catch(() => {});
+    } else {
+      v.pause();
+    }
+  }, [hovered, primed]);
 
   // The backdrop + image stack, plus the caption below.
   // Hover gesture: the card surface tints up one step and the title
