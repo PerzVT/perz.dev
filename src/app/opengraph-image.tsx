@@ -1,7 +1,6 @@
 import { ImageResponse } from "next/og";
-import { siteConfig } from "@/lib/config";
 
-export const alt = `${siteConfig.name} — ${siteConfig.title.toLowerCase()}`;
+export const alt = "Percy | Making software fun";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -41,14 +40,14 @@ export default function Image() {
         </div>
         <div
           style={{
-            fontSize: 240,
+            fontSize: 200,
             fontWeight: 700,
             lineHeight: 1,
             marginTop: 24,
-            letterSpacing: -8,
+            letterSpacing: -6,
           }}
         >
-          perz
+          Percy
         </div>
         <div
           style={{
@@ -57,7 +56,7 @@ export default function Image() {
             color: MUTED_HEX,
           }}
         >
-          game developer &amp; designer
+          Making software fun
         </div>
       </div>
     ),
