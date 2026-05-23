@@ -137,12 +137,29 @@ export function Sprite({
 
   useEffect(() => {
     let cancelled = false;
+    // Stop any in-flight RAF immediately so the previous sprite's
+    // draw loop can't paint over the new one mid-swap.
+    stopLoop();
+    // Clear refs eagerly so the (now-stopped) tick can't draw the
+    // previous sprite even if a queued frame fires before its
+    // cancellation lands.
+    animatorRef.current = null;
+    sheetRef.current = null;
+    // Blank the canvas so the old sprite isn't visible during the
+    // microtask gap between key change and the new sheet binding.
+    const canvas = canvasRef.current;
+    if (canvas) {
+      const ctx = canvas.getContext("2d");
+      if (ctx) ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
     (async () => {
       const sheet = await loadSheet(`/${key}`);
       if (cancelled) return;
-      sheetRef.current = sheet;
       if (!sheet.ready) return;
       const tag = pickTag(sheet);
+      // Bind both refs atomically before starting the loop so the
+      // tick never reads a mismatched (sheet, animator) pair.
+      sheetRef.current = sheet;
       animatorRef.current = new Animator(sheet, tag);
       startLoop();
     })();
