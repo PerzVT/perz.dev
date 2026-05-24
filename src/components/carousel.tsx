@@ -26,25 +26,32 @@ import { RotatedFrame } from "@/components/rotated-frame";
  *   <Carousel items={[
  *     "/projects/slug/a.avif",
  *     "/projects/slug/b.mp4",
+ *     { src: '/poster.png', hoverVideo: '/trailer.mp4' },
  *   ]} />
  */
+
+/** A carousel slide can be a plain string path, or an object that
+ *  pairs a poster image with a hover-play video. */
+export type CarouselItem = string | { src: string; hoverVideo: string };
+
 export function Carousel({
   items,
   srcs,
   framed,
 }: {
-  items?: string[];
+  items?: CarouselItem[];
   // MDX-friendly alternative: comma-separated list of paths
   srcs?: string;
-  /** When true, each slide renders through RotatedFrame — a fixed
-   *  aspect frame that crops and slightly rotates the child. Use for
-   *  mixed-aspect content (banner headers, scrapbook galleries) where
-   *  letterbox bars would read worse than a deliberate tilt. */
+  /** When true, each slide renders through RotatedFrame — content is
+   *  contained at ~70% of the frame, hover tilts the slot slightly.
+   *  Use for mixed-aspect content (banner headers, scrapbook
+   *  galleries) where letterbox bars would read worse than a
+   *  deliberate inset + tilt. */
   framed?: boolean;
 }) {
   const trackRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
-  const safeItems: string[] =
+  const safeItems: CarouselItem[] =
     items ??
     (srcs
       ? srcs
@@ -53,9 +60,6 @@ export function Carousel({
           .filter(Boolean)
       : []);
 
-  // Track which slide is centered so the counter and prev/next stay in
-  // sync as the user scrolls manually. One IntersectionObserver on the
-  // slides, picking whichever has the highest visible ratio.
   useEffect(() => {
     const track = trackRef.current;
     if (!track) return;
@@ -94,9 +98,6 @@ export function Carousel({
   const prev = () => scrollTo(Math.max(0, active - 1));
   const next = () => scrollTo(Math.min(safeItems.length - 1, active + 1));
 
-  // Arrow-key navigation when the carousel container has focus. Scoped
-  // to the outer wrapper via tabIndex so it doesn't hijack page-level
-  // arrow scrolling unless the user has explicitly focused this widget.
   const onKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
     if (e.key === "ArrowLeft") {
       e.preventDefault();
@@ -110,8 +111,6 @@ export function Carousel({
   if (safeItems.length === 0) return null;
 
   const single = safeItems.length === 1;
-  // tabular-nums + zero-pad so 1 / 8 doesn't shift width as the active
-  // index changes from 9 to 10. The total digit count drives the pad.
   const pad = String(safeItems.length).length;
   const fmt = (n: number) => String(n).padStart(pad, "0");
 
@@ -127,33 +126,29 @@ export function Carousel({
           ref={trackRef}
           className="flex snap-x snap-mandatory overflow-x-auto scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
-          {safeItems.map((src, i) => (
-            <div
-              key={src + i}
-              data-slide
-              className="relative w-full shrink-0 snap-center"
-            >
-              {framed ? (
-                <RotatedFrame index={i} className="aspect-video">
-                  <Media src={src} cover />
-                </RotatedFrame>
-              ) : (
-                <Media src={src} />
-              )}
-            </div>
-          ))}
+          {safeItems.map((item, i) => {
+            const key = typeof item === "string" ? item : item.src;
+            return (
+              <div
+                key={key + i}
+                data-slide
+                className="relative w-full shrink-0 snap-center"
+              >
+                {framed ? (
+                  <RotatedFrame index={i} className="aspect-video">
+                    <Media item={item} />
+                  </RotatedFrame>
+                ) : (
+                  <Media item={item} />
+                )}
+              </div>
+            );
+          })}
         </div>
       </div>
 
-      {/* Caption strip: counter on the left, arrows on the right.
-          Sits underneath the frame as a hairline-separated meta row.
-          Single-item carousels render no controls (no need). */}
       {!single && (
         <figcaption className="mt-3 flex items-center justify-between text-[12px] uppercase tracking-[0.2em] text-muted-foreground">
-          {/* aria-live=polite so screen-reader users hear the slide
-              index change as they navigate. atomic so the full
-              "01 / 04" string reads as one announcement, not three
-              separate tokens. */}
           <span
             className="font-mono tabular-nums"
             aria-live="polite"
@@ -187,11 +182,6 @@ export function Carousel({
   );
 }
 
-/**
- * Prev/next button. Pulled out so the two buttons can't drift apart
- * via copy-paste tweaking — they're visually identical except for the
- * icon and the disabled boundary.
- */
 function NavButton({
   onClick,
   disabled,
@@ -217,20 +207,91 @@ function NavButton({
   );
 }
 
-function Media({ src, cover }: { src: string; cover?: boolean }) {
-  const isVideo = /\.(mp4|webm|mov)$/i.test(src);
-  // In `cover` mode (used inside RotatedFrame) the media fills its
-  // parent's bounds — the parent owns the aspect ratio, the media
-  // just covers. In default mode the media imposes its own aspect-
-  // video ratio on the slot.
-  const className = cover
-    ? "block h-full w-full object-cover"
-    : "block aspect-video w-full object-cover";
+function Media({ item }: { item: CarouselItem }) {
+  // Object form: poster image + hover-video. Used for projects where
+  // the cover image is the at-rest "this is the deliverable" and the
+  // trailer should only play when the user actively engages.
+  if (typeof item !== "string") {
+    return <HoverPosterVideo poster={item.src} video={item.hoverVideo} />;
+  }
+  const isVideo = /\.(mp4|webm|mov)$/i.test(item);
   if (isVideo) {
-    return <LazyVideo src={src} className={className} />;
+    return (
+      <LazyVideo
+        src={item}
+        className="block max-h-full max-w-full object-contain"
+      />
+    );
   }
   return (
     // eslint-disable-next-line @next/next/no-img-element
-    <img src={src} alt="" className={className} />
+    <img
+      src={item}
+      alt=""
+      className="block max-h-full max-w-full object-contain"
+    />
+  );
+}
+
+/**
+ * Poster image at rest, video plays on hover. Same pattern the home-
+ * grid project cards use. Source is attached on first hover (primed
+ * flag) so below-the-fold slides don't fetch the video on initial
+ * paint of the page.
+ */
+function HoverPosterVideo({
+  poster,
+  video,
+}: {
+  poster: string;
+  video: string;
+}) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [hovered, setHovered] = useState(false);
+  const [primed, setPrimed] = useState(false);
+
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
+    if (hovered && primed) {
+      v.currentTime = 0;
+      v.play().catch(() => {});
+    } else {
+      v.pause();
+    }
+  }, [hovered, primed]);
+
+  const onEnter = () => {
+    setHovered(true);
+    if (!primed) setPrimed(true);
+  };
+  const onLeave = () => setHovered(false);
+
+  return (
+    <div
+      className="relative flex h-full w-full items-center justify-center"
+      onMouseEnter={onEnter}
+      onMouseLeave={onLeave}
+      onFocus={onEnter}
+      onBlur={onLeave}
+    >
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={poster}
+        alt=""
+        className="block max-h-full max-w-full object-contain"
+      />
+      <video
+        ref={videoRef}
+        src={primed ? video : undefined}
+        poster={poster}
+        muted
+        loop
+        playsInline
+        preload="none"
+        className="absolute inset-0 m-auto max-h-full max-w-full object-contain transition-opacity duration-200"
+        style={{ opacity: hovered ? 1 : 0 }}
+      />
+    </div>
   );
 }
