@@ -120,22 +120,22 @@ function ProjectCard({
       <div className="relative rounded-md bg-card p-4 transition-colors duration-300 group-hover:bg-card/80 sm:p-5">
         {project.mediaOnly ? (
           <RotatedFrame index={index} className="aspect-[16/10] rounded-lg">
-            {/* In the rotated-frame variant the media stack fills the
-                frame (the frame owns the aspect). Reset its own
-                aspect class so it doesn't double-impose. */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              {project.image && (
-                <Image
-                  src={project.image}
-                  alt=""
-                  fill
-                  sizes="(min-width: 640px) 50vw, 100vw"
-                  placeholder="blur"
-                  blurDataURL={BLUR_DATA_URL}
-                  className="object-cover"
-                />
-              )}
-            </div>
+            {/* mediaOnly image renders as a natural-sized child of
+                the rotated frame so the contain + inset logic owned
+                by RotatedFrame applies. next/image with fill needs
+                a positioned ancestor with a known size; rather than
+                fight that, just use a plain <img> + object-contain
+                here. The trade-off (no next/image optimization on
+                this one image) is fine because mediaOnly cards are
+                already the lightest entries on the grid. */}
+            {project.image && (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={project.image}
+                alt=""
+                className="max-h-full max-w-full object-contain"
+              />
+            )}
           </RotatedFrame>
         ) : (
           mediaStack

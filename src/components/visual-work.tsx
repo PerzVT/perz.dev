@@ -47,14 +47,14 @@ function VisualTile({
         {isVideo ? (
           <LazyVideo
             src={piece.media}
-            className="absolute inset-0 h-full w-full object-cover"
+            className="max-h-full max-w-full object-contain"
           />
         ) : (
           // eslint-disable-next-line @next/next/no-img-element
           <img
             src={piece.media}
             alt={piece.title}
-            className="absolute inset-0 h-full w-full object-cover"
+            className="max-h-full max-w-full object-contain"
           />
         )}
       </RotatedFrame>
