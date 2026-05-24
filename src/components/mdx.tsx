@@ -1,6 +1,7 @@
 import type { MDXRemoteProps } from "next-mdx-remote/rsc";
 import type { ReactNode } from "react";
 import { Carousel } from "@/components/carousel";
+import { BrandRow } from "@/components/brand-row";
 import { LazyVideo } from "@/components/lazy-video";
 
 // Shared MDX media class — both Figure and Gallery items wear the same
@@ -465,6 +466,7 @@ const components: MDXRemoteProps["components"] = {
   Figure,
   Gallery,
   Carousel,
+  BrandRow,
   Callout,
   // Case-study sections (new structure):
   Context,
