@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { LazyVideo } from "@/components/lazy-video";
+import { RotatedFrame } from "@/components/rotated-frame";
 
 /**
  * Image / video carousel for project pages.
@@ -30,10 +31,16 @@ import { LazyVideo } from "@/components/lazy-video";
 export function Carousel({
   items,
   srcs,
+  framed,
 }: {
   items?: string[];
   // MDX-friendly alternative: comma-separated list of paths
   srcs?: string;
+  /** When true, each slide renders through RotatedFrame — a fixed
+   *  aspect frame that crops and slightly rotates the child. Use for
+   *  mixed-aspect content (banner headers, scrapbook galleries) where
+   *  letterbox bars would read worse than a deliberate tilt. */
+  framed?: boolean;
 }) {
   const trackRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
@@ -126,7 +133,13 @@ export function Carousel({
               data-slide
               className="relative w-full shrink-0 snap-center"
             >
-              <Media src={src} />
+              {framed ? (
+                <RotatedFrame index={i} className="aspect-video">
+                  <Media src={src} cover />
+                </RotatedFrame>
+              ) : (
+                <Media src={src} />
+              )}
             </div>
           ))}
         </div>
@@ -204,18 +217,20 @@ function NavButton({
   );
 }
 
-function Media({ src }: { src: string }) {
+function Media({ src, cover }: { src: string; cover?: boolean }) {
   const isVideo = /\.(mp4|webm|mov)$/i.test(src);
+  // In `cover` mode (used inside RotatedFrame) the media fills its
+  // parent's bounds — the parent owns the aspect ratio, the media
+  // just covers. In default mode the media imposes its own aspect-
+  // video ratio on the slot.
+  const className = cover
+    ? "block h-full w-full object-cover"
+    : "block aspect-video w-full object-cover";
   if (isVideo) {
-    return (
-      <LazyVideo
-        src={src}
-        className="block aspect-video w-full object-cover"
-      />
-    );
+    return <LazyVideo src={src} className={className} />;
   }
   return (
     // eslint-disable-next-line @next/next/no-img-element
-    <img src={src} alt="" className="block aspect-video w-full object-cover" />
+    <img src={src} alt="" className={className} />
   );
 }
