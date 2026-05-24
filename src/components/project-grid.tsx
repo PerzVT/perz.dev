@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { BLUR_DATA_URL } from "@/lib/blur";
-import { RotatedFrame } from "@/components/rotated-frame";
 import type { BentoProject } from "@/components/project-types";
 
 /**
@@ -25,8 +24,8 @@ export function ProjectGrid({ projects }: { projects: BentoProject[] }) {
   if (projects.length === 0) return null;
   return (
     <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-10">
-      {projects.map((p, i) => (
-        <ProjectCard key={p.slug} project={p} index={i} />
+      {projects.map((p) => (
+        <ProjectCard key={p.slug} project={p} />
       ))}
     </div>
   );
@@ -45,13 +44,7 @@ function primaryTag(project: BentoProject): string | undefined {
   return t ? t.replace(/-/g, " ") : undefined;
 }
 
-function ProjectCard({
-  project,
-  index,
-}: {
-  project: BentoProject;
-  index: number;
-}) {
+function ProjectCard({ project }: { project: BentoProject }) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [hovered, setHovered] = useState(false);
   const [primed, setPrimed] = useState(false);
@@ -118,28 +111,7 @@ function ProjectCard({
   const inner = (
     <div>
       <div className="relative rounded-md bg-card p-4 transition-colors duration-300 group-hover:bg-card/80 sm:p-5">
-        {project.mediaOnly ? (
-          <RotatedFrame index={index} className="aspect-[16/10] rounded-lg">
-            {/* mediaOnly image renders as a natural-sized child of
-                the rotated frame so the contain + inset logic owned
-                by RotatedFrame applies. next/image with fill needs
-                a positioned ancestor with a known size; rather than
-                fight that, just use a plain <img> + object-contain
-                here. The trade-off (no next/image optimization on
-                this one image) is fine because mediaOnly cards are
-                already the lightest entries on the grid. */}
-            {project.image && (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
-                src={project.image}
-                alt=""
-                className="max-h-full max-w-full object-contain"
-              />
-            )}
-          </RotatedFrame>
-        ) : (
-          mediaStack
-        )}
+        {mediaStack}
 
         <span className="absolute bottom-2 right-3 font-mono text-[10px] tabular-nums text-muted-foreground/60 sm:bottom-2.5 sm:right-4">
           {project.year}
