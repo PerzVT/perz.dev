@@ -51,14 +51,27 @@ export function Carousel({
 }) {
   const trackRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
+  // Parse the comma-separated srcs string. Each entry can either be
+  // a plain path ("/foo.png") or a poster+hover-video pair joined
+  // with " | " — "/poster.png | /trailer.mp4". The pair form lands
+  // as an object the carousel renders through HoverPosterVideo.
+  // We use " | " (space-pipe-space) rather than a sub-comma so this
+  // stays MDX-string-friendly; MDX's string-prop parser doesn't
+  // accept full JS expressions, so we keep this all in one string.
+  const parseSrcs = (s: string): CarouselItem[] =>
+    s
+      .split(",")
+      .map((part) => part.trim())
+      .filter(Boolean)
+      .map((part) => {
+        if (part.includes("|")) {
+          const [src, hoverVideo] = part.split("|").map((p) => p.trim());
+          if (src && hoverVideo) return { src, hoverVideo };
+        }
+        return part;
+      });
   const safeItems: CarouselItem[] =
-    items ??
-    (srcs
-      ? srcs
-          .split(",")
-          .map((s) => s.trim())
-          .filter(Boolean)
-      : []);
+    items ?? (srcs ? parseSrcs(srcs) : []);
 
   useEffect(() => {
     const track = trackRef.current;
