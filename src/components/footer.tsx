@@ -6,6 +6,7 @@ import {
   CurseForgeIcon,
   LinkedInIcon,
 } from "@/components/icons";
+import { CopyEmail } from "@/components/copy-email";
 
 /**
  * Bottom footer. Centered email + © + small social icon row, in the
@@ -26,12 +27,7 @@ export function Footer() {
     // Matches the DocSection treatment every Zone B section uses.
     <footer className="relative z-10 bg-background">
       <div className="mx-auto flex max-w-3xl flex-col items-center gap-3 px-6 pb-20 pt-16 text-center sm:px-10">
-        <a
-          href={siteConfig.links.email}
-          className="font-display text-base text-foreground transition-colors hover:text-[var(--hl-accent)] sm:text-lg"
-        >
-          Mail me
-        </a>
+        <CopyEmail />
 
         <p className="text-xs text-muted-foreground/70">
           © Kerberus {new Date().getFullYear()}. All rights reserved

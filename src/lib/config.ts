@@ -17,6 +17,10 @@ export const siteConfig = {
     curseforge: "https://www.curseforge.com/members/perzvt/projects",
     email: "mailto:perzeus.ttv@gmail.com",
   },
+  // Raw address used by the copy-to-clipboard footer button. Kept
+  // separate from `links.email` (which carries the `mailto:` prefix)
+  // so each call site can pick the form it actually wants.
+  email: "perzeus.ttv@gmail.com",
   handles: {
     github: "perzvt",
     discord: "@perz",
