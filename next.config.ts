@@ -21,6 +21,11 @@ const CSP = [
   "style-src 'self' 'unsafe-inline'",
   "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
   "connect-src 'self' https:",
+  // object-src blocks <object>/<embed>/<applet> (legacy Flash-era
+  // injection vectors). frame-src blocks <iframe> embeds. The site
+  // uses neither, so closing the door is free.
+  "object-src 'none'",
+  "frame-src 'none'",
   "frame-ancestors 'none'",
   "base-uri 'self'",
   "form-action 'self'",
