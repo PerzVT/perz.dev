@@ -1,6 +1,12 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { LazyVideo } from "@/components/lazy-video";
 import { RotatedFrame } from "@/components/rotated-frame";
@@ -9,25 +15,23 @@ import { RotatedFrame } from "@/components/rotated-frame";
  * Image / video carousel for project pages.
  *
  * Editorial layout — controls live below the frame, not floating on top
- * of it. Earlier version pinned frosted-glass circle buttons over the
- * image (the iOS-template carousel) plus an expanding-pill dot
- * indicator (the Linear-clone "you're on slide 2" pattern). Both are
- * AI-generated marketing-site visuals; neither belongs on a write-up
- * page where the image is the content.
+ * of it. Counter on the left, arrow pair on the right, both subtle.
  *
- * What's here instead: tabular-numeral counter ("01 / 04"), two flat
- * arrow buttons, and arrow-key navigation when the carousel has focus.
- * Buttons stay visible even at the ends — they just go muted-disabled
- * — so the user can always see "I can move from here." The frame
- * itself is a borderless container so the photograph is the figure,
- * not a UI surface.
+ * Each slide is rendered into an absolutely-positioned slot inside a
+ * height-tracking container. On slide change, the container animates
+ * its height to match the new slide's natural height, so mixed-aspect
+ * content (a 5:4 schematic next to a 16:9 screenshot) doesn't leave
+ * the carousel reserving the tallest slide's height across the whole
+ * row.
  *
- * Usage inside MDX:
- *   <Carousel items={[
- *     "/projects/slug/a.avif",
- *     "/projects/slug/b.mp4",
- *     { src: '/poster.png', hoverVideo: '/trailer.mp4' },
- *   ]} />
+ * Two MDX-friendly props:
+ *   srcs="..."   comma-separated paths. An entry like
+ *                "/poster.png | /hover.mp4" becomes a poster image
+ *                that plays the video on hover.
+ *   items={...}  programmatic alternative for code-side consumers.
+ *
+ * `framed` wraps each slide in a RotatedFrame for mixed-aspect
+ * scrapbook layouts (banner headers, etc).
  */
 
 /** A carousel slide can be a plain string path, or an object that
@@ -40,76 +44,52 @@ export function Carousel({
   framed,
 }: {
   items?: CarouselItem[];
-  // MDX-friendly alternative: comma-separated list of paths
   srcs?: string;
-  /** When true, each slide renders through RotatedFrame — content is
-   *  contained at ~70% of the frame, hover tilts the slot slightly.
-   *  Use for mixed-aspect content (banner headers, scrapbook
-   *  galleries) where letterbox bars would read worse than a
-   *  deliberate inset + tilt. */
   framed?: boolean;
 }) {
-  const trackRef = useRef<HTMLDivElement>(null);
+  const safeItems = useParsedItems(items, srcs);
   const [active, setActive] = useState(0);
-  // Parse the comma-separated srcs string. Each entry can either be
-  // a plain path ("/foo.png") or a poster+hover-video pair joined
-  // with " | " — "/poster.png | /trailer.mp4". The pair form lands
-  // as an object the carousel renders through HoverPosterVideo.
-  // We use " | " (space-pipe-space) rather than a sub-comma so this
-  // stays MDX-string-friendly; MDX's string-prop parser doesn't
-  // accept full JS expressions, so we keep this all in one string.
-  const parseSrcs = (s: string): CarouselItem[] =>
-    s
-      .split(",")
-      .map((part) => part.trim())
-      .filter(Boolean)
-      .map((part) => {
-        if (part.includes("|")) {
-          const [src, hoverVideo] = part.split("|").map((p) => p.trim());
-          if (src && hoverVideo) return { src, hoverVideo };
-        }
-        return part;
-      });
-  const safeItems: CarouselItem[] =
-    items ?? (srcs ? parseSrcs(srcs) : []);
 
-  useEffect(() => {
-    const track = trackRef.current;
-    if (!track) return;
-    const slides = Array.from(
-      track.querySelectorAll<HTMLElement>("[data-slide]"),
-    );
-    if (slides.length === 0) return;
+  // Track height of each rendered slide so the container can animate
+  // to the active slide's natural height. Slide indices map to pixel
+  // heights; 0 until measured.
+  const slideRefs = useRef<Array<HTMLDivElement | null>>([]);
+  const [heights, setHeights] = useState<number[]>([]);
 
-    const io = new IntersectionObserver(
-      (entries) => {
-        const best = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (best) {
-          const idx = slides.indexOf(best.target as HTMLElement);
-          if (idx !== -1) setActive(idx);
-        }
-      },
-      { root: track, threshold: [0.5, 0.75, 1] },
-    );
-    slides.forEach((s) => io.observe(s));
-    return () => io.disconnect();
+  // Measure on mount + on resize. ResizeObserver fires when any slide
+  // changes intrinsic size (e.g. an image decoded, a font swapped in).
+  useLayoutEffect(() => {
+    if (typeof window === "undefined") return;
+    const measure = () => {
+      setHeights(
+        slideRefs.current.map((el) =>
+          el ? Math.round(el.getBoundingClientRect().height) : 0,
+        ),
+      );
+    };
+    measure();
+    const ro = new ResizeObserver(measure);
+    slideRefs.current.forEach((el) => {
+      if (el) ro.observe(el);
+    });
+    window.addEventListener("resize", measure);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", measure);
+    };
   }, [safeItems.length]);
 
-  const scrollTo = (idx: number) => {
-    const track = trackRef.current;
-    if (!track) return;
-    const slide = track.querySelectorAll<HTMLElement>("[data-slide]")[idx];
-    slide?.scrollIntoView({
-      behavior: "smooth",
-      inline: "center",
-      block: "nearest",
-    });
-  };
+  const activeHeight = heights[active] || 0;
+  const single = safeItems.length === 1;
 
-  const prev = () => scrollTo(Math.max(0, active - 1));
-  const next = () => scrollTo(Math.min(safeItems.length - 1, active + 1));
+  const prev = useCallback(
+    () => setActive((i) => Math.max(0, i - 1)),
+    [],
+  );
+  const next = useCallback(
+    () => setActive((i) => Math.min(safeItems.length - 1, i + 1)),
+    [safeItems.length],
+  );
 
   const onKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
     if (e.key === "ArrowLeft") {
@@ -123,41 +103,60 @@ export function Carousel({
 
   if (safeItems.length === 0) return null;
 
-  const single = safeItems.length === 1;
   const pad = String(safeItems.length).length;
   const fmt = (n: number) => String(n).padStart(pad, "0");
 
   return (
     <figure
-      className="my-8 rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-foreground/40 focus-visible:ring-offset-4 focus-visible:ring-offset-background"
+      className="my-8 outline-none focus-visible:ring-2 focus-visible:ring-foreground/40 focus-visible:ring-offset-4 focus-visible:ring-offset-background"
       tabIndex={single ? -1 : 0}
       onKeyDown={onKeyDown}
       aria-roledescription={single ? undefined : "carousel"}
     >
-      <div className="overflow-hidden rounded-lg">
-        <div
-          ref={trackRef}
-          className="flex snap-x snap-mandatory overflow-x-auto scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-        >
-          {safeItems.map((item, i) => {
-            const key = typeof item === "string" ? item : item.src;
-            return (
-              <div
-                key={key + i}
-                data-slide
-                className="relative w-full shrink-0 snap-center"
-              >
-                {framed ? (
-                  <RotatedFrame index={i} className="aspect-video">
-                    <Media item={item} />
-                  </RotatedFrame>
-                ) : (
+      <div
+        // The frame. overflow-hidden clips inactive slides. Height
+        // animates between slides; 500ms is slow enough to read,
+        // fast enough not to drag. Min-height stops a flash-of-zero
+        // before measurement lands.
+        className="relative overflow-hidden rounded-lg transition-[height] duration-500 ease-out"
+        style={{
+          height: activeHeight ? `${activeHeight}px` : undefined,
+          minHeight: activeHeight ? undefined : "12rem",
+        }}
+      >
+        {safeItems.map((item, i) => {
+          const key = typeof item === "string" ? item : item.src;
+          const isActive = i === active;
+          return (
+            <div
+              key={key + i}
+              ref={(el) => {
+                slideRefs.current[i] = el;
+              }}
+              data-slide
+              aria-hidden={!isActive}
+              // Inactive slides remain in the DOM so their height can
+              // be measured at any time (lets us animate to them on
+              // change without a flash of unmeasured content). They're
+              // shifted off the active slot via translateX and have
+              // pointer events off so they can't capture clicks.
+              className={[
+                "absolute inset-x-0 top-0 w-full transition-[opacity,transform] duration-500 ease-out",
+                isActive
+                  ? "pointer-events-auto translate-x-0 opacity-100"
+                  : "pointer-events-none translate-x-2 opacity-0",
+              ].join(" ")}
+            >
+              {framed ? (
+                <RotatedFrame index={i} className="aspect-video">
                   <Media item={item} />
-                )}
-              </div>
-            );
-          })}
-        </div>
+                </RotatedFrame>
+              ) : (
+                <Media item={item} />
+              )}
+            </div>
+          );
+        })}
       </div>
 
       {!single && (
@@ -167,11 +166,25 @@ export function Carousel({
             aria-live="polite"
             aria-atomic="true"
           >
-            {fmt(active + 1)}{" "}
+            <span className="text-foreground">{fmt(active + 1)}</span>{" "}
             <span className="text-muted-foreground/40">/</span>{" "}
             <span className="text-muted-foreground/60">
               {fmt(safeItems.length)}
             </span>
+          </span>
+          {/* Hairline progress bar. Shows position visually across
+              the row, complements the tabular counter for readers
+              who scan visually rather than reading numbers. */}
+          <span
+            aria-hidden
+            className="mx-4 hidden h-px flex-1 bg-foreground/10 sm:block"
+          >
+            <span
+              className="block h-full bg-foreground/60 transition-[width] duration-500 ease-out"
+              style={{
+                width: `${((active + 1) / safeItems.length) * 100}%`,
+              }}
+            />
           </span>
           <div className="flex items-center gap-1">
             <NavButton
@@ -195,6 +208,30 @@ export function Carousel({
   );
 }
 
+/** Parse the comma-separated srcs string. Each entry can either be
+ *  a plain path ("/foo.png") or a poster+hover-video pair joined with
+ *  " | " — "/poster.png | /trailer.mp4". MDX's string-prop parser
+ *  doesn't accept JS expressions, so all the carousel content lives
+ *  inside one string. */
+function useParsedItems(
+  items?: CarouselItem[],
+  srcs?: string,
+): CarouselItem[] {
+  if (items) return items;
+  if (!srcs) return [];
+  return srcs
+    .split(",")
+    .map((p) => p.trim())
+    .filter(Boolean)
+    .map((part) => {
+      if (part.includes("|")) {
+        const [src, hoverVideo] = part.split("|").map((p) => p.trim());
+        if (src && hoverVideo) return { src, hoverVideo };
+      }
+      return part;
+    });
+}
+
 function NavButton({
   onClick,
   disabled,
@@ -213,17 +250,16 @@ function NavButton({
       disabled={disabled}
       aria-label={label}
       data-sfx="click"
-      className="inline-flex h-11 w-11 items-center justify-center rounded-md text-foreground/70 transition-[color,background-color] hover:bg-foreground/5 hover:text-foreground disabled:pointer-events-none disabled:text-foreground/20"
+      className="group/nav inline-flex h-11 w-11 items-center justify-center rounded-md text-foreground/60 transition-[color,background-color] hover:bg-foreground/5 hover:text-foreground disabled:pointer-events-none disabled:text-foreground/15"
     >
-      {children}
+      <span className="transition-transform duration-200 ease-out group-hover/nav:scale-110">
+        {children}
+      </span>
     </button>
   );
 }
 
 function Media({ item }: { item: CarouselItem }) {
-  // Object form: poster image + hover-video. Used for projects where
-  // the cover image is the at-rest "this is the deliverable" and the
-  // trailer should only play when the user actively engages.
   if (typeof item !== "string") {
     return <HoverPosterVideo poster={item.src} video={item.hoverVideo} />;
   }
@@ -232,7 +268,7 @@ function Media({ item }: { item: CarouselItem }) {
     return (
       <LazyVideo
         src={item}
-        className="block max-h-full max-w-full object-contain"
+        className="block w-full"
       />
     );
   }
@@ -241,16 +277,15 @@ function Media({ item }: { item: CarouselItem }) {
     <img
       src={item}
       alt=""
-      className="block max-h-full max-w-full object-contain"
+      className="block w-full"
     />
   );
 }
 
 /**
- * Poster image at rest, video plays on hover. Same pattern the home-
- * grid project cards use. Source is attached on first hover (primed
- * flag) so below-the-fold slides don't fetch the video on initial
- * paint of the page.
+ * Poster image at rest, video plays on hover. Used for slides where
+ * the cover image is the at-rest deliverable and the trailer should
+ * play only when the user actively engages.
  */
 function HoverPosterVideo({
   poster,
@@ -282,18 +317,14 @@ function HoverPosterVideo({
 
   return (
     <div
-      className="relative flex h-full w-full items-center justify-center"
+      className="relative w-full"
       onMouseEnter={onEnter}
       onMouseLeave={onLeave}
       onFocus={onEnter}
       onBlur={onLeave}
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src={poster}
-        alt=""
-        className="block max-h-full max-w-full object-contain"
-      />
+      <img src={poster} alt="" className="block w-full" />
       <video
         ref={videoRef}
         src={primed ? video : undefined}
@@ -302,7 +333,7 @@ function HoverPosterVideo({
         loop
         playsInline
         preload="none"
-        className="absolute inset-0 m-auto max-h-full max-w-full object-contain transition-opacity duration-200"
+        className="absolute inset-0 h-full w-full object-cover transition-opacity duration-200"
         style={{ opacity: hovered ? 1 : 0 }}
       />
     </div>
