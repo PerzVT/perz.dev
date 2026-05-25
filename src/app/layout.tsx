@@ -43,7 +43,7 @@ const nunito = Nunito({
 // indexable; the social-card one (og/twitter) is colloquial and meant to
 // catch people in feed. Title is shared since it's the line both
 // audiences see.
-const SITE_TITLE = "Percy | Making software fun";
+const SITE_TITLE = "Percy ✦ Making software fun";
 const SEARCH_DESC =
   "Game and systems designer. Designer with a product background, now full-time on games.";
 const SOCIAL_DESC =
