@@ -68,20 +68,19 @@ export function CopyEmail() {
       onClick={copy}
       data-sfx="click"
       aria-label={`Copy email address ${siteConfig.email}`}
-      className="group relative font-display text-base text-foreground transition-colors hover:text-[var(--hl-accent)] sm:text-lg"
+      className={`font-display text-base transition-colors sm:text-lg ${
+        copied
+          ? "text-[var(--hl-accent)]"
+          : "text-foreground hover:text-[var(--hl-accent)]"
+      }`}
     >
-      <span aria-hidden={copied}>Mail me</span>
-      {/* Live region announces the copy event to assistive tech. The
-          visual label crossfades; the SR text only appears when copied
-          flips to true so screen readers don't read "Mail me" twice. */}
-      <span
-        aria-live="polite"
-        aria-atomic="true"
-        className={`pointer-events-none absolute inset-0 flex items-center justify-center text-[var(--hl-accent)] transition-opacity duration-200 ${
-          copied ? "opacity-100" : "opacity-0"
-        }`}
-      >
-        {copied ? "Copied" : ""}
+      {/* Single label that swaps text on copy. Earlier version stacked
+          two absolute-positioned spans and crossfaded opacity — but the
+          "Mail me" span never hid, so during the swap both strings
+          rendered on top of each other and the result was a smeared
+          glyph collision. One label, one source of truth. */}
+      <span aria-live="polite" aria-atomic="true">
+        {copied ? "Copied" : "Mail me"}
       </span>
     </button>
   );
