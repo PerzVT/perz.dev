@@ -53,16 +53,16 @@ export function Hero() {
 
           <StatBlocks>
             <Stat
-              number=".gg/draconia"
-              label="Discord"
+              number="Draconia"
+              label="founder · community"
               href={siteConfig.links.discord}
             />
             <Stat
-              number="PerzVT"
-              label="CurseForge"
+              number="400k+"
+              label="players served"
               href={siteConfig.links.curseforge}
             />
-            <Stat number="5+ yrs" label="design + dev" />
+            <Stat number="Shipped" label="VR · PC · jams" />
           </StatBlocks>
         </div>
 
