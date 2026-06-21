@@ -38,6 +38,12 @@ export interface ProjectFrontmatter {
    *  sticky TOC sidebar + the two-column flex layout. Pages without
    *  this flag use a centered single-column article without a TOC. */
   caseStudy?: boolean;
+  /** When true, the project is hidden everywhere: dropped from the home
+   *  grid, the /projects index, the terminal slug list, the sitemap,
+   *  and not pre-rendered as a detail route. The MDX file stays in the
+   *  repo so the work can be un-hidden later by flipping this off.
+   *  Use for pieces you want to pull from public view without deleting. */
+  draft?: boolean;
   /** Card render variant on the home grid + /projects index.
    *   - "cover" (default): edge-to-edge image fills the card. Best for
    *     game key art / illustrations that are meant to take a frame.
@@ -66,15 +72,19 @@ export const getProjects = cache((): ProjectEntry[] => {
 
   const files = fs.readdirSync(projectsDir).filter((f) => f.endsWith(".mdx"));
 
-  const entries = files.map((file) => {
-    const raw = fs.readFileSync(path.join(projectsDir, file), "utf-8");
-    const { data, content } = matter(raw);
-    return {
-      slug: file.replace(/\.mdx$/, ""),
-      frontmatter: data as ProjectFrontmatter,
-      content,
-    };
-  });
+  const entries = files
+    .map((file) => {
+      const raw = fs.readFileSync(path.join(projectsDir, file), "utf-8");
+      const { data, content } = matter(raw);
+      return {
+        slug: file.replace(/\.mdx$/, ""),
+        frontmatter: data as ProjectFrontmatter,
+        content,
+      };
+    })
+    // Drafts are hidden from every list this function feeds (grid,
+    // /projects index, terminal slugs, sitemap, generateStaticParams).
+    .filter((e) => !e.frontmatter.draft);
 
   // Interleave games and media-only entries so the grid reads
   // game / art / game / art instead of clumping all games first.

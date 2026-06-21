@@ -74,6 +74,10 @@ export default async function ProjectPage({
   const project = getProject(slug);
 
   if (!project) notFound();
+  // Drafts are hidden from public view but the file stays in the repo.
+  // generateStaticParams (via getProjects) won't pre-render them; this
+  // guards a direct URL hit too.
+  if (project.frontmatter.draft) notFound();
   // mediaOnly projects don't have a detail page — they're surfaced
   // only via the lightbox on the home grid / index. Direct URL
   // navigation 404s. generateStaticParams above also excludes them
