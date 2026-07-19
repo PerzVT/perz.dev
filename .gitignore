@@ -41,3 +41,10 @@ yarn-error.log*
 next-env.d.ts
 
 .vercel
+
+# local tooling / harness (not project code)
+/.claude/
+/.agents/
+/shots/
+.tmp-page.html
+skills-lock.json
