@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { setReveal } from "@/lib/reveal";
 import { siteConfig } from "@/lib/config";
+import { Sprite } from "@/components/sprite";
 
 /**
  * Shared sticky top nav. Solid canvas background + hairline border (no
@@ -31,13 +32,12 @@ export function SiteNav() {
           onMouseLeave={() => setReveal(false)}
           onFocus={() => setReveal(true)}
           onBlur={() => setReveal(false)}
-          className="mr-auto flex items-center gap-3 text-pz-ink"
+          aria-label="Home"
+          className="mr-auto flex items-center gap-2.5 text-pz-ink"
         >
+          <Sprite size={30} />
           <span className="pz-wordmark text-base leading-[22px]">
             {siteConfig.name}
-          </span>
-          <span className="whitespace-nowrap text-[12.5px] font-normal text-pz-muted">
-            {siteConfig.role}
           </span>
         </Link>
 
