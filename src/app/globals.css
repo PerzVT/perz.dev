@@ -6,10 +6,6 @@
   --color-foreground: var(--foreground);
   --font-mono: var(--font-mono);
   --font-sans: var(--font-sans);
-  /* Display = Nunito (rounded terminals). Body = Inter. Two-font
-     system: Nunito carries headlines, role labels, and stat numbers;
-     Inter handles paragraph copy and UI. JetBrains Mono handles
-     eyebrow caps and code. */
   --font-heading: var(--font-display);
   --font-display: var(--font-display);
   --color-accent: var(--accent);
@@ -35,13 +31,27 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+
+  /* Kerberus v2 — semantic palette bound to the runtime --pz-* theme
+     vars (defined per data-pz-mode below). Gives ergonomic utilities:
+     bg-pz-canvas, text-pz-ink, border-pz-border, text-pz-accent, etc. */
+  --color-pz-canvas: var(--pz-canvas);
+  --color-pz-raised: var(--pz-raised);
+  --color-pz-surface: var(--pz-surface);
+  --color-pz-border: var(--pz-border);
+  --color-pz-border2: var(--pz-border2);
+  --color-pz-ink: var(--pz-ink);
+  --color-pz-ink2: var(--pz-ink2);
+  --color-pz-muted: var(--pz-muted);
+  --color-pz-faint: var(--pz-faint);
+  --color-pz-accent: var(--pz-accent);
+  --color-pz-field: var(--pz-field);
+  --color-pz-danger: var(--pz-danger);
 }
 
 :root {
-  /* Single-mode palette — pulled from samwill.is. neutral-900 base,
-     neutral-800 card, neutral-400 body copy, soft white borders. The
-     bg-to-card step is meaningful (~10% lighter) so cards read as real
-     surfaces, not invisible panels. */
+  /* --- Legacy single-theme palette (samwill-derived). Kept additively
+     so not-yet-migrated routes keep building; retired in Phase 5. --- */
   --background: #171717;
   --foreground: #ededed;
   --card: #262626;
@@ -53,18 +63,12 @@
   --secondary: #1f1f1f;
   --secondary-foreground: #ededed;
   --muted: #1f1f1f;
-  /* neutral-400 — bright enough to read long-form on near-black
-     without straining. */
   --muted-foreground: #a3a3a3;
   --accent: #1f1f1f;
   --accent-foreground: #ededed;
   --destructive: #d26b6b;
-  /* Soft white at 10% opacity — borders that hint structure without
-     declaring it. */
   --border: rgba(255, 255, 255, 0.1);
   --input: rgba(255, 255, 255, 0.1);
-  /* Lifted from the previous failing #3a3a3a — at 3.0+ contrast against
-     the bg for keyboard focus visibility (WCAG 1.4.11). */
   --ring: #a3a3a3;
 
   --radius: 0.5rem;
@@ -72,14 +76,58 @@
   --section-gap: 5rem;
   --body-font: var(--font-sans, system-ui, -apple-system, "Inter", sans-serif);
   --display-font: var(--font-display, "Nunito", system-ui, sans-serif);
-  /* Nunito is wider than Inter at the same size so it doesn't need
-     as much negative tracking to feel tight. */
   --heading-letter-spacing: -0.01em;
   --body-leading: 1.6;
-
-  /* Brand accent — cobalt blue. Used sparingly for hover highlights
-     and rare punctuation in MDX prose. */
   --hl-accent: #60a5fa;
+
+  /* --- Kerberus v2 motion tokens (theme-independent, from the DS
+     bundle). Consumed by transitions across the v2 components. --- */
+  --ease-out: cubic-bezier(0.2, 0.8, 0.3, 1);
+  --duration-fast: 120ms;
+  --duration-base: 160ms;
+  --duration-slow: 240ms;
+}
+
+/* =========================================================
+   Kerberus v2 dual theme — the --pz-* source of truth.
+   Default (no attr) + explicit "dev" = dark/teal.
+   "design" = warm-paper/ember (light).
+   ========================================================= */
+:root,
+html[data-pz-mode="dev"] {
+  --pz-canvas: #0b0c0e;
+  --pz-raised: #101216;
+  --pz-surface: #14171b;
+  --pz-border: #22262c;
+  --pz-border2: #2e333a;
+  --pz-ink: #edeff1;
+  --pz-ink2: #a7adb4;
+  --pz-muted: #7a8087;
+  --pz-faint: #5a6068;
+  --pz-accent: #3ecfb2;
+  --pz-on-accent: #06231e;
+  --pz-field: #101216;
+  --pz-danger: #e5705f;
+}
+html[data-pz-mode="dev"] {
+  color-scheme: dark;
+}
+
+html[data-pz-mode="design"] {
+  --pz-canvas: #f6f3ed;
+  --pz-raised: #fcfaf6;
+  --pz-surface: #efebe2;
+  --pz-border: #e2dccf;
+  --pz-border2: #cfc7b5;
+  --pz-ink: #221e26;
+  --pz-ink2: #565060;
+  --pz-muted: #8a8494;
+  --pz-faint: #b8b2a6;
+  --pz-accent: #d8431e;
+  --pz-on-accent: #fff7f2;
+  --pz-field: #ffffff;
+  --pz-danger: #cc3b31;
+  color-scheme: light;
 }
 
 @layer base {
@@ -87,64 +135,76 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
-    font-family: var(--body-font);
+    background: var(--pz-canvas);
+    color: var(--pz-ink);
+    font-family: var(--font-sans);
     line-height: var(--body-leading);
+    -webkit-font-smoothing: antialiased;
+    /* Theme cross-fade. Killed under reduced-motion below. */
+    transition: background 0.45s ease, color 0.45s ease;
   }
   h1, h2, h3 {
     letter-spacing: var(--heading-letter-spacing);
   }
+  /* Single accent focus ring, visible in both themes (WCAG 2.4.11). */
+  :focus-visible {
+    outline: 2px solid var(--pz-accent);
+    outline-offset: 2px;
+    border-radius: 3px;
+  }
+  ::selection {
+    background: color-mix(in srgb, var(--pz-accent) 30%, transparent);
+  }
 }
 
-/* Display class = Nunito at extra-bold. Rounded terminals + 800
-   weight carry the headline character cleanly without going into
-   black-weight territory which reads as poster type. */
-.font-display {
-  font-family: var(--display-font);
-  letter-spacing: var(--heading-letter-spacing);
+/* Wordmark — Archivo width axis pushed wide, extra-bold. */
+.pz-wordmark {
+  font-stretch: 122%;
   font-weight: 800;
 }
 
-/* Pixel-hard dividers */
-.pixel-border {
-  border: 1px solid var(--border);
-  border-radius: 0;
+/* Themed scrollbar (WebKit). */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--pz-border2);
+  border-radius: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
 }
 
-/* Fade in animations */
+/* --- Keyframes --- */
+@keyframes perzPulse {
+  from { opacity: 0.35; }
+  to { opacity: 0.7; }
+}
+@keyframes perzRise {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
+}
 @keyframes fade-in {
   from { opacity: 0; }
   to { opacity: 1; }
 }
-
 @keyframes fade-in-up {
   from { opacity: 0; transform: translateY(8px); }
   to { opacity: 1; transform: translateY(0); }
 }
+.animate-fade-in { animation: fade-in 0.5s ease-out forwards; }
+.animate-fade-in-up { animation: fade-in-up 0.5s ease-out forwards; }
 
-.animate-fade-in {
-  animation: fade-in 0.5s ease-out forwards;
+/* Skeleton shimmer used by owner-copy placeholder bars. */
+.pz-skeleton {
+  background: var(--pz-surface);
+  border-radius: 3px;
+  animation: perzPulse 1.7s ease-in-out infinite alternate;
 }
 
-.animate-fade-in-up {
-  animation: fade-in-up 0.5s ease-out forwards;
-}
-
-/* Scroll cue — a tiny vertical drift on the chevron glyph at the
-   bottom of the hero. Reads as "scroll" without arrows. */
-@keyframes scroll-cue-drift {
-  0%   { transform: translateY(0);    opacity: 0.55; }
-  50%  { transform: translateY(4px);  opacity: 1; }
-  100% { transform: translateY(0);    opacity: 0.55; }
-}
-.scroll-cue {
-  animation: scroll-cue-drift 1.8s ease-in-out infinite;
-}
-
-/* Global reduced-motion baseline. Honors WCAG 2.3.3 by killing all
-   animation + transition + smooth-scroll for users who opted out.
-   Components that need to keep one specific motion under reduced
-   motion should opt back in with their own scoped @media query. */
+/* Global reduced-motion baseline — WCAG 2.3.3. Kills animation,
+   transition, and smooth scroll for users who opted out. */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -152,4 +212,5 @@
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+  html { scroll-behavior: auto; }
 }

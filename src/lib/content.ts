@@ -52,6 +52,11 @@ export interface ProjectFrontmatter {
    *     branding work, anything that reads as "considered design work
    *     presented in a frame." */
   cardStyle?: "cover" | "frame";
+
+  /** Optional per-card `object-position` for the 2:3 capsule crop on the
+   *  home/work grids (e.g. "center top"). Only needed when the default
+   *  center crop of a landscape cover clips something important. */
+  cardFocus?: string;
 }
 
 export interface ProjectEntry {
@@ -158,3 +163,125 @@ export function getVisual(): VisualPiece[] {
     return copy;
   });
 }
+
+// ---------------------------------------------------------------------
+// Media path resolution
+// ---------------------------------------------------------------------
+
+/**
+ * Resolve a frontmatter image/media reference to a public path.
+ * A bare filename ("cover.png") is scoped to the project's public
+ * folder (`/projects/<slug>/cover.png`); an absolute path ("/foo.png",
+ * already under /public) passes through untouched. Falsy → null.
+ */
+export function resolveImg(slug: string, img?: string): string | null {
+  if (!img) return null;
+  return img.startsWith("/") ? img : `/projects/${slug}/${img}`;
+}
+
+// ---------------------------------------------------------------------
+// Work history
+// ---------------------------------------------------------------------
+
+export interface WorkEntry {
+  title: string;
+  company: string;
+  /** Display range, e.g. "Dec 2023 – Present". */
+  range: string;
+  duration?: string;
+  employment?: string;
+  description?: string;
+  location?: string;
+  skills?: string[];
+  current?: boolean;
+  logo?: string;
+  /** Sort key only (ISO-ish), newest first. */
+  startDate?: string;
+}
+
+/**
+ * Work history from content/work/*.json — one file per role, sorted
+ * newest-first by `startDate`. Feeds the home Experience list and the
+ * résumé.
+ */
+export function getWork(): WorkEntry[] {
+  const dir = path.join(contentDir, "work");
+  if (!fs.existsSync(dir)) return [];
+  const files = fs.readdirSync(dir).filter((f) => f.endsWith(".json"));
+  const entries = files.map(
+    (file) =>
+      JSON.parse(fs.readFileSync(path.join(dir, file), "utf-8")) as WorkEntry,
+  );
+  entries.sort((a, b) => (b.startDate ?? "").localeCompare(a.startDate ?? ""));
+  return entries;
+}
+
+// ---------------------------------------------------------------------
+// Work cards (home "Selected work" + "My work" grid + quick-view sheet)
+// ---------------------------------------------------------------------
+
+/** One row of content/work-cards.json — the owner's card/quick-view
+ *  copy, seeded verbatim from their v2 design comps. */
+interface WorkCardSeed {
+  slug: string;
+  tagline: string;
+  metaLabel: string;
+  blurb: string;
+  contributions: string[];
+  cardOrder: number;
+  /** Show the "Full case study →" link in the quick-view. */
+  caseStudyReady?: boolean;
+}
+
+export interface WorkCard {
+  slug: string;
+  title: string;
+  tags: ProjectTag[];
+  /** One-line card description. */
+  tagline: string;
+  /** Quick-view meta line, e.g. "Multiplayer VR roguelike · Meta Quest". */
+  metaLabel: string;
+  /** Quick-view longer description. */
+  blurb: string;
+  contributions: string[];
+  /** Resolved public image path, or null when no art exists. */
+  image: string | null;
+  /** Per-card 2:3 crop focus, if the frontmatter sets one. */
+  cardFocus?: string;
+  /** Case-study route when the study is ready to link, else null. */
+  caseHref: string | null;
+}
+
+/**
+ * The curated project cards for the home + work grids. Copy comes from
+ * content/work-cards.json (owner-editable, seeded from the v2 comps);
+ * title/tags/image are joined from each project's MDX frontmatter.
+ * Draft projects are dropped (they never appear in getProjects()).
+ * Ordered by the seed's `cardOrder`.
+ */
+export const getWorkCards = cache((): WorkCard[] => {
+  const file = path.join(contentDir, "work-cards.json");
+  if (!fs.existsSync(file)) return [];
+  const seeds = JSON.parse(fs.readFileSync(file, "utf-8")) as WorkCardSeed[];
+
+  const bySlug = new Map(getProjects().map((p) => [p.slug, p]));
+
+  return seeds
+    .filter((s) => bySlug.has(s.slug))
+    .sort((a, b) => a.cardOrder - b.cardOrder)
+    .map((s) => {
+      const p = bySlug.get(s.slug)!;
+      return {
+        slug: s.slug,
+        title: p.frontmatter.title,
+        tags: p.frontmatter.tags,
+        tagline: s.tagline,
+        metaLabel: s.metaLabel,
+        blurb: s.blurb,
+        contributions: s.contributions,
+        image: resolveImg(s.slug, p.frontmatter.image),
+        cardFocus: p.frontmatter.cardFocus,
+        caseHref: s.caseStudyReady ? `/projects/${s.slug}` : null,
+      };
+    });
+});
