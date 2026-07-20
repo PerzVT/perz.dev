@@ -7,7 +7,7 @@ import { WorkCards } from "@/components/site/work-cards";
  * shared quick-view sheet. "All work →" leads to the full My work grid.
  */
 export function SelectedWork() {
-  const games = getWorkCards().filter((c) => c.tags.includes("game-dev"));
+  const cards = getWorkCards();
 
   return (
     <section
@@ -26,7 +26,7 @@ export function SelectedWork() {
         </Link>
       </div>
       <div className="mt-7">
-        <WorkCards cards={games} />
+        <WorkCards cards={cards} layout="rail" />
       </div>
     </section>
   );

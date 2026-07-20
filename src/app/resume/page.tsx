@@ -103,7 +103,9 @@ export default function ResumePage() {
               const tag = statusTag(w);
               return (
                 <div key={`${w.company}-${w.startDate ?? i}`} className={ROW}>
-                  <span className="text-[12.5px] text-pz-faint">{w.range}</span>
+                  <span className="text-[12.5px] text-pz-faint">
+                    {w.range.replace(/\s*—\s*/g, " – ")}
+                  </span>
                   <span className="flex flex-col gap-[7px]">
                     <span className="text-[14.5px]">
                       <span className="font-bold text-pz-ink">{w.title}</span>
