@@ -2,6 +2,18 @@ export const siteConfig = {
   name: "perz",
   fullName: "Percy A",
   title: "Developer / Designer · UX",
+  /** Public-facing role headline. Decoupled from `title` so the site's
+   *  positioning (nav tag, JSON-LD jobTitle, metadata) leads with Game
+   *  Designer while `title` stays available for other call sites. */
+  role: "Game Designer",
+  /** Owner-approved positioning line (verbatim from the v2 hero comp).
+   *  Shared by the home hero and the page metadata. */
+  positioning:
+    "I'm a Game Designer specialized in user experience, with professional experience building PC and VR games. With a strong foundation in engines like Unity and Unreal, I love designing intuitive mechanics and engaging systems that create fun and memorable experiences.",
+  /** Owner-approved "About me" paragraph (verbatim from the v2 comps).
+   *  Shared by the home About section and the résumé summary. */
+  about:
+    "Hi, I'm Percy, a game designer and developer based out of Calgary who believes that simplicity is powerful. I focus on creating clear, straightforward designs that keep players engaged through strong core systems and well-structured data. I enjoy breaking down complex ideas into clean, functional experiences, always aiming for clarity in both the gameplay and the creative process. Outside of work, I'm passionate about games, soccer, my wife, and our dog, the things that keep life fun and grounded.",
   description:
     "Developer and designer who specializes in user experience. Product design background, now building VR and PC games in Unity and C#. I design systems that feel obvious to use and rewarding to play.",
   /** Second paragraph in the hero. Kept separate from `description`

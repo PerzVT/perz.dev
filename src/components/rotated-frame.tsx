@@ -48,7 +48,7 @@ export function RotatedFrame({
   return (
     <div
       className={[
-        "group/frame relative overflow-hidden rounded-md bg-card",
+        "group/frame relative overflow-hidden rounded-md bg-pz-surface",
         className,
       ].join(" ")}
       style={style}

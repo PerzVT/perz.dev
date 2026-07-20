@@ -1,0 +1,100 @@
+[
+  {
+    "slug": "highstreet-calamity-vr",
+    "cardOrder": 1,
+    "caseStudyReady": true,
+    "tagline": "Multiplayer roguelike VR for Meta Quest.",
+    "metaLabel": "Multiplayer VR roguelike · Meta Quest",
+    "blurb": "Multiplayer roguelike VR built in Unity 6 with DOTS. Party-first social systems, designed and tuned entirely in-headset.",
+    "contributions": [
+      "Party & matchmaking UX",
+      "Player-facing systems design",
+      "In-headset social flow prototyping"
+    ]
+  },
+  {
+    "slug": "supercat",
+    "cardOrder": 2,
+    "caseStudyReady": true,
+    "tagline": "Mecha-cat action platformer for PC.",
+    "metaLabel": "Action platformer · PC",
+    "blurb": "Mecha-cat action platformer. Combat and movement tuned to stay readable at full speed.",
+    "contributions": [
+      "Combat & movement tuning",
+      "Level design",
+      "Game-feel pass"
+    ]
+  },
+  {
+    "slug": "bubble-buddy",
+    "cardOrder": 3,
+    "caseStudyReady": true,
+    "tagline": "\"You are the weapon\" — one loop for ammo, health and movement.",
+    "metaLabel": "GGJ 2025 · jam build",
+    "blurb": "\"You are the weapon\" — the bubble you ride is also your ammo, health and movement. One resource, one loop, one weekend.",
+    "contributions": [
+      "Core resource loop",
+      "Rapid prototyping"
+    ]
+  },
+  {
+    "slug": "lurk",
+    "cardOrder": 4,
+    "caseStudyReady": true,
+    "tagline": "First-person horror — dread you hear before you see.",
+    "metaLabel": "First-person horror · PC",
+    "blurb": "First-person horror built around dread you can hear before you see it.",
+    "contributions": [
+      "Tension pacing",
+      "Sound-driven threat design"
+    ]
+  },
+  {
+    "slug": "poly-punch-vr",
+    "cardOrder": 5,
+    "caseStudyReady": true,
+    "tagline": "Rhythm combat for hand-tracking — no controllers.",
+    "metaLabel": "VR rhythm combat · hand-tracking",
+    "blurb": "Rhythm and gesture combat built around hand-tracking limits — every move readable from wrist position alone.",
+    "contributions": [
+      "Gesture vocabulary design",
+      "Combat readability without controllers"
+    ]
+  },
+  {
+    "slug": "stick-it",
+    "cardOrder": 6,
+    "caseStudyReady": true,
+    "tagline": "2D stealth-action, shipped from one seat.",
+    "metaLabel": "2D stealth-action",
+    "blurb": "2D stealth-action shipped from one seat — project management, game design and UI.",
+    "contributions": [
+      "Project management",
+      "Game design + UI"
+    ]
+  },
+  {
+    "slug": "bisecthosting",
+    "cardOrder": 7,
+    "caseStudyReady": true,
+    "tagline": "Product and brand design for a game-server host.",
+    "metaLabel": "Product & brand design",
+    "blurb": "Product and brand design for a game-server host — the product-design foundation under the game work.",
+    "contributions": [
+      "Product design",
+      "Brand system",
+      "Marketing design"
+    ]
+  },
+  {
+    "slug": "bero-character-design",
+    "cardOrder": 8,
+    "tagline": "Character illustration and design exploration.",
+    "metaLabel": "Character design · media",
+    "blurb": "Character illustration and design exploration.",
+    "contributions": [
+      "Character design",
+      "Illustration"
+    ]
+  }
+]

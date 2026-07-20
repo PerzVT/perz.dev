@@ -1,8 +1,9 @@
 import { ImageResponse } from "next/og";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
+import { siteConfig } from "@/lib/config";
 
-export const alt = "Percy ✦ Making software fun";
+export const alt = `${siteConfig.fullName.split(" ")[0]} · ${siteConfig.role}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
