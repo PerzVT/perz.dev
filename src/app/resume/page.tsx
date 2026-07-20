@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { SiteNav } from "@/components/site/site-nav";
 import { SiteFooter } from "@/components/site/site-footer";
 import { SkillsBars } from "@/components/resume/skills-bars";
@@ -183,12 +184,12 @@ export default function ResumePage() {
 
         {/* Footer links */}
         <div className="mt-11 flex flex-wrap gap-5 border-t border-pz-border pt-4 text-[13px]">
-          <a
+          <Link
             href="/"
             className="text-pz-ink2 transition-colors hover:text-pz-ink"
           >
             {siteConfig.name}.dev
-          </a>
+          </Link>
           <a
             href={siteConfig.links.email}
             className="text-pz-ink2 transition-colors hover:text-pz-ink"
