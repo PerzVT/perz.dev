@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { getRecommendations } from "@/lib/content";
 import { Rail } from "@/components/site/rail";
 
@@ -41,11 +42,23 @@ export function Recommendations() {
                 “{r.quote}”
               </blockquote>
               <figcaption className="mt-auto flex items-center gap-3">
-                <span
-                  aria-hidden
-                  className="flex h-10 w-10 flex-none items-center justify-center rounded-full bg-pz-surface text-[13px] font-bold text-pz-accent"
-                >
-                  {initials(r.name)}
+                <span className="h-10 w-10 flex-none overflow-hidden rounded-full bg-pz-surface">
+                  {r.avatar ? (
+                    <Image
+                      src={r.avatar}
+                      alt={r.name}
+                      width={40}
+                      height={40}
+                      className="h-full w-full object-cover"
+                    />
+                  ) : (
+                    <span
+                      aria-hidden
+                      className="flex h-full w-full items-center justify-center text-[13px] font-bold text-pz-accent"
+                    >
+                      {initials(r.name)}
+                    </span>
+                  )}
                 </span>
                 <span className="min-w-0">
                   <span className="block text-[13.5px] font-semibold text-pz-ink">

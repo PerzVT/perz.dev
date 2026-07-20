@@ -319,6 +319,8 @@ export interface Recommendation {
   name: string;
   title: string;
   quote: string;
+  /** Public path to the recommender's photo; falls back to initials. */
+  avatar?: string;
 }
 
 /** Recommendations from content/recommendations.json, in file order
