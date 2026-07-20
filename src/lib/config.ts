@@ -2,18 +2,20 @@ export const siteConfig = {
   name: "perz",
   fullName: "Percy A",
   title: "Developer / Designer · UX",
-  /** Public-facing role headline. Decoupled from `title` so the site's
-   *  positioning (nav tag, JSON-LD jobTitle, metadata) leads with Game
-   *  Designer while `title` stays available for other call sites. */
-  role: "Game Designer",
+  /** Visible role tag in the nav + JSON-LD jobTitle. */
+  role: "Creative Designer",
+  /** Home + default browser/SEO title. */
+  metaTitle: "Perz · Building Fun Experiences",
   /** Owner-approved positioning line (verbatim from the v2 hero comp).
    *  Shared by the home hero and the page metadata. */
   positioning:
-    "I'm a Game Designer specialized in user experience, with professional experience building PC and VR games. With a strong foundation in engines like Unity and Unreal, I love designing intuitive mechanics and engaging systems that create fun and memorable experiences.",
-  /** Owner-approved "About me" paragraph (verbatim from the v2 comps).
-   *  Shared by the home About section and the résumé summary. */
+    "I'm a Game Designer specialized in user experience, with professional experience building PC and VR games. I love designing intuitive mechanics and engaging systems that create fun and memorable experiences.",
+  /** "About me" paragraph — home About section + résumé summary. */
   about:
-    "Hi, I'm Percy, a game designer and developer based out of Calgary who believes that simplicity is powerful. I focus on creating clear, straightforward designs that keep players engaged through strong core systems and well-structured data. I enjoy breaking down complex ideas into clean, functional experiences, always aiming for clarity in both the gameplay and the creative process. Outside of work, I'm passionate about games, soccer, my wife, and our dog, the things that keep life fun and grounded.",
+    "Hi, I'm Percy, a game designer and developer in Calgary. I've made games and gaming content since I was 15, starting with custom assets and mods for Roblox, Unturned, and Minecraft. I began in computer science, then earned a bachelor's in Media, Graphics and Animation, where I built my first game and trained as a product designer. I founded Draconia and Kerberus, gaming networks that have served over 400,000 players in the past five years. I created Mythcraft (play as demigods), Dragoncraft (play as dragons), and the Kerberus Network.",
+  /** "My design philosophy" paragraph — home About section. */
+  philosophy:
+    "My background shapes how I design. Product design and UX training keeps me focused on the player's experience, and my technical side helps design and engineering teams work together. I lead the vision through design, sharpen communication, and find fun through simplicity. I keep designs clear and grounded in strong core systems and well-structured data, and I break complex ideas into clean, functional experiences, aiming for clarity in the gameplay and the process behind it.",
   description:
     "Developer and designer who specializes in user experience. Product design background, now building VR and PC games in Unity and C#. I design systems that feel obvious to use and rewarding to play.",
   /** Second paragraph in the hero. Kept separate from `description`

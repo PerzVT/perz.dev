@@ -28,8 +28,9 @@ export default function WorkPage() {
             My work
           </h1>
           <p className="mt-3 max-w-[52ch] text-[15px] leading-[1.7] text-pz-ink2 [animation:perzRise_.5s_var(--ease-out)_.12s_both]">
-            Shipped titles, jam builds, and the design work underneath them.
-            Open any card for contributions and media.
+            My latest adventure has been working with the talented team at
+            Highstreet. I still make modded content on the side and enter
+            game-jams to keep things exciting!
           </p>
         </header>
         <div className="mx-auto max-w-[1160px] px-[clamp(20px,4vw,32px)] pb-[clamp(64px,9vh,96px)] pt-[clamp(28px,4vh,44px)]">
