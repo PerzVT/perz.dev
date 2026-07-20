@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 /**
  * "My work" (Kerberus v2) — a single dense grid of the full project set
- * (games + design), each opening the shared quick-view sheet. Titus-style
+ * (games + design), each card linking to its case study. Titus-style
  * intent; the comp ships a uniform grid, which is what's rendered here.
  */
 export default function WorkPage() {

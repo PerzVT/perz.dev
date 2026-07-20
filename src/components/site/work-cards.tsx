@@ -1,18 +1,15 @@
-"use client";
-
-import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { BLUR_DATA_URL } from "@/lib/blur";
 import type { WorkCard } from "@/lib/content";
-import { QuickViewSheet } from "@/components/site/quick-view-sheet";
 import { Rail } from "@/components/site/rail";
 
 /**
- * Project cards + quick-view sheet. Two layouts: a draggable single-row
- * "rail" (home, hints at the full set) and a full "grid" (the work page).
- * Cards open the sheet rather than navigating. Covers are 16:9 on disk and
- * object-cover into the 2:3 frame (owner's choice); a per-card frontmatter
- * `cardFocus` can retarget the crop.
+ * Project cards. Two layouts: a draggable single-row "rail" (home, hints
+ * at the full set) and a full "grid" (the work page). Each card links
+ * straight to its case study at /projects/<slug>. Covers are 16:9 on disk
+ * and object-cover into the 2:3 frame (owner's choice); a per-card
+ * frontmatter `cardFocus` can retarget the crop.
  */
 export function WorkCards({
   cards,
@@ -21,16 +18,13 @@ export function WorkCards({
   cards: WorkCard[];
   layout?: "grid" | "rail";
 }) {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
   const rail = layout === "rail";
 
   const cardEls = cards.map((card, i) => (
-    <button
+    <Link
       key={card.slug}
-      type="button"
-      onClick={() => setOpenIndex(i)}
-      aria-label={`${card.title} — quick view`}
-      aria-haspopup="dialog"
+      href={card.caseHref}
+      aria-label={`${card.title} — case study`}
       className={`group flex flex-col gap-3 text-left transition-transform duration-200 ease-out hover:-translate-y-[3px] focus-visible:-translate-y-[3px] ${
         rail ? "w-[min(66vw,244px)] flex-none snap-start" : ""
       }`}
@@ -68,23 +62,14 @@ export function WorkCards({
           Read more <span aria-hidden>→</span>
         </span>
       </div>
-    </button>
+    </Link>
   ));
 
-  return (
-    <>
-      {rail ? (
-        <Rail ariaLabel="Projects">{cardEls}</Rail>
-      ) : (
-        <div className="grid grid-cols-[repeat(auto-fill,minmax(min(100%,290px),1fr))] gap-x-5 gap-y-10">
-          {cardEls}
-        </div>
-      )}
-
-      <QuickViewSheet
-        card={openIndex === null ? null : cards[openIndex]}
-        onClose={() => setOpenIndex(null)}
-      />
-    </>
+  return rail ? (
+    <Rail ariaLabel="Projects">{cardEls}</Rail>
+  ) : (
+    <div className="grid grid-cols-[repeat(auto-fill,minmax(min(100%,290px),1fr))] gap-x-5 gap-y-10">
+      {cardEls}
+    </div>
   );
 }
