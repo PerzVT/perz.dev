@@ -179,6 +179,28 @@ export function resolveImg(slug: string, img?: string): string | null {
   return img.startsWith("/") ? img : `/projects/${slug}/${img}`;
 }
 
+/**
+ * Every displayable media file for a project's quick-view gallery, cover
+ * first. Reads public/projects/<slug>/ for images + videos; for projects
+ * whose art lives at the public root (absolute frontmatter image), returns
+ * just that. Capped so a large folder can't produce a runaway gallery.
+ */
+export function getProjectMedia(slug: string, img?: string): string[] {
+  const cover = resolveImg(slug, img);
+  const dir = path.join(process.cwd(), "public", "projects", slug);
+  const exts = /\.(png|jpe?g|avif|webp|gif|mp4|webm|mov)$/i;
+  let files: string[] = [];
+  if (fs.existsSync(dir)) {
+    files = fs
+      .readdirSync(dir)
+      .filter((f) => exts.test(f))
+      .map((f) => `/projects/${slug}/${f}`)
+      .sort();
+  }
+  if (cover) files = [cover, ...files.filter((f) => f !== cover)];
+  return files.slice(0, 16);
+}
+
 // ---------------------------------------------------------------------
 // Work history
 // ---------------------------------------------------------------------
@@ -246,6 +268,8 @@ export interface WorkCard {
   contributions: string[];
   /** Resolved public image path, or null when no art exists. */
   image: string | null;
+  /** Gallery media for the quick-view (cover first). */
+  media: string[];
   /** Per-card 2:3 crop focus, if the frontmatter sets one. */
   cardFocus?: string;
   /** Case-study route when the study is ready to link, else null. */
@@ -280,8 +304,27 @@ export const getWorkCards = cache((): WorkCard[] => {
         blurb: s.blurb,
         contributions: s.contributions,
         image: resolveImg(s.slug, p.frontmatter.image),
+        media: getProjectMedia(s.slug, p.frontmatter.image),
         cardFocus: p.frontmatter.cardFocus,
         caseHref: s.caseStudyReady ? `/projects/${s.slug}` : null,
       };
     });
 });
+
+// ---------------------------------------------------------------------
+// Recommendations (LinkedIn testimonials)
+// ---------------------------------------------------------------------
+
+export interface Recommendation {
+  name: string;
+  title: string;
+  quote: string;
+}
+
+/** Recommendations from content/recommendations.json, in file order
+ *  (featured first). Excerpts are trimmed from the full LinkedIn text. */
+export function getRecommendations(): Recommendation[] {
+  const file = path.join(contentDir, "recommendations.json");
+  if (!fs.existsSync(file)) return [];
+  return JSON.parse(fs.readFileSync(file, "utf-8")) as Recommendation[];
+}

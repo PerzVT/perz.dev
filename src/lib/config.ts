@@ -6,6 +6,9 @@ export const siteConfig = {
   role: "Creative Designer",
   /** Home + default browser/SEO title. */
   metaTitle: "Perz · Building Fun Experiences",
+  /** JSON-LD / schema job title. Kept as Game Designer for hiring search
+   *  even though the visible nav tag reads Creative Designer. */
+  jobTitle: "Game Designer",
   /** Owner-approved positioning line (verbatim from the v2 hero comp).
    *  Shared by the home hero and the page metadata. */
   positioning:

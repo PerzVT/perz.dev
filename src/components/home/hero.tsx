@@ -8,10 +8,10 @@ import { useReveal } from "@/lib/reveal";
 /**
  * Home hero — the positioning line over a looping, low-opacity background
  * reel (public/port.mp4). The video is muted + looped; autoplay is gated
- * on prefers-reduced-motion (it stays paused on the first frame for users
- * who opted out). Hovering or focusing the nav wordmark brightens the reel
- * via the reveal store. Canvas gradients keep the copy readable over the
- * footage. Opacity values are easy to tune (0.22 rest / 0.5 on hover).
+ * on prefers-reduced-motion (paused first frame for users who opted out).
+ * Hovering or focusing the nav wordmark brightens the reel via the reveal
+ * store. Canvas gradients keep the copy readable over the footage. The
+ * band holds a min height so the reel has room and the copy isn't cramped.
  */
 export function Hero() {
   const revealed = useReveal();
@@ -27,13 +27,11 @@ export function Hero() {
       v.pause();
       return;
     }
-    v.play().catch(() => {
-      // Autoplay may be blocked until interaction; muted usually allows it.
-    });
+    v.play().catch(() => {});
   }, []);
 
   return (
-    <header className="relative overflow-hidden">
+    <header className="relative flex min-h-[62vh] items-center overflow-hidden">
       <div
         aria-hidden
         className="absolute inset-0 z-0"
@@ -67,7 +65,7 @@ export function Hero() {
         />
       </div>
 
-      <div className="pointer-events-none relative z-[1] mx-auto max-w-[1160px] px-[clamp(20px,4vw,32px)] pt-[clamp(64px,10vh,110px)]">
+      <div className="pointer-events-none relative z-[1] mx-auto w-full max-w-[1160px] px-[clamp(20px,4vw,32px)] py-[clamp(48px,9vh,96px)]">
         <p className="m-0 max-w-[34ch] text-[clamp(22px,2.4vw,27px)] font-medium leading-[1.5] tracking-[-0.011em] text-pz-ink [animation:perzRise_.5s_var(--ease-out)_.05s_both] [text-wrap:pretty]">
           {siteConfig.positioning}
         </p>
@@ -76,7 +74,7 @@ export function Hero() {
             href="#work"
             className="pointer-events-auto text-[14.5px] font-semibold text-pz-accent"
           >
-            Selected work ↓
+            See my work ↓
           </a>
           <Link
             href="/resume"
