@@ -318,6 +318,8 @@ export const getWorkCards = cache((): WorkCard[] => {
 export interface Recommendation {
   name: string;
   title: string;
+  /** Employer, shown after the title when present. */
+  company?: string;
   quote: string;
   /** Public path to the recommender's photo; falls back to initials. */
   avatar?: string;

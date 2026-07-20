@@ -1,13 +1,14 @@
 [
   {
     "name": "Matt Fleming",
-    "title": "Lead Game Designer (managed Percy)",
+    "title": "Lead Game Designer",
     "avatar": "/matt.jpg",
     "quote": "He developed into an amazing multifunctional designer who could do just about anything I threw at him, with a rare mix of creative and technical. If you need someone who can get features done, I can't recommend him enough."
   },
   {
     "name": "Arron Ferguson",
     "title": "Lead Writer & Narrative Designer",
+    "company": "PhilosopherKing",
     "avatar": "/aaron.jpg",
     "quote": "Percy is a fantastic Game Designer, as well as a true savant of UI/UX design. Incredibly proactive, he would often jump into my DMs with solutions to problems I didn't even know existed yet."
   },
@@ -31,7 +32,8 @@
   },
   {
     "name": "Joaquin Soriano",
-    "title": "Engineer @ Wand",
+    "title": "Engineer",
+    "company": "Wand",
     "avatar": "/joaquin.jpg",
     "quote": "Easily one of the most versatile and dependable people I've worked with, across game design, UX/UI, project coordination, even programming support. His attention to user experience and design was especially impressive."
   },
