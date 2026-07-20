@@ -21,7 +21,7 @@ export function Contact() {
         </p>
         <a
           href={siteConfig.links.email}
-          className="mt-5 inline-block text-[17px] font-semibold text-pz-accent"
+          className="mt-5 inline-block text-[17px] font-semibold text-pz-accent underline-offset-4 transition hover:underline"
         >
           {siteConfig.email}
         </a>
