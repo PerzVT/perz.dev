@@ -1,16 +1,13 @@
+import { getRecommendations } from "@/lib/content";
+
 /**
- * Home "Recommendations" — three skeleton cards. Quotes are owner-supplied
- * copy, so these stay as placeholders (never invented). Swap each card's
- * bars for a blockquote + attribution when the owner provides them.
+ * Recommendations — a horizontal scroll of every LinkedIn recommendation,
+ * featured three first. Cards peek at the edge to hint the scroll.
  */
-
-const CARDS = [
-  { body: ["96%", "88%", "56%"], name: "120px", role: "170px" },
-  { body: ["92%", "97%", "44%"], name: "110px", role: "150px" },
-  { body: ["94%", "84%", "62%"], name: "130px", role: "160px" },
-];
-
 export function Recommendations() {
+  const recs = getRecommendations();
+  if (recs.length === 0) return null;
+
   return (
     <section
       id="recommendations"
@@ -20,36 +17,32 @@ export function Recommendations() {
         <h2 className="text-[22px] font-bold tracking-[-0.01em] text-pz-ink">
           Recommendations
         </h2>
-        <span className="text-[12.5px] text-pz-faint">
-          quotes land here — owner supplies
-        </span>
+        <span className="text-[12.5px] text-pz-faint">from LinkedIn</span>
       </div>
-      <div className="mt-[26px] grid grid-cols-[repeat(auto-fit,minmax(290px,1fr))] gap-4">
-        {CARDS.map((card, i) => (
-          <div
-            key={i}
-            className="flex min-h-[170px] flex-col gap-2 rounded-xl border border-pz-border p-6"
+
+      <ul
+        aria-label="Recommendations"
+        className="mt-7 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4 [scrollbar-color:var(--pz-border2)_transparent] [scrollbar-width:thin]"
+      >
+        {recs.map((r) => (
+          <li
+            key={r.name}
+            className="w-[min(84vw,340px)] flex-none snap-start"
           >
-            {card.body.map((w, j) => (
-              <span
-                key={j}
-                className="pz-skeleton h-2.5"
-                style={{ width: w, animationDelay: `${j * 0.15}s` }}
-              />
-            ))}
-            <div className="mt-auto flex flex-col gap-1.5 pt-4">
-              <span
-                className="pz-skeleton h-2.5"
-                style={{ width: card.name, animationDelay: "0.1s" }}
-              />
-              <span
-                className="pz-skeleton h-[9px]"
-                style={{ width: card.role, animationDelay: "0.25s" }}
-              />
-            </div>
-          </div>
+            <figure className="flex h-full min-h-[210px] flex-col gap-4 rounded-xl border border-pz-border bg-pz-raised p-6">
+              <blockquote className="text-[14px] leading-[1.7] text-pz-ink2">
+                “{r.quote}”
+              </blockquote>
+              <figcaption className="mt-auto">
+                <div className="text-[13.5px] font-semibold text-pz-ink">
+                  {r.name}
+                </div>
+                <div className="text-[12px] text-pz-faint">{r.title}</div>
+              </figcaption>
+            </figure>
+          </li>
         ))}
-      </div>
+      </ul>
     </section>
   );
 }

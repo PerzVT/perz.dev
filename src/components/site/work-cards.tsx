@@ -51,11 +51,6 @@ export function WorkCards({ cards }: { cards: WorkCard[] }) {
               <span className="text-[13px] leading-[1.6] text-pz-ink2">
                 {card.tagline}
               </span>
-              <span className="flex flex-col text-[12.5px] leading-[1.7] text-pz-muted">
-                {card.contributions.slice(0, 2).map((c) => (
-                  <span key={c}>– {c}</span>
-                ))}
-              </span>
               <span
                 className="mt-[3px] inline-flex items-center gap-[7px] self-start rounded-full px-[13px] py-[6px] text-[12.5px] font-semibold text-pz-accent transition-colors"
                 style={{

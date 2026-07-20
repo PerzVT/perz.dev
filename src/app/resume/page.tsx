@@ -83,6 +83,16 @@ export default function ResumePage() {
           player gaming service · Kerberus, independent studio
         </div>
 
+        {/* Design philosophy (moved from the home About) */}
+        <section className="mt-11">
+          <h2 className="text-base font-bold tracking-[-0.005em] text-pz-ink">
+            Design philosophy
+          </h2>
+          <p className="mt-2.5 max-w-[66ch] text-[14.5px] leading-[1.8] text-pz-ink2">
+            {siteConfig.philosophy}
+          </p>
+        </section>
+
         {/* Experience */}
         <section className="mt-11">
           <h2 className="text-base font-bold tracking-[-0.005em] text-pz-ink">
