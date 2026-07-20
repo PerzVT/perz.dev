@@ -70,7 +70,7 @@ export function ContactForm() {
           Message sent.
         </div>
         <p className="text-sm leading-[1.65] text-pz-ink2">
-          Thanks — expect a reply within a couple of days.
+          Thanks, expect a reply soon.
         </p>
         <button
           type="button"

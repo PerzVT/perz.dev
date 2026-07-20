@@ -8,8 +8,6 @@ import { getWork, type WorkEntry } from "@/lib/content";
  */
 function statusTag(w: WorkEntry): { label: string; accent: boolean } | null {
   if (w.current) return { label: "Current", accent: true };
-  if (w.employment?.toLowerCase().includes("contract"))
-    return { label: "Contract", accent: false };
   return null;
 }
 

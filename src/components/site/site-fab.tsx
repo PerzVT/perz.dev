@@ -83,11 +83,11 @@ export function SiteFab() {
 
       {/* Sound */}
       <div className="flex items-center gap-[9px]" style={rowStyle("0s")}>
-        <span className={chip}>{soundOn ? "Sound off" : "Sound on"}</span>
+        <span className={chip}>{soundOn ? "Mute" : "Unmute"}</span>
         <button
           type="button"
           onClick={toggleSound}
-          aria-label={soundOn ? "Turn sound off" : "Turn sound on"}
+          aria-label={soundOn ? "Mute" : "Unmute"}
           data-sfx="off"
           tabIndex={open ? 0 : -1}
           className={actionBtn}

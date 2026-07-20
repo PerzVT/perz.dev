@@ -1,10 +1,11 @@
+import Image from "next/image";
+import { BLUR_DATA_URL } from "@/lib/blur";
 import { siteConfig } from "@/lib/config";
 
 /**
- * "About me" — the owner's approved paragraph beside a reserved portrait
- * frame. No photo asset exists yet, so the frame is a labelled
- * placeholder (keeps the comp's two-column silhouette); drop a photo at
- * /public and swap the placeholder for next/image when supplied.
+ * "About me" — the bio and design-philosophy paragraphs beside the photo.
+ * The photo (public/percy.jpg) is landscape, cropped into the 4:5 frame
+ * with object-cover; set object-position if the crop clips.
  */
 export function About() {
   return (
@@ -20,11 +21,25 @@ export function About() {
           <p className="mt-[18px] max-w-[64ch] text-[clamp(15.5px,1.6vw,17px)] leading-[1.8] text-pz-ink2 [text-wrap:pretty]">
             {siteConfig.about}
           </p>
+
+          <h2 className="mt-8 text-[22px] font-bold tracking-[-0.01em] text-pz-ink">
+            My design philosophy
+          </h2>
+          <p className="mt-[18px] max-w-[64ch] text-[clamp(15.5px,1.6vw,17px)] leading-[1.8] text-pz-ink2 [text-wrap:pretty]">
+            {siteConfig.philosophy}
+          </p>
         </div>
+
         <div className="relative aspect-[4/5] min-w-[min(100%,240px)] max-w-[340px] flex-1 basis-[260px] overflow-hidden rounded-[10px] border border-pz-border bg-pz-surface">
-          <span className="absolute inset-0 flex items-center justify-center text-[13px] text-pz-faint">
-            Photo — owner supplies
-          </span>
+          <Image
+            src="/percy.jpg"
+            alt="Percy"
+            fill
+            sizes="(min-width: 1160px) 340px, (min-width: 640px) 40vw, 100vw"
+            placeholder="blur"
+            blurDataURL={BLUR_DATA_URL}
+            className="object-cover"
+          />
         </div>
       </div>
     </section>

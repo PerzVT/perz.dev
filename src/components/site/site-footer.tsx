@@ -22,7 +22,7 @@ export function SiteFooter() {
         <div className="flex flex-wrap items-start justify-between gap-8">
           <div>
             <div className="text-[15px] font-semibold text-pz-ink">
-              Open to game design roles.
+              Open to work.
             </div>
             <a
               href={siteConfig.links.email}
@@ -47,8 +47,14 @@ export function SiteFooter() {
           </div>
         </div>
         <div className="mt-9 flex flex-wrap justify-between gap-3.5 border-t border-pz-border pt-4 text-xs text-pz-faint">
-          <span>© {new Date().getFullYear()} Perz · Kerberus</span>
-          <span>Key art © its respective teams</span>
+          <span>© Kerberus {new Date().getFullYear()}.</span>
+          <span>
+            All rights reserved{" "}
+            <span aria-hidden className="mx-0.5 text-pz-accent">
+              ✦
+            </span>{" "}
+            made with <span aria-label="love">❤️</span>
+          </span>
         </div>
       </div>
     </footer>

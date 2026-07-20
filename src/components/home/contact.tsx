@@ -17,8 +17,7 @@ export function Contact() {
           Let&apos;s talk.
         </h2>
         <p className="mt-3.5 max-w-[44ch] text-[15px] leading-[1.7] text-pz-ink2">
-          Hiring for a game design seat? Tell me about the team and the problem
-          — I read everything that lands here.
+          Looking for help with your next project?
         </p>
         <a
           href={siteConfig.links.email}
@@ -27,7 +26,7 @@ export function Contact() {
           {siteConfig.email}
         </a>
         <div className="mt-1.5 text-[12.5px] text-pz-faint">
-          Direct email works too — no form required.
+          Direct email works too, no form required.
         </div>
       </div>
       <div className="min-w-[min(100%,340px)] flex-1 basis-[400px]">
