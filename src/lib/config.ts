@@ -27,12 +27,12 @@ export const siteConfig = {
     linkedin: "https://www.linkedin.com/in/perz/",
     itch: "https://notperz.itch.io/",
     curseforge: "https://www.curseforge.com/members/perzvt/projects",
-    email: "mailto:perzeus.ttv@gmail.com",
+    email: "mailto:hello@perz.dev",
   },
-  // Raw address used by the copy-to-clipboard footer button. Kept
-  // separate from `links.email` (which carries the `mailto:` prefix)
-  // so each call site can pick the form it actually wants.
-  email: "perzeus.ttv@gmail.com",
+  // Raw address (no mailto: prefix) shown in the footer, contact
+  // section, and résumé, and used as the contact form's default
+  // recipient. `links.email` carries the mailto: form.
+  email: "hello@perz.dev",
   handles: {
     github: "perzvt",
     discord: "@perz",
