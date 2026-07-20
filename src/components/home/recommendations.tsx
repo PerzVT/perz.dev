@@ -64,8 +64,9 @@ export function Recommendations() {
                   <span className="block text-[13.5px] font-semibold text-pz-ink">
                     {r.name}
                   </span>
-                  <span className="block truncate text-[12px] text-pz-faint">
+                  <span className="block text-[12px] text-pz-faint">
                     {r.title}
+                    {r.company ? ` · ${r.company}` : ""}
                   </span>
                 </span>
               </figcaption>
