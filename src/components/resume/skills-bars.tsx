@@ -4,10 +4,11 @@ import { useEffect, useRef, useState } from "react";
 
 /**
  * Résumé skill bars — fill on scroll-into-view via IntersectionObserver.
- * Under reduced-motion (or without IO) they render full immediately, and
- * the global reduced-motion rule also flattens the width transition, so
- * there's no motion for users who opted out. Levels are illustrative —
- * seeded from the comp; the owner tunes them.
+ * A row reveals (0 → level%) when it enters the viewport; rows already on
+ * screen reveal immediately. The global reduced-motion rule flattens the
+ * width transition, so users who opted out get the final state with no
+ * motion. Levels are illustrative — seeded from the comp; the owner tunes
+ * them.
  */
 const SKILLS = [
   { name: "Game design", level: 92 },
@@ -22,18 +23,8 @@ export function SkillsBars() {
   const [inView, setInView] = useState(false);
 
   useEffect(() => {
-    const reduce = window.matchMedia?.(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
-    if (reduce || !("IntersectionObserver" in window)) {
-      setInView(true);
-      return;
-    }
     const el = ref.current;
-    if (!el) {
-      setInView(true);
-      return;
-    }
+    if (!el || !("IntersectionObserver" in window)) return;
     const io = new IntersectionObserver(
       (entries) => {
         if (entries.some((e) => e.isIntersecting)) {
