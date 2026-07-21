@@ -1,8 +1,10 @@
 import type { MDXRemoteProps } from "next-mdx-remote/rsc";
 import type { ReactNode } from "react";
+import { Check } from "lucide-react";
 import { Carousel } from "@/components/carousel";
 import { BrandRow } from "@/components/brand-row";
 import { LazyVideo } from "@/components/lazy-video";
+import { MediaReel } from "@/components/case-study/media-reel";
 
 // Shared MDX media frame — Kerberus v2 surface + hairline border.
 const MEDIA_FRAME = "block w-full rounded-lg border border-pz-border bg-pz-surface";
@@ -43,15 +45,21 @@ function Figure({
 /** Gallery — responsive multi-image row. */
 function Gallery({
   images,
+  srcs,
   columns = 2,
 }: {
-  images: Array<{ src: string; caption?: string; alt?: string } | string>;
+  images?: Array<{ src: string; caption?: string; alt?: string } | string>;
+  /** Comma-separated paths — MDX-friendly alternative to `images`. */
+  srcs?: string;
   columns?: 2 | 3;
 }) {
+  const list = srcs
+    ? srcs.split(",").map((s) => s.trim()).filter(Boolean)
+    : images ?? [];
   const cols = columns === 3 ? "sm:grid-cols-3" : "sm:grid-cols-2";
   return (
     <div className={`my-8 grid grid-cols-1 gap-4 ${cols}`}>
-      {images.map((entry, i) => {
+      {list.map((entry, i) => {
         const item = typeof entry === "string" ? { src: entry } : entry;
         return (
           <figure key={i} className="m-0">
@@ -248,154 +256,101 @@ function ImpactQuote({
 }
 
 // ---------------------------------------------------------------------
-// CaseStudy v2 section vocabulary (matches the "CaseStudy v2" comp).
-// Four numbered sections: Product & problem, My role & contribution,
-// Key design decisions, Outcome. Older case studies still render with
-// the Context/Problem/Approach/Solution/Impact components above.
+// CaseStudy v2 media-forward vocabulary (matches the "CaseStudy v2" comp).
+// A modular kit: <MediaReel> for the gameplay gallery, <Highlight> blocks
+// (duplicate or drop one per project), and <Outcome> with <OutcomePoint>
+// cards to close. The scan layer (title, hero, facts, contributions,
+// skills) is rendered by the page from frontmatter, not MDX.
 // ---------------------------------------------------------------------
 
-/** Section 01 — Product & problem: a numbered editorial block. */
-function ProductProblem({ children }: { children: ReactNode }) {
-  return (
-    <CaseSection id="product-problem" index="01" label="Product & problem">
-      {children}
-    </CaseSection>
-  );
-}
-
-/** Section 02 — My role & contribution: label/value rows under a rule. */
-function Role({ children }: { children: ReactNode }) {
-  return (
-    <section
-      id="case-role"
-      data-case-section
-      data-section-id="role"
-      data-section-label="My role & contribution"
-      className="mt-[clamp(40px,6vh,60px)] first:mt-0"
-    >
-      <div className="text-xs font-semibold text-pz-faint">02</div>
-      <h2 className="mt-2 text-[22px] font-bold tracking-[-0.012em] text-pz-ink">
-        My role &amp; contribution
-      </h2>
-      <div className="mt-[18px] border-t border-pz-border">{children}</div>
-    </section>
-  );
-}
-
-/** One label/value row inside <Role>. */
-function RoleRow({ label, children }: { label: string; children: ReactNode }) {
-  return (
-    <div className="grid grid-cols-[minmax(120px,160px)_1fr] items-center gap-4 border-b border-pz-border py-[13px]">
-      <span className="text-[13px] font-semibold text-pz-muted">{label}</span>
-      <span className="text-sm font-semibold leading-[1.5] text-pz-ink">
-        {children}
-      </span>
-    </div>
-  );
-}
-
-/** Section 03 — Key design decisions: a stack of decision cards. */
-function Decisions({ children }: { children: ReactNode }) {
-  return (
-    <section
-      id="case-decisions"
-      data-case-section
-      data-section-id="decisions"
-      data-section-label="Key design decisions"
-      className="mt-[clamp(40px,6vh,60px)] first:mt-0"
-    >
-      <div className="text-xs font-semibold text-pz-faint">03</div>
-      <h2 className="mt-2 text-[22px] font-bold tracking-[-0.012em] text-pz-ink">
-        Key design decisions
-      </h2>
-      <div className="mt-5 flex flex-col gap-[18px]">{children}</div>
-    </section>
-  );
-}
-
-/** One decision card inside <Decisions>. `n` is the display index. */
-function Decision({
+/** A modular highlight block: eyebrow + title + body on one side, media
+ *  (the children) on the other. `flip` puts the media first. */
+function Highlight({
   n,
+  kicker,
   title,
+  body,
+  flip,
   children,
 }: {
   n: string;
+  kicker: string;
   title: string;
-  children: ReactNode;
+  body: string;
+  flip?: boolean;
+  children?: ReactNode;
 }) {
-  return (
-    <div className="rounded-xl border border-pz-border bg-pz-raised p-[clamp(18px,3vw,26px)]">
-      <div className="text-xs font-semibold text-pz-accent">Decision {n}</div>
-      <h3 className="mt-2 text-[17.5px] font-bold tracking-[-0.01em] text-pz-ink">
-        {title}
-      </h3>
-      <div className="mt-3 [&>:first-child]:mt-0">{children}</div>
-    </div>
-  );
-}
-
-/** Section 04 — Outcome: a metric-tile grid plus a closing note. */
-function Outcome({ children }: { children: ReactNode }) {
+  const id = kicker
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
   return (
     <section
-      id="case-outcome"
+      id={id}
       data-case-section
-      data-section-id="outcome"
-      data-section-label="Outcome"
-      className="mt-[clamp(40px,6vh,60px)] first:mt-0"
+      className="flex scroll-mt-[84px] flex-wrap items-center gap-x-[clamp(32px,5vw,56px)] gap-y-7"
     >
-      <div className="text-xs font-semibold text-pz-faint">04</div>
-      <h2 className="mt-2 text-[22px] font-bold tracking-[-0.012em] text-pz-ink">
-        Outcome
-      </h2>
-      <div className="mt-5 [&>:first-child]:mt-0">{children}</div>
+      <div className={`min-w-[280px] flex-[1_1_300px] ${flip ? "md:order-2" : ""}`}>
+        <div className="text-[11px] font-bold uppercase tracking-[0.09em] text-pz-accent">
+          Highlight {n} · {kicker}
+        </div>
+        <h2 className="mt-2.5 text-[21px] font-bold tracking-[-0.012em] text-pz-ink">
+          {title}
+        </h2>
+        <p className="mt-3 max-w-[52ch] text-[15px] leading-[1.7] text-pz-ink2">
+          {body}
+        </p>
+      </div>
+      {children && (
+        <div
+          className={`min-w-[300px] flex-[1.45_1_400px] [&>*]:my-0 ${flip ? "md:order-1" : ""}`}
+        >
+          {children}
+        </div>
+      )}
     </section>
   );
 }
 
-/** The metric-tile grid inside <Outcome>. */
-function Metrics({ children }: { children: ReactNode }) {
+/** Case-study close: an "Outcome" section with a lead paragraph and a
+ *  stack of <OutcomePoint> cards. */
+function Outcome({
+  title = "Where it landed.",
+  children,
+}: {
+  title?: string;
+  children: ReactNode;
+}) {
   return (
-    <div className="grid grid-cols-[repeat(auto-fit,minmax(170px,1fr))] gap-3.5">
-      {children}
-    </div>
+    <section id="outcome" data-case-section className="scroll-mt-[84px]">
+      <div className="text-[11px] font-bold uppercase tracking-[0.09em] text-pz-accent">
+        Outcome
+      </div>
+      <h2 className="mt-2.5 text-[22px] font-bold tracking-[-0.012em] text-pz-ink">
+        {title}
+      </h2>
+      <div className="mt-3.5 [&>:first-child]:mt-0">{children}</div>
+    </section>
   );
 }
 
-/** One metric tile. `redacted` swaps the number for an NDA hatch fill. */
-function Metric({
-  label,
-  value,
-  sub,
-  redacted,
-}: {
-  label: string;
-  value?: ReactNode;
-  sub?: string;
-  redacted?: boolean;
-}) {
+/** The stack of outcome cards inside <Outcome>. */
+function OutcomePoints({ children }: { children: ReactNode }) {
+  return <div className="mt-[22px] flex flex-col gap-3">{children}</div>;
+}
+
+/** One checkmark outcome card. Use <strong> to emphasise the lead. */
+function OutcomePoint({ children }: { children: ReactNode }) {
   return (
-    <div className="rounded-xl border border-pz-border px-[18px] py-4">
-      <div className="text-xs font-semibold text-pz-muted">{label}</div>
-      {redacted ? (
-        <div
-          className="mt-3 h-[22px] w-[92px] rounded"
-          style={{
-            background:
-              "repeating-linear-gradient(45deg,var(--pz-surface) 0 7px,var(--pz-border) 7px 14px)",
-          }}
-          aria-label="Redacted"
-        />
-      ) : (
-        <div className="mt-3 text-3xl font-bold leading-none tracking-[-0.02em] text-pz-ink">
-          {value}
-        </div>
-      )}
-      {sub && (
-        <div className="mt-2.5 text-[11.5px] font-semibold text-pz-faint">
-          {sub}
-        </div>
-      )}
+    <div className="flex items-start gap-3.5 rounded-xl border border-pz-border bg-pz-raised px-[18px] py-4">
+      <Check
+        className="mt-0.5 h-4 w-4 flex-none text-pz-accent"
+        strokeWidth={2.4}
+        aria-hidden
+      />
+      <p className="m-0 text-[15px] leading-[1.6] text-pz-ink2 [&>strong]:font-semibold [&>strong]:text-pz-ink">
+        {children}
+      </p>
     </div>
   );
 }
@@ -500,14 +455,12 @@ const components: MDXRemoteProps["components"] = {
   CaseCard,
   Result,
   Confidential,
-  ProductProblem,
-  Role,
-  RoleRow,
-  Decisions,
-  Decision,
+  MediaReel,
+  Reel: MediaReel,
+  Highlight,
   Outcome,
-  Metrics,
-  Metric,
+  OutcomePoints,
+  OutcomePoint,
 };
 
 export { components as mdxComponents };

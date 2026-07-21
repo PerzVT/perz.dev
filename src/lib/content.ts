@@ -25,6 +25,10 @@ export interface ProjectFrontmatter {
   platform?: string;
   release?: string;
   employment?: string;
+  /** Scan-layer "Contributions at a glance"; the first word is emphasised. */
+  contributions?: string[];
+  /** Scan-layer skill/tool tags. */
+  skills?: string[];
   hero?: string;
   confidential?: boolean;
   status?: "live" | "wip" | "coming-soon";
