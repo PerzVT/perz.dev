@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { getRecommendations } from "@/lib/content";
 import { Rail } from "@/components/site/rail";
+import { siteConfig } from "@/lib/config";
 
 /**
  * Recommendations — an auto-rotating rail of every LinkedIn recommendation,
@@ -28,7 +29,14 @@ export function Recommendations() {
         <h2 className="text-[22px] font-bold tracking-[-0.01em] text-pz-ink">
           Recommendations
         </h2>
-        <span className="text-[12.5px] text-pz-faint">from LinkedIn</span>
+        <a
+          href={siteConfig.links.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1 text-[12.5px] text-pz-faint underline-offset-2 transition-colors hover:text-pz-accent hover:underline"
+        >
+          from LinkedIn <span aria-hidden>↗</span>
+        </a>
       </div>
 
       <div className="mt-7">
@@ -36,9 +44,9 @@ export function Recommendations() {
           {recs.map((r) => (
             <figure
               key={r.name}
-              className="group flex min-h-[210px] w-[min(84vw,340px)] flex-none snap-start flex-col gap-4 rounded-xl border border-pz-border bg-pz-raised p-6 transition-colors hover:border-pz-border2 hover:bg-pz-surface"
+              className="group/card flex min-h-[210px] w-[min(84vw,340px)] flex-none snap-start flex-col gap-4 rounded-xl border border-pz-border bg-pz-raised p-6 transition-colors hover:border-pz-border2 hover:bg-pz-surface"
             >
-              <blockquote className="text-[14px] leading-[1.7] text-pz-ink2 transition-colors group-hover:text-pz-ink">
+              <blockquote className="text-[14px] leading-[1.7] text-pz-ink2 transition-colors group-hover/card:text-pz-ink">
                 “{r.quote}”
               </blockquote>
               <figcaption className="mt-auto flex items-center gap-3">
