@@ -30,6 +30,9 @@ export interface ProjectFrontmatter {
   /** Scan-layer skill/tool tags. */
   skills?: string[];
   hero?: string;
+  /** Optional muted clip that plays on card hover (desktop only).
+   *  Resolved like `image` (bare filename → project folder). */
+  cardVideo?: string;
   confidential?: boolean;
   status?: "live" | "wip" | "coming-soon";
   /** When true, the project has no case study — clicking the card on
@@ -246,6 +249,8 @@ export interface WorkCard {
   tagline: string;
   /** Resolved public image path, or null when no art exists. */
   image: string | null;
+  /** Resolved hover-preview clip, or null. Plays muted on card hover. */
+  hoverVideo: string | null;
   /** Per-card 2:3 crop focus, if the frontmatter sets one. */
   cardFocus?: string;
   /** Case-study route the card links to (/projects/<slug>). */
@@ -280,6 +285,7 @@ export const getWorkCards = cache((): WorkCard[] => {
         title: p.frontmatter.title,
         tagline: s.tagline,
         image: resolveImg(s.slug, p.frontmatter.image),
+        hoverVideo: resolveImg(s.slug, p.frontmatter.cardVideo),
         cardFocus: p.frontmatter.cardFocus,
         caseHref: `/projects/${s.slug}`,
       };

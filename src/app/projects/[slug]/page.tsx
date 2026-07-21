@@ -61,6 +61,9 @@ function ctaLabel(url: string): string {
   if (/store\.steampowered\.com|steamcommunity\.com/i.test(url))
     return "View on Steam ↗";
   if (/meta\.com\/(experiences|quest)/i.test(url)) return "View on Meta Quest ↗";
+  if (/curseforge\.com/i.test(url)) return "View on CurseForge ↗";
+  if (/modrinth\.com/i.test(url)) return "View on Modrinth ↗";
+  if (/github\.com/i.test(url)) return "View on GitHub ↗";
   return "View project ↗";
 }
 
@@ -112,6 +115,76 @@ function Hero({ src, poster }: { src: string; poster?: string }) {
 }
 
 /**
+ * Coming-soon state. Same scan-layer chrome (back link, title, hook,
+ * optional external CTA) plus a "Coming soon" pill and a shimmer
+ * skeleton where the media and write-up will land. Rendered instead of
+ * the full case study when frontmatter sets `status: "coming-soon"`.
+ */
+function ComingSoonPage({ frontmatter }: { frontmatter: ProjectFrontmatter }) {
+  return (
+    <>
+      <SiteNav />
+      <main id="main-content">
+        <header className="mx-auto max-w-[1160px] scroll-mt-[84px] px-[clamp(20px,4vw,32px)] pb-[clamp(64px,10vh,96px)] pt-[clamp(36px,6vh,60px)]">
+          <Link
+            href="/projects"
+            className="inline-flex items-center gap-[7px] text-[12.5px] font-semibold text-pz-muted transition-colors hover:text-pz-ink"
+          >
+            <span aria-hidden>←</span> Work
+          </Link>
+
+          <div className="mt-4 flex flex-wrap items-end gap-x-[clamp(24px,4vw,48px)] gap-y-5">
+            <div className="min-w-[280px] flex-[1_1_480px]">
+              <div className="mb-3.5 inline-flex items-center gap-2 rounded-full border border-pz-border2 bg-pz-raised px-3 py-1 text-[11px] font-bold uppercase tracking-[0.08em] text-pz-accent">
+                <span className="h-1.5 w-1.5 rounded-full bg-pz-accent" />
+                Coming soon
+              </div>
+              <h1 className="pz-wordmark text-[clamp(32px,4.6vw,50px)] font-extrabold leading-[1.02] tracking-[-0.02em] text-pz-ink">
+                {frontmatter.title}
+              </h1>
+              <p className="mt-3.5 max-w-[60ch] text-[16.5px] leading-[1.6] text-pz-ink2">
+                {frontmatter.description}
+              </p>
+              <p className="mt-2.5 text-[14px] text-pz-muted">
+                This case study is in progress. Check back soon.
+              </p>
+            </div>
+            {frontmatter.url && (
+              <a
+                href={frontmatter.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 whitespace-nowrap rounded-lg bg-pz-accent px-[18px] py-[11px] text-[13.5px] font-bold text-pz-canvas transition hover:brightness-110"
+              >
+                {ctaLabel(frontmatter.url)}
+              </a>
+            )}
+          </div>
+
+          <div className="mt-[34px] animate-pulse" aria-hidden>
+            <div className="aspect-[16/9] w-full rounded-[14px] border border-pz-border bg-pz-surface" />
+            <div className="mt-6 flex flex-wrap gap-x-[clamp(32px,5vw,60px)] gap-y-6">
+              <div className="min-w-[300px] flex-[1.6_1_420px] space-y-3.5">
+                <div className="h-3.5 w-40 rounded bg-pz-surface" />
+                <div className="h-3 w-full rounded bg-pz-surface" />
+                <div className="h-3 w-11/12 rounded bg-pz-surface" />
+                <div className="h-3 w-4/5 rounded bg-pz-surface" />
+              </div>
+              <div className="min-w-[260px] flex-[1_1_300px] space-y-3.5">
+                <div className="h-3 w-full rounded bg-pz-surface" />
+                <div className="h-3 w-3/4 rounded bg-pz-surface" />
+                <div className="h-3 w-5/6 rounded bg-pz-surface" />
+              </div>
+            </div>
+          </div>
+        </header>
+      </main>
+      <SiteFooter />
+    </>
+  );
+}
+
+/**
  * Case study (CaseStudy v2, media-forward). A structured "scan layer"
  * rendered from frontmatter — title, hero, contributions, a facts card,
  * skills, NDA note — then the MDX body carries the media gallery, the
@@ -127,6 +200,11 @@ export default async function ProjectPage({ params }: { params: Params }) {
   if (project.frontmatter.mediaOnly) notFound();
 
   const { frontmatter, content } = project;
+
+  if (frontmatter.status === "coming-soon") {
+    return <ComingSoonPage frontmatter={frontmatter} />;
+  }
+
   const rows = facts(frontmatter);
   const contributions = frontmatter.contributions ?? [];
   const skills = frontmatter.skills ?? [];

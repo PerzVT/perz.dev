@@ -1,0 +1,49 @@
+---
+title: "Kerberus Modded Suite"
+description: "The server-side utility layer that runs the Kerberus network: land and maps, ranks, moderation, messaging, and cross-server sync, split into five focused mods themed on Greek myth."
+tags: ["game-dev"]
+year: 2026
+status: "live"
+roles:
+  - "Systems Design · Mod Development"
+engine: "Minecraft · Java"
+duration: "Ongoing"
+platform: "Minecraft Java (server-side)"
+employment: "Kerberus"
+caseStudy: true
+image: "cover.png"
+contributions:
+  - "Designed the utility layer that keeps the Kerberus servers running"
+  - "Split the work into five focused mods, each doing one job well"
+  - "Themed the suite on Greek myth so the toolset reads as one system"
+skills:
+  - "Systems design"
+  - "Server architecture"
+  - "Java"
+  - "Minecraft modding"
+---
+
+{/* One Highlight per mod. Screens/clips land in
+    public/projects/kerberus-modded-suite/ then wire media per block. */}
+
+<Highlight n="01" kicker="Atlas · Maps & claiming" title="Players hold their ground." body="Atlas lets players claim and protect their land, and gives admins a live map of the whole server. It carries the world, which is the job the titan is named for." />
+
+<Highlight n="02" kicker="Orion · Ranks & permissions" title="One place decides who can do what." body="Orion defines ranks, permissions, and the perks that come with them, so access is set once and applies everywhere instead of being patched server by server." flip />
+
+<Highlight n="03" kicker="Argus · Watchdog & logging" title="A hundred eyes on the server." body="Argus logs what happens, flags griefing, and hands moderators the history they need to act. Named for the all-seeing watchman who never fully slept." />
+
+<Highlight n="04" kicker="Hermes · Messaging & bridge" title="Every server speaks to the rest." body="Hermes carries messages across servers and out to Discord, so a line typed in one place reaches the whole network. The messenger of the gods, doing messenger work." flip />
+
+<Highlight n="05" kicker="Iris · Cross-server sync" title="One identity, every server." body="Iris keeps inventories, stats, and progress in step as players move between servers, so the network feels like one world instead of a row of separate ones. Named for the goddess who links the realms." />
+
+<Outcome title="Why it is built this way.">
+
+Five small mods, each with one responsibility, are easier to run and reason about than one that tries to do everything. The Greek naming is not decoration: each figure's domain maps to the mod's job, so the whole toolset reads as a single system.
+
+<OutcomePoints>
+<OutcomePoint><strong>Five focused mods instead of one monolith</strong>, each owning a single concern.</OutcomePoint>
+<OutcomePoint><strong>Runs the live Kerberus network</strong>: claiming, ranks, moderation, messaging, and sync.</OutcomePoint>
+<OutcomePoint><strong>Named as one system</strong>, Kerberus over Atlas, Orion, Argus, Hermes, and Iris.</OutcomePoint>
+</OutcomePoints>
+
+</Outcome>

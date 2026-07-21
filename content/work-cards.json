@@ -85,5 +85,76 @@
       "Brand system",
       "Marketing design"
     ]
+  },
+  {
+    "slug": "dragoncraft",
+    "cardOrder": 8,
+    "caseStudyReady": true,
+    "tagline": "Be a dragon: 16+ species and 350+ mods in one balanced world.",
+    "metaLabel": "Minecraft modpack · play as dragons",
+    "blurb": "A Minecraft pack of 16+ dragon species curated from 350+ mods into one balanced, dragon-first world.",
+    "contributions": [
+      "Pack design & curation",
+      "Progression balance"
+    ]
+  },
+  {
+    "slug": "mythcraft",
+    "cardOrder": 9,
+    "caseStudyReady": true,
+    "tagline": "Play as a demigod across 20+ mythic races and Greek divine paths.",
+    "metaLabel": "Minecraft modpack · play as demigods",
+    "blurb": "A mythology-first RPG of 20+ playable races and divine paths built on the Greek gods.",
+    "contributions": [
+      "Pack design & curation",
+      "RPG progression"
+    ]
+  },
+  {
+    "slug": "slime-dragon",
+    "cardOrder": 10,
+    "caseStudyReady": true,
+    "tagline": "A slime-symbiosis dragon for Dragon Survival, eight abilities with real trade-offs.",
+    "metaLabel": "Minecraft mod · Dragon Survival addon",
+    "blurb": "A playable Dragon Survival subspecies built around a slime-symbiosis fantasy and eight abilities that each cost something.",
+    "contributions": [
+      "Ability design",
+      "Mod development"
+    ]
+  },
+  {
+    "slug": "kerberus-modded-suite",
+    "cardOrder": 11,
+    "caseStudyReady": true,
+    "tagline": "Five server-side utility mods, themed as one Greek-myth toolset.",
+    "metaLabel": "Minecraft · server-side mod suite",
+    "blurb": "The utility layer that runs the Kerberus network: claiming, ranks, moderation, messaging, and cross-server sync, split into five focused mods.",
+    "contributions": [
+      "Systems design",
+      "Mod development"
+    ]
+  },
+  {
+    "slug": "kerberus-pack-manager",
+    "cardOrder": 12,
+    "caseStudyReady": true,
+    "tagline": "Desktop tooling that ships modpacks: changelog to publish, one flow.",
+    "metaLabel": "Desktop app · release tooling",
+    "blurb": "A desktop app that turns modpack releases into a guided pipeline: snapshot, changelog, tag, build, and publish.",
+    "contributions": [
+      "Product design",
+      "Development"
+    ]
+  },
+  {
+    "slug": "highstreet-echoes-of-solera",
+    "cardOrder": 13,
+    "caseStudyReady": false,
+    "tagline": "A choose-your-own-adventure series expanding the Highstreet world.",
+    "metaLabel": "Narrative series · coming soon",
+    "blurb": "A narrative, choose-your-own-adventure series that expands the world of Highstreet beyond the game.",
+    "contributions": [
+      "Narrative design"
+    ]
   }
 ]
