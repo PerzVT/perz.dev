@@ -1,11 +1,11 @@
 ---
 title: "Highstreet: Calamity VR"
-description: "A multiplayer roguelike VR game. Fight through waves of enemies toward boss encounters, earn rewards, and progress alongside friends."
+description: "A multiplayer roguelike VR game: fight through waves toward boss encounters, earn rewards, and progress with friends."
 tags: ["game-dev"]
 year: 2026
 status: "live"
 roles:
-  - "Game Designer (UX, Systems)"
+  - "Game Designer · UX & Systems"
 engine: "Unity 6 · DOTS · VR"
 duration: "Dec 2023 – Feb 2026"
 platform: "Meta Quest"
@@ -16,66 +16,42 @@ caseStudy: true
 image: "/projects/highstreet-calamity-vr/cover.png"
 hero: "/projects/highstreet-calamity-vr/trailer.mp4"
 url: "https://www.meta.com/experiences/highstreet-calamity/9352017631510878/"
+contributions:
+  - "Owned the combat layer and meta-progression layer (UX + systems)"
+  - "Designed class archetypes, the stats/elemental system, gesture-casting, wave progression, and global UI"
+  - "Built the spreadsheet authoring pipeline the design team shipped the ability + progression layer on"
+skills:
+  - "Game design"
+  - "Systems design"
+  - "UX"
+  - "Unity 6"
+  - "DOTS"
 ---
 
-{/* CaseStudy v2 layout. Prose/media re-slotted from the old spine; the
-    section structure matches the comp. Decision titles are drafts of the
-    existing wording, and [to add] items are placeholders for the owner. */}
+{/* CaseStudy v2 (media-forward). Scan layer is rendered from the
+    frontmatter above. Body = media reel + modular Highlight blocks +
+    Outcome. Duplicate or drop a <Highlight> per project. */}
 
-<ProductProblem>
+<MediaReel srcs="/projects/highstreet-calamity-vr/screenshot-01.avif, /projects/highstreet-calamity-vr/screenshot-02.avif, /projects/highstreet-calamity-vr/screenshot-03.avif, /projects/highstreet-calamity-vr/screenshot-04.avif, /projects/highstreet-calamity-vr/screenshot-05.avif" />
 
-Multiplayer roguelike VR game for Meta Quest. Wave-based combat into boss encounters, class-based progression, party play.
+<Highlight n="01" kicker="Authoring pipeline" title="Design owns iteration." body="A spreadsheet-based tool let the design team create and tune abilities, enemies, waves, and rewards without engineering per change — multi-week round-trips collapsed to same-day.">
+<Gallery columns={2} srcs="/projects/highstreet-calamity-vr/multitool-base.mp4, /projects/highstreet-calamity-vr/multitool-ideation-01.png, /projects/highstreet-calamity-vr/multitool-ideation-02.png, /projects/highstreet-calamity-vr/arc-demo.mp4" />
+</Highlight>
 
-A roguelike on Quest has to stay readable inside the headset. Less peripheral awareness, more decision pressure per wave. The team needed a class and progression structure that gave each player a distinct fantasy without overwhelming combat, plus authoring tools that let designers iterate on hundreds of abilities and enemies without engineering per change.
+<Highlight n="02" kicker="Gesture-casting" title="VR motion into readable inputs." body="Abilities driven by a gesture system kept readable under headset limits; a stats and elemental system ties damage and synergies together." flip>
+<Gallery columns={2} srcs="/projects/highstreet-calamity-vr/controls.png, /projects/highstreet-calamity-vr/element-abilities.jpg, /projects/highstreet-calamity-vr/skill-tree.jpg, /projects/highstreet-calamity-vr/skill-example.png" />
+</Highlight>
 
-<Carousel srcs="/projects/highstreet-calamity-vr/screenshot-01.avif, /projects/highstreet-calamity-vr/screenshot-02.avif, /projects/highstreet-calamity-vr/screenshot-03.avif, /projects/highstreet-calamity-vr/screenshot-04.avif, /projects/highstreet-calamity-vr/screenshot-05.avif" />
-
-</ProductProblem>
-
-<Role>
-<RoleRow label="Owned">UX and Systems — the combat layer and the meta-progression layer</RoleRow>
-<RoleRow label="Designed">Class archetypes and MMO progression, the stats and elemental system, abilities and gesture-casting, wave progression, and global UI guidelines</RoleRow>
-<RoleRow label="Partnered with">[to add]</RoleRow>
-<RoleRow label="Tooling">Unity 6 · DOTS · VR</RoleRow>
-</Role>
-
-<Decisions>
-
-<Decision n="01" title="A spreadsheet authoring pipeline, so design owns iteration and engineering owns the engine.">
-
-I was design owner on the Multi-tool, S.A.L.I, Davey's Demure Designs, the Gacha system, and the Ability Creator. The largest was a spreadsheet-based authoring tool: the design team could modify or create abilities, weapons, enemies, wave compositions, consumables, and end-of-game rewards without engineering support per change. Multi-week tuning round-trips collapsed into a same-day loop.
-
-<Carousel srcs="/projects/highstreet-calamity-vr/multitool-base.mp4, /projects/highstreet-calamity-vr/multitool-concept-01.mp4, /projects/highstreet-calamity-vr/multitool-concept-02.mp4, /projects/highstreet-calamity-vr/multitool-concept-03.mp4, /projects/highstreet-calamity-vr/multitool-ideation-01.png, /projects/highstreet-calamity-vr/multitool-ideation-02.png" />
-
-<Figure src="/projects/highstreet-calamity-vr/arc-demo.mp4" />
-
-</Decision>
-
-<Decision n="02" title="Gesture-casting that turns VR motion into readable ability inputs.">
-
-Abilities and a gesture-casting system translate VR motion into ability inputs, kept readable under headset constraints. A stats and elemental system ties damage, resistances, and ability synergies together.
-
-<Carousel srcs="/projects/highstreet-calamity-vr/controls.png, /projects/highstreet-calamity-vr/element-abilities.jpg, /projects/highstreet-calamity-vr/skill-tree.jpg, /projects/highstreet-calamity-vr/skill-example.png" />
-<Confidential />
-
-</Decision>
-
-<Decision n="03" title="Class archetypes and MMO-style progression for distinct player fantasies.">
-
-Class archetypes and MMO progression give each player a distinct fantasy without overwhelming combat, tied together with wave progression and a shared set of global UI guidelines.
-
-</Decision>
-
-</Decisions>
+<Highlight n="03" kicker="Classes & progression" title="Distinct fantasies, one spine." body="Each player gets a distinct class fantasy without overwhelming combat — tied together with wave progression and shared UI guidelines." />
 
 <Outcome>
 
-<Metrics>
-<Metric label="Outcome metric 01" redacted sub="Redacted · NDA" />
-<Metric label="Outcome metric 02" redacted sub="Redacted · NDA" />
-<Metric label="Outcome metric 03" redacted sub="Redacted · NDA" />
-</Metrics>
+By the end, the design team authored the game's full ability and progression layer through that pipeline: design owning iteration, engineering owning the engine. Real numbers are under NDA; an interview version is available.
 
-By the end of the project the design team had authored the full ability and progression layer of the game through that pipeline: design owning iteration, engineering owning the engine. Player-facing numbers are under NDA — I keep an interview version of this section, so ask and I'll walk through the real curves and what moved them.
+<OutcomePoints>
+<OutcomePoint><strong>Design authored the game's full ability + progression layer</strong> through the spreadsheet pipeline, end to end.</OutcomePoint>
+<OutcomePoint><strong>Iteration collapsed from multi-week round-trips to same-day</strong>, tuning abilities, enemies, waves, and rewards without engineering per change.</OutcomePoint>
+<OutcomePoint><strong>Combat, classes, and progression shipped as one coherent system</strong>, readable in-headset and tied together by shared UI guidelines.</OutcomePoint>
+</OutcomePoints>
 
 </Outcome>
