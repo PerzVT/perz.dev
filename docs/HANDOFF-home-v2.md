@@ -4,7 +4,7 @@ Read this first, then `docs/website-spec.md` for content/behavior detail. Writte
 
 ## Where things stand
 
-The owner's own **Kerberus v2** design is built across the whole site and live on **`staging`**. Branch **`home-v2`** == **`origin/staging`** (currently `3fec299`). The old cobalt/Nunito design is gone. The site is being polished one round at a time; the owner reviews on staging and gives feedback.
+The owner's own **Kerberus v2** design is built across the whole site and live on **`staging`**. Branch **`home-v2`** == **`origin/staging`**, kept in sync via `git push origin home-v2:staging`. The old cobalt/Nunito design is gone. The site is being polished one round at a time; the owner reviews on staging and gives feedback.
 
 - **Staging (owner reviews here):** `https://perz-dev-git-staging-perzvts-projects.vercel.app` (Vercel deployment-protected; owner signs in).
 - **Local dev:** the `dev` config in `.claude/launch.json` (`npm run dev`). Preview via the Browser pane, not Bash.
@@ -20,7 +20,7 @@ Comps live in the owner's Claude Design project `b36fa9ca-c975-4393-ae29-9ca9f00
 - **Fonts:** Archivo (variable, `wdth` axis drives the `pz-wordmark`) + JetBrains Mono, in `layout.tsx`.
 - **Loaders (`src/lib/content.ts`):** `getProjects`, `getWork`, `getWorkCards` (+ card copy in `content/work-cards.json`), `getRecommendations` (+ `content/recommendations.json`), `getProjectMedia`, `resolveImg`.
 - **Config (`src/lib/config.ts`):** `role`, `jobTitle` (SEO = "Game Designer"), `metaTitle`, `positioning`, `about`, `philosophy`, `email` (`hello@perz.dev`), `links`.
-- **Components:** `src/components/site/` — `site-nav` (sprite + `perz` wordmark), `site-footer`, `site-fab`, `work-cards` (`layout="rail"` for home, `"grid"` for /projects), `quick-view-sheet`, `rail` (draggable carousel + optional auto-advance). `src/components/home/` — `hero`, `selected-work`, `about`, `experience`, `recommendations`, `contact`, `contact-form`. `src/components/resume/skills-bars`. `mdx.tsx` (case-study vocabulary, pz-restyled). `sprite.tsx` + `src/lib/aseprite.ts` (nav mascot; assets are `public/{slime,bat,ghost,evileye,luckyslime,movingbush,mage-blue,mage-pink}.{json,png}`).
+- **Components:** `src/components/site/` — `site-nav` (sprite + `perz` wordmark), `site-footer`, `site-fab`, `work-cards` (`layout="rail"` for home, `"grid"` for /projects; each card links straight to `/projects/<slug>`), `rail` (draggable carousel + optional auto-advance). `src/components/home/` — `hero`, `selected-work`, `about`, `experience`, `recommendations`, `contact`, `contact-form`. `src/components/resume/skills-bars`. `mdx.tsx` (case-study vocabulary, pz-restyled). `sprite.tsx` + `src/lib/aseprite.ts` (nav mascot; assets are `public/{slime,bat,ghost,evileye,luckyslime,movingbush,mage-blue,mage-pink}.{json,png}`).
 
 ## Working with copy
 
@@ -34,12 +34,12 @@ This Windows machine's in-app preview **produces no paint frames**: `computer` s
 
 ## What's done
 
-Home: sprite + `perz` nav; hero (`port.mp4` low-opacity looping reel, taller band, brightens on wordmark hover); **Featured work** = draggable rail of all projects → quick-view; About (side-by-side, vertically centered, Read more → résumé); Experience (date/role/company aligned columns, Current tag only, en-dash dates); Recommendations (auto-rotating rail, real avatars in `public/`, hover highlight, only Arron·PhilosopherKing and Joaquin·Wand carry a company); Contact (form + mailto). /projects = grid. /resume = summary + philosophy + experience/education (skeleton blurbs) + animated skill bars + Download PDF (stub). Case studies = re-skinned MDX. Quick-view flyout = 900px sheet with a media gallery + summary + full-case-study link. SEO/sitemap/JSON-LD aligned; sitemap excludes `mediaOnly`/`draft`.
+Home: sprite + `perz` nav; hero (`port.mp4` low-opacity looping reel, taller band, brightens on wordmark hover); **Featured work** = draggable rail of the project cards, each linking to its case study; About (side-by-side, vertically centered, Read more → résumé); Experience (date/role/company aligned columns, Current tag only, en-dash dates); Recommendations (auto-rotating rail, real avatars in `public/`, hover highlight, only Arron·PhilosopherKing and Joaquin·Wand carry a company); Contact (form + mailto). /projects = grid. /resume = summary + philosophy + experience/education (skeleton blurbs) + animated skill bars + Download PDF (stub). Case studies = re-skinned MDX; project cards (home rail + /projects grid) link straight to `/projects/<slug>` — the quick-view flyout was removed 2026-07-20, and the media-only Bero card dropped with it. SEO/sitemap/JSON-LD aligned; sitemap excludes `mediaOnly`/`draft`.
 
 ## Open threads / next steps
 
 1. **Projects, one at a time — and add the owner's modding projects** (Minecraft mods, etc.; modding counts as game dev). Each project = `content/projects/<slug>.mdx` + an entry in `content/work-cards.json` + media under `public/projects/<slug>/`. The owner started "Highstreet: Echoes of Solera" and "Kerberus: Pack Manager" in `docs/site-copy.md` §4. Build each with the owner's input; the rail + grid + quick-view pick them up automatically.
-2. **Flyout → full case study.** The owner wants the quick-view to _be_ the case study (gallery + write-up), not link out to a page. Recommended approach: a route-based modal (Next intercepting routes) so the home page stays light. Not built yet — decide + build.
+2. **Flyout removed — done 2026-07-20 (`fdda834`).** The owner chose the simplest path: no quick-view. Project cards link straight to `/projects/<slug>`. The intercepting-route modal was considered and dropped for simplicity; the media-only Bero card was removed since it has no case-study page. Card copy (`metaLabel`/`blurb`/`contributions`) stays in `work-cards.json` for reference but is no longer rendered.
 3. **Project card art.** Cards are 16:9 covers cropped into 2:3 (owner's call). If the owner supplies portrait 2:3 capsule art, target ~1000×1500. Gallery shots read best ~1600–1920px wide.
 4. **Contact real send.** The form is a real-ready Server Action that mock-succeeds until `RESEND_API_KEY` (+ optional `CONTACT_TO`/`CONTACT_FROM`) is set in Vercel env; or switch to a form service (Web3Forms).
 5. **Pending assets:** résumé PDF (drop in `public/`, wire the Download button), education (`content/education/01-degree.json` is a stub), per-project modding content/media. About photo is `public/percy.jpg`.
