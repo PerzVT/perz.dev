@@ -247,6 +247,159 @@ function ImpactQuote({
   );
 }
 
+// ---------------------------------------------------------------------
+// CaseStudy v2 section vocabulary (matches the "CaseStudy v2" comp).
+// Four numbered sections: Product & problem, My role & contribution,
+// Key design decisions, Outcome. Older case studies still render with
+// the Context/Problem/Approach/Solution/Impact components above.
+// ---------------------------------------------------------------------
+
+/** Section 01 — Product & problem: a numbered editorial block. */
+function ProductProblem({ children }: { children: ReactNode }) {
+  return (
+    <CaseSection id="product-problem" index="01" label="Product & problem">
+      {children}
+    </CaseSection>
+  );
+}
+
+/** Section 02 — My role & contribution: label/value rows under a rule. */
+function Role({ children }: { children: ReactNode }) {
+  return (
+    <section
+      id="case-role"
+      data-case-section
+      data-section-id="role"
+      data-section-label="My role & contribution"
+      className="mt-[clamp(40px,6vh,60px)] first:mt-0"
+    >
+      <div className="text-xs font-semibold text-pz-faint">02</div>
+      <h2 className="mt-2 text-[22px] font-bold tracking-[-0.012em] text-pz-ink">
+        My role &amp; contribution
+      </h2>
+      <div className="mt-[18px] border-t border-pz-border">{children}</div>
+    </section>
+  );
+}
+
+/** One label/value row inside <Role>. */
+function RoleRow({ label, children }: { label: string; children: ReactNode }) {
+  return (
+    <div className="grid grid-cols-[minmax(120px,160px)_1fr] items-center gap-4 border-b border-pz-border py-[13px]">
+      <span className="text-[13px] font-semibold text-pz-muted">{label}</span>
+      <span className="text-sm font-semibold leading-[1.5] text-pz-ink">
+        {children}
+      </span>
+    </div>
+  );
+}
+
+/** Section 03 — Key design decisions: a stack of decision cards. */
+function Decisions({ children }: { children: ReactNode }) {
+  return (
+    <section
+      id="case-decisions"
+      data-case-section
+      data-section-id="decisions"
+      data-section-label="Key design decisions"
+      className="mt-[clamp(40px,6vh,60px)] first:mt-0"
+    >
+      <div className="text-xs font-semibold text-pz-faint">03</div>
+      <h2 className="mt-2 text-[22px] font-bold tracking-[-0.012em] text-pz-ink">
+        Key design decisions
+      </h2>
+      <div className="mt-5 flex flex-col gap-[18px]">{children}</div>
+    </section>
+  );
+}
+
+/** One decision card inside <Decisions>. `n` is the display index. */
+function Decision({
+  n,
+  title,
+  children,
+}: {
+  n: string;
+  title: string;
+  children: ReactNode;
+}) {
+  return (
+    <div className="rounded-xl border border-pz-border bg-pz-raised p-[clamp(18px,3vw,26px)]">
+      <div className="text-xs font-semibold text-pz-accent">Decision {n}</div>
+      <h3 className="mt-2 text-[17.5px] font-bold tracking-[-0.01em] text-pz-ink">
+        {title}
+      </h3>
+      <div className="mt-3 [&>:first-child]:mt-0">{children}</div>
+    </div>
+  );
+}
+
+/** Section 04 — Outcome: a metric-tile grid plus a closing note. */
+function Outcome({ children }: { children: ReactNode }) {
+  return (
+    <section
+      id="case-outcome"
+      data-case-section
+      data-section-id="outcome"
+      data-section-label="Outcome"
+      className="mt-[clamp(40px,6vh,60px)] first:mt-0"
+    >
+      <div className="text-xs font-semibold text-pz-faint">04</div>
+      <h2 className="mt-2 text-[22px] font-bold tracking-[-0.012em] text-pz-ink">
+        Outcome
+      </h2>
+      <div className="mt-5 [&>:first-child]:mt-0">{children}</div>
+    </section>
+  );
+}
+
+/** The metric-tile grid inside <Outcome>. */
+function Metrics({ children }: { children: ReactNode }) {
+  return (
+    <div className="grid grid-cols-[repeat(auto-fit,minmax(170px,1fr))] gap-3.5">
+      {children}
+    </div>
+  );
+}
+
+/** One metric tile. `redacted` swaps the number for an NDA hatch fill. */
+function Metric({
+  label,
+  value,
+  sub,
+  redacted,
+}: {
+  label: string;
+  value?: ReactNode;
+  sub?: string;
+  redacted?: boolean;
+}) {
+  return (
+    <div className="rounded-xl border border-pz-border px-[18px] py-4">
+      <div className="text-xs font-semibold text-pz-muted">{label}</div>
+      {redacted ? (
+        <div
+          className="mt-3 h-[22px] w-[92px] rounded"
+          style={{
+            background:
+              "repeating-linear-gradient(45deg,var(--pz-surface) 0 7px,var(--pz-border) 7px 14px)",
+          }}
+          aria-label="Redacted"
+        />
+      ) : (
+        <div className="mt-3 text-3xl font-bold leading-none tracking-[-0.02em] text-pz-ink">
+          {value}
+        </div>
+      )}
+      {sub && (
+        <div className="mt-2.5 text-[11.5px] font-semibold text-pz-faint">
+          {sub}
+        </div>
+      )}
+    </div>
+  );
+}
+
 /** Confidential disclaimer under image groups with scrubbed numbers. */
 function Confidential() {
   return (
@@ -347,6 +500,14 @@ const components: MDXRemoteProps["components"] = {
   CaseCard,
   Result,
   Confidential,
+  ProductProblem,
+  Role,
+  RoleRow,
+  Decisions,
+  Decision,
+  Outcome,
+  Metrics,
+  Metric,
 };
 
 export { components as mdxComponents };

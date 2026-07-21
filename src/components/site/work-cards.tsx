@@ -25,7 +25,7 @@ export function WorkCards({
       key={card.slug}
       href={card.caseHref}
       aria-label={`${card.title} — case study`}
-      className={`group flex flex-col gap-3 text-left transition-transform duration-200 ease-out hover:-translate-y-[3px] focus-visible:-translate-y-[3px] ${
+      className={`group/card flex flex-col gap-3 text-left transition-transform duration-200 ease-out hover:-translate-y-[3px] focus-visible:-translate-y-[3px] ${
         rail ? "w-[min(66vw,244px)] flex-none snap-start" : ""
       }`}
     >
@@ -44,22 +44,23 @@ export function WorkCards({
           />
         )}
       </div>
-      <div className="flex flex-col gap-[7px]">
+      <div className="flex flex-1 flex-col gap-[7px]">
         <span className="text-base font-bold tracking-[-0.01em] text-pz-ink">
           {card.title}
         </span>
         <span className="text-[13px] leading-[1.6] text-pz-ink2">
           {card.tagline}
         </span>
-        <span
-          className="mt-[3px] inline-flex items-center gap-[7px] self-start rounded-full px-[13px] py-[6px] text-[12.5px] font-semibold text-pz-accent transition-colors"
-          style={{
-            border:
-              "1px solid color-mix(in srgb, var(--pz-accent) 40%, transparent)",
-            background: "color-mix(in srgb, var(--pz-accent) 8%, transparent)",
-          }}
-        >
-          Read more <span aria-hidden>→</span>
+        <span className="mt-auto inline-flex items-baseline gap-2 self-start pt-[5px] text-[13px] font-semibold text-pz-accent">
+          <span className="decoration-[1.5px] underline-offset-4 transition-all group-hover/card:underline group-focus-visible/card:underline">
+            Read more
+          </span>
+          <span
+            aria-hidden
+            className="transition-transform duration-200 group-hover/card:translate-x-1 group-focus-visible/card:translate-x-1"
+          >
+            →
+          </span>
         </span>
       </div>
     </Link>

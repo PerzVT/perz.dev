@@ -112,7 +112,7 @@ export function Rail({
 
   return (
     <div
-      className="group relative"
+      className="relative"
       onPointerEnter={() => setPaused(true)}
       onPointerLeave={() => setPaused(false)}
       onFocusCapture={() => setPaused(true)}

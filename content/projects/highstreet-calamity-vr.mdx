@@ -18,51 +18,64 @@ hero: "/projects/highstreet-calamity-vr/trailer.mp4"
 url: "https://www.meta.com/experiences/highstreet-calamity/9352017631510878/"
 ---
 
-<Carousel srcs="/projects/highstreet-calamity-vr/screenshot-01.avif, /projects/highstreet-calamity-vr/screenshot-02.avif, /projects/highstreet-calamity-vr/screenshot-03.avif, /projects/highstreet-calamity-vr/screenshot-04.avif, /projects/highstreet-calamity-vr/screenshot-05.avif" />
+{/* CaseStudy v2 layout. Prose/media re-slotted from the old spine; the
+    section structure matches the comp. Decision titles are drafts of the
+    existing wording, and [to add] items are placeholders for the owner. */}
 
-<Context>
+<ProductProblem>
 
 Multiplayer roguelike VR game for Meta Quest. Wave-based combat into boss encounters, class-based progression, party play.
 
-Joined as Game Designer at the start of the project, applied my skills across multiple disciplines from writing documentation to level design, technical art and shaders. Towards the end of the project I had ownership of the UX and Systems of the game. I worked on the creation of the combat layer and the meta-progression layer.
-
-</Context>
-
-<Problem>
-
 A roguelike on Quest has to stay readable inside the headset. Less peripheral awareness, more decision pressure per wave. The team needed a class and progression structure that gave each player a distinct fantasy without overwhelming combat, plus authoring tools that let designers iterate on hundreds of abilities and enemies without engineering per change.
 
-</Problem>
+<Carousel srcs="/projects/highstreet-calamity-vr/screenshot-01.avif, /projects/highstreet-calamity-vr/screenshot-02.avif, /projects/highstreet-calamity-vr/screenshot-03.avif, /projects/highstreet-calamity-vr/screenshot-04.avif, /projects/highstreet-calamity-vr/screenshot-05.avif" />
 
-<Approach>
+</ProductProblem>
 
-Worked across player-facing systems and the production pipeline behind them.
+<Role>
+<RoleRow label="Owned">UX and Systems — the combat layer and the meta-progression layer</RoleRow>
+<RoleRow label="Designed">Class archetypes and MMO progression, the stats and elemental system, abilities and gesture-casting, wave progression, and global UI guidelines</RoleRow>
+<RoleRow label="Partnered with">[to add]</RoleRow>
+<RoleRow label="Tooling">Unity 6 · DOTS · VR</RoleRow>
+</Role>
 
-- Class archetypes and MMO progression.
-- Stats and elemental system tying damage, resistances, and ability synergies together.
-- Abilities and the gesture-casting system that translates VR motion into ability inputs.
-- Wave progression and combat.
-- Global UI guidelines.
+<Decisions>
+
+<Decision n="01" title="A spreadsheet authoring pipeline, so design owns iteration and engineering owns the engine.">
+
+I was design owner on the Multi-tool, S.A.L.I, Davey's Demure Designs, the Gacha system, and the Ability Creator. The largest was a spreadsheet-based authoring tool: the design team could modify or create abilities, weapons, enemies, wave compositions, consumables, and end-of-game rewards without engineering support per change. Multi-week tuning round-trips collapsed into a same-day loop.
+
+<Carousel srcs="/projects/highstreet-calamity-vr/multitool-base.mp4, /projects/highstreet-calamity-vr/multitool-concept-01.mp4, /projects/highstreet-calamity-vr/multitool-concept-02.mp4, /projects/highstreet-calamity-vr/multitool-concept-03.mp4, /projects/highstreet-calamity-vr/multitool-ideation-01.png, /projects/highstreet-calamity-vr/multitool-ideation-02.png" />
+
+<Figure src="/projects/highstreet-calamity-vr/arc-demo.mp4" />
+
+</Decision>
+
+<Decision n="02" title="Gesture-casting that turns VR motion into readable ability inputs.">
+
+Abilities and a gesture-casting system translate VR motion into ability inputs, kept readable under headset constraints. A stats and elemental system ties damage, resistances, and ability synergies together.
 
 <Carousel srcs="/projects/highstreet-calamity-vr/controls.png, /projects/highstreet-calamity-vr/element-abilities.jpg, /projects/highstreet-calamity-vr/skill-tree.jpg, /projects/highstreet-calamity-vr/skill-example.png" />
 <Confidential />
 
-</Approach>
+</Decision>
 
-<Solution>
+<Decision n="03" title="Class archetypes and MMO-style progression for distinct player fantasies.">
 
-Design owner on the Multi-tool, S.A.L.I, Davey's Demure Designs, the Gacha system, and the Ability Creator tool.
+Class archetypes and MMO progression give each player a distinct fantasy without overwhelming combat, tied together with wave progression and a shared set of global UI guidelines.
 
-<Carousel srcs="/projects/highstreet-calamity-vr/multitool-base.mp4, /projects/highstreet-calamity-vr/multitool-concept-01.mp4, /projects/highstreet-calamity-vr/multitool-concept-02.mp4, /projects/highstreet-calamity-vr/multitool-concept-03.mp4, /projects/highstreet-calamity-vr/multitool-ideation-01.png, /projects/highstreet-calamity-vr/multitool-ideation-02.png" />
+</Decision>
 
-The largest was a spreadsheet-based authoring tool. The design team could modify or create abilities, weapons, enemies, wave compositions, consumables, and end-of-game rewards without engineering support per change. Multi-week tuning round-trips collapsed into a same-day loop.
+</Decisions>
 
-<Figure src="/projects/highstreet-calamity-vr/arc-demo.mp4" />
+<Outcome>
 
-</Solution>
+<Metrics>
+<Metric label="Outcome metric 01" redacted sub="Redacted · NDA" />
+<Metric label="Outcome metric 02" redacted sub="Redacted · NDA" />
+<Metric label="Outcome metric 03" redacted sub="Redacted · NDA" />
+</Metrics>
 
-<CaseCard label="Impact" index="05">
+By the end of the project the design team had authored the full ability and progression layer of the game through that pipeline: design owning iteration, engineering owning the engine. Player-facing numbers are under NDA — I keep an interview version of this section, so ask and I'll walk through the real curves and what moved them.
 
-By the end of the project the design team had authored the full ability and progression layer of the game through that pipeline. The impact of the change helped us expedite our process: design owning iteration, engineering owning the engine.
-
-</CaseCard>
+</Outcome>
