@@ -3,8 +3,9 @@ import { getWorkCards } from "@/lib/content";
 import { WorkCards } from "@/components/site/work-cards";
 
 /**
- * Home "Featured work" — a draggable rail of the project cards, each
- * linking to its case study. "All work →" leads to the full My work grid.
+ * Home "Selected work" — a seamless-looping carousel of project cards
+ * (~3 shown, larger than the mobile rail), each linking to its case
+ * study, with "All work" / "See all work" links to the full grid.
  */
 export function SelectedWork() {
   const cards = getWorkCards();
@@ -16,7 +17,7 @@ export function SelectedWork() {
     >
       <div className="flex items-baseline gap-3.5">
         <h2 className="text-[22px] font-bold tracking-[-0.01em] text-pz-ink">
-          Featured work
+          Selected work
         </h2>
         <Link
           href="/projects"
@@ -27,6 +28,14 @@ export function SelectedWork() {
       </div>
       <div className="mt-7">
         <WorkCards cards={cards} layout="rail" />
+      </div>
+      <div className="mt-9 flex justify-center">
+        <Link
+          href="/projects"
+          className="inline-flex items-center gap-2 rounded-lg border border-pz-border2 px-[22px] py-[11px] text-sm font-semibold text-pz-ink2 transition-colors hover:border-pz-accent hover:text-pz-accent"
+        >
+          See all work <span aria-hidden>→</span>
+        </Link>
       </div>
     </section>
   );

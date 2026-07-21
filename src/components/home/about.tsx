@@ -17,7 +17,7 @@ export function About() {
       className="mt-[clamp(56px,8vh,88px)] border-y border-pz-border bg-pz-raised transition-colors duration-[450ms]"
     >
       <div className="mx-auto flex max-w-[1160px] flex-wrap items-center gap-[clamp(28px,5vw,56px)] px-[clamp(20px,4vw,32px)] py-[clamp(44px,7vh,64px)]">
-        <div className="flex-1 basis-[380px]">
+        <div className="flex-1 basis-[400px]">
           <h2 className="text-[22px] font-bold tracking-[-0.01em] text-pz-ink">
             About me
           </h2>
@@ -32,12 +32,12 @@ export function About() {
           </Link>
         </div>
 
-        <div className="relative aspect-[4/3] w-full max-w-[420px] flex-1 basis-[300px] overflow-hidden rounded-xl border border-pz-border bg-pz-surface">
+        <div className="relative aspect-[4/5] w-full max-w-[340px] flex-1 basis-[260px] overflow-hidden rounded-xl border border-pz-border bg-pz-surface">
           <Image
             src="/percy.jpg"
             alt="Percy"
             fill
-            sizes="(min-width: 1160px) 420px, (min-width: 640px) 45vw, 100vw"
+            sizes="(min-width: 1160px) 340px, (min-width: 640px) 45vw, 100vw"
             placeholder="blur"
             blurDataURL={BLUR_DATA_URL}
             className="object-cover"

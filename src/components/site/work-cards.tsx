@@ -26,7 +26,7 @@ export function WorkCards({
       href={card.caseHref}
       aria-label={`${card.title} — case study`}
       className={`group/card flex flex-col gap-3 text-left transition-transform duration-200 ease-out hover:-translate-y-[3px] focus-visible:-translate-y-[3px] ${
-        rail ? "w-[min(66vw,244px)] flex-none snap-start" : ""
+        rail ? "w-[min(82vw,340px)] flex-none snap-start" : ""
       }`}
     >
       <div className="relative aspect-[2/3] w-full overflow-hidden rounded-[10px] border border-pz-border bg-pz-surface">
@@ -35,7 +35,7 @@ export function WorkCards({
             src={card.image}
             alt={card.title}
             fill
-            sizes={rail ? "244px" : "(min-width: 1160px) 270px, (min-width: 640px) 45vw, 100vw"}
+            sizes={rail ? "340px" : "(min-width: 1160px) 270px, (min-width: 640px) 45vw, 100vw"}
             priority={i === 0}
             placeholder="blur"
             blurDataURL={BLUR_DATA_URL}
