@@ -7,6 +7,7 @@ import { About } from "@/components/home/about";
 import { Experience } from "@/components/home/experience";
 import { Recommendations } from "@/components/home/recommendations";
 import { Contact } from "@/components/home/contact";
+import { Reveal } from "@/components/site/scroll-reveal";
 
 /**
  * Home (Kerberus v2) — a single self-contained page: hero → selected work
@@ -20,11 +21,21 @@ export default function Home() {
       <SiteNav />
       <main id="main-content">
         <Hero />
-        <SelectedWork />
-        <About />
-        <Experience />
-        <Recommendations />
-        <Contact />
+        <Reveal>
+          <SelectedWork />
+        </Reveal>
+        <Reveal>
+          <About />
+        </Reveal>
+        <Reveal>
+          <Experience />
+        </Reveal>
+        <Reveal>
+          <Recommendations />
+        </Reveal>
+        <Reveal>
+          <Contact />
+        </Reveal>
       </main>
       <SiteFooter />
     </>

@@ -54,7 +54,7 @@ export const metadata: Metadata = {
 // Pre-paint theme resolver: reads the persisted mode and stamps
 // `data-pz-mode` on <html> before the body renders, so switching to the
 // light "design" theme never flashes the dark default. Kept tiny + inline.
-const THEME_SCRIPT = `(function(){try{var m=localStorage.getItem('perz.mode');if(m==='design'||m==='dev'){document.documentElement.dataset.pzMode=m;}}catch(e){}})();`;
+const THEME_SCRIPT = `(function(){try{var d=document.documentElement;d.dataset.pzJs='1';var m=localStorage.getItem('perz.mode');if(m==='design'||m==='dev'){d.dataset.pzMode=m;}}catch(e){}})();`;
 
 export default function RootLayout({
   children,
