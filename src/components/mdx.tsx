@@ -71,6 +71,58 @@ function Gallery({
   );
 }
 
+/** Columns — a compact grid of labeled cells (optional image, heading,
+ *  then a short description). Collapses a set of related items (e.g. the
+ *  mods in a suite) into one scannable section instead of a stack of
+ *  full-height sections. `cols` sets the desktop column count. */
+function Columns({
+  children,
+  cols = 4,
+}: {
+  children: ReactNode;
+  cols?: 2 | 3 | 4 | 5;
+}) {
+  const colClass: Record<number, string> = {
+    2: "sm:grid-cols-2",
+    3: "sm:grid-cols-2 lg:grid-cols-3",
+    4: "sm:grid-cols-2 lg:grid-cols-4",
+    5: "sm:grid-cols-2 lg:grid-cols-5",
+  };
+  return (
+    <div className={`my-2 grid grid-cols-1 gap-x-6 gap-y-8 ${colClass[cols]}`}>
+      {children}
+    </div>
+  );
+}
+
+/** One cell inside <Columns>: optional image on top, a heading, a body. */
+function Column({
+  title,
+  body,
+  image,
+}: {
+  title: string;
+  body: string;
+  image?: string;
+}) {
+  return (
+    <div>
+      {image && (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={image}
+          alt={title}
+          className="mb-3 block w-full rounded-[10px] border border-pz-border bg-pz-surface"
+        />
+      )}
+      <h3 className="text-[15px] font-bold tracking-[-0.01em] text-pz-ink">
+        {title}
+      </h3>
+      <p className="mt-1.5 text-[13.5px] leading-[1.6] text-pz-ink2">{body}</p>
+    </div>
+  );
+}
+
 /** Callout — an editorial margin note, not a system alert. */
 function Callout({
   children,
@@ -442,6 +494,8 @@ const components: MDXRemoteProps["components"] = {
   ),
   Figure,
   Gallery,
+  Columns,
+  Column,
   Carousel,
   BrandRow,
   Callout,

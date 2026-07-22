@@ -33,10 +33,16 @@ export function Rail({
   children,
   ariaLabel,
   autoAdvanceMs,
+  mediaFadeHeight,
 }: {
   children: ReactNode;
   ariaLabel: string;
   autoAdvanceMs?: number;
+  /** When set (a CSS length matching the card's media height, e.g.
+   *  "min(123vw,510px)"), soft edge fades cover only that top band, so
+   *  card text never fades. Omit for rails whose cards have no fixed
+   *  media height (e.g. the recommendations quotes). */
+  mediaFadeHeight?: string;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const [paused, setPaused] = useState(false);
@@ -170,9 +176,6 @@ export function Rail({
   const arrowBtn =
     "absolute top-1/2 z-10 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-pz-border2 bg-pz-raised text-pz-ink shadow-[0_6px_20px_rgba(0,0,0,0.28)] transition-colors hover:border-pz-muted sm:flex";
 
-  const edgeFade =
-    "linear-gradient(to right, transparent, #000 28px, #000 calc(100% - 28px), transparent)";
-
   return (
     <div
       className="relative"
@@ -186,10 +189,32 @@ export function Rail({
         role="list"
         aria-label={ariaLabel}
         className="flex cursor-grab select-none gap-4 overflow-x-auto pb-4 [scrollbar-width:none] active:cursor-grabbing [&::-webkit-scrollbar]:hidden"
-        style={{ maskImage: edgeFade, WebkitMaskImage: edgeFade }}
       >
         {track}
       </div>
+
+      {mediaFadeHeight && (
+        <>
+          <div
+            aria-hidden
+            className="pointer-events-none absolute left-0 top-0 z-[2] w-8"
+            style={{
+              height: mediaFadeHeight,
+              background:
+                "linear-gradient(to right, var(--pz-canvas), transparent)",
+            }}
+          />
+          <div
+            aria-hidden
+            className="pointer-events-none absolute right-0 top-0 z-[2] w-8"
+            style={{
+              height: mediaFadeHeight,
+              background:
+                "linear-gradient(to left, var(--pz-canvas), transparent)",
+            }}
+          />
+        </>
+      )}
 
       <button
         type="button"

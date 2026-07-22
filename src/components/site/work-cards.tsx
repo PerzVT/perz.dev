@@ -59,7 +59,9 @@ export function WorkCards({
   ));
 
   return rail ? (
-    <Rail ariaLabel="Projects">{cardEls}</Rail>
+    <Rail ariaLabel="Projects" mediaFadeHeight="min(123vw,510px)">
+      {cardEls}
+    </Rail>
   ) : (
     <div className="grid grid-cols-[repeat(auto-fill,minmax(min(100%,290px),1fr))] gap-x-5 gap-y-10">
       {cardEls}
