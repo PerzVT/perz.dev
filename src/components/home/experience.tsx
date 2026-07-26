@@ -1,4 +1,5 @@
 import { getWork, type WorkEntry } from "@/lib/content";
+import { SectionHeading } from "@/components/site/section-heading";
 
 /**
  * Home "Experience" — the real roles as an editorial table: date, role, and
@@ -22,9 +23,7 @@ export function Experience() {
       id="experience"
       className="mx-auto max-w-[1160px] px-[clamp(20px,4vw,32px)] pt-[clamp(56px,8vh,88px)]"
     >
-      <h2 className="text-[22px] font-bold tracking-[-0.01em] text-pz-ink">
-        Experience
-      </h2>
+      <SectionHeading>Experience</SectionHeading>
       <div className="mt-3.5 border-t border-pz-border">
         {roles.map((w) => (
           <div
