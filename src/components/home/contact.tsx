@@ -16,7 +16,7 @@ export function Contact() {
         <h2 className="text-[clamp(26px,3vw,32px)] font-bold tracking-[-0.015em] text-pz-ink">
           Let&apos;s talk.
         </h2>
-        <p className="mt-3.5 max-w-[44ch] text-[15px] leading-[1.7] text-pz-ink2">
+        <p className="mt-3.5 max-w-[44ch] text-[16px] leading-[1.7] text-pz-ink2">
           Open to game design roles, and always up to talk shop. Say hi.
         </p>
         <a

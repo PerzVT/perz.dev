@@ -51,7 +51,7 @@ export default function ResumePage() {
                   className="pz-skeleton h-[13px] w-[170px]"
                   aria-label="Full name pending"
                 />
-                <span className="text-[10.5px] text-pz-faint">
+                <span className="text-[11px] text-pz-faint">
                   full name — owner supplies
                 </span>
               </span>
@@ -74,7 +74,7 @@ export default function ResumePage() {
         </div>
 
         {/* Summary */}
-        <p className="mt-[26px] max-w-[66ch] text-[15px] leading-[1.75] text-pz-ink2 [animation:perzRise_.5s_var(--ease-out)_.12s_both]">
+        <p className="mt-[26px] max-w-[66ch] text-[16px] leading-[1.75] text-pz-ink2 [animation:perzRise_.5s_var(--ease-out)_.12s_both]">
           {siteConfig.about}
         </p>
 

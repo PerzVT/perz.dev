@@ -103,7 +103,8 @@ html[data-pz-mode="dev"] {
   --pz-ink: #edeff1;
   --pz-ink2: #a7adb4;
   --pz-muted: #7a8087;
-  --pz-faint: #5a6068;
+  /* 4.6:1 on canvas — was #5a6068 (3.1:1), below WCAG AA for small text. */
+  --pz-faint: #767b82;
   --pz-accent: #3ecfb2;
   --pz-on-accent: #06231e;
   --pz-field: #101216;
@@ -121,10 +122,17 @@ html[data-pz-mode="design"] {
   --pz-border2: #cfc7b5;
   --pz-ink: #221e26;
   --pz-ink2: #565060;
-  --pz-muted: #8a8494;
-  --pz-faint: #b8b2a6;
-  --pz-accent: #d8431e;
-  --pz-on-accent: #fff7f2;
+  /* Light-theme de-emphasis tiers were far below WCAG AA on paper:
+     muted 3.3:1, faint 1.9:1 (near-invisible), accent 4.0:1 at small
+     sizes. Retuned to ~4.5:1, hue preserved. */
+  --pz-muted: #716c79;
+  --pz-faint: #726e67;
+  /* Cobalt, not the old ember #d8431e: the orange read as someone else's
+     brand and was the weakest colour on the page (4.0:1). Cobalt hits
+     6.0:1 on paper and sits in the same cool family as the dark theme's
+     teal, so the two modes read as one identity. */
+  --pz-accent: #1b4fd8;
+  --pz-on-accent: #f4f7ff;
   --pz-field: #ffffff;
   --pz-danger: #cc3b31;
   color-scheme: light;
