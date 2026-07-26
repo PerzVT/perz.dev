@@ -3,7 +3,6 @@
 import { useEffect, useRef } from "react";
 import { siteConfig } from "@/lib/config";
 import { useReveal } from "@/lib/reveal";
-import { Button } from "@/components/site/button";
 
 /**
  * Home hero — the positioning line over a looping, low-opacity background
@@ -71,11 +70,6 @@ export function Hero() {
         <p className="m-0 max-w-[34ch] text-[clamp(22px,2.4vw,27px)] font-medium leading-[1.5] tracking-[-0.011em] text-pz-ink [animation:perzRise_.5s_var(--ease-out)_.05s_both] [text-wrap:pretty]">
           {siteConfig.positioning}
         </p>
-        <div className="mt-[26px] [animation:perzRise_.5s_var(--ease-out)_.14s_both]">
-          <Button href="#contact" size="lg" className="pointer-events-auto">
-            Contact me
-          </Button>
-        </div>
       </div>
     </header>
   );

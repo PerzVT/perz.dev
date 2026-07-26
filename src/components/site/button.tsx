@@ -39,7 +39,8 @@ export function Button({
   size = "md",
   icon,
   iconAfter,
-  accent,
+  accentBg,
+  accentFg = "#ffffff",
   external,
   className = "",
   ...rest
@@ -52,8 +53,12 @@ export function Button({
   icon?: ReactNode;
   /** Trailing icon — use for arrows so they sit after the label. */
   iconAfter?: ReactNode;
-  /** Override the primary fill, e.g. Meta blue or Discord blurple. */
-  accent?: { bg: string; fg: string };
+  /** Override the primary fill for partner CTAs, e.g. Meta blue
+   *  "#0064e0" or Discord blurple "#5865f2". Two plain strings rather
+   *  than one object: MDX drops object- and array-literal props, so a
+   *  <Banner accent={{...}}> inside a case study would silently lose it. */
+  accentBg?: string;
+  accentFg?: string;
   external?: boolean;
   className?: string;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>) {
@@ -63,8 +68,8 @@ export function Button({
   // Partner CTAs (Meta blue, Discord blurple) drive the gradient and the
   // tinted shadow through --pz-btn-bg, so the depth treatment follows the
   // colour instead of being hardcoded to the site accent.
-  const style = accent
-    ? ({ "--pz-btn-bg": accent.bg, color: accent.fg } as React.CSSProperties)
+  const style = accentBg
+    ? ({ "--pz-btn-bg": accentBg, color: accentFg } as React.CSSProperties)
     : undefined;
 
   const inner = (

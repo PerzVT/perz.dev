@@ -23,7 +23,8 @@ export function Banner({
   body,
   ctaLabel,
   ctaHref,
-  accent,
+  accentBg,
+  accentFg,
   icon,
   align = "left",
   priority,
@@ -35,7 +36,10 @@ export function Banner({
   body?: string;
   ctaLabel: string;
   ctaHref: string;
-  accent?: { bg: string; fg: string };
+  /** Partner button colour, e.g. "#0064e0". Plain strings, not an
+   *  object — MDX silently drops object-literal props. */
+  accentBg?: string;
+  accentFg?: string;
   icon?: ReactNode;
   align?: "left" | "center";
   priority?: boolean;
@@ -94,7 +98,8 @@ export function Banner({
         <Button
           href={ctaHref}
           size="lg"
-          accent={accent}
+          accentBg={accentBg}
+          accentFg={accentFg}
           icon={icon}
           className="flex-none"
         >
