@@ -26,20 +26,22 @@ export function SiteNav() {
   return (
     <nav className="sticky top-0 z-50 border-b border-pz-border bg-pz-canvas transition-colors duration-[450ms]">
       <div className="mx-auto flex h-16 max-w-[1160px] items-center gap-[clamp(14px,2vw,24px)] px-[clamp(20px,4vw,32px)]">
-        <Link
-          href="/"
-          onMouseEnter={() => setReveal(true)}
-          onMouseLeave={() => setReveal(false)}
-          onFocus={() => setReveal(true)}
-          onBlur={() => setReveal(false)}
-          aria-label="Home"
-          className="mr-auto flex items-center gap-2.5 text-pz-ink"
-        >
-          <Sprite size={30} />
-          <span className="pz-wordmark text-base leading-[22px]">
+        {/* The sprite is its own button (click cycles the mascot) and sits
+            outside the home link, so the easter egg never navigates. */}
+        <div className="mr-auto flex items-center gap-2.5">
+          <Sprite size={30} cycleOnClick />
+          <Link
+            href="/"
+            onMouseEnter={() => setReveal(true)}
+            onMouseLeave={() => setReveal(false)}
+            onFocus={() => setReveal(true)}
+            onBlur={() => setReveal(false)}
+            aria-label="Home"
+            className="pz-wordmark text-base leading-[22px] text-pz-ink"
+          >
             {siteConfig.name}
-          </span>
-        </Link>
+          </Link>
+        </div>
 
         {LINKS.map((l) => {
           const active = l.match(pathname);
