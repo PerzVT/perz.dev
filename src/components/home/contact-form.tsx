@@ -14,7 +14,7 @@ const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 type Errors = { name?: string; email?: string; message?: string };
 
 const fieldBase =
-  "rounded-lg border bg-pz-field px-[13px] py-[11px] text-sm text-pz-ink outline-none transition-colors focus:border-pz-accent";
+  "pz-field rounded-lg border bg-pz-field px-[13px] py-[11px] text-sm text-pz-ink outline-none transition-colors focus:border-pz-accent";
 
 export function ContactForm() {
   const [name, setName] = useState("");

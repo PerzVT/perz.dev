@@ -395,7 +395,7 @@ function OutcomePoints({ children }: { children: ReactNode }) {
 /** One checkmark outcome card. Use <strong> to emphasise the lead. */
 function OutcomePoint({ children }: { children: ReactNode }) {
   return (
-    <div className="flex items-start gap-3.5 rounded-xl border border-pz-border bg-pz-raised px-[18px] py-4">
+    <div className="pz-panel flex items-start gap-3.5 rounded-xl border border-pz-border bg-pz-raised px-[18px] py-4">
       <Check
         className="mt-0.5 h-4 w-4 flex-none text-pz-accent"
         strokeWidth={2.4}

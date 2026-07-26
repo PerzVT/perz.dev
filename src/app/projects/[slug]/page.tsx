@@ -225,7 +225,7 @@ export default async function ProjectPage({ params }: { params: Params }) {
 
             {rows.length > 0 && (
               <div className="min-w-[260px] flex-[1_1_300px]">
-                <div className="rounded-xl border border-pz-border bg-pz-raised px-[18px] py-1">
+                <div className="pz-panel rounded-xl border border-pz-border bg-pz-raised px-[18px] py-1">
                   {rows.map((r, i) => (
                     <div
                       key={r.label}
