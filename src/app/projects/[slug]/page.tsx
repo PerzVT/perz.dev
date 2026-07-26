@@ -40,6 +40,12 @@ export async function generateMetadata({
     title,
     description,
     alternates: { canonical },
+    // Coming-soon projects render a placeholder sign-in, not a case
+    // study. Keep them out of search so nobody lands on a bare form;
+    // still follow links out of the page.
+    ...(project.frontmatter.status === "coming-soon"
+      ? { robots: { index: false, follow: true } }
+      : {}),
     openGraph: {
       title: `${title} · ${siteConfig.role}`,
       description,
