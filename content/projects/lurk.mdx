@@ -14,24 +14,34 @@ release: "TBD"
 employment: "Student project · Knite"
 image: "/projects/lurk/cover.png"
 url: ""
+contributions:
+  - "Owned the core loop and kept it carrying the story instead of interrupting it"
+  - "Designed the puzzle mechanics and the probability system underneath them"
+  - "Shaped level design and lighting around the narrative beats"
+skills:
+  - "Game design"
+  - "Level design"
+  - "Systems design"
+  - "Unity 6"
+  - "Technical art"
 ---
 
-<CaseCard label="Overview" index="01">
+{/* Migrated to CaseStudy v2. Prose is the owner's own, restructured.
+    COPY NEEDED markers flag gaps to fill before this ships. */}
 
-Single-player first-person horror. The player explores a house inherited from the 1800s, uncovering the building's history and the paranormal that comes with it.
+<MediaReel srcs="/projects/lurk/screenshot-01.webp, /projects/lurk/screenshot-02.avif, /projects/lurk/screenshot-03.avif, /projects/lurk/screenshot-04.avif" />
 
-<Carousel srcs="/projects/lurk/screenshot-01.webp, /projects/lurk/screenshot-02.avif, /projects/lurk/screenshot-03.avif, /projects/lurk/screenshot-04.avif" />
+<Highlight n="01" kicker="Core loop" title="A loop that carries the story." body="The player explores a house inherited from the 1800s, uncovering the building's history and the paranormal that came with it. The experience is built on narrative puzzle-solving rather than action, so the loop had to move the story forward without ever cutting across it." />
 
-</CaseCard>
+<Highlight n="02" kicker="Puzzles" title="Probability under the puzzles." body="Puzzle mechanics backed by a probability system, so the house stays unpredictable across playthroughs without the puzzles themselves becoming unfair." flip>
+<Gallery columns={2} srcs="/projects/lurk/screenshot-02.avif, /projects/lurk/screenshot-03.avif" />
+</Highlight>
 
-<CaseCard label="My Role" index="02">
+<Highlight n="03" kicker="Space and light" title="Dread built into the room." body="Level design shaped around the narrative beats, with lighting and optimisation work across the house, plus technical art and shaders carrying the visual language. In horror the lighting is not decoration, it is the pacing." />
 
-Game designer. Owned the core loop and kept it compatible with the narrative beats, since the experience is built around narrative puzzle-solving rather than action.
-
-- Core gameplay loop. Carries the story without interrupting it.
-- Puzzle mechanics and the probability system underneath.
-- Lighting and optimisation across the house.
-- Level design, shaping stages around the narrative.
-- Technical art and shaders for the visual language.
-
-</CaseCard>
+{/* COPY NEEDED — the whole outcome. The old page had no outcome section
+    at all, so the study currently stops after the work. What happened to
+    Lurk? Was it playtested, shown, shipped to Steam, or shelved? Release
+    is still "TBD" in the frontmatter. Even "paused" is a real ending and
+    better than none. Also worth one line: what made the horror actually
+    land for a playtester. */}

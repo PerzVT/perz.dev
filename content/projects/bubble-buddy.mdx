@@ -18,31 +18,45 @@ employment: "Game jam · Team Buddies"
 image: "/projects/bubble-buddy/cover.png"
 hero: "/projects/bubble-buddy/trailer.mp4"
 url: "https://notperz.itch.io/bubble-buddy"
+contributions:
+  - "Designed the size, speed, and health trade-off that every run turns on"
+  - "Built a weapon that spends your own body, so attacking always costs something"
+  - "Made all the art and UI, plus the design docs that kept the team aligned"
+skills:
+  - "Game design"
+  - "Systems design"
+  - "2D art"
+  - "Animation"
+  - "Unity 6"
 ---
 
-<CaseCard label="Overview" index="01">
+{/* Migrated to CaseStudy v2. Prose is the owner's own, restructured.
+    COPY NEEDED markers flag gaps to fill before this ships. */}
 
-2D action game built in 32 hours for Global Game Jam 2025. You play as a bubble. Firing parts of yourself is how you attack, which is also how you lose health. Size, speed, and survival all tied to the same resource.
+<MediaReel srcs="/projects/bubble-buddy/screenshot-03-gameplay.png, /projects/bubble-buddy/screenshot-02-controls.png, /projects/bubble-buddy/screenshot-04-enemies.png, /projects/bubble-buddy/screenshot-05-team.png" />
 
-<Carousel srcs="/projects/bubble-buddy/screenshot-03-gameplay.png, /projects/bubble-buddy/screenshot-02-controls.png, /projects/bubble-buddy/screenshot-04-enemies.png, /projects/bubble-buddy/screenshot-05-team.png" />
+<Highlight n="01" kicker="One resource" title="You are the weapon." body="You play as a bubble, and firing parts of yourself is how you attack. It is also how you lose health. Size, speed, and survival all run off the same resource, so every shot is a decision about how much of yourself you can afford to spend." />
 
-</CaseCard>
+<Highlight n="02" kicker="Pressure" title="Enemies that force the trade." body="Enemy archetypes with distinct behaviour patterns, plus bubble drops, spawn patterns, and difficulty scaling. The tuning job was making players feel the squeeze without making the trade-off feel unfair." flip>
+<Gallery columns={2} srcs="/projects/bubble-buddy/screenshot-04-enemies.png, /projects/bubble-buddy/screenshot-02-controls.png" />
+</Highlight>
 
-<CaseCard label="My Role" index="02">
+<Highlight n="03" kicker="32 hours" title="Design docs as jam infrastructure." body="I made all the art and UI for the game, and wrote design documentation so four people could stay aligned under jam pressure. On a 32-hour build the documentation is not overhead, it is the only thing keeping everyone building the same game." />
 
-Game designer, systems designer, 2D artist, and animator.
+<Outcome title="Where it landed.">
 
-- Core size / speed / health trade-off.
-- Self-firing weapon mechanic that costs health to use.
-- Enemy archetypes with distinct behaviour patterns.
-- Bubble drops, spawn patterns, difficulty scaling.
-- All art and UI for the game.
-- Design documentation so the team could align under jam pressure.
+Shipped by the jam deadline, and the team kept extending it past the initial build.
 
-</CaseCard>
+{/* COPY NEEDED — the interesting part is that the team KEPT GOING after
+    the deadline. Why? What did the jam build prove that made it worth
+    continuing, and what got added after? That is the strongest thing
+    this project can say. */}
 
-<CaseCard label="Outcome" index="03">
+<OutcomePoints>
+<OutcomePoint><strong>Shipped playable in 32 hours</strong>, built and submitted inside the Global Game Jam deadline.</OutcomePoint>
+<OutcomePoint><strong>The team kept building it after the jam ended</strong>, past the version that was submitted.</OutcomePoint>
+{/* COPY NEEDED — a third point: what the core mechanic proved, or what
+    players did with the trade-off that you did not expect. */}
+</OutcomePoints>
 
-Shipped by the jam deadline. The team kept extending it past the initial build.
-
-</CaseCard>
+</Outcome>

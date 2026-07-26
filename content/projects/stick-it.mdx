@@ -16,30 +16,51 @@ release: "Dec 2024"
 employment: "Student project · Knite Studios"
 image: "cover.png"
 url: "https://knitestudios.itch.io/stick-it"
+contributions:
+  - "Designed the stealth loop: detection cones, noise, distraction, and cover rules"
+  - "Built guard AI across patrol, suspicion, and pursuit states"
+  - "Ran the team across art, programming, design, and UI on a seven-day deadline"
+skills:
+  - "Game design"
+  - "Systems design"
+  - "UI design"
+  - "Project management"
+  - "Unity 6"
 ---
 
-<CaseCard label="Overview" index="01">
+{/* Migrated to CaseStudy v2. Prose is the owner's own, restructured.
+    COPY NEEDED markers flag gaps to fill before this ships. */}
 
-Short stealth-action game built in seven days by a four-person team at Knite Studios. The player is a farmer named Pedro sneaking through cartel territory.
+<MediaReel srcs="/projects/stick-it/screenshot-01.avif, /projects/stick-it/screenshot-02.avif, /projects/stick-it/screenshot-03.avif, /projects/stick-it/screenshot-04.webp" />
 
-<Carousel srcs="/projects/stick-it/screenshot-01.avif, /projects/stick-it/screenshot-02.avif, /projects/stick-it/screenshot-03.avif, /projects/stick-it/screenshot-04.webp" />
+<Highlight n="01" kicker="Stealth loop" title="Rules the player can read." body="Detection cones, noise propagation, distraction, and cover rules. Stealth only works when the player can predict it, so the whole loop is built to be legible: you should always be able to tell why you were seen." />
 
-</CaseCard>
+<Highlight n="02" kicker="Guard AI" title="Patrol, suspicion, pursuit." body="Guards move through three states, and the state they are in has to be obvious at a glance. That readability is what turns a failure into a lesson instead of a surprise." flip>
+<Gallery columns={2} srcs="/projects/stick-it/screenshot-02.avif, /projects/stick-it/screenshot-03.avif" />
+</Highlight>
 
-<CaseCard label="My Role" index="02">
+<Highlight n="03" kicker="Progression" title="One new tool at a time." body="Each level introduced a single new tool against a stable rule set, so players compounded what they already knew instead of relearning the game. The UI and HUD carried the detection-state grammar that made the rules visible." />
 
-Project manager and lead designer.
+<Highlight n="04" kicker="Running the team" title="Seven days, four people." body="I ran coordination across art, programming, design, and UI against a hard deadline, on top of designing the game. Scope discipline was the real job: deciding what not to build so the thing shipped playable end to end." />
 
-- Core stealth loop. Detection cones, noise propagation, distraction, cover rules.
-- Guard AI across patrol, suspicion, and pursuit states.
-- Progression. Each level introduced one new tool against a stable rule set.
-- UI and HUD, including the detection-state grammar.
-- Team coordination across art, programming, design, and UI under a hard deadline.
+<Outcome title="Where it landed.">
 
-</CaseCard>
+Shipped on itch.io by the deadline, playable end to end.
 
-<CaseCard label="Outcome" index="03">
+{/* COPY NEEDED — what came back. Did anyone play it outside the team,
+    and did the stealth rules read the way you intended? One concrete
+    piece of player feedback would carry this whole study. */}
 
-Shipped on itch.io by the jam deadline. Playable end-to-end.
+<OutcomePoints>
+<OutcomePoint><strong>Shipped on itch.io in seven days</strong>, complete and playable end to end.</OutcomePoint>
+<OutcomePoint><strong>Four people, one deadline, no cut ending</strong>, coordinated across art, programming, design, and UI.</OutcomePoint>
+{/* COPY NEEDED — a third point: what the stealth design proved, or what
+    you would change with more time. */}
+</OutcomePoints>
 
-</CaseCard>
+</Outcome>
+
+{/* COPY NEEDED — small conflict to resolve: the page description says
+    Pedro fights "a corrupt agri-corp" but the old overview said he
+    sneaks through "cartel territory". Both are your words. Tell me which
+    is right and I will make them match. */}

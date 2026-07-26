@@ -110,9 +110,11 @@ function Hero({ src, poster }: { src: string; poster?: string }) {
             className="object-cover"
           />
         )}
-        <span className="pointer-events-none absolute left-3.5 top-3.5 rounded-md border border-white/15 bg-black/60 px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.08em] text-white backdrop-blur-sm">
-          Trailer
-        </span>
+        {isVideo && (
+          <span className="pointer-events-none absolute left-3.5 top-3.5 rounded-md border border-white/15 bg-black/60 px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.08em] text-white backdrop-blur-sm">
+            Trailer
+          </span>
+        )}
       </div>
     </figure>
   );
