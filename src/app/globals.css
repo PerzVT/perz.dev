@@ -110,7 +110,9 @@
   --pz-ink2: #a8a8aa;
   --pz-muted: #828285; /* 5.1:1 canvas / 4.9:1 raised */
   --pz-faint: #808083; /* 5.0:1 canvas / 4.7:1 raised */
-  --pz-accent: #3ec9ad;
+  /* Greener and softer than the old electric teal, which read chunky
+     wherever it filled a shape. */
+  --pz-accent: #6cc79a;
   --pz-on-accent: #06231e;
   --pz-field: #101216;
   --pz-danger: #e5705f;
@@ -122,7 +124,23 @@
     @apply border-border outline-ring/50;
   }
   body {
-    background: var(--pz-canvas);
+    /* Not flat black: two very low-opacity accent washes bleed into the
+       canvas, one from the top edge and one from the bottom right, so
+       the page has colour in it rather than sitting on a dead field.
+       Fixed attachment keeps them still while content scrolls. */
+    background:
+      radial-gradient(
+        128% 66% at 50% -12%,
+        color-mix(in srgb, var(--pz-accent) 9%, transparent),
+        transparent 62%
+      ),
+      radial-gradient(
+        86% 58% at 108% 104%,
+        color-mix(in srgb, var(--pz-accent) 6%, transparent),
+        transparent 58%
+      ),
+      var(--pz-canvas);
+    background-attachment: fixed;
     color: var(--pz-ink);
     font-family: var(--font-sans);
     line-height: var(--body-leading);
@@ -213,15 +231,18 @@
   /* A real gradient, not a flat fill with a hint of light: the top third
      lifts toward white and the bottom sinks, which is what reads as
      "finished" rather than "a coloured rectangle". */
+  /* Deep falloff so the bottom of the button sinks toward the page
+     instead of sitting on it as a saturated slab. The top highlight is
+     gentle — a hard white edge is what makes a fill read as plastic. */
   background-image: linear-gradient(
-    170deg,
-    color-mix(in srgb, var(--pz-btn-bg, var(--pz-accent)) 100%, white 26%) 0%,
-    var(--pz-btn-bg, var(--pz-accent)) 52%,
-    color-mix(in srgb, var(--pz-btn-bg, var(--pz-accent)) 100%, black 16%) 100%
+    168deg,
+    color-mix(in srgb, var(--pz-btn-bg, var(--pz-accent)) 100%, white 18%) 0%,
+    var(--pz-btn-bg, var(--pz-accent)) 42%,
+    color-mix(in srgb, var(--pz-btn-bg, var(--pz-accent)) 100%, black 34%) 100%
   );
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.34),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2),
     0 2px 5px color-mix(in srgb, var(--pz-btn-bg, var(--pz-accent)) 28%, transparent),
     0 8px 22px color-mix(in srgb, var(--pz-btn-bg, var(--pz-accent)) 22%, transparent);
 }
