@@ -27,7 +27,7 @@ export default function WorkPage() {
           <h1 className="text-[clamp(28px,3.6vw,38px)] font-bold tracking-[-0.018em] text-pz-ink [animation:perzRise_.5s_var(--ease-out)_.05s_both]">
             My work
           </h1>
-          <p className="mt-3 max-w-[52ch] text-[15px] leading-[1.7] text-pz-ink2 [animation:perzRise_.5s_var(--ease-out)_.12s_both]">
+          <p className="mt-3 max-w-[52ch] text-[16px] leading-[1.7] text-pz-ink2 [animation:perzRise_.5s_var(--ease-out)_.12s_both]">
             My latest adventure has been working with the talented team at
             Highstreet. I still make modded content on the side and enter
             game-jams to keep things exciting!
