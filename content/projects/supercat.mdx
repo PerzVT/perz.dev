@@ -15,29 +15,59 @@ employment: "Student project · Smooth Brain Games"
 image: "/projects/supercat/cover.avif"
 hero: "/projects/supercat/trailer.mp4"
 url: ""
+contributions:
+  - "Designed the core movement kit, every input combinable with every other"
+  - "Built state-dependent weapons that behave differently sliding, airborne, and grounded"
+  - "Blocked out levels where the space itself teaches the kit"
+skills:
+  - "Game design"
+  - "Systems design"
+  - "Level design"
+  - "Unity 6"
+  - "Technical art"
 ---
 
-<CaseCard label="Overview" index="01">
+{/* Migrated to CaseStudy v2 (media-forward). All prose below is the
+    owner's own from the previous version, restructured. COPY NEEDED
+    markers flag the gaps that need his facts before this ships. */}
 
-Fast-paced action platformer. Wall-run, pounce, slide-jump, ramp-hop. Combat chains into parkour. Movement and combat share inputs so combos are emergent, not scripted.
+<MediaReel srcs="/projects/supercat/screenshot-02.avif, /projects/supercat/screenshot-03.avif, /projects/supercat/screenshot-04.avif, /projects/supercat/screenshot-05.avif, /projects/supercat/screenshot-06.avif" />
 
-Previously called Project Gigi.
+<Highlight n="01" kicker="Movement kit" title="Every input combines with every other." body="Wall-run, pounce, slide-jump, ramp-hop. Movement and combat share inputs, so combos are emergent rather than scripted: the kit gives players a vocabulary instead of a list of moves." />
 
-<Carousel srcs="/projects/supercat/screenshot-02.avif, /projects/supercat/screenshot-03.avif, /projects/supercat/screenshot-04.avif, /projects/supercat/screenshot-05.avif, /projects/supercat/screenshot-06.avif" />
+{/* COPY NEEDED — Highlight 01 media: a clip showing a combo chain
+    (wall-run into pounce, or slide-jump into attack). Drop it in
+    public/projects/supercat/ and add <Figure src="..." /> above. */}
 
-</CaseCard>
+<Highlight n="02" kicker="State-dependent weapons" title="The same weapon, three different tools." body="A weapon behaves differently depending on what the player is doing with it: sliding, airborne, or grounded. One input, read three ways, so mastery comes from knowing when to use which state rather than from memorising more buttons." flip>
+<Gallery columns={2} srcs="/projects/supercat/screenshot-03.avif, /projects/supercat/screenshot-05.avif" />
+</Highlight>
 
-<CaseCard label="My Role" index="02">
+<Highlight n="03" kicker="Levels as teaching" title="The space teaches the kit." body="Whitebox and blockout level design built so the geometry introduces each mechanic in the order players need it, and the combat loop rewards pushing forward instead of backing off." />
 
-Game designer.
+{/* COPY NEEDED — Highlight 03 media: a blockout / whitebox screenshot
+    or a before-and-after of a greybox next to the art pass. This is the
+    strongest evidence of design process, worth including if it exists. */}
 
-- Core movement kit. Every input combinable with every other input.
-- State-dependent weapon mechanics. Same weapon behaves differently sliding, airborne, or grounded.
-- Combat loop that incentivises pushing forward instead of backing off.
-- Reward loops driving replayability and mastery.
-- Whitebox / blockout level design where the space teaches the kit.
-- Technical art and shaders supporting the visual language.
+{/* COPY NEEDED — optional Highlight 04 on the reward loops driving
+    replayability and mastery. The old page listed them as a
+    responsibility but never explained what they were. What did players
+    earn, and what made them start another run? */}
 
-Brought the project out to booths in Edmonton and Calgary, and pitched at Indie Ignition Accelerator and other publishers. Currently paused due to lack of funding.
+<Outcome title="Where it landed.">
 
-</CaseCard>
+Supercat went out to booths in Edmonton and Calgary and was pitched at the Indie Ignition Accelerator and to other publishers. It is paused for funding.
+
+{/* COPY NEEDED — what came back. Anything real from the booths or the
+    pitches: what players did with the movement kit that surprised you,
+    what feedback changed the design, how far the publisher conversations
+    got. One concrete observation beats three adjectives. No invented
+    numbers. */}
+
+<OutcomePoints>
+<OutcomePoint><strong>Shown at booths in Edmonton and Calgary</strong> and pitched at the Indie Ignition Accelerator and to other publishers.</OutcomePoint>
+<OutcomePoint><strong>Movement and combat share one input vocabulary</strong>, so combos emerge from the kit instead of being scripted.</OutcomePoint>
+{/* COPY NEEDED — a third point: the outcome or lesson worth stating. */}
+</OutcomePoints>
+
+</Outcome>
