@@ -33,7 +33,7 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 
   /* Kerberus v2 — semantic palette bound to the runtime --pz-* theme
-     vars (defined per data-pz-mode below). Gives ergonomic utilities:
+     vars (defined on :root below). Gives ergonomic utilities:
      bg-pz-canvas, text-pz-ink, border-pz-border, text-pz-accent, etc. */
   --color-pz-canvas: var(--pz-canvas);
   --color-pz-raised: var(--pz-raised);
@@ -89,12 +89,13 @@
 }
 
 /* =========================================================
-   Kerberus v2 dual theme — the --pz-* source of truth.
-   Default (no attr) + explicit "dev" = dark/teal.
-   "design" = warm-paper/ember (light).
+   Kerberus v2 palette — the --pz-* source of truth. Single
+   dark theme (near-black + teal). A warm-paper light mode
+   existed until 2026-07-26 and was dropped: it doubled the
+   visual-QA cost, and every contrast failure in the
+   accessibility audit was in that theme.
    ========================================================= */
-:root,
-html[data-pz-mode="dev"] {
+:root {
   --pz-canvas: #0b0c0e;
   --pz-raised: #101216;
   --pz-surface: #14171b;
@@ -109,33 +110,7 @@ html[data-pz-mode="dev"] {
   --pz-on-accent: #06231e;
   --pz-field: #101216;
   --pz-danger: #e5705f;
-}
-html[data-pz-mode="dev"] {
   color-scheme: dark;
-}
-
-html[data-pz-mode="design"] {
-  --pz-canvas: #f6f3ed;
-  --pz-raised: #fcfaf6;
-  --pz-surface: #efebe2;
-  --pz-border: #e2dccf;
-  --pz-border2: #cfc7b5;
-  --pz-ink: #221e26;
-  --pz-ink2: #565060;
-  /* Light-theme de-emphasis tiers were far below WCAG AA on paper:
-     muted 3.3:1, faint 1.9:1 (near-invisible), accent 4.0:1 at small
-     sizes. Retuned to ~4.5:1, hue preserved. */
-  --pz-muted: #716c79;
-  --pz-faint: #726e67;
-  /* Cobalt, not the old ember #d8431e: the orange read as someone else's
-     brand and was the weakest colour on the page (4.0:1). Cobalt hits
-     6.0:1 on paper and sits in the same cool family as the dark theme's
-     teal, so the two modes read as one identity. */
-  --pz-accent: #1b4fd8;
-  --pz-on-accent: #f4f7ff;
-  --pz-field: #ffffff;
-  --pz-danger: #cc3b31;
-  color-scheme: light;
 }
 
 @layer base {
