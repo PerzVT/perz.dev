@@ -116,7 +116,7 @@ function Column({
           className="mb-3 block w-full rounded-[10px] border border-pz-border bg-pz-surface"
         />
       )}
-      <h3 className="text-[15px] font-bold tracking-[-0.01em] text-pz-ink">
+      <h3 className="text-[15px] font-bold tracking-[-0.018em] text-pz-ink">
         {title}
       </h3>
       <p className="mt-1.5 text-[15px] leading-[1.6] text-pz-ink2">{body}</p>
@@ -171,7 +171,7 @@ function CaseSection({
       {index && (
         <div className="text-xs font-semibold text-pz-faint">{index}</div>
       )}
-      <h2 className="mt-2 text-[22px] font-bold tracking-[-0.012em] text-pz-ink">
+      <h2 className="mt-2 text-[22px] font-bold tracking-[-0.022em] text-pz-ink">
         {label}
       </h2>
       <div className="mt-3.5 [&>:first-child]:mt-0">{children}</div>
@@ -248,7 +248,7 @@ function Impact({ children }: { children: ReactNode }) {
       className="mt-[clamp(40px,6vh,60px)] first:mt-0"
     >
       <div className="text-xs font-semibold text-pz-faint">05</div>
-      <h2 className="mt-2 text-[22px] font-bold tracking-[-0.012em] text-pz-ink">
+      <h2 className="mt-2 text-[22px] font-bold tracking-[-0.022em] text-pz-ink">
         Impact
       </h2>
       <div className="mt-5 grid grid-cols-1 gap-x-10 gap-y-7 sm:grid-cols-2 lg:grid-cols-3">
@@ -270,7 +270,7 @@ function ImpactStat({
 }) {
   return (
     <div className="flex flex-col gap-1.5">
-      <span className="text-4xl font-bold leading-none tracking-[-0.02em] text-pz-ink sm:text-5xl">
+      <span className="text-4xl font-bold leading-none tracking-[-0.032em] text-pz-ink sm:text-5xl">
         {number}
       </span>
       <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-pz-muted">
@@ -293,7 +293,7 @@ function ImpactQuote({
 }) {
   return (
     <figure className="col-span-full">
-      <blockquote className="text-xl font-semibold italic leading-snug tracking-[-0.01em] text-pz-ink sm:text-2xl">
+      <blockquote className="text-xl font-semibold italic leading-snug tracking-[-0.018em] text-pz-ink sm:text-2xl">
         “{children}”
       </blockquote>
       <figcaption className="mt-3 text-[11px] font-semibold uppercase tracking-[0.14em] text-pz-muted">
@@ -347,7 +347,7 @@ function Highlight({
         <div className="text-[11px] font-bold uppercase tracking-[0.09em] text-pz-accent">
           Highlight {n} · {kicker}
         </div>
-        <h2 className="mt-2.5 text-[21px] font-bold tracking-[-0.012em] text-pz-ink">
+        <h2 className="mt-2.5 text-[21px] font-bold tracking-[-0.022em] text-pz-ink">
           {title}
         </h2>
         <p className="mt-3 max-w-[52ch] text-[16px] leading-[1.7] text-pz-ink2">
@@ -379,7 +379,7 @@ function Outcome({
       <div className="text-[11px] font-bold uppercase tracking-[0.09em] text-pz-accent">
         Outcome
       </div>
-      <h2 className="mt-2.5 text-[22px] font-bold tracking-[-0.012em] text-pz-ink">
+      <h2 className="mt-2.5 text-[22px] font-bold tracking-[-0.022em] text-pz-ink">
         {title}
       </h2>
       <div className="mt-3.5 [&>:first-child]:mt-0">{children}</div>
@@ -436,13 +436,13 @@ function MdxLink(props: React.AnchorHTMLAttributes<HTMLAnchorElement>) {
 const components: MDXRemoteProps["components"] = {
   h2: (props) => (
     <h2
-      className="mb-2 mt-10 text-2xl font-bold tracking-[-0.015em] text-pz-ink first:mt-0"
+      className="mb-2 mt-10 text-2xl font-bold tracking-[-0.026em] text-pz-ink first:mt-0"
       {...props}
     />
   ),
   h3: (props) => (
     <h3
-      className="mb-2 mt-7 text-lg font-bold tracking-[-0.01em] text-pz-ink"
+      className="mb-2 mt-7 text-lg font-bold tracking-[-0.018em] text-pz-ink"
       {...props}
     />
   ),
@@ -480,7 +480,7 @@ const components: MDXRemoteProps["components"] = {
   ),
   blockquote: (props) => (
     <blockquote
-      className="my-6 max-w-[54ch] text-xl font-semibold italic leading-snug tracking-[-0.01em] text-pz-ink [&>p]:m-0"
+      className="my-6 max-w-[54ch] text-xl font-semibold italic leading-snug tracking-[-0.018em] text-pz-ink [&>p]:m-0"
       {...props}
     />
   ),

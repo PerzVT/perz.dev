@@ -13,7 +13,7 @@ export function Contact() {
       className="mx-auto flex max-w-[1160px] scroll-mt-20 flex-wrap gap-[clamp(32px,6vw,72px)] px-[clamp(20px,4vw,32px)] pb-[clamp(64px,9vh,96px)] pt-[clamp(56px,8vh,88px)]"
     >
       <div className="min-w-[min(100%,300px)] flex-1 basis-[320px]">
-        <h2 className="text-[clamp(26px,3vw,32px)] font-bold tracking-[-0.015em] text-pz-ink">
+        <h2 className="text-[clamp(26px,3vw,32px)] font-bold tracking-[-0.026em] text-pz-ink">
           Let&apos;s talk.
         </h2>
         <p className="mt-3.5 max-w-[44ch] text-[16px] leading-[1.7] text-pz-ink2">

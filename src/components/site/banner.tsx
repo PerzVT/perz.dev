@@ -85,7 +85,7 @@ export function Banner({
               {eyebrow}
             </div>
           )}
-          <h3 className="pz-wordmark text-[clamp(19px,2.4vw,26px)] font-extrabold leading-[1.15] tracking-[-0.015em] text-pz-ink">
+          <h3 className="pz-wordmark text-[clamp(19px,2.4vw,26px)] font-extrabold leading-[1.15] tracking-[-0.026em] text-pz-ink">
             {title}
           </h3>
           {body && (

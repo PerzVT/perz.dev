@@ -76,7 +76,7 @@
   --section-gap: 5rem;
   --body-font: var(--font-sans, system-ui, -apple-system, "Inter", sans-serif);
   --display-font: var(--font-display, "Nunito", system-ui, sans-serif);
-  --heading-letter-spacing: -0.01em;
+  --heading-letter-spacing: -0.018em;
   --body-leading: 1.6;
   --hl-accent: #60a5fa;
 
@@ -144,6 +144,11 @@
     color: var(--pz-ink);
     font-family: var(--font-sans);
     line-height: var(--body-leading);
+    /* Archivo set slightly tight. Grotesques default a touch loose for
+       screen; pulling body copy in reads more considered without hurting
+       legibility. Uppercase labels set their own positive tracking and
+       override this — small caps need air, not less of it. */
+    letter-spacing: -0.011em;
     -webkit-font-smoothing: antialiased;
     /* Theme cross-fade. Killed under reduced-motion below. */
     transition: background 0.45s ease, color 0.45s ease;

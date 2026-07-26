@@ -15,7 +15,7 @@ import { LetterCascade } from "@/components/ui/letter-cascade";
  */
 export function SectionHeading({
   children,
-  sizeClass = "text-[22px] font-bold tracking-[-0.01em]",
+  sizeClass = "text-[22px] font-bold tracking-[-0.018em]",
   className = "",
 }: {
   children: string;

@@ -20,7 +20,7 @@ export default function NotFound() {
         <p className="text-[13px] font-bold uppercase tracking-[0.09em] text-pz-accent">
           404
         </p>
-        <h1 className="pz-wordmark mt-3 text-[clamp(30px,4.4vw,46px)] font-extrabold leading-[1.05] tracking-[-0.02em] text-pz-ink">
+        <h1 className="pz-wordmark mt-3 text-[clamp(30px,4.4vw,46px)] font-extrabold leading-[1.05] tracking-[-0.032em] text-pz-ink">
           This page doesn&apos;t exist.
         </h1>
         <p className="mt-4 max-w-[46ch] text-[16px] leading-[1.7] text-pz-ink2">

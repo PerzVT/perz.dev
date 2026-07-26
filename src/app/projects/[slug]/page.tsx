@@ -65,14 +65,14 @@ export async function generateMetadata({
 
 /** Platform-aware external CTA label. */
 function ctaLabel(url: string): string {
-  if (/itch\.io/i.test(url)) return "Play on itch.io ↗";
+  if (/itch\.io/i.test(url)) return "Play on itch.io";
   if (/store\.steampowered\.com|steamcommunity\.com/i.test(url))
-    return "View on Steam ↗";
-  if (/meta\.com\/(experiences|quest)/i.test(url)) return "View on Meta Quest ↗";
-  if (/curseforge\.com/i.test(url)) return "View on CurseForge ↗";
-  if (/modrinth\.com/i.test(url)) return "View on Modrinth ↗";
-  if (/github\.com/i.test(url)) return "View on GitHub ↗";
-  return "View project ↗";
+    return "View on Steam";
+  if (/meta\.com\/(experiences|quest)/i.test(url)) return "View on Meta Quest";
+  if (/curseforge\.com/i.test(url)) return "View on CurseForge";
+  if (/modrinth\.com/i.test(url)) return "View on Modrinth";
+  if (/github\.com/i.test(url)) return "View on GitHub";
+  return "View project";
 }
 
 /** Structured facts for the scan-layer card, dropping empty rows. */
@@ -174,7 +174,7 @@ export default async function ProjectPage({ params }: { params: Params }) {
         >
           <div className="flex flex-wrap items-end gap-x-[clamp(24px,4vw,48px)] gap-y-5 [animation:perzRise_.5s_var(--ease-out)_.08s_both]">
             <div className="min-w-[280px] flex-[1_1_480px]">
-              <h1 className="pz-wordmark text-[clamp(32px,4.6vw,50px)] font-extrabold leading-[1.02] tracking-[-0.02em] text-pz-ink">
+              <h1 className="pz-wordmark text-[clamp(32px,4.6vw,50px)] font-extrabold leading-[1.02] tracking-[-0.032em] text-pz-ink">
                 {frontmatter.title}
               </h1>
               <p className="mt-3.5 text-[16.5px] leading-[1.6] text-pz-ink2">
@@ -195,7 +195,7 @@ export default async function ProjectPage({ params }: { params: Params }) {
           <div className="mt-[26px] flex flex-wrap gap-x-[clamp(32px,5vw,60px)] gap-y-8 [animation:perzRise_.5s_var(--ease-out)_.26s_both]">
             {contributions.length > 0 && (
               <div className="min-w-[300px] flex-[1.6_1_420px]">
-                <h2 className="text-[17px] font-bold tracking-[-0.01em] text-pz-ink">
+                <h2 className="text-[17px] font-bold tracking-[-0.018em] text-pz-ink">
                   Contributions
                 </h2>
                 <ul className="mt-3 flex list-none flex-col gap-3 p-0">
