@@ -67,7 +67,7 @@ export function Hero() {
       </div>
 
       <div className="pointer-events-none relative z-[1] mx-auto w-full max-w-[1160px] px-[clamp(20px,4vw,32px)] py-[clamp(48px,9vh,96px)]">
-        <p className="m-0 max-w-[34ch] text-[clamp(22px,2.4vw,27px)] font-medium leading-[1.5] tracking-[-0.011em] text-pz-ink [animation:perzRise_.5s_var(--ease-out)_.05s_both] [text-wrap:pretty]">
+        <p className="m-0 max-w-[34ch] text-[clamp(22px,2.4vw,27px)] font-medium leading-[1.5] tracking-[-0.02em] text-pz-ink [animation:perzRise_.5s_var(--ease-out)_.05s_both] [text-wrap:pretty]">
           {siteConfig.positioning}
         </p>
       </div>

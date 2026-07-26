@@ -41,7 +41,7 @@ export default function ResumePage() {
         {/* Header */}
         <div className="flex flex-wrap items-start gap-6 [animation:perzRise_.5s_var(--ease-out)_.05s_both]">
           <div className="flex-1 basis-[360px]">
-            <h1 className="text-[clamp(28px,3.6vw,38px)] font-bold tracking-[-0.018em] text-pz-ink">
+            <h1 className="text-[clamp(28px,3.6vw,38px)] font-bold tracking-[-0.03em] text-pz-ink">
               Résumé
             </h1>
             <div className="mt-3 flex flex-wrap items-center gap-3.5">
@@ -86,7 +86,7 @@ export default function ResumePage() {
 
         {/* Design philosophy (moved from the home About) */}
         <section className="mt-11">
-          <h2 className="text-base font-bold tracking-[-0.005em] text-pz-ink">
+          <h2 className="text-base font-bold tracking-[-0.014em] text-pz-ink">
             Design philosophy
           </h2>
           <p className="mt-2.5 max-w-[66ch] text-[14.5px] leading-[1.8] text-pz-ink2">
@@ -96,7 +96,7 @@ export default function ResumePage() {
 
         {/* Experience */}
         <section className="mt-11">
-          <h2 className="text-base font-bold tracking-[-0.005em] text-pz-ink">
+          <h2 className="text-base font-bold tracking-[-0.014em] text-pz-ink">
             Experience
           </h2>
           <div className="mt-2.5 border-t border-pz-border">
@@ -133,7 +133,7 @@ export default function ResumePage() {
 
         {/* Education */}
         <section className="mt-10">
-          <h2 className="text-base font-bold tracking-[-0.005em] text-pz-ink">
+          <h2 className="text-base font-bold tracking-[-0.014em] text-pz-ink">
             Education
           </h2>
           <div className="mt-2.5 border-t border-pz-border">
@@ -167,7 +167,7 @@ export default function ResumePage() {
 
         {/* Skills */}
         <section id="skills" className="mt-10">
-          <h2 className="text-base font-bold tracking-[-0.005em] text-pz-ink">
+          <h2 className="text-base font-bold tracking-[-0.014em] text-pz-ink">
             Skills
           </h2>
           <div className="mt-2">

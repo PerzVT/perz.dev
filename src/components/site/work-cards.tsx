@@ -37,7 +37,7 @@ export function WorkCards({
         sizes={rail ? "340px" : "(min-width: 1160px) 270px, (min-width: 640px) 45vw, 100vw"}
       />
       <div className="flex flex-1 flex-col gap-[7px]">
-        <span className="text-base font-bold tracking-[-0.01em] text-pz-ink">
+        <span className="text-base font-bold tracking-[-0.018em] text-pz-ink">
           {card.title}
         </span>
         <span className="text-[13px] leading-[1.6] text-pz-ink2">

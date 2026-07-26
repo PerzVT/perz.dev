@@ -67,7 +67,7 @@ export function ContactForm() {
         role="status"
         className="flex flex-col gap-2.5 rounded-xl border border-pz-border p-7"
       >
-        <div className="text-[22px] font-bold tracking-[-0.01em] text-pz-ink">
+        <div className="text-[22px] font-bold tracking-[-0.018em] text-pz-ink">
           Message sent.
         </div>
         <p className="text-sm leading-[1.65] text-pz-ink2">
