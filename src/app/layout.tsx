@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Archivo, JetBrains_Mono } from "next/font/google";
 import { SfxProvider } from "@/components/sfx-provider";
 import { ContentGuard } from "@/components/content-guard";
-import { SiteFab } from "@/components/site/site-fab";
 import { siteConfig } from "@/lib/config";
 import "./globals.css";
 
@@ -52,10 +51,11 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
 };
 
-// Pre-paint theme resolver: reads the persisted mode and stamps
-// `data-pz-mode` on <html> before the body renders, so switching to the
-// light "design" theme never flashes the dark default. Kept tiny + inline.
-const THEME_SCRIPT = `(function(){try{var d=document.documentElement;d.dataset.pzJs='1';var m=localStorage.getItem('perz.mode');if(m==='design'||m==='dev'){d.dataset.pzMode=m;}}catch(e){}})();`;
+// Stamps `data-pz-js` on <html> before paint. The scroll-reveal CSS is
+// gated on it, so a no-JS visitor never gets stuck with hidden sections.
+// (This also carried the theme resolver until the light theme was
+// dropped; the site is single-theme now.)
+const JS_FLAG_SCRIPT = `(function(){try{document.documentElement.dataset.pzJs='1';}catch(e){}})();`;
 
 export default function RootLayout({
   children,
@@ -65,15 +65,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      // Default mode stamped for SSR; the inline script corrects it from
-      // storage before paint. suppressHydrationWarning: the attr may
-      // differ between server ("dev") and a client that stored "design".
-      data-pz-mode="dev"
       className={`${archivo.variable} ${jetbrainsMono.variable}`}
       suppressHydrationWarning
     >
       <body className="min-h-screen antialiased">
-        <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
+        <script dangerouslySetInnerHTML={{ __html: JS_FLAG_SCRIPT }} />
         {/* Skip-to-content — first focusable element on every page. */}
         <a
           href="#main-content"
@@ -84,7 +80,6 @@ export default function RootLayout({
         <SfxProvider />
         <ContentGuard />
         {children}
-        <SiteFab />
       </body>
     </html>
   );
