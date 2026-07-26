@@ -222,6 +222,26 @@ html[data-pz-mode="design"] {
   }
 }
 
+/* Content protection — text isn't selectable and media isn't draggable
+   (owner's choice for the portfolio). Form fields stay selectable so the
+   contact form still works; right-click on media is blocked in the
+   ContentGuard client component. None of this is real DRM. */
+body {
+  -webkit-user-select: none;
+  user-select: none;
+}
+input,
+textarea,
+[contenteditable="true"],
+a[href^="mailto:"] {
+  -webkit-user-select: text;
+  user-select: text;
+}
+img,
+video {
+  -webkit-user-drag: none;
+}
+
 /* Global reduced-motion baseline — WCAG 2.3.3. Kills animation,
    transition, and smooth scroll for users who opted out. */
 @media (prefers-reduced-motion: reduce) {

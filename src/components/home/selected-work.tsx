@@ -17,7 +17,7 @@ export function SelectedWork() {
     >
       <div className="flex items-baseline gap-3.5">
         <h2 className="text-[22px] font-bold tracking-[-0.01em] text-pz-ink">
-          Selected work
+          Featured work
         </h2>
         <Link
           href="/projects"
