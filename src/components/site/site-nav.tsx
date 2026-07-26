@@ -58,7 +58,7 @@ export function SiteNav() {
             outside the home link, so the easter egg never navigates. The
             hint bubble retires for good once it's been used. */}
         <div className="mr-auto flex items-center gap-2.5">
-          <span className="relative flex items-center">
+          <span className="group/sprite relative flex items-center">
             <Sprite size={30} cycleOnClick onCycle={dismissHint} />
             <SpriteHint show={hint} />
           </span>
