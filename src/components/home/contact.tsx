@@ -17,7 +17,7 @@ export function Contact() {
           Let&apos;s talk.
         </h2>
         <p className="mt-3.5 max-w-[44ch] text-[15px] leading-[1.7] text-pz-ink2">
-          Looking for help with your next project?
+          Open to game design roles, and always up to talk shop. Say hi.
         </p>
         <a
           href={siteConfig.links.email}
