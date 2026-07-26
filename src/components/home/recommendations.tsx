@@ -2,6 +2,7 @@ import Image from "next/image";
 import { getRecommendations } from "@/lib/content";
 import { Rail } from "@/components/site/rail";
 import { siteConfig } from "@/lib/config";
+import { SectionHeading } from "@/components/site/section-heading";
 
 /**
  * Recommendations — an auto-rotating rail of every LinkedIn recommendation,
@@ -9,6 +10,16 @@ import { siteConfig } from "@/lib/config";
  * so the quote is easier to read. Avatars are initial badges for now; swap
  * for real photos when they're supplied (LinkedIn can't be fetched).
  */
+/** LinkedIn mark. Inlined because lucide dropped its brand icons, and
+ *  pulling a whole icon pack for one glyph isn't worth the weight. */
+function LinkedInMark({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden className={className}>
+      <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zm1.78 13.02H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z" />
+    </svg>
+  );
+}
+
 function initials(name: string): string {
   const words = name.trim().split(/\s+/);
   const first = words[0]?.[0] ?? "";
@@ -25,17 +36,17 @@ export function Recommendations() {
       id="recommendations"
       className="mx-auto max-w-[1160px] px-[clamp(20px,4vw,32px)] pt-[clamp(56px,8vh,88px)]"
     >
-      <div className="flex items-baseline gap-3.5">
-        <h2 className="text-[22px] font-bold tracking-[-0.01em] text-pz-ink">
-          Recommendations
-        </h2>
+      <div className="flex items-center gap-3">
+        <SectionHeading>Recommendations</SectionHeading>
         <a
           href={siteConfig.links.linkedin}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1 text-[12.5px] text-pz-faint underline-offset-2 transition-colors hover:text-pz-accent hover:underline"
+          aria-label="See these on LinkedIn"
+          title="See these on LinkedIn"
+          className="inline-flex h-8 w-8 items-center justify-center rounded-md text-pz-muted transition-colors hover:bg-pz-raised hover:text-pz-accent"
         >
-          from LinkedIn <span aria-hidden>↗</span>
+          <LinkedInMark className="h-[15px] w-[15px]" />
         </a>
       </div>
 

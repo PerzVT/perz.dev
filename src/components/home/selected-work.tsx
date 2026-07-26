@@ -16,14 +16,18 @@ export function SelectedWork() {
       id="work"
       className="mx-auto max-w-[1160px] scroll-mt-20 px-[clamp(20px,4vw,32px)] pt-[clamp(56px,8vh,88px)]"
     >
-      <SectionHeading>Featured work</SectionHeading>
-      <div className="mt-7">
-        <WorkCards cards={cards} layout="rail" />
-      </div>
-      <div className="mt-9 flex justify-center">
-        <Button href="/projects" variant="secondary" size="lg" iconAfter={<span aria-hidden>→</span>}>
+      <div className="flex items-center justify-between gap-4">
+        <SectionHeading>Featured work</SectionHeading>
+        <Button
+          href="/projects"
+          variant="secondary"
+          className="flex-none border border-pz-border2"
+        >
           All work
         </Button>
+      </div>
+      <div className="mt-7">
+        <WorkCards cards={cards} layout="rail" />
       </div>
     </section>
   );

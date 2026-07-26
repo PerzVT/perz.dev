@@ -1,6 +1,6 @@
 import Image from "next/image";
-import Link from "next/link";
 import { BLUR_DATA_URL } from "@/lib/blur";
+import { Button } from "@/components/site/button";
 import { siteConfig } from "@/lib/config";
 import { SectionHeading } from "@/components/site/section-heading";
 
@@ -23,12 +23,13 @@ export function About() {
           <p className="mt-[18px] max-w-[62ch] text-[clamp(15.5px,1.6vw,17px)] leading-[1.8] text-pz-ink2 [text-wrap:pretty]">
             {siteConfig.about}
           </p>
-          <Link
+          <Button
             href="/resume"
-            className="mt-5 inline-flex items-center gap-1.5 text-[14px] font-semibold text-pz-accent"
+            variant="secondary"
+            className="mt-5 border border-pz-border2"
           >
-            Read more <span aria-hidden>→</span>
-          </Link>
+            Read more
+          </Button>
         </div>
 
         <div className="relative aspect-[4/5] w-full max-w-[340px] flex-1 basis-[260px] overflow-hidden rounded-xl border border-pz-border bg-pz-surface">
