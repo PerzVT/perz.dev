@@ -114,7 +114,7 @@ export default function ResumePage() {
                     {w.range.replace(/\s*—\s*/g, " – ")}
                   </span>
                   {w.current && (
-                    <span className="text-[11px] font-bold uppercase tracking-[0.07em] text-pz-accent">
+                    <span className="text-[12px] font-semibold text-pz-accent">
                       Current
                     </span>
                   )}

@@ -160,7 +160,7 @@ export function Carousel({
       </div>
 
       {!single && (
-        <figcaption className="mt-3 flex items-center justify-between text-[12px] uppercase tracking-[0.2em] text-pz-muted">
+        <figcaption className="mt-3 flex items-center justify-between text-[12px] text-pz-muted">
           <span
             className="font-mono tabular-nums"
             aria-live="polite"

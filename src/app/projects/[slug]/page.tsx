@@ -112,7 +112,7 @@ function Hero({ src, poster }: { src: string; poster?: string }) {
           />
         )}
         {isVideo && (
-          <span className="pointer-events-none absolute left-3.5 top-3.5 rounded-md border border-white/15 bg-black/60 px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.08em] text-white backdrop-blur-sm">
+          <span className="pointer-events-none absolute left-3.5 top-3.5 rounded-md border border-white/15 bg-black/60 px-2.5 py-1 text-[12px] font-semibold text-white backdrop-blur-sm">
             Trailer
           </span>
         )}
@@ -233,7 +233,7 @@ export default async function ProjectPage({ params }: { params: Params }) {
                         i < rows.length - 1 ? "border-b border-pz-border" : ""
                       }`}
                     >
-                      <span className="text-[11px] font-bold uppercase tracking-[0.08em] text-pz-faint">
+                      <span className="text-[12px] font-semibold text-pz-faint">
                         {r.label}
                       </span>
                       <span className="text-[13.5px] font-semibold text-pz-ink">
@@ -248,7 +248,7 @@ export default async function ProjectPage({ params }: { params: Params }) {
 
           {skills.length > 0 && (
             <div className="mt-[26px] border-t border-pz-border pt-[22px] [animation:perzRise_.5s_var(--ease-out)_.3s_both]">
-              <div className="text-[11px] font-bold uppercase tracking-[0.08em] text-pz-muted">
+              <div className="text-[12px] font-semibold text-pz-muted">
                 Skills &amp; tools
               </div>
               <div className="mt-3 flex flex-wrap gap-2">
