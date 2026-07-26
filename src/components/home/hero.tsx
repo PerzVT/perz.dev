@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Link from "next/link";
 import { siteConfig } from "@/lib/config";
 import { useReveal } from "@/lib/reveal";
+import { Button } from "@/components/site/button";
 
 /**
  * Home hero — the positioning line over a looping, low-opacity background
@@ -72,12 +72,9 @@ export function Hero() {
           {siteConfig.positioning}
         </p>
         <div className="mt-[26px] [animation:perzRise_.5s_var(--ease-out)_.14s_both]">
-          <a
-            href="#contact"
-            className="pointer-events-auto text-[14.5px] font-semibold text-pz-accent underline-offset-4 hover:underline"
-          >
+          <Button href="#contact" size="lg" className="pointer-events-auto">
             Contact me
-          </a>
+          </Button>
         </div>
       </div>
     </header>

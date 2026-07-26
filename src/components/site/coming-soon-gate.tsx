@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Button } from "@/components/site/button";
 
 /**
  * Placeholder sign-in screen for projects that aren't public yet
@@ -34,12 +35,9 @@ export function ComingSoonGate() {
           aria-label="Password"
           className="rounded-lg border border-pz-border2 bg-pz-surface px-3.5 py-3 text-[14px] text-pz-ink outline-none transition-colors placeholder:text-pz-faint focus:border-pz-accent"
         />
-        <button
-          type="submit"
-          className="mt-1 rounded-lg bg-pz-accent px-4 py-3 text-[13.5px] font-bold text-pz-canvas transition hover:brightness-110"
-        >
+        <Button type="submit" size="lg" className="mt-1 w-full">
           Sign in
-        </button>
+        </Button>
       </form>
 
       {notified && (
