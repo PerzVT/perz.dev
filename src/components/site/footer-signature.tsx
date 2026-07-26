@@ -31,14 +31,21 @@ export function FooterSignature() {
   );
 
   return (
+    // The component pads its SVG to 3x the font size with the glyphs
+    // sitting high in that box, so roughly the lower 40% is empty. A
+    // plain bottom anchor therefore parks the empty half in the footer
+    // and pushes the letters out of the clip. Anchoring the box's
+    // midpoint at the footer's midpoint (translateY is a share of the
+    // element's own height) lands the glyph band on screen and keeps
+    // working if the font size changes.
     <div
       aria-hidden
-      className="pointer-events-none absolute -bottom-[14%] right-[-4%] select-none opacity-[0.07] [mask-image:linear-gradient(to_left,#000_55%,transparent)]"
+      className="pointer-events-none absolute right-[-6%] top-1/2 -translate-y-[47%] select-none opacity-[0.1] [mask-image:linear-gradient(to_left,#000_45%,transparent)]"
     >
       <Signature
         text="perz"
         fontUrl="/fonts/caveat.ttf"
-        fontSize={190}
+        fontSize={300}
         color="var(--pz-accent)"
         duration={reduced ? 0 : 1.6}
         inView
