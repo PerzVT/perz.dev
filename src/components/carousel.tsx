@@ -162,7 +162,7 @@ export function Carousel({
       {!single && (
         <figcaption className="mt-3 flex items-center justify-between text-[12px] text-pz-muted">
           <span
-            className="font-mono tabular-nums"
+            className="tabular-nums"
             aria-live="polite"
             aria-atomic="true"
           >

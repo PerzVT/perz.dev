@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Archivo, JetBrains_Mono } from "next/font/google";
+import { Archivo } from "next/font/google";
 import { SfxProvider } from "@/components/sfx-provider";
 import { ContentGuard } from "@/components/content-guard";
 import { SoundToggle } from "@/components/site/sound-toggle";
@@ -20,13 +20,11 @@ const archivo = Archivo({
   display: "swap",
 });
 
-/** JetBrains Mono — kept for the rare mono label. */
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-mono",
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  display: "swap",
-});
+/* JetBrains Mono is gone. Per the DS there is no mono in the UI —
+   numerals hold their alignment with `tabular-nums`, which was the only
+   thing mono was doing here. No content uses code blocks, so the font was
+   a download for zero rendered text; `--font-mono` falls back to a system
+   stack in globals.css if code ever appears. */
 
 const SITE_TITLE = siteConfig.metaTitle;
 
@@ -67,7 +65,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${archivo.variable} ${jetbrainsMono.variable}`}
+      className={archivo.variable}
       suppressHydrationWarning
     >
       <body className="min-h-screen antialiased">
