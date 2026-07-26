@@ -57,12 +57,15 @@ export function Sprite({
   size = 40,
   className = "",
   cycleOnClick = false,
+  onCycle,
 }: {
   size?: number;
   className?: string;
   /** Render as a button that advances to the next sprite on click.
    *  The nav mascot uses this — the one signature easter egg. */
   cycleOnClick?: boolean;
+  /** Fired after a click-cycle, so the nav can retire its hint. */
+  onCycle?: () => void;
 } = {}) {
   const reducedMotion = useSyncExternalStore(
     subscribeReducedMotion,
@@ -167,8 +170,10 @@ export function Sprite({
 
   if (!cycleOnClick) return canvas;
 
-  const next = () =>
+  const next = () => {
     setKey((k) => ROSTER[(ROSTER.indexOf(k) + 1) % ROSTER.length]);
+    onCycle?.();
+  };
 
   return (
     <button
