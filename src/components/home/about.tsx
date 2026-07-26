@@ -15,7 +15,7 @@ export function About() {
   return (
     <section
       id="about"
-      className="mt-[clamp(56px,8vh,88px)] border-y border-pz-border bg-pz-raised transition-colors duration-[450ms]"
+      className="pz-panel mt-[clamp(56px,8vh,88px)] border-y border-pz-border bg-pz-raised"
     >
       <div className="mx-auto flex max-w-[1160px] flex-wrap items-center gap-[clamp(28px,5vw,56px)] px-[clamp(20px,4vw,32px)] py-[clamp(44px,7vh,64px)]">
         <div className="flex-1 basis-[400px]">

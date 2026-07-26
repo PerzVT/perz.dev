@@ -26,14 +26,14 @@ export function ComingSoonGate() {
           placeholder="Username"
           autoComplete="off"
           aria-label="Username"
-          className="rounded-lg border border-pz-border2 bg-pz-surface px-3.5 py-3 text-[14px] text-pz-ink outline-none transition-colors placeholder:text-pz-faint focus:border-pz-accent"
+          className="pz-field rounded-lg border border-pz-border2 bg-pz-surface px-3.5 py-3 text-[14px] text-pz-ink outline-none transition-colors placeholder:text-pz-faint focus:border-pz-accent"
         />
         <input
           type="password"
           placeholder="Password"
           autoComplete="off"
           aria-label="Password"
-          className="rounded-lg border border-pz-border2 bg-pz-surface px-3.5 py-3 text-[14px] text-pz-ink outline-none transition-colors placeholder:text-pz-faint focus:border-pz-accent"
+          className="pz-field rounded-lg border border-pz-border2 bg-pz-surface px-3.5 py-3 text-[14px] text-pz-ink outline-none transition-colors placeholder:text-pz-faint focus:border-pz-accent"
         />
         <Button type="submit" size="lg" className="mt-1 w-full">
           Sign in

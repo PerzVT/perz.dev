@@ -44,7 +44,7 @@ export function Recommendations() {
           {recs.map((r) => (
             <figure
               key={r.name}
-              className="group/card flex min-h-[210px] w-[min(84vw,340px)] flex-none snap-start flex-col gap-4 rounded-xl border border-pz-border bg-pz-raised p-6 transition-colors hover:border-pz-border2 hover:bg-pz-surface"
+              className="pz-panel group/card flex min-h-[210px] w-[min(84vw,340px)] flex-none snap-start flex-col gap-4 rounded-xl border border-pz-border bg-pz-raised p-6 transition-colors hover:border-pz-border2 hover:bg-pz-surface"
             >
               <blockquote className="text-[14px] leading-[1.7] text-pz-ink2 transition-colors group-hover/card:text-pz-ink">
                 “{r.quote}”
