@@ -113,6 +113,30 @@ All six scaffolded on `home-v2`: `.mdx` + frontmatter + card + page state live a
 6. `[ ]` Résumé.
 7. `[ ]` Global/SEO + meta polish.
 
+## F2. Design polish backlog (owner's list, 2026-07-26)
+
+Built already: `Button` (primary/secondary/ghost, partner accents) and `Banner`
+(bg art + scrim + CTA) in `src/components/site/`. Every CTA runs through them.
+
+Pending art/links from owner:
+- `[ ]` **BisectHosting affiliate banner** — needs the artwork + affiliate URL. Slot and example markup are in `src/components/home/end-banners.tsx`.
+- `[ ]` **Meta Quest banner** for the Highstreet case study (art + Meta-blue button).
+- `[ ]` **Contact card** below the banners at page end — owner to describe what it holds beyond the existing contact section.
+
+Reference sites the owner likes:
+- **pacomepertant.com** — clickable character that changes on click. Maps onto the existing nav sprite mascot (the spec always wanted click-to-cycle); the "click!!" speech-bubble hint is the part that makes it discoverable.
+- **chungsunglau.co.uk** — preferred layout for `/projects`, over the earlier collection-surfer idea.
+
+Wishlist, roughly by value-for-effort:
+- `[ ]` **Click-to-cycle nav sprite** with a first-visit hint bubble (pacomepertant). The mascot is already there and is the one signature personality device; this is the cheapest big-personality win on the list.
+- `[ ]` **Lenis smooth scrolling** (lenis.dev) — cheap, lifts the whole feel. Must respect `prefers-reduced-motion`.
+- `[ ]` **Heading animation** — letter-cascade or kinetic-text-reveal (componentry.dev). Cheap, adds life. Reduced-motion aware.
+- `[ ]` **Animated signature in the footer** — clipped large, low opacity, side-anchored (componentry.dev/signature). High personality, low risk.
+- `[ ]` **Orbit card stack** for project cards (componentry.dev). Big visual change; do it in Claude Design first.
+- `[ ]` **`/projects` layout** in the chungsunglau.co.uk direction (supersedes the collection-surfer idea). Big change; comp it in Claude Design first.
+- `[ ]` **bklit** (bklit.com) for charts/progress bars — only worth it if the résumé skill bars stay. No real data on the site yet.
+- `[ ]` **GitHub calendar** — owner's own call: his contributions are lumpy (batched pushes after offline sprees), so the chart would misrepresent the work. Recommend skipping; a sparse calendar reads as "inactive" to someone who doesn't know the story.
+
 ## G. Decisions I need from you
 
 1. **Recommendations — pick up to 3.** My recommendation for a hiring lead: **Matt Fleming** (managed you directly, systems + "creative and technical"), **Arron Ferguson** (UI/UX + proactive), and one of **Emma Gallaher** or **Guilherme Martins** (peer, "makes games feel good"). Your call.

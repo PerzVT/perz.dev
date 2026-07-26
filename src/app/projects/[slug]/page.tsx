@@ -11,6 +11,7 @@ import { siteConfig } from "@/lib/config";
 import { SiteNav } from "@/components/site/site-nav";
 import { SiteFooter } from "@/components/site/site-footer";
 import { ComingSoonGate } from "@/components/site/coming-soon-gate";
+import { Button } from "@/components/site/button";
 
 type Params = Promise<{ slug: string }>;
 
@@ -181,14 +182,9 @@ export default async function ProjectPage({ params }: { params: Params }) {
               </p>
             </div>
             {frontmatter.url && (
-              <a
-                href={frontmatter.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 whitespace-nowrap rounded-lg bg-pz-accent px-[18px] py-[11px] text-[13.5px] font-bold text-pz-canvas transition hover:brightness-110"
-              >
+              <Button href={frontmatter.url} size="lg">
                 {ctaLabel(frontmatter.url)}
-              </a>
+              </Button>
             )}
           </div>
 

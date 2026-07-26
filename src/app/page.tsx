@@ -7,6 +7,7 @@ import { About } from "@/components/home/about";
 import { Experience } from "@/components/home/experience";
 import { Recommendations } from "@/components/home/recommendations";
 import { Contact } from "@/components/home/contact";
+import { EndBanners } from "@/components/home/end-banners";
 import { Reveal } from "@/components/site/scroll-reveal";
 
 /**
@@ -32,6 +33,9 @@ export default function Home() {
         </Reveal>
         <Reveal>
           <Recommendations />
+        </Reveal>
+        <Reveal>
+          <EndBanners />
         </Reveal>
         <Reveal>
           <Contact />
