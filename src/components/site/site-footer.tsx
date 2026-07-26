@@ -1,4 +1,5 @@
 import { siteConfig } from "@/lib/config";
+import { FooterSignature } from "@/components/site/footer-signature";
 
 /**
  * Shared footer (Kerberus v2). "Open to game design roles." + the real
@@ -17,8 +18,9 @@ const SOCIALS = [
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-pz-border">
-      <div className="mx-auto max-w-[1160px] px-[clamp(20px,4vw,32px)] pb-[26px] pt-11">
+    <footer className="relative overflow-hidden border-t border-pz-border">
+      <FooterSignature />
+      <div className="relative z-[1] mx-auto max-w-[1160px] px-[clamp(20px,4vw,32px)] pb-[26px] pt-11">
         <div className="flex flex-wrap items-start justify-between gap-8">
           <div>
             <div className="text-[15px] font-semibold text-pz-ink">
