@@ -23,12 +23,13 @@ const SIZES = {
 } as const;
 
 const VARIANTS: Record<ButtonVariant, string> = {
-  primary:
-    "bg-pz-accent text-pz-canvas font-bold hover:brightness-110 active:translate-y-px",
+  primary: "pz-btn pz-btn-primary text-pz-canvas font-bold",
   secondary:
-    "border border-pz-border2 text-pz-ink2 font-semibold hover:border-pz-accent hover:text-pz-accent",
+    "pz-btn pz-btn-secondary border border-pz-border2 text-pz-ink font-semibold hover:border-pz-muted",
+  // Text-weight action for in-card affordances (card "Read more"). Same
+  // family, lower rung — a filled button on every card would shout.
   ghost:
-    "text-pz-accent font-semibold underline-offset-4 hover:underline px-0 py-0",
+    "font-semibold text-pz-accent px-0 py-0 [&_.pz-btn-label]:underline-offset-4 hover:[&_.pz-btn-label]:underline",
 };
 
 export function Button({
@@ -57,17 +58,19 @@ export function Button({
   className?: string;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>) {
   const base =
-    "inline-flex items-center justify-center whitespace-nowrap transition-[background-color,border-color,color,filter,transform] duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pz-accent focus-visible:ring-offset-2 focus-visible:ring-offset-pz-canvas";
+    "inline-flex items-center justify-center whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pz-accent focus-visible:ring-offset-2 focus-visible:ring-offset-pz-canvas";
   const cls = `${base} ${SIZES[size]} ${VARIANTS[variant]} ${className}`;
-  const style =
-    accent && variant === "primary"
-      ? { backgroundColor: accent.bg, color: accent.fg }
-      : undefined;
+  // Partner CTAs (Meta blue, Discord blurple) drive the gradient and the
+  // tinted shadow through --pz-btn-bg, so the depth treatment follows the
+  // colour instead of being hardcoded to the site accent.
+  const style = accent
+    ? ({ "--pz-btn-bg": accent.bg, color: accent.fg } as React.CSSProperties)
+    : undefined;
 
   const inner = (
     <>
       {icon}
-      {children}
+      <span className="pz-btn-label">{children}</span>
       {iconAfter}
     </>
   );

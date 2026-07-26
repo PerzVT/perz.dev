@@ -36,8 +36,14 @@ export function SoundToggle() {
       aria-label={soundOn ? "Turn UI sound off" : "Turn UI sound on"}
       title={soundOn ? "Sound on" : "Sound off"}
       data-sfx="off"
-      className="fixed bottom-[clamp(16px,3vw,26px)] right-[clamp(16px,3vw,26px)] z-[90] flex h-12 w-12 items-center justify-center rounded-full border border-pz-border2 bg-pz-raised shadow-[0_8px_26px_rgba(0,0,0,0.34)] transition-[border-color,transform,color] duration-200 hover:border-pz-muted active:scale-95"
-      style={{ color: soundOn ? "var(--pz-accent)" : "var(--pz-ink2)" }}
+      // Light disc on a near-black canvas. A dark circle on dark reads as
+      // a smudge; this is the one piece of always-on chrome, so it has to
+      // be findable without hunting for it.
+      className="fixed bottom-[clamp(16px,3vw,26px)] right-[clamp(16px,3vw,26px)] z-[90] flex h-12 w-12 items-center justify-center rounded-full shadow-[0_6px_20px_rgba(0,0,0,0.45)] transition-[transform,background-color,color] duration-200 hover:scale-105 active:scale-95"
+      style={{
+        backgroundColor: soundOn ? "var(--pz-accent)" : "var(--pz-ink)",
+        color: "var(--pz-canvas)",
+      }}
     >
       {soundOn ? (
         <Volume2 className="h-[18px] w-[18px]" strokeWidth={2.2} />

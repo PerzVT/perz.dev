@@ -3,6 +3,7 @@ import { Archivo, JetBrains_Mono } from "next/font/google";
 import { SfxProvider } from "@/components/sfx-provider";
 import { ContentGuard } from "@/components/content-guard";
 import { SoundToggle } from "@/components/site/sound-toggle";
+import { SmoothScroll } from "@/components/site/smooth-scroll";
 import { siteConfig } from "@/lib/config";
 import "./globals.css";
 
@@ -80,6 +81,7 @@ export default function RootLayout({
         </a>
         <SfxProvider />
         <ContentGuard />
+        <SmoothScroll />
         {children}
         <SoundToggle />
       </body>

@@ -46,7 +46,10 @@ export function Banner({
       : "linear-gradient(90deg, var(--pz-canvas) 8%, color-mix(in srgb, var(--pz-canvas) 82%, transparent) 46%, color-mix(in srgb, var(--pz-canvas) 20%, transparent) 78%, transparent 100%)";
 
   return (
-    <div className="relative isolate overflow-hidden rounded-2xl border border-pz-border bg-pz-surface">
+    <div className="relative overflow-hidden rounded-2xl border border-pz-border bg-pz-surface">
+      {/* Art fills the banner and is cropped to it. It sits above the
+          card background (a negative z-index would drop it behind the
+          parent's own fill and render nothing) and below the scrim. */}
       <Image
         src={image}
         alt={imageAlt}
@@ -55,16 +58,16 @@ export function Banner({
         placeholder="blur"
         blurDataURL={BLUR_DATA_URL}
         priority={priority}
-        className="-z-10 object-cover"
+        className="absolute inset-0 z-0 h-full w-full object-cover"
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10"
+        className="pointer-events-none absolute inset-0 z-[1]"
         style={{ background: scrim }}
       />
 
       <div
-        className={`flex flex-wrap items-center gap-x-8 gap-y-5 px-[clamp(20px,4vw,40px)] py-[clamp(24px,4vw,36px)] ${
+        className={`relative z-[2] flex flex-wrap items-center gap-x-8 gap-y-5 px-[clamp(20px,4vw,40px)] py-[clamp(24px,4vw,36px)] ${
           align === "center" ? "justify-center text-center" : ""
         }`}
       >

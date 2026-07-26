@@ -56,9 +56,13 @@ const TAG_PREFERENCE = ["idle", "Idle", "stand", "wait", "walk", "Walk"];
 export function Sprite({
   size = 40,
   className = "",
+  cycleOnClick = false,
 }: {
   size?: number;
   className?: string;
+  /** Render as a button that advances to the next sprite on click.
+   *  The nav mascot uses this — the one signature easter egg. */
+  cycleOnClick?: boolean;
 } = {}) {
   const reducedMotion = useSyncExternalStore(
     subscribeReducedMotion,
@@ -150,15 +154,33 @@ export function Sprite({
   }, []);
 
   const buffer = size * 2;
-  return (
+  const canvas = (
     <canvas
       ref={canvasRef}
       width={buffer}
       height={buffer}
       style={{ width: size, height: size, imageRendering: "pixelated" }}
       aria-hidden
-      className={className}
+      className={cycleOnClick ? "" : className}
     />
+  );
+
+  if (!cycleOnClick) return canvas;
+
+  const next = () =>
+    setKey((k) => ROSTER[(ROSTER.indexOf(k) + 1) % ROSTER.length]);
+
+  return (
+    <button
+      type="button"
+      onClick={next}
+      aria-label="Change the mascot"
+      title="Click me"
+      data-sfx="toggle"
+      className={`inline-flex items-center justify-center transition-transform duration-150 hover:scale-110 active:scale-90 ${className}`}
+    >
+      {canvas}
+    </button>
   );
 }
 

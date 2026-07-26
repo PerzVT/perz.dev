@@ -43,13 +43,15 @@ export function WorkCards({
         <span className="text-[13px] leading-[1.6] text-pz-ink2">
           {card.tagline}
         </span>
-        <span className="mt-auto inline-flex items-baseline gap-2 self-start pt-[5px] text-[13px] font-semibold text-pz-accent">
-          <span className="decoration-[1.5px] underline-offset-4 transition-all group-hover/card:underline group-focus-visible/card:underline">
-            Read more
-          </span>
+        {/* Styled as a button but rendered as a span: the whole card is
+            already the <Link>, and an anchor inside an anchor is invalid.
+            Matches the secondary button treatment so cards read as part
+            of the same button family as the rest of the site. */}
+        <span className="pz-btn pz-btn-secondary mt-auto inline-flex items-center gap-2 self-start rounded-lg border border-pz-border2 px-3.5 py-2 text-[13px] font-semibold text-pz-ink group-hover/card:-translate-y-px group-hover/card:border-pz-muted">
+          Read more
           <span
             aria-hidden
-            className="transition-transform duration-200 group-hover/card:translate-x-1 group-focus-visible/card:translate-x-1"
+            className="transition-transform duration-200 group-hover/card:translate-x-0.5 group-focus-visible/card:translate-x-0.5"
           >
             →
           </span>
