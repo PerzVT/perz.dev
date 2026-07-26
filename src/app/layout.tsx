@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Archivo, JetBrains_Mono } from "next/font/google";
 import { SfxProvider } from "@/components/sfx-provider";
+import { ContentGuard } from "@/components/content-guard";
 import { SiteFab } from "@/components/site/site-fab";
 import { siteConfig } from "@/lib/config";
 import "./globals.css";
@@ -81,6 +82,7 @@ export default function RootLayout({
           Skip to content
         </a>
         <SfxProvider />
+        <ContentGuard />
         {children}
         <SiteFab />
       </body>

@@ -34,7 +34,7 @@ export function Hero() {
     <header className="relative flex min-h-[62vh] items-center overflow-hidden">
       <div
         aria-hidden
-        className="absolute inset-0 z-0"
+        className="pointer-events-none absolute inset-0 z-0"
         style={{
           opacity: revealed ? 0.5 : 0.22,
           transition: "opacity .55s var(--ease-out)",
@@ -47,6 +47,8 @@ export function Hero() {
           loop
           playsInline
           preload="auto"
+          disablePictureInPicture
+          tabIndex={-1}
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div
@@ -69,18 +71,12 @@ export function Hero() {
         <p className="m-0 max-w-[34ch] text-[clamp(22px,2.4vw,27px)] font-medium leading-[1.5] tracking-[-0.011em] text-pz-ink [animation:perzRise_.5s_var(--ease-out)_.05s_both] [text-wrap:pretty]">
           {siteConfig.positioning}
         </p>
-        <div className="mt-[26px] flex items-center gap-[26px] [animation:perzRise_.5s_var(--ease-out)_.14s_both]">
-          <a
-            href="#work"
-            className="pointer-events-auto text-[14.5px] font-semibold text-pz-accent"
-          >
-            See my work ↓
-          </a>
+        <div className="mt-[26px] [animation:perzRise_.5s_var(--ease-out)_.14s_both]">
           <Link
             href="/resume"
-            className="pointer-events-auto border-b border-pz-border2 pb-px text-[14.5px] text-pz-ink2 transition-colors hover:text-pz-ink"
+            className="pointer-events-auto text-[14.5px] font-semibold text-pz-accent underline-offset-4 hover:underline"
           >
-            Résumé
+            Download résumé
           </Link>
         </div>
       </div>
