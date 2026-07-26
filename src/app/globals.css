@@ -96,17 +96,21 @@
    accessibility audit was in that theme.
    ========================================================= */
 :root {
-  --pz-canvas: #0b0c0e;
-  --pz-raised: #101216;
-  --pz-surface: #14171b;
-  --pz-border: #22262c;
-  --pz-border2: #2e333a;
-  --pz-ink: #edeff1;
-  --pz-ink2: #a7adb4;
-  --pz-muted: #7a8087;
-  /* 4.6:1 on canvas — was #5a6068 (3.1:1), below WCAG AA for small text. */
-  --pz-faint: #767b82;
-  --pz-accent: #3ecfb2;
+  /* Neutral greys, not blue-black. The previous set carried a blue cast
+     (#0b0c0e / #a7adb4) which read colder and cheaper than the reference;
+     surfaces now sit close together in value so elevation is felt rather
+     than outlined. Every text tier is checked against WCAG AA on both
+     canvas and raised — see the contrast note further down. */
+  --pz-canvas: #0c0c0d;
+  --pz-raised: #131314;
+  --pz-surface: #191919;
+  --pz-border: #242426;
+  --pz-border2: #303032;
+  --pz-ink: #ededee;
+  --pz-ink2: #a8a8aa;
+  --pz-muted: #828285; /* 5.1:1 canvas / 4.9:1 raised */
+  --pz-faint: #808083; /* 5.0:1 canvas / 4.7:1 raised */
+  --pz-accent: #3ec9ad;
   --pz-on-accent: #06231e;
   --pz-field: #101216;
   --pz-danger: #e5705f;
@@ -206,10 +210,14 @@
 }
 
 .pz-btn-primary {
+  /* A real gradient, not a flat fill with a hint of light: the top third
+     lifts toward white and the bottom sinks, which is what reads as
+     "finished" rather than "a coloured rectangle". */
   background-image: linear-gradient(
-    180deg,
-    color-mix(in srgb, var(--pz-btn-bg, var(--pz-accent)) 100%, white 14%),
-    var(--pz-btn-bg, var(--pz-accent))
+    170deg,
+    color-mix(in srgb, var(--pz-btn-bg, var(--pz-accent)) 100%, white 26%) 0%,
+    var(--pz-btn-bg, var(--pz-accent)) 52%,
+    color-mix(in srgb, var(--pz-btn-bg, var(--pz-accent)) 100%, black 16%) 100%
   );
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.34),
@@ -236,9 +244,10 @@
 
 .pz-btn-secondary {
   background-image: linear-gradient(
-    180deg,
-    color-mix(in srgb, var(--pz-raised) 100%, white 4%),
-    var(--pz-raised)
+    170deg,
+    color-mix(in srgb, var(--pz-raised) 100%, white 7%) 0%,
+    var(--pz-raised) 60%,
+    color-mix(in srgb, var(--pz-raised) 100%, black 22%) 100%
   );
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.06),
