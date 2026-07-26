@@ -190,6 +190,11 @@
   from { opacity: 0; transform: translateY(12px); }
   to { opacity: 1; transform: none; }
 }
+/* Small sideways nudge for the mascot hint bubble. */
+@keyframes perzNudge {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(3px); }
+}
 @keyframes fade-in {
   from { opacity: 0; }
   to { opacity: 1; }
