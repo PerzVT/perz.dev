@@ -46,6 +46,8 @@
   --color-pz-faint: var(--pz-faint);
   --color-pz-accent: var(--pz-accent);
   --color-pz-field: var(--pz-field);
+  --color-pz-tint: var(--pz-tint);
+  --color-pz-tint-hi: var(--pz-tint-hi);
   --color-pz-danger: var(--pz-danger);
 }
 
@@ -104,18 +106,25 @@
   --pz-canvas: #0c0c0d;
   --pz-raised: #131314;
   --pz-surface: #191919;
-  --pz-border: #242426;
-  --pz-border2: #303032;
+  /* One border weight, as a translucent white rather than a solid grey,
+     so hairlines sit correctly on any surface underneath them (DS). */
+  --pz-border: rgba(255, 255, 255, 0.085);
+  --pz-border2: rgba(255, 255, 255, 0.16);
+  /* Card fills are a tint over the canvas, never a lighter grey block. */
+  --pz-tint: rgba(255, 255, 255, 0.026);
+  --pz-tint-hi: rgba(255, 255, 255, 0.055);
   --pz-ink: #ededee;
   --pz-ink2: #a8a8aa;
   --pz-muted: #828285; /* 5.1:1 canvas / 4.9:1 raised */
   --pz-faint: #808083; /* 5.0:1 canvas / 4.7:1 raised */
-  /* Muted sage. The accent is for links, indicators and the ambient
-     wash — not for filling shapes. Every saturated step before this one
-     read loud next to the reference. */
-  --pz-accent: #8fb8a3;
-  --pz-on-accent: #06231e;
-  --pz-field: #101216;
+  /* Citron, taken from the owner's Kerberus DS (Workstation handoff).
+     One accent, and it only fires where something is actionable or live;
+     everything else is greyscale. */
+  --pz-accent: #cbd97e;
+  /* Text on an accent fill is never white — DS rule. */
+  --pz-on-accent: #16180d;
+  /* Field sits darker than the canvas so an input reads as a well. */
+  --pz-field: #0e0e11;
   --pz-danger: #e5705f;
   color-scheme: dark;
 }
@@ -220,117 +229,73 @@
 }
 
 /* --- Buttons ---------------------------------------------------------
-   Flat fills read as unstyled at this scale, so the button carries a
-   little depth instead: a top-down gradient, a hairline inset highlight
-   along the top edge (the "lit from above" cue), and a tinted shadow in
-   the button's own colour rather than generic black. Hover lifts a pixel
-   and brightens; press sinks and drops the shadow. Same idea as a metal
-   treatment, done in CSS, no shader and no liquid. */
+   From the owner's Kerberus DS: no elevation on in-page chrome. Only
+   floating layers cast shadows, so a button is either a fill or a ring
+   and never both, and never a gradient slab. Primary is the accent with
+   dark text on it (never white). Secondary is a hairline ring over
+   nothing — the outlined-not-filled rule is what keeps a page full of
+   controls quiet. Replaces an earlier gradient-and-glow treatment that
+   made every button read as a raised plastic chip.
+   Doubled class names raise specificity just enough to beat a Tailwind
+   `bg-*` utility on the same element. */
 .pz-btn {
-  position: relative;
-  isolation: isolate;
   border-radius: 10px;
   transition:
-    transform 0.16s var(--ease-out),
+    background-color 0.16s var(--ease-out),
     box-shadow 0.16s var(--ease-out),
-    filter 0.16s var(--ease-out),
-    border-color 0.16s var(--ease-out),
-    color 0.16s var(--ease-out);
+    color 0.16s var(--ease-out),
+    transform 0.12s var(--ease-out);
+}
+/* --press-travel from the DS. */
+.pz-btn:active {
+  transform: translateY(2px);
 }
 
-.pz-btn-primary {
-  /* A real gradient, not a flat fill with a hint of light: the top third
-     lifts toward white and the bottom sinks, which is what reads as
-     "finished" rather than "a coloured rectangle". */
-  /* The primary fill is the ink colour, not the accent: a light control
-     on a dark page carries more weight than a coloured one, and it keeps
-     the accent for links and indicators the way the reference does.
-     Partner CTAs override --pz-btn-bg with their own brand colour.
-     Deep falloff at the bottom so the fill sinks toward the page instead
-     of sitting on it as a slab; the top highlight stays gentle, since a
-     hard white edge is what makes a fill read as plastic. */
-  background-image: linear-gradient(
-    168deg,
-    color-mix(in srgb, var(--pz-btn-bg, var(--pz-ink)) 100%, white 18%) 0%,
-    var(--pz-btn-bg, var(--pz-ink)) 42%,
-    color-mix(in srgb, var(--pz-btn-bg, var(--pz-ink)) 100%, black 34%) 100%
+.pz-btn-primary.pz-btn-primary {
+  background-color: var(--pz-btn-bg, var(--pz-accent));
+  background-image: none;
+  box-shadow: none;
+}
+.pz-btn-primary.pz-btn-primary:hover {
+  background-color: color-mix(
+    in srgb,
+    var(--pz-btn-bg, var(--pz-accent)) 100%,
+    white 14%
   );
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.2),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.2),
-    0 2px 5px color-mix(in srgb, var(--pz-btn-bg, var(--pz-ink)) 28%, transparent),
-    0 8px 22px color-mix(in srgb, var(--pz-btn-bg, var(--pz-ink)) 22%, transparent);
-}
-.pz-btn-primary:hover {
-  transform: translateY(-1px);
-  filter: brightness(1.06);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.4),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.16),
-    0 3px 8px color-mix(in srgb, var(--pz-btn-bg, var(--pz-ink)) 34%, transparent),
-    0 12px 30px color-mix(in srgb, var(--pz-btn-bg, var(--pz-ink)) 28%, transparent);
-}
-.pz-btn-primary:active {
-  transform: translateY(1px);
-  filter: brightness(0.97);
-  box-shadow:
-    inset 0 2px 4px rgba(0, 0, 0, 0.22),
-    0 1px 2px color-mix(in srgb, var(--pz-btn-bg, var(--pz-ink)) 24%, transparent);
 }
 
-.pz-btn-secondary {
-  background-image: linear-gradient(
-    170deg,
-    color-mix(in srgb, var(--pz-raised) 100%, white 7%) 0%,
-    var(--pz-raised) 60%,
-    color-mix(in srgb, var(--pz-raised) 100%, black 22%) 100%
-  );
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.06),
-    0 2px 6px rgba(0, 0, 0, 0.24);
+.pz-btn-secondary.pz-btn-secondary {
+  background-color: transparent;
+  background-image: none;
+  box-shadow: inset 0 0 0 1px var(--pz-border2);
 }
-.pz-btn-secondary:hover {
-  transform: translateY(-1px);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.1),
-    0 5px 16px rgba(0, 0, 0, 0.3);
-}
-.pz-btn-secondary:active {
-  transform: translateY(1px);
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.24);
+.pz-btn-secondary.pz-btn-secondary:hover {
+  background-color: var(--pz-tint-hi);
 }
 
-/* Reduced motion: keep the depth, drop the movement. */
 @media (prefers-reduced-motion: reduce) {
-  .pz-btn:hover,
   .pz-btn:active {
     transform: none;
   }
 }
 
 /* --- Panels ----------------------------------------------------------
-   Cards on a blended background shouldn't be flat rectangles. Same idea
-   as the buttons at a much lower amplitude: a touch of light at the top
-   edge, the body at the token colour, and a deeper falloff at the bottom
-   so the panel settles into the page. Subtle on purpose — it should read
-   as depth, not as a visible gradient. */
-.pz-panel {
-  background-image: linear-gradient(
-    168deg,
-    color-mix(in srgb, var(--pz-raised) 100%, white 4%) 0%,
-    var(--pz-raised) 48%,
-    color-mix(in srgb, var(--pz-raised) 100%, black 30%) 100%
-  );
+   DS rule: surfaces are outlined, not filled. A card is a near-transparent
+   tint plus a 1px inset ring, not a lighter grey block, and in-page chrome
+   carries zero elevation. If two regions need separating, that's a
+   hairline's job, not a background colour's. */
+.pz-panel.pz-panel {
+  background-color: var(--pz-tint);
+  background-image: none;
+  box-shadow: inset 0 0 0 1px var(--pz-border);
 }
 
 /* Inset variant for form fields — light falls in rather than off, so an
    input reads as a well instead of a raised chip. */
-.pz-field {
-  background-image: linear-gradient(
-    168deg,
-    color-mix(in srgb, var(--pz-surface) 100%, black 26%) 0%,
-    var(--pz-surface) 62%
-  );
+.pz-field.pz-field {
+  background-color: var(--pz-field);
+  background-image: none;
+  box-shadow: inset 0 0 0 1px var(--pz-border);
 }
 
 /* Scroll reveal — sections fade + lift as they enter view. The hidden

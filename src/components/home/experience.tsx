@@ -67,13 +67,7 @@ function Row({ w }: { w: WorkEntry }) {
       </span>
 
       <span className="flex basis-full items-center gap-2 pl-[60px] sm:basis-auto sm:pl-0">
-        {w.current && (
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-pz-border2 px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.07em] text-pz-accent">
-            <span className="h-1.5 w-1.5 rounded-full bg-pz-accent" />
-            Current
-          </span>
-        )}
-        <span className="pz-panel rounded-lg border border-pz-border px-2.5 py-1.5 font-mono text-[11.5px] tabular-nums text-pz-ink2">
+        <span className="pz-panel rounded-lg px-2.5 py-1.5 text-[12px] tabular-nums text-pz-ink2">
           {range(w.range)}
         </span>
       </span>

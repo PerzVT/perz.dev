@@ -23,9 +23,11 @@ const SIZES = {
 } as const;
 
 const VARIANTS: Record<ButtonVariant, string> = {
-  primary: "pz-btn pz-btn-primary text-pz-canvas font-bold",
-  secondary:
-    "pz-btn pz-btn-secondary border border-pz-border2 text-pz-ink font-semibold hover:border-pz-muted",
+  // DS: text on an accent fill is never white, and it is never thin.
+  primary: "pz-btn pz-btn-primary text-[var(--pz-on-accent)] font-semibold",
+  // A ring over nothing — no fill, no border utility (the ring is an
+  // inset shadow, so it can't be clipped by a scroll container).
+  secondary: "pz-btn pz-btn-secondary text-pz-ink2 font-semibold hover:text-pz-ink",
   // Text-weight action for in-card affordances (card "Read more"). Same
   // family, lower rung — a filled button on every card would shout.
   ghost:
