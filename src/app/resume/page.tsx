@@ -110,7 +110,7 @@ export default function ResumePage() {
             {roles.map((w, i) => (
               <div key={`${w.company}-${w.startDate ?? i}`} className={ROW}>
                 <span className="flex items-baseline gap-2.5">
-                  <span className="font-mono text-[12px] tabular-nums text-pz-muted">
+                  <span className="text-[12.5px] tabular-nums text-pz-muted">
                     {w.range.replace(/\s*—\s*/g, " – ")}
                   </span>
                   {w.current && (

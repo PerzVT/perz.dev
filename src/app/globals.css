@@ -76,6 +76,8 @@
   --radius: 0.5rem;
   --ring-radius: 0.5rem;
   --section-gap: 5rem;
+  /* No webfont for mono — see layout.tsx. Only code blocks would use it. */
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   --body-font: var(--font-sans, system-ui, -apple-system, "Inter", sans-serif);
   --display-font: var(--font-display, "Nunito", system-ui, sans-serif);
   --heading-letter-spacing: -0.018em;
