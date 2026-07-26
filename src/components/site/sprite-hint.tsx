@@ -31,10 +31,13 @@ export function SpriteHint({ show }: { show: boolean }) {
             rotated corner can't leave a seam where the two meet. */}
         <span className="absolute left-[-3px] top-1/2 -z-10 h-2.5 w-2.5 -translate-y-1/2 rotate-45 rounded-[2px] bg-pz-ink" />
         change me
-        {/* Sparkle — the bit that makes it feel hand-made, not a tooltip. */}
+        {/* Sparkle — the bit that makes it feel hand-made, not a tooltip.
+            Anchored from the left edge, which sits on a whole pixel. Off
+            the right edge it inherited the capsule's text-derived
+            fractional width and rendered soft. */}
         <svg
           viewBox="0 0 24 24"
-          className="absolute -right-2 -top-2.5 h-[14px] w-[14px] text-pz-accent"
+          className="absolute -left-2 -top-2.5 h-[14px] w-[14px] text-pz-accent"
           fill="currentColor"
         >
           <path d="M12 0l1.9 8.1L22 10l-8.1 1.9L12 20l-1.9-8.1L2 10l8.1-1.9z" />
