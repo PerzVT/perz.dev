@@ -38,7 +38,11 @@ function Row({ w }: { w: WorkEntry }) {
   const logo = w.logo && !MISSING_LOGOS.has(w.logo) ? w.logo : null;
 
   return (
-    <div className="flex items-center gap-4 border-b border-pz-border py-4">
+    // Wraps on narrow screens: at 375px the date block was taking more
+    // width than the role and company it sits beside, squeezing them into
+    // ~110px and forcing them to wrap. `basis-full` drops the dates onto
+    // their own line below, indented to line up under the text.
+    <div className="flex flex-wrap items-center gap-x-4 gap-y-2 border-b border-pz-border py-4">
       <span className="pz-panel flex h-11 w-11 flex-none overflow-hidden rounded-lg border border-pz-border bg-pz-raised">
         {logo ? (
           <Image
@@ -62,9 +66,9 @@ function Row({ w }: { w: WorkEntry }) {
         </span>
       </span>
 
-      <span className="flex flex-none items-center gap-2">
+      <span className="flex basis-full items-center gap-2 pl-[60px] sm:basis-auto sm:pl-0">
         {w.current && (
-          <span className="hidden items-center gap-1.5 rounded-full border border-pz-border2 px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.07em] text-pz-accent sm:inline-flex">
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-pz-border2 px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.07em] text-pz-accent">
             <span className="h-1.5 w-1.5 rounded-full bg-pz-accent" />
             Current
           </span>
