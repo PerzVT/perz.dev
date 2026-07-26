@@ -81,7 +81,7 @@ export function Banner({
           }`}
         >
           {eyebrow && (
-            <div className="mb-2 text-[11px] font-bold uppercase tracking-[0.09em] text-pz-accent">
+            <div className="mb-2 text-[12px] font-semibold text-pz-accent">
               {eyebrow}
             </div>
           )}

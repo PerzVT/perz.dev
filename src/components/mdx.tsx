@@ -273,7 +273,7 @@ function ImpactStat({
       <span className="text-4xl font-bold leading-none tracking-[-0.032em] text-pz-ink sm:text-5xl">
         {number}
       </span>
-      <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-pz-muted">
+      <span className="text-[12px] font-semibold text-pz-muted">
         {label}
       </span>
       {sub && <span className="text-xs leading-relaxed text-pz-faint">{sub}</span>}
@@ -296,10 +296,10 @@ function ImpactQuote({
       <blockquote className="text-xl font-semibold italic leading-snug tracking-[-0.018em] text-pz-ink sm:text-2xl">
         “{children}”
       </blockquote>
-      <figcaption className="mt-3 text-[11px] font-semibold uppercase tracking-[0.14em] text-pz-muted">
+      <figcaption className="mt-3 text-[12px] font-semibold text-pz-muted">
         {attribution}
         {role && (
-          <span className="block text-[11px] font-normal normal-case tracking-normal text-pz-faint">
+          <span className="block text-[12px] font-normal text-pz-faint">
             {role}
           </span>
         )}
@@ -344,7 +344,7 @@ function Highlight({
       className="flex scroll-mt-[84px] flex-wrap items-center gap-x-[clamp(32px,5vw,56px)] gap-y-7"
     >
       <div className={`min-w-[280px] flex-[1_1_300px] ${flip ? "md:order-2" : ""}`}>
-        <div className="text-[11px] font-bold uppercase tracking-[0.09em] text-pz-accent">
+        <div className="text-[12px] font-semibold text-pz-accent">
           Highlight {n} · {kicker}
         </div>
         <h2 className="mt-2.5 text-[21px] font-bold tracking-[-0.022em] text-pz-ink">
@@ -376,7 +376,7 @@ function Outcome({
 }) {
   return (
     <section id="outcome" data-case-section className="scroll-mt-[84px]">
-      <div className="text-[11px] font-bold uppercase tracking-[0.09em] text-pz-accent">
+      <div className="text-[12px] font-semibold text-pz-accent">
         Outcome
       </div>
       <h2 className="mt-2.5 text-[22px] font-bold tracking-[-0.022em] text-pz-ink">
