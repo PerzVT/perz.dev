@@ -34,9 +34,10 @@ export function WorkCards({ cards }: { cards: WorkCard[] }) {
             <span className="text-[14.5px] leading-[1.6] text-pz-ink2">
               {card.tagline}
             </span>
-            {/* A tag, not a button: the whole card is already the link,
-                and an anchor inside an anchor is invalid. */}
-            <span className="mt-auto inline-flex items-center self-start rounded-[var(--r-tag)] px-2.5 py-1.5 text-[13.5px] font-semibold text-pz-muted shadow-[var(--pz-ring-strong)] transition-colors group-hover/card:text-pz-ink">
+            {/* Carries the primary button's styling but stays a span:
+                the whole card is already the link, and an anchor inside
+                an anchor is invalid. Matches the spotlight's CTA. */}
+            <span className="pz-btn pz-btn-primary mt-auto inline-flex items-center self-start px-3.5 py-2 text-[13px] font-semibold text-[var(--pz-on-accent)]">
               Read more
             </span>
           </div>
