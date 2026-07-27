@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { SiteNav } from "@/components/site/site-nav";
 import { SiteFooter } from "@/components/site/site-footer";
 import { WorkCards } from "@/components/site/work-cards";
@@ -38,17 +37,6 @@ export default function WorkPage() {
           </p>
         </header>
         <div className="mx-auto max-w-[1160px] px-[clamp(20px,4vw,32px)] pb-[clamp(64px,9vh,96px)] pt-[clamp(28px,4vh,44px)]">
-          <div className="mb-7 flex items-baseline justify-between gap-4 pb-3.5 shadow-[inset_0_-1px_0_var(--pz-border-soft)]">
-            <span className="text-[15px] font-medium text-pz-muted">
-              {cards.length} projects
-            </span>
-            <Link
-              href="/#contact"
-              className="text-[15px] font-medium text-pz-muted transition-colors hover:text-pz-ink"
-            >
-              Get in touch
-            </Link>
-          </div>
           <WorkCards cards={cards} />
         </div>
       </main>
