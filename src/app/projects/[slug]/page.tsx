@@ -112,7 +112,7 @@ function Hero({ src, poster }: { src: string; poster?: string }) {
           />
         )}
         {isVideo && (
-          <span className="pointer-events-none absolute left-3.5 top-3.5 rounded-md border border-white/15 bg-black/60 px-2.5 py-1 text-[12px] font-semibold text-white backdrop-blur-sm">
+          <span className="pointer-events-none absolute left-3 top-3 rounded-[var(--r-chip)] bg-[rgba(10,10,12,0.72)] px-2.5 py-1 text-[13px] font-semibold text-pz-ink shadow-[var(--pz-ring-strong)]">
             Trailer
           </span>
         )}

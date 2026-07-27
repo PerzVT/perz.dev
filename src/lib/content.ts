@@ -33,6 +33,10 @@ export interface ProjectFrontmatter {
   /** Optional muted clip that plays on card hover (desktop only).
    *  Resolved like `image` (bare filename → project folder). */
   cardVideo?: string;
+  /** 16:9 art for the spotlight carousel (1920x1080). The 2:3 `image`
+   *  is authored for the portrait grid card and crops badly in a
+   *  landscape slot, so the spotlight prefers this and falls back. */
+  coverWide?: string;
   confidential?: boolean;
   status?: "live" | "wip" | "coming-soon";
   /** When true, the project has no case study — clicking the card on
@@ -255,6 +259,13 @@ export interface WorkCard {
   cardFocus?: string;
   /** Case-study route the card links to (/projects/<slug>). */
   caseHref: string;
+  /** 16:9 spotlight art, or null to fall back to the 2:3 cover. */
+  wideImage: string | null;
+  /** Facts shown beside the cover in the spotlight carousel. */
+  role?: string;
+  engine?: string;
+  /** Badge over the cover: "Shipped", "Coming soon", etc. */
+  statusLabel?: string;
 }
 
 /**
@@ -286,8 +297,17 @@ export const getWorkCards = cache((): WorkCard[] => {
         tagline: s.tagline,
         image: resolveImg(s.slug, p.frontmatter.image),
         hoverVideo: resolveImg(s.slug, p.frontmatter.cardVideo),
+        wideImage: resolveImg(s.slug, p.frontmatter.coverWide),
         cardFocus: p.frontmatter.cardFocus,
         caseHref: `/projects/${s.slug}`,
+        role: p.frontmatter.roles?.[0],
+        engine: p.frontmatter.engine,
+        statusLabel:
+          p.frontmatter.status === "coming-soon"
+            ? "Coming soon"
+            : p.frontmatter.url
+              ? "Shipped"
+              : undefined,
       };
     });
 });

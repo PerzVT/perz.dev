@@ -15,9 +15,12 @@ export function About() {
   return (
     <section
       id="about"
-      className="pz-panel mt-[clamp(56px,8vh,88px)] border-y border-pz-border bg-pz-raised"
+      // The one inset panel on the page. It used to be a full-bleed
+      // tinted band, but a different background colour is not how this
+      // system separates regions — a ringed panel is.
+      className="mx-auto mt-[clamp(56px,8vh,88px)] max-w-[1160px] px-[clamp(20px,4vw,32px)]"
     >
-      <div className="mx-auto flex max-w-[1160px] flex-wrap items-center gap-[clamp(28px,5vw,56px)] px-[clamp(20px,4vw,32px)] py-[clamp(44px,7vh,64px)]">
+      <div className="pz-panel flex flex-wrap items-center gap-[clamp(28px,5vw,56px)] rounded-[var(--r-panel)] p-[clamp(28px,5vw,48px)]">
         <div className="flex-1 basis-[400px]">
           <SectionHeading>About me</SectionHeading>
           <p className="mt-[18px] max-w-[62ch] text-[clamp(15.5px,1.6vw,17px)] leading-[1.8] text-pz-ink2 [text-wrap:pretty]">

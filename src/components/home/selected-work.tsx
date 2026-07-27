@@ -1,6 +1,6 @@
+import Link from "next/link";
 import { getWorkCards } from "@/lib/content";
-import { WorkCards } from "@/components/site/work-cards";
-import { Button } from "@/components/site/button";
+import { SpotlightWork } from "@/components/site/spotlight-work";
 import { SectionHeading } from "@/components/site/section-heading";
 
 /**
@@ -16,18 +16,19 @@ export function SelectedWork() {
       id="work"
       className="mx-auto max-w-[1160px] scroll-mt-20 px-[clamp(20px,4vw,32px)] pt-[clamp(56px,8vh,88px)]"
     >
-      <div className="flex items-center justify-between gap-4">
+      {/* Heading row sits on a hairline, with the index as a quiet link
+          rather than a second button competing with the slide's CTA. */}
+      <div className="flex items-center justify-between gap-4 pb-3.5 shadow-[inset_0_-1px_0_var(--pz-border-soft)]">
         <SectionHeading>Featured work</SectionHeading>
-        <Button
+        <Link
           href="/projects"
-          variant="secondary"
-          className="flex-none border border-pz-border2"
+          className="flex-none text-[15px] font-medium text-pz-muted transition-colors hover:text-pz-ink"
         >
           All work
-        </Button>
+        </Link>
       </div>
-      <div className="mt-7">
-        <WorkCards cards={cards} layout="rail" />
+      <div className="mt-8">
+        <SpotlightWork cards={cards} />
       </div>
     </section>
   );
