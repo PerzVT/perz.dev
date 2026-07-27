@@ -8,7 +8,8 @@ import { MediaReel } from "@/components/case-study/media-reel";
 import { Banner } from "@/components/site/banner";
 
 // Shared MDX media frame — Kerberus v2 surface + hairline border.
-const MEDIA_FRAME = "block w-full rounded-lg border border-pz-border bg-pz-surface";
+const MEDIA_FRAME =
+  "block w-full rounded-[var(--r-media)] bg-pz-raised shadow-[var(--pz-ring)]";
 
 /**
  * Inline `<video>` or `<img>` based on the file extension. Authors don't
@@ -113,13 +114,13 @@ function Column({
         <img
           src={image}
           alt={title}
-          className="mb-3 block w-full rounded-[10px] border border-pz-border bg-pz-surface"
+          className="mb-3 block w-full rounded-[var(--r-media)] bg-pz-raised shadow-[var(--pz-ring)]"
         />
       )}
-      <h3 className="text-[15px] font-bold tracking-[-0.018em] text-pz-ink">
+      <h3 className="text-[18px] font-bold tracking-[-0.011em] text-pz-ink">
         {title}
       </h3>
-      <p className="mt-1.5 text-[15px] leading-[1.6] text-pz-ink2">{body}</p>
+      <p className="mt-1.5 text-[14.5px] leading-[1.6] text-pz-ink2">{body}</p>
     </div>
   );
 }
@@ -344,13 +345,13 @@ function Highlight({
       className="flex scroll-mt-[84px] flex-wrap items-center gap-x-[clamp(32px,5vw,56px)] gap-y-7"
     >
       <div className={`min-w-[280px] flex-[1_1_300px] ${flip ? "md:order-2" : ""}`}>
-        <div className="text-[12px] font-semibold text-pz-accent">
+        <div className="text-[13px] font-semibold text-pz-accent">
           Highlight {n} · {kicker}
         </div>
-        <h2 className="mt-2.5 text-[21px] font-bold tracking-[-0.022em] text-pz-ink">
+        <h2 className="mt-2.5 text-[26px] font-extrabold leading-[1.3] tracking-[-0.012em] text-pz-ink [font-stretch:122%]">
           {title}
         </h2>
-        <p className="mt-3 max-w-[52ch] text-[16px] leading-[1.7] text-pz-ink2">
+        <p className="mt-3 max-w-[52ch] text-[17px] leading-[1.75] text-pz-ink2">
           {body}
         </p>
       </div>
@@ -376,10 +377,8 @@ function Outcome({
 }) {
   return (
     <section id="outcome" data-case-section className="scroll-mt-[84px]">
-      <div className="text-[12px] font-semibold text-pz-accent">
-        Outcome
-      </div>
-      <h2 className="mt-2.5 text-[22px] font-bold tracking-[-0.022em] text-pz-ink">
+      <div className="text-[13px] font-semibold text-pz-accent">Outcome</div>
+      <h2 className="mt-2.5 text-[26px] font-extrabold leading-[1.3] tracking-[-0.012em] text-pz-ink [font-stretch:122%]">
         {title}
       </h2>
       <div className="mt-3.5 [&>:first-child]:mt-0">{children}</div>
@@ -395,13 +394,13 @@ function OutcomePoints({ children }: { children: ReactNode }) {
 /** One checkmark outcome card. Use <strong> to emphasise the lead. */
 function OutcomePoint({ children }: { children: ReactNode }) {
   return (
-    <div className="pz-panel flex items-start gap-3.5 rounded-xl border border-pz-border bg-pz-raised px-[18px] py-4">
+    <div className="pz-panel flex items-start gap-3.5 rounded-[var(--r-card)] px-[18px] py-4">
       <Check
-        className="mt-0.5 h-4 w-4 flex-none text-pz-accent"
+        className="mt-1 h-4 w-4 flex-none text-pz-accent"
         strokeWidth={2.4}
         aria-hidden
       />
-      <p className="m-0 text-[16px] leading-[1.6] text-pz-ink2 [&>strong]:font-semibold [&>strong]:text-pz-ink">
+      <p className="m-0 text-[17px] leading-[1.7] text-pz-ink2 [&>strong]:font-semibold [&>strong]:text-pz-ink">
         {children}
       </p>
     </div>
@@ -448,7 +447,7 @@ const components: MDXRemoteProps["components"] = {
   ),
   p: (props) => (
     <p
-      className="mb-5 max-w-[62ch] text-[16px] leading-[1.75] text-pz-ink2"
+      className="mb-5 max-w-[62ch] text-[17px] leading-[1.75] text-pz-ink2"
       {...props}
     />
   ),

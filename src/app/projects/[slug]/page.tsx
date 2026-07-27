@@ -92,7 +92,7 @@ function Hero({ src, poster }: { src: string; poster?: string }) {
   const isVideo = /\.(mp4|webm|mov)$/i.test(src);
   return (
     <figure className="m-0 mt-[26px] [animation:perzRise_.6s_var(--ease-out)_.16s_both]">
-      <div className="relative aspect-[16/9] overflow-hidden rounded-[14px] border border-pz-border bg-pz-surface">
+      <div className="relative aspect-[16/9] overflow-hidden rounded-[var(--r-media)] bg-pz-raised shadow-[var(--pz-ring)]">
         {isVideo ? (
           <LazyVideo
             src={src}
@@ -174,10 +174,10 @@ export default async function ProjectPage({ params }: { params: Params }) {
         >
           <div className="flex flex-wrap items-end gap-x-[clamp(24px,4vw,48px)] gap-y-5 [animation:perzRise_.5s_var(--ease-out)_.08s_both]">
             <div className="min-w-[280px] flex-[1_1_480px]">
-              <h1 className="pz-wordmark text-[clamp(32px,4.6vw,50px)] font-extrabold leading-[1.02] tracking-[-0.032em] text-pz-ink">
+              <h1 className="pz-wordmark text-[clamp(34px,4.4vw,44px)] font-extrabold leading-[1.1] tracking-[-0.017em] text-pz-ink">
                 {frontmatter.title}
               </h1>
-              <p className="mt-3.5 text-[16.5px] leading-[1.6] text-pz-ink2">
+              <p className="mt-3.5 text-[20px] leading-[1.6] text-pz-ink2">
                 {frontmatter.description}
               </p>
             </div>
@@ -195,7 +195,7 @@ export default async function ProjectPage({ params }: { params: Params }) {
           <div className="mt-[26px] flex flex-wrap gap-x-[clamp(32px,5vw,60px)] gap-y-8 [animation:perzRise_.5s_var(--ease-out)_.26s_both]">
             {contributions.length > 0 && (
               <div className="min-w-[300px] flex-[1.6_1_420px]">
-                <h2 className="text-[17px] font-bold tracking-[-0.018em] text-pz-ink">
+                <h2 className="text-[18px] font-bold tracking-[-0.011em] text-pz-ink">
                   Contributions
                 </h2>
                 <ul className="mt-3 flex list-none flex-col gap-3 p-0">
@@ -225,18 +225,20 @@ export default async function ProjectPage({ params }: { params: Params }) {
 
             {rows.length > 0 && (
               <div className="min-w-[260px] flex-[1_1_300px]">
-                <div className="pz-panel rounded-xl border border-pz-border bg-pz-raised px-[18px] py-1">
+                <div className="pz-panel rounded-[var(--r-panel)] px-[18px] py-1">
                   {rows.map((r, i) => (
                     <div
                       key={r.label}
                       className={`grid grid-cols-[108px_1fr] items-center gap-3 py-3 ${
-                        i < rows.length - 1 ? "border-b border-pz-border" : ""
+                        i < rows.length - 1
+                          ? "shadow-[inset_0_-1px_0_var(--pz-border-soft)]"
+                          : ""
                       }`}
                     >
-                      <span className="text-[12px] font-semibold text-pz-faint">
+                      <span className="text-[13px] text-pz-faint">
                         {r.label}
                       </span>
-                      <span className="text-[13.5px] font-semibold text-pz-ink">
+                      <span className="text-[14.5px] font-semibold text-pz-ink">
                         {r.value}
                       </span>
                     </div>
@@ -247,15 +249,15 @@ export default async function ProjectPage({ params }: { params: Params }) {
           </div>
 
           {skills.length > 0 && (
-            <div className="mt-[26px] border-t border-pz-border pt-[22px] [animation:perzRise_.5s_var(--ease-out)_.3s_both]">
-              <div className="text-[12px] font-semibold text-pz-muted">
-                Skills &amp; tools
+            <div className="mt-[26px] pt-[22px] shadow-[inset_0_1px_0_var(--pz-border-soft)] [animation:perzRise_.5s_var(--ease-out)_.3s_both]">
+              <div className="text-[13px] font-semibold text-pz-faint">
+                Skills and tools
               </div>
               <div className="mt-3 flex flex-wrap gap-2">
                 {skills.map((s) => (
                   <span
                     key={s}
-                    className="rounded-md border border-pz-border2 px-2.5 py-1 text-[12.5px] text-pz-ink2"
+                    className="rounded-[var(--r-tag)] px-2.5 py-1.5 text-[13.5px] text-pz-muted shadow-[var(--pz-ring-strong)]"
                   >
                     {s}
                   </span>
@@ -266,13 +268,13 @@ export default async function ProjectPage({ params }: { params: Params }) {
 
           {frontmatter.confidential && (
             <div
-              className="mt-6 flex items-center gap-2.5 rounded-[10px] border px-4 py-3.5 [animation:perzRise_.5s_var(--ease-out)_.32s_both]"
+              className="mt-6 flex items-center gap-2.5 rounded-[var(--r-card)] px-4 py-3.5 [animation:perzRise_.5s_var(--ease-out)_.32s_both]"
               style={{
-                borderColor: "color-mix(in oklab, var(--pz-accent) 35%, transparent)",
-                background: "color-mix(in oklab, var(--pz-accent) 8%, transparent)",
+                boxShadow: "inset 0 0 0 1px var(--pz-accent-line)",
+                background: "var(--pz-accent-soft)",
               }}
             >
-              <span className="text-[13px] leading-[1.5] text-pz-ink2">
+              <span className="text-[14.5px] leading-[1.55] text-pz-ink2">
                 Some details redacted under NDA.{" "}
                 <Link href="/#contact" className="font-semibold text-pz-accent">
                   Reach out for a walkthrough

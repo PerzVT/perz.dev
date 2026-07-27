@@ -46,7 +46,7 @@ function pdfHref(): string | null {
 }
 
 const ROW =
-  "grid grid-cols-1 gap-x-5 gap-y-1.5 border-b border-pz-border py-4 sm:grid-cols-[minmax(140px,170px)_1fr]";
+  "pz-hover -mx-3 grid grid-cols-1 gap-x-5 gap-y-1.5 rounded-[var(--r-card)] px-3 py-4 shadow-[inset_0_-1px_0_var(--pz-border-soft)] sm:grid-cols-[minmax(140px,170px)_1fr]";
 
 /**
  * Résumé — a scannable one-pager built only from real content: the
@@ -70,10 +70,10 @@ export default function ResumePage() {
       <main className="mx-auto max-w-[1160px] px-[clamp(20px,4vw,32px)] pb-[clamp(64px,10vh,96px)] pt-[clamp(44px,7vh,72px)]">
         <div className="flex flex-wrap items-start justify-between gap-6 [animation:perzRise_.5s_var(--ease-out)_.05s_both]">
           <div className="flex-1 basis-[360px]">
-            <h1 className="text-[clamp(28px,3.6vw,38px)] font-bold tracking-[-0.03em] text-pz-ink">
+            <h1 className="pz-wordmark text-[clamp(34px,4.4vw,44px)] font-extrabold leading-[1.1] tracking-[-0.017em] text-pz-ink">
               Résumé
             </h1>
-            <p className="mt-2.5 text-[14.5px] text-pz-muted">
+            <p className="mt-2.5 text-[14.5px] text-pz-faint">
               Game designer, user experience and player-focused systems
             </p>
           </div>
@@ -84,17 +84,17 @@ export default function ResumePage() {
           )}
         </div>
 
-        <p className="mt-[26px] max-w-[66ch] text-[16px] leading-[1.75] text-pz-ink2 [animation:perzRise_.5s_var(--ease-out)_.12s_both]">
+        <p className="mt-[26px] max-w-[56ch] text-[20px] leading-[1.6] text-pz-ink2 [animation:perzRise_.5s_var(--ease-out)_.12s_both]">
           {siteConfig.about}
         </p>
 
-        <div className="mt-[22px] text-[13.5px] leading-[1.9] text-pz-muted [animation:perzRise_.5s_var(--ease-out)_.16s_both]">
+        <div className="mt-[22px] text-[14.5px] leading-[1.8] text-pz-faint [animation:perzRise_.5s_var(--ease-out)_.16s_both]">
           Shipped on Meta Quest and itch.io · Founded Draconia, a gaming service
           with 400,000+ players · Kerberus, independent studio
         </div>
 
         <section className="mt-11">
-          <h2 className="text-[17px] font-bold tracking-[-0.018em] text-pz-ink">
+          <h2 className="text-[26px] font-extrabold leading-[1.3] tracking-[-0.012em] text-pz-ink [font-stretch:122%]">
             Design philosophy
           </h2>
           <p className="mt-2.5 max-w-[66ch] text-[15px] leading-[1.8] text-pz-ink2">
@@ -103,7 +103,7 @@ export default function ResumePage() {
         </section>
 
         <section className="mt-11">
-          <h2 className="text-[17px] font-bold tracking-[-0.018em] text-pz-ink">
+          <h2 className="text-[26px] font-extrabold leading-[1.3] tracking-[-0.012em] text-pz-ink [font-stretch:122%]">
             Experience
           </h2>
           <div className="mt-3 border-t border-pz-border">
@@ -137,28 +137,28 @@ export default function ResumePage() {
 
         {skills && (
           <section id="skills" className="mt-11">
-            <h2 className="text-[17px] font-bold tracking-[-0.018em] text-pz-ink">
+            <h2 className="text-[26px] font-extrabold leading-[1.3] tracking-[-0.012em] text-pz-ink [font-stretch:122%]">
               Skills
             </h2>
             <div className="mt-4 grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-3">
               {skills.headline.map((s) => (
                 <div key={s.name}>
-                  <h3 className="text-[14.5px] font-bold tracking-[-0.014em] text-pz-ink">
+                  <h3 className="text-[18px] font-bold tracking-[-0.011em] text-pz-ink">
                     {s.name}
                   </h3>
                   {s.context && (
-                    <p className="mt-1.5 text-[13.5px] leading-[1.65] text-pz-ink2">
+                    <p className="mt-1.5 text-[14.5px] leading-[1.65] text-pz-ink2">
                       {s.context}
                     </p>
                   )}
                 </div>
               ))}
             </div>
-            <div className="mt-7 flex flex-wrap gap-2 border-t border-pz-border pt-5">
+            <div className="mt-7 flex flex-wrap gap-2 pt-5 shadow-[inset_0_1px_0_var(--pz-border-soft)]">
               {skills.secondary.map((s) => (
                 <span
                   key={s.name}
-                  className="rounded-md border border-pz-border2 px-2.5 py-1 text-[12.5px] text-pz-ink2"
+                  className="rounded-[var(--r-tag)] px-2.5 py-1.5 text-[13.5px] text-pz-muted shadow-[var(--pz-ring-strong)]"
                 >
                   {s.name}
                 </span>
@@ -167,7 +167,7 @@ export default function ResumePage() {
           </section>
         )}
 
-        <div className="mt-11 flex flex-wrap gap-5 border-t border-pz-border pt-4 text-[13px]">
+        <div className="mt-11 flex flex-wrap gap-5 pt-5 text-[14.5px] shadow-[inset_0_1px_0_var(--pz-border-soft)]">
           <Link
             href="/"
             className="text-pz-ink2 transition-colors hover:text-pz-ink"
