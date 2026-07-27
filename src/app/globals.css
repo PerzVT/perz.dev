@@ -425,11 +425,21 @@
   cursor: pointer;
   z-index: 1;
 }
+/* Peeks tuck BEHIND the centre, showing about a tenth of themselves.
+   A 78% offset put them fully alongside it, so each rendered its whole
+   panel and the row read as three cards rather than one with a stack
+   behind it. Visible sliver = offset + halfWidth - 38, so the offset has
+   to stay small for the overlap to happen at all. */
 .spot-slide.is-left {
-  transform: translateX(calc(-50% - 78%)) scale(0.95);
+  transform: translateX(calc(-50% - 14%)) scale(0.9);
 }
 .spot-slide.is-right {
-  transform: translateX(calc(-50% + 78%)) scale(0.95);
+  transform: translateX(calc(-50% + 14%)) scale(0.9);
+}
+/* A peek is decoration: fill it with art rather than letterboxing a
+   portrait cover into a wide panel. */
+.spot-slide:not(.is-center) img {
+  object-fit: cover;
 }
 .spot-slide:not(.is-center) a,
 .spot-slide:not(.is-center) button {
