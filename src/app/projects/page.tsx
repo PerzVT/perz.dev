@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { SiteNav } from "@/components/site/site-nav";
 import { SiteFooter } from "@/components/site/site-footer";
 import { WorkCards } from "@/components/site/work-cards";
@@ -23,17 +24,31 @@ export default function WorkPage() {
     <>
       <SiteNav />
       <main id="main-content">
+        {/* Same shape as the home sections: display heading with the
+            width axis doing the shouting, a lead line, then a hairline
+            carrying the count before the grid. */}
         <header className="mx-auto max-w-[1160px] px-[clamp(20px,4vw,32px)] pt-[clamp(48px,8vh,80px)]">
-          <h1 className="text-[clamp(28px,3.6vw,38px)] font-bold tracking-[-0.03em] text-pz-ink [animation:perzRise_.5s_var(--ease-out)_.05s_both]">
+          <h1 className="pz-wordmark text-[clamp(34px,4.4vw,44px)] font-extrabold leading-[1.1] tracking-[-0.017em] text-pz-ink [animation:perzRise_.5s_var(--ease-out)_.05s_both]">
             My work
           </h1>
-          <p className="mt-3 max-w-[52ch] text-[16px] leading-[1.7] text-pz-ink2 [animation:perzRise_.5s_var(--ease-out)_.12s_both]">
+          <p className="mt-3.5 max-w-[56ch] text-[20px] leading-[1.6] text-pz-ink2 [animation:perzRise_.5s_var(--ease-out)_.12s_both]">
             My latest adventure has been working with the talented team at
             Highstreet. I still make modded content on the side and enter
             game-jams to keep things exciting!
           </p>
         </header>
         <div className="mx-auto max-w-[1160px] px-[clamp(20px,4vw,32px)] pb-[clamp(64px,9vh,96px)] pt-[clamp(28px,4vh,44px)]">
+          <div className="mb-7 flex items-baseline justify-between gap-4 pb-3.5 shadow-[inset_0_-1px_0_var(--pz-border-soft)]">
+            <span className="text-[15px] font-medium text-pz-muted">
+              {cards.length} projects
+            </span>
+            <Link
+              href="/#contact"
+              className="text-[15px] font-medium text-pz-muted transition-colors hover:text-pz-ink"
+            >
+              Get in touch
+            </Link>
+          </div>
           <WorkCards cards={cards} />
         </div>
       </main>

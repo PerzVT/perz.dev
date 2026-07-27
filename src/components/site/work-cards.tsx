@@ -1,64 +1,47 @@
 import Link from "next/link";
 import type { WorkCard } from "@/lib/content";
-import { Rail } from "@/components/site/rail";
 import { CardMedia } from "@/components/site/card-media";
 
 /**
- * Project cards. Two layouts: a draggable single-row "rail" (home, hints
- * at the full set) and a full "grid" (the work page). Each card links
- * straight to its case study at /projects/<slug>. Covers are 16:9 on disk
- * and object-cover into the 2:3 frame (owner's choice); a per-card
- * frontmatter `cardFocus` can retarget the crop.
+ * The project grid on /projects. Each card is a ringed panel holding its
+ * 2:3 cover, and the whole card is the link to the case study.
+ *
+ * The old "rail" layout is gone — the home page runs the spotlight
+ * carousel now, and this was its only other caller.
  */
-export function WorkCards({
-  cards,
-  layout = "grid",
-}: {
-  cards: WorkCard[];
-  layout?: "grid" | "rail";
-}) {
-  const rail = layout === "rail";
-
-  const cardEls = cards.map((card, i) => (
-    <Link
-      key={card.slug}
-      href={card.caseHref}
-      aria-label={`${card.title} — case study`}
-      className={`group/card flex flex-col gap-3 text-left transition-transform duration-200 ease-out hover:-translate-y-[3px] focus-visible:-translate-y-[3px] ${
-        rail ? "w-[min(82vw,340px)] flex-none snap-start" : ""
-      }`}
-    >
-      <CardMedia
-        image={card.image}
-        hoverVideo={card.hoverVideo}
-        alt={card.title}
-        cardFocus={card.cardFocus}
-        priority={i === 0}
-        sizes={rail ? "340px" : "(min-width: 1160px) 270px, (min-width: 640px) 45vw, 100vw"}
-      />
-      <div className="flex flex-1 flex-col gap-[7px]">
-        <span className="text-base font-bold tracking-[-0.018em] text-pz-ink">
-          {card.title}
-        </span>
-        <span className="text-[13px] leading-[1.6] text-pz-ink2">
-          {card.tagline}
-        </span>
-        {/* Styled as a button but rendered as a span: the whole card is
-            already the <Link>, and an anchor inside an anchor is invalid.
-            Matches the secondary button treatment so cards read as part
-            of the same button family as the rest of the site. */}
-        <span className="pz-btn pz-btn-secondary mt-auto inline-flex items-center self-start rounded-lg border border-pz-border2 px-3.5 py-2 text-[13px] font-semibold text-pz-ink group-hover/card:-translate-y-px group-hover/card:border-pz-muted">
-          Read more
-        </span>
-      </div>
-    </Link>
-  ));
-
-  return rail ? (
-    <Rail ariaLabel="Projects">{cardEls}</Rail>
-  ) : (
-    <div className="grid grid-cols-[repeat(auto-fill,minmax(min(100%,290px),1fr))] gap-x-5 gap-y-10">
-      {cardEls}
+export function WorkCards({ cards }: { cards: WorkCard[] }) {
+  return (
+    <div className="grid grid-cols-[repeat(auto-fill,minmax(min(100%,270px),1fr))] gap-5">
+      {cards.map((card, i) => (
+        <Link
+          key={card.slug}
+          href={card.caseHref}
+          aria-label={`${card.title} — case study`}
+          className="pz-panel pz-lift group/card flex flex-col gap-3.5 rounded-[var(--r-panel)] p-3 text-left"
+        >
+          <CardMedia
+            image={card.image}
+            hoverVideo={card.hoverVideo}
+            alt={card.title}
+            cardFocus={card.cardFocus}
+            priority={i === 0}
+            sizes="(min-width: 1160px) 260px, (min-width: 640px) 45vw, 100vw"
+          />
+          <div className="flex flex-1 flex-col gap-2 px-1 pb-1">
+            <span className="text-[17px] font-bold leading-[1.3] tracking-[-0.011em] text-pz-ink">
+              {card.title}
+            </span>
+            <span className="text-[14.5px] leading-[1.6] text-pz-ink2">
+              {card.tagline}
+            </span>
+            {/* A tag, not a button: the whole card is already the link,
+                and an anchor inside an anchor is invalid. */}
+            <span className="mt-auto inline-flex items-center self-start rounded-[var(--r-tag)] px-2.5 py-1.5 text-[13.5px] font-semibold text-pz-muted shadow-[var(--pz-ring-strong)] transition-colors group-hover/card:text-pz-ink">
+              Read more
+            </span>
+          </div>
+        </Link>
+      ))}
     </div>
   );
 }
