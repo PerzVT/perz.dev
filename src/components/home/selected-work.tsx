@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { getWorkCards } from "@/lib/content";
-import { SpotlightWork } from "@/components/site/spotlight-work";
+import { WorkCards } from "@/components/site/work-cards";
 import { SectionHeading } from "@/components/site/section-heading";
 
 /**
@@ -27,8 +27,8 @@ export function SelectedWork() {
           All work
         </Link>
       </div>
-      <div className="mt-8">
-        <SpotlightWork cards={cards} />
+      <div className="mt-7">
+        <WorkCards cards={cards} layout="rail" />
       </div>
     </section>
   );
