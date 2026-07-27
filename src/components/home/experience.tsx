@@ -42,7 +42,9 @@ function Row({ w }: { w: WorkEntry }) {
     // width than the role and company it sits beside, squeezing them into
     // ~110px and forcing them to wrap. `basis-full` drops the dates onto
     // their own line below, indented to line up under the text.
-    <div className="flex flex-wrap items-center gap-x-4 gap-y-2 border-b border-pz-border py-4">
+    // Hover tints the whole row, with the padding pulled out to the
+    // gutter so the highlight reads as the row and not a floating box.
+    <div className="pz-hover -mx-3 flex flex-wrap items-center gap-x-4 gap-y-2 rounded-[var(--r-card)] px-3 py-4 shadow-[inset_0_-1px_0_var(--pz-border-soft)]">
       <span className="pz-panel flex h-11 w-11 flex-none overflow-hidden rounded-lg border border-pz-border bg-pz-raised">
         {logo ? (
           <Image

@@ -20,22 +20,22 @@ export function EndBanners() {
       <Banner
         image="/placeholder-bisecthosting-banner.png"
         imageAlt=""
-        eyebrow="Partner"
+        eyebrow="BisectHosting"
+        dotColor="#e8434f"
         title="Play with friends."
-        body="Servers for the games you actually play, from the host I spent two years designing for."
+        body="Servers for the games you actually play."
         ctaLabel="Start hosting"
         ctaHref="https://www.bisecthosting.com/"
-        accentBg="#e8434f"
       />
       <Banner
         image="/Kerberusgg.png"
         imageAlt=""
         eyebrow="Kerberus"
+        dotColor="#5865f2"
         title="Come build worlds with us."
-        body="Modded servers, packs, and the people who make them. The Discord is where it all happens."
+        body="Modded servers, packs, and the people who make them."
         ctaLabel="Join the Discord"
         ctaHref={siteConfig.links.discord}
-        accentBg="#5865f2"
       />
     </section>
   );

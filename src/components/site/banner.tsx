@@ -25,10 +25,13 @@ export function Banner({
   ctaHref,
   accentBg,
   accentFg,
+  dotColor,
   icon,
   align = "left",
   priority,
 }: {
+  /** Small brand dot beside the eyebrow, e.g. Discord blurple. */
+  dotColor?: string;
   image: string;
   imageAlt?: string;
   eyebrow?: string;
@@ -81,7 +84,16 @@ export function Banner({
           }`}
         >
           {eyebrow && (
-            <div className="mb-2 text-[12px] font-semibold text-pz-accent">
+            <div className="mb-2 flex items-center gap-2 text-[13px] font-semibold text-pz-accent">
+              {/* Brand dot: names the partner without colouring the whole
+                  button, so the single-accent rule survives. */}
+              {dotColor && (
+                <span
+                  aria-hidden
+                  className="h-[7px] w-[7px] flex-none rounded-full"
+                  style={{ backgroundColor: dotColor }}
+                />
+              )}
               {eyebrow}
             </div>
           )}

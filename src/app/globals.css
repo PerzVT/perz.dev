@@ -105,29 +105,71 @@
      surfaces now sit close together in value so elevation is felt rather
      than outlined. Every text tier is checked against WCAG AA on both
      canvas and raised — see the contrast note further down. */
-  --pz-canvas: #0c0c0d;
-  --pz-raised: #131314;
-  --pz-surface: #191919;
-  /* One border weight, as a translucent white rather than a solid grey,
-     so hairlines sit correctly on any surface underneath them (DS). */
+  /* Surface ladder, adopted exactly from the reworked DS. `raised` is
+     the DS's `content` (the one inset panel a region renders into) and
+     `surface` is its `float` (things that genuinely float — rare here). */
+  --pz-canvas: #0a0a0c;
+  --pz-raised: #101013;
+  --pz-surface: #17171b;
+
+  /* Hairlines. One border weight. */
   --pz-border: rgba(255, 255, 255, 0.085);
   --pz-border2: rgba(255, 255, 255, 0.16);
-  /* Card fills are a tint over the canvas, never a lighter grey block. */
+  --pz-border-soft: rgba(255, 255, 255, 0.055);
+
+  /* Object tints. A surface is a tint plus a ring, never a lighter block. */
   --pz-tint: rgba(255, 255, 255, 0.026);
   --pz-tint-hi: rgba(255, 255, 255, 0.055);
-  --pz-ink: #ededee;
-  --pz-ink2: #a8a8aa;
-  --pz-muted: #828285; /* 5.1:1 canvas / 4.9:1 raised */
-  --pz-faint: #808083; /* 5.0:1 canvas / 4.7:1 raised */
-  /* Citron, taken from the owner's Kerberus DS (Workstation handoff).
-     One accent, and it only fires where something is actionable or live;
-     everything else is greyscale. */
+  --pz-chip: rgba(255, 255, 255, 0.07);
+  /* Fields are a tint like every other surface, not a darker well. */
+  --pz-field: rgba(255, 255, 255, 0.018);
+
+  /* Depth is an inset ring, never a shadow. Zero elevation on in-page
+     chrome; only genuinely floating things get elev-float. */
+  --pz-ring: inset 0 0 0 1px rgba(255, 255, 255, 0.075);
+  --pz-ring-soft: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+  --pz-ring-strong: inset 0 0 0 1px rgba(255, 255, 255, 0.16);
+  --pz-elev-float: 0 28px 64px rgba(0, 0, 0, 0.68),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+
+  /* Six ink tiers. `faint` is the DS's ink4 — the floor for text meant
+     to be read. ink6 is disabled controls only, never live text. */
+  --pz-ink: #ededef;
+  --pz-ink2: #c3c3ca;
+  --pz-muted: #a6a6ae;
+  --pz-faint: #94949d;
+  --pz-ink5: #8a8a93;
+  --pz-ink6: #6a6a73;
+
+  /* One accent, two meanings: this is live, or this connects somewhere. */
   --pz-accent: #cbd97e;
-  /* Text on an accent fill is never white — DS rule. */
+  --pz-accent-hi: #deea96;
+  --pz-accent-lo: #9ca95c;
   --pz-on-accent: #16180d;
-  /* Field sits darker than the canvas so an input reads as a well. */
-  --pz-field: #0e0e11;
-  --pz-danger: #e5705f;
+  --pz-accent-soft: rgba(203, 217, 126, 0.14);
+  --pz-accent-line: rgba(203, 217, 126, 0.42);
+
+  /* The only two other hues. */
+  --pz-warn: #e9a94a;
+  --pz-danger: #f0555a;
+  --pz-danger-soft: rgba(240, 85, 90, 0.15);
+
+  /* Radii climb with the object. */
+  --r-tag: 5px;
+  --r-chip: 6px;
+  --r-icon: 7px;
+  --r-field: 8px;
+  --r-button: 9px;
+  --r-card: 10px;
+  --r-media: 12px;
+  --r-panel: 14px;
+
+  /* Motion. Four named durations; press has no travel. */
+  --dur-hover: 120ms;
+  --dur-phase: 160ms;
+  --dur-arrive: 280ms;
+  --dur-alive: 2200ms;
+  --stagger: 60ms;
   color-scheme: dark;
 }
 
@@ -289,7 +331,36 @@
 .pz-panel.pz-panel {
   background-color: var(--pz-tint);
   background-image: none;
-  box-shadow: inset 0 0 0 1px var(--pz-border);
+  box-shadow: var(--pz-ring);
+}
+
+/* Hover on anything you can act on: the tint lifts, the ring stays.
+   The site had no hover feedback on rows, fields or quote cards, which
+   made half the page read as inert. */
+.pz-hover {
+  transition:
+    background-color var(--dur-hover) var(--ease-out),
+    box-shadow var(--dur-hover) var(--ease-out),
+    color var(--dur-hover) var(--ease-out);
+}
+.pz-hover:hover {
+  background-color: var(--pz-tint-hi);
+}
+/* Cards that are themselves a link get a 1px rise as well. */
+.pz-lift {
+  transition:
+    background-color var(--dur-hover) var(--ease-out),
+    transform var(--dur-hover) var(--ease-out),
+    box-shadow var(--dur-hover) var(--ease-out);
+}
+.pz-lift:hover {
+  background-color: var(--pz-tint-hi);
+  transform: translateY(-1px);
+}
+@media (prefers-reduced-motion: reduce) {
+  .pz-lift:hover {
+    transform: none;
+  }
 }
 
 /* Inset variant for form fields — light falls in rather than off, so an
@@ -297,7 +368,126 @@
 .pz-field.pz-field {
   background-color: var(--pz-field);
   background-image: none;
-  box-shadow: inset 0 0 0 1px var(--pz-border);
+  box-shadow: var(--pz-ring);
+  transition:
+    background-color var(--dur-hover) var(--ease-out),
+    box-shadow var(--dur-hover) var(--ease-out);
+}
+/* A field should answer the pointer before it's clicked. */
+.pz-field.pz-field:hover {
+  background-color: var(--pz-tint);
+}
+.pz-field.pz-field:focus {
+  background-color: var(--pz-tint);
+  box-shadow: var(--pz-ring-strong);
+}
+
+/* --- Spotlight carousel -----------------------------------------------
+   One slide centred on an opaque panel, its neighbours peeking dimmed
+   either side. The centre must stay opaque, or the peeks read straight
+   through it. Neighbours are clickable and drop their info column so
+   only the cover shows. */
+/* Height solved so the cover column lands on 16:9 at the 1160 shell,
+   which is the shape the spotlight art is authored at: the shell's
+   1096px of content, 76% of it for the slide, less 28 padding and a
+   20 gap, leaves a 471px cover column; 471/16*9 = 265, plus the
+   padding back. */
+.spot-track {
+  position: relative;
+  height: 293px;
+}
+.spot-slide {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 76%;
+  height: 100%;
+  transform: translateX(-50%) scale(0.97);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    transform var(--dur-arrive) var(--ease-out),
+    opacity var(--dur-arrive) var(--ease-out);
+}
+.spot-slide.is-center {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) scale(1);
+  z-index: 2;
+}
+.spot-slide.is-left,
+.spot-slide.is-right {
+  opacity: 0.66;
+  visibility: visible;
+  pointer-events: auto;
+  cursor: pointer;
+  z-index: 1;
+}
+.spot-slide.is-left {
+  transform: translateX(calc(-50% - 78%)) scale(0.95);
+}
+.spot-slide.is-right {
+  transform: translateX(calc(-50% + 78%)) scale(0.95);
+}
+.spot-slide:not(.is-center) a,
+.spot-slide:not(.is-center) button {
+  pointer-events: none;
+}
+/* A peek is cover only. `display: none` rather than opacity, or the
+   hidden column still claims a grid row and squashes the cover to
+   nothing — which is exactly what it did. */
+.spot-slide:not(.is-center) .spot-side {
+  display: none;
+}
+.spot-slide:not(.is-center) .spot-in {
+  grid-template-columns: 1fr;
+  background: var(--pz-surface);
+  box-shadow: var(--pz-ring-strong);
+}
+.spot-in {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  /* Rows must be allowed to shrink, or a fill image has no height. */
+  grid-auto-rows: minmax(0, 1fr);
+  gap: 20px;
+  padding: 14px;
+  background: var(--pz-raised);
+  box-shadow: var(--pz-ring);
+  border-radius: var(--r-panel);
+}
+@media (max-width: 900px) {
+  .spot-track { height: auto; }
+  .spot-slide {
+    position: relative;
+    left: auto;
+    width: 100%;
+    height: auto;
+    transform: none;
+  }
+  .spot-slide:not(.is-center) { display: none; }
+  .spot-in { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .spot-slide { transition: none; }
+}
+
+/* Dots are ink, not accent: this is position, not a live state. */
+.pz-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--pz-ink6);
+  transition:
+    width var(--dur-phase) var(--ease-out),
+    background-color var(--dur-phase) var(--ease-out);
+}
+.pz-dot:hover { background: var(--pz-faint); }
+.pz-dot.is-on {
+  width: 20px;
+  background: var(--pz-ink);
 }
 
 /* Scroll reveal — sections fade + lift as they enter view. The hidden
