@@ -5,6 +5,7 @@ import { Carousel } from "@/components/carousel";
 import { BrandRow } from "@/components/brand-row";
 import { LazyVideo } from "@/components/lazy-video";
 import { MediaReel } from "@/components/case-study/media-reel";
+import { Banner } from "@/components/site/banner";
 
 // Shared MDX media frame — Kerberus v2 surface + hairline border.
 const MEDIA_FRAME = "block w-full rounded-lg border border-pz-border bg-pz-surface";
@@ -511,6 +512,7 @@ const components: MDXRemoteProps["components"] = {
   Confidential,
   MediaReel,
   Reel: MediaReel,
+  Banner,
   Highlight,
   Outcome,
   OutcomePoints,

@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Link from "next/link";
 import { siteConfig } from "@/lib/config";
 import { useReveal } from "@/lib/reveal";
 
@@ -71,14 +70,6 @@ export function Hero() {
         <p className="m-0 max-w-[34ch] text-[clamp(22px,2.4vw,27px)] font-medium leading-[1.5] tracking-[-0.011em] text-pz-ink [animation:perzRise_.5s_var(--ease-out)_.05s_both] [text-wrap:pretty]">
           {siteConfig.positioning}
         </p>
-        <div className="mt-[26px] [animation:perzRise_.5s_var(--ease-out)_.14s_both]">
-          <a
-            href="#contact"
-            className="pointer-events-auto text-[14.5px] font-semibold text-pz-accent underline-offset-4 hover:underline"
-          >
-            Contact me
-          </a>
-        </div>
       </div>
     </header>
   );

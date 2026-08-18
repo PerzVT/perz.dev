@@ -1,7 +1,7 @@
-import Link from "next/link";
 import type { Metadata } from "next";
 import { SiteNav } from "@/components/site/site-nav";
 import { SiteFooter } from "@/components/site/site-footer";
+import { Button } from "@/components/site/button";
 
 export const metadata: Metadata = {
   title: "Page not found",
@@ -27,18 +27,10 @@ export default function NotFound() {
           The link may be out of date, or the page may have moved.
         </p>
         <div className="mt-8 flex flex-wrap gap-3">
-          <Link
-            href="/"
-            className="rounded-lg bg-pz-accent px-[18px] py-[11px] text-[13.5px] font-bold text-pz-canvas transition hover:brightness-110"
-          >
-            Home
-          </Link>
-          <Link
-            href="/projects"
-            className="rounded-lg border border-pz-border2 px-[18px] py-[11px] text-[13.5px] font-semibold text-pz-ink2 transition-colors hover:border-pz-accent hover:text-pz-accent"
-          >
+          <Button href="/">Home</Button>
+          <Button href="/projects" variant="secondary">
             Work
-          </Link>
+          </Button>
         </div>
       </main>
       <SiteFooter />

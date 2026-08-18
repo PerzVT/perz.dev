@@ -1,8 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import { SiteNav } from "@/components/site/site-nav";
 import { SiteFooter } from "@/components/site/site-footer";
+import { Button } from "@/components/site/button";
 
 /**
  * Route-level error boundary. Keeps the site chrome so a failure still
@@ -26,19 +26,10 @@ export default function Error({ reset }: { error: Error; reset: () => void }) {
           another route.
         </p>
         <div className="mt-8 flex flex-wrap gap-3">
-          <button
-            type="button"
-            onClick={reset}
-            className="rounded-lg bg-pz-accent px-[18px] py-[11px] text-[13.5px] font-bold text-pz-canvas transition hover:brightness-110"
-          >
-            Try again
-          </button>
-          <Link
-            href="/"
-            className="rounded-lg border border-pz-border2 px-[18px] py-[11px] text-[13.5px] font-semibold text-pz-ink2 transition-colors hover:border-pz-accent hover:text-pz-accent"
-          >
+          <Button onClick={reset}>Try again</Button>
+          <Button href="/" variant="secondary">
             Home
-          </Link>
+          </Button>
         </div>
       </main>
       <SiteFooter />
