@@ -39,7 +39,7 @@ export function Signature({
 }: SignatureProps) {
   const [paths, setPaths] = useState<string[]>([]);
   const [width, setWidth] = useState<number>(300);
-  const height = fontSize * 3; // Give plenty of vertical space
+  const height = fontSize * 3; // extra vertical space
   const horizontalPadding = fontSize * 0.1;
   const topMargin = fontSize * 1.5; // Shift down
   const baseline = topMargin;
@@ -48,13 +48,10 @@ export function Signature({
   useEffect(() => {
     async function load() {
       try {
-        // PATCHED from the registry version, which called the v1
-        // `opentype.load(url)`. In opentype.js v2 that function is a
-        // deprecated no-op — it logs and returns undefined, so the
-        // component rendered nothing. v2 wants a parsed ArrayBuffer.
-        // The upstream fallback list also fetched a font from
-        // componentry.fun at runtime; we self-host instead, so the page
-        // makes no third-party request.
+        // PATCHED: opentype.js v2 removed the v1 `opentype.load(url)`
+        // API (now a no-op returning undefined); parse a fetched
+        // ArrayBuffer instead. Font is self-hosted rather than fetched
+        // from componentry.fun, so the page makes no third-party request.
         const url = fontUrl ?? "/fonts/caveat.ttf";
         const res = await fetch(url);
         if (!res.ok) throw new Error(`Font fetch failed: ${res.status}`);

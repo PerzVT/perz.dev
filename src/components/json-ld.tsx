@@ -50,7 +50,7 @@ export function JsonLd() {
   // Escape `<` bytes so a stray "</script>" substring inside any
   // string field can't terminate the surrounding <script> block.
   // The browser still parses the escape as a literal "<" inside the
-  // JSON string. Cheap defense in depth — most JSON-LD fields are
+  // JSON string. Cheap defense in depth, most JSON-LD fields are
   // hand-controlled today, but anything pulled from frontmatter or
   // CMS later inherits this guard automatically.
   const json = JSON.stringify(graph).replace(/</g, "\\u003c");

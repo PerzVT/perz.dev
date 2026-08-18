@@ -6,11 +6,10 @@ import { getProjects } from "@/lib/content";
 
 const contentDir = path.join(process.cwd(), "content");
 
-// Read the mtime of each project's MDX file so search engines see
-// "last modified" reflect the actual content change time, not the
-// last deploy timestamp. Falls back to the deploy time if statSync
-// fails (file moved, etc.). Home page uses the deploy time because
-// it has no single canonical source file.
+// mtime of each project's MDX file, so "last modified" reflects real
+// content changes rather than deploy time. Falls back to deploy time if
+// statSync fails. Home page has no single source file, so it always
+// uses deploy time.
 function projectMtime(slug: string, fallback: Date): Date {
   try {
     return fs.statSync(path.join(contentDir, "projects", `${slug}.mdx`)).mtime;

@@ -4,13 +4,12 @@ import { LetterCascade } from "@/components/ui/letter-cascade";
 
 /**
  * Section heading with a per-letter cascade on hover. Renders a real
- * <h2> for structure; the cascade span inside carries an aria-label so
- * assistive tech reads the phrase rather than spelling it out letter by
- * letter. Reduced-motion users get a plain heading (the cascade bails
- * out inside the component).
+ * <h2>; the cascade span carries an aria-label so assistive tech reads
+ * the phrase, not individual letters. Reduced-motion users get a plain
+ * heading (the cascade bails out internally).
  *
- * `sizeClass` replaces the default type scale rather than appending to
- * it — two arbitrary `text-[…]` utilities have equal specificity, so
+ * `sizeClass` replaces the default type scale instead of appending to
+ * it: two arbitrary `text-[…]` utilities have equal specificity, so
  * appending would leave the winner up to stylesheet order.
  */
 export function SectionHeading({

@@ -11,9 +11,9 @@ import { EndBanners } from "@/components/home/end-banners";
 import { Reveal } from "@/components/site/scroll-reveal";
 
 /**
- * Home (Kerberus v2) — a single self-contained page: hero → selected work
- * (cards link to case studies) → about → experience → recommendations → contact.
- * The theme FAB is global (root layout).
+ * Home (Kerberus v2): hero → selected work (cards link to case studies)
+ * → about → experience → recommendations → contact. Sound toggle is
+ * global, from the root layout.
  */
 export default function Home() {
   return (

@@ -1,7 +1,7 @@
 "use client";
 
-// PATCHED: the registry ships this importing "@workspace/ui/lib/utils",
-// a path that only resolves inside their own monorepo.
+// PATCHED: registry version imports "@workspace/ui/lib/utils", which
+// only resolves inside their monorepo; using the local path instead.
 import { cn } from "@/lib/utils";
 import {
     type AnimationOptions,
@@ -22,9 +22,9 @@ interface LetterCascadeProps {
     staggerDuration?: number;
     /** Where the stagger wave originates */
     staggerFrom?: "first" | "last" | "center" | number;
-    /** Spring stiffness — higher = snappier */
+    /** Spring stiffness; higher is snappier */
     stiffness?: number;
-    /** Spring damping — lower = bouncier */
+    /** Spring damping; lower is bouncier */
     damping?: number;
     /** Trigger the animation on click instead of hover */
     triggerOnClick?: boolean;
@@ -48,8 +48,8 @@ export function LetterCascade({
 
     const trigger = useCallback(() => {
         if (blocked) return;
-        // PATCHED: framer-motion animates in JS, so the global
-        // reduced-motion CSS can't stop this. Bail out instead.
+        // PATCHED: framer-motion animates via JS, so CSS reduced-motion
+        // rules can't stop it; check and bail out here instead.
         if (
             typeof window !== "undefined" &&
             window.matchMedia?.("(prefers-reduced-motion: reduce)").matches
@@ -68,7 +68,7 @@ export function LetterCascade({
             damping,
         };
 
-        // ── Phase 1: front tilts back, echo flips in from below ──
+        // Phase 1: front tilts back, echo flips in from below
         animate(
             ".cascade-front",
             {
@@ -79,7 +79,6 @@ export function LetterCascade({
             },
             merge(spring)
         ).then(() => {
-            // Instantly reset front
             animate(
                 ".cascade-front",
                 { rotateX: 0, opacity: 1, y: 0, filter: "blur(0px)" },
@@ -101,7 +100,6 @@ export function LetterCascade({
             },
             merge(spring)
         ).then(() => {
-            // Instantly reset echo
             animate(
                 ".cascade-echo",
                 {
@@ -128,8 +126,8 @@ export function LetterCascade({
         <span
             ref={scope}
             className={cn(
-                // PATCHED: no cursor-pointer. These are headings, not
-                // controls, and a pointer cursor promises a click target.
+                // PATCHED: no cursor-pointer; these are headings, not
+                // clickable controls.
                 "inline-flex select-none items-center justify-center",
                 className
             )}
@@ -142,7 +140,7 @@ export function LetterCascade({
                     className="relative inline-flex whitespace-pre"
                     style={{ perspective: "500px" }}
                 >
-                    {/* Front face — visible by default, tilts backward on trigger */}
+                    {/* Front face: visible by default, tilts back on trigger */}
                     <motion.span
                         className={cn("cascade-front inline-block", letterClassName)}
                         style={{
@@ -155,7 +153,7 @@ export function LetterCascade({
                         {letter}
                     </motion.span>
 
-                    {/* Echo face — hidden below, flips up into view on trigger */}
+                    {/* Echo face: hidden below, flips up into view on trigger */}
                     <motion.span
                         className={cn(
                             "cascade-echo absolute inset-0 inline-block",

@@ -17,8 +17,8 @@ export interface ProjectFrontmatter {
   featured?: boolean;
   span?: "1x1" | "2x1" | "1x2" | "2x2";
 
-  // Structured header strip — rendered as a metadata sidebar on the
-  // detail page. All optional so "coming soon" stubs can omit them.
+  // Header-strip fields, shown in the detail page's metadata sidebar.
+  // All optional so "coming soon" stubs can omit them.
   roles?: string[];
   engine?: string;
   duration?: string;
@@ -30,43 +30,22 @@ export interface ProjectFrontmatter {
   /** Scan-layer skill/tool tags. */
   skills?: string[];
   hero?: string;
-  /** Optional muted clip that plays on card hover (desktop only).
-   *  Resolved like `image` (bare filename → project folder). */
+  /** Muted clip that plays on card hover (desktop only). Resolved like `image` (bare filename → project folder). */
   cardVideo?: string;
-  /** 16:9 art for the spotlight carousel (1920x1080). The 2:3 `image`
-   *  is authored for the portrait grid card and crops badly in a
-   *  landscape slot, so the spotlight prefers this and falls back. */
+  /** coverWide: 16:9 art for the spotlight carousel. The 2:3 `image` crops badly in a landscape slot. */
   coverWide?: string;
   confidential?: boolean;
   status?: "live" | "wip" | "coming-soon";
-  /** When true, the project has no case study — clicking the card on
-   *  the home grid opens a lightbox showing `hero` (or `image` if no
-   *  `hero` is set) instead of navigating to a detail route. Useful
-   *  for visual-only pieces where there's no narrative to write. */
+  /** mediaOnly: no case study; the card opens a lightbox of `hero` (or `image`) instead of linking to a detail route. */
   mediaOnly?: boolean;
-  /** When true, the MDX body uses the structured <Context> / <Problem>
-   *  / <Approach> / <Solution> / <Impact> components. Flips on the
-   *  sticky TOC sidebar + the two-column flex layout. Pages without
-   *  this flag use a centered single-column article without a TOC. */
+  /** caseStudy: MDX body uses the structured Context/Problem/Approach/Solution/Impact layout with a sticky TOC, instead of a plain single-column article. */
   caseStudy?: boolean;
-  /** When true, the project is hidden everywhere: dropped from the home
-   *  grid, the /projects index, the terminal slug list, the sitemap,
-   *  and not pre-rendered as a detail route. The MDX file stays in the
-   *  repo so the work can be un-hidden later by flipping this off.
-   *  Use for pieces you want to pull from public view without deleting. */
+  /** draft: hides the project everywhere (home grid, /projects index, terminal slugs, sitemap, detail route) without deleting the file. */
   draft?: boolean;
-  /** Card render variant on the home grid + /projects index.
-   *   - "cover" (default): edge-to-edge image fills the card. Best for
-   *     game key art / illustrations that are meant to take a frame.
-   *   - "frame":  diffused background, image inset with padding, title
-   *     and year sit outside the image area. Best for UI screenshots,
-   *     branding work, anything that reads as "considered design work
-   *     presented in a frame." */
+  /** cardStyle: "cover" (default) fills the card edge-to-edge; "frame" insets the image with padding and moves title/year outside it. Use frame for UI screenshots and branding work. */
   cardStyle?: "cover" | "frame";
 
-  /** Optional per-card `object-position` for the 2:3 capsule crop on the
-   *  home/work grids (e.g. "center top"). Only needed when the default
-   *  center crop of a landscape cover clips something important. */
+  /** cardFocus: per-card object-position for the 2:3 grid crop (e.g. "center top"), for when the default center crop clips something. */
   cardFocus?: string;
 }
 
@@ -76,11 +55,8 @@ export interface ProjectEntry {
   content: string;
 }
 
-// React.cache memoizes for the duration of a single server render.
-// The home page calls getProjects() to drive both the grid and the
-// terminal's slug list; generateStaticParams + every project route
-// also reads it. Cache eliminates the duplicated fs scans within
-// one request without pinning state across builds.
+// Memoized per server render: the grid, the terminal's slug list,
+// generateStaticParams, and every project route all call this.
 export const getProjects = cache((): ProjectEntry[] => {
   const projectsDir = path.join(contentDir, "projects");
 
@@ -98,12 +74,12 @@ export const getProjects = cache((): ProjectEntry[] => {
         content,
       };
     })
-    // Drafts are hidden from every list this function feeds (grid,
-    // /projects index, terminal slugs, sitemap, generateStaticParams).
+    // Drafts are hidden from every list this feeds: grid, /projects
+    // index, terminal slugs, sitemap, generateStaticParams.
     .filter((e) => !e.frontmatter.draft);
 
-  // Interleave games and media-only entries so the grid reads
-  // game / art / game / art instead of clumping all games first.
+  // Interleaves games and media-only entries so the grid alternates
+  // game / art / game / art instead of clumping games first.
   const games = entries
     .filter((e) => !e.frontmatter.mediaOnly)
     .sort((a, b) => b.frontmatter.year - a.frontmatter.year);
@@ -151,12 +127,8 @@ export interface VisualPiece {
   startDate?: string;
 }
 
-/**
- * Visual work exhibits from content/visual/*.json. One file per piece.
- * Sorted newest-first by `startDate` (or year if startDate omitted).
- * 3–5 pieces is the curated target — the section is a small gallery,
- * not a complete archive.
- */
+/** Visual work exhibits from content/visual/*.json, one file per piece,
+ *  sorted newest-first by `startDate` (or year). Curated to 3–5 pieces. */
 export function getVisual(): VisualPiece[] {
   const dir = path.join(contentDir, "visual");
   if (!fs.existsSync(dir)) return [];
@@ -179,12 +151,9 @@ export function getVisual(): VisualPiece[] {
 // Media path resolution
 // ---------------------------------------------------------------------
 
-/**
- * Resolve a frontmatter image/media reference to a public path.
- * A bare filename ("cover.png") is scoped to the project's public
- * folder (`/projects/<slug>/cover.png`); an absolute path ("/foo.png",
- * already under /public) passes through untouched. Falsy → null.
- */
+/** Resolves a frontmatter image path: a bare filename scopes to the
+ *  project's public folder (/projects/<slug>/foo.png); an absolute
+ *  path passes through untouched. Falsy → null. */
 export function resolveImg(slug: string, img?: string): string | null {
   if (!img) return null;
   return img.startsWith("/") ? img : `/projects/${slug}/${img}`;
@@ -210,11 +179,8 @@ export interface WorkEntry {
   startDate?: string;
 }
 
-/**
- * Work history from content/work/*.json — one file per role, sorted
- * newest-first by `startDate`. Feeds the home Experience list and the
- * résumé.
- */
+/** Work history from content/work/*.json, one file per role, sorted
+ *  newest-first by `startDate`. Feeds the home Experience list and the résumé. */
 export function getWork(): WorkEntry[] {
   const dir = path.join(contentDir, "work");
   if (!fs.existsSync(dir)) return [];
@@ -231,10 +197,8 @@ export function getWork(): WorkEntry[] {
 // Work cards (home "Featured work" rail + "My work" grid)
 // ---------------------------------------------------------------------
 
-/** One row of content/work-cards.json — the owner's card copy, seeded
- *  verbatim from their v2 design comps. `metaLabel`/`blurb`/`contributions`
- *  fed the old quick-view sheet; cards now link straight to the case study,
- *  so only `tagline` is rendered. The copy is kept for reference. */
+/** One row of content/work-cards.json. Only `tagline` renders;
+ *  `metaLabel`/`blurb`/`contributions` are unused but kept for reference. */
 interface WorkCardSeed {
   slug: string;
   tagline: string;
@@ -242,7 +206,7 @@ interface WorkCardSeed {
   blurb: string;
   contributions: string[];
   cardOrder: number;
-  /** Legacy quick-view flag; cards now always link to /projects/<slug>. */
+  /** Unused: cards always link to /projects/<slug> now. */
   caseStudyReady?: boolean;
 }
 
@@ -268,13 +232,10 @@ export interface WorkCard {
   statusLabel?: string;
 }
 
-/**
- * The curated project cards for the home rail + work grid. Copy comes from
- * content/work-cards.json (owner-editable, seeded from the v2 comps);
- * title/image are joined from each project's MDX frontmatter. Each card
- * links to its case study at /projects/<slug>; draft and media-only
- * projects are dropped (no page to link to). Ordered by `cardOrder`.
- */
+/** Curated project cards for the home rail + work grid. Copy comes from
+ *  content/work-cards.json; title/image join in from each project's MDX
+ *  frontmatter. Draft and media-only projects are dropped (no page to
+ *  link to). Ordered by `cardOrder`. */
 export const getWorkCards = cache((): WorkCard[] => {
   const file = path.join(contentDir, "work-cards.json");
   if (!fs.existsSync(file)) return [];

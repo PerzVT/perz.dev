@@ -35,9 +35,8 @@ function getSkills(): SkillsFile | null {
   }
 }
 
-/** The PDF is owner-supplied. Render the button only once the file is
- *  actually there — a disabled button that apologises for itself is
- *  worse than no button. Drop resume.pdf in public/ and it appears. */
+/** PDF is owner-supplied. Button renders only once the file exists.
+ *  Drop resume.pdf in public/ and it appears. */
 function pdfHref(): string | null {
   const rel = "/resume.pdf";
   return fs.existsSync(path.join(process.cwd(), "public", "resume.pdf"))
@@ -49,15 +48,9 @@ const ROW =
   "pz-hover -mx-3 grid grid-cols-1 gap-x-5 gap-y-1.5 rounded-[var(--r-card)] px-3 py-4 shadow-[inset_0_-1px_0_var(--pz-border-soft)] sm:grid-cols-[minmax(140px,170px)_1fr]";
 
 /**
- * Résumé — a scannable one-pager built only from real content: the
- * summary, the design philosophy, the six roles with their actual
- * descriptions, and the skills from content/skills.json.
- *
- * Deliberately no skeleton rows. The previous version shipped six
- * placeholder bars, an empty Education section and "owner supplies"
- * labels, all of which a hiring lead would have seen. A shorter résumé
- * that is entirely true beats a longer one full of blanks: Education
- * returns when there's something to put in it.
+ * Scannable one-pager built only from real content: summary, design
+ * philosophy, the six roles with their actual descriptions, and the
+ * skills from content/skills.json. No skeleton or placeholder rows.
  */
 export default function ResumePage() {
   const roles = getWork();

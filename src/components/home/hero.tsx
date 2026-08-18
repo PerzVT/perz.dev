@@ -5,12 +5,10 @@ import { siteConfig } from "@/lib/config";
 import { useReveal } from "@/lib/reveal";
 
 /**
- * Home hero — the positioning line over a looping, low-opacity background
- * reel (public/port.mp4). The video is muted + looped; autoplay is gated
- * on prefers-reduced-motion (paused first frame for users who opted out).
- * Hovering or focusing the nav wordmark brightens the reel via the reveal
- * store. Canvas gradients keep the copy readable over the footage. The
- * band holds a min height so the reel has room and the copy isn't cramped.
+ * Positioning line over a looping, low-opacity background video
+ * (public/port.mp4). Autoplay is gated on prefers-reduced-motion, paused
+ * on the first frame when reduced motion is on. Hovering or focusing the
+ * nav wordmark brightens the reel via the reveal store.
  */
 export function Hero() {
   const revealed = useReveal();

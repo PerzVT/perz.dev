@@ -4,13 +4,10 @@ import { useEffect, useState } from "react";
 import { Check, Copy } from "lucide-react";
 
 /**
- * The email address, with a copy button beside it. The address itself
- * stays a mailto link (that's what most people want), and copying is the
- * second path for anyone who'd rather paste it into their own client.
- *
- * The button reports success in place for two seconds rather than firing
- * a toast. Falls back silently if the Clipboard API is unavailable or
- * denied — the mailto link is still there, so nothing is lost.
+ * Email address with a copy button beside it. The address stays a
+ * mailto link; the button shows success in place for two seconds
+ * instead of a toast, and fails silently if the Clipboard API is
+ * unavailable or denied since the mailto link still works either way.
  */
 export function CopyEmail({ email, href }: { email: string; href: string }) {
   const [copied, setCopied] = useState(false);

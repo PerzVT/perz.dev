@@ -5,13 +5,12 @@ import { useEffect } from "react";
 /**
  * Lenis smooth scrolling, mounted once in the root layout.
  *
- * Skipped entirely under prefers-reduced-motion — smoothed scrolling is
- * exactly the kind of motion that setting exists to turn off, and Lenis
- * would otherwise fight the global reduced-motion CSS. Loaded dynamically
- * so it never lands in the first-paint bundle.
+ * Skipped under prefers-reduced-motion, since Lenis would otherwise
+ * fight the global reduced-motion CSS. Loaded dynamically so it never
+ * lands in the first-paint bundle.
  *
- * In-page anchors (#work, #contact) are handled explicitly: Lenis takes
- * over the scroll position, so a native hash jump would fight it.
+ * In-page anchors (#work, #contact) are handled explicitly: Lenis owns
+ * the scroll position, so a native hash jump would fight it.
  */
 export function SmoothScroll() {
   useEffect(() => {

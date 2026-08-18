@@ -4,10 +4,10 @@ import { useState } from "react";
 import { Button } from "@/components/site/button";
 
 /**
- * Placeholder sign-in screen for projects that aren't public yet
- * (status: "coming-soon"). DECORATIVE, not real auth: the form has no
- * action, authenticates nothing, stores nothing, and sends nothing.
- * Submitting shows a short note. Real gating would be server-side auth.
+ * Placeholder sign-in for projects not yet public (status:
+ * "coming-soon"). Decorative, not real auth: no action, authenticates
+ * nothing, stores nothing, sends nothing. Submitting shows a note.
+ * Real gating would be server-side auth.
  */
 export function ComingSoonGate() {
   const [notified, setNotified] = useState(false);

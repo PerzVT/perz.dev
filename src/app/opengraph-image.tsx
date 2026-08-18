@@ -8,7 +8,7 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 /**
- * Social card. Pure illustration — no text overlay. Title and
+ * Social card. Pure illustration: no text overlay. Title and
  * description text are supplied by the Twitter/OG meta tags and
  * rendered by the platform (Twitter, Discord, iMessage, etc) next to
  * the image, so duplicating the title in the card just steals visual

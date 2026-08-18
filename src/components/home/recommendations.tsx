@@ -5,13 +5,12 @@ import { siteConfig } from "@/lib/config";
 import { SectionHeading } from "@/components/site/section-heading";
 
 /**
- * Recommendations — an auto-rotating rail of every LinkedIn recommendation,
- * three featured first. It pauses on hover, and the hovered card brightens
- * so the quote is easier to read. Avatars are initial badges for now; swap
- * for real photos when they're supplied (LinkedIn can't be fetched).
+ * Auto-rotating rail of every LinkedIn recommendation, three featured
+ * first. Pauses on hover; the hovered card brightens. Avatars are
+ * initial badges until real photos are supplied (LinkedIn can't be
+ * fetched).
  */
-/** LinkedIn mark. Inlined because lucide dropped its brand icons, and
- *  pulling a whole icon pack for one glyph isn't worth the weight. */
+/** LinkedIn mark, inlined since lucide dropped its brand icons. */
 function LinkedInMark({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden className={className}>
@@ -55,8 +54,7 @@ export function Recommendations() {
           {recs.map((r) => (
             <figure
               key={r.name}
-              // Wider cards so a trimmed quote doesn't run to five short
-              // lines, and the whole card answers the pointer.
+              // Wide enough that a trimmed quote won't wrap to five lines.
               className="pz-panel pz-lift group/card flex min-h-[210px] w-[min(88vw,460px)] flex-none snap-start flex-col gap-4 rounded-[var(--r-panel)] p-6"
             >
               <blockquote className="text-[14px] leading-[1.7] text-pz-ink2 transition-colors group-hover/card:text-pz-ink">

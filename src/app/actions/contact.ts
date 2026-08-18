@@ -11,7 +11,7 @@ export interface ContactInput {
   name: string;
   email: string;
   message: string;
-  /** Honeypot — bots fill this hidden field; humans never do. */
+  /** Honeypot: bots fill this hidden field, humans never do. */
   company?: string;
 }
 
@@ -40,7 +40,7 @@ export async function sendContact(data: ContactInput): Promise<ContactResult> {
   const key = process.env.RESEND_API_KEY;
   if (!key) {
     console.info(
-      `[contact] (mock send — no RESEND_API_KEY) ${name} <${email}>: ${message.slice(0, 160)}`,
+      `[contact] (mock send, no RESEND_API_KEY) ${name} <${email}>: ${message.slice(0, 160)}`,
     );
     return { ok: true };
   }
@@ -56,15 +56,15 @@ export async function sendContact(data: ContactInput): Promise<ContactResult> {
         from: process.env.CONTACT_FROM ?? "perz.dev <onboarding@resend.dev>",
         to: [process.env.CONTACT_TO ?? siteConfig.email],
         reply_to: email,
-        subject: `Portfolio contact — ${name}`,
+        subject: `Portfolio contact from ${name}`,
         text: `From: ${name} <${email}>\n\n${message}`,
       }),
     });
     if (!res.ok) {
-      return { ok: false, error: "Couldn't send just now — email me directly?" };
+      return { ok: false, error: "Couldn't send just now. Email me directly?" };
     }
     return { ok: true };
   } catch {
-    return { ok: false, error: "Couldn't send just now — email me directly?" };
+    return { ok: false, error: "Couldn't send just now. Email me directly?" };
   }
 }

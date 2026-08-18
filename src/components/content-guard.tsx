@@ -3,11 +3,10 @@
 import { useEffect } from "react";
 
 /**
- * Blocks right-click and drag on images and video so page media isn't
- * saved with a casual right-click or drag-to-desktop. Paired with
- * `user-select: none` in globals.css (text isn't selectable). This is a
- * deterrent, not DRM — anything on the page is still in the network tab.
- * Right-click stays available everywhere except over media.
+ * Blocks right-click and drag on images/video so media isn't saved via
+ * a casual right-click or drag-to-desktop. Paired with `user-select:
+ * none` in globals.css. A deterrent only, not DRM: media is still in
+ * the network tab. Right-click still works everywhere else.
  */
 export function ContentGuard() {
   useEffect(() => {

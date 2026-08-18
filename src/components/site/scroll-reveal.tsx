@@ -3,12 +3,12 @@
 import { useEffect, useRef, useState } from "react";
 
 /**
- * Reveal — fades and lifts its children into place the first time they
- * scroll into view. The hidden start state lives in CSS gated on
+ * Fades and lifts children into place the first time they scroll into
+ * view. The hidden start state is gated in CSS on
  * `html[data-pz-js]` + `prefers-reduced-motion: no-preference`, so
- * no-JS and reduced-motion users always see the content with no motion.
- * Anything already in view on mount (above the fold) reveals at once, so
- * the first screen never sits blank waiting on the observer.
+ * no-JS and reduced-motion users see the content with no motion applied.
+ * Anything already in view on mount reveals at once, so the first
+ * screen isn't blank while the observer spins up.
  */
 export function Reveal({
   children,

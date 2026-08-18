@@ -1,17 +1,17 @@
 import type { NextConfig } from "next";
 
 /**
- * Security headers applied to every route. CSP is intentionally
- * strict — the site uses no third-party scripts and no embeds at
- * runtime. JSON-LD lives inline in <script type="application/ld+json">
- * which CSP allows by default (it's not executed as script). If we
- * ever add Google Analytics, Vercel Insights, or a Calendly embed,
- * relax script-src / frame-src accordingly.
+ * Security headers for every route. CSP is strict: no third-party
+ * scripts, no embeds. JSON-LD runs inline via
+ * <script type="application/ld+json">, which CSP allows by default
+ * since it isn't executed as script. Adding Google Analytics, Vercel
+ * Insights, or a Calendly embed later means relaxing script-src /
+ * frame-src to match.
  *
- * 'unsafe-inline' on style-src is required by Tailwind 4's runtime +
- * Next 16's hydration shims; removing it breaks the build. Inline
- * scripts (`'unsafe-inline'` on script-src) are also required by
- * Next's RSC payload bootstrap until Next ships a strict CSP recipe.
+ * style-src needs 'unsafe-inline' for Tailwind 4's runtime and Next
+ * 16's hydration shims; removing it breaks the build. script-src
+ * needs 'unsafe-inline' for Next's RSC payload bootstrap, until Next
+ * ships a strict CSP recipe.
  */
 const CSP = [
   "default-src 'self'",
@@ -32,11 +32,10 @@ const CSP = [
 ].join("; ");
 
 const nextConfig: NextConfig = {
-  // Next 16 default-restricted images.qualities to [75]. The
-  // highlight strip uses quality=90 because the cover.png originals
-  // are 5MB+ photographic frames that show visible artifacts when
-  // downsized at q=75. Listing both values keeps backward compat
-  // for every other next/image call that uses the default.
+  // Next 16 restricts images.qualities to [75] by default. The
+  // highlight strip needs quality=90 (cover.png originals are 5MB+
+  // photos that show artifacts at q=75). Both values stay listed so
+  // every other next/image call keeps working at the default.
   images: {
     qualities: [75, 90],
   },

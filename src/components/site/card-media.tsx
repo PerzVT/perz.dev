@@ -5,12 +5,10 @@ import { useRef, useState } from "react";
 import { BLUR_DATA_URL } from "@/lib/blur";
 
 /**
- * The 2:3 cover frame for a project card. Renders the cover image and,
- * when a `hoverVideo` is set, a muted clip that fades in and plays while
- * the pointer is over the card (desktop nicety). The clip is only loaded
- * on first hover, and reduced-motion users never trigger it — they keep
- * the still cover. Covers are authored at 2:3; a `cardFocus` retargets
- * the crop when a source isn't natively 2:3.
+ * 2:3 cover frame for a project card. Renders the cover image and, if
+ * `hoverVideo` is set, a muted clip that fades in on hover (desktop
+ * only, loaded on first hover). Reduced-motion users keep the still
+ * cover. `cardFocus` retargets the crop when a source isn't natively 2:3.
  */
 export function CardMedia({
   image,

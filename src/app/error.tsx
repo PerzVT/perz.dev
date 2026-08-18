@@ -5,10 +5,9 @@ import { SiteFooter } from "@/components/site/site-footer";
 import { Button } from "@/components/site/button";
 
 /**
- * Route-level error boundary. Keeps the site chrome so a failure still
- * looks like the site, offers a retry (`reset` re-renders the segment)
- * and a way out. The error message itself isn't printed — it can carry
- * internals, and it means nothing to a visitor.
+ * Route-level error boundary. Keeps the site chrome, offers a retry
+ * (`reset` re-renders the segment) and a way out. The error message
+ * isn't shown; it can carry internals and means nothing to a visitor.
  */
 export default function Error({ reset }: { error: Error; reset: () => void }) {
   return (

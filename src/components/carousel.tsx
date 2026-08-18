@@ -12,26 +12,12 @@ import { LazyVideo } from "@/components/lazy-video";
 import { RotatedFrame } from "@/components/rotated-frame";
 
 /**
- * Image / video carousel for project pages.
- *
- * Editorial layout — controls live below the frame, not floating on top
- * of it. Counter on the left, arrow pair on the right, both subtle.
- *
- * Each slide is rendered into an absolutely-positioned slot inside a
- * height-tracking container. On slide change, the container animates
- * its height to match the new slide's natural height, so mixed-aspect
- * content (a 5:4 schematic next to a 16:9 screenshot) doesn't leave
- * the carousel reserving the tallest slide's height across the whole
- * row.
- *
- * Two MDX-friendly props:
- *   srcs="..."   comma-separated paths. An entry like
- *                "/poster.png | /hover.mp4" becomes a poster image
- *                that plays the video on hover.
- *   items={...}  programmatic alternative for code-side consumers.
- *
- * `framed` wraps each slide in a RotatedFrame for mixed-aspect
- * scrapbook layouts (banner headers, etc).
+ * Image / video carousel for project pages. Slides sit in an
+ * absolutely-positioned stack; the container animates to the active
+ * slide's height so mixed-aspect content doesn't reserve the tallest
+ * slide's height. Takes `srcs` (comma-separated paths, "poster |
+ * hover-video" pairs allowed) or `items`; `framed` wraps slides in a
+ * RotatedFrame.
  */
 
 /** A carousel slide can be a plain string path, or an object that
@@ -50,14 +36,12 @@ export function Carousel({
   const safeItems = useParsedItems(items, srcs);
   const [active, setActive] = useState(0);
 
-  // Track height of each rendered slide so the container can animate
-  // to the active slide's natural height. Slide indices map to pixel
-  // heights; 0 until measured.
+  // Slide heights in pixels, indexed by slide; 0 until measured.
   const slideRefs = useRef<Array<HTMLDivElement | null>>([]);
   const [heights, setHeights] = useState<number[]>([]);
 
-  // Measure on mount + on resize. ResizeObserver fires when any slide
-  // changes intrinsic size (e.g. an image decoded, a font swapped in).
+  // Re-measures on mount, resize, and whenever a slide's intrinsic
+  // size changes (image decode, font swap) via ResizeObserver.
   useLayoutEffect(() => {
     if (typeof window === "undefined") return;
     const measure = () => {
@@ -114,10 +98,8 @@ export function Carousel({
       aria-roledescription={single ? undefined : "carousel"}
     >
       <div
-        // The frame. overflow-hidden clips inactive slides. Height
-        // animates between slides; 500ms is slow enough to read,
-        // fast enough not to drag. Min-height stops a flash-of-zero
-        // before measurement lands.
+        // overflow-hidden clips inactive slides; min-height avoids a
+        // flash of zero height before the first measurement lands.
         className="relative overflow-hidden rounded-lg transition-[height] duration-500 ease-out"
         style={{
           height: activeHeight ? `${activeHeight}px` : undefined,
@@ -135,11 +117,9 @@ export function Carousel({
               }}
               data-slide
               aria-hidden={!isActive}
-              // Inactive slides remain in the DOM so their height can
-              // be measured at any time (lets us animate to them on
-              // change without a flash of unmeasured content). They're
-              // shifted off the active slot via translateX and have
-              // pointer events off so they can't capture clicks.
+              // Inactive slides stay mounted so their height can be
+              // measured ahead of the next transition. Offset via
+              // translateX, pointer-events off so they can't be clicked.
               className={[
                 "absolute inset-x-0 top-0 w-full transition-[opacity,transform] duration-500 ease-out",
                 isActive
@@ -170,9 +150,7 @@ export function Carousel({
             <span className="text-pz-faint">/</span>{" "}
             <span className="text-pz-muted">{fmt(safeItems.length)}</span>
           </span>
-          {/* Hairline progress bar. Shows position visually across
-              the row, complements the tabular counter for readers
-              who scan visually rather than reading numbers. */}
+          {/* Progress bar, visual complement to the numeric counter. */}
           <span
             aria-hidden
             className="mx-4 hidden h-px flex-1 bg-pz-border sm:block"
@@ -206,11 +184,10 @@ export function Carousel({
   );
 }
 
-/** Parse the comma-separated srcs string. Each entry can either be
- *  a plain path ("/foo.png") or a poster+hover-video pair joined with
- *  " | " — "/poster.png | /trailer.mp4". MDX's string-prop parser
- *  doesn't accept JS expressions, so all the carousel content lives
- *  inside one string. */
+/** Parses the comma-separated srcs string. Each entry is a plain path
+ *  ("/foo.png") or a poster+hover-video pair joined with " | "
+ *  ("/poster.png | /trailer.mp4"). MDX's string-prop parser doesn't
+ *  accept JS expressions, so all carousel content lives in one string. */
 function useParsedItems(
   items?: CarouselItem[],
   srcs?: string,
@@ -280,11 +257,7 @@ function Media({ item }: { item: CarouselItem }) {
   );
 }
 
-/**
- * Poster image at rest, video plays on hover. Used for slides where
- * the cover image is the at-rest deliverable and the trailer should
- * play only when the user actively engages.
- */
+/** Poster image at rest; plays the hover video on hover/focus. */
 function HoverPosterVideo({
   poster,
   video,

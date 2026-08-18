@@ -1,10 +1,10 @@
 import { SiteNav } from "@/components/site/site-nav";
 
 /**
- * Route-transition skeleton for a case study. Shown while the segment's
- * data loads, so navigating from a card never flashes a blank screen —
- * it mirrors the scan-layer shape (title, hook, hero, columns). Uses the
- * shared shimmer; reduced-motion users get a static placeholder.
+ * Route-transition skeleton for a case study, shown while the segment's
+ * data loads so navigating from a card never flashes blank. Mirrors the
+ * scan-layer shape (title, hook, hero, columns). Reduced-motion users
+ * get a static placeholder instead of the shared shimmer.
  */
 export default function Loading() {
   return (

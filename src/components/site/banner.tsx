@@ -5,15 +5,13 @@ import { Button } from "@/components/site/button";
 
 /**
  * Wide CTA banner: background art under a gradient scrim, copy on top,
- * one button. The standard shape for outbound calls to action — an
- * affiliate spot, "play this on Meta Quest", "join the Discord" — so
- * they read as one family instead of ad-hoc blocks.
+ * one button. Used for outbound CTAs (affiliate spot, "play this on
+ * Meta Quest", "join the Discord") so they read as one family.
  *
  * The scrim runs from the canvas colour on the text side to transparent,
- * so art stays visible on the far side while the copy keeps contrast.
- * `align="center"` scrims from both edges instead, for symmetric art.
- * `accent` recolours the button for partner marks (Meta blue, Discord
- * blurple); omit it and the site accent is used.
+ * so art stays visible on the far side. `align="center"` scrims from
+ * both edges for symmetric art. `accent` recolours the button for
+ * partner marks (Meta blue, Discord blurple); omit it for the site accent.
  */
 export function Banner({
   image,
@@ -40,7 +38,7 @@ export function Banner({
   ctaLabel: string;
   ctaHref: string;
   /** Partner button colour, e.g. "#0064e0". Plain strings, not an
-   *  object — MDX silently drops object-literal props. */
+   *  object: MDX silently drops object-literal props. */
   accentBg?: string;
   accentFg?: string;
   icon?: ReactNode;
@@ -54,9 +52,9 @@ export function Banner({
 
   return (
     <div className="relative overflow-hidden rounded-2xl border border-pz-border bg-pz-surface">
-      {/* Art fills the banner and is cropped to it. It sits above the
-          card background (a negative z-index would drop it behind the
-          parent's own fill and render nothing) and below the scrim. */}
+      {/* Fills the banner, cropped. Sits above the card background (a
+          negative z-index would drop it behind the parent's own fill)
+          and below the scrim. */}
       <Image
         src={image}
         alt={imageAlt}

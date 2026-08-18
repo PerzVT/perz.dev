@@ -2,10 +2,9 @@ import { siteConfig } from "@/lib/config";
 import { FooterSignature } from "@/components/site/footer-signature";
 
 /**
- * Shared footer (Kerberus v2). "Open to game design roles." + the real
- * contact email as a wordmark-scale link, a row of text social links
- * sourced from siteConfig, and the copyright / key-art credit line.
- * NB: the comp shows hello@perz.dev; we wire the configured address.
+ * Shared footer: contact email as a wordmark-scale link, social links
+ * from siteConfig, and the copyright / key-art credit line. The design
+ * comp shows hello@perz.dev; this wires the configured address instead.
  */
 
 const SOCIALS = [

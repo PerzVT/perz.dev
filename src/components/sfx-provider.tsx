@@ -22,19 +22,18 @@ function optedOut(el: HTMLElement) {
 }
 
 /**
- * Global UI-sound listener. Attaches a single pair of listeners on document
- * and plays sounds via event delegation — no need to touch individual
- * components. Opt out any subtree with `data-sfx="off"`. Choose the toggle
- * sound explicitly with `data-sfx="toggle"`.
+ * Global UI-sound listener: one pair of document listeners, sounds
+ * played via event delegation. Opt out a subtree with
+ * `data-sfx="off"`; force the toggle sound with `data-sfx="toggle"`.
  */
 export function SfxProvider() {
   useEffect(() => {
-    // Read the persisted opt-in once on mount. The synth itself
-    // remains default-muted on first visit; this lifts the flag if
-    // the user opted in on a prior session.
+    // Reads persisted opt-in once on mount; synth defaults to muted
+    // until this lifts the flag from a prior session.
     hydrateSfxFromStorage();
 
-    // Track last hovered target so we don't spam blips on sub-element moves
+    // Tracks the last hovered target so nested pointer moves don't
+    // retrigger the hover blip.
     let lastHover: HTMLElement | null = null;
 
     const onOver = (e: MouseEvent) => {
@@ -48,7 +47,7 @@ export function SfxProvider() {
     const onOut = (e: MouseEvent) => {
       const target = isInteractive(e.target as Element);
       if (!target) return;
-      // If we're leaving the tracked element entirely, reset.
+      // Reset only when leaving the element entirely (not into a child).
       const related = e.relatedTarget as Element | null;
       if (!target.contains(related as Node | null)) {
         if (lastHover === target) lastHover = null;

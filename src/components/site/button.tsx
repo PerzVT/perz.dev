@@ -2,17 +2,11 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 
 /**
- * The site's one button. Before this, CTA styling was copy-pasted into
- * five files and the hero shipped a bare text-plus-arrow link, which read
- * as unstyled rather than restrained.
- *
- * Variants: `primary` (filled accent), `secondary` (hairline outline),
- * `ghost` (text with an underline on hover). Renders a next/link for
- * internal hrefs, a plain anchor for external ones (new tab + rel), and
- * a <button> when given `onClick` instead of `href`.
- *
- * `accent` overrides the fill for partner CTAs (Meta blue, Discord
- * blurple) — pass a colour and a readable foreground comes with it.
+ * Site button. Variants: `primary` (filled accent), `secondary`
+ * (hairline outline), `ghost` (underline on hover). Renders a next/link
+ * for internal hrefs, a plain anchor for external ones, a <button> when
+ * given `onClick` instead of `href`. `accent` overrides the fill for
+ * partner CTAs (Meta blue, Discord blurple).
  */
 export type ButtonVariant = "primary" | "secondary" | "ghost";
 
@@ -23,13 +17,12 @@ const SIZES = {
 } as const;
 
 const VARIANTS: Record<ButtonVariant, string> = {
-  // DS: text on an accent fill is never white, and it is never thin.
+  // Accent-fill text is never white and never thin.
   primary: "pz-btn pz-btn-primary text-[var(--pz-on-accent)] font-semibold",
-  // A ring over nothing — no fill, no border utility (the ring is an
-  // inset shadow, so it can't be clipped by a scroll container).
+  // No fill, no border utility: the ring is an inset shadow, so a
+  // scroll container can't clip it.
   secondary: "pz-btn pz-btn-secondary text-pz-ink2 font-semibold hover:text-pz-ink",
-  // Text-weight action for in-card affordances (card "Read more"). Same
-  // family, lower rung — a filled button on every card would shout.
+  // For in-card actions like "Read more".
   ghost:
     "font-semibold text-pz-accent px-0 py-0 [&_.pz-btn-label]:underline-offset-4 hover:[&_.pz-btn-label]:underline",
 };
@@ -53,12 +46,11 @@ export function Button({
   size?: keyof typeof SIZES;
   /** Leading icon (a lucide element or an <img> for partner marks). */
   icon?: ReactNode;
-  /** Trailing icon — use for arrows so they sit after the label. */
+  /** Trailing icon, for arrows placed after the label. */
   iconAfter?: ReactNode;
-  /** Override the primary fill for partner CTAs, e.g. Meta blue
-   *  "#0064e0" or Discord blurple "#5865f2". Two plain strings rather
-   *  than one object: MDX drops object- and array-literal props, so a
-   *  <Banner accent={{...}}> inside a case study would silently lose it. */
+  /** Partner CTA fill override, e.g. Meta blue "#0064e0". Two plain
+   *  strings, not one object: MDX drops object-literal props, so a
+   *  <Banner accent={{...}}> would silently lose it. */
   accentBg?: string;
   accentFg?: string;
   external?: boolean;
@@ -67,9 +59,8 @@ export function Button({
   const base =
     "inline-flex items-center justify-center whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pz-accent focus-visible:ring-offset-2 focus-visible:ring-offset-pz-canvas";
   const cls = `${base} ${SIZES[size]} ${VARIANTS[variant]} ${className}`;
-  // Partner CTAs (Meta blue, Discord blurple) drive the gradient and the
-  // tinted shadow through --pz-btn-bg, so the depth treatment follows the
-  // colour instead of being hardcoded to the site accent.
+  // accentBg sets --pz-btn-bg, which drives the gradient and shadow
+  // colour instead of the site accent.
   const style = accentBg
     ? ({ "--pz-btn-bg": accentBg, color: accentFg } as React.CSSProperties)
     : undefined;

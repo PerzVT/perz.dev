@@ -15,19 +15,12 @@ import {
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 /**
- * Horizontal rail — a seamless infinite carousel. The items render in
- * three identical copies; the scroll position is quietly nudged back by
- * one copy-width whenever it drifts out of the middle band, so scrolling
- * (touch, trackpad, mouse drag, or the arrow buttons) never dead-ends and
- * the last item flows straight into the first. A jump of exactly one
- * copy-width is invisible because the copies are identical.
+ * Infinite horizontal rail. Items render in three identical copies, and
+ * the scroll position quietly resets by one copy-width whenever it
+ * drifts off the middle band, so scrolling never dead-ends.
  *
- * The flanking copies are hidden from assistive tech and removed from the
- * tab order, so nothing is announced or focused three times. Optional
- * gentle auto-advance pauses on hover/focus and is disabled under
- * prefers-reduced-motion. A drag past a few pixels suppresses the click
- * that follows, so dragging never opens a card. The edges fade so a
- * partial card reads as "more", not "chopped".
+ * Flanking copies are hidden from assistive tech and out of tab order.
+ * Auto-advance pauses on hover/focus and respects prefers-reduced-motion.
  */
 export function Rail({
   children,
@@ -45,8 +38,8 @@ export function Rail({
   const items = useMemo(() => Children.toArray(children), [children]);
   const count = items.length;
 
-  // Three identical copies. Copy 1 (the middle) is the accessible one;
-  // the clones are hidden from AT and taken out of the tab order.
+  // Copy 1 (the middle) is the accessible one; the others are
+  // aria-hidden and out of tab order.
   const track = useMemo(
     () =>
       [0, 1, 2].flatMap((copy) =>
@@ -98,8 +91,8 @@ export function Rail({
     else if (el.scrollLeft > p * 1.5) el.scrollLeft -= p;
   }, [measure]);
 
-  // Mouse drag to scroll, with click-suppression after a real drag, plus
-  // the loop-repositioning scroll listener.
+  // Mouse drag to scroll, with click suppression after a real drag,
+  // plus the loop-repositioning scroll listener.
   useEffect(() => {
     const el = ref.current;
     if (!el) return;

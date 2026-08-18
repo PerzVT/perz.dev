@@ -10,10 +10,9 @@ import {
 } from "@/lib/sfx";
 
 /**
- * Standalone UI-sound toggle, fixed bottom-right. Deliberately not a
- * flyout: the old options FAB hid this behind a hover, which made it
- * hard to reach. One always-visible control, one click. Sound is off by
- * default and the state persists (see lib/sfx).
+ * Standalone UI-sound toggle, fixed bottom-right. Not a flyout: always
+ * visible, one click, no hover required. Off by default; state
+ * persists (see lib/sfx).
  */
 const subscribeMute = (cb: () => void) => onSfxMuteChange(cb);
 
@@ -36,9 +35,8 @@ export function SoundToggle() {
       aria-label={soundOn ? "Turn UI sound off" : "Turn UI sound on"}
       title={soundOn ? "Sound on" : "Sound off"}
       data-sfx="off"
-      // Light disc on a near-black canvas. A dark circle on dark reads as
-      // a smudge; this is the one piece of always-on chrome, so it has to
-      // be findable without hunting for it.
+      // Light disc on a near-black canvas, so it stays visible as the
+      // one always-on control.
       className="fixed bottom-[clamp(16px,3vw,26px)] right-[clamp(16px,3vw,26px)] z-[90] flex h-12 w-12 items-center justify-center rounded-full shadow-[0_6px_20px_rgba(0,0,0,0.45)] transition-[transform,background-color,color] duration-200 hover:scale-105 active:scale-95"
       style={{
         backgroundColor: soundOn ? "var(--pz-accent)" : "var(--pz-ink)",

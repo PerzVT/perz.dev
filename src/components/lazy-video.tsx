@@ -3,20 +3,10 @@
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 
 /**
- * IntersectionObserver-gated autoplay <video> with progressive
- * controls.
- *
- * Default state: autoplays muted when scrolled into view, no chrome.
- * Reads as motion-as-illustration alongside the case study.
- *
- * On hover / focus / first user interaction: native browser controls
- * fade in. Once the user has interacted, controls stay visible for
- * the rest of the session so they can scrub/replay without
- * re-hovering.
- *
- * Respects prefers-reduced-motion: under reduced motion the video
- * does not autoplay, controls render immediately, and the user
- * presses play themselves.
+ * Autoplays muted when scrolled into view (IntersectionObserver), with
+ * no controls until hover/focus/first interaction, after which controls
+ * stay visible for the session. Under prefers-reduced-motion, autoplay
+ * is skipped and controls render immediately.
  */
 
 const REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
@@ -57,9 +47,8 @@ export function LazyVideo({
     getReducedMotionServer,
   );
 
-  // IntersectionObserver lives on the wrapper, not the video itself,
-  // so the video can be repositioned (e.g. inside the carousel's
-  // absolute slot) without breaking observation.
+  // Observer targets the wrapper, not the video, so repositioning the
+  // video (e.g. inside the carousel's absolute slot) doesn't break it.
   useEffect(() => {
     const wrap = wrapRef.current;
     const el = ref.current;
@@ -83,9 +72,8 @@ export function LazyVideo({
     return () => io.disconnect();
   }, [reducedMotion, rootMargin]);
 
-  // Listen for actual user interaction with the video element so
-  // touched stays true once the user pressed play/pause/scrubbed.
-  // After that controls remain visible even when hover ends.
+  // Marks touched once the user actually interacts (play/pause/seek/
+  // volume), so controls stay visible after hover ends.
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
@@ -102,8 +90,6 @@ export function LazyVideo({
     };
   }, []);
 
-  // Controls render any time: the user has actually interacted, the
-  // user is currently hovering, or reduced-motion is in effect.
   const showControls = reducedMotion || hovered || touched;
 
   return (

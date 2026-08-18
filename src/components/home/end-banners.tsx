@@ -2,17 +2,14 @@ import { Banner } from "@/components/site/banner";
 import { siteConfig } from "@/lib/config";
 
 /**
- * End-of-page CTA banners, above the contact section. One <Banner> per
- * outbound call to action so they read as a family.
+ * End-of-page CTA banners, above contact. One <Banner> per outbound CTA.
  *
  * PLACEHOLDER ART: the BisectHosting banner uses a solid-colour stand-in
- * (public/placeholder-bisecthosting-banner.png, 2000x500) so the layout
- * is real while the owner makes the artwork. Replace that file in place
- * and nothing else needs to change.
+ * (public/placeholder-bisecthosting-banner.png, 2000x500). Replace that
+ * file in place once the owner has real artwork.
  *
- * PLACEHOLDER LINK: ctaHref points at bisecthosting.com, not the owner's
- * affiliate URL — a working plain link rather than a dead one. Swap it
- * for the affiliate link before this goes to production.
+ * PLACEHOLDER LINK: ctaHref points at bisecthosting.com, not the
+ * affiliate URL. Swap it before production.
  */
 export function EndBanners() {
   return (

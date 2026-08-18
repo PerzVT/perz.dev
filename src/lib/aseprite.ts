@@ -34,26 +34,21 @@ export interface SpriteSheet {
   frames: AsepriteFrame[];
   tags: Record<string, AsepriteTag>;
   ready: boolean;
-  /** Y coordinate within a frame where the deepest opaque pixel sits.
-   * Used to bottom-align different sheets that have different vertical
-   * padding inside their frames. Measured from frame 0. */
+  /** Y of the deepest opaque pixel in a frame. Bottom-aligns sheets
+   * with different vertical padding. Measured from frame 0. */
   baselineY: number;
-  /** Tight content bounds within a frame — the bounding box of all
-   * opaque pixels. Lets callers crop the dead space around a sprite
-   * before scaling, so a small character inside a large padded frame
-   * still fills the render canvas instead of getting squeezed by its
-   * own transparent padding. Measured from frame 0. */
+  /** Bounding box of opaque pixels in a frame. Lets callers crop the
+   * padding so a small sprite still fills the render canvas instead
+   * of shrinking inside its own transparent margin. Frame 0 only. */
   contentBounds: { x: number; y: number; w: number; h: number };
 }
 
-// Module-scoped cache. Each sheet is loaded, decoded, and pixel-
-// measured at most once per page lifetime. Without this the auto-
-// rotating sprite in the top nav re-fetches+remeasures every sheet
-// on each 5-second tick, which grows into a serious memory + CPU
-// leak after the page has been open for several minutes.
+// Caches each sheet after one load+decode+measure pass. Without it,
+// the nav sprite's 5-second auto-rotate would re-fetch and re-measure
+// every sheet on every tick, leaking memory and CPU.
 const sheetCache = new Map<string, Promise<SpriteSheet>>();
 
-/** Load a sheet + JSON pair. Fails silently — `ready` stays false so
+/** Loads a sheet + JSON pair. Fails silently; `ready` stays false so
  *  callers can render a placeholder until assets exist. */
 export function loadSheet(basePath: string): Promise<SpriteSheet> {
   const cached = sheetCache.get(basePath);
@@ -78,7 +73,7 @@ async function loadSheetUncached(basePath: string): Promise<SpriteSheet> {
     if (!res.ok) return sheet;
     const data: AsepriteJson = await res.json();
 
-    // Normalize frames — Aseprite can emit array or hash form
+    // Normalizes frames: Aseprite can emit array or hash form.
     const frames: AsepriteFrame[] = Array.isArray(data.frames)
       ? data.frames.map((f) => ({ frame: f.frame, duration: f.duration }))
       : Object.values(data.frames).map((f) => ({
@@ -91,8 +86,7 @@ async function loadSheetUncached(basePath: string): Promise<SpriteSheet> {
       sheet.tags[t.name] = t;
     }
 
-    // Load image alongside the JSON. Use the json's meta.image if it's
-    // a bare filename; otherwise fall back to <basePath>.png.
+    // Uses meta.image if it's a bare filename, otherwise <basePath>.png.
     const imgSrc = data.meta.image?.includes("/")
       ? data.meta.image
       : `${basePath}.png`;
@@ -105,10 +99,8 @@ async function loadSheetUncached(basePath: string): Promise<SpriteSheet> {
 
     sheet.ready = sheet.image.complete && sheet.image.naturalWidth > 0;
 
-    // Measure baseline (bottom-most opaque row) AND full content
-    // bounds (bounding box of opaque pixels) — both needed: baseline
-    // for bottom-align in physics-mode draws, bounds for tight-fit
-    // scaling in static draws like the nav-bar sprite.
+    // Measures both baseline (bottom-align in physics-mode draws) and
+    // content bounds (tight-fit scaling in static draws, e.g. the nav sprite).
     if (sheet.ready && sheet.frames[0]) {
       const f0 = sheet.frames[0].frame;
       sheet.baselineY = measureBaseline(sheet.image, f0);
@@ -148,11 +140,10 @@ function measureBaseline(
 }
 
 /**
- * Tight bounding box of opaque pixels inside a frame. Returns rect
- * coordinates RELATIVE TO THE SHEET (i.e. already offset by rect.x /
- * rect.y), so callers can pass them straight to drawImage as the
- * source rect. Falls back to the full frame on tainted-canvas errors
- * so we still draw something.
+ * Bounding box of opaque pixels in a frame, in sheet-relative
+ * coordinates (already offset by rect.x/y) so callers can pass it
+ * straight to drawImage. Falls back to the full frame on
+ * tainted-canvas errors.
  */
 function measureContentBounds(
   img: HTMLImageElement,
@@ -181,7 +172,7 @@ function measureContentBounds(
         }
       }
     }
-    if (maxX < 0) return { ...rect }; // fully transparent — keep full
+    if (maxX < 0) return { ...rect }; // fully transparent, keep full frame
     return {
       x: rect.x + minX,
       y: rect.y + minY,

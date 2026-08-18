@@ -4,9 +4,9 @@ import { CopyEmail } from "@/components/home/copy-email";
 import { SectionHeading } from "@/components/site/section-heading";
 
 /**
- * Home "Contact" section — a direct email path beside the form. Intro
- * copy is carried verbatim from the comp; the address is the configured
- * one (the comp mocked hello@perz.dev).
+ * Contact section: direct email path beside the form. Intro copy is
+ * carried verbatim from the comp; the email address is the configured
+ * one, not the comp's mocked hello@perz.dev.
  */
 export function Contact() {
   return (

@@ -4,16 +4,10 @@ import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { Animator, loadSheet, type SpriteSheet } from "@/lib/aseprite";
 
 /**
- * Sprite — animated aseprite mascot. Lives inline in the top nav as
- * the brand mark. On each page load the component picks one sprite
- * from the roster at random and draws that for the lifetime of the
- * session. The surrounding link navigates home on click.
- *
- * Random pick happens once in an effect on mount, so the server (and
- * the first client render) always serve the default slime — keeping
- * SSR and hydration in agreement. Once mounted, setKey swaps to a
- * random pick. Under prefers-reduced-motion the default is kept so
- * the canvas is stable from first paint.
+ * Animated aseprite mascot used as the nav brand mark; links home on
+ * click. Picks one sprite at random per page load, but only after
+ * mount, so SSR and the first client render both show the default
+ * slime and hydration matches. Reduced motion keeps the default sprite.
  */
 type SpriteKey =
   | "slime"
@@ -61,8 +55,8 @@ export function Sprite({
 }: {
   size?: number;
   className?: string;
-  /** Render as a button that advances to the next sprite on click.
-   *  The nav mascot uses this — the one signature easter egg. */
+  /** Renders as a button that advances to the next sprite on click.
+   *  Used by the nav mascot as an easter egg. */
   cycleOnClick?: boolean;
   /** Fired after a click-cycle, so the nav can retire its hint. */
   onCycle?: () => void;
@@ -74,10 +68,8 @@ export function Sprite({
   );
   const [key, setKey] = useState<SpriteKey>(DEFAULT_SPRITE);
 
-  // Pick one random sprite on mount. SSR + first client render both
-  // show DEFAULT_SPRITE so hydration matches; the effect swaps to a
-  // random pick once. Under reduced motion we keep the default so
-  // the visual is stable from first paint.
+  // Picks the random sprite only after mount, keeping SSR/hydration
+  // in sync. Reduced motion keeps the default.
   useEffect(() => {
     if (reducedMotion) return;
     const pick = ROSTER[Math.floor(Math.random() * ROSTER.length)];
@@ -142,9 +134,8 @@ export function Sprite({
     }
   };
 
-  // Pause/resume the RAF on tab visibility. Stops the canvas redraw
-  // entirely when the tab is hidden — background tabs already get
-  // rAF throttled by browsers, but explicit stop is cheaper.
+  // Explicitly stops the RAF loop when the tab is hidden. Browsers
+  // already throttle rAF in background tabs, but stopping is cheaper.
   useEffect(() => {
     if (typeof document === "undefined") return;
     const onVis = () => {
@@ -196,11 +187,8 @@ function pickTag(sheet: SpriteSheet): string {
   return first ?? "";
 }
 
-/**
- * Draw the animator's current frame using the sheet's measured
- * content bounds — crops the transparent padding around the sprite,
- * then scales the cropped region to fit the canvas.
- */
+/** Draws the animator's current frame, cropped to the sheet's measured
+ *  content bounds and scaled to fit the canvas. */
 function drawFrame(
   ctx: CanvasRenderingContext2D,
   sheet: SpriteSheet,

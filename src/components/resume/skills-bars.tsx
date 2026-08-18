@@ -3,12 +3,10 @@
 import { useEffect, useRef, useState } from "react";
 
 /**
- * Résumé skill bars — fill on scroll-into-view via IntersectionObserver.
- * A row reveals (0 → level%) when it enters the viewport; rows already on
- * screen reveal immediately. The global reduced-motion rule flattens the
- * width transition, so users who opted out get the final state with no
- * motion. Levels are illustrative — seeded from the comp; the owner tunes
- * them.
+ * Skill bars fill on scroll into view via IntersectionObserver: 0 to
+ * level% for rows entering the viewport, immediate for rows already on
+ * screen. Reduced-motion users get the final state with no transition.
+ * Levels are illustrative, seeded from the comp; the owner tunes them.
  */
 const SKILLS = [
   { name: "Game design", level: 92 },

@@ -35,10 +35,9 @@ export function CurseForgeIcon(props: IconProps) {
 }
 
 /**
- * Steam brand mark. Canonical Simple Icons path. Used on the project
- * detail page CTA when the project links to a Steam URL — keeps the
- * platform CTA visually consistent with the Itch and Meta variants
- * (every supported platform gets an icon, no orphan unlabeled card).
+ * Steam brand mark, canonical Simple Icons path. Used on the project
+ * detail CTA when the project links to Steam, matching the Itch and
+ * Meta icon treatment.
  */
 export function SteamIcon(props: IconProps) {
   return (
@@ -49,10 +48,8 @@ export function SteamIcon(props: IconProps) {
 }
 
 /**
- * Meta brand mark — the infinity-loop "M". Path is the canonical
- * Simple Icons version (https://simpleicons.org/?q=meta). Previous
- * paths in this file were hand-traced reconstructions that came out
- * looking like vine leaves rather than a continuous infinity loop.
+ * Meta brand mark, the infinity-loop "M". Canonical Simple Icons path
+ * (https://simpleicons.org/?q=meta).
  */
 export function MetaIcon(props: IconProps) {
   return (

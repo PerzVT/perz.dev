@@ -4,9 +4,9 @@ import { CardMedia } from "@/components/site/card-media";
 import { Rail } from "@/components/site/rail";
 
 /**
- * Project cards. Two layouts sharing one card: a scrolling "rail" on the
- * home page and the full "grid" on /projects. Each card is a ringed panel
- * holding its 2:3 cover, and the whole card is the link to the case study.
+ * Project cards. Two layouts share one card: a scrolling "rail" on the
+ * home page, a full "grid" on /projects. Each card is a ringed panel
+ * around its 2:3 cover, and the whole card links to the case study.
  */
 export function WorkCards({
   cards,
@@ -21,7 +21,7 @@ export function WorkCards({
         <Link
           key={card.slug}
           href={card.caseHref}
-          aria-label={`${card.title} — case study`}
+          aria-label={`${card.title}, case study`}
           className={`pz-panel pz-lift group/card flex flex-col gap-3.5 rounded-[var(--r-panel)] p-3 text-left ${
             rail ? "w-[min(78vw,290px)] flex-none snap-start" : ""
           }`}
@@ -45,9 +45,8 @@ export function WorkCards({
             <span className="text-[14.5px] leading-[1.6] text-pz-ink2">
               {card.tagline}
             </span>
-            {/* Carries the primary button's styling but stays a span:
-                the whole card is already the link, and an anchor inside
-                an anchor is invalid. */}
+            {/* Styled like the primary button but stays a span: the
+                card itself is the link, and nested anchors are invalid. */}
             <span className="pz-btn pz-btn-primary mt-auto inline-flex items-center self-start px-3.5 py-2 text-[13px] font-semibold text-[var(--pz-on-accent)]">
               Read more
             </span>

@@ -5,10 +5,11 @@ import { sendContact } from "@/app/actions/contact";
 import { Button } from "@/components/site/button";
 
 /**
- * Contact form — client validation (name / email / message), a honeypot,
- * an aria-live status line, and a success state with reset. Submits to the
- * sendContact server action (real email when configured, mocked success on
- * staging). Field errors are announced via aria-invalid + aria-describedby.
+ * Client-validated contact form (name, email, message) with a honeypot,
+ * an aria-live status line, and a success state with reset. Submits via
+ * the sendContact server action (real email when configured, mocked
+ * success on staging). Errors are announced via aria-invalid and
+ * aria-describedby.
  */
 const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 
@@ -140,7 +141,7 @@ export function ContactForm() {
         )}
       </label>
 
-      {/* Honeypot — visually hidden, off the tab order. */}
+      {/* Honeypot: visually hidden, off the tab order. */}
       <input
         type="text"
         name="company"

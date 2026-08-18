@@ -4,11 +4,9 @@ import { useSyncExternalStore } from "react";
 
 /**
  * Cross-component hover state for the home hero's cover-art reveal.
- * Hovering (or focusing) the nav wordmark fades/unblurs a full-bleed
- * art layer behind the hero — a placeholder for a future gameplay reel.
- * The wordmark lives in the shared nav while the art lives in the home
- * hero, so this tiny store bridges the two without a provider. On pages
- * with no hero art layer the setter is simply unobserved.
+ * The nav wordmark and the hero art live in different component
+ * trees, so this tiny store bridges them without a provider. Setter
+ * is a no-op on pages with no hero art layer.
  */
 
 let revealed = false;

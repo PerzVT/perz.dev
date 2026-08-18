@@ -5,10 +5,10 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { LazyVideo } from "@/components/lazy-video";
 
 /**
- * Media gallery reel — a scroll-snap row of 16:9 gameplay captures with
- * prev/next controls and progress dots. Lead a case study with it to show
- * the game in motion. `srcs` is a comma-separated list of image/video
- * paths; videos render as posters that play on click.
+ * Scroll-snap row of 16:9 gameplay captures with prev/next controls and
+ * progress dots, used to lead a case study. `srcs` is a comma-separated
+ * list of image/video paths; videos render as posters that play on
+ * click.
  */
 export function MediaReel({
   srcs,

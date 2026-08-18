@@ -12,9 +12,9 @@ export const metadata: Metadata = {
 };
 
 /**
- * "My work" (Kerberus v2) — a single dense grid of the full project set
+ * "My work" (Kerberus v2): a single dense grid of the full project set
  * (games + design), each card linking to its case study. Titus-style
- * intent; the comp ships a uniform grid, which is what's rendered here.
+ * intent, a uniform grid per the comp.
  */
 export default function WorkPage() {
   const cards = getWorkCards();
@@ -23,9 +23,8 @@ export default function WorkPage() {
     <>
       <SiteNav />
       <main id="main-content">
-        {/* Same shape as the home sections: display heading with the
-            width axis doing the shouting, a lead line, then a hairline
-            carrying the count before the grid. */}
+        {/* Same shape as the home sections: display heading using the
+            font's width axis, then a lead line. */}
         <header className="mx-auto max-w-[1160px] px-[clamp(20px,4vw,32px)] pt-[clamp(48px,8vh,80px)]">
           <h1 className="pz-wordmark text-[clamp(34px,4.4vw,44px)] font-extrabold leading-[1.1] tracking-[-0.017em] text-pz-ink [animation:perzRise_.5s_var(--ease-out)_.05s_both]">
             My work

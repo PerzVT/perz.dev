@@ -5,19 +5,17 @@ import { siteConfig } from "@/lib/config";
 import { SectionHeading } from "@/components/site/section-heading";
 
 /**
- * "About me" — bio beside the photo, the two columns centered against each
- * other vertically. A Read more link leads to the résumé, where the fuller
- * detail (design philosophy, experience) lives. The photo is landscape,
- * cropped into the 4:3 frame with object-cover; set object-position if it
- * clips.
+ * Bio beside the photo, columns centered against each other vertically.
+ * Read more links to the résumé for the fuller detail. Photo is
+ * landscape, cropped into the 4:3 frame with object-cover; adjust
+ * object-position if it clips.
  */
 export function About() {
   return (
     <section
       id="about"
-      // The one inset panel on the page. It used to be a full-bleed
-      // tinted band, but a different background colour is not how this
-      // system separates regions — a ringed panel is.
+      // The one inset panel on the page; a ringed panel is how this
+      // system marks a separated region.
       className="mx-auto mt-[clamp(56px,8vh,88px)] max-w-[1160px] px-[clamp(20px,4vw,32px)]"
     >
       <div className="pz-panel flex flex-wrap items-center gap-[clamp(28px,5vw,56px)] rounded-[var(--r-panel)] p-[clamp(28px,5vw,48px)]">

@@ -3,11 +3,9 @@ import { getWork, type WorkEntry } from "@/lib/content";
 import { SectionHeading } from "@/components/site/section-heading";
 
 /**
- * Home "Experience" — one row per role: company mark, role and company
- * stacked, and the date range as its own chip on the right. Newest
- * first. `content/work/knite.json` points at a logo that was never added
- * to the repo, so a monogram stands in whenever the file is missing or
- * fails to load.
+ * One row per role: company mark, role and company stacked, date range
+ * as a chip on the right, newest first. content/work/knite.json points
+ * at a logo never added to the repo, so the monogram fallback covers it.
  */
 function range(r: string): string {
   return r.replace(/\s*—\s*/g, " – ");
@@ -38,12 +36,9 @@ function Row({ w }: { w: WorkEntry }) {
   const logo = w.logo && !MISSING_LOGOS.has(w.logo) ? w.logo : null;
 
   return (
-    // Wraps on narrow screens: at 375px the date block was taking more
-    // width than the role and company it sits beside, squeezing them into
-    // ~110px and forcing them to wrap. `basis-full` drops the dates onto
-    // their own line below, indented to line up under the text.
-    // Hover tints the whole row, with the padding pulled out to the
-    // gutter so the highlight reads as the row and not a floating box.
+    // basis-full drops the date chip to its own line below 375px, where
+    // it would otherwise squeeze role/company into ~110px.
+    // Negative margin extends the hover tint to the gutter.
     <div className="pz-hover -mx-3 flex flex-wrap items-center gap-x-4 gap-y-2 rounded-[var(--r-card)] px-3 py-4 shadow-[inset_0_-1px_0_var(--pz-border-soft)]">
       <span className="pz-panel flex h-11 w-11 flex-none overflow-hidden rounded-lg border border-pz-border bg-pz-raised">
         {logo ? (

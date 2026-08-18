@@ -87,7 +87,7 @@ function facts(fm: ProjectFrontmatter): { label: string; value: string }[] {
   return rows;
 }
 
-/** 16:9 hero — video (poster + play on click) or image, with a badge. */
+/** 16:9 hero: video (poster, plays on click) or image, with a badge. */
 function Hero({ src, poster }: { src: string; poster?: string }) {
   const isVideo = /\.(mp4|webm|mov)$/i.test(src);
   return (
@@ -123,8 +123,8 @@ function Hero({ src, poster }: { src: string; poster?: string }) {
 
 /**
  * Coming-soon state: a decorative "locked" login screen (ComingSoonGate),
- * shown instead of the full case study when frontmatter sets
- * `status: "coming-soon"`. The gate is not real auth — see the component.
+ * shown instead of the case study when frontmatter sets
+ * `status: "coming-soon"`. Not real auth; see the component.
  */
 function ComingSoonPage() {
   return (
@@ -139,11 +139,11 @@ function ComingSoonPage() {
 }
 
 /**
- * Case study (CaseStudy v2, media-forward). A structured "scan layer"
- * rendered from frontmatter — title, hero, contributions, a facts card,
- * skills, NDA note — then the MDX body carries the media gallery, the
- * modular <Highlight> blocks, and the <Outcome>. 1160 grid; the section
- * kit is add/remove per project.
+ * Case study (CaseStudy v2, media-forward). A "scan layer" rendered
+ * from frontmatter (title, hero, contributions, facts card, skills, NDA
+ * note), then the MDX body carries the media gallery, the modular
+ * <Highlight> blocks, and the <Outcome>. 1160 grid; section kit is
+ * add/remove per project.
  */
 export default async function ProjectPage({ params }: { params: Params }) {
   const { slug } = await params;
@@ -167,7 +167,7 @@ export default async function ProjectPage({ params }: { params: Params }) {
     <>
       <SiteNav />
       <main id="main-content">
-        {/* ===== Scan layer — readable at a glance ===== */}
+        {/* Scan layer: readable at a glance */}
         <header
           id="overview"
           className="mx-auto max-w-[1160px] scroll-mt-[84px] px-[clamp(20px,4vw,32px)] pt-[clamp(36px,6vh,60px)]"
@@ -285,7 +285,7 @@ export default async function ProjectPage({ params }: { params: Params }) {
           )}
         </header>
 
-        {/* ===== Media middle + close (MDX) ===== */}
+        {/* Media middle + close (MDX) */}
         <article className="mx-auto flex max-w-[1160px] flex-col gap-[clamp(56px,9vh,84px)] px-[clamp(20px,4vw,32px)] pb-[clamp(64px,10vh,96px)] pt-[clamp(52px,8vh,80px)]">
           <MDXRemote source={content} components={mdxComponents} />
         </article>

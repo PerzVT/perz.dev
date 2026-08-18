@@ -1,15 +1,8 @@
 /**
- * Tiny WebAudio synth for UI sounds. No audio files — every sound is
- * generated from oscillators + noise so the bundle stays light and the
- * palette can be tuned by editing numbers.
- *
- * Browsers block AudioContext until a user gesture, so we lazily create
- * it on the first hover/click and gate playback behind that.
- *
- * Default state is MUTED. Visitors opt in via the nav speaker toggle;
- * the choice persists in localStorage. WCAG 1.4.2 doesn't formally
- * apply (sounds are < 3s) but defaulting to silence is the kinder
- * baseline — surprise audio on a portfolio is a hostile choice.
+ * WebAudio synth for UI sounds: no audio files, everything generated
+ * from oscillators and noise. AudioContext is created lazily on first
+ * hover/click since browsers block it until a user gesture, and
+ * defaults to muted, with the visitor's choice persisted in localStorage.
  */
 
 const STORAGE_KEY = "perz:sfx-muted";
@@ -17,9 +10,8 @@ const STORAGE_KEY = "perz:sfx-muted";
 let ctx: AudioContext | null = null;
 let master: GainNode | null = null;
 
-// Default to muted on the server (no localStorage) and as the
-// fallback for new visitors. Hydrate from storage on the client via
-// the SfxProvider effect that calls hydrateSfxFromStorage().
+// Defaults to muted (server has no localStorage); hydrated client-side
+// via SfxProvider's call to hydrateSfxFromStorage().
 let muted = true;
 const listeners = new Set<(v: boolean) => void>();
 
@@ -58,8 +50,8 @@ export function isSfxMuted() {
   return muted;
 }
 
-/** Read the persisted muted state from storage. Safe to call before
- *  any DOM access — returns the in-memory default on the server. */
+/** Reads the persisted muted state. Safe to call before any DOM
+ *  access; returns the in-memory default on the server. */
 export function hydrateSfxFromStorage() {
   if (typeof window === "undefined") return;
   try {
@@ -103,7 +95,7 @@ export function sfxClick() {
   if (!c || !master) return;
   const now = c.currentTime;
 
-  // Body — square dropping pitch feels mechanical
+  // Body
   const osc1 = c.createOscillator();
   const gain1 = c.createGain();
   osc1.type = "square";
@@ -116,7 +108,7 @@ export function sfxClick() {
   osc1.start(now);
   osc1.stop(now + 0.1);
 
-  // Tick — short sine spike on top for definition
+  // Tick
   const osc2 = c.createOscillator();
   const gain2 = c.createGain();
   osc2.type = "sine";
@@ -128,7 +120,7 @@ export function sfxClick() {
   osc2.start(now);
   osc2.stop(now + 0.03);
 
-  // Noise — a touch of grit
+  // Noise, for grit
   const bufSize = Math.floor(c.sampleRate * 0.03);
   const buf = c.createBuffer(1, bufSize, c.sampleRate);
   const data = buf.getChannelData(0);
@@ -164,7 +156,7 @@ export function sfxToggle() {
   osc.start(now);
   osc.stop(now + 0.16);
 
-  // Release tick 60ms later — two-stage feel
+  // Release tick, fires 60ms after the main tone
   const osc2 = c.createOscillator();
   const gain2 = c.createGain();
   osc2.type = "sine";

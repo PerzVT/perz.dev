@@ -1,14 +1,12 @@
 /**
- * BrandRow — flex row of horizontal brand logos, sized to a
- * consistent height so logos of different native aspect ratios
- * sit visually balanced. Used inside MDX case studies when a
- * section needs to surface multiple brands as a related set.
+ * BrandRow: flex row of brand logos at a consistent height so
+ * different aspect ratios stay visually balanced. Used in MDX case
+ * studies to surface several brands as a set.
  *
- * Logos are passed as a comma-separated string of paths so the
- * component composes cleanly from MDX (where JS-expression props
- * with arrays aren't supported by our MDX runtime). Alt text is
- * derived from the filename — author-readable but not great for
- * screen readers; pass `alts` if you need explicit labels.
+ * `srcs` is a comma-separated string, not an array, because the MDX
+ * runtime doesn't support array-expression props. Alt text falls
+ * back to the filename, which isn't great for screen readers; pass
+ * `alts` for real labels.
  */
 export function BrandRow({
   srcs,

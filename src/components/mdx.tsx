@@ -7,15 +7,14 @@ import { LazyVideo } from "@/components/lazy-video";
 import { MediaReel } from "@/components/case-study/media-reel";
 import { Banner } from "@/components/site/banner";
 
-// Shared MDX media frame — Kerberus v2 surface + hairline border.
+// Shared MDX media frame: Kerberus v2 surface + hairline border.
 const MEDIA_FRAME =
   "block w-full rounded-[var(--r-media)] bg-pz-raised shadow-[var(--pz-ring)]";
 
 /**
- * Inline `<video>` or `<img>` based on the file extension. Authors don't
- * pick between an Image and Video component — the path tells us which.
- * (Article-body stills stay raw <img> for now; a next/image pass with
- * server-measured dimensions is a separate perf follow-up.)
+ * Renders `<video>` or `<img>` based on the file extension, so authors
+ * don't choose between separate Image/Video components. Stills stay
+ * raw <img> for now; a next/image pass is a separate follow-up.
  */
 function MdxMedia({ src, alt = "" }: { src: string; alt?: string }) {
   const isVideo = /\.(mp4|webm|mov)$/i.test(src);
@@ -28,7 +27,7 @@ function MdxMedia({ src, alt = "" }: { src: string; alt?: string }) {
   );
 }
 
-/** Figure — inline media in an MDX body (still, GIF/AVIF, or video). */
+/** Figure: inline media in an MDX body (still, GIF/AVIF, or video). */
 function Figure({
   src,
   alt = "",
@@ -44,14 +43,14 @@ function Figure({
   );
 }
 
-/** Gallery — responsive multi-image row. */
+/** Gallery: responsive multi-image row. */
 function Gallery({
   images,
   srcs,
   columns = 2,
 }: {
   images?: Array<{ src: string; caption?: string; alt?: string } | string>;
-  /** Comma-separated paths — MDX-friendly alternative to `images`. */
+  /** Comma-separated paths: MDX-friendly alternative to `images`. */
   srcs?: string;
   columns?: 2 | 3;
 }) {
@@ -73,10 +72,9 @@ function Gallery({
   );
 }
 
-/** Columns — a compact grid of labeled cells (optional image, heading,
- *  then a short description). Collapses a set of related items (e.g. the
- *  mods in a suite) into one scannable section instead of a stack of
- *  full-height sections. `cols` sets the desktop column count. */
+/** Columns: a compact grid of labeled cells (optional image, heading,
+ *  body). Used for sets of related items (e.g. mods in a suite).
+ *  `cols` sets the desktop column count. */
 function Columns({
   children,
   cols = 4,
@@ -125,7 +123,7 @@ function Column({
   );
 }
 
-/** Callout — an editorial margin note, not a system alert. */
+/** Callout: an editorial margin note, not a system alert. */
 function Callout({
   children,
   tone = "neutral",
@@ -145,10 +143,9 @@ function Callout({
 }
 
 /**
- * Case-study section — flat editorial block: a small numbered eyebrow, a
- * plain display heading, then the body. No card framing (Kerberus v2
- * reads as an open editorial spine, not stacked panels). data-* attrs
- * are retained as harmless anchors.
+ * Case-study section: numbered eyebrow, heading, then body, with no
+ * card framing (Kerberus v2 reads as an open editorial spine, not
+ * stacked panels). data-* attrs are kept as anchors.
  */
 function CaseSection({
   id,
@@ -180,7 +177,7 @@ function CaseSection({
   );
 }
 
-/** Generic case-card — author-defined section label + optional index. */
+/** Generic case-card: author-defined section label + optional index. */
 function CaseCard({
   label,
   index,
@@ -238,7 +235,7 @@ function Result({ children }: { children: ReactNode }) {
   );
 }
 
-/** Impact — a flat section with a stat grid (pz surface tiles). */
+/** Impact: a flat section with a stat grid (pz surface tiles). */
 function Impact({ children }: { children: ReactNode }) {
   return (
     <section
@@ -309,13 +306,10 @@ function ImpactQuote({
   );
 }
 
-// ---------------------------------------------------------------------
-// CaseStudy v2 media-forward vocabulary (matches the "CaseStudy v2" comp).
-// A modular kit: <MediaReel> for the gameplay gallery, <Highlight> blocks
-// (duplicate or drop one per project), and <Outcome> with <OutcomePoint>
-// cards to close. The scan layer (title, hero, facts, contributions,
-// skills) is rendered by the page from frontmatter, not MDX.
-// ---------------------------------------------------------------------
+// CaseStudy v2 media-forward components: <MediaReel> for the gameplay
+// gallery, <Highlight> blocks per project, <Outcome>/<OutcomePoint> to
+// close. Title, hero, facts, contributions, and skills render from
+// frontmatter on the page, not from MDX.
 
 /** A modular highlight block: eyebrow + title + body on one side, media
  *  (the children) on the other. `flip` puts the media first. */
@@ -417,7 +411,7 @@ function Confidential() {
   );
 }
 
-/** Smart link — internal anchors in-tab, externals in a new tab. */
+/** Smart link: internal anchors in-tab, externals in a new tab. */
 function MdxLink(props: React.AnchorHTMLAttributes<HTMLAnchorElement>) {
   const href = props.href ?? "";
   const isExternal = /^https?:\/\//i.test(href);
