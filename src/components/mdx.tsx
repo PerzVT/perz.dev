@@ -118,7 +118,7 @@ function Column({
       <h3 className="text-[15px] font-bold tracking-[-0.01em] text-pz-ink">
         {title}
       </h3>
-      <p className="mt-1.5 text-[13.5px] leading-[1.6] text-pz-ink2">{body}</p>
+      <p className="mt-1.5 text-[15px] leading-[1.6] text-pz-ink2">{body}</p>
     </div>
   );
 }
@@ -133,7 +133,7 @@ function Callout({
 }) {
   const label = tone === "info" ? "Aside" : "Note";
   return (
-    <aside className="my-6 flex max-w-[62ch] gap-3 text-[15px] italic leading-relaxed text-pz-ink2">
+    <aside className="my-6 flex max-w-[62ch] gap-3 text-[16px] italic leading-relaxed text-pz-ink2">
       <span className="mt-[2px] shrink-0 text-sm font-semibold not-italic text-pz-accent">
         {label}.
       </span>
@@ -298,7 +298,7 @@ function ImpactQuote({
       <figcaption className="mt-3 text-[11px] font-semibold uppercase tracking-[0.14em] text-pz-muted">
         {attribution}
         {role && (
-          <span className="block text-[10px] font-normal normal-case tracking-normal text-pz-faint">
+          <span className="block text-[11px] font-normal normal-case tracking-normal text-pz-faint">
             {role}
           </span>
         )}
@@ -349,7 +349,7 @@ function Highlight({
         <h2 className="mt-2.5 text-[21px] font-bold tracking-[-0.012em] text-pz-ink">
           {title}
         </h2>
-        <p className="mt-3 max-w-[52ch] text-[15px] leading-[1.7] text-pz-ink2">
+        <p className="mt-3 max-w-[52ch] text-[16px] leading-[1.7] text-pz-ink2">
           {body}
         </p>
       </div>
@@ -400,7 +400,7 @@ function OutcomePoint({ children }: { children: ReactNode }) {
         strokeWidth={2.4}
         aria-hidden
       />
-      <p className="m-0 text-[15px] leading-[1.6] text-pz-ink2 [&>strong]:font-semibold [&>strong]:text-pz-ink">
+      <p className="m-0 text-[16px] leading-[1.6] text-pz-ink2 [&>strong]:font-semibold [&>strong]:text-pz-ink">
         {children}
       </p>
     </div>
@@ -447,19 +447,19 @@ const components: MDXRemoteProps["components"] = {
   ),
   p: (props) => (
     <p
-      className="mb-5 max-w-[62ch] text-[15px] leading-[1.75] text-pz-ink2"
+      className="mb-5 max-w-[62ch] text-[16px] leading-[1.75] text-pz-ink2"
       {...props}
     />
   ),
   ul: (props) => (
     <ul
-      className="mb-5 max-w-[62ch] list-outside list-disc space-y-2 pl-5 text-[15px] leading-[1.75] text-pz-ink2 marker:text-pz-faint"
+      className="mb-5 max-w-[62ch] list-outside list-disc space-y-2 pl-5 text-[16px] leading-[1.75] text-pz-ink2 marker:text-pz-faint"
       {...props}
     />
   ),
   ol: (props) => (
     <ol
-      className="mb-5 max-w-[62ch] list-outside list-decimal space-y-2 pl-5 text-[15px] leading-[1.75] text-pz-ink2 marker:text-pz-faint"
+      className="mb-5 max-w-[62ch] list-outside list-decimal space-y-2 pl-5 text-[16px] leading-[1.75] text-pz-ink2 marker:text-pz-faint"
       {...props}
     />
   ),

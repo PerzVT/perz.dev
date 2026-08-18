@@ -40,6 +40,12 @@ export async function generateMetadata({
     title,
     description,
     alternates: { canonical },
+    // Coming-soon projects render a placeholder sign-in, not a case
+    // study. Keep them out of search so nobody lands on a bare form;
+    // still follow links out of the page.
+    ...(project.frontmatter.status === "coming-soon"
+      ? { robots: { index: false, follow: true } }
+      : {}),
     openGraph: {
       title: `${title} · ${siteConfig.role}`,
       description,
@@ -104,7 +110,7 @@ function Hero({ src, poster }: { src: string; poster?: string }) {
             className="object-cover"
           />
         )}
-        <span className="pointer-events-none absolute left-3.5 top-3.5 rounded-md border border-white/15 bg-black/60 px-2.5 py-1 text-[10.5px] font-bold uppercase tracking-[0.08em] text-white backdrop-blur-sm">
+        <span className="pointer-events-none absolute left-3.5 top-3.5 rounded-md border border-white/15 bg-black/60 px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.08em] text-white backdrop-blur-sm">
           Trailer
         </span>
       </div>
@@ -200,7 +206,7 @@ export default async function ProjectPage({ params }: { params: Params }) {
                     return (
                       <li
                         key={i}
-                        className="grid grid-cols-[16px_1fr] gap-2 text-[15px] leading-[1.6] text-pz-ink2"
+                        className="grid grid-cols-[16px_1fr] gap-2 text-[16px] leading-[1.6] text-pz-ink2"
                       >
                         <span
                           aria-hidden
@@ -229,7 +235,7 @@ export default async function ProjectPage({ params }: { params: Params }) {
                         i < rows.length - 1 ? "border-b border-pz-border" : ""
                       }`}
                     >
-                      <span className="text-[10.5px] font-bold uppercase tracking-[0.08em] text-pz-faint">
+                      <span className="text-[11px] font-bold uppercase tracking-[0.08em] text-pz-faint">
                         {r.label}
                       </span>
                       <span className="text-[13.5px] font-semibold text-pz-ink">
@@ -244,7 +250,7 @@ export default async function ProjectPage({ params }: { params: Params }) {
 
           {skills.length > 0 && (
             <div className="mt-[26px] border-t border-pz-border pt-[22px] [animation:perzRise_.5s_var(--ease-out)_.3s_both]">
-              <div className="text-[10.5px] font-bold uppercase tracking-[0.08em] text-pz-muted">
+              <div className="text-[11px] font-bold uppercase tracking-[0.08em] text-pz-muted">
                 Skills &amp; tools
               </div>
               <div className="mt-3 flex flex-wrap gap-2">

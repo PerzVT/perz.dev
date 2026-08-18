@@ -72,12 +72,12 @@ export function Hero() {
           {siteConfig.positioning}
         </p>
         <div className="mt-[26px] [animation:perzRise_.5s_var(--ease-out)_.14s_both]">
-          <Link
-            href="/resume"
+          <a
+            href="#contact"
             className="pointer-events-auto text-[14.5px] font-semibold text-pz-accent underline-offset-4 hover:underline"
           >
-            Download résumé
-          </Link>
+            Contact me
+          </a>
         </div>
       </div>
     </header>

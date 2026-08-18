@@ -29,14 +29,6 @@ export function SelectedWork() {
       <div className="mt-7">
         <WorkCards cards={cards} layout="rail" />
       </div>
-      <div className="mt-9 flex justify-center">
-        <Link
-          href="/projects"
-          className="inline-flex items-center gap-2 rounded-lg border border-pz-border2 px-[22px] py-[11px] text-sm font-semibold text-pz-ink2 transition-colors hover:border-pz-accent hover:text-pz-accent"
-        >
-          See all work <span aria-hidden>→</span>
-        </Link>
-      </div>
     </section>
   );
 }

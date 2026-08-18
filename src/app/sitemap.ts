@@ -28,6 +28,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // are already dropped by getProjects().
   const projects = getProjects()
     .filter((p) => !p.frontmatter.mediaOnly)
+    // Coming-soon pages are a placeholder sign-in with no content yet.
+    .filter((p) => p.frontmatter.status !== "coming-soon")
     .map((p) => ({
       url: `${base}/projects/${p.slug}`,
       lastModified: projectMtime(p.slug, now),
