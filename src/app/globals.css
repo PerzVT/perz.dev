@@ -334,6 +334,15 @@
   box-shadow: var(--pz-ring);
 }
 
+/* Sticky nav pane. Semi-transparent canvas, no backdrop-filter. Blur
+   here would sit fixed over the looping hero reel, re-rasterising a
+   full-width strip every video frame, which is what stalled the
+   Windows compositor before. 88% keeps content readable as it passes
+   under without the text behind competing with the nav's own. */
+.pz-nav-surface {
+  background-color: color-mix(in srgb, var(--pz-canvas) 88%, transparent);
+}
+
 /* Hover on anything you can act on: the tint lifts, the ring stays.
    The site had no hover feedback on rows, fields or quote cards, which
    made half the page read as inert. */

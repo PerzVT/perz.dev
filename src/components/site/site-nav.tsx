@@ -2,17 +2,17 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
 import { setReveal } from "@/lib/reveal";
 import { siteConfig } from "@/lib/config";
 import { Sprite } from "@/components/sprite";
 import { SpriteHint } from "@/components/site/sprite-hint";
 
 /**
- * Sticky top nav. Solid background, not backdrop-blur (blur stalls
- * the Windows compositor and freezes fixed chrome). The wordmark
- * links home and drives the hero's cover-art reveal on hover/focus.
- * Fits 375px without overflow.
+ * Sticky top nav. Logo box, wordmark and links sit together on the
+ * left; the sprite is the right-hand corner. The pane is
+ * `.pz-nav-surface`: semi-transparent canvas, no blur, because a
+ * blurred fixed strip over the looping hero reel is what stalled the
+ * Windows compositor. Fits 375px without overflow.
  */
 
 const LINKS = [
@@ -21,72 +21,58 @@ const LINKS = [
   { href: "/#contact", label: "Contact", match: () => false },
 ] as const;
 
-const HINT_KEY = "perz.spriteHinted";
-
 export function SiteNav() {
   const pathname = usePathname() ?? "/";
 
-  // Starts hidden so server and first render match (no hydration
-  // mismatch); the effect flips it on after load for anyone who
-  // hasn't used the easter egg. Dismissing it retires it for good.
-  const [hint, setHint] = useState(false);
-  useEffect(() => {
-    try {
-      if (localStorage.getItem(HINT_KEY)) return;
-    } catch {
-      return;
-    }
-    const t = window.setTimeout(() => setHint(true), 1400);
-    return () => window.clearTimeout(t);
-  }, []);
-
-  const dismissHint = () => {
-    setHint(false);
-    try {
-      localStorage.setItem(HINT_KEY, "1");
-    } catch {
-      // storage unavailable: the hint just returns next visit
-    }
-  };
-
   return (
-    <nav className="sticky top-0 z-50 border-b border-pz-border bg-pz-canvas transition-colors duration-[450ms]">
-      <div className="mx-auto flex h-16 max-w-[1160px] items-center gap-[clamp(14px,2vw,24px)] px-[clamp(20px,4vw,32px)]">
-        {/* Sprite is its own button, separate from the home link, so
-            clicking the mascot never navigates. */}
-        <div className="mr-auto flex items-center gap-2.5">
-          <span className="group/sprite relative flex items-center">
-            <Sprite size={30} cycleOnClick onCycle={dismissHint} />
-            <SpriteHint show={hint} />
-          </span>
-          <Link
-            href="/"
-            onMouseEnter={() => setReveal(true)}
-            onMouseLeave={() => setReveal(false)}
-            onFocus={() => setReveal(true)}
-            onBlur={() => setReveal(false)}
-            aria-label="Home"
-            className="pz-wordmark text-base leading-[22px] text-pz-ink"
-          >
+    <nav className="pz-nav-surface sticky top-0 z-50 border-b border-pz-border">
+      <div className="mx-auto flex h-16 max-w-[1160px] items-center px-[clamp(20px,4vw,32px)]">
+        <Link
+          href="/"
+          onMouseEnter={() => setReveal(true)}
+          onMouseLeave={() => setReveal(false)}
+          onFocus={() => setReveal(true)}
+          onBlur={() => setReveal(false)}
+          aria-label="Home"
+          className="mr-[clamp(28px,5vw,56px)] flex flex-none items-center gap-2.5"
+        >
+          {/* Square logo plate. Placeholder until the real mark lands. */}
+          <span
+            aria-hidden
+            className="h-8 w-8 flex-none rounded-[var(--r-icon)] bg-pz-tint-hi ring-1 ring-inset ring-pz-border2"
+          />
+          <span className="pz-wordmark text-base leading-[22px] text-pz-ink">
             {siteConfig.name}
-          </Link>
+          </span>
+        </Link>
+
+        {/* Links own their own gap. The brand's right margin carries a
+            wider break, so the lockup and the nav read as two groups
+            rather than one evenly spaced row of five. */}
+        <div className="flex items-center gap-[clamp(14px,2vw,24px)]">
+          {LINKS.map((l) => {
+            const active = l.match(pathname);
+            return (
+              <Link
+                key={l.href}
+                href={l.href}
+                aria-current={active ? "page" : undefined}
+                className={`text-[13.5px] transition-colors hover:text-pz-ink ${
+                  active ? "text-pz-ink" : "text-pz-ink2"
+                }`}
+              >
+                {l.label}
+              </Link>
+            );
+          })}
         </div>
 
-        {LINKS.map((l) => {
-          const active = l.match(pathname);
-          return (
-            <Link
-              key={l.href}
-              href={l.href}
-              aria-current={active ? "page" : undefined}
-              className={`text-[13.5px] transition-colors hover:text-pz-ink ${
-                active ? "text-pz-ink" : "text-pz-ink2"
-              }`}
-            >
-              {l.label}
-            </Link>
-          );
-        })}
+        {/* Sprite owns the right corner. Its own button, never a link,
+            so clicking the mascot doesn't navigate. */}
+        <span className="group/sprite relative ml-auto flex flex-none items-center">
+          <Sprite size={30} cycleOnClick />
+          <SpriteHint />
+        </span>
       </div>
     </nav>
   );
