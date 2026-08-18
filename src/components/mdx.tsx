@@ -1,8 +1,10 @@
 import type { MDXRemoteProps } from "next-mdx-remote/rsc";
 import type { ReactNode } from "react";
+import { Check } from "lucide-react";
 import { Carousel } from "@/components/carousel";
 import { BrandRow } from "@/components/brand-row";
 import { LazyVideo } from "@/components/lazy-video";
+import { MediaReel } from "@/components/case-study/media-reel";
 
 // Shared MDX media frame — Kerberus v2 surface + hairline border.
 const MEDIA_FRAME = "block w-full rounded-lg border border-pz-border bg-pz-surface";
@@ -43,15 +45,21 @@ function Figure({
 /** Gallery — responsive multi-image row. */
 function Gallery({
   images,
+  srcs,
   columns = 2,
 }: {
-  images: Array<{ src: string; caption?: string; alt?: string } | string>;
+  images?: Array<{ src: string; caption?: string; alt?: string } | string>;
+  /** Comma-separated paths — MDX-friendly alternative to `images`. */
+  srcs?: string;
   columns?: 2 | 3;
 }) {
+  const list = srcs
+    ? srcs.split(",").map((s) => s.trim()).filter(Boolean)
+    : images ?? [];
   const cols = columns === 3 ? "sm:grid-cols-3" : "sm:grid-cols-2";
   return (
     <div className={`my-8 grid grid-cols-1 gap-4 ${cols}`}>
-      {images.map((entry, i) => {
+      {list.map((entry, i) => {
         const item = typeof entry === "string" ? { src: entry } : entry;
         return (
           <figure key={i} className="m-0">
@@ -247,6 +255,106 @@ function ImpactQuote({
   );
 }
 
+// ---------------------------------------------------------------------
+// CaseStudy v2 media-forward vocabulary (matches the "CaseStudy v2" comp).
+// A modular kit: <MediaReel> for the gameplay gallery, <Highlight> blocks
+// (duplicate or drop one per project), and <Outcome> with <OutcomePoint>
+// cards to close. The scan layer (title, hero, facts, contributions,
+// skills) is rendered by the page from frontmatter, not MDX.
+// ---------------------------------------------------------------------
+
+/** A modular highlight block: eyebrow + title + body on one side, media
+ *  (the children) on the other. `flip` puts the media first. */
+function Highlight({
+  n,
+  kicker,
+  title,
+  body,
+  flip,
+  children,
+}: {
+  n: string;
+  kicker: string;
+  title: string;
+  body: string;
+  flip?: boolean;
+  children?: ReactNode;
+}) {
+  const id = kicker
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+  return (
+    <section
+      id={id}
+      data-case-section
+      className="flex scroll-mt-[84px] flex-wrap items-center gap-x-[clamp(32px,5vw,56px)] gap-y-7"
+    >
+      <div className={`min-w-[280px] flex-[1_1_300px] ${flip ? "md:order-2" : ""}`}>
+        <div className="text-[11px] font-bold uppercase tracking-[0.09em] text-pz-accent">
+          Highlight {n} · {kicker}
+        </div>
+        <h2 className="mt-2.5 text-[21px] font-bold tracking-[-0.012em] text-pz-ink">
+          {title}
+        </h2>
+        <p className="mt-3 max-w-[52ch] text-[15px] leading-[1.7] text-pz-ink2">
+          {body}
+        </p>
+      </div>
+      {children && (
+        <div
+          className={`min-w-[300px] flex-[1.45_1_400px] [&>*]:my-0 ${flip ? "md:order-1" : ""}`}
+        >
+          {children}
+        </div>
+      )}
+    </section>
+  );
+}
+
+/** Case-study close: an "Outcome" section with a lead paragraph and a
+ *  stack of <OutcomePoint> cards. */
+function Outcome({
+  title = "Where it landed.",
+  children,
+}: {
+  title?: string;
+  children: ReactNode;
+}) {
+  return (
+    <section id="outcome" data-case-section className="scroll-mt-[84px]">
+      <div className="text-[11px] font-bold uppercase tracking-[0.09em] text-pz-accent">
+        Outcome
+      </div>
+      <h2 className="mt-2.5 text-[22px] font-bold tracking-[-0.012em] text-pz-ink">
+        {title}
+      </h2>
+      <div className="mt-3.5 [&>:first-child]:mt-0">{children}</div>
+    </section>
+  );
+}
+
+/** The stack of outcome cards inside <Outcome>. */
+function OutcomePoints({ children }: { children: ReactNode }) {
+  return <div className="mt-[22px] flex flex-col gap-3">{children}</div>;
+}
+
+/** One checkmark outcome card. Use <strong> to emphasise the lead. */
+function OutcomePoint({ children }: { children: ReactNode }) {
+  return (
+    <div className="flex items-start gap-3.5 rounded-xl border border-pz-border bg-pz-raised px-[18px] py-4">
+      <Check
+        className="mt-0.5 h-4 w-4 flex-none text-pz-accent"
+        strokeWidth={2.4}
+        aria-hidden
+      />
+      <p className="m-0 text-[15px] leading-[1.6] text-pz-ink2 [&>strong]:font-semibold [&>strong]:text-pz-ink">
+        {children}
+      </p>
+    </div>
+  );
+}
+
 /** Confidential disclaimer under image groups with scrubbed numbers. */
 function Confidential() {
   return (
@@ -347,6 +455,12 @@ const components: MDXRemoteProps["components"] = {
   CaseCard,
   Result,
   Confidential,
+  MediaReel,
+  Reel: MediaReel,
+  Highlight,
+  Outcome,
+  OutcomePoints,
+  OutcomePoint,
 };
 
 export { components as mdxComponents };

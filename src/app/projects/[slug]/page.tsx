@@ -55,18 +55,6 @@ export async function generateMetadata({
   };
 }
 
-/** Condensed one-line metadata strip from the frontmatter. */
-function metaLine(fm: ProjectFrontmatter): string {
-  const parts: string[] = [];
-  if (fm.roles?.length) parts.push(fm.roles.join(", "));
-  if (fm.engine) parts.push(fm.engine);
-  if (fm.platform) parts.push(fm.platform);
-  if (fm.duration) parts.push(fm.duration);
-  else if (fm.release) parts.push(String(fm.release));
-  if (fm.employment) parts.push(fm.employment);
-  return parts.join(" · ");
-}
-
 /** Platform-aware external CTA label. */
 function ctaLabel(url: string): string {
   if (/itch\.io/i.test(url)) return "Play on itch.io ↗";
@@ -76,37 +64,59 @@ function ctaLabel(url: string): string {
   return "View project ↗";
 }
 
-function HeroMedia({ src, poster }: { src: string; poster?: string }) {
+/** Structured facts for the scan-layer card, dropping empty rows. */
+function facts(fm: ProjectFrontmatter): { label: string; value: string }[] {
+  const rows: { label: string; value: string }[] = [];
+  if (fm.roles?.length) rows.push({ label: "Roles", value: fm.roles.join(" · ") });
+  if (fm.engine) rows.push({ label: "Developed in", value: fm.engine });
+  if (fm.duration) rows.push({ label: "Duration", value: fm.duration });
+  if (fm.platform) rows.push({ label: "Platform", value: fm.platform });
+  if (fm.release) rows.push({ label: "Release", value: String(fm.release) });
+  if (fm.employment) rows.push({ label: "Team", value: fm.employment });
+  return rows;
+}
+
+/** 16:9 hero — video (poster + play on click) or image, with a badge. */
+function Hero({ src, poster }: { src: string; poster?: string }) {
   const isVideo = /\.(mp4|webm|mov)$/i.test(src);
   return (
-    <div className="relative mt-[30px] aspect-[16/9] w-full overflow-hidden rounded-xl border border-pz-border bg-pz-surface [animation:perzRise_.6s_var(--ease-out)_.3s_both]">
-      {isVideo ? (
-        <LazyVideo
-          src={src}
-          poster={poster}
-          className="block h-full w-full object-cover"
-        />
-      ) : (
-        <Image
-          src={src}
-          alt=""
-          fill
-          sizes="(min-width: 940px) 900px, 100vw"
-          priority
-          placeholder="blur"
-          blurDataURL={BLUR_DATA_URL}
-          className="object-cover"
-        />
-      )}
-    </div>
+    <figure className="m-0 mt-[26px] [animation:perzRise_.6s_var(--ease-out)_.16s_both]">
+      <div className="relative aspect-[16/9] overflow-hidden rounded-[14px] border border-pz-border bg-pz-surface">
+        {isVideo ? (
+          <LazyVideo
+            src={src}
+            poster={poster}
+            className="block h-full w-full object-cover"
+          />
+        ) : (
+          <Image
+            src={src}
+            alt=""
+            fill
+            sizes="(min-width: 1200px) 1160px, 100vw"
+            priority
+            placeholder="blur"
+            blurDataURL={BLUR_DATA_URL}
+            className="object-cover"
+          />
+        )}
+        <span className="pointer-events-none absolute left-3.5 top-3.5 rounded-md border border-white/15 bg-black/60 px-2.5 py-1 text-[10.5px] font-bold uppercase tracking-[0.08em] text-white backdrop-blur-sm">
+          Trailer
+        </span>
+      </div>
+      <figcaption className="mt-2.5 text-[11.5px] text-pz-faint">
+        Official trailer — poster, plays on click.
+      </figcaption>
+    </figure>
   );
 }
 
 /**
- * Case study (Kerberus v2). Re-skinned MDX-driven route: shared chrome,
- * breadcrumb, condensed meta line, NDA note, single 900px editorial
- * column. Real content + the Context/Problem/Approach/Solution/Impact
- * vocabulary are preserved (restyled in mdx.tsx).
+ * Case study (CaseStudy v2, media-forward). A structured "scan layer"
+ * rendered from frontmatter — title, hero, contributions, a facts card,
+ * skills, NDA note — then the MDX body carries the media gallery, the
+ * modular <Highlight> blocks, and the <Outcome>. 1160 grid; the section
+ * kit is add/remove per project.
  */
 export default async function ProjectPage({ params }: { params: Params }) {
   const { slug } = await params;
@@ -117,89 +127,144 @@ export default async function ProjectPage({ params }: { params: Params }) {
   if (project.frontmatter.mediaOnly) notFound();
 
   const { frontmatter, content } = project;
-  const isComingSoon = frontmatter.status === "coming-soon";
-  const meta = metaLine(frontmatter);
+  const rows = facts(frontmatter);
+  const contributions = frontmatter.contributions ?? [];
+  const skills = frontmatter.skills ?? [];
 
   return (
     <>
       <SiteNav />
       <main id="main-content">
-        <header className="mx-auto max-w-[900px] px-[clamp(20px,4vw,32px)] pt-[clamp(44px,7vh,72px)]">
-          <div className="text-[13px] text-pz-faint [animation:perzRise_.5s_var(--ease-out)_.04s_both]">
-            <Link
-              href="/projects"
-              className="text-pz-muted transition-colors hover:text-pz-ink"
-            >
-              My work
-            </Link>{" "}
-            / {frontmatter.title}
+        {/* ===== Scan layer — readable at a glance ===== */}
+        <header
+          id="overview"
+          className="mx-auto max-w-[1160px] scroll-mt-[84px] px-[clamp(20px,4vw,32px)] pt-[clamp(36px,6vh,60px)]"
+        >
+          <Link
+            href="/projects"
+            className="inline-flex items-center gap-[7px] text-[12.5px] font-semibold text-pz-muted transition-colors hover:text-pz-ink [animation:perzRise_.5s_var(--ease-out)_.02s_both]"
+          >
+            <span aria-hidden>←</span> Work
+          </Link>
+
+          <div className="mt-4 flex flex-wrap items-end gap-x-[clamp(24px,4vw,48px)] gap-y-5 [animation:perzRise_.5s_var(--ease-out)_.08s_both]">
+            <div className="min-w-[280px] flex-[1_1_480px]">
+              <h1 className="pz-wordmark text-[clamp(32px,4.6vw,50px)] font-extrabold leading-[1.02] tracking-[-0.02em] text-pz-ink">
+                {frontmatter.title}
+              </h1>
+              <p className="mt-3.5 text-[16.5px] leading-[1.6] text-pz-ink2">
+                {frontmatter.description}
+              </p>
+            </div>
+            {frontmatter.url && (
+              <a
+                href={frontmatter.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 whitespace-nowrap rounded-lg bg-pz-accent px-[18px] py-[11px] text-[13.5px] font-bold text-pz-canvas transition hover:brightness-110"
+              >
+                {ctaLabel(frontmatter.url)}
+              </a>
+            )}
           </div>
-          <h1 className="mt-[18px] text-[clamp(30px,4.2vw,44px)] font-bold leading-[1.05] tracking-[-0.02em] text-pz-ink [animation:perzRise_.5s_var(--ease-out)_.1s_both]">
-            {frontmatter.title}
-          </h1>
-          <p className="mt-3.5 max-w-[56ch] text-base leading-[1.65] text-pz-ink2 [animation:perzRise_.5s_var(--ease-out)_.16s_both]">
-            {frontmatter.description}
-          </p>
-          {meta && (
-            <div className="mt-4 text-[13px] leading-[1.8] text-pz-muted [animation:perzRise_.5s_var(--ease-out)_.2s_both]">
-              {meta}
-            </div>
-          )}
-          {(frontmatter.url || frontmatter.confidential) && (
-            <div className="mt-[18px] flex flex-wrap items-center gap-[18px] [animation:perzRise_.5s_var(--ease-out)_.24s_both]">
-              {frontmatter.url && (
-                <a
-                  href={frontmatter.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm font-semibold text-pz-accent"
-                >
-                  {ctaLabel(frontmatter.url)}
-                </a>
-              )}
-              {frontmatter.confidential && (
-                <span className="text-[12.5px] text-pz-faint">
-                  Some numbers redacted under NDA — walked through live in
-                  interviews.
-                </span>
-              )}
-            </div>
-          )}
+
           {frontmatter.hero && (
-            <HeroMedia src={frontmatter.hero} poster={frontmatter.image} />
+            <Hero src={frontmatter.hero} poster={frontmatter.image} />
+          )}
+
+          <div className="mt-[26px] flex flex-wrap gap-x-[clamp(32px,5vw,60px)] gap-y-8 [animation:perzRise_.5s_var(--ease-out)_.26s_both]">
+            {contributions.length > 0 && (
+              <div className="min-w-[300px] flex-[1.6_1_420px]">
+                <div className="text-[10.5px] font-bold uppercase tracking-[0.08em] text-pz-muted">
+                  Contributions at a glance
+                </div>
+                <div className="mt-2 flex flex-col">
+                  {contributions.map((c, i) => {
+                    const [lead, ...rest] = c.split(" ");
+                    return (
+                      <div
+                        key={i}
+                        className="grid grid-cols-[40px_1fr] items-baseline gap-3.5 border-b border-pz-border py-[15px]"
+                      >
+                        <span className="text-[12.5px] font-bold tabular-nums text-pz-accent">
+                          {String(i + 1).padStart(2, "0")}
+                        </span>
+                        <p className="m-0 text-[15px] leading-[1.6] text-pz-ink2">
+                          <strong className="font-semibold text-pz-ink">
+                            {lead}
+                          </strong>{" "}
+                          {rest.join(" ")}
+                        </p>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
+            {rows.length > 0 && (
+              <div className="min-w-[260px] flex-[1_1_300px]">
+                <div className="rounded-xl border border-pz-border bg-pz-raised px-[18px] py-1">
+                  {rows.map((r, i) => (
+                    <div
+                      key={r.label}
+                      className={`grid grid-cols-[108px_1fr] items-center gap-3 py-3 ${
+                        i < rows.length - 1 ? "border-b border-pz-border" : ""
+                      }`}
+                    >
+                      <span className="text-[10.5px] font-bold uppercase tracking-[0.08em] text-pz-faint">
+                        {r.label}
+                      </span>
+                      <span className="text-[13.5px] font-semibold text-pz-ink">
+                        {r.value}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+
+          {skills.length > 0 && (
+            <div className="mt-[26px] border-t border-pz-border pt-[22px] [animation:perzRise_.5s_var(--ease-out)_.3s_both]">
+              <div className="text-[10.5px] font-bold uppercase tracking-[0.08em] text-pz-muted">
+                Skills &amp; tools
+              </div>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {skills.map((s) => (
+                  <span
+                    key={s}
+                    className="rounded-md border border-pz-border2 px-2.5 py-1 text-[12.5px] text-pz-ink2"
+                  >
+                    {s}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {frontmatter.confidential && (
+            <div
+              className="mt-6 flex items-center gap-2.5 rounded-[10px] border px-4 py-3.5 [animation:perzRise_.5s_var(--ease-out)_.32s_both]"
+              style={{
+                borderColor: "color-mix(in oklab, var(--pz-accent) 35%, transparent)",
+                background: "color-mix(in oklab, var(--pz-accent) 8%, transparent)",
+              }}
+            >
+              <span className="text-[13px] leading-[1.5] text-pz-ink2">
+                Some numbers redacted under NDA.{" "}
+                <Link href="/#contact" className="font-semibold text-pz-accent">
+                  Reach out for a walkthrough
+                </Link>
+                .
+              </span>
+            </div>
           )}
         </header>
 
-        <article className="mx-auto flex max-w-[900px] flex-col px-[clamp(20px,4vw,32px)] pb-[clamp(64px,10vh,96px)] pt-[clamp(44px,7vh,64px)]">
-          {isComingSoon ? (
-            <div className="border-t border-pz-border pt-6">
-              <div className="text-xs font-semibold text-pz-accent">
-                In progress
-              </div>
-              <p className="mt-2 max-w-[62ch] text-[15px] italic leading-relaxed text-pz-ink2">
-                A full write-up is still being put together — what&apos;s here so
-                far is the short version. Reach out if you want to see more before
-                it&apos;s typed up.
-              </p>
-            </div>
-          ) : (
-            <MDXRemote source={content} components={mdxComponents} />
-          )}
-
-          <div className="mt-[clamp(40px,6vh,60px)] flex flex-wrap justify-between gap-4 border-t border-pz-border pt-5">
-            <Link
-              href="/projects"
-              className="text-[13.5px] font-semibold text-pz-ink2 transition-colors hover:text-pz-ink"
-            >
-              ← All work
-            </Link>
-            <Link
-              href="/#contact"
-              className="text-[13.5px] font-semibold text-pz-accent"
-            >
-              Want the full walkthrough? Get in touch →
-            </Link>
-          </div>
+        {/* ===== Media middle + close (MDX) ===== */}
+        <article className="mx-auto flex max-w-[1160px] flex-col gap-[clamp(56px,9vh,84px)] px-[clamp(20px,4vw,32px)] pb-[clamp(64px,10vh,96px)] pt-[clamp(52px,8vh,80px)]">
+          <MDXRemote source={content} components={mdxComponents} />
         </article>
       </main>
       <SiteFooter />

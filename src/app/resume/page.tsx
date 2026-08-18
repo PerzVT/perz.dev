@@ -37,7 +37,7 @@ export default function ResumePage() {
   return (
     <>
       <SiteNav />
-      <main className="mx-auto max-w-[860px] px-[clamp(20px,4vw,32px)] pb-[clamp(64px,10vh,96px)] pt-[clamp(44px,7vh,72px)]">
+      <main className="mx-auto max-w-[1160px] px-[clamp(20px,4vw,32px)] pb-[clamp(64px,10vh,96px)] pt-[clamp(44px,7vh,72px)]">
         {/* Header */}
         <div className="flex flex-wrap items-start gap-6 [animation:perzRise_.5s_var(--ease-out)_.05s_both]">
           <div className="flex-1 basis-[360px]">
