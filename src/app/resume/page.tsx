@@ -83,6 +83,16 @@ export default function ResumePage() {
           player gaming service · Kerberus, independent studio
         </div>
 
+        {/* Design philosophy (moved from the home About) */}
+        <section className="mt-11">
+          <h2 className="text-base font-bold tracking-[-0.005em] text-pz-ink">
+            Design philosophy
+          </h2>
+          <p className="mt-2.5 max-w-[66ch] text-[14.5px] leading-[1.8] text-pz-ink2">
+            {siteConfig.philosophy}
+          </p>
+        </section>
+
         {/* Experience */}
         <section className="mt-11">
           <h2 className="text-base font-bold tracking-[-0.005em] text-pz-ink">
@@ -93,7 +103,9 @@ export default function ResumePage() {
               const tag = statusTag(w);
               return (
                 <div key={`${w.company}-${w.startDate ?? i}`} className={ROW}>
-                  <span className="text-[12.5px] text-pz-faint">{w.range}</span>
+                  <span className="text-[12.5px] text-pz-faint">
+                    {w.range.replace(/\s*—\s*/g, " – ")}
+                  </span>
                   <span className="flex flex-col gap-[7px]">
                     <span className="text-[14.5px]">
                       <span className="font-bold text-pz-ink">{w.title}</span>

@@ -26,12 +26,12 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
-const SITE_TITLE = `${siteConfig.fullName.split(" ")[0]} · ${siteConfig.role}`;
+const SITE_TITLE = siteConfig.metaTitle;
 
 export const metadata: Metadata = {
   title: {
     default: SITE_TITLE,
-    template: `%s · ${siteConfig.role}`,
+    template: "%s · Perz",
   },
   description: siteConfig.positioning,
   openGraph: {
