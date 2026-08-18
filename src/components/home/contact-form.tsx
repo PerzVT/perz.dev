@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { sendContact } from "@/app/actions/contact";
+import { Button } from "@/components/site/button";
 
 /**
  * Contact form — client validation (name / email / message), a honeypot,
@@ -14,7 +15,7 @@ const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 type Errors = { name?: string; email?: string; message?: string };
 
 const fieldBase =
-  "rounded-lg border bg-pz-field px-[13px] py-[11px] text-sm text-pz-ink outline-none transition-colors focus:border-pz-accent";
+  "pz-field rounded-lg border bg-pz-field px-[13px] py-[11px] text-sm text-pz-ink outline-none transition-colors focus:border-pz-accent";
 
 export function ContactForm() {
   const [name, setName] = useState("");
@@ -66,19 +67,19 @@ export function ContactForm() {
         role="status"
         className="flex flex-col gap-2.5 rounded-xl border border-pz-border p-7"
       >
-        <div className="text-[22px] font-bold tracking-[-0.01em] text-pz-ink">
+        <div className="text-[22px] font-bold tracking-[-0.018em] text-pz-ink">
           Message sent.
         </div>
         <p className="text-sm leading-[1.65] text-pz-ink2">
           Thanks, expect a reply soon.
         </p>
-        <button
-          type="button"
+        <Button
           onClick={reset}
-          className="mt-1.5 self-start rounded-lg border border-pz-border2 px-4 py-[9px] text-[13px] font-semibold text-pz-ink2 transition-colors hover:text-pz-ink"
+          variant="secondary"
+          className="mt-1.5 self-start border border-pz-border2"
         >
           Send another
-        </button>
+        </Button>
       </div>
     );
   }
@@ -152,14 +153,15 @@ export function ContactForm() {
       />
 
       <div className="flex flex-wrap items-center gap-3.5">
-        <button
+        <Button
           type="submit"
+          size="lg"
           disabled={sending}
           data-sfx="toggle"
-          className="rounded-lg border-none bg-pz-accent px-[22px] py-3 text-sm font-semibold text-[var(--pz-on-accent)] transition-[filter,transform] hover:brightness-110 active:translate-y-px disabled:opacity-70"
+          className="disabled:opacity-70"
         >
           {sending ? "Sending…" : "Send message"}
-        </button>
+        </Button>
         <span
           aria-live="polite"
           className={`text-[12.5px] ${Object.keys(errors).length ? "text-pz-danger" : "text-pz-faint"}`}

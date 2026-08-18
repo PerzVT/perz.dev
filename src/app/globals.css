@@ -76,7 +76,7 @@
   --section-gap: 5rem;
   --body-font: var(--font-sans, system-ui, -apple-system, "Inter", sans-serif);
   --display-font: var(--font-display, "Nunito", system-ui, sans-serif);
-  --heading-letter-spacing: -0.01em;
+  --heading-letter-spacing: -0.018em;
   --body-leading: 1.6;
   --hl-accent: #60a5fa;
 
@@ -96,17 +96,24 @@
    accessibility audit was in that theme.
    ========================================================= */
 :root {
-  --pz-canvas: #0b0c0e;
-  --pz-raised: #101216;
-  --pz-surface: #14171b;
-  --pz-border: #22262c;
-  --pz-border2: #2e333a;
-  --pz-ink: #edeff1;
-  --pz-ink2: #a7adb4;
-  --pz-muted: #7a8087;
-  /* 4.6:1 on canvas — was #5a6068 (3.1:1), below WCAG AA for small text. */
-  --pz-faint: #767b82;
-  --pz-accent: #3ecfb2;
+  /* Neutral greys, not blue-black. The previous set carried a blue cast
+     (#0b0c0e / #a7adb4) which read colder and cheaper than the reference;
+     surfaces now sit close together in value so elevation is felt rather
+     than outlined. Every text tier is checked against WCAG AA on both
+     canvas and raised — see the contrast note further down. */
+  --pz-canvas: #0c0c0d;
+  --pz-raised: #131314;
+  --pz-surface: #191919;
+  --pz-border: #242426;
+  --pz-border2: #303032;
+  --pz-ink: #ededee;
+  --pz-ink2: #a8a8aa;
+  --pz-muted: #828285; /* 5.1:1 canvas / 4.9:1 raised */
+  --pz-faint: #808083; /* 5.0:1 canvas / 4.7:1 raised */
+  /* Muted sage. The accent is for links, indicators and the ambient
+     wash — not for filling shapes. Every saturated step before this one
+     read loud next to the reference. */
+  --pz-accent: #8fb8a3;
   --pz-on-accent: #06231e;
   --pz-field: #101216;
   --pz-danger: #e5705f;
@@ -118,10 +125,31 @@
     @apply border-border outline-ring/50;
   }
   body {
-    background: var(--pz-canvas);
+    /* Not flat black: two very low-opacity accent washes bleed into the
+       canvas, one from the top edge and one from the bottom right, so
+       the page has colour in it rather than sitting on a dead field.
+       Fixed attachment keeps them still while content scrolls. */
+    background:
+      radial-gradient(
+        128% 66% at 50% -12%,
+        color-mix(in srgb, var(--pz-accent) 9%, transparent),
+        transparent 62%
+      ),
+      radial-gradient(
+        86% 58% at 108% 104%,
+        color-mix(in srgb, var(--pz-accent) 6%, transparent),
+        transparent 58%
+      ),
+      var(--pz-canvas);
+    background-attachment: fixed;
     color: var(--pz-ink);
     font-family: var(--font-sans);
     line-height: var(--body-leading);
+    /* Archivo set slightly tight. Grotesques default a touch loose for
+       screen; pulling body copy in reads more considered without hurting
+       legibility. Uppercase labels set their own positive tracking and
+       override this — small caps need air, not less of it. */
+    letter-spacing: -0.011em;
     -webkit-font-smoothing: antialiased;
     /* Theme cross-fade. Killed under reduced-motion below. */
     transition: background 0.45s ease, color 0.45s ease;
@@ -168,6 +196,11 @@
   from { opacity: 0; transform: translateY(12px); }
   to { opacity: 1; transform: none; }
 }
+/* Small sideways nudge for the mascot hint bubble. */
+@keyframes perzNudge {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(3px); }
+}
 @keyframes fade-in {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -206,16 +239,27 @@
 }
 
 .pz-btn-primary {
+  /* A real gradient, not a flat fill with a hint of light: the top third
+     lifts toward white and the bottom sinks, which is what reads as
+     "finished" rather than "a coloured rectangle". */
+  /* The primary fill is the ink colour, not the accent: a light control
+     on a dark page carries more weight than a coloured one, and it keeps
+     the accent for links and indicators the way the reference does.
+     Partner CTAs override --pz-btn-bg with their own brand colour.
+     Deep falloff at the bottom so the fill sinks toward the page instead
+     of sitting on it as a slab; the top highlight stays gentle, since a
+     hard white edge is what makes a fill read as plastic. */
   background-image: linear-gradient(
-    180deg,
-    color-mix(in srgb, var(--pz-btn-bg, var(--pz-accent)) 100%, white 14%),
-    var(--pz-btn-bg, var(--pz-accent))
+    168deg,
+    color-mix(in srgb, var(--pz-btn-bg, var(--pz-ink)) 100%, white 18%) 0%,
+    var(--pz-btn-bg, var(--pz-ink)) 42%,
+    color-mix(in srgb, var(--pz-btn-bg, var(--pz-ink)) 100%, black 34%) 100%
   );
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.34),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.16),
-    0 2px 5px color-mix(in srgb, var(--pz-btn-bg, var(--pz-accent)) 28%, transparent),
-    0 8px 22px color-mix(in srgb, var(--pz-btn-bg, var(--pz-accent)) 22%, transparent);
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2),
+    0 2px 5px color-mix(in srgb, var(--pz-btn-bg, var(--pz-ink)) 28%, transparent),
+    0 8px 22px color-mix(in srgb, var(--pz-btn-bg, var(--pz-ink)) 22%, transparent);
 }
 .pz-btn-primary:hover {
   transform: translateY(-1px);
@@ -223,22 +267,23 @@
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.4),
     inset 0 -1px 0 rgba(0, 0, 0, 0.16),
-    0 3px 8px color-mix(in srgb, var(--pz-btn-bg, var(--pz-accent)) 34%, transparent),
-    0 12px 30px color-mix(in srgb, var(--pz-btn-bg, var(--pz-accent)) 28%, transparent);
+    0 3px 8px color-mix(in srgb, var(--pz-btn-bg, var(--pz-ink)) 34%, transparent),
+    0 12px 30px color-mix(in srgb, var(--pz-btn-bg, var(--pz-ink)) 28%, transparent);
 }
 .pz-btn-primary:active {
   transform: translateY(1px);
   filter: brightness(0.97);
   box-shadow:
     inset 0 2px 4px rgba(0, 0, 0, 0.22),
-    0 1px 2px color-mix(in srgb, var(--pz-btn-bg, var(--pz-accent)) 24%, transparent);
+    0 1px 2px color-mix(in srgb, var(--pz-btn-bg, var(--pz-ink)) 24%, transparent);
 }
 
 .pz-btn-secondary {
   background-image: linear-gradient(
-    180deg,
-    color-mix(in srgb, var(--pz-raised) 100%, white 4%),
-    var(--pz-raised)
+    170deg,
+    color-mix(in srgb, var(--pz-raised) 100%, white 7%) 0%,
+    var(--pz-raised) 60%,
+    color-mix(in srgb, var(--pz-raised) 100%, black 22%) 100%
   );
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.06),
@@ -261,6 +306,31 @@
   .pz-btn:active {
     transform: none;
   }
+}
+
+/* --- Panels ----------------------------------------------------------
+   Cards on a blended background shouldn't be flat rectangles. Same idea
+   as the buttons at a much lower amplitude: a touch of light at the top
+   edge, the body at the token colour, and a deeper falloff at the bottom
+   so the panel settles into the page. Subtle on purpose — it should read
+   as depth, not as a visible gradient. */
+.pz-panel {
+  background-image: linear-gradient(
+    168deg,
+    color-mix(in srgb, var(--pz-raised) 100%, white 4%) 0%,
+    var(--pz-raised) 48%,
+    color-mix(in srgb, var(--pz-raised) 100%, black 30%) 100%
+  );
+}
+
+/* Inset variant for form fields — light falls in rather than off, so an
+   input reads as a well instead of a raised chip. */
+.pz-field {
+  background-image: linear-gradient(
+    168deg,
+    color-mix(in srgb, var(--pz-surface) 100%, black 26%) 0%,
+    var(--pz-surface) 62%
+  );
 }
 
 /* Scroll reveal — sections fade + lift as they enter view. The hidden

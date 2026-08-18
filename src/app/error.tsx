@@ -18,7 +18,7 @@ export default function Error({ reset }: { error: Error; reset: () => void }) {
         id="main-content"
         className="mx-auto flex min-h-[62vh] max-w-[1160px] flex-col justify-center px-[clamp(20px,4vw,32px)] py-16"
       >
-        <h1 className="pz-wordmark text-[clamp(28px,4vw,42px)] font-extrabold leading-[1.05] tracking-[-0.02em] text-pz-ink">
+        <h1 className="pz-wordmark text-[clamp(28px,4vw,42px)] font-extrabold leading-[1.05] tracking-[-0.032em] text-pz-ink">
           Something broke.
         </h1>
         <p className="mt-4 max-w-[46ch] text-[16px] leading-[1.7] text-pz-ink2">

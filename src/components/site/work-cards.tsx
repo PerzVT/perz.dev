@@ -37,7 +37,7 @@ export function WorkCards({
         sizes={rail ? "340px" : "(min-width: 1160px) 270px, (min-width: 640px) 45vw, 100vw"}
       />
       <div className="flex flex-1 flex-col gap-[7px]">
-        <span className="text-base font-bold tracking-[-0.01em] text-pz-ink">
+        <span className="text-base font-bold tracking-[-0.018em] text-pz-ink">
           {card.title}
         </span>
         <span className="text-[13px] leading-[1.6] text-pz-ink2">
@@ -47,14 +47,8 @@ export function WorkCards({
             already the <Link>, and an anchor inside an anchor is invalid.
             Matches the secondary button treatment so cards read as part
             of the same button family as the rest of the site. */}
-        <span className="pz-btn pz-btn-secondary mt-auto inline-flex items-center gap-2 self-start rounded-lg border border-pz-border2 px-3.5 py-2 text-[13px] font-semibold text-pz-ink group-hover/card:-translate-y-px group-hover/card:border-pz-muted">
+        <span className="pz-btn pz-btn-secondary mt-auto inline-flex items-center self-start rounded-lg border border-pz-border2 px-3.5 py-2 text-[13px] font-semibold text-pz-ink group-hover/card:-translate-y-px group-hover/card:border-pz-muted">
           Read more
-          <span
-            aria-hidden
-            className="transition-transform duration-200 group-hover/card:translate-x-0.5 group-focus-visible/card:translate-x-0.5"
-          >
-            →
-          </span>
         </span>
       </div>
     </Link>

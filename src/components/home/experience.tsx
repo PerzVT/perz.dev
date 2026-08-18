@@ -1,17 +1,84 @@
+import Image from "next/image";
 import { getWork, type WorkEntry } from "@/lib/content";
+import { SectionHeading } from "@/components/site/section-heading";
 
 /**
- * Home "Experience" — the real roles as an editorial table: date, role, and
- * company each in their own aligned column, newest first. No logos. Status
- * is derived from the data (Current only).
+ * Home "Experience" — one row per role: company mark, role and company
+ * stacked, and the date range as its own chip on the right. Newest
+ * first. `content/work/knite.json` points at a logo that was never added
+ * to the repo, so a monogram stands in whenever the file is missing or
+ * fails to load.
  */
-function statusTag(w: WorkEntry): string {
-  return w.current ? "Current" : "";
-}
-
-/** Range dates without the em dash. */
 function range(r: string): string {
   return r.replace(/\s*—\s*/g, " – ");
+}
+
+/** Company monogram, used when there's no logo file. */
+function Monogram({ company }: { company: string }) {
+  const letters = company
+    .split(/\s+/)
+    .slice(0, 2)
+    .map((w) => w[0])
+    .join("")
+    .toUpperCase();
+  return (
+    <span
+      aria-hidden
+      className="flex h-full w-full items-center justify-center text-[13px] font-bold text-pz-muted"
+    >
+      {letters}
+    </span>
+  );
+}
+
+// Logos referenced in content but not present in public/work.
+const MISSING_LOGOS = new Set(["/work/knite.svg"]);
+
+function Row({ w }: { w: WorkEntry }) {
+  const logo = w.logo && !MISSING_LOGOS.has(w.logo) ? w.logo : null;
+
+  return (
+    // Wraps on narrow screens: at 375px the date block was taking more
+    // width than the role and company it sits beside, squeezing them into
+    // ~110px and forcing them to wrap. `basis-full` drops the dates onto
+    // their own line below, indented to line up under the text.
+    <div className="flex flex-wrap items-center gap-x-4 gap-y-2 border-b border-pz-border py-4">
+      <span className="pz-panel flex h-11 w-11 flex-none overflow-hidden rounded-lg border border-pz-border bg-pz-raised">
+        {logo ? (
+          <Image
+            src={logo}
+            alt=""
+            width={44}
+            height={44}
+            className="h-full w-full object-cover"
+          />
+        ) : (
+          <Monogram company={w.company} />
+        )}
+      </span>
+
+      <span className="min-w-0 flex-1">
+        <span className="block text-[15px] font-bold leading-snug text-pz-ink">
+          {w.title}
+        </span>
+        <span className="block text-[13.5px] leading-snug text-pz-muted">
+          {w.company}
+        </span>
+      </span>
+
+      <span className="flex basis-full items-center gap-2 pl-[60px] sm:basis-auto sm:pl-0">
+        {w.current && (
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-pz-border2 px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.07em] text-pz-accent">
+            <span className="h-1.5 w-1.5 rounded-full bg-pz-accent" />
+            Current
+          </span>
+        )}
+        <span className="pz-panel rounded-lg border border-pz-border px-2.5 py-1.5 font-mono text-[11.5px] tabular-nums text-pz-ink2">
+          {range(w.range)}
+        </span>
+      </span>
+    </div>
+  );
 }
 
 export function Experience() {
@@ -22,22 +89,10 @@ export function Experience() {
       id="experience"
       className="mx-auto max-w-[1160px] px-[clamp(20px,4vw,32px)] pt-[clamp(56px,8vh,88px)]"
     >
-      <h2 className="text-[22px] font-bold tracking-[-0.01em] text-pz-ink">
-        Experience
-      </h2>
+      <SectionHeading>Experience</SectionHeading>
       <div className="mt-3.5 border-t border-pz-border">
         {roles.map((w) => (
-          <div
-            key={`${w.company}-${w.startDate ?? w.range}`}
-            className="grid grid-cols-[minmax(92px,150px)_minmax(104px,180px)_1fr_auto] items-baseline gap-x-3.5 gap-y-1 border-b border-pz-border px-0.5 py-[15px] sm:gap-x-[18px]"
-          >
-            <span className="text-[12.5px] text-pz-faint">{range(w.range)}</span>
-            <span className="text-[15px] font-bold text-pz-ink">{w.title}</span>
-            <span className="text-[15px] text-pz-muted">{w.company}</span>
-            <span className="text-xs font-semibold text-pz-accent">
-              {statusTag(w)}
-            </span>
-          </div>
+          <Row key={`${w.company}-${w.startDate ?? w.range}`} w={w} />
         ))}
       </div>
     </section>
