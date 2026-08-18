@@ -57,7 +57,7 @@ export function MediaReel({
     <section id="media" className="scroll-mt-[84px]">
       <div className="flex flex-wrap items-end gap-x-6 gap-y-3.5">
         <div className="mr-auto">
-          <div className="text-[11px] font-bold uppercase tracking-[0.09em] text-pz-accent">
+          <div className="text-[12px] font-semibold text-pz-accent">
             Media gallery
           </div>
           <h2 className="mt-2 text-[22px] font-bold tracking-[-0.022em] text-pz-ink">

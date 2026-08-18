@@ -46,6 +46,8 @@
   --color-pz-faint: var(--pz-faint);
   --color-pz-accent: var(--pz-accent);
   --color-pz-field: var(--pz-field);
+  --color-pz-tint: var(--pz-tint);
+  --color-pz-tint-hi: var(--pz-tint-hi);
   --color-pz-danger: var(--pz-danger);
 }
 
@@ -74,6 +76,8 @@
   --radius: 0.5rem;
   --ring-radius: 0.5rem;
   --section-gap: 5rem;
+  /* No webfont for mono — see layout.tsx. Only code blocks would use it. */
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   --body-font: var(--font-sans, system-ui, -apple-system, "Inter", sans-serif);
   --display-font: var(--font-display, "Nunito", system-ui, sans-serif);
   --heading-letter-spacing: -0.018em;
@@ -101,22 +105,71 @@
      surfaces now sit close together in value so elevation is felt rather
      than outlined. Every text tier is checked against WCAG AA on both
      canvas and raised — see the contrast note further down. */
-  --pz-canvas: #0c0c0d;
-  --pz-raised: #131314;
-  --pz-surface: #191919;
-  --pz-border: #242426;
-  --pz-border2: #303032;
-  --pz-ink: #ededee;
-  --pz-ink2: #a8a8aa;
-  --pz-muted: #828285; /* 5.1:1 canvas / 4.9:1 raised */
-  --pz-faint: #808083; /* 5.0:1 canvas / 4.7:1 raised */
-  /* Muted sage. The accent is for links, indicators and the ambient
-     wash — not for filling shapes. Every saturated step before this one
-     read loud next to the reference. */
-  --pz-accent: #8fb8a3;
-  --pz-on-accent: #06231e;
-  --pz-field: #101216;
-  --pz-danger: #e5705f;
+  /* Surface ladder, adopted exactly from the reworked DS. `raised` is
+     the DS's `content` (the one inset panel a region renders into) and
+     `surface` is its `float` (things that genuinely float — rare here). */
+  --pz-canvas: #0a0a0c;
+  --pz-raised: #101013;
+  --pz-surface: #17171b;
+
+  /* Hairlines. One border weight. */
+  --pz-border: rgba(255, 255, 255, 0.085);
+  --pz-border2: rgba(255, 255, 255, 0.16);
+  --pz-border-soft: rgba(255, 255, 255, 0.055);
+
+  /* Object tints. A surface is a tint plus a ring, never a lighter block. */
+  --pz-tint: rgba(255, 255, 255, 0.026);
+  --pz-tint-hi: rgba(255, 255, 255, 0.055);
+  --pz-chip: rgba(255, 255, 255, 0.07);
+  /* Fields are a tint like every other surface, not a darker well. */
+  --pz-field: rgba(255, 255, 255, 0.018);
+
+  /* Depth is an inset ring, never a shadow. Zero elevation on in-page
+     chrome; only genuinely floating things get elev-float. */
+  --pz-ring: inset 0 0 0 1px rgba(255, 255, 255, 0.075);
+  --pz-ring-soft: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+  --pz-ring-strong: inset 0 0 0 1px rgba(255, 255, 255, 0.16);
+  --pz-elev-float: 0 28px 64px rgba(0, 0, 0, 0.68),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+
+  /* Six ink tiers. `faint` is the DS's ink4 — the floor for text meant
+     to be read. ink6 is disabled controls only, never live text. */
+  --pz-ink: #ededef;
+  --pz-ink2: #c3c3ca;
+  --pz-muted: #a6a6ae;
+  --pz-faint: #94949d;
+  --pz-ink5: #8a8a93;
+  --pz-ink6: #6a6a73;
+
+  /* One accent, two meanings: this is live, or this connects somewhere. */
+  --pz-accent: #cbd97e;
+  --pz-accent-hi: #deea96;
+  --pz-accent-lo: #9ca95c;
+  --pz-on-accent: #16180d;
+  --pz-accent-soft: rgba(203, 217, 126, 0.14);
+  --pz-accent-line: rgba(203, 217, 126, 0.42);
+
+  /* The only two other hues. */
+  --pz-warn: #e9a94a;
+  --pz-danger: #f0555a;
+  --pz-danger-soft: rgba(240, 85, 90, 0.15);
+
+  /* Radii climb with the object. */
+  --r-tag: 5px;
+  --r-chip: 6px;
+  --r-icon: 7px;
+  --r-field: 8px;
+  --r-button: 9px;
+  --r-card: 10px;
+  --r-media: 12px;
+  --r-panel: 14px;
+
+  /* Motion. Four named durations; press has no travel. */
+  --dur-hover: 120ms;
+  --dur-phase: 160ms;
+  --dur-arrive: 280ms;
+  --dur-alive: 2200ms;
+  --stagger: 60ms;
   color-scheme: dark;
 }
 
@@ -220,117 +273,221 @@
 }
 
 /* --- Buttons ---------------------------------------------------------
-   Flat fills read as unstyled at this scale, so the button carries a
-   little depth instead: a top-down gradient, a hairline inset highlight
-   along the top edge (the "lit from above" cue), and a tinted shadow in
-   the button's own colour rather than generic black. Hover lifts a pixel
-   and brightens; press sinks and drops the shadow. Same idea as a metal
-   treatment, done in CSS, no shader and no liquid. */
+   From the owner's Kerberus DS: no elevation on in-page chrome. Only
+   floating layers cast shadows, so a button is either a fill or a ring
+   and never both, and never a gradient slab. Primary is the accent with
+   dark text on it (never white). Secondary is a hairline ring over
+   nothing — the outlined-not-filled rule is what keeps a page full of
+   controls quiet. Replaces an earlier gradient-and-glow treatment that
+   made every button read as a raised plastic chip.
+   Doubled class names raise specificity just enough to beat a Tailwind
+   `bg-*` utility on the same element. */
 .pz-btn {
-  position: relative;
-  isolation: isolate;
   border-radius: 10px;
   transition:
-    transform 0.16s var(--ease-out),
+    background-color 0.16s var(--ease-out),
     box-shadow 0.16s var(--ease-out),
-    filter 0.16s var(--ease-out),
-    border-color 0.16s var(--ease-out),
-    color 0.16s var(--ease-out);
+    color 0.16s var(--ease-out),
+    transform 0.12s var(--ease-out);
+}
+/* --press-travel from the DS. */
+.pz-btn:active {
+  transform: translateY(2px);
 }
 
-.pz-btn-primary {
-  /* A real gradient, not a flat fill with a hint of light: the top third
-     lifts toward white and the bottom sinks, which is what reads as
-     "finished" rather than "a coloured rectangle". */
-  /* The primary fill is the ink colour, not the accent: a light control
-     on a dark page carries more weight than a coloured one, and it keeps
-     the accent for links and indicators the way the reference does.
-     Partner CTAs override --pz-btn-bg with their own brand colour.
-     Deep falloff at the bottom so the fill sinks toward the page instead
-     of sitting on it as a slab; the top highlight stays gentle, since a
-     hard white edge is what makes a fill read as plastic. */
-  background-image: linear-gradient(
-    168deg,
-    color-mix(in srgb, var(--pz-btn-bg, var(--pz-ink)) 100%, white 18%) 0%,
-    var(--pz-btn-bg, var(--pz-ink)) 42%,
-    color-mix(in srgb, var(--pz-btn-bg, var(--pz-ink)) 100%, black 34%) 100%
+.pz-btn-primary.pz-btn-primary {
+  background-color: var(--pz-btn-bg, var(--pz-accent));
+  background-image: none;
+  box-shadow: none;
+}
+.pz-btn-primary.pz-btn-primary:hover {
+  background-color: color-mix(
+    in srgb,
+    var(--pz-btn-bg, var(--pz-accent)) 100%,
+    white 14%
   );
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.2),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.2),
-    0 2px 5px color-mix(in srgb, var(--pz-btn-bg, var(--pz-ink)) 28%, transparent),
-    0 8px 22px color-mix(in srgb, var(--pz-btn-bg, var(--pz-ink)) 22%, transparent);
-}
-.pz-btn-primary:hover {
-  transform: translateY(-1px);
-  filter: brightness(1.06);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.4),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.16),
-    0 3px 8px color-mix(in srgb, var(--pz-btn-bg, var(--pz-ink)) 34%, transparent),
-    0 12px 30px color-mix(in srgb, var(--pz-btn-bg, var(--pz-ink)) 28%, transparent);
-}
-.pz-btn-primary:active {
-  transform: translateY(1px);
-  filter: brightness(0.97);
-  box-shadow:
-    inset 0 2px 4px rgba(0, 0, 0, 0.22),
-    0 1px 2px color-mix(in srgb, var(--pz-btn-bg, var(--pz-ink)) 24%, transparent);
 }
 
-.pz-btn-secondary {
-  background-image: linear-gradient(
-    170deg,
-    color-mix(in srgb, var(--pz-raised) 100%, white 7%) 0%,
-    var(--pz-raised) 60%,
-    color-mix(in srgb, var(--pz-raised) 100%, black 22%) 100%
-  );
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.06),
-    0 2px 6px rgba(0, 0, 0, 0.24);
+.pz-btn-secondary.pz-btn-secondary {
+  background-color: transparent;
+  background-image: none;
+  box-shadow: inset 0 0 0 1px var(--pz-border2);
 }
-.pz-btn-secondary:hover {
-  transform: translateY(-1px);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.1),
-    0 5px 16px rgba(0, 0, 0, 0.3);
-}
-.pz-btn-secondary:active {
-  transform: translateY(1px);
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.24);
+.pz-btn-secondary.pz-btn-secondary:hover {
+  background-color: var(--pz-tint-hi);
 }
 
-/* Reduced motion: keep the depth, drop the movement. */
 @media (prefers-reduced-motion: reduce) {
-  .pz-btn:hover,
   .pz-btn:active {
     transform: none;
   }
 }
 
 /* --- Panels ----------------------------------------------------------
-   Cards on a blended background shouldn't be flat rectangles. Same idea
-   as the buttons at a much lower amplitude: a touch of light at the top
-   edge, the body at the token colour, and a deeper falloff at the bottom
-   so the panel settles into the page. Subtle on purpose — it should read
-   as depth, not as a visible gradient. */
-.pz-panel {
-  background-image: linear-gradient(
-    168deg,
-    color-mix(in srgb, var(--pz-raised) 100%, white 4%) 0%,
-    var(--pz-raised) 48%,
-    color-mix(in srgb, var(--pz-raised) 100%, black 30%) 100%
-  );
+   DS rule: surfaces are outlined, not filled. A card is a near-transparent
+   tint plus a 1px inset ring, not a lighter grey block, and in-page chrome
+   carries zero elevation. If two regions need separating, that's a
+   hairline's job, not a background colour's. */
+.pz-panel.pz-panel {
+  background-color: var(--pz-tint);
+  background-image: none;
+  box-shadow: var(--pz-ring);
+}
+
+/* Hover on anything you can act on: the tint lifts, the ring stays.
+   The site had no hover feedback on rows, fields or quote cards, which
+   made half the page read as inert. */
+.pz-hover {
+  transition:
+    background-color var(--dur-hover) var(--ease-out),
+    box-shadow var(--dur-hover) var(--ease-out),
+    color var(--dur-hover) var(--ease-out);
+}
+.pz-hover:hover {
+  background-color: var(--pz-tint-hi);
+}
+/* Cards that are themselves a link get a 1px rise as well. */
+.pz-lift {
+  transition:
+    background-color var(--dur-hover) var(--ease-out),
+    transform var(--dur-hover) var(--ease-out),
+    box-shadow var(--dur-hover) var(--ease-out);
+}
+.pz-lift:hover {
+  background-color: var(--pz-tint-hi);
+  transform: translateY(-1px);
+}
+@media (prefers-reduced-motion: reduce) {
+  .pz-lift:hover {
+    transform: none;
+  }
 }
 
 /* Inset variant for form fields — light falls in rather than off, so an
    input reads as a well instead of a raised chip. */
-.pz-field {
-  background-image: linear-gradient(
-    168deg,
-    color-mix(in srgb, var(--pz-surface) 100%, black 26%) 0%,
-    var(--pz-surface) 62%
-  );
+.pz-field.pz-field {
+  background-color: var(--pz-field);
+  background-image: none;
+  box-shadow: var(--pz-ring);
+  transition:
+    background-color var(--dur-hover) var(--ease-out),
+    box-shadow var(--dur-hover) var(--ease-out);
+}
+/* A field should answer the pointer before it's clicked. */
+.pz-field.pz-field:hover {
+  background-color: var(--pz-tint);
+}
+.pz-field.pz-field:focus {
+  background-color: var(--pz-tint);
+  box-shadow: var(--pz-ring-strong);
+}
+
+/* --- Spotlight carousel -----------------------------------------------
+   One slide centred on an opaque panel, its neighbours peeking dimmed
+   either side. The centre must stay opaque, or the peeks read straight
+   through it. Neighbours are clickable and drop their info column so
+   only the cover shows. */
+/* Height solved so the cover column lands on 16:9 at the 1160 shell,
+   which is the shape the spotlight art is authored at: the shell's
+   1096px of content, 76% of it for the slide, less 28 padding and a
+   20 gap, leaves a 471px cover column; 471/16*9 = 265, plus the
+   padding back. */
+.spot-track {
+  position: relative;
+  height: 293px;
+}
+.spot-slide {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 76%;
+  height: 100%;
+  transform: translateX(-50%) scale(0.97);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    transform var(--dur-arrive) var(--ease-out),
+    opacity var(--dur-arrive) var(--ease-out);
+}
+.spot-slide.is-center {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) scale(1);
+  z-index: 2;
+}
+.spot-slide.is-left,
+.spot-slide.is-right {
+  opacity: 0.66;
+  visibility: visible;
+  pointer-events: auto;
+  cursor: pointer;
+  z-index: 1;
+}
+.spot-slide.is-left {
+  transform: translateX(calc(-50% - 78%)) scale(0.95);
+}
+.spot-slide.is-right {
+  transform: translateX(calc(-50% + 78%)) scale(0.95);
+}
+.spot-slide:not(.is-center) a,
+.spot-slide:not(.is-center) button {
+  pointer-events: none;
+}
+/* A peek is cover only. `display: none` rather than opacity, or the
+   hidden column still claims a grid row and squashes the cover to
+   nothing — which is exactly what it did. */
+.spot-slide:not(.is-center) .spot-side {
+  display: none;
+}
+.spot-slide:not(.is-center) .spot-in {
+  grid-template-columns: 1fr;
+  background: var(--pz-surface);
+  box-shadow: var(--pz-ring-strong);
+}
+.spot-in {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  /* Rows must be allowed to shrink, or a fill image has no height. */
+  grid-auto-rows: minmax(0, 1fr);
+  gap: 20px;
+  padding: 14px;
+  background: var(--pz-raised);
+  box-shadow: var(--pz-ring);
+  border-radius: var(--r-panel);
+}
+@media (max-width: 900px) {
+  .spot-track { height: auto; }
+  .spot-slide {
+    position: relative;
+    left: auto;
+    width: 100%;
+    height: auto;
+    transform: none;
+  }
+  .spot-slide:not(.is-center) { display: none; }
+  .spot-in { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .spot-slide { transition: none; }
+}
+
+/* Dots are ink, not accent: this is position, not a live state. */
+.pz-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--pz-ink6);
+  transition:
+    width var(--dur-phase) var(--ease-out),
+    background-color var(--dur-phase) var(--ease-out);
+}
+.pz-dot:hover { background: var(--pz-faint); }
+.pz-dot.is-on {
+  width: 20px;
+  background: var(--pz-ink);
 }
 
 /* Scroll reveal — sections fade + lift as they enter view. The hidden

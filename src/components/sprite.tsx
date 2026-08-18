@@ -180,7 +180,6 @@ export function Sprite({
       type="button"
       onClick={next}
       aria-label="Change the mascot"
-      title="Click me"
       data-sfx="toggle"
       className={`inline-flex items-center justify-center transition-transform duration-150 hover:scale-110 active:scale-90 ${className}`}
     >

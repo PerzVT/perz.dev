@@ -55,7 +55,9 @@ export function Recommendations() {
           {recs.map((r) => (
             <figure
               key={r.name}
-              className="pz-panel group/card flex min-h-[210px] w-[min(84vw,340px)] flex-none snap-start flex-col gap-4 rounded-xl border border-pz-border bg-pz-raised p-6 transition-colors hover:border-pz-border2 hover:bg-pz-surface"
+              // Wider cards so a trimmed quote doesn't run to five short
+              // lines, and the whole card answers the pointer.
+              className="pz-panel pz-lift group/card flex min-h-[210px] w-[min(88vw,460px)] flex-none snap-start flex-col gap-4 rounded-[var(--r-panel)] p-6"
             >
               <blockquote className="text-[14px] leading-[1.7] text-pz-ink2 transition-colors group-hover/card:text-pz-ink">
                 “{r.quote}”
@@ -83,7 +85,7 @@ export function Recommendations() {
                   <span className="block text-[13.5px] font-semibold text-pz-ink">
                     {r.name}
                   </span>
-                  <span className="block text-[12px] text-pz-faint">
+                  <span className="block text-[13px] leading-[1.45] text-pz-faint">
                     {r.title}
                     {r.company ? ` · ${r.company}` : ""}
                   </span>

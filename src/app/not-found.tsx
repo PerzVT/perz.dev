@@ -17,7 +17,7 @@ export default function NotFound() {
         id="main-content"
         className="mx-auto flex min-h-[62vh] max-w-[1160px] flex-col justify-center px-[clamp(20px,4vw,32px)] py-16"
       >
-        <p className="text-[13px] font-bold uppercase tracking-[0.09em] text-pz-accent">
+        <p className="text-[13px] font-semibold text-pz-accent">
           404
         </p>
         <h1 className="pz-wordmark mt-3 text-[clamp(30px,4.4vw,46px)] font-extrabold leading-[1.05] tracking-[-0.032em] text-pz-ink">
