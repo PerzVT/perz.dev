@@ -3,8 +3,8 @@ import { getWorkCards } from "@/lib/content";
 import { WorkCards } from "@/components/site/work-cards";
 
 /**
- * Home "Selected work" — the six games (game-dev cards), opening the
- * shared quick-view sheet. "All work →" leads to the full My work grid.
+ * Home "Featured work" — a draggable rail of the project cards, each
+ * linking to its case study. "All work →" leads to the full My work grid.
  */
 export function SelectedWork() {
   const cards = getWorkCards();

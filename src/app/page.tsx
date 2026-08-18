@@ -10,7 +10,7 @@ import { Contact } from "@/components/home/contact";
 
 /**
  * Home (Kerberus v2) — a single self-contained page: hero → selected work
- * (quick-view sheets) → about → experience → recommendations → contact.
+ * (cards link to case studies) → about → experience → recommendations → contact.
  * The theme FAB is global (root layout).
  */
 export default function Home() {

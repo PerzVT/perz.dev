@@ -179,28 +179,6 @@ export function resolveImg(slug: string, img?: string): string | null {
   return img.startsWith("/") ? img : `/projects/${slug}/${img}`;
 }
 
-/**
- * Every displayable media file for a project's quick-view gallery, cover
- * first. Reads public/projects/<slug>/ for images + videos; for projects
- * whose art lives at the public root (absolute frontmatter image), returns
- * just that. Capped so a large folder can't produce a runaway gallery.
- */
-export function getProjectMedia(slug: string, img?: string): string[] {
-  const cover = resolveImg(slug, img);
-  const dir = path.join(process.cwd(), "public", "projects", slug);
-  const exts = /\.(png|jpe?g|avif|webp|gif|mp4|webm|mov)$/i;
-  let files: string[] = [];
-  if (fs.existsSync(dir)) {
-    files = fs
-      .readdirSync(dir)
-      .filter((f) => exts.test(f))
-      .map((f) => `/projects/${slug}/${f}`)
-      .sort();
-  }
-  if (cover) files = [cover, ...files.filter((f) => f !== cover)];
-  return files.slice(0, 16);
-}
-
 // ---------------------------------------------------------------------
 // Work history
 // ---------------------------------------------------------------------
@@ -239,11 +217,13 @@ export function getWork(): WorkEntry[] {
 }
 
 // ---------------------------------------------------------------------
-// Work cards (home "Selected work" + "My work" grid + quick-view sheet)
+// Work cards (home "Featured work" rail + "My work" grid)
 // ---------------------------------------------------------------------
 
-/** One row of content/work-cards.json — the owner's card/quick-view
- *  copy, seeded verbatim from their v2 design comps. */
+/** One row of content/work-cards.json — the owner's card copy, seeded
+ *  verbatim from their v2 design comps. `metaLabel`/`blurb`/`contributions`
+ *  fed the old quick-view sheet; cards now link straight to the case study,
+ *  so only `tagline` is rendered. The copy is kept for reference. */
 interface WorkCardSeed {
   slug: string;
   tagline: string;
@@ -251,37 +231,29 @@ interface WorkCardSeed {
   blurb: string;
   contributions: string[];
   cardOrder: number;
-  /** Show the "Full case study →" link in the quick-view. */
+  /** Legacy quick-view flag; cards now always link to /projects/<slug>. */
   caseStudyReady?: boolean;
 }
 
 export interface WorkCard {
   slug: string;
   title: string;
-  tags: ProjectTag[];
   /** One-line card description. */
   tagline: string;
-  /** Quick-view meta line, e.g. "Multiplayer VR roguelike · Meta Quest". */
-  metaLabel: string;
-  /** Quick-view longer description. */
-  blurb: string;
-  contributions: string[];
   /** Resolved public image path, or null when no art exists. */
   image: string | null;
-  /** Gallery media for the quick-view (cover first). */
-  media: string[];
   /** Per-card 2:3 crop focus, if the frontmatter sets one. */
   cardFocus?: string;
-  /** Case-study route when the study is ready to link, else null. */
-  caseHref: string | null;
+  /** Case-study route the card links to (/projects/<slug>). */
+  caseHref: string;
 }
 
 /**
- * The curated project cards for the home + work grids. Copy comes from
+ * The curated project cards for the home rail + work grid. Copy comes from
  * content/work-cards.json (owner-editable, seeded from the v2 comps);
- * title/tags/image are joined from each project's MDX frontmatter.
- * Draft projects are dropped (they never appear in getProjects()).
- * Ordered by the seed's `cardOrder`.
+ * title/image are joined from each project's MDX frontmatter. Each card
+ * links to its case study at /projects/<slug>; draft and media-only
+ * projects are dropped (no page to link to). Ordered by `cardOrder`.
  */
 export const getWorkCards = cache((): WorkCard[] => {
   const file = path.join(contentDir, "work-cards.json");
@@ -291,22 +263,21 @@ export const getWorkCards = cache((): WorkCard[] => {
   const bySlug = new Map(getProjects().map((p) => [p.slug, p]));
 
   return seeds
-    .filter((s) => bySlug.has(s.slug))
+    .filter((s) => {
+      const p = bySlug.get(s.slug);
+      // Only card projects that have a case-study page (non-mediaOnly).
+      return !!p && !p.frontmatter.mediaOnly;
+    })
     .sort((a, b) => a.cardOrder - b.cardOrder)
     .map((s) => {
       const p = bySlug.get(s.slug)!;
       return {
         slug: s.slug,
         title: p.frontmatter.title,
-        tags: p.frontmatter.tags,
         tagline: s.tagline,
-        metaLabel: s.metaLabel,
-        blurb: s.blurb,
-        contributions: s.contributions,
         image: resolveImg(s.slug, p.frontmatter.image),
-        media: getProjectMedia(s.slug, p.frontmatter.image),
         cardFocus: p.frontmatter.cardFocus,
-        caseHref: s.caseStudyReady ? `/projects/${s.slug}` : null,
+        caseHref: `/projects/${s.slug}`,
       };
     });
 });
