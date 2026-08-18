@@ -48,7 +48,7 @@ export function CardMedia({
 
   return (
     <div
-      className="relative aspect-[2/3] w-full overflow-hidden rounded-[10px] border border-pz-border bg-pz-surface"
+      className="relative aspect-[2/3] w-full overflow-hidden rounded-[var(--r-media)] bg-pz-raised shadow-[var(--pz-ring)]"
       onPointerEnter={hoverVideo ? onEnter : undefined}
       onPointerLeave={hoverVideo ? onLeave : undefined}
     >
