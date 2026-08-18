@@ -13,7 +13,7 @@
     {
       "name": "Unity + C#",
       "iconName": "csharp",
-      "context": "Daily driver since 2021 — Unity 6 with DOTS and Meta XR on Calamity, traditional Unity stack on jam entries. Gameplay systems, editor tooling, data-driven authoring, the gap between ECS and OOP."
+      "context": "Daily driver since 2021. Unity 6 with DOTS and Meta XR on Calamity, traditional Unity stack on jam entries. Gameplay systems, editor tooling, data-driven authoring, the gap between ECS and OOP."
     }
   ],
   "secondary": [
