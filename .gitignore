@@ -41,3 +41,7 @@ yarn-error.log*
 next-env.d.ts
 
 .vercel
+
+# local screenshots and scratch pages
+/shots/
+.tmp-page.html
