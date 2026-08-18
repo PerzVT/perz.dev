@@ -108,7 +108,7 @@ export function Carousel({
 
   return (
     <figure
-      className="my-8 outline-none focus-visible:ring-2 focus-visible:ring-foreground/40 focus-visible:ring-offset-4 focus-visible:ring-offset-background"
+      className="my-8 outline-none focus-visible:ring-2 focus-visible:ring-pz-accent/60 focus-visible:ring-offset-4 focus-visible:ring-offset-pz-canvas"
       tabIndex={single ? -1 : 0}
       onKeyDown={onKeyDown}
       aria-roledescription={single ? undefined : "carousel"}
@@ -160,27 +160,25 @@ export function Carousel({
       </div>
 
       {!single && (
-        <figcaption className="mt-3 flex items-center justify-between text-[12px] uppercase tracking-[0.2em] text-muted-foreground">
+        <figcaption className="mt-3 flex items-center justify-between text-[12px] uppercase tracking-[0.2em] text-pz-muted">
           <span
             className="font-mono tabular-nums"
             aria-live="polite"
             aria-atomic="true"
           >
-            <span className="text-foreground">{fmt(active + 1)}</span>{" "}
-            <span className="text-muted-foreground/40">/</span>{" "}
-            <span className="text-muted-foreground/60">
-              {fmt(safeItems.length)}
-            </span>
+            <span className="text-pz-ink">{fmt(active + 1)}</span>{" "}
+            <span className="text-pz-faint">/</span>{" "}
+            <span className="text-pz-muted">{fmt(safeItems.length)}</span>
           </span>
           {/* Hairline progress bar. Shows position visually across
               the row, complements the tabular counter for readers
               who scan visually rather than reading numbers. */}
           <span
             aria-hidden
-            className="mx-4 hidden h-px flex-1 bg-foreground/10 sm:block"
+            className="mx-4 hidden h-px flex-1 bg-pz-border sm:block"
           >
             <span
-              className="block h-full bg-foreground/60 transition-[width] duration-500 ease-out"
+              className="block h-full bg-pz-ink2 transition-[width] duration-500 ease-out"
               style={{
                 width: `${((active + 1) / safeItems.length) * 100}%`,
               }}
@@ -250,7 +248,7 @@ function NavButton({
       disabled={disabled}
       aria-label={label}
       data-sfx="click"
-      className="group/nav inline-flex h-11 w-11 items-center justify-center rounded-md text-foreground/60 transition-[color,background-color] hover:bg-foreground/5 hover:text-foreground disabled:pointer-events-none disabled:text-foreground/15"
+      className="group/nav inline-flex h-11 w-11 items-center justify-center rounded-md text-pz-ink2 transition-[color,background-color] hover:bg-pz-surface hover:text-pz-ink disabled:pointer-events-none disabled:text-pz-faint"
     >
       <span className="transition-transform duration-200 ease-out group-hover/nav:scale-110">
         {children}

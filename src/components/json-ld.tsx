@@ -21,7 +21,7 @@ export function JsonLd() {
         name: siteConfig.fullName,
         alternateName: siteConfig.name,
         url: siteConfig.url,
-        jobTitle: siteConfig.title,
+        jobTitle: siteConfig.role,
         description: siteConfig.description,
         sameAs,
         knowsAbout: [
