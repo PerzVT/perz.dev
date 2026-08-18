@@ -1,0 +1,48 @@
+---
+title: "Kerberus Pack Manager"
+description: "A desktop app that turns Minecraft modpack releases from a manual chore into a guided pipeline: snapshot mods, generate the changelog, tag, build server and client packs, and publish, in one flow."
+tags: ["game-dev"]
+year: 2026
+status: "live"
+roles:
+  - "Product Design · Development"
+engine: "Electron · Next.js · TypeScript · SQLite"
+duration: "Ongoing"
+platform: "Desktop (Windows)"
+employment: "Kerberus"
+caseStudy: true
+image: "cover.png"
+contributions:
+  - "Designed the release pipeline as one guided flow, changelog to publish"
+  - "Built it as a real desktop app, TypeScript end to end"
+  - "Turned a manual, error-prone process into a repeatable workflow"
+skills:
+  - "Product design"
+  - "TypeScript"
+  - "Electron"
+  - "Next.js"
+  - "Tooling"
+---
+
+{/* App screens land in public/projects/kerberus-pack-manager/ then
+    wire a <MediaReel> / <Gallery> per Highlight. */}
+
+<Highlight n="01" kicker="The problem" title="Shipping a pack by hand is a dozen careful steps." body="Snapshot the mods, write the changelog, bump the version, tag the release, build separate server and client packs, upload to each platform, then announce it. Miss one and players get a broken update. Pack Manager exists to make that whole run boring and repeatable." />
+
+<Highlight n="02" kicker="The release wizard" title="One guided flow, changelog to publish." body="A step-by-step wizard walks the release: it diffs the mod list to draft the changelog, sets the version, tags and pushes with git, and prepares the server and client packs for upload to CurseForge and Modrinth." flip />
+
+<Highlight n="03" kicker="Under the hood" title="A real desktop tool, not a script." body="Built on Electron and Next.js with a local SQLite database and TypeScript end to end. It tracks each project against its git repo, syncs mods between client and server while filtering client-only ones, and pings live servers so status is visible at a glance." />
+
+<Highlight n="04" kicker="Next" title="Debugging that reads the logs for you." body="The next piece is AI-assisted troubleshooting: point it at a crash log and get the likely culprit mod and a fix to try, so pack maintenance stops meaning scrolling stack traces at midnight." />
+
+<Outcome title="What it changes.">
+
+Pack Manager is the tool the team ships Kerberus packs on. It takes knowledge that used to live in one person's head and turns it into a workflow anyone can follow.
+
+<OutcomePoints>
+<OutcomePoint><strong>Release goes from a manual checklist to a guided pipeline</strong>, with fewer ways to ship a broken update.</OutcomePoint>
+<OutcomePoint><strong>Changelogs write themselves from the mod diff</strong>, so release notes stop being an afterthought.</OutcomePoint>
+<OutcomePoint><strong>One tool covers packaging, git, sync, monitoring, and publishing</strong>, instead of five.</OutcomePoint>
+</OutcomePoints>
+
+</Outcome>

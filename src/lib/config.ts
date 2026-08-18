@@ -3,16 +3,15 @@ export const siteConfig = {
   fullName: "Percy A",
   title: "Developer / Designer · UX",
   /** Visible role tag in the nav + JSON-LD jobTitle. */
-  role: "Creative Designer",
+  role: "Game Designer",
   /** Home + default browser/SEO title. */
   metaTitle: "Perz · Building Fun Experiences",
-  /** JSON-LD / schema job title. Kept as Game Designer for hiring search
-   *  even though the visible nav tag reads Creative Designer. */
+  /** JSON-LD / schema job title. Matches the visible nav tag. */
   jobTitle: "Game Designer",
   /** Owner-approved positioning line (verbatim from the v2 hero comp).
    *  Shared by the home hero and the page metadata. */
   positioning:
-    "I'm a Game Designer specialized in user experience, with professional experience building PC and VR games. I love designing intuitive mechanics and engaging systems that create fun and memorable experiences.",
+    "I'm a Game Designer specialized in user experience, with professional experience building PC and VR games.",
   /** "About me" paragraph — home About section + résumé summary. */
   about:
     "Hi, I'm Percy, a game designer and developer in Calgary. I've made games and gaming content since I was 15, starting with custom assets and mods for Roblox, Unturned, and Minecraft. I began in computer science, then earned a bachelor's in Media, Graphics and Animation, where I built my first game and trained as a product designer. I founded Draconia and Kerberus, gaming networks that have served over 400,000 players in the past five years. I created Mythcraft (play as demigods), Dragoncraft (play as dragons), and the Kerberus Network.",

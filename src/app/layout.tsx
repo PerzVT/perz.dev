@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Archivo, JetBrains_Mono } from "next/font/google";
 import { SfxProvider } from "@/components/sfx-provider";
+import { ContentGuard } from "@/components/content-guard";
 import { SiteFab } from "@/components/site/site-fab";
 import { siteConfig } from "@/lib/config";
 import "./globals.css";
@@ -54,7 +55,7 @@ export const metadata: Metadata = {
 // Pre-paint theme resolver: reads the persisted mode and stamps
 // `data-pz-mode` on <html> before the body renders, so switching to the
 // light "design" theme never flashes the dark default. Kept tiny + inline.
-const THEME_SCRIPT = `(function(){try{var m=localStorage.getItem('perz.mode');if(m==='design'||m==='dev'){document.documentElement.dataset.pzMode=m;}}catch(e){}})();`;
+const THEME_SCRIPT = `(function(){try{var d=document.documentElement;d.dataset.pzJs='1';var m=localStorage.getItem('perz.mode');if(m==='design'||m==='dev'){d.dataset.pzMode=m;}}catch(e){}})();`;
 
 export default function RootLayout({
   children,
@@ -81,6 +82,7 @@ export default function RootLayout({
           Skip to content
         </a>
         <SfxProvider />
+        <ContentGuard />
         {children}
         <SiteFab />
       </body>

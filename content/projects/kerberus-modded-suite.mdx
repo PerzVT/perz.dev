@@ -1,0 +1,49 @@
+---
+title: "Kerberus Modded Suite"
+description: "The server-side utility layer that runs the Kerberus network: land and maps, ranks, moderation, messaging, and cross-server sync, split into five focused mods themed on Greek myth."
+tags: ["game-dev"]
+year: 2026
+status: "live"
+roles:
+  - "Systems Design · Mod Development"
+engine: "Minecraft · Java"
+duration: "Ongoing"
+platform: "Minecraft Java (server-side)"
+employment: "Kerberus"
+caseStudy: true
+image: "cover.png"
+contributions:
+  - "Designed the utility layer that keeps the Kerberus servers running"
+  - "Split the work into five focused mods, each doing one job well"
+  - "Themed the suite on Greek myth so the toolset reads as one system"
+skills:
+  - "Systems design"
+  - "Server architecture"
+  - "Java"
+  - "Minecraft modding"
+---
+
+{/* Collapsed into one section: a 4-up grid of the mods that have cover
+    art (Atlas, Orion, Argus, Hermes). Iris has no cover yet, so it lives
+    in the intro + outcome. Add an Iris <Column> when its art lands. */}
+
+<Highlight n="01" kicker="One suite, five jobs" title="A utility layer, split into focused mods." body="Each mod owns one concern and does it well, named around Greek myth so the toolset reads as a single system, anchored by Kerberus, the hound at the gate. Iris rounds it out, keeping player data in sync across servers so the network feels like one world." />
+
+<Columns cols={4}>
+<Column title="Atlas" image="/projects/kerberus-modded-suite/atlas.png" body="Maps and claiming. Players claim and protect their land, and admins get a live map of the whole server." />
+<Column title="Orion" image="/projects/kerberus-modded-suite/orion.png" body="Ranks and permissions. Set who can do what once, and it applies across the network." />
+<Column title="Argus" image="/projects/kerberus-modded-suite/argus.png" body="Watchdog and logging. Logs actions, flags griefing, and gives moderators the history to act on." />
+<Column title="Hermes" image="/projects/kerberus-modded-suite/hermes.png" body="Messaging and bridge. Carries chat across servers and out to Discord." />
+</Columns>
+
+<Outcome title="Why it is built this way.">
+
+Five small mods, each with one responsibility, are easier to run and reason about than one that tries to do everything. The Greek naming is not decoration: each figure's domain maps to the mod's job, so the whole toolset reads as a single system.
+
+<OutcomePoints>
+<OutcomePoint><strong>Five focused mods instead of one monolith</strong>, each owning a single concern.</OutcomePoint>
+<OutcomePoint><strong>Runs the live Kerberus network</strong>: claiming, ranks, moderation, messaging, and sync.</OutcomePoint>
+<OutcomePoint><strong>Named as one system</strong>, Kerberus over Atlas, Orion, Argus, Hermes, and Iris.</OutcomePoint>
+</OutcomePoints>
+
+</Outcome>

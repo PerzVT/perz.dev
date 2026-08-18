@@ -1,8 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
-import { BLUR_DATA_URL } from "@/lib/blur";
 import type { WorkCard } from "@/lib/content";
 import { Rail } from "@/components/site/rail";
+import { CardMedia } from "@/components/site/card-media";
 
 /**
  * Project cards. Two layouts: a draggable single-row "rail" (home, hints
@@ -29,21 +28,14 @@ export function WorkCards({
         rail ? "w-[min(82vw,340px)] flex-none snap-start" : ""
       }`}
     >
-      <div className="relative aspect-[2/3] w-full overflow-hidden rounded-[10px] border border-pz-border bg-pz-surface">
-        {card.image && (
-          <Image
-            src={card.image}
-            alt={card.title}
-            fill
-            sizes={rail ? "340px" : "(min-width: 1160px) 270px, (min-width: 640px) 45vw, 100vw"}
-            priority={i === 0}
-            placeholder="blur"
-            blurDataURL={BLUR_DATA_URL}
-            className="object-cover"
-            style={{ objectPosition: card.cardFocus ?? "center" }}
-          />
-        )}
-      </div>
+      <CardMedia
+        image={card.image}
+        hoverVideo={card.hoverVideo}
+        alt={card.title}
+        cardFocus={card.cardFocus}
+        priority={i === 0}
+        sizes={rail ? "340px" : "(min-width: 1160px) 270px, (min-width: 640px) 45vw, 100vw"}
+      />
       <div className="flex flex-1 flex-col gap-[7px]">
         <span className="text-base font-bold tracking-[-0.01em] text-pz-ink">
           {card.title}
@@ -67,7 +59,9 @@ export function WorkCards({
   ));
 
   return rail ? (
-    <Rail ariaLabel="Projects">{cardEls}</Rail>
+    <Rail ariaLabel="Projects" mediaFadeHeight="min(123vw,510px)">
+      {cardEls}
+    </Rail>
   ) : (
     <div className="grid grid-cols-[repeat(auto-fill,minmax(min(100%,290px),1fr))] gap-x-5 gap-y-10">
       {cardEls}

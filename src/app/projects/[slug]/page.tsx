@@ -10,6 +10,7 @@ import { mdxComponents } from "@/components/mdx";
 import { siteConfig } from "@/lib/config";
 import { SiteNav } from "@/components/site/site-nav";
 import { SiteFooter } from "@/components/site/site-footer";
+import { ComingSoonGate } from "@/components/site/coming-soon-gate";
 
 type Params = Promise<{ slug: string }>;
 
@@ -61,6 +62,9 @@ function ctaLabel(url: string): string {
   if (/store\.steampowered\.com|steamcommunity\.com/i.test(url))
     return "View on Steam ↗";
   if (/meta\.com\/(experiences|quest)/i.test(url)) return "View on Meta Quest ↗";
+  if (/curseforge\.com/i.test(url)) return "View on CurseForge ↗";
+  if (/modrinth\.com/i.test(url)) return "View on Modrinth ↗";
+  if (/github\.com/i.test(url)) return "View on GitHub ↗";
   return "View project ↗";
 }
 
@@ -104,10 +108,24 @@ function Hero({ src, poster }: { src: string; poster?: string }) {
           Trailer
         </span>
       </div>
-      <figcaption className="mt-2.5 text-[11.5px] text-pz-faint">
-        Official trailer — poster, plays on click.
-      </figcaption>
     </figure>
+  );
+}
+
+/**
+ * Coming-soon state: a decorative "locked" login screen (ComingSoonGate),
+ * shown instead of the full case study when frontmatter sets
+ * `status: "coming-soon"`. The gate is not real auth — see the component.
+ */
+function ComingSoonPage() {
+  return (
+    <>
+      <SiteNav />
+      <main id="main-content">
+        <ComingSoonGate />
+      </main>
+      <SiteFooter />
+    </>
   );
 }
 
@@ -127,6 +145,11 @@ export default async function ProjectPage({ params }: { params: Params }) {
   if (project.frontmatter.mediaOnly) notFound();
 
   const { frontmatter, content } = project;
+
+  if (frontmatter.status === "coming-soon") {
+    return <ComingSoonPage />;
+  }
+
   const rows = facts(frontmatter);
   const contributions = frontmatter.contributions ?? [];
   const skills = frontmatter.skills ?? [];
@@ -140,14 +163,7 @@ export default async function ProjectPage({ params }: { params: Params }) {
           id="overview"
           className="mx-auto max-w-[1160px] scroll-mt-[84px] px-[clamp(20px,4vw,32px)] pt-[clamp(36px,6vh,60px)]"
         >
-          <Link
-            href="/projects"
-            className="inline-flex items-center gap-[7px] text-[12.5px] font-semibold text-pz-muted transition-colors hover:text-pz-ink [animation:perzRise_.5s_var(--ease-out)_.02s_both]"
-          >
-            <span aria-hidden>←</span> Work
-          </Link>
-
-          <div className="mt-4 flex flex-wrap items-end gap-x-[clamp(24px,4vw,48px)] gap-y-5 [animation:perzRise_.5s_var(--ease-out)_.08s_both]">
+          <div className="flex flex-wrap items-end gap-x-[clamp(24px,4vw,48px)] gap-y-5 [animation:perzRise_.5s_var(--ease-out)_.08s_both]">
             <div className="min-w-[280px] flex-[1_1_480px]">
               <h1 className="pz-wordmark text-[clamp(32px,4.6vw,50px)] font-extrabold leading-[1.02] tracking-[-0.02em] text-pz-ink">
                 {frontmatter.title}
@@ -175,30 +191,31 @@ export default async function ProjectPage({ params }: { params: Params }) {
           <div className="mt-[26px] flex flex-wrap gap-x-[clamp(32px,5vw,60px)] gap-y-8 [animation:perzRise_.5s_var(--ease-out)_.26s_both]">
             {contributions.length > 0 && (
               <div className="min-w-[300px] flex-[1.6_1_420px]">
-                <div className="text-[10.5px] font-bold uppercase tracking-[0.08em] text-pz-muted">
-                  Contributions at a glance
-                </div>
-                <div className="mt-2 flex flex-col">
+                <h2 className="text-[17px] font-bold tracking-[-0.01em] text-pz-ink">
+                  Contributions
+                </h2>
+                <ul className="mt-3 flex list-none flex-col gap-3 p-0">
                   {contributions.map((c, i) => {
                     const [lead, ...rest] = c.split(" ");
                     return (
-                      <div
+                      <li
                         key={i}
-                        className="grid grid-cols-[40px_1fr] items-baseline gap-3.5 border-b border-pz-border py-[15px]"
+                        className="grid grid-cols-[16px_1fr] gap-2 text-[15px] leading-[1.6] text-pz-ink2"
                       >
-                        <span className="text-[12.5px] font-bold tabular-nums text-pz-accent">
-                          {String(i + 1).padStart(2, "0")}
-                        </span>
-                        <p className="m-0 text-[15px] leading-[1.6] text-pz-ink2">
+                        <span
+                          aria-hidden
+                          className="mt-[9px] h-[6px] w-[6px] rounded-full bg-pz-accent"
+                        />
+                        <span>
                           <strong className="font-semibold text-pz-ink">
                             {lead}
                           </strong>{" "}
                           {rest.join(" ")}
-                        </p>
-                      </div>
+                        </span>
+                      </li>
                     );
                   })}
-                </div>
+                </ul>
               </div>
             )}
 
@@ -252,7 +269,7 @@ export default async function ProjectPage({ params }: { params: Params }) {
               }}
             >
               <span className="text-[13px] leading-[1.5] text-pz-ink2">
-                Some numbers redacted under NDA.{" "}
+                Some details redacted under NDA.{" "}
                 <Link href="/#contact" className="font-semibold text-pz-accent">
                   Reach out for a walkthrough
                 </Link>
