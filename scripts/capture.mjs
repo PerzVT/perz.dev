@@ -12,6 +12,11 @@
  *   node scripts/capture.mjs / --clip nav        # just the header
  *   node scripts/capture.mjs / --width 1440      # one width
  *
+ * Prefix with MSYS_NO_PATHCONV=1 in Git Bash when passing routes.
+ * Without it Git Bash rewrites a leading slash into the Git install
+ * path before node sees it, every route is dropped, and you silently
+ * get the home page instead of what you asked for.
+ *
  * Output lands in shots/, which is gitignored.
  */
 import { chromium } from "playwright-core";
