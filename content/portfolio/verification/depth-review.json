@@ -1,0 +1,238 @@
+[
+  {
+    "width": 1440,
+    "theme": "dark",
+    "route": "/",
+    "overflow": false,
+    "arrows": [
+      {
+        "width": 48,
+        "height": 48,
+        "shadow": "rgba(255, 255, 255, 0.14) 0px 3px 0px 0px inset, rgb(24, 34, 44) 0px 6px 0px 0px, rgb(24, 34, 44) 0px 7px 0px 0px"
+      },
+      {
+        "width": 48,
+        "height": 48,
+        "shadow": "rgba(255, 255, 255, 0.14) 0px 3px 0px 0px inset, rgb(24, 34, 44) 0px 6px 0px 0px, rgb(24, 34, 44) 0px 7px 0px 0px"
+      },
+      {
+        "width": 48,
+        "height": 48,
+        "shadow": "rgba(255, 255, 255, 0.14) 0px 3px 0px 0px inset, rgb(24, 34, 44) 0px 6px 0px 0px, rgb(24, 34, 44) 0px 7px 0px 0px"
+      },
+      {
+        "width": 48,
+        "height": 48,
+        "shadow": "rgba(255, 255, 255, 0.14) 0px 2px 0px 0px inset, rgb(24, 34, 44) 0px 2px 0px 0px, rgb(24, 34, 44) 0px 3px 0px 0px"
+      }
+    ],
+    "shadow": "rgba(255, 255, 255, 0.14) 0px 3px 0px 0px inset, rgb(24, 34, 44) 0px 6px 0px 0px, rgb(24, 34, 44) 0px 7px 0px 0px",
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "theme": "dark",
+    "route": "/projects/supercat",
+    "overflow": false,
+    "arrows": [
+      {
+        "width": 48,
+        "height": 48,
+        "shadow": "rgba(255, 255, 255, 0.14) 0px 3px 0px 0px inset, rgb(24, 34, 44) 0px 6px 0px 0px, rgb(24, 34, 44) 0px 7px 0px 0px"
+      },
+      {
+        "width": 48,
+        "height": 48,
+        "shadow": "rgba(255, 255, 255, 0.14) 0px 2px 0px 0px inset, rgb(24, 34, 44) 0px 2px 0px 0px, rgb(24, 34, 44) 0px 3px 0px 0px"
+      }
+    ],
+    "shadow": "rgba(255, 255, 255, 0.14) 0px 3px 0px 0px inset, rgb(24, 34, 44) 0px 6px 0px 0px, rgb(24, 34, 44) 0px 7px 0px 0px",
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "theme": "dark",
+    "route": "/contact",
+    "overflow": false,
+    "arrows": [],
+    "shadow": "rgba(255, 255, 255, 0.14) 0px 3px 0px 0px inset, rgb(24, 34, 44) 0px 6px 0px 0px, rgb(24, 34, 44) 0px 7px 0px 0px",
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "theme": "light",
+    "route": "/",
+    "overflow": false,
+    "arrows": [
+      {
+        "width": 48,
+        "height": 48,
+        "shadow": "rgba(255, 255, 255, 0.14) 0px 3px 0px 0px inset, rgb(176, 165, 145) 0px 6px 0px 0px, rgb(176, 165, 145) 0px 7px 0px 0px"
+      },
+      {
+        "width": 48,
+        "height": 48,
+        "shadow": "rgba(255, 255, 255, 0.14) 0px 3px 0px 0px inset, rgb(176, 165, 145) 0px 6px 0px 0px, rgb(176, 165, 145) 0px 7px 0px 0px"
+      },
+      {
+        "width": 48,
+        "height": 48,
+        "shadow": "rgba(255, 255, 255, 0.14) 0px 3px 0px 0px inset, rgb(176, 165, 145) 0px 6px 0px 0px, rgb(176, 165, 145) 0px 7px 0px 0px"
+      },
+      {
+        "width": 48,
+        "height": 48,
+        "shadow": "rgba(255, 255, 255, 0.14) 0px 2px 0px 0px inset, rgb(176, 165, 145) 0px 2px 0px 0px, rgb(176, 165, 145) 0px 3px 0px 0px"
+      }
+    ],
+    "shadow": "rgba(255, 255, 255, 0.14) 0px 3px 0px 0px inset, rgb(176, 165, 145) 0px 6px 0px 0px, rgb(176, 165, 145) 0px 7px 0px 0px",
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "theme": "light",
+    "route": "/projects/supercat",
+    "overflow": false,
+    "arrows": [
+      {
+        "width": 48,
+        "height": 48,
+        "shadow": "rgba(255, 255, 255, 0.14) 0px 3px 0px 0px inset, rgb(176, 165, 145) 0px 6px 0px 0px, rgb(176, 165, 145) 0px 7px 0px 0px"
+      },
+      {
+        "width": 48,
+        "height": 48,
+        "shadow": "rgba(255, 255, 255, 0.14) 0px 2px 0px 0px inset, rgb(176, 165, 145) 0px 2px 0px 0px, rgb(176, 165, 145) 0px 3px 0px 0px"
+      }
+    ],
+    "shadow": "rgba(255, 255, 255, 0.14) 0px 3px 0px 0px inset, rgb(176, 165, 145) 0px 6px 0px 0px, rgb(176, 165, 145) 0px 7px 0px 0px",
+    "errors": []
+  },
+  {
+    "width": 1440,
+    "theme": "light",
+    "route": "/contact",
+    "overflow": false,
+    "arrows": [],
+    "shadow": "rgba(255, 255, 255, 0.14) 0px 3px 0px 0px inset, rgb(176, 165, 145) 0px 6px 0px 0px, rgb(176, 165, 145) 0px 7px 0px 0px",
+    "errors": []
+  },
+  {
+    "width": 375,
+    "theme": "dark",
+    "route": "/",
+    "overflow": false,
+    "arrows": [
+      {
+        "width": 48,
+        "height": 48,
+        "shadow": "rgba(255, 255, 255, 0.14) 0px 3px 0px 0px inset, rgb(24, 34, 44) 0px 6px 0px 0px, rgb(24, 34, 44) 0px 7px 0px 0px"
+      },
+      {
+        "width": 48,
+        "height": 48,
+        "shadow": "rgba(255, 255, 255, 0.14) 0px 3px 0px 0px inset, rgb(24, 34, 44) 0px 6px 0px 0px, rgb(24, 34, 44) 0px 7px 0px 0px"
+      },
+      {
+        "width": 48,
+        "height": 48,
+        "shadow": "rgba(255, 255, 255, 0.14) 0px 3px 0px 0px inset, rgb(24, 34, 44) 0px 6px 0px 0px, rgb(24, 34, 44) 0px 7px 0px 0px"
+      },
+      {
+        "width": 48,
+        "height": 48,
+        "shadow": "rgba(255, 255, 255, 0.14) 0px 2px 0px 0px inset, rgb(24, 34, 44) 0px 2px 0px 0px, rgb(24, 34, 44) 0px 3px 0px 0px"
+      }
+    ],
+    "shadow": "rgba(255, 255, 255, 0.14) 0px 3px 0px 0px inset, rgb(24, 34, 44) 0px 6px 0px 0px, rgb(24, 34, 44) 0px 7px 0px 0px",
+    "errors": []
+  },
+  {
+    "width": 375,
+    "theme": "dark",
+    "route": "/projects/supercat",
+    "overflow": false,
+    "arrows": [
+      {
+        "width": 48,
+        "height": 48,
+        "shadow": "rgba(255, 255, 255, 0.14) 0px 3px 0px 0px inset, rgb(24, 34, 44) 0px 6px 0px 0px, rgb(24, 34, 44) 0px 7px 0px 0px"
+      },
+      {
+        "width": 48,
+        "height": 48,
+        "shadow": "rgba(255, 255, 255, 0.14) 0px 2px 0px 0px inset, rgb(24, 34, 44) 0px 2px 0px 0px, rgb(24, 34, 44) 0px 3px 0px 0px"
+      }
+    ],
+    "shadow": "rgba(255, 255, 255, 0.14) 0px 3px 0px 0px inset, rgb(24, 34, 44) 0px 6px 0px 0px, rgb(24, 34, 44) 0px 7px 0px 0px",
+    "errors": []
+  },
+  {
+    "width": 375,
+    "theme": "dark",
+    "route": "/contact",
+    "overflow": false,
+    "arrows": [],
+    "shadow": "rgba(255, 255, 255, 0.14) 0px 3px 0px 0px inset, rgb(24, 34, 44) 0px 6px 0px 0px, rgb(24, 34, 44) 0px 7px 0px 0px",
+    "errors": []
+  },
+  {
+    "width": 375,
+    "theme": "light",
+    "route": "/",
+    "overflow": false,
+    "arrows": [
+      {
+        "width": 48,
+        "height": 48,
+        "shadow": "rgba(255, 255, 255, 0.14) 0px 3px 0px 0px inset, rgb(176, 165, 145) 0px 6px 0px 0px, rgb(176, 165, 145) 0px 7px 0px 0px"
+      },
+      {
+        "width": 48,
+        "height": 48,
+        "shadow": "rgba(255, 255, 255, 0.14) 0px 3px 0px 0px inset, rgb(176, 165, 145) 0px 6px 0px 0px, rgb(176, 165, 145) 0px 7px 0px 0px"
+      },
+      {
+        "width": 48,
+        "height": 48,
+        "shadow": "rgba(255, 255, 255, 0.14) 0px 3px 0px 0px inset, rgb(176, 165, 145) 0px 6px 0px 0px, rgb(176, 165, 145) 0px 7px 0px 0px"
+      },
+      {
+        "width": 48,
+        "height": 48,
+        "shadow": "rgba(255, 255, 255, 0.14) 0px 2px 0px 0px inset, rgb(176, 165, 145) 0px 2px 0px 0px, rgb(176, 165, 145) 0px 3px 0px 0px"
+      }
+    ],
+    "shadow": "rgba(255, 255, 255, 0.14) 0px 3px 0px 0px inset, rgb(176, 165, 145) 0px 6px 0px 0px, rgb(176, 165, 145) 0px 7px 0px 0px",
+    "errors": []
+  },
+  {
+    "width": 375,
+    "theme": "light",
+    "route": "/projects/supercat",
+    "overflow": false,
+    "arrows": [
+      {
+        "width": 48,
+        "height": 48,
+        "shadow": "rgba(255, 255, 255, 0.14) 0px 3px 0px 0px inset, rgb(176, 165, 145) 0px 6px 0px 0px, rgb(176, 165, 145) 0px 7px 0px 0px"
+      },
+      {
+        "width": 48,
+        "height": 48,
+        "shadow": "rgba(255, 255, 255, 0.14) 0px 2px 0px 0px inset, rgb(176, 165, 145) 0px 2px 0px 0px, rgb(176, 165, 145) 0px 3px 0px 0px"
+      }
+    ],
+    "shadow": "rgba(255, 255, 255, 0.14) 0px 3px 0px 0px inset, rgb(176, 165, 145) 0px 6px 0px 0px, rgb(176, 165, 145) 0px 7px 0px 0px",
+    "errors": []
+  },
+  {
+    "width": 375,
+    "theme": "light",
+    "route": "/contact",
+    "overflow": false,
+    "arrows": [],
+    "shadow": "rgba(255, 255, 255, 0.14) 0px 3px 0px 0px inset, rgb(176, 165, 145) 0px 6px 0px 0px, rgb(176, 165, 145) 0px 7px 0px 0px",
+    "errors": []
+  }
+]

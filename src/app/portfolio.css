@@ -1209,28 +1209,9 @@ body {
   accent-color: #168bf0;
   cursor: pointer;
 }
-.pf-recommendation-nav {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 24px;
-  margin-top: 24px;
-}
-.pf-recommendation-nav .pf-carousel-arrow {
-  position: static;
-  transform: none;
-  flex-shrink: 0;
-}
-.pf-recommendation-nav .pf-dots {
-  position: static;
-  margin: 0;
-}
 @media (max-width: 800px) {
   .pf-recommendations .pf-quote:not(:first-child) {
     display: none;
-  }
-  .pf-recommendation-nav {
-    gap: 8px;
   }
   .pf-footer .pf-email {
     flex-wrap: wrap;
@@ -1243,3 +1224,190 @@ body {
 .pf-footer .pf-email > a {
   font-size: 26px;
 }
+
+:root {
+  --pf-panel-base: #18222c;
+  --pf-panel-highlight: #ffffff12;
+  --pf-control-face: #263440;
+  --pf-control-rim: #647386;
+}
+:root[data-portfolio-theme="light"] {
+  --pf-panel-base: #b0a591;
+  --pf-panel-highlight: #ffffffa6;
+  --pf-control-face: #fffaf0;
+  --pf-control-rim: #9c907c;
+}
+.pf-slide,
+.pf-quote,
+.pf-project-card,
+.pf-outcomes article,
+.pf-volume-panel {
+  border: 2px solid var(--pf-border);
+  box-shadow:
+    inset 0 3px 0 var(--pf-panel-highlight),
+    0 6px 0 var(--pf-panel-base);
+}
+.pf-banner,
+.pf-about-photo {
+  border: 3px solid #6973bb;
+  box-shadow:
+    inset 0 3px 0 #ffffff26,
+    0 9px 0 var(--pf-panel-base);
+}
+.pf-banner:after {
+  box-shadow: inset 0 3px 0 #ffffff26;
+  border-radius: inherit;
+}
+.pf-skills li {
+  border: 1px solid var(--pf-border);
+  box-shadow:
+    inset 0 2px 0 var(--pf-panel-highlight),
+    0 3px 0 var(--pf-panel-base);
+}
+.pf-contact-form input,
+.pf-contact-form textarea {
+  box-shadow: inset 0 3px 0 #18222c33;
+}
+.pf-button,
+.pf-contact-form form .pz-btn,
+.pf-control,
+.pf-outline,
+.pf-carousel-arrow {
+  --control-face: var(--pf-control-face);
+  --control-rim: var(--pf-control-rim);
+  --control-base: var(--pf-panel-base);
+  background: var(--control-face);
+  border: 3px solid var(--control-rim);
+  box-shadow:
+    inset 0 3px 0 #ffffff24,
+    0 6px 0 var(--control-base),
+    0 7px 0 var(--pf-panel-base);
+  transition:
+    transform 130ms ease,
+    box-shadow 130ms ease;
+  transform: translateY(0);
+  overflow: visible;
+}
+.pf-button,
+.pf-contact-form form .pz-btn {
+  --control-face: #075bd4;
+  --control-rim: #168bf0;
+  --control-base: #04337c;
+}
+.pf-banner:nth-child(2) > .pf-button {
+  --control-face: #006657;
+  --control-rim: #219b80;
+  --control-base: #003b38;
+  background: var(--control-face);
+  border-color: var(--control-rim);
+  box-shadow:
+    inset 0 3px 0 #ffffff24,
+    0 6px 0 var(--control-base),
+    0 7px 0 var(--pf-panel-base);
+}
+.pf-button:hover:not(:disabled),
+.pf-contact-form form .pz-btn:hover:not(:disabled),
+.pf-control:hover:not(:disabled),
+.pf-outline:hover:not(:disabled),
+.pf-carousel-arrow:hover:not(:disabled),
+.pf-banner:nth-child(2) > .pf-button:hover {
+  transform: translateY(4px);
+  box-shadow:
+    inset 0 2px 0 #ffffff24,
+    0 2px 0 var(--control-base),
+    0 3px 0 var(--pf-panel-base);
+}
+.pf-button:active:not(:disabled),
+.pf-contact-form form .pz-btn:active:not(:disabled),
+.pf-control:active:not(:disabled),
+.pf-outline:active:not(:disabled),
+.pf-carousel-arrow:active:not(:disabled) {
+  transform: translateY(5px);
+  box-shadow:
+    inset 0 2px 0 #ffffff18,
+    0 1px 0 var(--control-base),
+    0 2px 0 var(--pf-panel-base);
+}
+.pf-copy {
+  color: var(--pf-text);
+}
+.pf-rail {
+  padding: 4px 0 10px;
+}
+.pf-neighbour {
+  top: 4px;
+}
+.pf-carousel-compact .pf-slide {
+  overflow: visible;
+}
+.pf-recommendation-stage {
+  position: relative;
+  padding-top: 4px;
+}
+.pf-rail-navigation {
+  min-height: 58px;
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pf-rail-navigation .pf-dots {
+  margin: 0;
+  padding: 0;
+  min-height: 48px;
+}
+.pf-rail-navigation .pf-dots button {
+  width: 24px;
+  height: 44px;
+  padding: 0;
+  flex-shrink: 0;
+}
+.pf-rail-navigation .pf-carousel-arrow {
+  width: 48px;
+  height: 48px;
+  top: calc((100% - 72px) / 2 - 24px);
+  bottom: auto;
+}
+.pf-recommendation-stage .pf-prev {
+  left: -72px;
+}
+.pf-recommendation-stage .pf-next {
+  right: -72px;
+}
+.pf-carousel-compact .pf-prev {
+  left: 12px;
+}
+.pf-carousel-compact .pf-next {
+  right: 12px;
+}
+@media (max-width: 1250px) {
+  .pf-recommendation-stage .pf-prev {
+    left: 0;
+  }
+  .pf-recommendation-stage .pf-next {
+    right: 0;
+  }
+  .pf-recommendation-stage .pf-carousel-arrow {
+    top: auto;
+    bottom: 6px;
+  }
+}
+@media (max-width: 800px) {
+  .pf-rail-navigation {
+    gap: 8px;
+  }
+  .pf-rail-navigation .pf-carousel-arrow {
+    position: static;
+    flex-shrink: 0;
+  }
+  .pf-rail-navigation .pf-dots button {
+    width: 20px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pf-footer * {
+    transition: none !important;
+  }
+}
+
+:root[data-portfolio-theme="light"] .pf-carousel-arrow .pf-icon, :root[data-portfolio-theme="light"] .pf-copy .pf-icon { filter:brightness(0.25); }

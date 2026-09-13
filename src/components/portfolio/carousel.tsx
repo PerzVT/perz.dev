@@ -1,4 +1,5 @@
 "use client";
+import { RailNavigation } from "./rail-navigation";
 
 import Link from "next/link";
 import { useId, useRef, useState } from "react";
@@ -131,40 +132,13 @@ export function Carousel({
       </div>
       {items.length > 1 && (
         <>
-          <button
-            className="pf-carousel-arrow pf-prev"
-            aria-label={`Previous ${label.toLowerCase()} item`}
-            aria-controls={id}
-            onClick={() => move(-1)}
-          >
-            <Icon name="imgIconLeft" />
-          </button>
-          <button
-            className="pf-carousel-arrow pf-next"
-            aria-label={`Next ${label.toLowerCase()} item`}
-            aria-controls={id}
-            onClick={() => move(1)}
-          >
-            <Icon name="imgIconRight" />
-          </button>
-          <div className="pf-dots">
-            {items.length <= 9 ? (
-              items.map((_, i) => (
-                <button
-                  key={i}
-                  aria-label={`Show item ${i + 1}`}
-                  aria-current={index === i ? "true" : undefined}
-                  onClick={() => setIndex(i)}
-                >
-                  <span />
-                </button>
-              ))
-            ) : (
-              <span aria-live="polite">
-                {index + 1} / {items.length}
-              </span>
-            )}
-          </div>
+          <RailNavigation
+            count={items.length}
+            index={index}
+            label={label}
+            controls={id}
+            onSelect={setIndex}
+          />
           <span className="sr-only" aria-live="polite">
             {current.title || `${label} item ${index + 1}`}
           </span>

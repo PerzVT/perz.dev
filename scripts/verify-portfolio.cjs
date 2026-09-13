@@ -51,7 +51,7 @@ const fs = require("fs");
         const rec = page.locator(".pf-recommendations");
         const before = await rec.locator(".pf-quote").first().innerText();
         await rec
-          .getByRole("button", { name: "Next recommendation", exact: true })
+          .getByRole("button", { name: "Next recommendations item", exact: true })
           .click();
         const changed =
           before !== (await rec.locator(".pf-quote").first().innerText());
