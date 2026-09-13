@@ -1,0 +1,3463 @@
+[
+  {
+    "id": "292:470",
+    "data": {
+      "n": "Home / Desktop 1440 - Dark",
+      "c": [
+        {
+          "n": "Media hero",
+          "im": [
+            "dc5b9baf4c4ebbea949a7615324e89328e3bafe8"
+          ],
+          "c": [
+            {
+              "n": "Tag / handle",
+              "c": [
+                "Percy"
+              ]
+            },
+            "I'm a Game Designer and Developer who specializes in user experience and systems design with professional experience building PC and VR games. Get in touch if you would like to work together!",
+            {
+              "n": "Play row",
+              "c": [
+                {
+                  "n": "Tag / play",
+                  "c": [
+                    "Play"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "n": "Featured work",
+          "c": [
+            {
+              "n": "Heading",
+              "c": [
+                {
+                  "n": "Badge",
+                  "c": [
+                    "Featured work"
+                  ]
+                }
+              ]
+            },
+            {
+              "n": "Featured work carousel",
+              "c": [
+                {
+                  "n": "Media rail",
+                  "c": [
+                    {
+                      "n": "Slide / neighbour left",
+                      "c": [
+                        {
+                          "n": "Art",
+                          "im": [
+                            "f32a891342c4148e75113159ef6aacd563c92fb9"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "n": "Current slide",
+                      "c": [
+                        {
+                          "n": "Artwork",
+                          "im": [
+                            "f32a891342c4148e75113159ef6aacd563c92fb9"
+                          ]
+                        },
+                        {
+                          "n": "Caption",
+                          "c": [
+                            {
+                              "n": "Project title and metadata",
+                              "c": [
+                                "Highstreet: Calamity VR",
+                                {
+                                  "n": "Meta",
+                                  "c": [
+                                    {
+                                      "n": "Platform",
+                                      "c": [
+                                        "Meta Quest"
+                                      ]
+                                    },
+                                    "Multiplayer VR roguelike"
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "n": "Actions",
+                              "c": [
+                                {
+                                  "n": "Primary",
+                                  "c": [
+                                    "Meta Quest"
+                                  ]
+                                },
+                                {
+                                  "n": "Secondary",
+                                  "c": [
+                                    "Read More"
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "n": "Slide / neighbour right",
+                      "c": [
+                        {
+                          "n": "Art",
+                          "im": [
+                            "f32a891342c4148e75113159ef6aacd563c92fb9"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "n": "About",
+          "c": [
+            {
+              "n": "About copy",
+              "c": [
+                {
+                  "n": "Badge",
+                  "c": [
+                    "About me"
+                  ]
+                },
+                "Percy is a game designer and developer based in Calgary, Alberta. He believes in subtractive design and the power of simplicity in systems.\n\nHe focuses on clear, straightforward goals that retain players through a strong engaging core loop with a focus towards rewarding design thru data and systems that provides a fair challenge.\n\nHe enjoys breaking complex ideas down into clean, functional experiences, always aiming for clarity in communication and design.\n\nOutside of work he is passionate about modding games and reverse engineering. \nHe founded Kerberus (2015) and Draconia (2021) , gaming networks that have served over 750,000 players till now. He created Mythcraft, Dragoncraft and contributes to numerous modding projects with in the curseforge space for games like Minecraft (Java) and Palworld."
+              ]
+            },
+            {
+              "n": "Booth photo",
+              "im": [
+                "a475d582d206e1736eb36c7acb5f5edf74f6f4d8"
+              ]
+            }
+          ]
+        },
+        {
+          "n": "Experience",
+          "c": [
+            {
+              "n": "Badge",
+              "c": [
+                "Experience"
+              ]
+            },
+            {
+              "n": "Roles",
+              "c": [
+                {
+                  "n": "Highstreet",
+                  "c": [
+                    {
+                      "n": "Mark",
+                      "im": [
+                        "c21d54bb686dd393294c3a81c80b527716f4f9d1"
+                      ]
+                    },
+                    {
+                      "n": "Role",
+                      "c": [
+                        "Senior Game Designer",
+                        "Highstreet",
+                        "Key contributor on Calamity VR, Echoes of Solera and Oren’s Adventures. Led design for multiple systems and developed internal authoring tools. Led design on UX/UI and defined the interaction language. Assisted with Unity implementation during prototyping."
+                      ]
+                    },
+                    "Dec 2023 – Present"
+                  ]
+                },
+                {
+                  "n": "Smooth Brain Games",
+                  "c": [
+                    {
+                      "n": "Mark",
+                      "im": [
+                        "f833687939d74f6352893a6f19b2bcc2c9167a18"
+                      ]
+                    },
+                    {
+                      "n": "Role",
+                      "c": [
+                        "Game Designer and Developer",
+                        "Smooth Brain Games (prev. Knite Studios)",
+                        "Designed and developed multiple games and prototypes, assisted with level design and systems design."
+                      ]
+                    },
+                    "Sep 2022 – Apr 2025"
+                  ]
+                },
+                {
+                  "n": "BisectHosting",
+                  "c": [
+                    {
+                      "n": "Mark",
+                      "im": [
+                        "bc39db06e3144c901bfa1b0e535501f49c3a5168"
+                      ]
+                    },
+                    {
+                      "n": "Role",
+                      "c": [
+                        "Designer",
+                        "BisectHosting",
+                        "Designed product and content for brand partners, campaigns, CurseForge projects, In-game assets, Major events, and company identity."
+                      ]
+                    },
+                    "Apr 2022 – Dec 2023"
+                  ]
+                },
+                {
+                  "n": "Sennovate",
+                  "c": [
+                    {
+                      "n": "Mark",
+                      "im": [
+                        "ac0d99662aed087116aa8cb8a0f808a9cf1790c2"
+                      ]
+                    },
+                    {
+                      "n": "Role",
+                      "c": [
+                        "Graphic Designer",
+                        "Sennovate",
+                        "Designed Campaign and product design for a B2B security platform. Assisted with content strategy and production."
+                      ]
+                    },
+                    "Jan 2022 – Mar 2022"
+                  ]
+                },
+                {
+                  "n": "Whiteboard Studios",
+                  "c": [
+                    {
+                      "n": "Mark",
+                      "im": [
+                        "2044450f093bfd12fc061a115b0e23b081a96552"
+                      ]
+                    },
+                    {
+                      "n": "Role",
+                      "c": [
+                        "Senior Graphic Designer",
+                        "Whiteboard Studios",
+                        "Led branding and motion design campaigns for mid-market and enterprise clients. Assisted with art direction and production."
+                      ]
+                    },
+                    "Jan 2020 – Jan 2021"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "n": "Recommendations",
+          "c": [
+            {
+              "n": "Heading",
+              "c": [
+                {
+                  "n": "Badge",
+                  "c": [
+                    "Recommendations"
+                  ]
+                }
+              ]
+            },
+            {
+              "n": "Cards",
+              "c": [
+                {
+                  "n": "Quote / Matt Fleming",
+                  "c": [
+                    "He developed into an amazing multifunctional designer who could do just about anything I threw at him, with a rare mix of creative and technical. If you need someone who can get features done, I can't recommend him enough.",
+                    {
+                      "n": "Author",
+                      "c": [
+                        {
+                          "n": "Avatar",
+                          "im": [
+                            "c39e47b4880e9e0bfa5f9ff91e987b3a20f489e3"
+                          ]
+                        },
+                        {
+                          "n": "Meta",
+                          "c": [
+                            "Matt Fleming",
+                            "Lead Game Designer"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "n": "Quote / Arron Ferguson",
+                  "c": [
+                    "Percy is a fantastic Game Designer, as well as a true savant of UI/UX design. Incredibly proactive, he would often jump into my DMs with solutions to problems I didn't even know existed yet.",
+                    {
+                      "n": "Author",
+                      "c": [
+                        {
+                          "n": "Avatar",
+                          "im": [
+                            "96e766bfd71622336a9096d286c4933c15529f44"
+                          ]
+                        },
+                        {
+                          "n": "Meta",
+                          "c": [
+                            "Arron Ferguson",
+                            "Lead Writer & Narrative Designer"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "n": "Quote / Emma Gallaher",
+                  "c": [
+                    "A creative powerhouse with an incredible work ethic. Percy has the ability to balance creative vision with systems thinking, which makes him an outstanding general designer.",
+                    {
+                      "n": "Author",
+                      "c": [
+                        {
+                          "n": "Avatar",
+                          "im": [
+                            "1cb915fb32c00a09491cc9b8edc3967bb96edc76"
+                          ]
+                        },
+                        {
+                          "n": "Meta",
+                          "c": [
+                            "Emma Gallaher",
+                            "Game Designer"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "n": "End banners",
+          "c": [
+            {
+              "n": "Banner / BisectHosting",
+              "im": [
+                "50512c7f30a40fa2f52b652582e7ec6e4924cdae"
+              ],
+              "c": [
+                {
+                  "n": "Copy",
+                  "c": [
+                    {
+                      "n": "BH_BRANDING_horizontal_dark_wordmark 1",
+                      "im": [
+                        "2499df9dd61b6869e0b9c6839cee3a7dae0fa087"
+                      ]
+                    },
+                    "Play with friends.",
+                    "Use code “URMOM” to get 25% off your next purchase."
+                  ]
+                },
+                {
+                  "n": "Cta",
+                  "c": [
+                    "Get a Server"
+                  ]
+                }
+              ]
+            },
+            {
+              "n": "Banner / Kerberus",
+              "im": [
+                "b340df9225991f0cc47c1d99b633e333811c33c6"
+              ],
+              "c": [
+                {
+                  "n": "Copy",
+                  "c": [
+                    {
+                      "n": "Frostbolt studios (2) 1",
+                      "im": [
+                        "1cab2a7bbc6adb69aabd8bcb6d6d50df2c384156"
+                      ]
+                    },
+                    "Come build worlds with us.",
+                    "We are always looking for new aspiring developers, artists and designers to join our fold If you want to learn or get started making mods, join up!"
+                  ]
+                },
+                {
+                  "n": "Cta",
+                  "c": [
+                    "Get Started"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "344:994",
+    "data": {
+      "n": "Resume / Desktop 1440 - Draft",
+      "c": [
+        {
+          "n": "Header",
+          "c": [
+            "Résumé",
+            "Game designer, user experience and player-focused systems"
+          ]
+        },
+        {
+          "n": "Summary",
+          "c": [
+            {
+              "n": "Frame 3",
+              "c": [
+                "Hi, I'm Percy, a game designer and developer in Calgary. I've made games and gaming content since I was 15, starting with custom assets and mods for Roblox, Unturned, and Minecraft. I began in computer science, then earned a bachelor's in Media, Graphics and Animation, where I built my first game and trained as a product designer. I founded Draconia and Kerberus, gaming networks that have served over 400,000 players in the past five years. I created Mythcraft (play as demigods), Dragoncraft (play as dragons), and the Kerberus Network.",
+                "✦ Shipped on Meta Quest, Itch.io, Curseforge, Roblox, Steam\n✦ Founded Kerberus, served over 750,000+ players since 2019·\n✦ Founded Smooth Brain Games, In Calgary with the help of Indie Ignition Accelerator"
+              ]
+            },
+            {
+              "n": "Booth photo",
+              "im": [
+                "a475d582d206e1736eb36c7acb5f5edf74f6f4d8"
+              ]
+            }
+          ]
+        },
+        {
+          "n": "Design philosophy",
+          "c": [
+            "Design philosophy",
+            "Designing mechanics that are easy to learn but difficult to master\n\nMy background in user experience and product design influences how I design. I love building out prototypes using a rapid-development pipeline that lets me test out the mechanic and game feel before committing to anything. This also eliminates any communication gaps between design and engineering. Iteration and user feedback shapes every single piece of design I make, I believe in simplicity and first principles method of design. If you cannot defend your idea, it was a stupid idea anyways. Every mechanic within the game plays a role in keeping the game running or brings out certain emotions within the player. If your idea fails to do either, it’s not a priority. \n\nI lead the vision through design, improve communication, and find fun through simplicity. I keep designs clear and grounded in strong core systems and well-structured data, and I break complex ideas into clean, functional experiences, aiming for clarity in the gameplay and the process behind it. If my design can be interpreted by different people as different things, I have failed at clearly communicating myself hence its a bad design."
+          ]
+        },
+        {
+          "n": "Experience",
+          "c": [
+            {
+              "n": "Badge",
+              "c": [
+                "Experience"
+              ]
+            },
+            {
+              "n": "Roles",
+              "c": [
+                {
+                  "n": "Highstreet",
+                  "c": [
+                    {
+                      "n": "Mark",
+                      "im": [
+                        "c21d54bb686dd393294c3a81c80b527716f4f9d1"
+                      ]
+                    },
+                    {
+                      "n": "Role",
+                      "c": [
+                        "Senior Game Designer",
+                        "Highstreet",
+                        "Key contributor on Calamity VR, Echoes of Solera and Oren’s Adventures. Led design for multiple systems and developed internal authoring tools. Led design on UX/UI and defined the interaction language. Assisted with Unity implementation during prototyping."
+                      ]
+                    },
+                    "Dec 2023 – Present"
+                  ]
+                },
+                {
+                  "n": "Smooth Brain Games",
+                  "c": [
+                    {
+                      "n": "Mark",
+                      "im": [
+                        "f833687939d74f6352893a6f19b2bcc2c9167a18"
+                      ]
+                    },
+                    {
+                      "n": "Role",
+                      "c": [
+                        "Game Designer and Developer",
+                        "Smooth Brain Games (prev. Knite Studios)",
+                        "Designed and developed multiple games and prototypes, assisted with level design and systems design."
+                      ]
+                    },
+                    "Sep 2022 – Apr 2025"
+                  ]
+                },
+                {
+                  "n": "BisectHosting",
+                  "c": [
+                    {
+                      "n": "Mark",
+                      "im": [
+                        "bc39db06e3144c901bfa1b0e535501f49c3a5168"
+                      ]
+                    },
+                    {
+                      "n": "Role",
+                      "c": [
+                        "Designer",
+                        "BisectHosting",
+                        "Designed product and content for brand partners, campaigns, CurseForge projects, In-game assets, Major events, and company identity."
+                      ]
+                    },
+                    "Apr 2022 – Dec 2023"
+                  ]
+                },
+                {
+                  "n": "Sennovate",
+                  "c": [
+                    {
+                      "n": "Mark",
+                      "im": [
+                        "ac0d99662aed087116aa8cb8a0f808a9cf1790c2"
+                      ]
+                    },
+                    {
+                      "n": "Role",
+                      "c": [
+                        "Graphic Designer",
+                        "Sennovate",
+                        "Designed Campaign and product design for a B2B security platform. Assisted with content strategy and production."
+                      ]
+                    },
+                    "Jan 2022 – Mar 2022"
+                  ]
+                },
+                {
+                  "n": "Whiteboard Studios",
+                  "c": [
+                    {
+                      "n": "Mark",
+                      "im": [
+                        "2044450f093bfd12fc061a115b0e23b081a96552"
+                      ]
+                    },
+                    {
+                      "n": "Role",
+                      "c": [
+                        "Senior Graphic Designer",
+                        "Whiteboard Studios",
+                        "Led branding and motion design campaigns for mid-market and enterprise clients. Assisted with art direction and production."
+                      ]
+                    },
+                    "Jan 2020 – Jan 2021"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "n": "Skills",
+          "c": [
+            "Skills",
+            {
+              "n": "Frame",
+              "c": [
+                {
+                  "n": "Frame",
+                  "c": [
+                    "Advanced",
+                    {
+                      "n": "Frame 4",
+                      "c": [
+                        {
+                          "n": "Chip",
+                          "c": [
+                            "Game Design Documentation"
+                          ]
+                        },
+                        {
+                          "n": "Chip",
+                          "c": [
+                            "System Design"
+                          ]
+                        },
+                        {
+                          "n": "Chip",
+                          "c": [
+                            "Illustration"
+                          ]
+                        },
+                        {
+                          "n": "Chip",
+                          "c": [
+                            "Tool Engineering"
+                          ]
+                        },
+                        {
+                          "n": "Chip",
+                          "c": [
+                            "Unity"
+                          ]
+                        },
+                        {
+                          "n": "Chip",
+                          "c": [
+                            "Prototyping"
+                          ]
+                        },
+                        {
+                          "n": "Chip",
+                          "c": [
+                            "Post Processing"
+                          ]
+                        },
+                        {
+                          "n": "Chip",
+                          "c": [
+                            "Combat Design"
+                          ]
+                        },
+                        {
+                          "n": "Chip",
+                          "c": [
+                            "Advanced Gameplay Programming"
+                          ]
+                        },
+                        {
+                          "n": "Chip",
+                          "c": [
+                            "UI systems"
+                          ]
+                        },
+                        {
+                          "n": "Chip",
+                          "c": [
+                            "2D/3D projects"
+                          ]
+                        },
+                        {
+                          "n": "Chip",
+                          "c": [
+                            "User Experience"
+                          ]
+                        },
+                        {
+                          "n": "Chip",
+                          "c": [
+                            "C# Scripting"
+                          ]
+                        },
+                        {
+                          "n": "Chip",
+                          "c": [
+                            "Product Design"
+                          ]
+                        },
+                        {
+                          "n": "Chip",
+                          "c": [
+                            "Project Management "
+                          ]
+                        },
+                        {
+                          "n": "Chip",
+                          "c": [
+                            "Game architecture patterns "
+                          ]
+                        },
+                        {
+                          "n": "Chip",
+                          "c": [
+                            "VR/AR Development"
+                          ]
+                        },
+                        {
+                          "n": "Chip",
+                          "c": [
+                            "DOTS"
+                          ]
+                        },
+                        {
+                          "n": "Chip",
+                          "c": [
+                            "Shader Creation"
+                          ]
+                        },
+                        {
+                          "n": "Chip",
+                          "c": [
+                            "Grayboxing"
+                          ]
+                        },
+                        {
+                          "n": "Chip",
+                          "c": [
+                            "Motion Graphics"
+                          ]
+                        },
+                        {
+                          "n": "Chip",
+                          "c": [
+                            "Miro/Draw.io"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "n": "Frame",
+                  "c": [
+                    "Intermediate",
+                    {
+                      "n": "Frame 4",
+                      "c": [
+                        {
+                          "n": "Chip",
+                          "c": [
+                            "Unreal Engine 5 "
+                          ]
+                        },
+                        {
+                          "n": "Chip",
+                          "c": [
+                            "Blueprints"
+                          ]
+                        },
+                        {
+                          "n": "Chip",
+                          "c": [
+                            "C++"
+                          ]
+                        },
+                        {
+                          "n": "Chip",
+                          "c": [
+                            "Shader creation"
+                          ]
+                        },
+                        {
+                          "n": "Chip",
+                          "c": [
+                            "Basic Game Optimization"
+                          ]
+                        },
+                        {
+                          "n": "Chip",
+                          "c": [
+                            "Lighting"
+                          ]
+                        },
+                        {
+                          "n": "Chip",
+                          "c": [
+                            "Performance Profiling"
+                          ]
+                        },
+                        {
+                          "n": "Chip",
+                          "c": [
+                            "Web Design"
+                          ]
+                        },
+                        {
+                          "n": "Chip",
+                          "c": [
+                            "Frontend Development"
+                          ]
+                        },
+                        {
+                          "n": "Chip",
+                          "c": [
+                            "Narrative Design"
+                          ]
+                        },
+                        {
+                          "n": "Chip",
+                          "c": [
+                            "Script Writing"
+                          ]
+                        },
+                        {
+                          "n": "Chip",
+                          "c": [
+                            "Video Editing"
+                          ]
+                        },
+                        {
+                          "n": "Chip",
+                          "c": [
+                            "Project Management "
+                          ]
+                        },
+                        {
+                          "n": "Chip",
+                          "c": [
+                            "Game architecture patterns "
+                          ]
+                        },
+                        {
+                          "n": "Chip",
+                          "c": [
+                            "VR/AR Development"
+                          ]
+                        },
+                        {
+                          "n": "Chip",
+                          "c": [
+                            "DOTS"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "n": "Frame",
+                  "c": [
+                    "Beginner",
+                    {
+                      "n": "Frame 4",
+                      "c": [
+                        {
+                          "n": "Chip",
+                          "c": [
+                            "3D Modelling"
+                          ]
+                        },
+                        {
+                          "n": "Chip",
+                          "c": [
+                            "Blender"
+                          ]
+                        },
+                        {
+                          "n": "Chip",
+                          "c": [
+                            "Houdine"
+                          ]
+                        },
+                        {
+                          "n": "Chip",
+                          "c": [
+                            "Zbrush"
+                          ]
+                        },
+                        {
+                          "n": "Chip",
+                          "c": [
+                            "Substance Painter"
+                          ]
+                        },
+                        {
+                          "n": "Chip",
+                          "c": [
+                            "Substance Designer"
+                          ]
+                        },
+                        {
+                          "n": "Chip",
+                          "c": [
+                            "Maya"
+                          ]
+                        },
+                        {
+                          "n": "Chip",
+                          "c": [
+                            "3ds Max"
+                          ]
+                        },
+                        {
+                          "n": "Chip",
+                          "c": [
+                            "Davinci Resolve"
+                          ]
+                        },
+                        {
+                          "n": "Chip",
+                          "c": [
+                            "Publishing"
+                          ]
+                        },
+                        {
+                          "n": "Chip",
+                          "c": [
+                            "Rigging"
+                          ]
+                        },
+                        {
+                          "n": "Chip",
+                          "c": [
+                            "Texturing"
+                          ]
+                        },
+                        {
+                          "n": "Chip",
+                          "c": [
+                            "Animation"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "n": "Education",
+          "c": [
+            "Education",
+            {
+              "n": "Highstreet",
+              "c": [
+                {
+                  "n": "Mark",
+                  "im": [
+                    "912146189e501fc3fa5a48b66d91c0c15832d52b"
+                  ]
+                },
+                {
+                  "n": "Role",
+                  "c": [
+                    "Advanced Game Development Diploma",
+                    "CEA, Bow Valley College. Calgary, CA​. "
+                  ]
+                },
+                "September, 2022 – December 2024"
+              ]
+            },
+            {
+              "n": "Highstreet",
+              "c": [
+                {
+                  "n": "Mark",
+                  "im": [
+                    "950ab4e0fab17776718083633f27c6dc24e19605"
+                  ]
+                },
+                {
+                  "n": "Role",
+                  "c": [
+                    "Bachelor’s in Media, Graphics and Animation",
+                    "P.A.Inamdar College of Visual Effect, Design & Art, Pune"
+                  ]
+                },
+                "2018 – 2021"
+              ]
+            }
+          ]
+        },
+        {
+          "n": "Activity",
+          "c": [
+            "Activity",
+            "GitHub contributions and modpack releases",
+            {
+              "n": "Activity chart / awaiting supplied data",
+              "c": [
+                "Activity data to add",
+                "Account, reporting period and public counts will be added here."
+              ]
+            }
+          ]
+        },
+        {
+          "n": "Service reliability",
+          "c": [
+            "Service reliability",
+            {
+              "n": "Uptime / awaiting reporting details",
+              "c": [
+                "Uptime",
+                "Reporting scope, period and availability figures to add.",
+                "This section will show approved summaries only."
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "367:328",
+    "data": {
+      "n": "Contact / Desktop 1440 - Dark",
+      "c": [
+        {
+          "n": "Media hero",
+          "im": [
+            "dc5b9baf4c4ebbea949a7615324e89328e3bafe8"
+          ],
+          "c": [
+            {
+              "n": "Tag / handle",
+              "c": [
+                "Contact"
+              ]
+            },
+            "Open to game design roles, and always up to talk shop."
+          ]
+        },
+        {
+          "n": "Email",
+          "c": [
+            {
+              "n": "Frame 5",
+              "c": [
+                "Say hi",
+                "INTERESTED IN MY WORK? \n\nLET'S TALK ABOUT YOUR NEXT GAME PROJECT \nAND HOW WE CAN BRING YOUR VISION TO LIFE.\r",
+                {
+                  "n": "Email row",
+                  "c": [
+                    "hello@perz.dev",
+                    {
+                      "n": "Copy",
+                      "c": [
+                        "Copy"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "n": "Contact form",
+              "c": [
+                "Send a message",
+                "Name, email and message are required.",
+                {
+                  "n": "Perz / Form field",
+                  "c": [
+                    "Name",
+                    {
+                      "n": "Input",
+                      "c": [
+                        "Your name"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "n": "Perz / Form field",
+                  "c": [
+                    "Email",
+                    {
+                      "n": "Input",
+                      "c": [
+                        "you@example.com"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "n": "Perz / Form field",
+                  "c": [
+                    "Message",
+                    {
+                      "n": "Input",
+                      "c": [
+                        "Tell me about the project, role or question."
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "n": "Perz / Submit button",
+                  "c": [
+                    {
+                      "n": "Face",
+                      "c": [
+                        "Send message"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "n": "End banners",
+          "c": [
+            {
+              "n": "Banner / Games",
+              "im": [
+                "8d0643a9e6f754dd5ae26067ede0d55c272a7f56",
+                "b3516cfc50a3110647cc3976d7ba39fc1aaadac0",
+                "be4d31abc7853fb2d900aade72a45c89ac44a60c",
+                "6150390faa164fe64f22fd6866202f2e5c634e4d",
+                "bce543ba824e3820c16f97311fc2616086112cf8"
+              ],
+              "c": [
+                {
+                  "n": "Copy",
+                  "c": [
+                    {
+                      "n": "BH_BRANDING_horizontal_dark_wordmark 1",
+                      "im": [
+                        "2499df9dd61b6869e0b9c6839cee3a7dae0fa087"
+                      ]
+                    },
+                    "Check out my games on Itch.io"
+                  ]
+                },
+                {
+                  "n": "Cta",
+                  "c": [
+                    "Browse games"
+                  ]
+                }
+              ]
+            },
+            {
+              "n": "Banner / Modpacks",
+              "im": [
+                "bf4525ba594a20733305ae311d8ddd9f46629c9d"
+              ],
+              "c": [
+                {
+                  "n": "Copy",
+                  "c": [
+                    {
+                      "n": "KB_Full_Logo 1",
+                      "im": [
+                        "d7b0210f83207cba002bc0aa881e77b06183ea3c"
+                      ]
+                    },
+                    "Check out my modpacks"
+                  ]
+                },
+                {
+                  "n": "Cta",
+                  "c": [
+                    "Browse modpacks"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "398:2458",
+    "data": {
+      "n": "Case study / Supercat - Desktop 1440 - Current",
+      "c": [
+        {
+          "n": "Media hero",
+          "im": [
+            "3b2839645af21abc347d1d0d0db8b107ed9fb60e"
+          ],
+          "c": [
+            {
+              "n": "Tag / handle",
+              "c": [
+                "Supercat"
+              ]
+            },
+            {
+              "n": "Play row",
+              "c": [
+                {
+                  "n": "Tag / play",
+                  "c": [
+                    "Play"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "n": "Contributions and project details",
+          "c": [
+            {
+              "n": "Frame",
+              "c": [
+                {
+                  "n": "Contributions",
+                  "c": [
+                    "Supercat is an action platformer where the player uses fluid movement combined with combat moves that compliment the flow state to traverse levels and take down enemies.",
+                    "Contributions",
+                    "Designed a modular movement kit with state-driven combat actions.",
+                    "Built threats and challenges allowed this kit to be utilized fully.",
+                    "Blocked out tutorial levels that introduced mechanics through challenge."
+                  ]
+                },
+                {
+                  "n": "Project details",
+                  "c": [
+                    {
+                      "n": "Role",
+                      "c": [
+                        "Role",
+                        "Lead Game Designer"
+                      ]
+                    },
+                    {
+                      "n": "Team",
+                      "c": [
+                        "Team",
+                        "Smooth Brain Games"
+                      ]
+                    },
+                    {
+                      "n": "Development",
+                      "c": [
+                        "Development",
+                        "Unity 6 · PC"
+                      ]
+                    },
+                    {
+                      "n": "Period",
+                      "c": [
+                        "Period",
+                        "August to December 2024"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "n": "Frame",
+              "c": [
+                {
+                  "n": "Contributions",
+                  "c": [
+                    "Skills",
+                    {
+                      "n": "Frame",
+                      "c": [
+                        {
+                          "n": "Frame",
+                          "c": [
+                            "Game design"
+                          ]
+                        },
+                        {
+                          "n": "Frame",
+                          "c": [
+                            "Combat design"
+                          ]
+                        },
+                        {
+                          "n": "Frame",
+                          "c": [
+                            "Level design"
+                          ]
+                        },
+                        {
+                          "n": "Frame",
+                          "c": [
+                            "Project Management"
+                          ]
+                        },
+                        {
+                          "n": "Frame",
+                          "c": [
+                            "Systems Design"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "n": "Media gallery",
+          "c": [
+            {
+              "n": "Frame",
+              "c": [
+                "Gallery"
+              ]
+            },
+            {
+              "n": "Gallery carousel",
+              "c": [
+                {
+                  "n": "Media rail",
+                  "c": [
+                    {
+                      "n": "Slide / neighbour left",
+                      "c": [
+                        {
+                          "n": "Art",
+                          "im": [
+                            "5780a3e6306065555a7e9588a4d5c51eddda03df"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "n": "Current slide",
+                      "c": [
+                        {
+                          "n": "Artwork",
+                          "im": [
+                            "a8f8d3096e7fbcad39b900e8ad5423b3812c3310"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "n": "Slide / neighbour right",
+                      "c": [
+                        {
+                          "n": "Art",
+                          "im": [
+                            "9215d959139c2288aebdcc8053658ea40c630d57"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "n": "Movement and combat",
+          "c": [
+            {
+              "n": "Frame",
+              "c": [
+                {
+                  "n": "Explanation",
+                  "c": [
+                    "Movement and combat",
+                    "Wall-running, pouncing, slide-jumps, ramp hops and other mobility tools shared a interwoven surface with combat helping combat feel fluid. The goal was to achieve a flow state during combat."
+                  ]
+                },
+                {
+                  "n": "Perz / Carousel-Media",
+                  "c": [
+                    {
+                      "n": "Media rail",
+                      "c": [
+                        {
+                          "n": "Current slide",
+                          "c": [
+                            {
+                              "n": "Artwork",
+                              "im": [
+                                "3887dfd6d4a291084778e22a828eb06a91cc89b0"
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "n": "Weapons and player state",
+          "c": [
+            {
+              "n": "Frame",
+              "c": [
+                {
+                  "n": "Media",
+                  "c": [
+                    {
+                      "n": "Project media",
+                      "im": [
+                        "e9920b065ade58cbcee0bce964bc0d79c413f169"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "n": "Explanation",
+                  "c": [
+                    "Weapons and player state",
+                    "The same weapon changes behavior while sliding, airborne or grounded. This let me build momentum based fighting combo’s that provided different uses for each weapon without overloading players with more inputs."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "n": "Teaching through level design",
+          "c": [
+            {
+              "n": "Frame",
+              "c": [
+                {
+                  "n": "Explanation",
+                  "c": [
+                    "Teaching through level design",
+                    "I used blockouts to introduce mechanics through the space itself, then gave players opportunities to try out different paths to achieve the goal by combining them in combat. There was always the recommended path, but curiosity was rewarded."
+                  ]
+                },
+                {
+                  "n": "Perz / Carousel-Media",
+                  "c": [
+                    {
+                      "n": "Media rail",
+                      "c": [
+                        {
+                          "n": "Current slide",
+                          "c": [
+                            {
+                              "n": "Artwork",
+                              "im": [
+                                "047891972e19ec658accdd345c08d67983a31507"
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "n": "What I learned",
+          "c": [
+            {
+              "n": "Frame",
+              "c": [
+                {
+                  "n": "Frame",
+                  "c": [
+                    "Project Management",
+                    "This project included a team of 5 full time devs and over 10 contributors and commissioned artists.\n\nIt helped me learn how to plan, interact and coordinate between disciplines with talented artists, devs and designers to reach out goal with a first-principles approach."
+                  ]
+                },
+                {
+                  "n": "Frame",
+                  "c": [
+                    "Pitching to Publishers",
+                    "This project allowed me a chance to work with Indie Ignition Accelerator, pitch our vertical slice in Edmonton and Calgary at game fests and learn about the latter half of game development in detail. Publishing. \n\nGetting a game completed is a challenge but there is a lot more that goes into releasing it. The economics and logistics behind it is something I would have never learnt without this project."
+                  ]
+                },
+                {
+                  "n": "Frame",
+                  "c": [
+                    "Team Leadership",
+                    "As a multi-disciplinary designer, this project tested my leadership skills to the max, I excel at communicating between developers, artists and designers to understand and help meet their needs to make sure production goes uninterrupted. \n\nThe massive team size combined with huge pool of outside collaborators made leadership a real challenge which I happy to have faced early in my career as it taught me a lot."
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "372:465",
+    "data": {
+      "n": "Case study / BisectHosting - Desktop 1440 - Draft",
+      "c": [
+        {
+          "n": "Media hero",
+          "im": [
+            "d75066063c83210fa3762b9a272a98ece8058262"
+          ],
+          "c": [
+            {
+              "n": "Tag / handle",
+              "c": [
+                "BisectHosting"
+              ]
+            }
+          ]
+        },
+        {
+          "n": "Contributions and project details",
+          "c": [
+            {
+              "n": "Frame",
+              "c": [
+                {
+                  "n": "Contributions",
+                  "c": [
+                    "Contributions",
+                    "Contributed to branding and design system between official communications and partner projects",
+                    "Designed for events, brand activations, campaigns and charities events. ",
+                    "Designed for internal and partner projects that ran on multiple platforms like  CurseForge, Twitch, and Lunar client",
+                    "Serviced design for companies like Bisect Studios and Meloncube Hosting"
+                  ]
+                },
+                {
+                  "n": "Project details",
+                  "c": [
+                    {
+                      "n": "Role",
+                      "c": [
+                        "Role",
+                        "Designer"
+                      ]
+                    },
+                    {
+                      "n": "Team",
+                      "c": [
+                        "Team",
+                        "BisectHosting"
+                      ]
+                    },
+                    {
+                      "n": "Development",
+                      "c": [
+                        "Tools",
+                        "Adobe CC\nFigma\nAseprite\nMinecraft"
+                      ]
+                    },
+                    {
+                      "n": "Period",
+                      "c": [
+                        "Period",
+                        "Apr 2022 – Dec 2023"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "n": "Skills",
+              "c": [
+                "Skills",
+                {
+                  "n": "Skill tags",
+                  "c": [
+                    {
+                      "n": "Frame",
+                      "c": [
+                        "Brand design"
+                      ]
+                    },
+                    {
+                      "n": "Frame",
+                      "c": [
+                        "Content design"
+                      ]
+                    },
+                    {
+                      "n": "Frame",
+                      "c": [
+                        "Motion Design"
+                      ]
+                    },
+                    {
+                      "n": "Frame",
+                      "c": [
+                        "Adobe CC"
+                      ]
+                    },
+                    {
+                      "n": "Frame",
+                      "c": [
+                        "Figma"
+                      ]
+                    },
+                    {
+                      "n": "Frame",
+                      "c": [
+                        "Pixel Art"
+                      ]
+                    },
+                    {
+                      "n": "Frame",
+                      "c": [
+                        "In-game Assets"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "n": "Media gallery",
+          "c": [
+            {
+              "n": "Frame",
+              "c": [
+                "Gallery"
+              ]
+            },
+            {
+              "n": "Gallery carousel",
+              "c": [
+                {
+                  "n": "Media rail",
+                  "c": [
+                    {
+                      "n": "Slide / neighbour left",
+                      "c": [
+                        {
+                          "n": "Media / replace with project artwork",
+                          "im": [
+                            "93e7d502d7a3cc9fcc7cae208479d958cc61b772"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "n": "Current slide",
+                      "c": [
+                        {
+                          "n": "Media / replace with project artwork",
+                          "im": [
+                            "404e19d28b03ba0bd815ff7e4e863663361c6086"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "n": "Slide / neighbour right",
+                      "c": [
+                        {
+                          "n": "Media / replace with project artwork",
+                          "im": [
+                            "da70a5a474240e6e3d2d525f90efced4f21cd3f2"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "n": "Brand system",
+          "c": [
+            {
+              "n": "Frame",
+              "c": [
+                {
+                  "n": "Explanation",
+                  "c": [
+                    "Branding and Press Kits",
+                    "Contributed towards the branding and design language, the goal was a small enforceable system so anyone compose on-brand content with minimum friction. \nContributed towards Press Kits and partner-facing kits\nDesigned for official communications, brand activations and collaborations."
+                  ]
+                },
+                {
+                  "n": "Perz / Carousel-Media",
+                  "c": [
+                    {
+                      "n": "Media rail",
+                      "c": [
+                        {
+                          "n": "Current slide",
+                          "c": [
+                            {
+                              "n": "Artwork",
+                              "im": [
+                                "404e19d28b03ba0bd815ff7e4e863663361c6086"
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "n": "Press and creator kits",
+          "c": [
+            {
+              "n": "Frame",
+              "c": [
+                {
+                  "n": "Perz / Carousel-Media",
+                  "c": [
+                    {
+                      "n": "Media rail",
+                      "c": [
+                        {
+                          "n": "Current slide",
+                          "c": [
+                            {
+                              "n": "Artwork",
+                              "im": [
+                                "b177270db0f6577737cd69b3d5515d401cd15e2c"
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "n": "Explanation",
+                  "c": [
+                    "Partner projects",
+                    "Designed content and strategy for partner projects: designing identity, promotions and channel content shipped to CurseForge, Twitch, Modrinth, Lunar client and adjacent platforms. \nDesigned I worked on ended up in programs at GamersOutreach, Twitch, Project Hope, Tiltify and more."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "n": "Partner projects",
+          "c": [
+            {
+              "n": "Frame",
+              "c": [
+                {
+                  "n": "Explanation",
+                  "c": [
+                    "Events",
+                    "Contributed towards the design and pre-production of key events, charities and gaming initiatives\nDesigned assets for in-game, promotional material and identity.\nPlayed a role during the events to coordinate and assist with behind-the-scenes work."
+                  ]
+                },
+                {
+                  "n": "Perz / Carousel-Media",
+                  "c": [
+                    {
+                      "n": "Media rail",
+                      "c": [
+                        {
+                          "n": "Current slide",
+                          "c": [
+                            {
+                              "n": "Artwork",
+                              "im": [
+                                "b177270db0f6577737cd69b3d5515d401cd15e2c",
+                                "83054cbcf2d8e0d160a721fb57c9e365931f91cf"
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "n": "Across the brands",
+          "c": [
+            {
+              "n": "Frame",
+              "c": [
+                {
+                  "n": "Media",
+                  "c": [
+                    {
+                      "n": "Project media",
+                      "im": [
+                        "6cbe8a7e51bc112ecc916ef780211e4f2d030028"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "n": "Explanation",
+                  "c": [
+                    "Across the brands",
+                    "Designed Brand and content work for Meloncube Hosting and Bisect Studios alongside the main BisectHosting role.\nContributed towards social media campaigns, specialty projects for partners, Fancymenu’s and in-game art assets"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "372:1085",
+    "data": {
+      "n": "Case study / Highstreet: Calamity VR - Desktop 1440 - Draft",
+      "c": [
+        {
+          "n": "Media hero",
+          "im": [
+            "f32a891342c4148e75113159ef6aacd563c92fb9"
+          ],
+          "c": [
+            {
+              "n": "Tag / handle",
+              "c": [
+                "Highstreet: Calamity VR"
+              ]
+            },
+            {
+              "n": "Play row",
+              "c": [
+                {
+                  "n": "Tag / play",
+                  "c": [
+                    "Play"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "n": "Contributions and project details",
+          "c": [
+            {
+              "n": "Frame",
+              "c": [
+                {
+                  "n": "Contributions",
+                  "c": [
+                    "Highstreet Calamity is a multiplayer rogue-like VR game, where the players fight waves of mobs to reach the end with the boss, earning currency to build their character and enjoy with friends.",
+                    "Contributions",
+                    "Owned the design for class archetypes, the stats and the elemental system. ",
+                    "Led the design for the overall user experience, systems design, gesture-casting system and global UI language",
+                    "Key contributor to the combat design, meta-progression systems and economy structures.",
+                    "Built multiple internal authoring tools including a spreadsheet based authoring pipeline connected in-game data containers which enabled the design team to iterate faster."
+                  ]
+                },
+                {
+                  "n": "Project details",
+                  "c": [
+                    {
+                      "n": "Role",
+                      "c": [
+                        "Role",
+                        "Game Designer (UX & Systems)"
+                      ]
+                    },
+                    {
+                      "n": "Team",
+                      "c": [
+                        "Team",
+                        "Highstreet (RETINAD VIRTUAL REALITY INC)"
+                      ]
+                    },
+                    {
+                      "n": "Development",
+                      "c": [
+                        "Development",
+                        "Unity 6 · DOTS · VR "
+                      ]
+                    },
+                    {
+                      "n": "Period",
+                      "c": [
+                        "Duration",
+                        "Dec 2023 – Dec 2025"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "n": "Skills",
+              "c": [
+                "Skills",
+                {
+                  "n": "Skill tags",
+                  "c": [
+                    {
+                      "n": "Skill / Game design",
+                      "c": [
+                        "Game design"
+                      ]
+                    },
+                    {
+                      "n": "Skill / Systems design",
+                      "c": [
+                        "Systems design"
+                      ]
+                    },
+                    {
+                      "n": "Skill / UX",
+                      "c": [
+                        "User Experience Design"
+                      ]
+                    },
+                    {
+                      "n": "Skill / UX",
+                      "c": [
+                        "Multiplayer Systems"
+                      ]
+                    },
+                    {
+                      "n": "Skill / UX",
+                      "c": [
+                        "Combat Design"
+                      ]
+                    },
+                    {
+                      "n": "Skill / Unity 6",
+                      "c": [
+                        "Unity 6"
+                      ]
+                    },
+                    {
+                      "n": "Skill / DOTS",
+                      "c": [
+                        "DOTS"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "n": "Media gallery",
+          "c": [
+            {
+              "n": "Frame",
+              "c": [
+                "Gallery"
+              ]
+            },
+            {
+              "n": "Gallery carousel",
+              "c": [
+                {
+                  "n": "Media rail",
+                  "c": [
+                    {
+                      "n": "Slide / neighbour left",
+                      "c": [
+                        {
+                          "n": "Media / replace with project artwork",
+                          "im": [
+                            "4e4d0a1eebce64bf1efaf9bf6d9e21dfedab53b2"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "n": "Current slide",
+                      "c": [
+                        {
+                          "n": "Media / replace with project artwork",
+                          "im": [
+                            "129e3b139748b081f8a0be59040bb7d0c58a77e2"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "n": "Slide / neighbour right",
+                      "c": [
+                        {
+                          "n": "Media / replace with project artwork",
+                          "im": [
+                            "839f216419f6b1f0b3c4620f3a9a673e396c337d"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "n": "Gesture-casting",
+          "c": [
+            {
+              "n": "Frame",
+              "c": [
+                {
+                  "n": "Perz / Carousel-Media",
+                  "c": [
+                    {
+                      "n": "Media rail",
+                      "c": [
+                        {
+                          "n": "Current slide",
+                          "c": [
+                            {
+                              "n": "Artwork",
+                              "im": [
+                                "a26996d983047f82054072340fcf86d25dd923c9",
+                                "fccd5c21c7eeb8508a66b2621fabb9b86bf8194c"
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "n": "Explanation",
+                  "c": [
+                    "Gesture-casting and Ability Design",
+                    "Designed in-game abilities and a gesture based casting system to cast them.\nDesigned an Authoring tool to allow recording of gestures at runtime and curated gestures based on natural fluid motions within the VR space and real life combat motion studies.\nCreated internal systems to ensure fluid testing and handoff’s, worked with engineering closely to prototype and refine the system."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "n": "Classes & progression",
+          "c": [
+            {
+              "n": "Frame",
+              "c": [
+                {
+                  "n": "Explanation",
+                  "c": [
+                    "Classes, Progression and Wave Systems",
+                    "Led design for and established the foundation of our core player stats (Resources, Resistances, etc) to support distinct class fantasy and playstyles.\nKey contributor to overall stat scaling and progression systems for player progression and enemy waves.\nEstablished the foundations and design premises for wave structures, game modes, wave compositions and iteration loops for balancing."
+                  ]
+                },
+                {
+                  "n": "Media",
+                  "c": [
+                    {
+                      "n": "Media / replace with project artwork",
+                      "im": [
+                        "8fc7aeb53629bda495626a033f98b17cea2d4b57"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "n": "Gesture-casting",
+          "c": [
+            {
+              "n": "Frame",
+              "c": [
+                {
+                  "n": "Media",
+                  "c": [
+                    {
+                      "n": "Project media",
+                      "im": [
+                        "963f8b4cc15124608feecca383edbb6bf49fb5c3"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "n": "Explanation",
+                  "c": [
+                    "Multi-tool, UX and input maps",
+                    "Designed Input Maps and coordinated with the design team to achieve accessibility and good UX\nLed design on decisions regarding the UX and accessibility features.\nLed design on the Multi-tool, our unified interface hub into the game to improve the VR experience for our players. \nLed design and prototype on Daveys Demure Designs, our physical interactive cosmetic system."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "n": "Authoring pipeline",
+          "c": [
+            {
+              "n": "Frame",
+              "c": [
+                {
+                  "n": "Explanation",
+                  "c": [
+                    "Authoring pipeline and  Systems",
+                    "Designed multiple tools (python and unity) and spreadsheets to help team understand and tweak values within game\nDesigned a spreadsheet-based tool letting the design team create and tune abilities, enemies, waves, and rewards, saving engineering time and improving design’s ability to iterate.\nDesigned systems and data for the roguelike gameloop, rewards and incentives and established a balanced progression framework and game economy."
+                  ]
+                },
+                {
+                  "n": "Media",
+                  "c": [
+                    {
+                      "n": "Media / replace with project artwork",
+                      "im": [
+                        "855a35ebd1d457700b62def2820f36c370c85af7"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "n": "What I learned",
+          "c": [
+            "Key Skills Applied",
+            {
+              "n": "Outcome cards",
+              "c": [
+                {
+                  "n": "Outcome / Result",
+                  "c": [
+                    "Systems Design",
+                    "In this project I was able to learn and expand my skill set as a multi-disciplinary designer. I had the opportunity and was trusted to establish key systems and work with other designers in its refinement and overseeing the balancing of said systems. I focused on an quicker iteration and improving ways to tweak, balance gameplay and removing friction in that process. "
+                  ]
+                },
+                {
+                  "n": "Outcome / Evidence",
+                  "c": [
+                    "Game Design (VR/AR)",
+                    "Designing for VR based on VR first principles and establishing frameworks to make interacting with the world feel more immersive was my goal. I focused on making combat and UX of the game feel integrated and take full advantage of the capabilities of the medium by utilizing unique mechanics which felt right in a spatial world."
+                  ]
+                },
+                {
+                  "n": "Outcome / Learning",
+                  "c": [
+                    "Playtesting and Tuning",
+                    "Hands on playtesting in engine, validating concepts and flows and iterating on this to bring values closer to our intended game feel was a major part of my process. With the clear hurdles in testing VR games unlike regular in-engine testing I designed tools with enabled testers to access dev menus from within the game and tweak changes and export said changes off the headset."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "n": "What I learned",
+          "c": [
+            "Word from Highstreet",
+            {
+              "n": "Outcome cards",
+              "c": [
+                {
+                  "n": "Outcome / Result",
+                  "c": [
+                    "\"It is my pleasure to recommend Percy Ali, who served as a Game Designer at RETINAD VIRTUAL REALITY INC. from December 4, 2023, to September 30, 2026. During his time with us, Percy consistently demonstrated professionalism, creativity, and a strong commitment to his role, making a positive impact on our team.\n\nPercy demonstrated strong design and production skills, making significant contributions to gameplay systems, content design, and project coordination. He demonstrated creativity in developing engaging player experiences, while also balancing technical and operational constraints. Percy collaborated effectively with cross-functional teams, supporting smooth workflows and ensuring deliverables were completed on time.\n\nIn addition to his technical contributions, Percy was a collaborative and approachable colleague, respected by peers and supervisors alike. I am confident he will make a valuable contribution to any organization he joins.\n \nPlease feel free to contact me at jack@highstreet.market should you require additional information.​\"",
+                    "Jack Qiao,  CTO"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "372:642",
+    "data": {
+      "n": "Case study / Bubble Buddy - Desktop 1440 - Draft",
+      "c": [
+        {
+          "n": "Media hero",
+          "im": [
+            "02090a83bf84f2c3a6373ce1196e5dd80bb0fd9a"
+          ],
+          "c": [
+            {
+              "n": "Tag / handle",
+              "c": [
+                "Bubble Buddy"
+              ]
+            }
+          ]
+        },
+        {
+          "n": "Contributions and project details",
+          "c": [
+            {
+              "n": "Frame",
+              "c": [
+                {
+                  "n": "Contributions",
+                  "c": [
+                    "A 2D action game made for Global Game Jam 2025 (“Bubbles”) and Pirate Software - Game Jam 16 “You are the weapon”, where you shoot parts of yourself to defeat waves of enemies while managing trade-offs.",
+                    "Contributions",
+                    "Designed the game design documentation and systems. Assisted with programming for the prototype.",
+                    "Designed and setup all the Art Assets and animations.",
+                    "Designed and setup all user interfaces and components within engine."
+                  ]
+                },
+                {
+                  "n": "Project details",
+                  "c": [
+                    {
+                      "n": "Role",
+                      "c": [
+                        "Role",
+                        "Game Designer · Producer"
+                      ]
+                    },
+                    {
+                      "n": "Team",
+                      "c": [
+                        "Team",
+                        "Team Buddies"
+                      ]
+                    },
+                    {
+                      "n": "Development",
+                      "c": [
+                        "Development",
+                        "Unity 6 · PC "
+                      ]
+                    },
+                    {
+                      "n": "Period",
+                      "c": [
+                        "Jam",
+                        "Global Game Jam 2025\nPirate Software - Game Jam 16"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "n": "Skills",
+              "c": [
+                "Skills",
+                {
+                  "n": "Skill tags",
+                  "c": [
+                    {
+                      "n": "Frame",
+                      "c": [
+                        "Game design"
+                      ]
+                    },
+                    {
+                      "n": "Frame",
+                      "c": [
+                        "Systems design"
+                      ]
+                    },
+                    {
+                      "n": "Frame",
+                      "c": [
+                        "2D art"
+                      ]
+                    },
+                    {
+                      "n": "Frame",
+                      "c": [
+                        "Animation"
+                      ]
+                    },
+                    {
+                      "n": "Frame",
+                      "c": [
+                        "UI Design"
+                      ]
+                    },
+                    {
+                      "n": "Frame",
+                      "c": [
+                        "Prototyping"
+                      ]
+                    },
+                    {
+                      "n": "Frame",
+                      "c": [
+                        "Unity 6"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "n": "Media gallery",
+          "c": [
+            {
+              "n": "Frame",
+              "c": [
+                "Gallery"
+              ]
+            },
+            {
+              "n": "Gallery carousel",
+              "c": [
+                {
+                  "n": "Media rail",
+                  "c": [
+                    {
+                      "n": "Slide / neighbour left",
+                      "c": [
+                        {
+                          "n": "Media / replace with project artwork",
+                          "im": [
+                            "580e6934e9d8d234d3571a2d3ddf04714210f642"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "n": "Current slide",
+                      "c": [
+                        {
+                          "n": "Media / replace with project artwork",
+                          "im": [
+                            "3f1c062c014f6423e7f871c2c826b23d2ce533ff"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "n": "Slide / neighbour right",
+                      "c": [
+                        {
+                          "n": "Media / replace with project artwork",
+                          "im": [
+                            "de7489da004d850b2cdcb7a3efc80519301dbd79"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "n": "One resource",
+          "c": [
+            {
+              "n": "Frame",
+              "c": [
+                {
+                  "n": "Explanation",
+                  "c": [
+                    "Game Design and Balancing",
+                    "Designed the core gameplay loop and worked on the implementation for the prototype\nDefined the player inputs and interactions with different mechanic types.\nIterated design always grounded in feedback and testing"
+                  ]
+                },
+                {
+                  "n": "Media",
+                  "c": [
+                    {
+                      "n": "Media / replace with project artwork",
+                      "im": [
+                        "de7489da004d850b2cdcb7a3efc80519301dbd79"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "n": "Pressure",
+          "c": [
+            {
+              "n": "Frame",
+              "c": [
+                {
+                  "n": "Media",
+                  "c": [
+                    {
+                      "n": "Project media",
+                      "im": [
+                        "e5bd8e17fc2602d99745769ba3f212cce4a476c1"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "n": "Explanation",
+                  "c": [
+                    "Enemy Archetypes and Behaviours",
+                    "Defined enemy archetypes with distinct behavior patterns, designed simple identifiable patterns\nDesigned enemy behaviors which complimented horde mechanics and introduced evasion mechanics for players to adapt to challenges and come up with their own strategies. \nDesigned the resource drops, spawn patterns, and difficulty scaling. \nThe design premise was making players feel the squeeze without making the scaling feel unfair."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "n": "32 hours",
+          "c": [
+            {
+              "n": "Frame",
+              "c": [
+                {
+                  "n": "Explanation",
+                  "c": [
+                    "Wave Systems and Game Economy",
+                    "Defined the wave structures for an endless incremental style gameplay mode,\nDesigned enemy pacing, wave composition, and difficulty progression.\nBalanced waves by adjusting enemy stats, spawn counts, and encounter modifiers ensuring the challenge felt fair.\nModelled expected run scaling with spreadsheet Monte Carlo simulations (formulas & repeated random trials) to inform balancing."
+                  ]
+                },
+                {
+                  "n": "Media",
+                  "c": [
+                    {
+                      "n": "Project media",
+                      "im": [
+                        "2317d3da89c5f359bd4a87a25b00784a10fef381"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "n": "Pressure",
+          "c": [
+            {
+              "n": "Frame",
+              "c": [
+                {
+                  "n": "Media",
+                  "c": [
+                    {
+                      "n": "Project media",
+                      "im": [
+                        "580e6934e9d8d234d3571a2d3ddf04714210f642"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "n": "Explanation",
+                  "c": [
+                    "User Interface and Animations",
+                    "Designed and prototyped all User interface screens and flows\nAnimated all motion programmatically and tweaked values using DoTween and Animator.\nAchieved a bouncy game-feel and popping feeling mimicking and bubble pop!"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "372:917",
+    "data": {
+      "n": "Case study / Dragoncraft - Desktop 1440 - Draft",
+      "c": [
+        {
+          "n": "Media hero",
+          "im": [
+            "327d11da149ca9ca805978b32275482358fce0b1",
+            "54b9998e4ad5b47d613c00d8c94ee207b6d7c570"
+          ],
+          "c": [
+            {
+              "n": "Tag / handle",
+              "c": [
+                "Dragoncraft"
+              ]
+            }
+          ]
+        },
+        {
+          "n": "Contributions and project details",
+          "c": [
+            {
+              "n": "Frame",
+              "c": [
+                {
+                  "n": "Contributions",
+                  "c": [
+                    "Be a dragon. A Minecraft modpack of 30+ species, each with its own restrictions, abilities, and path to power, curated from 350+ mods into one balanced world with an expansive questline for players to play. Over ",
+                    "Contributions",
+                    "Designed gameplay loops, integrations and balancing to form one coherent, dragon-first experience",
+                    "Balanced progression so casual play is respected and completionist play allows for mastery and deep understanding multiple refined content like advanced magic systems and automation.",
+                    "Curated and modified the worldgen and boss, trials and challenges around the dragon fantasy."
+                  ]
+                },
+                {
+                  "n": "Project details",
+                  "c": [
+                    {
+                      "n": "Role",
+                      "c": [
+                        "Role",
+                        "Creator · Pack Design"
+                      ]
+                    },
+                    {
+                      "n": "Team",
+                      "c": [
+                        "Team",
+                        "Kerberus"
+                      ]
+                    },
+                    {
+                      "n": "Development",
+                      "c": [
+                        "Development",
+                        "Minecraft · NeoForge / Forge · Minecraft Java · 1.21.1 / 1.20.1 / 1.18.2"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "n": "Skills",
+              "c": [
+                "Skills",
+                {
+                  "n": "Skill tags",
+                  "c": [
+                    {
+                      "n": "Frame",
+                      "c": [
+                        "Pack design"
+                      ]
+                    },
+                    {
+                      "n": "Frame",
+                      "c": [
+                        "Systems balance"
+                      ]
+                    },
+                    {
+                      "n": "Frame",
+                      "c": [
+                        "Progression design"
+                      ]
+                    },
+                    {
+                      "n": "Frame",
+                      "c": [
+                        "Minecraft modding"
+                      ]
+                    },
+                    {
+                      "n": "Frame",
+                      "c": [
+                        "Addon Development"
+                      ]
+                    },
+                    {
+                      "n": "Frame",
+                      "c": [
+                        "Scripting"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "n": "Media gallery",
+          "c": [
+            {
+              "n": "Frame",
+              "c": [
+                "Gallery"
+              ]
+            },
+            {
+              "n": "Gallery carousel",
+              "c": [
+                {
+                  "n": "Media rail",
+                  "c": [
+                    {
+                      "n": "Slide / neighbour left",
+                      "c": [
+                        {
+                          "n": "Media / replace with project artwork",
+                          "im": [
+                            "a22b550170a5c886e4fb990f296bacf8a385859d"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "n": "Current slide",
+                      "c": [
+                        {
+                          "n": "Media / replace with project artwork",
+                          "im": [
+                            "b5ea3a17c2a24de35a65dec2eea332293fb244a0"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "n": "Slide / neighbour right",
+                      "c": [
+                        {
+                          "n": "Media / replace with project artwork",
+                          "im": [
+                            "c110d1f08ec3e30a96769a72668c05e46afe0e97"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "n": "End banners",
+          "c": [
+            {
+              "n": "Banner / BisectHosting",
+              "im": [
+                "50512c7f30a40fa2f52b652582e7ec6e4924cdae"
+              ],
+              "c": [
+                {
+                  "n": "Copy",
+                  "c": [
+                    {
+                      "n": "BH_BRANDING_horizontal_dark_wordmark 1",
+                      "im": [
+                        "2499df9dd61b6869e0b9c6839cee3a7dae0fa087"
+                      ]
+                    },
+                    "Play with friends.",
+                    "Use code “URMOM” to get 25% off your next purchase."
+                  ]
+                },
+                {
+                  "n": "Cta",
+                  "c": [
+                    "Get a Server"
+                  ]
+                }
+              ]
+            },
+            {
+              "n": "Banner / Kerberus",
+              "im": [
+                "327d11da149ca9ca805978b32275482358fce0b1",
+                "8efde7740a2ded957faceb89d4c5c26d50eb2c13"
+              ],
+              "c": [
+                {
+                  "n": "Cta",
+                  "c": [
+                    "Check it out"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "372:1701",
+    "data": {
+      "n": "Case study / Lurk - Desktop 1440 - Draft",
+      "c": [
+        {
+          "n": "Media hero",
+          "im": [
+            "524cb0b55e2651ab800dcddc03bb1a7e068a1fdf"
+          ],
+          "c": [
+            {
+              "n": "Tag / handle",
+              "c": [
+                "Lurk"
+              ]
+            }
+          ]
+        },
+        {
+          "n": "Contributions and project details",
+          "c": [
+            {
+              "n": "Frame",
+              "c": [
+                {
+                  "n": "Contributions",
+                  "c": [
+                    "A single-player first-person horror game set in an haunted 1800s house. where the player explores, solve puzzles, and uncovers the house's dark history.",
+                    "Contributions",
+                    "Led design for the core loop which complimented the broader narrative of the game and build mini-games and puzzles which strengthened the premise.",
+                    "Designed the puzzle, challenges and the mechanics to integrate with the environment to fit the environmental horror premise.",
+                    "Created the level designs, triggers and volumes to affect global effects and lighting elements to play out the narrative beats"
+                  ]
+                },
+                {
+                  "n": "Project details",
+                  "c": [
+                    {
+                      "n": "Role",
+                      "c": [
+                        "Role",
+                        "Game Designer"
+                      ]
+                    },
+                    {
+                      "n": "Team",
+                      "c": [
+                        "Team",
+                        "Knite Studios"
+                      ]
+                    },
+                    {
+                      "n": "Development",
+                      "c": [
+                        "Development",
+                        "Unity 6 · PC (Steam)"
+                      ]
+                    },
+                    {
+                      "n": "Period",
+                      "c": [
+                        "Period",
+                        "Aug 2024 – Dec 2024"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "n": "Skills",
+              "c": [
+                "Skills",
+                {
+                  "n": "Skill tags",
+                  "c": [
+                    {
+                      "n": "Frame",
+                      "c": [
+                        "Game design"
+                      ]
+                    },
+                    {
+                      "n": "Frame",
+                      "c": [
+                        "Level design"
+                      ]
+                    },
+                    {
+                      "n": "Frame",
+                      "c": [
+                        "Systems design"
+                      ]
+                    },
+                    {
+                      "n": "Frame",
+                      "c": [
+                        "Unity 6"
+                      ]
+                    },
+                    {
+                      "n": "Frame",
+                      "c": [
+                        "Technical art"
+                      ]
+                    },
+                    {
+                      "n": "Frame",
+                      "c": [
+                        "Puzzle Design"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "n": "Media gallery",
+          "c": [
+            {
+              "n": "Frame",
+              "c": [
+                "Gallery"
+              ]
+            },
+            {
+              "n": "Gallery carousel",
+              "c": [
+                {
+                  "n": "Media rail",
+                  "c": [
+                    {
+                      "n": "Slide / neighbour left",
+                      "c": [
+                        {
+                          "n": "Media / replace with project artwork",
+                          "im": [
+                            "8d0c5d698e25841993916be71831e80f2f32dfcd"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "n": "Current slide",
+                      "c": [
+                        {
+                          "n": "Media / replace with project artwork",
+                          "im": [
+                            "1e16cf196baaf2fc5241586a9bac3742aeb30491"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "n": "Slide / neighbour right",
+                      "c": [
+                        {
+                          "n": "Media / replace with project artwork",
+                          "im": [
+                            "82f049a0e7b5d2434107437eb51c002e7a2c8c82"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "n": "Core loop",
+          "c": [
+            {
+              "n": "Frame",
+              "c": [
+                {
+                  "n": "Explanation",
+                  "c": [
+                    "Core loop",
+                    "The player inherited a house from the 1800s, and as they explore they uncover the building's dark paranormal history .\nThe experience is built to be a narrative puzzle-solving where the player is constantly trapped and directed towards completing certain tasks while keeping their sanity in check.\nCertain risky encounters leads to sanity drain and induce paranormal effects to the player which affects their perception of the world. "
+                  ]
+                },
+                {
+                  "n": "Media",
+                  "c": [
+                    {
+                      "n": "Media / replace with project artwork",
+                      "im": [
+                        "524cb0b55e2651ab800dcddc03bb1a7e068a1fdf"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "n": "Puzzles",
+          "c": [
+            {
+              "n": "Frame",
+              "c": [
+                {
+                  "n": "Media",
+                  "c": [
+                    {
+                      "n": "Project media",
+                      "im": [
+                        "8d0c5d698e25841993916be71831e80f2f32dfcd"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "n": "Explanation",
+                  "c": [
+                    "Puzzles",
+                    "Puzzle mechanics are deterministic and built on a set of rules and a probability system, so the house stays unpredictable across playthroughs without the puzzles themselves becoming unfair.\nThere are simpler fetch quests which ensure that story progression stays unaffected and the narrative remains serviceable."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "n": "Space and light",
+          "c": [
+            {
+              "n": "Frame",
+              "c": [
+                {
+                  "n": "Explanation",
+                  "c": [
+                    "Spacial effects and lighting",
+                    "Contributed towards the Level design and encounter. \nWorked in-engine on the lighting and optimization work for the level which included Draw calls reduction, LODs, light baking, Performance Profiling, Occlusion.\nDesigned shaders and assisted with technical art work carrying the visual language. "
+                  ]
+                },
+                {
+                  "n": "Media",
+                  "c": [
+                    {
+                      "n": "Project media",
+                      "im": [
+                        "1e16cf196baaf2fc5241586a9bac3742aeb30491"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "372:1871",
+    "data": {
+      "n": "Case study / Mythcraft - Desktop 1440 - Draft",
+      "c": [
+        {
+          "n": "Media hero",
+          "im": [
+            "8a6176a8ea01f9bfd46a9aa9e794e85b0cb52fc7",
+            "e7efd86df85ee2b6891e3898660b7709722565b2"
+          ],
+          "c": [
+            {
+              "n": "Tag / handle",
+              "c": [
+                "Mythcraft"
+              ]
+            }
+          ]
+        },
+        {
+          "n": "Contributions and project details",
+          "c": [
+            {
+              "n": "Frame",
+              "c": [
+                {
+                  "n": "Contributions",
+                  "c": [
+                    "Play as a demigod. A Minecraft RPG of 20+ mythic races and divine paths built on the Greek gods, with dungeon-crawling and boss progression across a world steeped in myth.",
+                    "Contributions",
+                    "Built a mythology-first RPG from 20+ playable races and divine paths",
+                    "Tied progression to the deity you align with, so your patron god drives your playstyle and experience.",
+                    "Curated spellcasting, automation, colony systems, trials and challenges around the demi-god fantasy."
+                  ]
+                },
+                {
+                  "n": "Project details",
+                  "c": [
+                    {
+                      "n": "Role",
+                      "c": [
+                        "Role",
+                        "Creator · Pack Design"
+                      ]
+                    },
+                    {
+                      "n": "Team",
+                      "c": [
+                        "Team",
+                        "Kerberus"
+                      ]
+                    },
+                    {
+                      "n": "Development",
+                      "c": [
+                        "Development",
+                        "Minecraft · Forge / NeoForge · Minecraft Java · 1.21.1 / 1.20.1"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "n": "Skills",
+              "c": [
+                "Skills",
+                {
+                  "n": "Skill tags",
+                  "c": [
+                    {
+                      "n": "Frame",
+                      "c": [
+                        "Pack design"
+                      ]
+                    },
+                    {
+                      "n": "Frame",
+                      "c": [
+                        "RPG progression"
+                      ]
+                    },
+                    {
+                      "n": "Frame",
+                      "c": [
+                        "Systems balance"
+                      ]
+                    },
+                    {
+                      "n": "Frame",
+                      "c": [
+                        "Minecraft modding"
+                      ]
+                    },
+                    {
+                      "n": "Frame",
+                      "c": [
+                        "Addon Development"
+                      ]
+                    },
+                    {
+                      "n": "Frame",
+                      "c": [
+                        "Scripting"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "n": "Media gallery",
+          "c": [
+            {
+              "n": "Frame",
+              "c": [
+                "Gallery"
+              ]
+            },
+            {
+              "n": "Gallery carousel",
+              "c": [
+                {
+                  "n": "Media rail",
+                  "c": [
+                    {
+                      "n": "Slide / neighbour left",
+                      "c": [
+                        {
+                          "n": "Media / replace with project artwork",
+                          "im": [
+                            "21ca426bfd437c8ea83f05079fad8ce378c3277c"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "n": "Current slide",
+                      "c": [
+                        {
+                          "n": "Media / replace with project artwork",
+                          "im": [
+                            "423c919db699049826e022193950d3f54458b713"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "n": "Slide / neighbour right",
+                      "c": [
+                        {
+                          "n": "Media / replace with project artwork",
+                          "im": [
+                            "24a970c69ea6a26b491098428f7fc3cbf103ae21"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "n": "End banners",
+          "c": [
+            {
+              "n": "Banner / BisectHosting",
+              "im": [
+                "50512c7f30a40fa2f52b652582e7ec6e4924cdae"
+              ],
+              "c": [
+                {
+                  "n": "Copy",
+                  "c": [
+                    {
+                      "n": "BH_BRANDING_horizontal_dark_wordmark 1",
+                      "im": [
+                        "2499df9dd61b6869e0b9c6839cee3a7dae0fa087"
+                      ]
+                    },
+                    "Play with friends.",
+                    "Use code “URMOM” to get 25% off your next purchase."
+                  ]
+                },
+                {
+                  "n": "Cta",
+                  "c": [
+                    "Get a Server"
+                  ]
+                }
+              ]
+            },
+            {
+              "n": "Banner / Kerberus",
+              "im": [
+                "8a6176a8ea01f9bfd46a9aa9e794e85b0cb52fc7",
+                "e7efd86df85ee2b6891e3898660b7709722565b2"
+              ],
+              "c": [
+                {
+                  "n": "Cta",
+                  "c": [
+                    "Check it out"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "372:2039",
+    "data": {
+      "n": "Case study / Poly Punch VR - Desktop 1440 - Draft",
+      "c": [
+        {
+          "n": "Media hero",
+          "im": [
+            "1fcff8c429de657049332afb77557eccf21bb355"
+          ],
+          "c": [
+            {
+              "n": "Tag / handle",
+              "c": [
+                "Poly Punch VR"
+              ]
+            }
+          ]
+        },
+        {
+          "n": "Contributions and project details",
+          "c": [
+            {
+              "n": "Frame",
+              "c": [
+                {
+                  "n": "Contributions",
+                  "c": [
+                    "A VR rhythm game built on an experimental Meta hand-tracking kit, extending a Beat-Saber-like prototype into a full combat-gesture design space.",
+                    "Contributions",
+                    "Designed the core loop and progression curve for controller-free combat using hand and palm poses.",
+                    "Built a functional prototype that uses a variety of hand poses to deal with specific challenges and tied it into a multiplier based score and combo system"
+                  ]
+                },
+                {
+                  "n": "Project details",
+                  "c": [
+                    {
+                      "n": "Role",
+                      "c": [
+                        "Role",
+                        "Game Designer and Developer"
+                      ]
+                    },
+                    {
+                      "n": "Team",
+                      "c": [
+                        "Team",
+                        "Smooth Brain Games"
+                      ]
+                    },
+                    {
+                      "n": "Development",
+                      "c": [
+                        "Development",
+                        "Unity 6 · VR · PC (Steam)"
+                      ]
+                    },
+                    {
+                      "n": "Period",
+                      "c": [
+                        "Period",
+                        "Jun 2024 – Jul 2024"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "n": "Skills",
+              "c": [
+                "Skills",
+                {
+                  "n": "Skill tags",
+                  "c": [
+                    {
+                      "n": "Frame",
+                      "c": [
+                        "Game design"
+                      ]
+                    },
+                    {
+                      "n": "Frame",
+                      "c": [
+                        "VR design"
+                      ]
+                    },
+                    {
+                      "n": "Frame",
+                      "c": [
+                        "Systems design"
+                      ]
+                    },
+                    {
+                      "n": "Frame",
+                      "c": [
+                        "Unity 6"
+                      ]
+                    },
+                    {
+                      "n": "Frame",
+                      "c": [
+                        "Technical art"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "n": "Media gallery",
+          "c": [
+            {
+              "n": "Frame",
+              "c": [
+                "Gallery"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "372:2379",
+    "data": {
+      "n": "Case study / Stick It - Desktop 1440 - Draft",
+      "c": [
+        {
+          "n": "Media hero",
+          "im": [
+            "931fa381cb04455a0beb3c2c35008dfe623712ff"
+          ],
+          "c": [
+            {
+              "n": "Tag / handle",
+              "c": [
+                "Stick It"
+              ]
+            }
+          ]
+        },
+        {
+          "n": "Contributions and project details",
+          "c": [
+            {
+              "n": "Frame",
+              "c": [
+                {
+                  "n": "Contributions",
+                  "c": [
+                    "A 2D stealth-action game where you play as Pedro, a farmer fighting back against a corrupt agri-corp and sneak past their goons to take back your farm",
+                    "Contributions",
+                    "Designed the stealth loop: detection cones, noise, distraction, and cover rules",
+                    "Designed guard AI across patrol, suspicion, and pursuit states",
+                    "Ran the team across art, programming, design, and UI on a seven-day deadline"
+                  ]
+                },
+                {
+                  "n": "Project details",
+                  "c": [
+                    {
+                      "n": "Role",
+                      "c": [
+                        "Role",
+                        "Project Manager · Game Designer · UI Designer"
+                      ]
+                    },
+                    {
+                      "n": "Team",
+                      "c": [
+                        "Team",
+                        "Knite Studios"
+                      ]
+                    },
+                    {
+                      "n": "Development",
+                      "c": [
+                        "Development",
+                        "Unity 6 · PC (itch.io)"
+                      ]
+                    },
+                    {
+                      "n": "Period",
+                      "c": [
+                        "Period",
+                        "Aug 2024 – Dec 2024"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "n": "Skills",
+              "c": [
+                "Skills",
+                {
+                  "n": "Skill tags",
+                  "c": [
+                    {
+                      "n": "Frame",
+                      "c": [
+                        "Game design"
+                      ]
+                    },
+                    {
+                      "n": "Frame",
+                      "c": [
+                        "Systems design"
+                      ]
+                    },
+                    {
+                      "n": "Frame",
+                      "c": [
+                        "UI design"
+                      ]
+                    },
+                    {
+                      "n": "Frame",
+                      "c": [
+                        "Project management"
+                      ]
+                    },
+                    {
+                      "n": "Frame",
+                      "c": [
+                        "Unity 6"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "n": "Media gallery",
+          "c": [
+            {
+              "n": "Frame",
+              "c": [
+                "Gallery"
+              ]
+            },
+            {
+              "n": "Gallery carousel",
+              "c": [
+                {
+                  "n": "Media rail",
+                  "c": [
+                    {
+                      "n": "Slide / neighbour left",
+                      "c": [
+                        {
+                          "n": "Media / replace with project artwork",
+                          "im": [
+                            "7ffa3b667a0a1e28e12eaa0184c1463acb3a2884"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "n": "Current slide",
+                      "c": [
+                        {
+                          "n": "Media / replace with project artwork",
+                          "im": [
+                            "2533e40e89d6316a089206309d046d9f9b71bdac"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "n": "Slide / neighbour right",
+                      "c": [
+                        {
+                          "n": "Media / replace with project artwork",
+                          "im": [
+                            "154b2eb41113a57b28fe16cc82f2e7ba14e86f8a"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

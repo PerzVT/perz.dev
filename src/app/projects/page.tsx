@@ -1,43 +1,59 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { SiteNav } from "@/components/site/site-nav";
 import { SiteFooter } from "@/components/site/site-footer";
-import { WorkCards } from "@/components/site/work-cards";
-import { getWorkCards } from "@/lib/content";
-
+import { featuredStudies } from "@/lib/portfolio";
+import { getProjects } from "@/lib/content";
 export const metadata: Metadata = {
-  title: "My work",
-  description:
-    "Shipped titles, jam builds, and the design work underneath them.",
+  title: "Work",
   alternates: { canonical: "/projects" },
 };
-
-/**
- * "My work" (Kerberus v2): a single dense grid of the full project set
- * (games + design), each card linking to its case study. Titus-style
- * intent, a uniform grid per the comp.
- */
-export default function WorkPage() {
-  const cards = getWorkCards();
-
+export default function Projects() {
+  const personal = getProjects().filter(
+    (p) => !featuredStudies.some((c) => c.slug === p.slug),
+  );
   return (
     <>
       <SiteNav />
-      <main id="main-content">
-        {/* Same shape as the home sections: display heading using the
-            font's width axis, then a lead line. */}
-        <header className="mx-auto max-w-[1160px] px-[clamp(20px,4vw,32px)] pt-[clamp(48px,8vh,80px)]">
-          <h1 className="pz-wordmark text-[clamp(34px,4.4vw,44px)] font-extrabold leading-[1.1] tracking-[-0.017em] text-pz-ink [animation:perzRise_.5s_var(--ease-out)_.05s_both]">
-            My work
-          </h1>
-          <p className="mt-3.5 max-w-[56ch] text-[20px] leading-[1.6] text-pz-ink2 [animation:perzRise_.5s_var(--ease-out)_.12s_both]">
-            My latest adventure has been working with the talented team at
-            Highstreet. I still make modded content on the side and enter
-            game-jams to keep things exciting!
-          </p>
+      <main className="pf-page" id="main-content">
+        <header className="pf-container pf-page-heading">
+          <h1>Work</h1>
         </header>
-        <div className="mx-auto max-w-[1160px] px-[clamp(20px,4vw,32px)] pb-[clamp(64px,9vh,96px)] pt-[clamp(28px,4vh,44px)]">
-          <WorkCards cards={cards} />
-        </div>
+        <section className="pf-container pf-section pf-project-grid">
+          {featuredStudies.map((p) => (
+            <article className="pf-project-card" key={p.slug}>
+              <Link href={`/projects/${p.slug}`}>
+                <img src={p.hero[0].src} alt={p.title} loading="lazy" />
+                <h2>{p.title}</h2>
+              </Link>
+              <p>{p.description}</p>
+              <Link className="pf-button" href={`/projects/${p.slug}`}>
+                Read More
+              </Link>
+            </article>
+          ))}
+        </section>
+        <section className="pf-container pf-section" id="sidequests">
+          <h2>Sidequests</h2>
+          <div className="pf-project-grid">
+            {personal.map((p) => (
+              <article className="pf-project-card" key={p.slug}>
+                {p.frontmatter.image && (
+                  <img
+                    src={p.frontmatter.image}
+                    alt={p.frontmatter.title}
+                    loading="lazy"
+                  />
+                )}
+                <h3>{p.frontmatter.title}</h3>
+                <p>{p.frontmatter.description}</p>
+                {!p.frontmatter.mediaOnly && (
+                  <Link href={`/projects/${p.slug}`}>Read More</Link>
+                )}
+              </article>
+            ))}
+          </div>
+        </section>
       </main>
       <SiteFooter />
     </>

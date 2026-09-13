@@ -23,7 +23,7 @@ const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
  *  - If RESEND_API_KEY is set, emails via the Resend REST API (no SDK
  *    dependency). Configure CONTACT_TO / CONTACT_FROM in env; `from` must
  *    be a Resend-verified sender.
- *  - Otherwise (staging default) logs and returns a mocked success, so the
+ *  - Otherwise (staging default) returns a delivery-unavailable error, so the
  *    form is fully exercisable before an email provider is wired.
  */
 export async function sendContact(data: ContactInput): Promise<ContactResult> {
@@ -39,10 +39,11 @@ export async function sendContact(data: ContactInput): Promise<ContactResult> {
 
   const key = process.env.RESEND_API_KEY;
   if (!key) {
-    console.info(
-      `[contact] (mock send, no RESEND_API_KEY) ${name} <${email}>: ${message.slice(0, 160)}`,
-    );
-    return { ok: true };
+    return {
+      ok: false,
+      error:
+        "Email delivery is unavailable. Please email hello@perz.dev directly.",
+    };
   }
 
   try {

@@ -1,24 +1,13 @@
 import type { Metadata } from "next";
-import { Archivo } from "next/font/google";
+
 import { SfxProvider } from "@/components/sfx-provider";
 import { ContentGuard } from "@/components/content-guard";
-import { SoundToggle } from "@/components/site/sound-toggle";
+
 import { SmoothScroll } from "@/components/site/smooth-scroll";
 import { siteConfig } from "@/lib/config";
+import { portfolio } from "@/lib/portfolio";
 import "./globals.css";
-
-/**
- * Archivo, the single font family for the site (Kerberus v2). Loaded as
- * a variable font with weight and width (`wdth`) axes, so the wordmark
- * can use `font-stretch: 122%` while body/headings vary weight. Exposed
- * as `--font-sans`.
- */
-const archivo = Archivo({
-  variable: "--font-sans",
-  subsets: ["latin"],
-  axes: ["wdth"],
-  display: "swap",
-});
+import "./portfolio.css";
 
 /* No mono font is loaded; numerals hold alignment with `tabular-nums`
    instead. `--font-mono` falls back to a system stack in globals.css if
@@ -31,10 +20,10 @@ export const metadata: Metadata = {
     default: SITE_TITLE,
     template: "%s · Perz",
   },
-  description: siteConfig.positioning,
+  description: portfolio.home.intro,
   openGraph: {
     title: SITE_TITLE,
-    description: siteConfig.positioning,
+    description: portfolio.home.intro,
     url: siteConfig.url,
     siteName: `${siteConfig.name}.dev`,
     locale: "en_US",
@@ -43,7 +32,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: SITE_TITLE,
-    description: siteConfig.positioning,
+    description: portfolio.home.intro,
   },
   metadataBase: new URL(siteConfig.url),
   alternates: { canonical: "/" },
@@ -59,11 +48,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={archivo.variable}
-      suppressHydrationWarning
-    >
+    <html lang="en" suppressHydrationWarning>
       <body className="min-h-screen antialiased">
         <script dangerouslySetInnerHTML={{ __html: JS_FLAG_SCRIPT }} />
         {/* Skip-to-content: first focusable element on every page. */}
@@ -77,7 +62,6 @@ export default function RootLayout({
         <ContentGuard />
         <SmoothScroll />
         {children}
-        <SoundToggle />
       </body>
     </html>
   );

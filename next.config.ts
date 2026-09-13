@@ -32,6 +32,8 @@ const CSP = [
 ].join("; ");
 
 const nextConfig: NextConfig = {
+  devIndicators: false,
+  agentRules: false,
   // Next 16 restricts images.qualities to [75] by default. The
   // highlight strip needs quality=90 (cover.png originals are 5MB+
   // photos that show artifacts at q=75). Both values stay listed so
@@ -49,7 +51,8 @@ const nextConfig: NextConfig = {
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
           {
             key: "Permissions-Policy",
-            value: "camera=(), microphone=(), geolocation=(), interest-cohort=()",
+            value:
+              "camera=(), microphone=(), geolocation=(), interest-cohort=()",
           },
           { key: "X-Frame-Options", value: "DENY" },
         ],

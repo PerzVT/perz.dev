@@ -91,6 +91,9 @@ export function ContactForm() {
         <span className="text-[13px] font-semibold text-pz-ink2">Name</span>
         <input
           type="text"
+          name="name"
+          autoComplete="name"
+          required
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="Your name"
@@ -109,9 +112,12 @@ export function ContactForm() {
         <span className="text-[13px] font-semibold text-pz-ink2">Email</span>
         <input
           type="email"
+          name="email"
+          autoComplete="email"
+          required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          placeholder="you@studio.com"
+          placeholder="you@example.com"
           aria-invalid={!!errors.email}
           aria-describedby={errors.email ? "err-email" : undefined}
           className={`${fieldBase} ${errors.email ? "border-pz-danger" : "border-pz-border2"}`}
@@ -126,9 +132,11 @@ export function ContactForm() {
       <label className="flex flex-col gap-[7px]">
         <span className="text-[13px] font-semibold text-pz-ink2">Message</span>
         <textarea
+          name="message"
+          required
           value={message}
           onChange={(e) => setMessage(e.target.value)}
-          placeholder="The team, the problem, the timeline…"
+          placeholder="Tell me about the project, role or question."
           rows={5}
           aria-invalid={!!errors.message}
           aria-describedby={errors.message ? "err-message" : undefined}

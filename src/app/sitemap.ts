@@ -3,6 +3,7 @@ import path from "path";
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/config";
 import { getProjects } from "@/lib/content";
+import { caseStudies } from "@/lib/portfolio";
 
 const contentDir = path.join(process.cwd(), "content");
 
@@ -25,10 +26,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // mediaOnly projects have no detail route (they 404), so they're
   // excluded here just as they are from generateStaticParams. Drafts
   // are already dropped by getProjects().
-  const projects = getProjects()
+  const legacyProjects = getProjects()
     .filter((p) => !p.frontmatter.mediaOnly)
     // Coming-soon pages are a placeholder sign-in with no content yet.
-    .filter((p) => p.frontmatter.status !== "coming-soon")
+    .filter(
+      (p) =>
+        p.frontmatter.status !== "coming-soon" &&
+        !caseStudies.some((c) => c.slug === p.slug),
+    )
     .map((p) => ({
       url: `${base}/projects/${p.slug}`,
       lastModified: projectMtime(p.slug, now),
@@ -36,6 +41,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     }));
 
+  const projects = [
+    ...legacyProjects,
+    ...caseStudies.map((p) => ({
+      url: `${base}/projects/${p.slug}`,
+      lastModified: fs.statSync(
+        path.join(contentDir, "portfolio", "pages.json"),
+      ).mtime,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
+  ];
   return [
     {
       url: base,
@@ -51,6 +67,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${base}/resume`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.6,
+    },
+    {
+      url: `${base}/contact`,
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.6,
