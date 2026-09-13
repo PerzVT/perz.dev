@@ -1,3 +1,4 @@
+import { Recommendations } from "@/components/portfolio/recommendations";
 import { SiteNav } from "@/components/site/site-nav";
 import { SiteFooter } from "@/components/site/site-footer";
 import {
@@ -58,23 +59,7 @@ export default function Home() {
           <h2>Experience</h2>
           <Experience rows={h.experience} />
         </section>
-        <section className="pf-container pf-section">
-          <h2>Recommendations</h2>
-          <div className="pf-quotes">
-            {h.quotes.map((q) => (
-              <article className="pf-quote" key={q.name}>
-                <blockquote>{q.quote}</blockquote>
-                <div className="pf-quote-author">
-                  <img src={q.image} alt="" loading="lazy" />
-                  <div>
-                    <p>{q.name}</p>
-                    <small>{q.role}</small>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
+        <Recommendations />
         <Banners items={h.banners} />
       </main>
       <SiteFooter />

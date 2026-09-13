@@ -4,6 +4,9 @@ export type Media = {
   src: string;
   alt: string;
   sourceHash?: string;
+  fit?: string;
+  background?: string;
+  crop?: number[][];
   video?: string;
 };
 export type BannerData = {

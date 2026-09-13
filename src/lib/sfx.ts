@@ -13,6 +13,23 @@ let master: GainNode | null = null;
 // Defaults to muted (server has no localStorage); hydrated client-side
 // via SfxProvider's call to hydrateSfxFromStorage().
 let muted = true;
+let volume = 0.5;
+const volumeListeners = new Set<() => void>();
+export const getAudioVolume = () => volume;
+export function onAudioVolumeChange(cb: () => void) {
+  volumeListeners.add(cb);
+  return () => {
+    volumeListeners.delete(cb);
+  };
+}
+export function setAudioVolume(value: number) {
+  volume = Math.max(0, Math.min(1, value));
+  if (master) master.gain.value = muted ? 0 : 0.08 * volume;
+  try {
+    localStorage.setItem("perz:audio-volume", String(volume));
+  } catch {}
+  volumeListeners.forEach((cb) => cb());
+}
 const listeners = new Set<(v: boolean) => void>();
 
 function getCtx(): AudioContext | null {
@@ -26,7 +43,7 @@ function getCtx(): AudioContext | null {
     if (!AC) return null;
     ctx = new AC();
     master = ctx.createGain();
-    master.gain.value = 0.08; // global UI volume
+    master.gain.value = 0.08 * volume; // global UI volume
     master.connect(ctx.destination);
   }
   // Resume if suspended (Safari)
@@ -36,6 +53,7 @@ function getCtx(): AudioContext | null {
 
 export function setSfxMuted(v: boolean) {
   muted = v;
+  if (master) master.gain.value = v ? 0 : 0.08 * volume;
   if (typeof window !== "undefined") {
     try {
       window.localStorage.setItem(STORAGE_KEY, v ? "1" : "0");
@@ -55,6 +73,9 @@ export function isSfxMuted() {
 export function hydrateSfxFromStorage() {
   if (typeof window === "undefined") return;
   try {
+    const savedVolume = localStorage.getItem("perz:audio-volume");
+    if (savedVolume !== null && Number.isFinite(Number(savedVolume)))
+      setAudioVolume(Number(savedVolume));
     const saved = window.localStorage.getItem(STORAGE_KEY);
     if (saved === "0") {
       muted = false;

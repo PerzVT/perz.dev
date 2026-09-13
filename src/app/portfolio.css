@@ -205,7 +205,8 @@ body {
   white-space: nowrap;
 }
 .pf-button:hover {
-  background: #096de8;
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 #04337c;
 }
 .pf-button:active {
   transform: translateY(3px);
@@ -859,8 +860,7 @@ body {
   color: var(--pf-secondary);
 }
 .pf-project-card a:hover {
-  text-decoration: underline;
-  text-underline-offset: 4px;
+  text-decoration: none;
 }
 :root[data-portfolio-theme="light"] .pf-header .pf-icon,
 :root[data-portfolio-theme="light"] .pf-footer .pf-icon {
@@ -1080,4 +1080,166 @@ body {
     transition: none !important;
     animation: none !important;
   }
+}
+
+/* Shared review corrections: preserve each authored media treatment. */
+.pf-media-image {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.pf-media-image > img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+}
+.pf-banner > .pf-media-image {
+  position: absolute;
+  inset: 0;
+}
+.pf-button:hover {
+  text-decoration: none;
+}
+.pf-project-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.pf-project-card > a:first-child {
+  width: 100%;
+}
+.pf-project-card > p {
+  flex: 1;
+  margin-bottom: 24px;
+}
+.pf-project-card .pf-icon {
+  width: 20px;
+  height: 20px;
+  aspect-ratio: auto;
+  border-radius: 0;
+}
+.pf-footer-intro {
+  text-align: center;
+}
+.pf-footer .pf-email,
+.pf-socials {
+  justify-content: center;
+}
+.pf-email {
+  gap: 12px;
+}
+.pf-copy {
+  background: #263440;
+  border-color: #647386;
+  color: #fff0d1;
+  gap: 10px;
+  box-shadow: 0 3px #18222c;
+  font-size: 15px;
+}
+.pf-copy:hover {
+  transform: translateY(2px);
+  box-shadow: 0 1px #18222c;
+}
+:root[data-portfolio-theme="light"] .pf-copy .pf-icon {
+  filter: none;
+}
+.pf-banner {
+  border-color: #6973bb;
+}
+.pf-banner h3 {
+  font-family: Fredoka, sans-serif;
+  font-size: 24px;
+}
+.pf-banner:nth-child(2) .pf-banner-logo {
+  width: 236px;
+  max-height: 109px;
+}
+.pf-banner:nth-child(2) > .pf-button {
+  background: #006657;
+  border-color: #219b80;
+  box-shadow: 0 4px #003c33;
+}
+.pf-banner:nth-child(2) > .pf-button:hover {
+  box-shadow: 0 1px #003c33;
+}
+.pf-letter {
+  grid-template-columns: 1fr;
+}
+.pf-letter article {
+  padding: 24px;
+}
+.pf-letter blockquote {
+  margin: 0;
+}
+.pf-letter article > p:last-child {
+  font-size: 24px;
+  margin: 16px 0 0;
+}
+.pf-audio-group {
+  position: relative;
+}
+.pf-volume-panel {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  padding: 20px 16px 16px;
+  width: 210px;
+  background: var(--pf-surface);
+  border: 2px solid var(--pf-border);
+  border-radius: 14px;
+  z-index: 100;
+  visibility: hidden;
+  opacity: 0;
+}
+.pf-audio-group:hover .pf-volume-panel,
+.pf-audio-group:focus-within .pf-volume-panel {
+  visibility: visible;
+  opacity: 1;
+}
+.pf-volume-panel label {
+  display: block;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+.pf-volume-panel input {
+  width: 100%;
+  accent-color: #168bf0;
+  cursor: pointer;
+}
+.pf-recommendation-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 24px;
+}
+.pf-recommendation-nav .pf-carousel-arrow {
+  position: static;
+  transform: none;
+  flex-shrink: 0;
+}
+.pf-recommendation-nav .pf-dots {
+  position: static;
+  margin: 0;
+}
+@media (max-width: 800px) {
+  .pf-recommendations .pf-quote:not(:first-child) {
+    display: none;
+  }
+  .pf-recommendation-nav {
+    gap: 8px;
+  }
+  .pf-footer .pf-email {
+    flex-wrap: wrap;
+  }
+  .pf-banner:nth-child(2) .pf-banner-logo {
+    max-width: 100%;
+  }
+}
+
+.pf-footer .pf-email > a {
+  font-size: 26px;
 }

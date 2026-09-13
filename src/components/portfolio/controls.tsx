@@ -1,7 +1,14 @@
 "use client";
 
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
-import { isSfxMuted, onSfxMuteChange, setSfxMuted } from "@/lib/sfx";
+import {
+  isSfxMuted,
+  onSfxMuteChange,
+  setSfxMuted,
+  getAudioVolume,
+  setAudioVolume,
+  onAudioVolumeChange,
+} from "@/lib/sfx";
 
 export function Icon({
   name,
@@ -24,16 +31,41 @@ export function Icon({
 
 export function AudioToggle() {
   const muted = useSyncExternalStore(onSfxMuteChange, isSfxMuted, () => true);
+  const volume = useSyncExternalStore(
+    onAudioVolumeChange,
+    getAudioVolume,
+    () => 0.5,
+  );
   return (
-    <button
-      className="pf-control pf-audio"
-      onClick={() => setSfxMuted(!muted)}
-      aria-label={muted ? "Enable all audio" : "Mute all audio"}
-      aria-pressed={!muted}
-    >
-      <Icon name="imgIconSound" />
-      {muted && <span className="pf-muted-mark" aria-hidden="true" />}
-    </button>
+    <div className="pf-audio-group">
+      <button
+        className="pf-control pf-audio"
+        onClick={() => setSfxMuted(!muted)}
+        aria-label={muted ? "Enable all audio" : "Mute all audio"}
+        aria-pressed={!muted}
+      >
+        <Icon name="imgIconSound" />
+        {muted && <span className="pf-muted-mark" aria-hidden="true" />}
+      </button>
+      <div className="pf-volume-panel">
+        <label htmlFor="global-volume">
+          Volume {Math.round(volume * 100)}%
+        </label>
+        <input
+          id="global-volume"
+          aria-label="Global audio volume"
+          type="range"
+          min="0"
+          max="1"
+          step="0.05"
+          value={volume}
+          onChange={(e) => {
+            setAudioVolume(Number(e.target.value));
+            setSfxMuted(Number(e.target.value) === 0);
+          }}
+        />
+      </div>
+    </div>
   );
 }
 
@@ -89,7 +121,7 @@ export function CopyEmail() {
   return (
     <div className="pf-email">
       <a href="mailto:hello@perz.dev">hello@perz.dev</a>
-      <button onClick={copy} className="pf-outline">
+      <button onClick={copy} className="pf-outline pf-copy">
         <Icon name="imgIconCopy" />
         {copied ? "Copied" : "Copy"}
       </button>
@@ -109,7 +141,11 @@ export function AmbientVideo({
   poster,
   alt,
   className = "",
+  fit = "cover",
+  background,
 }: {
+  fit?: string;
+  background?: string;
   src: string;
   poster: string;
   alt: string;
@@ -119,27 +155,17 @@ export function AmbientVideo({
   const [playing, setPlaying] = useState(false);
   const [ended, setEnded] = useState(false);
   const muted = useSyncExternalStore(onSfxMuteChange, isSfxMuted, () => true);
+  const volume = useSyncExternalStore(
+    onAudioVolumeChange,
+    getAudioVolume,
+    () => 0.5,
+  );
   useEffect(() => {
-    const video = ref.current;
-    if (!video) return;
-    const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
-    let attempted = false;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting && !attempted && !reduced) {
-          attempted = true;
-          video.muted = true;
-          void video.play().catch(() => {});
-        }
-      },
-      { threshold: 0.3 },
-    );
-    observer.observe(video);
-    return () => observer.disconnect();
-  }, []);
-  useEffect(() => {
-    if (ref.current) ref.current.muted = muted;
-  }, [muted]);
+    if (ref.current) {
+      ref.current.muted = muted;
+      ref.current.volume = volume;
+    }
+  }, [muted, volume]);
   function play() {
     const video = ref.current;
     if (!video) return;
@@ -157,6 +183,10 @@ export function AmbientVideo({
         ref={ref}
         src={src}
         poster={poster}
+        style={{
+          objectFit: fit === "contain" ? "contain" : "cover",
+          background,
+        }}
         preload="none"
         playsInline
         muted={muted}

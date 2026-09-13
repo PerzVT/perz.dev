@@ -27,7 +27,7 @@ export function SiteNav() {
             href="/projects"
             aria-current={pathname === "/projects" ? "page" : undefined}
           >
-            Work
+            Projects
           </Link>
           <Link href="/projects#sidequests">Sidequests</Link>
           <Link

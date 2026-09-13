@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { MediaImage } from "./media-image";
 import type {
   BannerData,
   CaseStudy,
@@ -42,12 +42,18 @@ export function Hero({
             src={video}
             poster={images[0].src}
             alt={`${title} reel`}
+            fit={images[0].fit}
+            background={images[0].background}
           />
         ) : (
           <img
             className="pf-hero-image"
             src={images[0].src}
             alt=""
+            style={{
+              objectFit: images[0].fit === "contain" ? "contain" : "cover",
+              background: images[0].background,
+            }}
             fetchPriority="high"
           />
         ))}
@@ -96,12 +102,9 @@ export function Banners({ items }: { items: BannerData[] }) {
     <section className="pf-container pf-banners">
       {items.map((b, i) => (
         <article className="pf-banner" key={i}>
-          <img
-            className="pf-banner-bg"
-            src={b.images[0]?.src}
-            alt=""
-            loading="lazy"
-          />
+          {b.images[0] && (
+            <MediaImage className="pf-banner-bg" media={b.images[0]} alt="" />
+          )}
           <div className="pf-banner-copy">
             {b.logo && (
               <img
@@ -189,7 +192,9 @@ export function CaseStudyBody({ project: p }: { project: CaseStudy }) {
         ) : (
           <section key={i} className="pf-container pf-section">
             <h2>{s.title}</h2>
-            <div className="pf-outcomes">
+            <div
+              className={`pf-outcomes ${s.title === "Word from Highstreet" ? "pf-letter" : ""}`}
+            >
               {s.cards.map((c, j) => (
                 <article key={j}>
                   {c.title.startsWith(String.fromCharCode(34)) ? (
@@ -212,14 +217,6 @@ export function CaseStudyBody({ project: p }: { project: CaseStudy }) {
         ),
       )}
       <Banners items={p.banners} />
-      {p.url && (
-        <div className="pf-container pf-project-link">
-          <Link className="pf-button" href={p.url}>
-            View {p.title}
-            <Icon name="imgIconArrow" />
-          </Link>
-        </div>
-      )}
     </>
   );
 }

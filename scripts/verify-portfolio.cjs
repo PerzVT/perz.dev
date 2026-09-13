@@ -7,7 +7,7 @@ const fs = require("fs");
   for (const width of [1440, 375]) {
     const context = await browser.newContext({
       viewport: { width, height: 1000 },
-      reducedMotion: "reduce",
+      reducedMotion: "no-preference",
     });
     const page = await context.newPage();
     const errors = [];
@@ -35,7 +35,75 @@ const fs = require("fs");
       const overflow = await page.evaluate(
         () => document.documentElement.scrollWidth > innerWidth,
       );
-      results.push({ width, route, status: response.status(), overflow });
+      const paused = await page
+        .locator("video")
+        .evaluateAll((videos) =>
+          videos.every((v) => v.paused && v.currentTime === 0),
+        );
+      results.push({
+        width,
+        route,
+        status: response.status(),
+        overflow,
+        paused,
+      });
+      if (route === "/") {
+        const rec = page.locator(".pf-recommendations");
+        const before = await rec.locator(".pf-quote").first().innerText();
+        await rec
+          .getByRole("button", { name: "Next recommendation", exact: true })
+          .click();
+        const changed =
+          before !== (await rec.locator(".pf-quote").first().innerText());
+        const count = await rec.locator(".pf-dots button").count();
+        await page.locator(".pf-audio").focus();
+        const slider = page.getByRole("slider", {
+          name: "Global audio volume",
+        });
+        await slider.fill("0.25");
+        const volume = await page
+          .locator("video")
+          .first()
+          .evaluate((v) => v.volume);
+        const centered = await page
+          .locator(".pf-footer .pf-email")
+          .evaluate(
+            (el) =>
+              Math.abs(
+                el.getBoundingClientRect().left +
+                  el.getBoundingClientRect().width / 2 -
+                  innerWidth / 2,
+              ) < 2,
+          );
+        results.push({
+          width,
+          recommendations: count,
+          recommendationChanges: changed,
+          volume,
+          footerCentered: centered,
+        });
+      }
+      if (route === "/projects/highstreet-calamity-vr") {
+        results.push({
+          width,
+          letterCards: await page.locator(".pf-letter article").count(),
+          inventedCta: await page.locator(".pf-project-link").count(),
+        });
+        await page
+          .locator(".pf-letter")
+          .screenshot({ path: `shots/portfolio/${width}-letter.png` });
+      }
+      if (route === "/projects") {
+        const button = page.locator(".pf-project-card .pf-button").first();
+        await button.hover();
+        results.push({
+          width,
+          buttonStyle: await button.evaluate((el) => ({
+            underline: getComputedStyle(el).textDecorationLine,
+            transform: getComputedStyle(el).transform,
+          })),
+        });
+      }
       if (["/", "/contact", "/projects/supercat"].includes(route)) {
         await page.evaluate(async () => {
           for (let y = 0; y < document.body.scrollHeight; y += 700) {
@@ -88,6 +156,12 @@ const fs = require("fs");
       (r) =>
         (r.status && r.status !== 200) ||
         r.overflow ||
+        r.paused === false ||
+        r.recommendationChanges === false ||
+        r.footerCentered === false ||
+        (r.volume !== undefined && r.volume !== 0.25) ||
+        (r.letterCards !== undefined && r.letterCards !== 1) ||
+        r.inventedCta > 0 ||
         r.carouselChanges === false ||
         (r.formErrors !== undefined && r.formErrors !== 3) ||
         r.errors?.length,

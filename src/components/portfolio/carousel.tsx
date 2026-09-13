@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useId, useRef, useState } from "react";
+import { MediaImage } from "./media-image";
 import type { Media } from "@/lib/portfolio";
 import { AmbientVideo, Icon } from "./controls";
 
@@ -38,14 +39,11 @@ export function Carousel({
         src={item.video}
         poster={item.src}
         alt={item.alt}
+        fit={item.fit}
+        background={item.background}
       />
     ) : (
-      <img
-        src={item.src}
-        alt={active ? item.alt : ""}
-        loading="lazy"
-        draggable={false}
-      />
+      <MediaImage media={item} alt={active ? item.alt : ""} />
     );
   }
   return (
