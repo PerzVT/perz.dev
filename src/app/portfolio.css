@@ -1463,3 +1463,26 @@ body {
     margin-left: 0;
   }
 }
+
+@media (min-width: 801px) {
+  .pf-carousel:not(.pf-carousel-compact) {
+    --pf-active-half: min(548px, calc((100vw - 160px) / 2));
+  }
+  .pf-carousel:not(.pf-carousel-compact) .pf-slide {
+    width: min(1096px, calc(100vw - 160px));
+  }
+  .pf-carousel:not(.pf-carousel-compact) .pf-prev {
+    left: calc(50% - var(--pf-active-half) - 64px);
+    right: auto;
+  }
+  .pf-carousel:not(.pf-carousel-compact) .pf-next {
+    right: calc(50% - var(--pf-active-half) - 64px);
+    left: auto;
+  }
+  .pf-carousel:not(.pf-carousel-compact) .pf-neighbour-left {
+    right: calc(50% + var(--pf-active-half) + 32px);
+  }
+  .pf-carousel:not(.pf-carousel-compact) .pf-neighbour-right {
+    left: calc(50% + var(--pf-active-half) + 32px);
+  }
+}
