@@ -133,12 +133,10 @@ body {
   margin-left: auto;
 }
 .pf-nav-links > a:hover {
-  text-decoration: underline;
-  text-underline-offset: 5px;
+  text-decoration: none;
 }
 .pf-nav-links > a[aria-current="page"] {
-  text-decoration: underline;
-  text-underline-offset: 5px;
+  text-decoration: none;
 }
 .pf-nav-controls {
   display: flex;
@@ -576,7 +574,7 @@ body {
   border-radius: 20px;
   object-fit: cover;
   box-shadow: 0 4px 0 #18222c;
-  transform: rotate(3deg);
+  transform: none;
 }
 .pf-experience {
   display: flex;
@@ -1150,7 +1148,7 @@ body {
   border-color: #6973bb;
 }
 .pf-banner h3 {
-  font-family: Fredoka, sans-serif;
+  font-family: "Lilita One", sans-serif;
   font-size: 24px;
 }
 .pf-banner:nth-child(2) .pf-banner-logo {
@@ -1180,34 +1178,6 @@ body {
 }
 .pf-audio-group {
   position: relative;
-}
-.pf-volume-panel {
-  position: absolute;
-  right: 0;
-  top: 100%;
-  padding: 20px 16px 16px;
-  width: 210px;
-  background: var(--pf-surface);
-  border: 2px solid var(--pf-border);
-  border-radius: 14px;
-  z-index: 100;
-  visibility: hidden;
-  opacity: 0;
-}
-.pf-audio-group:hover .pf-volume-panel,
-.pf-audio-group:focus-within .pf-volume-panel {
-  visibility: visible;
-  opacity: 1;
-}
-.pf-volume-panel label {
-  display: block;
-  font-size: 15px;
-  margin-bottom: 10px;
-}
-.pf-volume-panel input {
-  width: 100%;
-  accent-color: #168bf0;
-  cursor: pointer;
 }
 @media (max-width: 800px) {
   .pf-recommendations .pf-quote:not(:first-child) {
@@ -1240,8 +1210,7 @@ body {
 .pf-slide,
 .pf-quote,
 .pf-project-card,
-.pf-outcomes article,
-.pf-volume-panel {
+.pf-outcomes article {
   border: 2px solid var(--pf-border);
   box-shadow:
     inset 0 3px 0 var(--pf-panel-highlight),
@@ -1410,4 +1379,87 @@ body {
   }
 }
 
-:root[data-portfolio-theme="light"] .pf-carousel-arrow .pf-icon, :root[data-portfolio-theme="light"] .pf-copy .pf-icon { filter:brightness(0.25); }
+:root[data-portfolio-theme="light"] .pf-carousel-arrow .pf-icon,
+:root[data-portfolio-theme="light"] .pf-copy .pf-icon {
+  filter: brightness(0.25);
+}
+
+.pf-banner .pf-button,
+.pf-play {
+  font-family: "Lilita One", sans-serif;
+  font-size: 18px;
+}
+.pf-nav-links {
+  gap: 12px;
+}
+.pf-nav-links > a {
+  padding: 7px 10px;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  white-space: nowrap;
+}
+.pf-nav-links > a:hover {
+  background: var(--pf-quiet);
+  text-decoration: none;
+}
+.pf-nav-links > a[aria-current="page"] {
+  background: var(--pf-control-face);
+  border-color: var(--pf-control-rim);
+  box-shadow:
+    inset 0 2px 0 var(--pf-panel-highlight),
+    0 3px 0 var(--pf-panel-base);
+  text-decoration: none;
+}
+.pf-nav-links > .pf-outline {
+  border-color: var(--pf-control-rim);
+}
+.pf-rotation-toggle {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 32px;
+  height: 40px;
+  margin-left: 8px;
+  border: 0;
+  background: transparent;
+  color: var(--pf-secondary);
+  cursor: pointer;
+}
+.pf-rotation-toggle:hover {
+  color: var(--pf-text);
+}
+.pf-recommendations {
+  width: min(1096px, calc(100% - 160px));
+}
+.pf-recommendation-stage .pf-prev {
+  left: -64px;
+}
+.pf-recommendation-stage .pf-next {
+  right: -64px;
+}
+.pf-recommendation-stage .pf-carousel-arrow {
+  top: calc((100% - 72px) / 2 - 24px);
+  bottom: auto;
+}
+@media (max-width: 800px) {
+  .pf-nav-links {
+    gap: 4px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .pf-nav-links > a {
+    padding: 6px 8px;
+  }
+  .pf-recommendations {
+    width: calc(100% - 48px);
+  }
+  .pf-recommendation-stage .pf-carousel-arrow {
+    position: static;
+  }
+  .pf-rail-navigation {
+    gap: 4px;
+  }
+  .pf-rotation-toggle {
+    margin-left: 0;
+  }
+}

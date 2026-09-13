@@ -18,6 +18,7 @@ export function MediaImage({
           left: `${(-100 * t[0][2]) / t[0][0]}%`,
           top: `${(-100 * t[1][2]) / t[1][1]}%`,
           objectFit: "fill" as const,
+          maxWidth: "none",
         }
       : {};
   return (

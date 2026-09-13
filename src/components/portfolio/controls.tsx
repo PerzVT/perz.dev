@@ -6,7 +6,6 @@ import {
   onSfxMuteChange,
   setSfxMuted,
   getAudioVolume,
-  setAudioVolume,
   onAudioVolumeChange,
 } from "@/lib/sfx";
 
@@ -31,11 +30,6 @@ export function Icon({
 
 export function AudioToggle() {
   const muted = useSyncExternalStore(onSfxMuteChange, isSfxMuted, () => true);
-  const volume = useSyncExternalStore(
-    onAudioVolumeChange,
-    getAudioVolume,
-    () => 0.5,
-  );
   return (
     <div className="pf-audio-group">
       <button
@@ -47,24 +41,6 @@ export function AudioToggle() {
         <Icon name="imgIconSound" />
         {muted && <span className="pf-muted-mark" aria-hidden="true" />}
       </button>
-      <div className="pf-volume-panel">
-        <label htmlFor="global-volume">
-          Volume {Math.round(volume * 100)}%
-        </label>
-        <input
-          id="global-volume"
-          aria-label="Global audio volume"
-          type="range"
-          min="0"
-          max="1"
-          step="0.05"
-          value={volume}
-          onChange={(e) => {
-            setAudioVolume(Number(e.target.value));
-            setSfxMuted(Number(e.target.value) === 0);
-          }}
-        />
-      </div>
     </div>
   );
 }

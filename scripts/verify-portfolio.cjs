@@ -51,20 +51,16 @@ const fs = require("fs");
         const rec = page.locator(".pf-recommendations");
         const before = await rec.locator(".pf-quote").first().innerText();
         await rec
-          .getByRole("button", { name: "Next recommendations item", exact: true })
+          .getByRole("button", {
+            name: "Next recommendations item",
+            exact: true,
+          })
           .click();
         const changed =
           before !== (await rec.locator(".pf-quote").first().innerText());
         const count = await rec.locator(".pf-dots button").count();
-        await page.locator(".pf-audio").focus();
-        const slider = page.getByRole("slider", {
-          name: "Global audio volume",
-        });
-        await slider.fill("0.25");
-        const volume = await page
-          .locator("video")
-          .first()
-          .evaluate((v) => v.volume);
+        const sliderAbsent =
+          (await page.locator("#global-volume").count()) === 0;
         const centered = await page
           .locator(".pf-footer .pf-email")
           .evaluate(
@@ -79,7 +75,7 @@ const fs = require("fs");
           width,
           recommendations: count,
           recommendationChanges: changed,
-          volume,
+          sliderAbsent,
           footerCentered: centered,
         });
       }
@@ -159,7 +155,7 @@ const fs = require("fs");
         r.paused === false ||
         r.recommendationChanges === false ||
         r.footerCentered === false ||
-        (r.volume !== undefined && r.volume !== 0.25) ||
+        r.sliderAbsent === false ||
         (r.letterCards !== undefined && r.letterCards !== 1) ||
         r.inventedCta > 0 ||
         r.carouselChanges === false ||

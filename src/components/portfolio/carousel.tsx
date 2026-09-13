@@ -1,4 +1,5 @@
 "use client";
+import { useAutoAdvance } from "./use-auto-advance";
 import { RailNavigation } from "./rail-navigation";
 
 import Link from "next/link";
@@ -26,6 +27,7 @@ export function Carousel({
   compact?: boolean;
 }) {
   const [index, setIndex] = useState(Math.min(initial, items.length - 1));
+  const rotation = useAutoAdvance(items.length, setIndex);
   const id = useId();
   const touch = useRef<number | null>(null);
   if (!items.length) return null;
@@ -49,6 +51,7 @@ export function Carousel({
   }
   return (
     <div
+      ref={rotation.ref}
       className={`pf-carousel ${compact ? "pf-carousel-compact" : ""} ${featured ? "pf-carousel-featured" : ""}`}
       role="region"
       aria-roledescription="carousel"
@@ -133,13 +136,18 @@ export function Carousel({
       {items.length > 1 && (
         <>
           <RailNavigation
+            running={rotation.running}
+            onToggle={rotation.toggle}
             count={items.length}
             index={index}
             label={label}
             controls={id}
             onSelect={setIndex}
           />
-          <span className="sr-only" aria-live="polite">
+          <span
+            className="sr-only"
+            aria-live={rotation.running ? "off" : "polite"}
+          >
             {current.title || `${label} item ${index + 1}`}
           </span>
         </>

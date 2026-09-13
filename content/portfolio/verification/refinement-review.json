@@ -1,0 +1,46 @@
+[
+  {
+    "width": 1440,
+    "overflow": false,
+    "slider": false,
+    "photo": "none",
+    "sideArrow": true,
+    "home": true,
+    "active": {
+      "text": "Projects",
+      "decoration": "none",
+      "background": "rgb(38, 52, 64)"
+    }
+  },
+  {
+    "width": 1024,
+    "overflow": false,
+    "slider": false,
+    "photo": "none",
+    "sideArrow": true,
+    "home": true,
+    "active": {
+      "text": "Projects",
+      "decoration": "none",
+      "background": "rgb(38, 52, 64)"
+    }
+  },
+  {
+    "width": 375,
+    "overflow": false,
+    "slider": false,
+    "photo": "none",
+    "sideArrow": false,
+    "home": true,
+    "active": {
+      "text": "Projects",
+      "decoration": "none",
+      "background": "rgb(38, 52, 64)"
+    }
+  },
+  {
+    "autoAdvance": true,
+    "hoverPauses": true,
+    "focusPauses": true
+  }
+]

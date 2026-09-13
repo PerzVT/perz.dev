@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { useState } from "react";
 import { usePathname } from "next/navigation";
 import {
   AudioToggle,
@@ -9,6 +10,7 @@ import {
 
 export function SiteNav() {
   const pathname = usePathname();
+  const [sidequests, setSidequests] = useState(false);
   return (
     <header className="pf-header">
       <nav className="pf-container pf-nav" aria-label="Main navigation">
@@ -24,12 +26,32 @@ export function SiteNav() {
         </Link>
         <div className="pf-nav-links">
           <Link
+            href="/"
+            aria-current={pathname === "/" ? "page" : undefined}
+            onClick={() => setSidequests(false)}
+          >
+            Home
+          </Link>
+          <Link
+            onClick={() => setSidequests(false)}
             href="/projects"
-            aria-current={pathname === "/projects" ? "page" : undefined}
+            aria-current={
+              pathname.startsWith("/projects") && !sidequests
+                ? "page"
+                : undefined
+            }
           >
             Projects
           </Link>
-          <Link href="/projects#sidequests">Sidequests</Link>
+          <Link
+            href="/projects#sidequests"
+            onClick={() => setSidequests(true)}
+            aria-current={
+              pathname === "/projects" && sidequests ? "page" : undefined
+            }
+          >
+            Sidequests
+          </Link>
           <Link
             href="/resume"
             aria-current={pathname === "/resume" ? "page" : undefined}

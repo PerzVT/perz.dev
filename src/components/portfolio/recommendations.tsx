@@ -1,10 +1,12 @@
 "use client";
 import { useId, useState } from "react";
+import { useAutoAdvance } from "./use-auto-advance";
 import { RailNavigation } from "./rail-navigation";
 import quotes from "../../../content/recommendations.json";
 export function Recommendations() {
   const id = useId();
   const [index, setIndex] = useState(0);
+  const rotation = useAutoAdvance(quotes.length, setIndex);
   const move = (d: number) =>
     setIndex((i) => (i + d + quotes.length) % quotes.length);
   return (
@@ -19,7 +21,7 @@ export function Recommendations() {
       }}
     >
       <h2>Recommendations</h2>
-      <div className="pf-recommendation-stage">
+      <div className="pf-recommendation-stage" ref={rotation.ref}>
         <div className="pf-quotes" id={id}>
           {[0, 1, 2].map((offset) => {
             const q = quotes[(index + offset) % quotes.length];
@@ -38,6 +40,8 @@ export function Recommendations() {
           })}
         </div>
         <RailNavigation
+          running={rotation.running}
+          onToggle={rotation.toggle}
           count={quotes.length}
           index={index}
           label="Recommendations"
@@ -45,7 +49,7 @@ export function Recommendations() {
           onSelect={setIndex}
         />
       </div>
-      <span className="sr-only" aria-live="polite">
+      <span className="sr-only" aria-live={rotation.running ? "off" : "polite"}>
         Recommendation {index + 1} of {quotes.length}: {quotes[index].name}
       </span>
     </section>
