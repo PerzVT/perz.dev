@@ -1,5 +1,6 @@
 "use client";
 
+import aliases from "../../../content/portfolio/media-aliases.json";
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import {
   isSfxMuted,
@@ -19,7 +20,10 @@ export function Icon({
   return (
     <img
       className={`pf-icon ${className}`}
-      src={`/figma/${name}.svg`}
+      src={
+        (aliases as Record<string, string>)[`/figma/${name}.svg`] ||
+        `/figma/${name}.svg`
+      }
       alt=""
       aria-hidden="true"
       width={20}
@@ -97,9 +101,28 @@ export function CopyEmail() {
   return (
     <div className="pf-email">
       <a href="mailto:hello@perz.dev">hello@perz.dev</a>
-      <button onClick={copy} className="pf-outline pf-copy">
-        <Icon name="imgIconCopy" />
-        {copied ? "Copied" : "Copy"}
+      <button
+        onClick={copy}
+        className="pf-outline pf-copy"
+        data-copied={copied}
+      >
+        <span className="pf-copy-feedback" key={copied ? "copied" : "copy"}>
+          {copied ? (
+            <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+              <path
+                d="m4 10 4 4 8-8"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="3"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          ) : (
+            <Icon name="imgIconCopy" />
+          )}
+          {copied ? "Copied" : "Copy"}
+        </span>
       </button>
       <span className="sr-only" role="status">
         {copied

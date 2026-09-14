@@ -1,4 +1,5 @@
 "use client";
+import { useCarouselMotion } from "./use-carousel-motion";
 import { useAutoAdvance } from "./use-auto-advance";
 import { RailNavigation } from "./rail-navigation";
 
@@ -27,7 +28,8 @@ export function Carousel({
   compact?: boolean;
 }) {
   const [index, setIndex] = useState(Math.min(initial, items.length - 1));
-  const rotation = useAutoAdvance(items.length, setIndex);
+  const rotation = useAutoAdvance(items.length, setIndex, index);
+  useCarouselMotion(rotation.ref, index, items.length);
   const id = useId();
   const touch = useRef<number | null>(null);
   if (!items.length) return null;
@@ -71,6 +73,7 @@ export function Carousel({
     >
       <div
         className="pf-rail"
+        data-motion-rail
         onTouchStart={(e) => {
           touch.current = e.touches[0].clientX;
         }}

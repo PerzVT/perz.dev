@@ -1,3 +1,4 @@
+import mediaAliases from "./content/portfolio/media-aliases.json";
 import type { NextConfig } from "next";
 
 /**
@@ -40,6 +41,12 @@ const nextConfig: NextConfig = {
   // every other next/image call keeps working at the default.
   images: {
     qualities: [75, 90],
+  },
+  async rewrites() {
+    return Object.entries(mediaAliases).map(([source, destination]) => ({
+      source: source.replace(/[():*+?{}]/g, "\\$&"),
+      destination: encodeURI(destination),
+    }));
   },
   async headers() {
     return [

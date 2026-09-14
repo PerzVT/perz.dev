@@ -133,7 +133,7 @@
       "Hi, I'm Percy, a game designer and developer in Calgary. I've made games and gaming content since I was 15, starting with custom assets and mods for Roblox, Unturned, and Minecraft. I began in computer science, then earned a bachelor's in Media, Graphics and Animation, where I built my first game and trained as a product designer. I founded Draconia and Kerberus, gaming networks that have served over 400,000 players in the past five years. I created Mythcraft (play as demigods), Dragoncraft (play as dragons), and the Kerberus Network.",
       "✦ Shipped on Meta Quest, Itch.io, Curseforge, Roblox, Steam\n✦ Founded Kerberus, served over 750,000+ players since 2019·\n✦ Founded Smooth Brain Games, In Calgary with the help of Indie Ignition Accelerator"
     ],
-    "image": "/figma/a475d582d206e1736eb36c7acb5f5edf74f6f4d8.webp",
+    "image": "/home/about/a475d582d206e1736eb36c7acb5f5edf74f6f4d8.webp",
     "philosophy": "Designing mechanics that are easy to learn but difficult to master\n\nMy background in user experience and product design influences how I design. I love building out prototypes using a rapid-development pipeline that lets me test out the mechanic and game feel before committing to anything. This also eliminates any communication gaps between design and engineering. Iteration and user feedback shapes every single piece of design I make, I believe in simplicity and first principles method of design. If you cannot defend your idea, it was a stupid idea anyways. Every mechanic within the game plays a role in keeping the game running or brings out certain emotions within the player. If your idea fails to do either, it’s not a priority. \n\nI lead the vision through design, improve communication, and find fun through simplicity. I keep designs clear and grounded in strong core systems and well-structured data, and I break complex ideas into clean, functional experiences, aiming for clarity in the gameplay and the process behind it. If my design can be interpreted by different people as different things, I have failed at clearly communicating myself hence its a bad design.",
     "experience": [
       {
@@ -141,35 +141,35 @@
         "company": "Highstreet",
         "body": "Key contributor on Calamity VR, Echoes of Solera and Oren’s Adventures. Led design for multiple systems and developed internal authoring tools. Led design on UX/UI and defined the interaction language. Assisted with Unity implementation during prototyping.",
         "period": "Dec 2023 – Present",
-        "logo": "/resume/experience/c21d54bb686dd393294c3a81c80b527716f4f9d1.webp"
+        "logo": "/home/experience/c21d54bb686dd393294c3a81c80b527716f4f9d1.webp"
       },
       {
         "role": "Game Designer and Developer",
         "company": "Smooth Brain Games (prev. Knite Studios)",
         "body": "Designed and developed multiple games and prototypes, assisted with level design and systems design.",
         "period": "Sep 2022 – Apr 2025",
-        "logo": "/resume/experience/f833687939d74f6352893a6f19b2bcc2c9167a18.webp"
+        "logo": "/home/experience/f833687939d74f6352893a6f19b2bcc2c9167a18.webp"
       },
       {
         "role": "Designer",
         "company": "BisectHosting",
         "body": "Designed product and content for brand partners, campaigns, CurseForge projects, In-game assets, Major events, and company identity.",
         "period": "Apr 2022 – Dec 2023",
-        "logo": "/resume/experience/bc39db06e3144c901bfa1b0e535501f49c3a5168.webp"
+        "logo": "/home/experience/bc39db06e3144c901bfa1b0e535501f49c3a5168.webp"
       },
       {
         "role": "Graphic Designer",
         "company": "Sennovate",
         "body": "Designed Campaign and product design for a B2B security platform. Assisted with content strategy and production.",
         "period": "Jan 2022 – Mar 2022",
-        "logo": "/resume/experience/ac0d99662aed087116aa8cb8a0f808a9cf1790c2.webp"
+        "logo": "/home/experience/ac0d99662aed087116aa8cb8a0f808a9cf1790c2.webp"
       },
       {
         "role": "Senior Graphic Designer",
         "company": "Whiteboard Studios",
         "body": "Led branding and motion design campaigns for mid-market and enterprise clients. Assisted with art direction and production.",
         "period": "Jan 2020 – Jan 2021",
-        "logo": "/resume/experience/2044450f093bfd12fc061a115b0e23b081a96552.webp"
+        "logo": "/home/experience/2044450f093bfd12fc061a115b0e23b081a96552.webp"
       }
     ],
     "skills": [
@@ -260,7 +260,7 @@
   "contact": {
     "hero": [
       {
-        "src": "/contact/hero/dc5b9baf4c4ebbea949a7615324e89328e3bafe8.webp",
+        "src": "/home/hero/dc5b9baf4c4ebbea949a7615324e89328e3bafe8.webp",
         "alt": "Portfolio artwork, image 1",
         "sourceHash": "dc5b9baf4c4ebbea949a7615324e89328e3bafe8",
         "fit": "cover",
@@ -380,7 +380,7 @@
             ]
           }
         ],
-        "logo": "/contact/banners/2499df9dd61b6869e0b9c6839cee3a7dae0fa087.webp",
+        "logo": "/home/banners/2499df9dd61b6869e0b9c6839cee3a7dae0fa087.webp",
         "title": "Check out my games on Itch.io",
         "body": "",
         "label": "Browse games",
@@ -501,7 +501,7 @@
           "background": "#111418"
         },
         {
-          "src": "/projects/supercat/gallery/e9920b065ade58cbcee0bce964bc0d79c413f169.webp",
+          "src": "/projects/supercat/sections/02-weapons-and-player-state/e9920b065ade58cbcee0bce964bc0d79c413f169.webp",
           "alt": "Supercat, image 8",
           "sourceHash": "e9920b065ade58cbcee0bce964bc0d79c413f169",
           "fit": "contain",
@@ -681,7 +681,7 @@
           "background": "#171c20"
         },
         {
-          "src": "/projects/bisecthosting/gallery/404e19d28b03ba0bd815ff7e4e863663361c6086.webp",
+          "src": "/projects/bisecthosting/sections/01-branding-and-press-kits/404e19d28b03ba0bd815ff7e4e863663361c6086.webp",
           "alt": "BisectHosting, image 2",
           "sourceHash": "404e19d28b03ba0bd815ff7e4e863663361c6086",
           "fit": "cover",
@@ -721,7 +721,7 @@
           "background": "#111418"
         },
         {
-          "src": "/projects/bisecthosting/gallery/83054cbcf2d8e0d160a721fb57c9e365931f91cf.webp",
+          "src": "/projects/bisecthosting/sections/03-events/83054cbcf2d8e0d160a721fb57c9e365931f91cf.webp",
           "alt": "BisectHosting, image 6",
           "sourceHash": "83054cbcf2d8e0d160a721fb57c9e365931f91cf",
           "fit": "contain",
@@ -756,7 +756,7 @@
           "background": "#111418"
         },
         {
-          "src": "/projects/bisecthosting/gallery/d2cfed9f49cf0f771266773e6cbe9a8ec4c74fe0.webp",
+          "src": "/projects/bisecthosting/sections/04-across-the-brands/6cbe8a7e51bc112ecc916ef780211e4f2d030028.webp",
           "alt": "BisectHosting, image 11",
           "sourceHash": "d2cfed9f49cf0f771266773e6cbe9a8ec4c74fe0",
           "fit": "contain",
@@ -897,7 +897,7 @@
           "body": "Contributed towards the design and pre-production of key events, charities and gaming initiatives\nDesigned assets for in-game, promotional material and identity.\nPlayed a role during the events to coordinate and assist with behind-the-scenes work.",
           "media": [
             {
-              "src": "/projects/bisecthosting/sections/03-events/b177270db0f6577737cd69b3d5515d401cd15e2c.webp",
+              "src": "/projects/bisecthosting/sections/02-partner-projects/b177270db0f6577737cd69b3d5515d401cd15e2c.webp",
               "alt": "Events, image 1",
               "sourceHash": "b177270db0f6577737cd69b3d5515d401cd15e2c",
               "fit": "cover",
@@ -1003,7 +1003,7 @@
           "background": "#171c20"
         },
         {
-          "src": "/projects/highstreet-calamity-vr/gallery/855a35ebd1d457700b62def2820f36c370c85af7.webp",
+          "src": "/projects/highstreet-calamity-vr/sections/04-authoring-pipeline-and-systems/855a35ebd1d457700b62def2820f36c370c85af7.webp",
           "alt": "Highstreet: Calamity VR, image 4",
           "sourceHash": "855a35ebd1d457700b62def2820f36c370c85af7",
           "fit": "contain",
@@ -1024,7 +1024,7 @@
           "background": "#111418"
         },
         {
-          "src": "/projects/highstreet-calamity-vr/gallery/a26996d983047f82054072340fcf86d25dd923c9.webp",
+          "src": "/projects/highstreet-calamity-vr/sections/01-gesture-casting-and-ability-design/a26996d983047f82054072340fcf86d25dd923c9.webp",
           "alt": "Highstreet: Calamity VR, image 7",
           "sourceHash": "a26996d983047f82054072340fcf86d25dd923c9",
           "fit": "contain",
@@ -1323,7 +1323,7 @@
       ],
       "gallery": [
         {
-          "src": "/projects/bubble-buddy/gallery/580e6934e9d8d234d3571a2d3ddf04714210f642.webp",
+          "src": "/projects/bubble-buddy/sections/04-user-interface-and-animations/580e6934e9d8d234d3571a2d3ddf04714210f642.webp",
           "alt": "Bubble Buddy, image 1",
           "sourceHash": "580e6934e9d8d234d3571a2d3ddf04714210f642",
           "fit": "cover",
@@ -1337,14 +1337,14 @@
           "background": "#171c20"
         },
         {
-          "src": "/projects/bubble-buddy/gallery/de7489da004d850b2cdcb7a3efc80519301dbd79.webp",
+          "src": "/projects/bubble-buddy/sections/01-game-design-and-balancing/de7489da004d850b2cdcb7a3efc80519301dbd79.webp",
           "alt": "Bubble Buddy, image 3",
           "sourceHash": "de7489da004d850b2cdcb7a3efc80519301dbd79",
           "fit": "cover",
           "background": "#171c20"
         },
         {
-          "src": "/projects/bubble-buddy/gallery/e5bd8e17fc2602d99745769ba3f212cce4a476c1.webp",
+          "src": "/projects/bubble-buddy/sections/02-enemy-archetypes-and-behaviours/e5bd8e17fc2602d99745769ba3f212cce4a476c1.webp",
           "alt": "Bubble Buddy, image 4",
           "sourceHash": "e5bd8e17fc2602d99745769ba3f212cce4a476c1",
           "fit": "contain",
@@ -1588,14 +1588,14 @@
         {
           "images": [
             {
-              "src": "/projects/dragoncraft/banners/50512c7f30a40fa2f52b652582e7ec6e4924cdae.webp",
+              "src": "/home/banners/50512c7f30a40fa2f52b652582e7ec6e4924cdae.webp",
               "alt": "Banner / BisectHosting, image 1",
               "sourceHash": "50512c7f30a40fa2f52b652582e7ec6e4924cdae",
               "fit": "cover",
               "background": "#111418"
             }
           ],
-          "logo": "/projects/dragoncraft/banners/2499df9dd61b6869e0b9c6839cee3a7dae0fa087.webp",
+          "logo": "/home/banners/2499df9dd61b6869e0b9c6839cee3a7dae0fa087.webp",
           "title": "Play with friends.",
           "body": "Use code “URMOM” to get 25% off your next purchase.",
           "label": "Get a Server",
@@ -1604,7 +1604,7 @@
         {
           "images": [
             {
-              "src": "/projects/dragoncraft/banners/327d11da149ca9ca805978b32275482358fce0b1.webp",
+              "src": "/projects/dragoncraft/hero/327d11da149ca9ca805978b32275482358fce0b1.webp",
               "alt": "Banner / Kerberus, image 1",
               "sourceHash": "327d11da149ca9ca805978b32275482358fce0b1",
               "fit": "cover",
@@ -1623,7 +1623,7 @@
               ]
             },
             {
-              "src": "/projects/dragoncraft/banners/8efde7740a2ded957faceb89d4c5c26d50eb2c13.webp",
+              "src": "/figma/8efde7740a2ded957faceb89d4c5c26d50eb2c13.webp",
               "alt": "Banner / Kerberus, image 2",
               "sourceHash": "8efde7740a2ded957faceb89d4c5c26d50eb2c13",
               "fit": "cover",
@@ -1656,7 +1656,7 @@
       "description": "A single-player first-person horror game set in an haunted 1800s house. where the player explores, solve puzzles, and uncovers the house's dark history.",
       "hero": [
         {
-          "src": "/projects/lurk/hero/524cb0b55e2651ab800dcddc03bb1a7e068a1fdf.webp",
+          "src": "/projects/lurk/sections/01-core-loop/524cb0b55e2651ab800dcddc03bb1a7e068a1fdf.webp",
           "alt": "Lurk, image 1",
           "sourceHash": "524cb0b55e2651ab800dcddc03bb1a7e068a1fdf",
           "fit": "cover",
@@ -1696,14 +1696,14 @@
       ],
       "gallery": [
         {
-          "src": "/projects/lurk/gallery/8d0c5d698e25841993916be71831e80f2f32dfcd.webp",
+          "src": "/projects/lurk/sections/02-puzzles/8d0c5d698e25841993916be71831e80f2f32dfcd.webp",
           "alt": "Lurk, image 1",
           "sourceHash": "8d0c5d698e25841993916be71831e80f2f32dfcd",
           "fit": "cover",
           "background": "#171c20"
         },
         {
-          "src": "/projects/lurk/gallery/1e16cf196baaf2fc5241586a9bac3742aeb30491.webp",
+          "src": "/projects/lurk/sections/03-spacial-effects-and-lighting/1e16cf196baaf2fc5241586a9bac3742aeb30491.webp",
           "alt": "Lurk, image 2",
           "sourceHash": "1e16cf196baaf2fc5241586a9bac3742aeb30491",
           "fit": "cover",
@@ -1955,14 +1955,14 @@
         {
           "images": [
             {
-              "src": "/projects/mythcraft/banners/50512c7f30a40fa2f52b652582e7ec6e4924cdae.webp",
+              "src": "/home/banners/50512c7f30a40fa2f52b652582e7ec6e4924cdae.webp",
               "alt": "Banner / BisectHosting, image 1",
               "sourceHash": "50512c7f30a40fa2f52b652582e7ec6e4924cdae",
               "fit": "cover",
               "background": "#111418"
             }
           ],
-          "logo": "/projects/mythcraft/banners/2499df9dd61b6869e0b9c6839cee3a7dae0fa087.webp",
+          "logo": "/home/banners/2499df9dd61b6869e0b9c6839cee3a7dae0fa087.webp",
           "title": "Play with friends.",
           "body": "Use code “URMOM” to get 25% off your next purchase.",
           "label": "Get a Server",
@@ -1971,14 +1971,14 @@
         {
           "images": [
             {
-              "src": "/projects/mythcraft/banners/8a6176a8ea01f9bfd46a9aa9e794e85b0cb52fc7.webp",
+              "src": "/projects/mythcraft/hero/8a6176a8ea01f9bfd46a9aa9e794e85b0cb52fc7.webp",
               "alt": "Banner / Kerberus, image 1",
               "sourceHash": "8a6176a8ea01f9bfd46a9aa9e794e85b0cb52fc7",
               "fit": "cover",
               "background": "#111418"
             },
             {
-              "src": "/projects/mythcraft/banners/e7efd86df85ee2b6891e3898660b7709722565b2.webp",
+              "src": "/projects/mythcraft/hero/e7efd86df85ee2b6891e3898660b7709722565b2.webp",
               "alt": "Banner / Kerberus, image 2",
               "sourceHash": "e7efd86df85ee2b6891e3898660b7709722565b2",
               "fit": "cover",

@@ -22,12 +22,23 @@ export function SmoothScroll() {
 
     const onAnchorClick = (e: MouseEvent) => {
       const el = (e.target as Element | null)?.closest?.('a[href*="#"]');
-      if (!el || !lenis) return;
+      if (
+        !el ||
+        !lenis ||
+        e.metaKey ||
+        e.ctrlKey ||
+        e.shiftKey ||
+        e.altKey ||
+        e.button !== 0
+      )
+        return;
       const href = el.getAttribute("href") ?? "";
       const hash = href.startsWith("#") ? href : href.match(/#[\w-]+$/)?.[0];
       if (!hash || hash === "#") return;
       // Only intercept same-page anchors.
-      if (!href.startsWith("#") && !href.startsWith(location.pathname)) return;
+      const url = new URL(href, location.href);
+      if (url.origin !== location.origin || url.pathname !== location.pathname)
+        return;
       const target = document.querySelector(hash);
       if (!target) return;
       e.preventDefault();
@@ -38,7 +49,12 @@ export function SmoothScroll() {
     (async () => {
       const Lenis = (await import("lenis")).default;
       if (cancelled) return;
-      lenis = new Lenis({ duration: 1.05, smoothWheel: true });
+      lenis = new Lenis({
+        duration: 0.85,
+        smoothWheel: true,
+        syncTouch: false,
+        prevent: (node) => !!node.closest("textarea,[data-lenis-prevent]"),
+      });
       const raf = (time: number) => {
         lenis?.raf(time);
         rafId = requestAnimationFrame(raf);

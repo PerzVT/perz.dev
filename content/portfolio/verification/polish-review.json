@@ -1,0 +1,168 @@
+{
+  "results": [
+    {
+      "timerAdvances": true,
+      "timerPauses": true,
+      "animated": true,
+      "ghostsRemaining": 0
+    },
+    {
+      "width": 1440,
+      "slug": "",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "slug": "contact",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "slug": "resume",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "slug": "projects",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "slug": "projects/supercat",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "slug": "projects/bisecthosting",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "slug": "projects/highstreet-calamity-vr",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "slug": "projects/bubble-buddy",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "slug": "projects/dragoncraft",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "slug": "projects/lurk",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "slug": "projects/mythcraft",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "slug": "projects/poly-punch-vr",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "slug": "projects/stick-it",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "width": 375,
+      "slug": "",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "width": 375,
+      "slug": "contact",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "width": 375,
+      "slug": "resume",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "width": 375,
+      "slug": "projects",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "width": 375,
+      "slug": "projects/supercat",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "width": 375,
+      "slug": "projects/bisecthosting",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "width": 375,
+      "slug": "projects/highstreet-calamity-vr",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "width": 375,
+      "slug": "projects/bubble-buddy",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "width": 375,
+      "slug": "projects/dragoncraft",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "width": 375,
+      "slug": "projects/lurk",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "width": 375,
+      "slug": "projects/mythcraft",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "width": 375,
+      "slug": "projects/poly-punch-vr",
+      "status": 200,
+      "overflow": false
+    },
+    {
+      "width": 375,
+      "slug": "projects/stick-it",
+      "status": 200,
+      "overflow": false
+    }
+  ],
+  "errors": [],
+  "missingAliases": []
+}

@@ -1,8 +1,7 @@
 {
-  "files": 454,
+  "remaining_files": 278,
   "unique_exact_files": 278,
-  "extra_exact_copies": 176,
-  "extra_copy_bytes": 65475675,
-  "page_groups": 19,
-  "section_folders": 78
+  "removed_exact_copies": 176,
+  "removed_bytes": 65475675,
+  "remaining_exact_duplicates": 0
 }

@@ -6,7 +6,7 @@ The full folder inventory is `content/portfolio/media-sections.csv`. Empty folde
 
 ## Where the unique files are
 
-`content/portfolio/unique-media.csv` lists one canonical path per exact file. Prefer those paths when locating artwork. `duplicate-media.csv` lists every additional byte-identical copy. Files are not all unique within a single physical folder: `public/figma/` is the extracted Figma library, older `public/projects/` root files are original project media, and the page/section folders contain organized copies created for authoring. No additional media copies were created in this audit and no originals were deleted.
+`content/portfolio/unique-media.csv` lists the retained files. Exact duplicate copies have been removed and website references now point to the retained page/section asset. Shared artwork can be referenced by several sections without another physical copy. `content/portfolio/removed-duplicates.json` records each removal; `media-aliases.json` preserves old URLs through server rewrites. Empty section folders remain available for authoring.
 
 The audit compares file contents, not filenames. Different encodings, crops or resolutions of the same artwork can still appear separately. Reused art in two sections can intentionally share one file reference; it does not need another physical copy.
 

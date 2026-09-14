@@ -3,9 +3,11 @@ import type { Metadata } from "next";
 import { SfxProvider } from "@/components/sfx-provider";
 import { ContentGuard } from "@/components/content-guard";
 
+import { PagePolish } from "@/components/site/page-polish";
 import { SmoothScroll } from "@/components/site/smooth-scroll";
 import { siteConfig } from "@/lib/config";
 import { portfolio } from "@/lib/portfolio";
+import "lenis/dist/lenis.css";
 import "./globals.css";
 import "./portfolio.css";
 
@@ -61,6 +63,7 @@ export default function RootLayout({
         <SfxProvider />
         <ContentGuard />
         <SmoothScroll />
+        <PagePolish />
         {children}
       </body>
     </html>

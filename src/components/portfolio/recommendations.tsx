@@ -1,12 +1,14 @@
 "use client";
 import { useId, useState } from "react";
+import { useCarouselMotion } from "./use-carousel-motion";
 import { useAutoAdvance } from "./use-auto-advance";
 import { RailNavigation } from "./rail-navigation";
 import quotes from "../../../content/recommendations.json";
 export function Recommendations() {
   const id = useId();
   const [index, setIndex] = useState(0);
-  const rotation = useAutoAdvance(quotes.length, setIndex);
+  const rotation = useAutoAdvance(quotes.length, setIndex, index);
+  useCarouselMotion(rotation.ref, index, quotes.length);
   const move = (d: number) =>
     setIndex((i) => (i + d + quotes.length) % quotes.length);
   return (
@@ -22,7 +24,7 @@ export function Recommendations() {
     >
       <h2>Recommendations</h2>
       <div className="pf-recommendation-stage" ref={rotation.ref}>
-        <div className="pf-quotes" id={id}>
+        <div className="pf-quotes" data-motion-rail id={id}>
           {[0, 1, 2].map((offset) => {
             const q = quotes[(index + offset) % quotes.length];
             return (

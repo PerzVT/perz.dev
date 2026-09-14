@@ -38,7 +38,9 @@ export function RailNavigation({
             aria-controls={controls}
             onClick={() => onSelect(i)}
           >
-            <span />
+            <span className="pf-timer-track">
+              <i className="pf-timer-fill" />
+            </span>
           </button>
         ))}
       </div>
