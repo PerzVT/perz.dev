@@ -11,9 +11,9 @@
 .pf-carousel .pf-stable-track > .pf-track-card[data-active="true"] { opacity: 1; }
 .pf-carousel .pf-track-card:not([data-active="true"]) .pf-slide-caption { visibility: hidden; }
 .pf-carousel-compact .pf-stable-track > .pf-track-card { flex-basis: 100%; }
-.pf-recommendations .pf-quotes-track { gap: 24px; }
+.pf-recommendations .pf-quotes-track { gap: 32px; }
 .pf-recommendations .pf-quotes-track > .pf-track-quote {
-  display: flex; flex: 0 0 calc((100% - 48px) / 3); min-width: 0;
+  display: flex; flex: 0 0 calc((100% - 64px) / 3); min-width: 0;
 }
 @media (max-width: 800px) {
   .pf-carousel .pf-stable-track > .pf-track-card { flex-basis: calc(100vw - 48px); }

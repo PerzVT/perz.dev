@@ -6,3 +6,9 @@
 .pf-video > .pf-video-poster { pointer-events: none; }
 
 .pf-banner > .pf-banner-foreground { z-index: 1; pointer-events: none; }
+
+/* Artwork backing stays ink in both themes. */
+.pf-banner, .pf-about-photo { --pf-panel-base: #18222c; }
+@media (max-width: 800px) {
+  .pf-hero > .pf-hero-layer > img { height: auto !important; object-fit: contain !important; }
+}

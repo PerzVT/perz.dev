@@ -36,7 +36,7 @@ export function useCarouselMotion(ref: RefObject<HTMLDivElement | null>, index: 
       const to = `translateX(${offset(position.current)}px)`;
       track.style.transform = to;
       const current = track.animate([{ transform: from === "none" ? `translateX(${offset(canonical - delta)}px)` : from }, { transform: to }], {
-        duration: 420, easing: "cubic-bezier(0.22,1,0.36,1)", fill: "both",
+        duration: Math.min(900, 420 + Math.max(0, Math.abs(delta) - 1) * 90), easing: "cubic-bezier(0.22,1,0.36,1)", fill: "both",
       });
       animation.current = current;
       current.finished.then(() => { if (animation.current === current) settle(); }).catch(() => {});

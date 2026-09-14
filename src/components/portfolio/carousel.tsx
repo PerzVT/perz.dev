@@ -89,10 +89,11 @@ export function Carousel({
             const item = items[itemIndex];
             const active = slot === items.length + index;
             const sameImage = itemIndex === index;
+            const renderMedia = slot >= items.length - 2 && slot < items.length * 2 + 3;
             return <div key={slot} className={`pf-slide pf-track-card ${active ? "pf-current" : ""}`}
               data-active={sameImage} inert={!active} aria-hidden={!active}
               role="group" aria-roledescription="slide" aria-label={`${itemIndex + 1} of ${items.length}`}>
-              <div className="pf-slide-art">{artwork(item, active)}</div>
+              <div className="pf-slide-art">{renderMedia ? artwork(item, active) : null}</div>
               {featured && <div className="pf-slide-caption">
                 <div><h3>{item.title}</h3>{item.description && <p>{item.description}</p>}</div>
                 <div className="pf-actions">

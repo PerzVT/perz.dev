@@ -1,5 +1,7 @@
 "use client";
+import { useSyncExternalStore } from "react";
 import { Icon } from "./controls";
+const subscribeWidth = (notify: () => void) => { const q = matchMedia("(max-width: 800px)"); q.addEventListener("change", notify); return () => q.removeEventListener("change", notify); };
 export function RailNavigation({
   count,
   index,
@@ -13,10 +15,12 @@ export function RailNavigation({
   controls?: string;
   onSelect: (index: number) => void;
 }) {
+  const mobile = useSyncExternalStore(subscribeWidth, () => matchMedia("(max-width: 800px)").matches, () => false);
+  const limit = mobile ? 5 : 7;
   if (count < 2) return null;
-  const start = count > 7 ? Math.min(Math.max(index - 3, 0), count - 7) : 0;
+  const start = count > limit ? Math.min(Math.max(index - Math.floor(limit / 2), 0), count - limit) : 0;
   const positions = Array.from(
-    { length: Math.min(count, 7) },
+    { length: Math.min(count, limit) },
     (_, i) => start + i,
   );
   return (

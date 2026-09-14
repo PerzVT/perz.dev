@@ -35,7 +35,7 @@ export function Recommendations() {
               return <article className="pf-quote pf-track-quote" key={slot} inert={!visible} aria-hidden={!visible}
                 data-visible-offset={visible ? slot - quotes.length - index : -1}>
                 <blockquote>{q.quote}</blockquote>
-                <div className="pf-quote-author"><img src={q.avatar} alt="" loading="lazy" />
+                <div className="pf-quote-author">{slot >= quotes.length - 2 && slot < quotes.length * 2 + 3 ? <img src={q.avatar} alt="" loading="lazy" /> : <span className="pf-quote-avatar-placeholder" />}
                   <div><p>{q.name}</p><small>{q.title}</small></div>
                 </div>
               </article>;
