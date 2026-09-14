@@ -219,7 +219,7 @@ body {
 }
 .pf-hero {
   position: relative;
-  height: max(648px, calc(100vw * 0.494444 - 64px));
+  height: min(648px, 72svh);
   background: var(--pf-canvas);
   overflow: hidden;
   border-radius: 0 0 30px 30px;
