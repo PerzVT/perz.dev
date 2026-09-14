@@ -20,7 +20,7 @@ export const contentType = "image/png";
  * margin on the source PNG so it doesn't get clipped.
  */
 export default async function Image() {
-  const cover = await readFile(join(process.cwd(), "public", "cover-art.png"));
+  const cover = await readFile(join(process.cwd(), "public", "shared", "social", "cover-art.png"));
   // ImageResponse runs in the edge runtime where fs lives at build
   // time. The file is read once during prerender and inlined as a
   // base64 data URL so the runtime doesn't re-touch disk.

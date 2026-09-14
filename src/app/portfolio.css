@@ -18,7 +18,7 @@
   --pf-quiet: #171c20;
   --pf-text: #fff0d1;
   --pf-secondary: #b7bec6;
-  --pf-border: #596675;
+  --pf-border: #39424d;
   --pf-ink: #18222c;
   --pf-blue: #075bd4;
   --font-sans: Fredoka, sans-serif;
@@ -1196,7 +1196,7 @@ body {
 }
 
 :root {
-  --pf-panel-base: #080d12;
+  --pf-panel-base: #344351;
   --pf-panel-highlight: #ffffff12;
   --pf-control-face: #263440;
   --pf-control-rim: #738398;
@@ -1214,16 +1214,14 @@ body {
   border: 2px solid var(--pf-border);
   box-shadow:
     inset 0 3px 0 var(--pf-panel-highlight),
-    0 8px 0 var(--pf-panel-base),
-    0 9px 0 var(--pf-border);
+    0 8px 0 var(--pf-panel-base);
 }
 .pf-banner,
 .pf-about-photo {
   border: 3px solid var(--pf-border);
   box-shadow:
     inset 0 3px 0 #ffffff26,
-    0 9px 0 var(--pf-panel-base),
-    0 10px 0 var(--pf-border);
+    0 9px 0 var(--pf-panel-base);
 }
 .pf-banner:after {
   box-shadow: inset 0 3px 0 #ffffff26;
@@ -1578,3 +1576,10 @@ body {
 
 /* Preserve the original avatar shape with dark ink on cream. */
 :root[data-portfolio-theme="light"] .pf-avatar { filter: brightness(0) saturate(100%) invert(15%) sepia(12%) saturate(1020%) hue-rotate(164deg) brightness(94%) contrast(90%); }
+
+/* Primary action typography and solid, tactile bases are shared across pages. */
+.pf-button { font-family: "Lilita One", sans-serif; font-weight: 400; }
+.pf-feature-list { margin: 0; padding: 0; list-style: none; }
+.pf-feature-list li { display: grid; grid-template-columns: 12px minmax(0, 1fr); gap: 12px; margin: 0 0 12px; line-height: 1.55; }
+.pf-feature-list li:last-child { margin-bottom: 0; }
+.pf-feature-list li > span:first-child { font-size: 12px; padding-top: 5px; }

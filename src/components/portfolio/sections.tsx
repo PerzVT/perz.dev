@@ -185,7 +185,13 @@ export function CaseStudyBody({ project: p }: { project: CaseStudy }) {
             >
               <div className="pf-feature-copy">
                 <h2>{s.title}</h2>
-                <Paragraphs text={s.body} />
+                {s.body.includes("\n") ? (
+                  <ul className="pf-feature-list">
+                    {s.body.split(/\n+/).map(line => line.trim()).filter(Boolean).map((line, index) => (
+                      <li key={index}><span aria-hidden="true">✦</span><span>{line.replace(/^[•·✦]\s*/, "")}</span></li>
+                    ))}
+                  </ul>
+                ) : <Paragraphs text={s.body} />}
               </div>
               <Carousel items={s.media} compact label={s.title} />
             </div>

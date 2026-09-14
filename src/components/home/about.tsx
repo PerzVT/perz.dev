@@ -35,7 +35,7 @@ export function About() {
 
         <div className="relative aspect-[4/5] w-full max-w-[340px] flex-1 basis-[260px] overflow-hidden rounded-xl border border-pz-border bg-pz-surface">
           <Image
-            src="/percy.jpg"
+            src="/home/about/percy.jpg"
             alt="Percy"
             fill
             sizes="(min-width: 1160px) 340px, (min-width: 640px) 45vw, 100vw"

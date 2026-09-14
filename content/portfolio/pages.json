@@ -16,7 +16,7 @@
     ],
     "title": "Percy",
     "intro": "I'm a Game Designer and Developer who specializes in user experience and systems design with professional experience building PC and VR games. Get in touch if you would like to work together!",
-    "video": "/port.mp4",
+    "video": "/home/hero/port.mp4",
     "about": {
       "title": "About me",
       "body": "Percy is a game designer and developer based in Calgary, Alberta. He believes in subtractive design and the power of simplicity in systems.\n\nHe focuses on clear, straightforward goals that retain players through a strong engaging core loop with a focus towards rewarding design thru data and systems that provides a fair challenge.\n\nHe enjoys breaking complex ideas down into clean, functional experiences, always aiming for clarity in communication and design.\n\nOutside of work he is passionate about modding games and reverse engineering. \nHe founded Kerberus (2015) and Draconia (2021) , gaming networks that have served over 750,000 players till now. He created Mythcraft, Dragoncraft and contributes to numerous modding projects with in the curseforge space for games like Minecraft (Java) and Palworld.",
@@ -1622,7 +1622,7 @@
               ]
             },
             {
-              "src": "/figma/8efde7740a2ded957faceb89d4c5c26d50eb2c13.webp",
+              "src": "/shared/branding/8efde7740a2ded957faceb89d4c5c26d50eb2c13.webp",
               "alt": "Banner / Kerberus, image 2",
               "sourceHash": "8efde7740a2ded957faceb89d4c5c26d50eb2c13",
               "fit": "cover",

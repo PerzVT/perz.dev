@@ -17,7 +17,7 @@ export function SiteNav() {
         <Link className="pf-brand" href="/" aria-label="Percy, home">
           <img
             className="pf-avatar"
-            src="/figma/imgPercyAvatarSvg.svg"
+            src="/shared/branding/imgPercyAvatarSvg.svg"
             alt=""
             width={40}
             height={40}
