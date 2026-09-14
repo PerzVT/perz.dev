@@ -18,13 +18,13 @@ export function Recommendations() {
       tabIndex={0}
       onKeyDown={(e) => {
         if (e.target !== e.currentTarget) return;
-        if (e.key === "ArrowRight") move(1);
-        if (e.key === "ArrowLeft") move(-1);
+        if (e.key === "ArrowRight") { e.preventDefault(); move(1); }
+        if (e.key === "ArrowLeft") { e.preventDefault(); move(-1); }
       }}
     >
       <h2>Recommendations</h2>
       <div className="pf-recommendation-stage" ref={rotation.ref}>
-        <div className="pf-quotes" data-motion-rail id={id}>
+        <div className="pf-motion-viewport"><div className="pf-quotes" data-motion-rail id={id}>
           {[0, 1, 2].map((offset) => {
             const q = quotes[(index + offset) % quotes.length];
             return (
@@ -40,6 +40,7 @@ export function Recommendations() {
               </article>
             );
           })}
+        </div>
         </div>
         <RailNavigation
           count={quotes.length}

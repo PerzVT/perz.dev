@@ -14,7 +14,7 @@ import { useEffect } from "react";
  */
 export function SmoothScroll() {
   useEffect(() => {
-    if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) return;
+    const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
 
     let lenis: import("lenis").default | null = null;
     let rafId: number | null = null;
@@ -44,11 +44,17 @@ export function SmoothScroll() {
       e.preventDefault();
       lenis.scrollTo(target as HTMLElement, { offset: -72 });
       history.pushState(null, "", hash);
+      const focusTarget = target as HTMLElement;
+      if (!focusTarget.hasAttribute("tabindex")) {
+        focusTarget.setAttribute("tabindex", "-1");
+        focusTarget.addEventListener("blur", () => focusTarget.removeAttribute("tabindex"), { once: true });
+      }
+      focusTarget.focus({ preventScroll: true });
     };
 
-    (async () => {
+    const start = async () => {
       const Lenis = (await import("lenis")).default;
-      if (cancelled) return;
+      if (cancelled || preference.matches || lenis) return;
       lenis = new Lenis({
         duration: 0.85,
         smoothWheel: true,
@@ -61,10 +67,20 @@ export function SmoothScroll() {
       };
       rafId = requestAnimationFrame(raf);
       document.addEventListener("click", onAnchorClick);
-    })();
+    };
+    const change = () => {
+      if (preference.matches) {
+        if (rafId !== null) cancelAnimationFrame(rafId);
+        lenis?.destroy(); lenis = null;
+        document.removeEventListener("click", onAnchorClick);
+      } else void start();
+    };
+    preference.addEventListener("change", change);
+    void start();
 
     return () => {
       cancelled = true;
+      preference.removeEventListener("change", change);
       if (rafId !== null) cancelAnimationFrame(rafId);
       document.removeEventListener("click", onAnchorClick);
       lenis?.destroy();

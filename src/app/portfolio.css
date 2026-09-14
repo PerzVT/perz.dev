@@ -43,7 +43,7 @@
   --pf-quiet: #eee6d6;
   --pf-text: #26313a;
   --pf-secondary: #625b50;
-  --pf-border: #8a8070;
+  --pf-border: #c5bba8;
 }
 body {
   background: var(--pf-canvas);
@@ -188,7 +188,7 @@ body {
   padding: 9px 16px;
   min-height: 46px;
   border: 3px solid #168bf0;
-  border-radius: 14px;
+  border-radius: 16px;
   box-shadow: 0 4px 0 #04337c;
   background: #075bd4;
   color: #fff0d1;
@@ -821,7 +821,7 @@ body {
 .pf-contact-form form .pz-btn {
   background: #075bd4;
   border: 3px solid #168bf0;
-  border-radius: 14px;
+  border-radius: 16px;
   box-shadow: 0 4px #04337c;
   color: #fff0d1;
   min-height: 48px;
@@ -1196,7 +1196,7 @@ body {
 }
 
 :root {
-  --pf-panel-base: #344351;
+  --pf-panel-base: #18222c;
   --pf-panel-highlight: #ffffff12;
   --pf-control-face: #263440;
   --pf-control-rim: #738398;
@@ -1583,3 +1583,23 @@ body {
 .pf-feature-list li { display: grid; grid-template-columns: 12px minmax(0, 1fr); gap: 12px; margin: 0 0 12px; line-height: 1.55; }
 .pf-feature-list li:last-child { margin-bottom: 0; }
 .pf-feature-list li > span:first-child { font-size: 12px; padding-top: 5px; }
+
+/* Measured Home reference: component-specific type and media framing. */
+.pf-quote { font-size: 15px; line-height: 1.45; box-shadow: 0 6px 0 #111820; }
+.pf-quote-author p, .pf-quote-author small { font-size: 15px; line-height: 1.45; color: var(--pf-text); }
+:root[data-portfolio-theme="light"] .pf-quote { box-shadow: 0 6px 0 var(--pf-panel-base); }
+.pf-about-grid p { line-height: 1.45; }
+.pf-banner { border-color: #6973bb; }
+.pf-banner, .pf-about-photo { box-shadow: inset 0 2px 0 #ffffff38, 0 9px 0 1px var(--pf-panel-base); }
+.pf-button { font-size: 18px; line-height: 1.2; min-height: 48px; border-width: 4px; }
+
+
+.pf-home h2 { line-height: 1.2; }
+:root[data-portfolio-theme="light"] .pf-home .pf-about,
+:root[data-portfolio-theme="light"] .pf-footer {
+  --pf-text: #fff0d1; --pf-secondary: #e2d8c5; --pf-border: #6973bb;
+  --pf-control-face: #263440; --pf-control-rim: #738398; --pf-panel-base: #18222c;
+  color: var(--pf-text); background: #2f398e;
+}
+:root[data-portfolio-theme="light"] .pf-footer .pf-icon { filter: none; }
+.pf-motion-viewport { position: relative; overflow: clip; padding-bottom: 12px; margin-bottom: -12px; }

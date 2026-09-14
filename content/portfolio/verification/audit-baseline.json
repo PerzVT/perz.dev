@@ -1,0 +1,242 @@
+[
+  {
+    "theme": "dark",
+    "styles": {
+      ".pf-page": {
+        "font": "Fredoka, sans-serif",
+        "size": "18px",
+        "line": "27.9px",
+        "color": "rgb(255, 240, 209)",
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px solid rgba(255, 255, 255, 0.1)",
+        "shadow": "none",
+        "radius": "0px"
+      },
+      ".pf-page h2": {
+        "font": "\"Lilita One\", sans-serif",
+        "size": "28px",
+        "line": "35px",
+        "color": "rgb(255, 240, 209)",
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px solid rgba(255, 255, 255, 0.1)",
+        "shadow": "none",
+        "radius": "0px"
+      },
+      ".pf-button": {
+        "font": "\"Lilita One\", sans-serif",
+        "size": "18px",
+        "line": "25.2px",
+        "color": "rgb(255, 240, 209)",
+        "background": "rgb(7, 91, 212)",
+        "border": "3px solid rgb(22, 139, 240)",
+        "shadow": "rgba(255, 255, 255, 0.14) 0px 3px 0px 0px inset, rgb(4, 51, 124) 0px 6px 0px 0px, rgb(52, 67, 81) 0px 7px 0px 0px",
+        "radius": "14px"
+      },
+      ".pf-about-grid p": {
+        "font": "Fredoka, sans-serif",
+        "size": "15px",
+        "line": "23.25px",
+        "color": "rgb(255, 240, 209)",
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px solid rgba(255, 255, 255, 0.1)",
+        "shadow": "none",
+        "radius": "0px"
+      },
+      ".pf-quote": {
+        "font": "Fredoka, sans-serif",
+        "size": "16px",
+        "line": "24.8px",
+        "color": "rgb(255, 240, 209)",
+        "background": "rgb(26, 30, 36)",
+        "border": "2px solid rgb(57, 66, 77)",
+        "shadow": "rgba(255, 255, 255, 0.07) 0px 3px 0px 0px inset, rgb(52, 67, 81) 0px 8px 0px 0px",
+        "radius": "20px"
+      },
+      ".pf-quote-author small": {
+        "font": "Fredoka, sans-serif",
+        "size": "12px",
+        "line": "18.6px",
+        "color": "rgb(183, 190, 198)",
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px solid rgba(255, 255, 255, 0.1)",
+        "shadow": "none",
+        "radius": "0px"
+      },
+      ".pf-period": {
+        "font": "Fredoka, sans-serif",
+        "size": "13px",
+        "line": "19.5px",
+        "color": "rgb(183, 190, 198)",
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px solid rgba(255, 255, 255, 0.1)",
+        "shadow": "none",
+        "radius": "0px"
+      },
+      ".pf-banner": {
+        "font": "Fredoka, sans-serif",
+        "size": "18px",
+        "line": "27.9px",
+        "color": "rgb(255, 240, 209)",
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "3px solid rgb(57, 66, 77)",
+        "shadow": "rgba(255, 255, 255, 0.15) 0px 3px 0px 0px inset, rgb(52, 67, 81) 0px 9px 0px 0px",
+        "radius": "20px"
+      },
+      ".pf-slide": {
+        "font": "Fredoka, sans-serif",
+        "size": "18px",
+        "line": "27.9px",
+        "color": "rgb(255, 240, 209)",
+        "background": "rgb(26, 30, 36)",
+        "border": "2px solid rgb(57, 66, 77)",
+        "shadow": "rgba(255, 255, 255, 0.07) 0px 3px 0px 0px inset, rgb(52, 67, 81) 0px 8px 0px 0px",
+        "radius": "24px"
+      },
+      ".pf-footer": {
+        "font": "Fredoka, sans-serif",
+        "size": "15px",
+        "line": "21.75px",
+        "color": "rgb(255, 240, 209)",
+        "background": "rgb(23, 28, 32)",
+        "border": "0px solid rgba(255, 255, 255, 0.1)",
+        "shadow": "none",
+        "radius": "30px 30px 0px 0px"
+      },
+      ".pf-nav-links > a": {
+        "font": "Fredoka, sans-serif",
+        "size": "16px",
+        "line": "23.2px",
+        "color": "rgb(255, 240, 209)",
+        "background": "rgb(38, 52, 64)",
+        "border": "2px solid rgb(115, 131, 152)",
+        "shadow": "rgba(255, 255, 255, 0.07) 0px 2px 0px 0px inset, rgb(52, 67, 81) 0px 3px 0px 0px",
+        "radius": "12px"
+      }
+    },
+    "broken": [
+      "http://localhost:3100/reccomendations/matt.jpg",
+      "http://localhost:3100/reccomendations/aaron.jpg",
+      "http://localhost:3100/reccomendations/emma.jpg"
+    ]
+  },
+  {
+    "theme": "light",
+    "styles": {
+      ".pf-page": {
+        "font": "Fredoka, sans-serif",
+        "size": "18px",
+        "line": "27.9px",
+        "color": "rgb(38, 49, 58)",
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px solid rgba(255, 255, 255, 0.1)",
+        "shadow": "none",
+        "radius": "0px"
+      },
+      ".pf-page h2": {
+        "font": "\"Lilita One\", sans-serif",
+        "size": "28px",
+        "line": "35px",
+        "color": "rgb(38, 49, 58)",
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px solid rgba(255, 255, 255, 0.1)",
+        "shadow": "none",
+        "radius": "0px"
+      },
+      ".pf-button": {
+        "font": "\"Lilita One\", sans-serif",
+        "size": "18px",
+        "line": "25.2px",
+        "color": "rgb(255, 240, 209)",
+        "background": "rgb(7, 91, 212)",
+        "border": "3px solid rgb(22, 139, 240)",
+        "shadow": "rgba(255, 255, 255, 0.14) 0px 3px 0px 0px inset, rgb(4, 51, 124) 0px 6px 0px 0px, rgb(98, 91, 80) 0px 7px 0px 0px",
+        "radius": "14px"
+      },
+      ".pf-about-grid p": {
+        "font": "Fredoka, sans-serif",
+        "size": "15px",
+        "line": "23.25px",
+        "color": "rgb(38, 49, 58)",
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px solid rgba(255, 255, 255, 0.1)",
+        "shadow": "none",
+        "radius": "0px"
+      },
+      ".pf-quote": {
+        "font": "Fredoka, sans-serif",
+        "size": "16px",
+        "line": "24.8px",
+        "color": "rgb(38, 49, 58)",
+        "background": "rgb(255, 250, 240)",
+        "border": "2px solid rgb(138, 128, 112)",
+        "shadow": "rgba(255, 255, 255, 0.65) 0px 3px 0px 0px inset, rgb(98, 91, 80) 0px 8px 0px 0px",
+        "radius": "20px"
+      },
+      ".pf-quote-author small": {
+        "font": "Fredoka, sans-serif",
+        "size": "12px",
+        "line": "18.6px",
+        "color": "rgb(98, 91, 80)",
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px solid rgba(255, 255, 255, 0.1)",
+        "shadow": "none",
+        "radius": "0px"
+      },
+      ".pf-period": {
+        "font": "Fredoka, sans-serif",
+        "size": "13px",
+        "line": "19.5px",
+        "color": "rgb(98, 91, 80)",
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "0px solid rgba(255, 255, 255, 0.1)",
+        "shadow": "none",
+        "radius": "0px"
+      },
+      ".pf-banner": {
+        "font": "Fredoka, sans-serif",
+        "size": "18px",
+        "line": "27.9px",
+        "color": "rgb(255, 240, 209)",
+        "background": "rgba(0, 0, 0, 0)",
+        "border": "3px solid rgb(138, 128, 112)",
+        "shadow": "rgba(255, 255, 255, 0.15) 0px 3px 0px 0px inset, rgb(98, 91, 80) 0px 9px 0px 0px",
+        "radius": "20px"
+      },
+      ".pf-slide": {
+        "font": "Fredoka, sans-serif",
+        "size": "18px",
+        "line": "27.9px",
+        "color": "rgb(38, 49, 58)",
+        "background": "rgb(255, 250, 240)",
+        "border": "2px solid rgb(138, 128, 112)",
+        "shadow": "rgba(255, 255, 255, 0.65) 0px 3px 0px 0px inset, rgb(98, 91, 80) 0px 8px 0px 0px",
+        "radius": "24px"
+      },
+      ".pf-footer": {
+        "font": "Fredoka, sans-serif",
+        "size": "15px",
+        "line": "21.75px",
+        "color": "rgb(38, 49, 58)",
+        "background": "rgb(238, 230, 214)",
+        "border": "0px solid rgba(255, 255, 255, 0.1)",
+        "shadow": "none",
+        "radius": "30px 30px 0px 0px"
+      },
+      ".pf-nav-links > a": {
+        "font": "Fredoka, sans-serif",
+        "size": "16px",
+        "line": "23.2px",
+        "color": "rgb(38, 49, 58)",
+        "background": "rgb(226, 216, 197)",
+        "border": "2px solid rgb(98, 91, 80)",
+        "shadow": "rgba(255, 255, 255, 0.65) 0px 2px 0px 0px inset, rgb(98, 91, 80) 0px 3px 0px 0px",
+        "radius": "12px"
+      }
+    },
+    "broken": [
+      "http://localhost:3100/reccomendations/matt.jpg",
+      "http://localhost:3100/reccomendations/aaron.jpg",
+      "http://localhost:3100/reccomendations/emma.jpg"
+    ]
+  }
+]

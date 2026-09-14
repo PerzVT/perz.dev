@@ -28,7 +28,7 @@ export function useCarouselMotion(
             : -1;
     const card = rail.querySelector<HTMLElement>(".pf-current,.pf-quote");
     const distance =
-      (card?.getBoundingClientRect().width || rail.clientWidth) + 32;
+      (card?.getBoundingClientRect().width || rail.clientWidth) + (parseFloat(getComputedStyle(rail).columnGap) || 32);
     const ghost = old.node;
     ghost.removeAttribute("id");
     ghost.querySelectorAll("[id]").forEach((n) => n.removeAttribute("id"));
@@ -45,7 +45,7 @@ export function useCarouselMotion(
       zIndex: "3",
       margin: "0",
     });
-    root.appendChild(ghost);
+    (rail.parentElement?.classList.contains("pf-motion-viewport") ? rail.parentElement : root).appendChild(ghost);
     const options = {
       duration: 380,
       easing: "cubic-bezier(0.22, 1, 0.36, 1)",
