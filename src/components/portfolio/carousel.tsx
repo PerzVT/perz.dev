@@ -1,4 +1,5 @@
 "use client";
+import "./carousel-track.css";
 import { useCarouselMotion } from "./use-carousel-motion";
 import { useAutoAdvance } from "./use-auto-advance";
 import { RailNavigation } from "./rail-navigation";
@@ -28,10 +29,10 @@ export function Carousel({
   compact?: boolean;
 }) {
   const [index, setIndex] = useState(Math.min(initial, items.length - 1));
-  const rotation = useAutoAdvance(items.length, setIndex, index);
-  useCarouselMotion(rotation.ref, index, items.length);
+  const { ref, running } = useAutoAdvance(items.length, setIndex, index);
+  useCarouselMotion(ref, index, items.length);
   const id = useId();
-  const touch = useRef<number | null>(null);
+  const touch = useRef<{ x: number; y: number } | null>(null);
   if (!items.length) return null;
   const current = items[index];
   const move = (delta: number) =>
@@ -53,7 +54,7 @@ export function Carousel({
   }
   return (
     <div
-      ref={rotation.ref}
+      ref={ref}
       className={`pf-carousel ${compact ? "pf-carousel-compact" : ""} ${featured ? "pf-carousel-featured" : ""}`}
       role="region"
       aria-roledescription="carousel"
@@ -71,70 +72,37 @@ export function Carousel({
       }}
       tabIndex={0}
     >
-      <div
-        className="pf-rail"
-        data-motion-rail
-        onTouchStart={(e) => {
-          touch.current = e.touches[0].clientX;
-        }}
+      <div className="pf-rail pf-track-viewport" id={id}
+        onTouchStart={(e) => { touch.current = { x: e.touches[0].clientX, y: e.touches[0].clientY }; }}
+        onTouchCancel={() => { touch.current = null; }}
         onTouchEnd={(e) => {
-          if (touch.current !== null) {
-            const d = e.changedTouches[0].clientX - touch.current;
-            if (Math.abs(d) > 45) move(d < 0 ? 1 : -1);
-            touch.current = null;
+          if (touch.current) {
+            const dx = e.changedTouches[0].clientX - touch.current.x;
+            const dy = e.changedTouches[0].clientY - touch.current.y;
+            if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy) * 1.5) move(dx < 0 ? 1 : -1);
           }
-        }}
-      >
-        {!compact && items.length > 1 && (
-          <div
-            className="pf-slide pf-neighbour pf-neighbour-left"
-            aria-hidden="true"
-          >
-            <div className="pf-slide-art">
-              {artwork(items[(index - 1 + items.length) % items.length], false)}
-            </div>
-          </div>
-        )}
-        <div
-          className="pf-slide pf-current"
-          id={id}
-          role="group"
-          aria-roledescription="slide"
-          aria-label={`${index + 1} of ${items.length}`}
-        >
-          <div className="pf-slide-art">{artwork(current, true)}</div>
-          {featured && (
-            <div className="pf-slide-caption">
-              <div>
-                <h3>{current.title}</h3>
-                {current.description && <p>{current.description}</p>}
-              </div>
-              <div className="pf-actions">
-                {current.external && (
-                  <a className="pf-button" href={current.external}>
-                    {current.externalLabel || "View project"}
-                  </a>
-                )}
-                {current.href && (
-                  <Link className="pf-button" href={current.href}>
-                    <Icon name="imgIconArrow" />
-                    Read More
-                  </Link>
-                )}
-              </div>
-            </div>
-          )}
+          touch.current = null;
+        }}>
+        <div className="pf-stable-track" data-motion-track data-center="true">
+          {Array.from({ length: items.length * 3 }, (_, slot) => {
+            const itemIndex = slot % items.length;
+            const item = items[itemIndex];
+            const active = slot === items.length + index;
+            const sameImage = itemIndex === index;
+            return <div key={slot} className={`pf-slide pf-track-card ${active ? "pf-current" : ""}`}
+              data-active={sameImage} inert={!active} aria-hidden={!active}
+              role="group" aria-roledescription="slide" aria-label={`${itemIndex + 1} of ${items.length}`}>
+              <div className="pf-slide-art">{artwork(item, active)}</div>
+              {featured && <div className="pf-slide-caption">
+                <div><h3>{item.title}</h3>{item.description && <p>{item.description}</p>}</div>
+                <div className="pf-actions">
+                  {item.external && <a className="pf-button" href={item.external}>{item.externalLabel || "View project"}</a>}
+                  {item.href && <Link className="pf-button" href={item.href}><Icon name="imgIconArrow" />Read More</Link>}
+                </div>
+              </div>}
+            </div>;
+          })}
         </div>
-        {!compact && items.length > 1 && (
-          <div
-            className="pf-slide pf-neighbour pf-neighbour-right"
-            aria-hidden="true"
-          >
-            <div className="pf-slide-art">
-              {artwork(items[(index + 1) % items.length], false)}
-            </div>
-          </div>
-        )}
       </div>
       {items.length > 1 && (
         <>
@@ -147,7 +115,7 @@ export function Carousel({
           />
           <span
             className="sr-only"
-            aria-live={rotation.running ? "off" : "polite"}
+            aria-live={running ? "off" : "polite"}
           >
             {current.title || `${label} item ${index + 1}`}
           </span>

@@ -1,0 +1,64 @@
+{
+  "heroes": [
+    {
+      "slug": "bubble-buddy",
+      "authoredCrop": true,
+      "renderedCrop": {
+        "style": "object-fit:fill;width:118.49404253215337%;height:100%;left:-11.82382121946224%;top:0%;max-width:none",
+        "loaded": true
+      },
+      "logos": 0,
+      "autoplay": false
+    },
+    {
+      "slug": "dragoncraft",
+      "authoredCrop": true,
+      "renderedCrop": {
+        "style": "object-fit:fill;width:100%;height:113.81010949358918%;left:0%;top:-0.06840093985490941%;max-width:none",
+        "loaded": true
+      },
+      "logos": 1,
+      "autoplay": false
+    },
+    {
+      "slug": "mythcraft",
+      "authoredCrop": false,
+      "renderedCrop": {
+        "style": "object-fit:cover",
+        "loaded": true
+      },
+      "logos": 1,
+      "autoplay": false
+    },
+    {
+      "slug": "bisecthosting",
+      "authoredCrop": false,
+      "renderedCrop": {
+        "style": "object-fit:cover",
+        "loaded": true
+      },
+      "logos": 0,
+      "autoplay": false
+    }
+  ],
+  "themes": [
+    {
+      "theme": "dark",
+      "gradient": {
+        "fallback": "none",
+        "svg": true
+      },
+      "overflow": false
+    },
+    {
+      "theme": "light",
+      "gradient": {
+        "fallback": "none",
+        "svg": true
+      },
+      "overflow": false
+    }
+  ],
+  "errors": [],
+  "mobileOverflow": false
+}

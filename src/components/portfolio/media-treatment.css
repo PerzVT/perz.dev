@@ -1,0 +1,8 @@
+.pf-hero > .pf-media-image, .pf-video > .pf-video-poster { position: absolute; inset: 0; }
+.pf-hero > .pf-hero-layer { z-index: 2; pointer-events: none; }
+.pf-hero > .pf-hero-shade { background: none; }
+.pf-banner > .pf-banner-shade { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.pf-banner:after { background: none; }
+.pf-video > .pf-video-poster { pointer-events: none; }
+
+.pf-banner > .pf-banner-foreground { z-index: 1; pointer-events: none; }

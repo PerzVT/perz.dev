@@ -1,3 +1,5 @@
+import "./media-treatment.css";
+import { FigmaShade, bannerShade, heroShade } from "./media-shade";
 import { MediaImage } from "./media-image";
 import type {
   BannerData,
@@ -44,23 +46,15 @@ export function Hero({
             alt={`${title} reel`}
             fit={images[0].fit}
             background={images[0].background}
+            posterMedia={images[0]}
           />
         ) : (
-          <img
-            className="pf-hero-image"
-            src={images[0].src}
-            alt=""
-            style={{
-              objectFit: images[0].fit === "contain" ? "contain" : "cover",
-              background: images[0].background,
-            }}
-            fetchPriority="high"
-          />
+          <MediaImage className="pf-hero-image" media={images[0]} alt="" priority />
         ))}
-      {images.length > 1 && (
-        <img className="pf-hero-logo" src={images[1].src} alt="" />
-      )}
-      <div className="pf-hero-shade" />
+      <FigmaShade className="pf-hero-shade" {...heroShade(images[0]?.sourceHash, title)} />
+      {images.slice(1).map((media, i) => media.crop ? (
+        <MediaImage key={i} className="pf-hero-layer" media={{ ...media, background: "transparent" }} alt="" priority />
+      ) : <img key={i} className="pf-hero-logo" src={media.src} alt="" />)}
       <div className="pf-container pf-hero-copy">
         <h1>{title}</h1>
         {description && <p>{description}</p>}
@@ -103,9 +97,10 @@ export function Banners({ items }: { items: BannerData[] }) {
       {items.map((b, i) => (
         <article className="pf-banner" key={i}>
           {b.images.map((media, layer) => (
-            <MediaImage key={`${media.src}-${layer}`} className="pf-banner-bg"
+            <MediaImage key={`${media.src}-${layer}`} className={`pf-banner-bg ${layer > 0 && b.images.length === 2 ? "pf-banner-foreground" : ""}`}
               media={{ ...media, background: layer ? "transparent" : media.background }} alt="" />
           ))}
+          <FigmaShade className="pf-banner-shade" {...bannerShade(b.images[0]?.sourceHash)} />
           <div className="pf-banner-copy">
             {b.logo && (
               <img

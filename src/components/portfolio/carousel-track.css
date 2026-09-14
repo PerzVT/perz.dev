@@ -1,0 +1,25 @@
+/* The viewport clips moving artwork, while navigation stays outside it. */
+.pf-carousel .pf-track-viewport, .pf-recommendations .pf-track-viewport {
+  overflow: hidden; position: relative; padding: 4px 0 12px; min-width: 0;
+  touch-action: pan-y;
+}
+.pf-stable-track { display: flex; gap: 32px; position: relative; width: 100%; align-items: stretch; }
+.pf-carousel .pf-stable-track > .pf-track-card {
+  flex: 0 0 min(1096px, calc(100vw - 160px)); margin: 0; position: relative;
+  opacity: .45; transition: opacity 420ms cubic-bezier(.22,1,.36,1);
+}
+.pf-carousel .pf-stable-track > .pf-track-card[data-active="true"] { opacity: 1; }
+.pf-carousel .pf-track-card:not([data-active="true"]) .pf-slide-caption { visibility: hidden; }
+.pf-carousel-compact .pf-stable-track > .pf-track-card { flex-basis: 100%; }
+.pf-recommendations .pf-quotes-track { gap: 24px; }
+.pf-recommendations .pf-quotes-track > .pf-track-quote {
+  display: flex; flex: 0 0 calc((100% - 48px) / 3); min-width: 0;
+}
+@media (max-width: 800px) {
+  .pf-carousel .pf-stable-track > .pf-track-card { flex-basis: calc(100vw - 48px); }
+  .pf-carousel-compact .pf-stable-track > .pf-track-card { flex-basis: 100%; }
+  .pf-recommendations .pf-quotes-track > .pf-track-quote { flex-basis: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pf-carousel .pf-stable-track > .pf-track-card { transition: none; }
+}

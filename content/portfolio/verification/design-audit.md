@@ -29,7 +29,7 @@ The media migration missed content/recommendations.json. Physical alias targets 
 - Auto-rotation stops RAF while paused/offscreen; visibility requires30%; elapsed dwell resumes after pause. Actual rotation state is exposed.
 - Recommendation animation now clips within a dedicated viewport, leaving controls outside; measured gap replaces hardcoded32px for quotes.
 
-## Remaining findings — not claimed fixed
+## Findings at the end of the first audit pass (historical)
 
 1. Hero renderer still ignores some authored crop transforms and gives secondary hero artwork generic placement. Contact, Bubble Buddy, Dragoncraft and Mythcraft require targeted source comparison before changing composition.
 2. Banner protection gradient still differs from the authored blue radial treatment. Restore from exact gradient data, then visually check text over artwork; do not substitute another guessed gradient.
@@ -44,3 +44,18 @@ The media migration missed content/recommendations.json. Physical alias targets 
 No native screen-reader session or full WCAG certification. Text-over-artwork contrast requires rendered sampling; token contrast alone is insufficient. No new overall grade is assigned after these targeted fixes. A separate full re-audit is needed before increasing the baseline grades.
 
 See audit-baseline.json for measured pre-fix computed styles and audit-recheck.json for rendered page checks. Latest brand/user refinements override older Figma values where explicit: banner heading stays Lilita24; section bullets remain requested ✦; autoplay pause buttons remain removed.
+
+
+## Follow-up implementation
+
+The user requested the remaining implementation fixes. Items1,2,3,4 and6 above are now addressed:
+
+- Hero image and video-cover rendering uses the saved crop transforms. Authored secondary artwork is positioned as a full-shell transparent layer, not a generic logo box. Four affected project heroes checked: all loaded, no autoplay, correct secondary layers.
+- Exact Figma normalized gradient transforms are inverted into SVG gradients. Home promotional banners use blue radial protection; contact banners retain charcoal. BisectHosting retains its distinct linear hero fade. Browser confirms no leftover charcoal CSS overlay in either theme.
+- Real persistent carousel tracks replace cloned snapshots. Repeated end sets support continuous wraps; hidden slides are inert. Both wrap directions, rapid clicks, dot navigation, reduced motion and compact media checked in Edge.
+- Touch handlers require horizontal intent and clear on cancellation.
+- Removed28 superseded declarations and14 obsolete/empty CSS rules without reordering the cascade.39 computed properties compared across12 page/theme/viewport combinations with zero changes.
+
+The existing no-pause-button decision remains unchanged; system reduced motion and hover/focus pausing are supported. Sidequest design completion remains outside these corrections. Baseline grades are retained as historical evidence, not presented as a post-fix grade or accessibility certification.
+
+Integrated production build:23 routes passed. Final browser evidence: remaining-fixes.json. No browser errors or overflow on tested desktop/light/dark/mobile views.

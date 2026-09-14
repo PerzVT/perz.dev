@@ -129,14 +129,7 @@ body {
 .pf-nav-links {
   display: flex;
   align-items: center;
-  gap: 32px;
   margin-left: auto;
-}
-.pf-nav-links > a:hover {
-  text-decoration: none;
-}
-.pf-nav-links > a[aria-current="page"] {
-  text-decoration: none;
 }
 .pf-nav-controls {
   display: flex;
@@ -186,7 +179,6 @@ body {
   justify-content: center;
   gap: 8px;
   padding: 9px 16px;
-  min-height: 46px;
   border: 3px solid #168bf0;
   border-radius: 16px;
   box-shadow: 0 4px 0 #04337c;
@@ -410,7 +402,6 @@ body {
 }
 .pf-neighbour {
   position: absolute;
-  top: 0;
   opacity: 0.45;
   pointer-events: none;
 }
@@ -512,7 +503,6 @@ body {
   aspect-ratio: 628/354;
   padding: 0;
   border-radius: 20px;
-  overflow: hidden;
 }
 .pf-carousel-compact .pf-slide-art {
   border-radius: 18px;
@@ -521,12 +511,6 @@ body {
   width: 40px;
   height: 40px;
   top: calc((100% - 60px) / 2 - 20px);
-}
-.pf-carousel-compact .pf-prev {
-  left: 12px;
-}
-.pf-carousel-compact .pf-next {
-  right: 12px;
 }
 .pf-outcomes {
   display: grid;
@@ -566,7 +550,6 @@ body {
 }
 .pf-about-grid p {
   font-size: 15px;
-  line-height: 1.55;
 }
 .pf-about-photo {
   width: 100%;
@@ -630,8 +613,6 @@ body {
   flex-direction: column;
   justify-content: space-between;
   gap: 32px;
-  font-size: 16px;
-  line-height: 1.55;
 }
 .pf-quote blockquote {
   margin: 0;
@@ -710,11 +691,6 @@ body {
   line-height: 1.4;
   margin: 0;
 }
-.pf-banner:nth-child(2) > .pf-button {
-  background: #237c48;
-  border-color: #46b474;
-  box-shadow: 0 4px #154d2e;
-}
 .pf-footer {
   border-radius: 30px 30px 0 0;
   background: var(--pf-quiet);
@@ -734,7 +710,6 @@ body {
 .pf-email {
   display: flex;
   align-items: center;
-  gap: 16px;
   flex-wrap: wrap;
 }
 .pf-email > a {
@@ -900,9 +875,7 @@ body {
   .pf-nav-links {
     order: 3;
     width: 100%;
-    justify-content: space-between;
     font-size: 15px;
-    gap: 10px;
   }
   .pf-nav-controls {
     margin-left: auto;
@@ -1132,7 +1105,6 @@ body {
 .pf-copy {
   background: #263440;
   border-color: #647386;
-  color: #fff0d1;
   gap: 10px;
   box-shadow: 0 3px #18222c;
   font-size: 15px;
@@ -1144,9 +1116,6 @@ body {
 :root[data-portfolio-theme="light"] .pf-copy .pf-icon {
   filter: none;
 }
-.pf-banner {
-  border-color: var(--pf-border);
-}
 .pf-banner h3 {
   font-family: "Lilita One", sans-serif;
   font-size: 24px;
@@ -1154,11 +1123,6 @@ body {
 .pf-banner:nth-child(2) .pf-banner-logo {
   width: 236px;
   max-height: 109px;
-}
-.pf-banner:nth-child(2) > .pf-button {
-  background: #006657;
-  border-color: #219b80;
-  box-shadow: 0 4px #003c33;
 }
 .pf-banner:nth-child(2) > .pf-button:hover {
   box-shadow: 0 1px #003c33;
@@ -1219,9 +1183,6 @@ body {
 .pf-banner,
 .pf-about-photo {
   border: 3px solid var(--pf-border);
-  box-shadow:
-    inset 0 3px 0 #ffffff26,
-    0 9px 0 var(--pf-panel-base);
 }
 .pf-banner:after {
   box-shadow: inset 0 3px 0 #ffffff26;
@@ -1326,7 +1287,6 @@ body {
   min-height: 48px;
 }
 .pf-rail-navigation .pf-dots button {
-  width: 24px;
   height: 44px;
   padding: 0;
   flex-shrink: 0;
@@ -1336,12 +1296,6 @@ body {
   height: 48px;
   top: calc((100% - 72px) / 2 - 24px);
   bottom: auto;
-}
-.pf-recommendation-stage .pf-prev {
-  left: -72px;
-}
-.pf-recommendation-stage .pf-next {
-  right: -72px;
 }
 .pf-carousel-compact .pf-prev {
   left: 12px;
@@ -1362,15 +1316,9 @@ body {
   }
 }
 @media (max-width: 800px) {
-  .pf-rail-navigation {
-    gap: 8px;
-  }
   .pf-rail-navigation .pf-carousel-arrow {
     position: static;
     flex-shrink: 0;
-  }
-  .pf-rail-navigation .pf-dots button {
-    width: 20px;
   }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -1413,21 +1361,6 @@ body {
 .pf-nav-links > .pf-outline {
   border-color: var(--pf-control-rim);
 }
-.pf-rotation-toggle {
-  display: grid;
-  place-items: center;
-  flex: none;
-  width: 32px;
-  height: 40px;
-  margin-left: 8px;
-  border: 0;
-  background: transparent;
-  color: var(--pf-secondary);
-  cursor: pointer;
-}
-.pf-rotation-toggle:hover {
-  color: var(--pf-text);
-}
 .pf-recommendations {
   width: min(1096px, calc(100% - 160px));
 }
@@ -1458,9 +1391,6 @@ body {
   }
   .pf-rail-navigation {
     gap: 4px;
-  }
-  .pf-rotation-toggle {
-    margin-left: 0;
   }
 }
 

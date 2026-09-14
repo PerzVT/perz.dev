@@ -1,4 +1,6 @@
 "use client";
+import { MediaImage } from "./media-image";
+import type { Media } from "@/lib/portfolio";
 
 import aliases from "../../../content/portfolio/media-aliases.json";
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
@@ -141,8 +143,10 @@ export function AmbientVideo({
   alt,
   className = "",
   fit = "cover",
+  posterMedia,
   background,
 }: {
+  posterMedia?: Media;
   fit?: string;
   background?: string;
   src: string;
@@ -197,6 +201,7 @@ export function AmbientVideo({
           setEnded(true);
         }}
       />
+      {posterMedia && !playing && !ended && <MediaImage className="pf-video-poster" media={posterMedia} alt="" priority />}
       <button
         className="pf-button pf-play"
         onClick={play}

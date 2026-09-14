@@ -4,10 +4,12 @@ export function MediaImage({
   media,
   alt,
   className = "",
+  priority = false,
 }: {
   media: Media;
   alt?: string;
   className?: string;
+  priority?: boolean;
 }) {
   const t = media.crop;
   const crop =
@@ -29,7 +31,8 @@ export function MediaImage({
       <img
         src={media.src}
         alt={alt ?? media.alt}
-        loading="lazy"
+        loading={priority ? "eager" : "lazy"}
+        fetchPriority={priority ? "high" : undefined}
         draggable={false}
         style={{
           objectFit: (media.fit || "contain") as CSSProperties["objectFit"],
