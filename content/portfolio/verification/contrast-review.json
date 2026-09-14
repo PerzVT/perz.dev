@@ -1,0 +1,132 @@
+{
+  "themes": {
+    "dark": {
+      "colors": {
+        "canvas": "#111418",
+        "surface": "#1a1e24",
+        "quiet": "#171c20",
+        "text": "#fff0d1",
+        "secondary": "#b7bec6",
+        "border": "#596675",
+        "panel-base": "#080d12",
+        "control-face": "#263440",
+        "control-rim": "#738398"
+      },
+      "luminance": {
+        "canvas": 0.0069,
+        "surface": 0.0128,
+        "quiet": 0.0112,
+        "text": 0.8818,
+        "secondary": 0.5097,
+        "border": 0.1291,
+        "panel-base": 0.0038,
+        "control-face": 0.0324,
+        "control-rim": 0.2214
+      },
+      "contrast": {
+        "textCanvas": 16.39,
+        "textSurface": 14.85,
+        "secondarySurface": 8.92,
+        "neutralControl": 11.31,
+        "controlBoundary": 3.29,
+        "panelEdge": 2.85,
+        "depthFace": 1.17,
+        "blueButton": 5.39,
+        "greenButton": 6.13
+      }
+    },
+    "light": {
+      "colors": {
+        "canvas": "#f6f0e3",
+        "surface": "#fffaf0",
+        "quiet": "#eee6d6",
+        "text": "#26313a",
+        "secondary": "#625b50",
+        "border": "#8a8070",
+        "panel-base": "#625b50",
+        "control-face": "#e2d8c5",
+        "control-rim": "#625b50"
+      },
+      "luminance": {
+        "canvas": 0.8746,
+        "surface": 0.9592,
+        "quiet": 0.7963,
+        "text": 0.0291,
+        "secondary": 0.1066,
+        "border": 0.2201,
+        "panel-base": 0.1066,
+        "control-face": 0.6931,
+        "control-rim": 0.1066
+      },
+      "contrast": {
+        "textCanvas": 11.68,
+        "textSurface": 12.75,
+        "secondarySurface": 6.45,
+        "neutralControl": 9.39,
+        "controlBoundary": 4.75,
+        "panelEdge": 3.74,
+        "depthFace": 6.45,
+        "blueButton": 5.39,
+        "greenButton": 6.13
+      }
+    }
+  },
+  "pages": [
+    {
+      "route": "/",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "route": "/contact",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "route": "/projects",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "route": "/projects/highstreet-calamity-vr",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "route": "/resume",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "route": "/",
+      "width": 375,
+      "overflow": false
+    },
+    {
+      "route": "/contact",
+      "width": 375,
+      "overflow": false
+    },
+    {
+      "route": "/projects",
+      "width": 375,
+      "overflow": false
+    },
+    {
+      "route": "/projects/highstreet-calamity-vr",
+      "width": 375,
+      "overflow": false
+    },
+    {
+      "route": "/resume",
+      "width": 375,
+      "overflow": false
+    }
+  ],
+  "errors": [],
+  "banner": {
+    "layers": 5,
+    "logo": null,
+    "loaded": true
+  }
+}

@@ -102,9 +102,10 @@ export function Banners({ items }: { items: BannerData[] }) {
     <section className="pf-container pf-banners">
       {items.map((b, i) => (
         <article className="pf-banner" key={i}>
-          {b.images[0] && (
-            <MediaImage className="pf-banner-bg" media={b.images[0]} alt="" />
-          )}
+          {b.images.map((media, layer) => (
+            <MediaImage key={`${media.src}-${layer}`} className="pf-banner-bg"
+              media={{ ...media, background: layer ? "transparent" : media.background }} alt="" />
+          ))}
           <div className="pf-banner-copy">
             {b.logo && (
               <img

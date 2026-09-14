@@ -18,7 +18,7 @@
   --pf-quiet: #171c20;
   --pf-text: #fff0d1;
   --pf-secondary: #b7bec6;
-  --pf-border: #39424d;
+  --pf-border: #596675;
   --pf-ink: #18222c;
   --pf-blue: #075bd4;
   --font-sans: Fredoka, sans-serif;
@@ -38,12 +38,12 @@
   --foreground: var(--pf-text);
 }
 :root[data-portfolio-theme="light"] {
-  --pf-canvas: #fff0d1;
-  --pf-surface: #f6e5c4;
-  --pf-quiet: #efdfbd;
-  --pf-text: #18222c;
-  --pf-secondary: #495661;
-  --pf-border: #a79980;
+  --pf-canvas: #f6f0e3;
+  --pf-surface: #fffaf0;
+  --pf-quiet: #eee6d6;
+  --pf-text: #26313a;
+  --pf-secondary: #625b50;
+  --pf-border: #8a8070;
 }
 body {
   background: var(--pf-canvas);
@@ -685,7 +685,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(17, 20, 24, 0.55), transparent);
+  background: linear-gradient(0deg, rgba(17, 20, 24, 0.78), rgba(17, 20, 24, 0.08) 75%);
   pointer-events: none;
 }
 .pf-banner-copy,
@@ -1145,7 +1145,7 @@ body {
   filter: none;
 }
 .pf-banner {
-  border-color: #6973bb;
+  border-color: var(--pf-border);
 }
 .pf-banner h3 {
   font-family: "Lilita One", sans-serif;
@@ -1196,16 +1196,16 @@ body {
 }
 
 :root {
-  --pf-panel-base: #18222c;
+  --pf-panel-base: #080d12;
   --pf-panel-highlight: #ffffff12;
   --pf-control-face: #263440;
-  --pf-control-rim: #647386;
+  --pf-control-rim: #738398;
 }
 :root[data-portfolio-theme="light"] {
-  --pf-panel-base: #b0a591;
+  --pf-panel-base: #625b50;
   --pf-panel-highlight: #ffffffa6;
-  --pf-control-face: #fffaf0;
-  --pf-control-rim: #9c907c;
+  --pf-control-face: #e2d8c5;
+  --pf-control-rim: #625b50;
 }
 .pf-slide,
 .pf-quote,
@@ -1214,14 +1214,16 @@ body {
   border: 2px solid var(--pf-border);
   box-shadow:
     inset 0 3px 0 var(--pf-panel-highlight),
-    0 6px 0 var(--pf-panel-base);
+    0 8px 0 var(--pf-panel-base),
+    0 9px 0 var(--pf-border);
 }
 .pf-banner,
 .pf-about-photo {
-  border: 3px solid #6973bb;
+  border: 3px solid var(--pf-border);
   box-shadow:
     inset 0 3px 0 #ffffff26,
-    0 9px 0 var(--pf-panel-base);
+    0 9px 0 var(--pf-panel-base),
+    0 10px 0 var(--pf-border);
 }
 .pf-banner:after {
   box-shadow: inset 0 3px 0 #ffffff26;
@@ -1573,3 +1575,6 @@ body {
     transition: none;
   }
 }
+
+/* Preserve the original avatar shape with dark ink on cream. */
+:root[data-portfolio-theme="light"] .pf-avatar { filter: brightness(0) saturate(100%) invert(15%) sepia(12%) saturate(1020%) hue-rotate(164deg) brightness(94%) contrast(90%); }
