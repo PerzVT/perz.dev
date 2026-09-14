@@ -136,8 +136,6 @@ export function Carousel({
       {items.length > 1 && (
         <>
           <RailNavigation
-            running={rotation.running}
-            onToggle={rotation.toggle}
             count={items.length}
             index={index}
             label={label}

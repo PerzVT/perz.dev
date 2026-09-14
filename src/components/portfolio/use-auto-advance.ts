@@ -2,7 +2,6 @@
 import {
   useEffect,
   useRef,
-  useState,
   type Dispatch,
   type SetStateAction,
 } from "react";
@@ -11,7 +10,7 @@ export function useAutoAdvance(
   setIndex: Dispatch<SetStateAction<number>>,
 ) {
   const ref = useRef<HTMLDivElement>(null);
-  const [running, setRunning] = useState(true);
+  const running = true;
   useEffect(() => {
     const el = ref.current;
     if (!el || count < 2 || !running) return;
@@ -67,5 +66,5 @@ export function useAutoAdvance(
       reduced.removeEventListener("change", schedule);
     };
   }, [count, running, setIndex]);
-  return { ref, running, toggle: () => setRunning((v) => !v) };
+  return { ref, running };
 }

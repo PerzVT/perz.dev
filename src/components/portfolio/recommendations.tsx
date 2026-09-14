@@ -40,8 +40,6 @@ export function Recommendations() {
           })}
         </div>
         <RailNavigation
-          running={rotation.running}
-          onToggle={rotation.toggle}
           count={quotes.length}
           index={index}
           label="Recommendations"

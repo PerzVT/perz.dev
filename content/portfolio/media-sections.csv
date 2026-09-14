@@ -1,0 +1,79 @@
+page,section,folder,status
+supercat,hero,public/projects/supercat/hero,Mapped in pages.json
+supercat,gallery,public/projects/supercat/gallery,Mapped in pages.json
+supercat,banners,public/projects/supercat/banners,Empty; not populated in current page
+supercat,Movement and combat,public/projects/supercat/sections/01-movement-and-combat,Mapped in pages.json
+supercat,Weapons and player state,public/projects/supercat/sections/02-weapons-and-player-state,Mapped in pages.json
+supercat,Teaching through level design,public/projects/supercat/sections/03-teaching-through-level-design,Mapped in pages.json
+supercat,Outcomes,public/projects/supercat/sections/04-,Text section; adding media requires layout wiring
+bisecthosting,hero,public/projects/bisecthosting/hero,Mapped in pages.json
+bisecthosting,gallery,public/projects/bisecthosting/gallery,Mapped in pages.json
+bisecthosting,banners,public/projects/bisecthosting/banners,Empty; not populated in current page
+bisecthosting,Branding and Press Kits,public/projects/bisecthosting/sections/01-branding-and-press-kits,Mapped in pages.json
+bisecthosting,Partner projects,public/projects/bisecthosting/sections/02-partner-projects,Mapped in pages.json
+bisecthosting,Events,public/projects/bisecthosting/sections/03-events,Mapped in pages.json
+bisecthosting,Across the brands,public/projects/bisecthosting/sections/04-across-the-brands,Mapped in pages.json
+highstreet-calamity-vr,hero,public/projects/highstreet-calamity-vr/hero,Mapped in pages.json
+highstreet-calamity-vr,gallery,public/projects/highstreet-calamity-vr/gallery,Mapped in pages.json
+highstreet-calamity-vr,banners,public/projects/highstreet-calamity-vr/banners,Empty; not populated in current page
+highstreet-calamity-vr,Gesture-casting and Ability Design,public/projects/highstreet-calamity-vr/sections/01-gesture-casting-and-ability-design,Mapped in pages.json
+highstreet-calamity-vr,"Classes, Progression and Wave Systems",public/projects/highstreet-calamity-vr/sections/02-classes-progression-and-wave-systems,Mapped in pages.json
+highstreet-calamity-vr,"Multi-tool, UX and input maps",public/projects/highstreet-calamity-vr/sections/03-multi-tool-ux-and-input-maps,Mapped in pages.json
+highstreet-calamity-vr,Authoring pipeline and  Systems,public/projects/highstreet-calamity-vr/sections/04-authoring-pipeline-and-systems,Mapped in pages.json
+highstreet-calamity-vr,Key Skills Applied,public/projects/highstreet-calamity-vr/sections/05-key-skills-applied,Text section; adding media requires layout wiring
+highstreet-calamity-vr,Word from Highstreet,public/projects/highstreet-calamity-vr/sections/06-word-from-highstreet,Text section; adding media requires layout wiring
+bubble-buddy,hero,public/projects/bubble-buddy/hero,Mapped in pages.json
+bubble-buddy,gallery,public/projects/bubble-buddy/gallery,Mapped in pages.json
+bubble-buddy,banners,public/projects/bubble-buddy/banners,Empty; not populated in current page
+bubble-buddy,Game Design and Balancing,public/projects/bubble-buddy/sections/01-game-design-and-balancing,Mapped in pages.json
+bubble-buddy,Enemy Archetypes and Behaviours,public/projects/bubble-buddy/sections/02-enemy-archetypes-and-behaviours,Mapped in pages.json
+bubble-buddy,Wave Systems and Game Economy,public/projects/bubble-buddy/sections/03-wave-systems-and-game-economy,Mapped in pages.json
+bubble-buddy,User Interface and Animations,public/projects/bubble-buddy/sections/04-user-interface-and-animations,Mapped in pages.json
+dragoncraft,hero,public/projects/dragoncraft/hero,Mapped in pages.json
+dragoncraft,gallery,public/projects/dragoncraft/gallery,Mapped in pages.json
+dragoncraft,banners,public/projects/dragoncraft/banners,Mapped in pages.json
+lurk,hero,public/projects/lurk/hero,Mapped in pages.json
+lurk,gallery,public/projects/lurk/gallery,Mapped in pages.json
+lurk,banners,public/projects/lurk/banners,Empty; not populated in current page
+lurk,Core loop,public/projects/lurk/sections/01-core-loop,Mapped in pages.json
+lurk,Puzzles,public/projects/lurk/sections/02-puzzles,Mapped in pages.json
+lurk,Spacial effects and lighting,public/projects/lurk/sections/03-spacial-effects-and-lighting,Mapped in pages.json
+mythcraft,hero,public/projects/mythcraft/hero,Mapped in pages.json
+mythcraft,gallery,public/projects/mythcraft/gallery,Mapped in pages.json
+mythcraft,banners,public/projects/mythcraft/banners,Mapped in pages.json
+poly-punch-vr,hero,public/projects/poly-punch-vr/hero,Mapped in pages.json
+poly-punch-vr,gallery,public/projects/poly-punch-vr/gallery,Empty; not populated in current page
+poly-punch-vr,banners,public/projects/poly-punch-vr/banners,Empty; not populated in current page
+stick-it,hero,public/projects/stick-it/hero,Mapped in pages.json
+stick-it,gallery,public/projects/stick-it/gallery,Mapped in pages.json
+stick-it,banners,public/projects/stick-it/banners,Empty; not populated in current page
+home,hero,public/home/hero,Existing page section; media is explicitly referenced
+home,about,public/home/about,Existing page section; media is explicitly referenced
+home,experience,public/home/experience,Existing page section; media is explicitly referenced
+home,quotes,public/home/quotes,Existing page section; media is explicitly referenced
+home,banners,public/home/banners,Existing page section; media is explicitly referenced
+home,featured-work,public/home/featured-work,Shared card references
+resume,summary,public/resume/summary,Existing page section; media is explicitly referenced
+resume,philosophy,public/resume/philosophy,Existing page section; media is explicitly referenced
+resume,experience,public/resume/experience,Existing page section; media is explicitly referenced
+resume,skills,public/resume/skills,Existing page section; media is explicitly referenced
+resume,education,public/resume/education,Existing page section; media is explicitly referenced
+contact,hero,public/contact/hero,Existing page section; media is explicitly referenced
+contact,intro,public/contact/intro,Existing page section; media is explicitly referenced
+contact,invitation,public/contact/invitation,Existing page section; media is explicitly referenced
+contact,form,public/contact/form,Existing page section; media is explicitly referenced
+contact,banners,public/contact/banners,Existing page section; media is explicitly referenced
+projects,cards,public/projects/cards,Shared card references
+projects,sidequests,public/projects/sidequests,Existing page section; media is explicitly referenced
+bero-character-design,hero,public/projects/bero-character-design/hero,Legacy/Sidequest page; final design pending
+bero-character-design,gallery,public/projects/bero-character-design/gallery,Legacy/Sidequest page; final design pending
+calamity-matchmaking,hero,public/projects/calamity-matchmaking/hero,Legacy/Sidequest page; final design pending
+calamity-matchmaking,gallery,public/projects/calamity-matchmaking/gallery,Legacy/Sidequest page; final design pending
+highstreet-echoes-of-solera,hero,public/projects/highstreet-echoes-of-solera/hero,Legacy/Sidequest page; final design pending
+highstreet-echoes-of-solera,gallery,public/projects/highstreet-echoes-of-solera/gallery,Legacy/Sidequest page; final design pending
+kerberus-modded-suite,hero,public/projects/kerberus-modded-suite/hero,Legacy/Sidequest page; final design pending
+kerberus-modded-suite,gallery,public/projects/kerberus-modded-suite/gallery,Legacy/Sidequest page; final design pending
+kerberus-pack-manager,hero,public/projects/kerberus-pack-manager/hero,Legacy/Sidequest page; final design pending
+kerberus-pack-manager,gallery,public/projects/kerberus-pack-manager/gallery,Legacy/Sidequest page; final design pending
+slime-dragon,hero,public/projects/slime-dragon/hero,Legacy/Sidequest page; final design pending
+slime-dragon,gallery,public/projects/slime-dragon/gallery,Legacy/Sidequest page; final design pending
