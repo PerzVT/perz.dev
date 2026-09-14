@@ -7,6 +7,9 @@ export type Media = {
   fit?: string;
   background?: string;
   crop?: number[][];
+  frame?: number[];
+  width?: number;
+  height?: number;
   video?: string;
 };
 export type BannerData = {

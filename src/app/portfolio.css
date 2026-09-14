@@ -219,7 +219,7 @@ body {
 }
 .pf-hero {
   position: relative;
-  height: 648px;
+  height: max(648px, calc(100vw * 0.494444 - 64px));
   background: var(--pf-canvas);
   overflow: hidden;
   border-radius: 0 0 30px 30px;
@@ -266,7 +266,10 @@ body {
 .pf-hero-copy h1 {
   margin: 0 0 20px;
   color: #fff0d1;
-  text-shadow: 0 4px 0 #18222c;
+  -webkit-text-stroke: 10px #18222c;
+  paint-order: stroke fill;
+  text-shadow: none;
+  filter: drop-shadow(0 4px 0 #111820);
 }
 .pf-hero-copy p {
   font-size: 20px;
@@ -314,8 +317,8 @@ body {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding-left: 18px;
-  list-style: disc;
+  padding-left: 0;
+  list-style: none;
 }
 .pf-facts {
   margin: 0;
@@ -1533,3 +1536,6 @@ body {
 }
 :root[data-portfolio-theme="light"] .pf-footer .pf-icon { filter: none; }
 .pf-motion-viewport { position: relative; overflow: clip; padding-bottom: 12px; margin-bottom: -12px; }
+
+.pf-contributions > li { display: grid; grid-template-columns: 14px minmax(0, 1fr); gap: 12px; align-items: start; }
+.pf-contributions > li > [aria-hidden] { font-size: 14px; padding-top: 3px; }

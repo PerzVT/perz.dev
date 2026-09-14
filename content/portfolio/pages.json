@@ -11,7 +11,9 @@
         "alt": "Percy portfolio artwork, image 1",
         "sourceHash": "dc5b9baf4c4ebbea949a7615324e89328e3bafe8",
         "fit": "cover",
-        "background": "#111418"
+        "background": "#111418",
+        "width": 2200,
+        "height": 1238
       }
     ],
     "title": "Percy",
@@ -87,7 +89,9 @@
             "alt": "Banner / BisectHosting, image 1",
             "sourceHash": "50512c7f30a40fa2f52b652582e7ec6e4924cdae",
             "fit": "cover",
-            "background": "#111418"
+            "background": "#111418",
+            "width": 1920,
+            "height": 1080
           }
         ],
         "logo": "/home/banners/2499df9dd61b6869e0b9c6839cee3a7dae0fa087.webp",
@@ -115,6 +119,12 @@
                 0.43967878818511963,
                 0.24748708307743073
               ]
+            ],
+            "width": 1920,
+            "height": 973,
+            "frame": [
+              1096,
+              250
             ]
           }
         ],
@@ -276,6 +286,12 @@
             0.9185185432434082,
             0.040740739554166794
           ]
+        ],
+        "width": 2200,
+        "height": 1238,
+        "frame": [
+          1440,
+          712
         ]
       }
     ],
@@ -301,6 +317,12 @@
                 1,
                 0
               ]
+            ],
+            "width": 315,
+            "height": 250,
+            "frame": [
+              1096,
+              250
             ]
           },
           {
@@ -320,6 +342,12 @@
                 1,
                 0
               ]
+            ],
+            "width": 315,
+            "height": 250,
+            "frame": [
+              1096,
+              250
             ]
           },
           {
@@ -339,6 +367,12 @@
                 1,
                 0
               ]
+            ],
+            "width": 315,
+            "height": 250,
+            "frame": [
+              1096,
+              250
             ]
           },
           {
@@ -358,6 +392,12 @@
                 1,
                 0
               ]
+            ],
+            "width": 315,
+            "height": 250,
+            "frame": [
+              1096,
+              250
             ]
           },
           {
@@ -377,6 +417,12 @@
                 5.108012676239014,
                 -2.735840082168579
               ]
+            ],
+            "width": 740,
+            "height": 228,
+            "frame": [
+              1096,
+              250
             ]
           }
         ],
@@ -392,7 +438,9 @@
             "alt": "Banner / Modpacks, image 1",
             "sourceHash": "bf4525ba594a20733305ae311d8ddd9f46629c9d",
             "fit": "cover",
-            "background": "#111418"
+            "background": "#111418",
+            "width": 2200,
+            "height": 734
           }
         ],
         "logo": "/contact/banners/d7b0210f83207cba002bc0aa881e77b06183ea3c.webp",
@@ -415,7 +463,9 @@
           "alt": "Supercat, image 1",
           "sourceHash": "3b2839645af21abc347d1d0d0db8b107ed9fb60e",
           "fit": "cover",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 1672,
+          "height": 941
         }
       ],
       "video": "/projects/supercat/hero/trailer.mp4",
@@ -455,105 +505,135 @@
           "alt": "Supercat, image 1",
           "sourceHash": "5780a3e6306065555a7e9588a4d5c51eddda03df",
           "fit": "cover",
-          "background": "#171c20"
+          "background": "#171c20",
+          "width": 1024,
+          "height": 751
         },
         {
           "src": "/projects/supercat/gallery/a8f8d3096e7fbcad39b900e8ad5423b3812c3310.webp",
           "alt": "Supercat, image 2",
           "sourceHash": "a8f8d3096e7fbcad39b900e8ad5423b3812c3310",
           "fit": "cover",
-          "background": "#171c20"
+          "background": "#171c20",
+          "width": 1024,
+          "height": 573
         },
         {
           "src": "/projects/supercat/gallery/9215d959139c2288aebdcc8053658ea40c630d57.webp",
           "alt": "Supercat, image 3",
           "sourceHash": "9215d959139c2288aebdcc8053658ea40c630d57",
           "fit": "cover",
-          "background": "#171c20"
+          "background": "#171c20",
+          "width": 1024,
+          "height": 576
         },
         {
           "src": "/projects/supercat/gallery/4ef92749bb70ae031a48aebf44a21ef9af7c3229.webp",
           "alt": "Supercat, image 4",
           "sourceHash": "4ef92749bb70ae031a48aebf44a21ef9af7c3229",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 2200,
+          "height": 1238
         },
         {
           "src": "/projects/supercat/gallery/7efefc7b3f08f1dfe872bd737a9d12e76eef2ddc.webp",
           "alt": "Supercat, image 5",
           "sourceHash": "7efefc7b3f08f1dfe872bd737a9d12e76eef2ddc",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 1672,
+          "height": 941
         },
         {
           "src": "/projects/supercat/gallery/a8e5ecfd8fd7e83131c79bcd3e837c64c1d9709e.webp",
           "alt": "Supercat, image 6",
           "sourceHash": "a8e5ecfd8fd7e83131c79bcd3e837c64c1d9709e",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 1672,
+          "height": 941
         },
         {
           "src": "/projects/supercat/gallery/1f904b812672ad93dfc8a6165b95ffbe97571c1f.webp",
           "alt": "Supercat, image 7",
           "sourceHash": "1f904b812672ad93dfc8a6165b95ffbe97571c1f",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 1672,
+          "height": 941
         },
         {
           "src": "/projects/supercat/sections/02-weapons-and-player-state/e9920b065ade58cbcee0bce964bc0d79c413f169.webp",
           "alt": "Supercat, image 8",
           "sourceHash": "e9920b065ade58cbcee0bce964bc0d79c413f169",
           "fit": "contain",
-          "background": "#171c20"
+          "background": "#171c20",
+          "width": 1024,
+          "height": 576
         },
         {
           "src": "/projects/supercat/gallery/1722479746fcb1801eff3b3f607e28848a38b3ab.webp",
           "alt": "Supercat, image 9",
           "sourceHash": "1722479746fcb1801eff3b3f607e28848a38b3ab",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 1558,
+          "height": 857
         },
         {
           "src": "/projects/supercat/gallery/0272de2805038d7123bd870a67d8fe898e43f050.webp",
           "alt": "Supercat, image 10",
           "sourceHash": "0272de2805038d7123bd870a67d8fe898e43f050",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 1599,
+          "height": 907
         },
         {
           "src": "/projects/supercat/gallery/0472d942f54211680bf5d6c3c7dfff164b94ecfd.webp",
           "alt": "Supercat, image 11",
           "sourceHash": "0472d942f54211680bf5d6c3c7dfff164b94ecfd",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 1558,
+          "height": 882
         },
         {
           "src": "/projects/supercat/gallery/c9ecb131a9a948e8c1d9857acabc777fefb5ddeb.webp",
           "alt": "Supercat, image 12",
           "sourceHash": "c9ecb131a9a948e8c1d9857acabc777fefb5ddeb",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 1586,
+          "height": 912
         },
         {
           "src": "/projects/supercat/gallery/fcddd0581ef14daf22d97b5e13dc93ebe34d235e.webp",
           "alt": "Supercat, image 13",
           "sourceHash": "fcddd0581ef14daf22d97b5e13dc93ebe34d235e",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 1563,
+          "height": 873
         },
         {
           "src": "/projects/supercat/gallery/36bdb36eb11d08bedec3a593961aed7b6b8e7594.webp",
           "alt": "Supercat, image 14",
           "sourceHash": "36bdb36eb11d08bedec3a593961aed7b6b8e7594",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 1642,
+          "height": 836
         },
         {
           "src": "/projects/supercat/gallery/09b9bab979495f7271fdd81de6bd19c3066a4753.webp",
           "alt": "Supercat, image 15",
           "sourceHash": "09b9bab979495f7271fdd81de6bd19c3066a4753",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 1024,
+          "height": 576
         }
       ],
       "initialSlide": 1,
@@ -568,7 +648,9 @@
               "alt": "Movement and combat, image 1",
               "sourceHash": "3887dfd6d4a291084778e22a828eb06a91cc89b0",
               "fit": "cover",
-              "background": "#171c20"
+              "background": "#171c20",
+              "width": 1256,
+              "height": 708
             }
           ],
           "mediaFirst": false
@@ -583,7 +665,9 @@
               "alt": "Weapons and player state, image 1",
               "sourceHash": "e9920b065ade58cbcee0bce964bc0d79c413f169",
               "fit": "contain",
-              "background": "#171c20"
+              "background": "#171c20",
+              "width": 1024,
+              "height": 576
             }
           ],
           "mediaFirst": true
@@ -598,7 +682,9 @@
               "alt": "Teaching through level design, image 1",
               "sourceHash": "047891972e19ec658accdd345c08d67983a31507",
               "fit": "cover",
-              "background": "#171c20"
+              "background": "#171c20",
+              "width": 1256,
+              "height": 708
             }
           ],
           "mediaFirst": false
@@ -635,7 +721,9 @@
           "alt": "BisectHosting, image 1",
           "sourceHash": "d75066063c83210fa3762b9a272a98ece8058262",
           "fit": "cover",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 2200,
+          "height": 1088
         }
       ],
       "contributions": [
@@ -677,7 +765,9 @@
           "alt": "BisectHosting, image 1",
           "sourceHash": "93e7d502d7a3cc9fcc7cae208479d958cc61b772",
           "fit": "cover",
-          "background": "#171c20"
+          "background": "#171c20",
+          "width": 1922,
+          "height": 1081
         },
         {
           "src": "/projects/bisecthosting/sections/01-branding-and-press-kits/404e19d28b03ba0bd815ff7e4e863663361c6086.webp",
@@ -696,154 +786,202 @@
               1.1221965551376343,
               -0.12285522371530533
             ]
-          ]
+          ],
+          "frame": [
+            1056,
+            668
+          ],
+          "width": 1256,
+          "height": 708
         },
         {
           "src": "/projects/bisecthosting/gallery/da70a5a474240e6e3d2d525f90efced4f21cd3f2.webp",
           "alt": "BisectHosting, image 3",
           "sourceHash": "da70a5a474240e6e3d2d525f90efced4f21cd3f2",
           "fit": "cover",
-          "background": "#171c20"
+          "background": "#171c20",
+          "width": 973,
+          "height": 675
         },
         {
           "src": "/projects/bisecthosting/gallery/2418ccb17908ccb292f78922ebacd68a6945bf60.webp",
           "alt": "BisectHosting, image 4",
           "sourceHash": "2418ccb17908ccb292f78922ebacd68a6945bf60",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 2112,
+          "height": 1336
         },
         {
           "src": "/projects/bisecthosting/gallery/246eee7c2e1b135ef87c1308f3c2f940e137eceb.webp",
           "alt": "BisectHosting, image 5",
           "sourceHash": "246eee7c2e1b135ef87c1308f3c2f940e137eceb",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 1224,
+          "height": 1128
         },
         {
           "src": "/projects/bisecthosting/sections/03-events/83054cbcf2d8e0d160a721fb57c9e365931f91cf.webp",
           "alt": "BisectHosting, image 6",
           "sourceHash": "83054cbcf2d8e0d160a721fb57c9e365931f91cf",
           "fit": "contain",
-          "background": "#171c20"
+          "background": "#171c20",
+          "width": 1920,
+          "height": 1080
         },
         {
           "src": "/projects/bisecthosting/gallery/7e7ba288421997efb1db128d6a23500dfc24f2cc.webp",
           "alt": "BisectHosting, image 7",
           "sourceHash": "7e7ba288421997efb1db128d6a23500dfc24f2cc",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 2200,
+          "height": 1238
         },
         {
           "src": "/projects/bisecthosting/gallery/f9d1a5911f6ed4fd5877fe1b0e4e37fabe9ec217.webp",
           "alt": "BisectHosting, image 8",
           "sourceHash": "f9d1a5911f6ed4fd5877fe1b0e4e37fabe9ec217",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 2200,
+          "height": 1212
         },
         {
           "src": "/projects/bisecthosting/gallery/462a2bbf70814161b7f2665ff7383b20a8c53c7d.webp",
           "alt": "BisectHosting, image 9",
           "sourceHash": "462a2bbf70814161b7f2665ff7383b20a8c53c7d",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 2200,
+          "height": 1216
         },
         {
           "src": "/projects/bisecthosting/gallery/416248ca47a842f76903042318aa4a4d3cff5135.webp",
           "alt": "BisectHosting, image 10",
           "sourceHash": "416248ca47a842f76903042318aa4a4d3cff5135",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 2200,
+          "height": 1218
         },
         {
           "src": "/projects/bisecthosting/sections/04-across-the-brands/6cbe8a7e51bc112ecc916ef780211e4f2d030028.webp",
           "alt": "BisectHosting, image 11",
           "sourceHash": "d2cfed9f49cf0f771266773e6cbe9a8ec4c74fe0",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 1256,
+          "height": 708
         },
         {
           "src": "/projects/bisecthosting/gallery/7f83659bf74d1a94c5b3c8fc8ee91e090d0c1c0e.webp",
           "alt": "BisectHosting, image 12",
           "sourceHash": "7f83659bf74d1a94c5b3c8fc8ee91e090d0c1c0e",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 909,
+          "height": 506
         },
         {
           "src": "/projects/bisecthosting/gallery/5f3948d9a930ed8d696209d381c61cb8cc40cc8c.webp",
           "alt": "BisectHosting, image 13",
           "sourceHash": "5f3948d9a930ed8d696209d381c61cb8cc40cc8c",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 1920,
+          "height": 1080
         },
         {
           "src": "/projects/bisecthosting/gallery/1f4f8fb6d73ac85c458aa96a48423fbe28a14498.webp",
           "alt": "BisectHosting, image 14",
           "sourceHash": "1f4f8fb6d73ac85c458aa96a48423fbe28a14498",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 2200,
+          "height": 754
         },
         {
           "src": "/projects/bisecthosting/gallery/604208c1daf461376839754b08c0139a86dc82d6.webp",
           "alt": "BisectHosting, image 15",
           "sourceHash": "604208c1daf461376839754b08c0139a86dc82d6",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 2200,
+          "height": 1315
         },
         {
           "src": "/projects/bisecthosting/gallery/a99140c17fb923bd444b432a66dfa9921e870646.webp",
           "alt": "BisectHosting, image 16",
           "sourceHash": "a99140c17fb923bd444b432a66dfa9921e870646",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 2200,
+          "height": 809
         },
         {
           "src": "/projects/bisecthosting/gallery/f27de61331667cbfdd28a9e4b28b5982f1b9afc8.webp",
           "alt": "BisectHosting, image 17",
           "sourceHash": "f27de61331667cbfdd28a9e4b28b5982f1b9afc8",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 1920,
+          "height": 1080
         },
         {
           "src": "/projects/bisecthosting/gallery/c828d5dd8cc37e3f94dff071379ee04258784469.webp",
           "alt": "BisectHosting, image 18",
           "sourceHash": "c828d5dd8cc37e3f94dff071379ee04258784469",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 1921,
+          "height": 1081
         },
         {
           "src": "/projects/bisecthosting/gallery/c1f282f843d2da2c71a92b389f523a77db129e90.webp",
           "alt": "BisectHosting, image 19",
           "sourceHash": "c1f282f843d2da2c71a92b389f523a77db129e90",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 640,
+          "height": 301
         },
         {
           "src": "/projects/bisecthosting/gallery/d9d49b09c691b5a741a91c455430bfaa6a556e80.webp",
           "alt": "BisectHosting, image 20",
           "sourceHash": "d9d49b09c691b5a741a91c455430bfaa6a556e80",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 2200,
+          "height": 865
         },
         {
           "src": "/projects/bisecthosting/gallery/2bc86783930a39fc5f490987f047f0e93462c0ea.webp",
           "alt": "BisectHosting, image 21",
           "sourceHash": "2bc86783930a39fc5f490987f047f0e93462c0ea",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 1408,
+          "height": 792
         },
         {
           "src": "/projects/bisecthosting/gallery/1b4e16a29231b8962b2026f085a658f6b71bb4e3.webp",
           "alt": "BisectHosting, image 22",
           "sourceHash": "1b4e16a29231b8962b2026f085a658f6b71bb4e3",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 2200,
+          "height": 754
         },
         {
           "src": "/projects/bisecthosting/gallery/9cbd4efcf7583564a99fdfe42ec2581c276ee780.webp",
           "alt": "BisectHosting, image 23",
           "sourceHash": "9cbd4efcf7583564a99fdfe42ec2581c276ee780",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 2200,
+          "height": 1238
         }
       ],
       "initialSlide": 1,
@@ -859,18 +997,8 @@
               "sourceHash": "404e19d28b03ba0bd815ff7e4e863663361c6086",
               "fit": "cover",
               "background": "#020525",
-              "crop": [
-                [
-                  1,
-                  0,
-                  -4.440892098500626e-16
-                ],
-                [
-                  0,
-                  1.1221965551376343,
-                  -0.12285522371530533
-                ]
-              ]
+              "width": 1256,
+              "height": 708
             }
           ],
           "mediaFirst": false
@@ -885,7 +1013,9 @@
               "alt": "Partner projects, image 1",
               "sourceHash": "b177270db0f6577737cd69b3d5515d401cd15e2c",
               "fit": "cover",
-              "background": "#171c20"
+              "background": "#171c20",
+              "width": 1920,
+              "height": 1081
             }
           ],
           "mediaFirst": true
@@ -900,14 +1030,18 @@
               "alt": "Events, image 1",
               "sourceHash": "b177270db0f6577737cd69b3d5515d401cd15e2c",
               "fit": "cover",
-              "background": "#171c20"
+              "background": "#171c20",
+              "width": 1920,
+              "height": 1081
             },
             {
               "src": "/projects/bisecthosting/sections/03-events/83054cbcf2d8e0d160a721fb57c9e365931f91cf.webp",
               "alt": "Events, image 2",
               "sourceHash": "83054cbcf2d8e0d160a721fb57c9e365931f91cf",
               "fit": "contain",
-              "background": "#171c20"
+              "background": "#171c20",
+              "width": 1920,
+              "height": 1080
             }
           ],
           "mediaFirst": false
@@ -922,7 +1056,9 @@
               "alt": "Across the brands, image 1",
               "sourceHash": "6cbe8a7e51bc112ecc916ef780211e4f2d030028",
               "fit": "contain",
-              "background": "#171c20"
+              "background": "#171c20",
+              "width": 1256,
+              "height": 708
             }
           ],
           "mediaFirst": true
@@ -941,7 +1077,9 @@
           "alt": "Highstreet: Calamity VR, image 1",
           "sourceHash": "f32a891342c4148e75113159ef6aacd563c92fb9",
           "fit": "cover",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 1024,
+          "height": 571
         }
       ],
       "video": "/projects/highstreet-calamity-vr/hero/trailer.mp4",
@@ -985,168 +1123,216 @@
           "alt": "Highstreet: Calamity VR, image 1",
           "sourceHash": "4e4d0a1eebce64bf1efaf9bf6d9e21dfedab53b2",
           "fit": "cover",
-          "background": "#171c20"
+          "background": "#171c20",
+          "width": 1024,
+          "height": 576
         },
         {
           "src": "/projects/highstreet-calamity-vr/gallery/129e3b139748b081f8a0be59040bb7d0c58a77e2.webp",
           "alt": "Highstreet: Calamity VR, image 2",
           "sourceHash": "129e3b139748b081f8a0be59040bb7d0c58a77e2",
           "fit": "cover",
-          "background": "#171c20"
+          "background": "#171c20",
+          "width": 1024,
+          "height": 576
         },
         {
           "src": "/projects/highstreet-calamity-vr/gallery/839f216419f6b1f0b3c4620f3a9a673e396c337d.webp",
           "alt": "Highstreet: Calamity VR, image 3",
           "sourceHash": "839f216419f6b1f0b3c4620f3a9a673e396c337d",
           "fit": "cover",
-          "background": "#171c20"
+          "background": "#171c20",
+          "width": 1024,
+          "height": 576
         },
         {
           "src": "/projects/highstreet-calamity-vr/sections/04-authoring-pipeline-and-systems/855a35ebd1d457700b62def2820f36c370c85af7.webp",
           "alt": "Highstreet: Calamity VR, image 4",
           "sourceHash": "855a35ebd1d457700b62def2820f36c370c85af7",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 1024,
+          "height": 576
         },
         {
           "src": "/projects/highstreet-calamity-vr/gallery/2f1de34e72a85acf18c6e3fe400769cfa8ce45e7.webp",
           "alt": "Highstreet: Calamity VR, image 5",
           "sourceHash": "2f1de34e72a85acf18c6e3fe400769cfa8ce45e7",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 2060,
+          "height": 1154
         },
         {
           "src": "/projects/highstreet-calamity-vr/gallery/5e659ebd90a36b10509b2eaecd861f89bff6847a.webp",
           "alt": "Highstreet: Calamity VR, image 6",
           "sourceHash": "5e659ebd90a36b10509b2eaecd861f89bff6847a",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 2060,
+          "height": 1154
         },
         {
           "src": "/projects/highstreet-calamity-vr/sections/01-gesture-casting-and-ability-design/a26996d983047f82054072340fcf86d25dd923c9.webp",
           "alt": "Highstreet: Calamity VR, image 7",
           "sourceHash": "a26996d983047f82054072340fcf86d25dd923c9",
           "fit": "contain",
-          "background": "#121212"
+          "background": "#121212",
+          "width": 2200,
+          "height": 1695
         },
         {
           "src": "/projects/highstreet-calamity-vr/gallery/7471e47ed0eb4a984298409d10fdbe68af696754.webp",
           "alt": "Highstreet: Calamity VR, image 8",
           "sourceHash": "7471e47ed0eb4a984298409d10fdbe68af696754",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 1316,
+          "height": 1443
         },
         {
           "src": "/projects/highstreet-calamity-vr/gallery/292dd7da4880d7230c197998af7bb68477cccc1d.webp",
           "alt": "Highstreet: Calamity VR, image 9",
           "sourceHash": "292dd7da4880d7230c197998af7bb68477cccc1d",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 1328,
+          "height": 997
         },
         {
           "src": "/projects/highstreet-calamity-vr/gallery/0a06a5c7f07ee3fefee2aae0cab44f9078322708.webp",
           "alt": "Highstreet: Calamity VR, image 10",
           "sourceHash": "0a06a5c7f07ee3fefee2aae0cab44f9078322708",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 2200,
+          "height": 1529
         },
         {
           "src": "/projects/highstreet-calamity-vr/gallery/c4e4b2385e82c974a751e25a9f3c861d388adbda.webp",
           "alt": "Highstreet: Calamity VR, image 11",
           "sourceHash": "c4e4b2385e82c974a751e25a9f3c861d388adbda",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 2200,
+          "height": 1529
         },
         {
           "src": "/projects/highstreet-calamity-vr/gallery/2ec840fdbf064437eedfcd228f63f7bf917c8ccd.webp",
           "alt": "Highstreet: Calamity VR, image 12",
           "sourceHash": "2ec840fdbf064437eedfcd228f63f7bf917c8ccd",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 2200,
+          "height": 1100
         },
         {
           "src": "/projects/highstreet-calamity-vr/gallery/1bc6a8cce21848b3fa1c0bc3f9008349b55e0367.webp",
           "alt": "Highstreet: Calamity VR, image 13",
           "sourceHash": "1bc6a8cce21848b3fa1c0bc3f9008349b55e0367",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 2200,
+          "height": 1100
         },
         {
           "src": "/projects/highstreet-calamity-vr/gallery/2f94e33aa0e9d8c07f6f4a96462160ec02ccc4bf.webp",
           "alt": "Highstreet: Calamity VR, image 14",
           "sourceHash": "2f94e33aa0e9d8c07f6f4a96462160ec02ccc4bf",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 2200,
+          "height": 1100
         },
         {
           "src": "/projects/highstreet-calamity-vr/gallery/1954e2f33ab50653801177249bf83890199b7f0d.webp",
           "alt": "Highstreet: Calamity VR, image 15",
           "sourceHash": "1954e2f33ab50653801177249bf83890199b7f0d",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 2200,
+          "height": 1100
         },
         {
           "src": "/projects/highstreet-calamity-vr/gallery/65956331ef8d7bbf4b8cefb7b130dbbae7c6d31d.webp",
           "alt": "Highstreet: Calamity VR, image 16",
           "sourceHash": "65956331ef8d7bbf4b8cefb7b130dbbae7c6d31d",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 2200,
+          "height": 1100
         },
         {
           "src": "/projects/highstreet-calamity-vr/gallery/1e0fb11586c080d2c9c2a7840ba7f5e9de3f5396.webp",
           "alt": "Highstreet: Calamity VR, image 17",
           "sourceHash": "1e0fb11586c080d2c9c2a7840ba7f5e9de3f5396",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 2200,
+          "height": 1100
         },
         {
           "src": "/projects/highstreet-calamity-vr/gallery/4c109c423ba572898d8df4c4cf83abb283147ee7.webp",
           "alt": "Highstreet: Calamity VR, image 18",
           "sourceHash": "4c109c423ba572898d8df4c4cf83abb283147ee7",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 2200,
+          "height": 1238
         },
         {
           "src": "/projects/highstreet-calamity-vr/gallery/bd78502f8a2a2d80615b45d2ef63729cc8e79713.webp",
           "alt": "Highstreet: Calamity VR, image 19",
           "sourceHash": "bd78502f8a2a2d80615b45d2ef63729cc8e79713",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 2200,
+          "height": 1238
         },
         {
           "src": "/projects/highstreet-calamity-vr/gallery/faa469eb394c5074ca4263a7af77af4a4efc727e.webp",
           "alt": "Highstreet: Calamity VR, image 20",
           "sourceHash": "faa469eb394c5074ca4263a7af77af4a4efc727e",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 2200,
+          "height": 1238
         },
         {
           "src": "/projects/highstreet-calamity-vr/gallery/7e81ae4785333423a27d30bfa0aa9922dbb0de3b.webp",
           "alt": "Highstreet: Calamity VR, image 21",
           "sourceHash": "7e81ae4785333423a27d30bfa0aa9922dbb0de3b",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 2200,
+          "height": 1238
         },
         {
           "src": "/projects/highstreet-calamity-vr/gallery/00271a8ae5ee21b51f2a5dff37248edd92b50c22.webp",
           "alt": "Highstreet: Calamity VR, image 22",
           "sourceHash": "00271a8ae5ee21b51f2a5dff37248edd92b50c22",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 2200,
+          "height": 1238
         },
         {
           "src": "/projects/highstreet-calamity-vr/gallery/7b2afd36f41b3f48e3d776d3c7ca55579f4c65bb.webp",
           "alt": "Highstreet: Calamity VR, image 23",
           "sourceHash": "7b2afd36f41b3f48e3d776d3c7ca55579f4c65bb",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 2200,
+          "height": 1100
         },
         {
           "src": "/projects/highstreet-calamity-vr/gallery/5d4ecd15bc89138486657ab387f89cdfd9e71e2c.webp",
           "alt": "Highstreet: Calamity VR, image 24",
           "sourceHash": "5d4ecd15bc89138486657ab387f89cdfd9e71e2c",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 2200,
+          "height": 1100
         }
       ],
       "initialSlide": 1,
@@ -1161,14 +1347,18 @@
               "alt": "Gesture-casting and Ability Design, image 1",
               "sourceHash": "a26996d983047f82054072340fcf86d25dd923c9",
               "fit": "contain",
-              "background": "#121212"
+              "background": "#121212",
+              "width": 2200,
+              "height": 1695
             },
             {
               "src": "/projects/highstreet-calamity-vr/sections/01-gesture-casting-and-ability-design/fccd5c21c7eeb8508a66b2621fabb9b86bf8194c.webp",
               "alt": "Gesture-casting and Ability Design, image 2",
               "sourceHash": "fccd5c21c7eeb8508a66b2621fabb9b86bf8194c",
               "fit": "contain",
-              "background": "#121212"
+              "background": "#121212",
+              "width": 449,
+              "height": 250
             }
           ],
           "mediaFirst": true
@@ -1195,7 +1385,13 @@
                   0.9587730765342712,
                   0.021318430081009865
                 ]
-              ]
+              ],
+              "frame": [
+                628,
+                354
+              ],
+              "width": 2200,
+              "height": 1238
             }
           ],
           "mediaFirst": false
@@ -1210,7 +1406,9 @@
               "alt": "Multi-tool, UX and input maps, image 1",
               "sourceHash": "963f8b4cc15124608feecca383edbb6bf49fb5c3",
               "fit": "contain",
-              "background": "#171c20"
+              "background": "#171c20",
+              "width": 1256,
+              "height": 708
             }
           ],
           "mediaFirst": true
@@ -1225,7 +1423,9 @@
               "alt": "Authoring pipeline and  Systems, image 1",
               "sourceHash": "855a35ebd1d457700b62def2820f36c370c85af7",
               "fit": "contain",
-              "background": "#111418"
+              "background": "#111418",
+              "width": 1024,
+              "height": 576
             }
           ],
           "mediaFirst": false
@@ -1284,7 +1484,13 @@
               1,
               0
             ]
-          ]
+          ],
+          "frame": [
+            1440,
+            712
+          ],
+          "width": 961,
+          "height": 401
         }
       ],
       "url": "https://notperz.itch.io/bubble-buddy",
@@ -1326,28 +1532,36 @@
           "alt": "Bubble Buddy, image 1",
           "sourceHash": "580e6934e9d8d234d3571a2d3ddf04714210f642",
           "fit": "cover",
-          "background": "#171c20"
+          "background": "#171c20",
+          "width": 1921,
+          "height": 1081
         },
         {
           "src": "/projects/bubble-buddy/gallery/3f1c062c014f6423e7f871c2c826b23d2ce533ff.webp",
           "alt": "Bubble Buddy, image 2",
           "sourceHash": "3f1c062c014f6423e7f871c2c826b23d2ce533ff",
           "fit": "contain",
-          "background": "#171c20"
+          "background": "#171c20",
+          "width": 1480,
+          "height": 827
         },
         {
           "src": "/projects/bubble-buddy/sections/01-game-design-and-balancing/de7489da004d850b2cdcb7a3efc80519301dbd79.webp",
           "alt": "Bubble Buddy, image 3",
           "sourceHash": "de7489da004d850b2cdcb7a3efc80519301dbd79",
           "fit": "cover",
-          "background": "#171c20"
+          "background": "#171c20",
+          "width": 1921,
+          "height": 1081
         },
         {
           "src": "/projects/bubble-buddy/sections/02-enemy-archetypes-and-behaviours/e5bd8e17fc2602d99745769ba3f212cce4a476c1.webp",
           "alt": "Bubble Buddy, image 4",
           "sourceHash": "e5bd8e17fc2602d99745769ba3f212cce4a476c1",
           "fit": "contain",
-          "background": "#184693"
+          "background": "#184693",
+          "width": 716,
+          "height": 496
         }
       ],
       "initialSlide": 1,
@@ -1361,8 +1575,10 @@
               "src": "/projects/bubble-buddy/sections/01-game-design-and-balancing/de7489da004d850b2cdcb7a3efc80519301dbd79.webp",
               "alt": "Game Design and Balancing, image 1",
               "sourceHash": "de7489da004d850b2cdcb7a3efc80519301dbd79",
-              "fit": "cover",
-              "background": "#171c20"
+              "fit": "contain",
+              "background": "#171c20",
+              "width": 1921,
+              "height": 1081
             }
           ],
           "mediaFirst": false
@@ -1377,7 +1593,9 @@
               "alt": "Enemy Archetypes and Behaviours, image 1",
               "sourceHash": "e5bd8e17fc2602d99745769ba3f212cce4a476c1",
               "fit": "contain",
-              "background": "#184693"
+              "background": "#184693",
+              "width": 716,
+              "height": 496
             }
           ],
           "mediaFirst": true
@@ -1392,7 +1610,9 @@
               "alt": "Wave Systems and Game Economy, image 1",
               "sourceHash": "2317d3da89c5f359bd4a87a25b00784a10fef381",
               "fit": "contain",
-              "background": "#184693"
+              "background": "#184693",
+              "width": 1459,
+              "height": 814
             }
           ],
           "mediaFirst": false
@@ -1406,8 +1626,10 @@
               "src": "/projects/bubble-buddy/sections/04-user-interface-and-animations/580e6934e9d8d234d3571a2d3ddf04714210f642.webp",
               "alt": "User Interface and Animations, image 1",
               "sourceHash": "580e6934e9d8d234d3571a2d3ddf04714210f642",
-              "fit": "cover",
-              "background": "#171c20"
+              "fit": "contain",
+              "background": "#171c20",
+              "width": 1921,
+              "height": 1081
             }
           ],
           "mediaFirst": true
@@ -1438,6 +1660,12 @@
               0.8786565661430359,
               0.0006010093493387103
             ]
+          ],
+          "width": 2200,
+          "height": 1238,
+          "frame": [
+            1440,
+            712
           ]
         },
         {
@@ -1457,6 +1685,12 @@
               4.827274799346924,
               -3.4877121448516846
             ]
+          ],
+          "width": 2200,
+          "height": 743,
+          "frame": [
+            1440,
+            712
           ]
         }
       ],
@@ -1494,91 +1728,117 @@
           "alt": "Dragoncraft, image 1",
           "sourceHash": "a22b550170a5c886e4fb990f296bacf8a385859d",
           "fit": "cover",
-          "background": "#171c20"
+          "background": "#171c20",
+          "width": 1350,
+          "height": 760
         },
         {
           "src": "/projects/dragoncraft/gallery/b5ea3a17c2a24de35a65dec2eea332293fb244a0.webp",
           "alt": "Dragoncraft, image 2",
           "sourceHash": "b5ea3a17c2a24de35a65dec2eea332293fb244a0",
           "fit": "cover",
-          "background": "#171c20"
+          "background": "#171c20",
+          "width": 1277,
+          "height": 718
         },
         {
           "src": "/projects/dragoncraft/gallery/c110d1f08ec3e30a96769a72668c05e46afe0e97.webp",
           "alt": "Dragoncraft, image 3",
           "sourceHash": "c110d1f08ec3e30a96769a72668c05e46afe0e97",
           "fit": "cover",
-          "background": "#171c20"
+          "background": "#171c20",
+          "width": 1122,
+          "height": 631
         },
         {
           "src": "/projects/dragoncraft/gallery/03c65f20457426340b1e6e3b79e44ead9458f184.webp",
           "alt": "Dragoncraft, image 4",
           "sourceHash": "03c65f20457426340b1e6e3b79e44ead9458f184",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 2200,
+          "height": 1238
         },
         {
           "src": "/projects/dragoncraft/gallery/18d5d594fab1020ec88c5d9a32893629fc385c92.webp",
           "alt": "Dragoncraft, image 5",
           "sourceHash": "18d5d594fab1020ec88c5d9a32893629fc385c92",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 1321,
+          "height": 743
         },
         {
           "src": "/projects/dragoncraft/gallery/3aa0c3fefbad8208d4e3b9ec6d349099abcb1a6f.webp",
           "alt": "Dragoncraft, image 6",
           "sourceHash": "3aa0c3fefbad8208d4e3b9ec6d349099abcb1a6f",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 1092,
+          "height": 614
         },
         {
           "src": "/projects/dragoncraft/gallery/cd665fbc3b3cfe79d49b5c5dd1a16822d2734ec4.webp",
           "alt": "Dragoncraft, image 7",
           "sourceHash": "cd665fbc3b3cfe79d49b5c5dd1a16822d2734ec4",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 1123,
+          "height": 632
         },
         {
           "src": "/projects/dragoncraft/gallery/af098d609cd837fbf72b0dac27dbc656423d0365.webp",
           "alt": "Dragoncraft, image 8",
           "sourceHash": "af098d609cd837fbf72b0dac27dbc656423d0365",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 1059,
+          "height": 596
         },
         {
           "src": "/projects/dragoncraft/gallery/3d0ee2648d4520eb018c0fe0065a58359497c7b8.webp",
           "alt": "Dragoncraft, image 9",
           "sourceHash": "3d0ee2648d4520eb018c0fe0065a58359497c7b8",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 1206,
+          "height": 678
         },
         {
           "src": "/projects/dragoncraft/gallery/c1d373c32f31974119477a68238d30e903e827d2.webp",
           "alt": "Dragoncraft, image 10",
           "sourceHash": "c1d373c32f31974119477a68238d30e903e827d2",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 1224,
+          "height": 688
         },
         {
           "src": "/projects/dragoncraft/gallery/ad09d6f62d2689c81d25d90e184c0bd18066f99b.webp",
           "alt": "Dragoncraft, image 11",
           "sourceHash": "ad09d6f62d2689c81d25d90e184c0bd18066f99b",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 1209,
+          "height": 680
         },
         {
           "src": "/projects/dragoncraft/gallery/77d64bd6bca82416d3949993df37955f9a027e61.webp",
           "alt": "Dragoncraft, image 12",
           "sourceHash": "77d64bd6bca82416d3949993df37955f9a027e61",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 1170,
+          "height": 658
         },
         {
           "src": "/projects/dragoncraft/gallery/6342245281dcf6f56f166fd679ff691b58a95d4c.webp",
           "alt": "Dragoncraft, image 13",
           "sourceHash": "6342245281dcf6f56f166fd679ff691b58a95d4c",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 1214,
+          "height": 682
         }
       ],
       "initialSlide": 1,
@@ -1591,7 +1851,9 @@
               "alt": "Banner / BisectHosting, image 1",
               "sourceHash": "50512c7f30a40fa2f52b652582e7ec6e4924cdae",
               "fit": "cover",
-              "background": "#111418"
+              "background": "#111418",
+              "width": 1920,
+              "height": 1080
             }
           ],
           "logo": "/home/banners/2499df9dd61b6869e0b9c6839cee3a7dae0fa087.webp",
@@ -1616,10 +1878,16 @@
                 ],
                 [
                   0,
-                  0.8786565661430359,
-                  0.0006010093493387103
+                  0.40551501512527466,
+                  0.07584639638662338
                 ]
-              ]
+              ],
+              "frame": [
+                1096,
+                250
+              ],
+              "width": 2200,
+              "height": 1238
             },
             {
               "src": "/shared/branding/8efde7740a2ded957faceb89d4c5c26d50eb2c13.webp",
@@ -1638,7 +1906,13 @@
                   1.7786613702774048,
                   -0.6354269981384277
                 ]
-              ]
+              ],
+              "frame": [
+                1096,
+                250
+              ],
+              "width": 1659,
+              "height": 561
             }
           ],
           "title": "",
@@ -1659,7 +1933,9 @@
           "alt": "Lurk, image 1",
           "sourceHash": "524cb0b55e2651ab800dcddc03bb1a7e068a1fdf",
           "fit": "cover",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 1024,
+          "height": 585
         }
       ],
       "contributions": [
@@ -1699,21 +1975,27 @@
           "alt": "Lurk, image 1",
           "sourceHash": "8d0c5d698e25841993916be71831e80f2f32dfcd",
           "fit": "cover",
-          "background": "#171c20"
+          "background": "#171c20",
+          "width": 1024,
+          "height": 580
         },
         {
           "src": "/projects/lurk/sections/03-spacial-effects-and-lighting/1e16cf196baaf2fc5241586a9bac3742aeb30491.webp",
           "alt": "Lurk, image 2",
           "sourceHash": "1e16cf196baaf2fc5241586a9bac3742aeb30491",
           "fit": "cover",
-          "background": "#171c20"
+          "background": "#171c20",
+          "width": 1024,
+          "height": 585
         },
         {
           "src": "/projects/lurk/gallery/82f049a0e7b5d2434107437eb51c002e7a2c8c82.webp",
           "alt": "Lurk, image 3",
           "sourceHash": "82f049a0e7b5d2434107437eb51c002e7a2c8c82",
           "fit": "cover",
-          "background": "#171c20"
+          "background": "#171c20",
+          "width": 1024,
+          "height": 585
         }
       ],
       "initialSlide": 1,
@@ -1727,8 +2009,10 @@
               "src": "/projects/lurk/sections/01-core-loop/524cb0b55e2651ab800dcddc03bb1a7e068a1fdf.webp",
               "alt": "Core loop, image 1",
               "sourceHash": "524cb0b55e2651ab800dcddc03bb1a7e068a1fdf",
-              "fit": "cover",
-              "background": "#111418"
+              "fit": "contain",
+              "background": "#111418",
+              "width": 1024,
+              "height": 585
             }
           ],
           "mediaFirst": false
@@ -1742,8 +2026,10 @@
               "src": "/projects/lurk/sections/02-puzzles/8d0c5d698e25841993916be71831e80f2f32dfcd.webp",
               "alt": "Puzzles, image 1",
               "sourceHash": "8d0c5d698e25841993916be71831e80f2f32dfcd",
-              "fit": "cover",
-              "background": "#171c20"
+              "fit": "contain",
+              "background": "#171c20",
+              "width": 1024,
+              "height": 580
             }
           ],
           "mediaFirst": true
@@ -1757,8 +2043,10 @@
               "src": "/projects/lurk/sections/03-spacial-effects-and-lighting/1e16cf196baaf2fc5241586a9bac3742aeb30491.webp",
               "alt": "Spacial effects and lighting, image 1",
               "sourceHash": "1e16cf196baaf2fc5241586a9bac3742aeb30491",
-              "fit": "cover",
-              "background": "#171c20"
+              "fit": "contain",
+              "background": "#171c20",
+              "width": 1024,
+              "height": 585
             }
           ],
           "mediaFirst": false
@@ -1777,7 +2065,9 @@
           "alt": "Mythcraft, image 1",
           "sourceHash": "8a6176a8ea01f9bfd46a9aa9e794e85b0cb52fc7",
           "fit": "cover",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 2200,
+          "height": 1238
         },
         {
           "src": "/projects/mythcraft/hero/e7efd86df85ee2b6891e3898660b7709722565b2.webp",
@@ -1796,6 +2086,12 @@
               4.181400299072266,
               -2.8899409770965576
             ]
+          ],
+          "width": 1464,
+          "height": 645,
+          "frame": [
+            1440,
+            712
           ]
         }
       ],
@@ -1833,119 +2129,153 @@
           "alt": "Mythcraft, image 1",
           "sourceHash": "21ca426bfd437c8ea83f05079fad8ce378c3277c",
           "fit": "cover",
-          "background": "#171c20"
+          "background": "#171c20",
+          "width": 2200,
+          "height": 1176
         },
         {
           "src": "/projects/mythcraft/gallery/423c919db699049826e022193950d3f54458b713.webp",
           "alt": "Mythcraft, image 2",
           "sourceHash": "423c919db699049826e022193950d3f54458b713",
           "fit": "cover",
-          "background": "#171c20"
+          "background": "#171c20",
+          "width": 850,
+          "height": 450
         },
         {
           "src": "/projects/mythcraft/gallery/24a970c69ea6a26b491098428f7fc3cbf103ae21.webp",
           "alt": "Mythcraft, image 3",
           "sourceHash": "24a970c69ea6a26b491098428f7fc3cbf103ae21",
           "fit": "cover",
-          "background": "#171c20"
+          "background": "#171c20",
+          "width": 2200,
+          "height": 1176
         },
         {
           "src": "/projects/mythcraft/gallery/5424f6089840d4ff0e5a46446549e8c5171a7dfa.webp",
           "alt": "Mythcraft, image 4",
           "sourceHash": "5424f6089840d4ff0e5a46446549e8c5171a7dfa",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 850,
+          "height": 478
         },
         {
           "src": "/projects/mythcraft/gallery/b3c8c3e97f878163cf9dd0e71b25ff85dabbae03.webp",
           "alt": "Mythcraft, image 5",
           "sourceHash": "b3c8c3e97f878163cf9dd0e71b25ff85dabbae03",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 1920,
+          "height": 1080
         },
         {
           "src": "/projects/mythcraft/gallery/bc4334243addedd5690c284efc824f839afef760.webp",
           "alt": "Mythcraft, image 6",
           "sourceHash": "bc4334243addedd5690c284efc824f839afef760",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 1920,
+          "height": 1080
         },
         {
           "src": "/projects/mythcraft/gallery/e76b888023aed2a95e0f8ebf494adcc26a67b700.webp",
           "alt": "Mythcraft, image 7",
           "sourceHash": "e76b888023aed2a95e0f8ebf494adcc26a67b700",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 2200,
+          "height": 1176
         },
         {
           "src": "/projects/mythcraft/gallery/41de742cbbfaa84fa77d350d86ddd6b50712ba9a.webp",
           "alt": "Mythcraft, image 8",
           "sourceHash": "41de742cbbfaa84fa77d350d86ddd6b50712ba9a",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 1920,
+          "height": 1080
         },
         {
           "src": "/projects/mythcraft/gallery/89e4f1e6eb352c39588bdf5797f55e7daa329fba.webp",
           "alt": "Mythcraft, image 9",
           "sourceHash": "89e4f1e6eb352c39588bdf5797f55e7daa329fba",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 2200,
+          "height": 1176
         },
         {
           "src": "/projects/mythcraft/gallery/70b62541574e62b4670970f67d1f3dd43b938906.webp",
           "alt": "Mythcraft, image 10",
           "sourceHash": "70b62541574e62b4670970f67d1f3dd43b938906",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 1920,
+          "height": 1080
         },
         {
           "src": "/projects/mythcraft/gallery/74184ededa916b05da18ef3194dedcefbb767d24.webp",
           "alt": "Mythcraft, image 11",
           "sourceHash": "74184ededa916b05da18ef3194dedcefbb767d24",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 1920,
+          "height": 1080
         },
         {
           "src": "/projects/mythcraft/gallery/05e4b8df995cb2c8d14b6cfcd6a2407dd3980364.webp",
           "alt": "Mythcraft, image 12",
           "sourceHash": "05e4b8df995cb2c8d14b6cfcd6a2407dd3980364",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 2200,
+          "height": 1176
         },
         {
           "src": "/projects/mythcraft/gallery/9cd0468fc69847885bf40a94c6c531e87ef91f64.webp",
           "alt": "Mythcraft, image 13",
           "sourceHash": "9cd0468fc69847885bf40a94c6c531e87ef91f64",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 1920,
+          "height": 1080
         },
         {
           "src": "/projects/mythcraft/gallery/b6f31d2e04e39cca6ec62791cc7f337b518072cd.webp",
           "alt": "Mythcraft, image 14",
           "sourceHash": "b6f31d2e04e39cca6ec62791cc7f337b518072cd",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 1920,
+          "height": 1080
         },
         {
           "src": "/projects/mythcraft/gallery/8e16a49c929d6fcb98d6a62c2027b1ca1d0fa078.webp",
           "alt": "Mythcraft, image 15",
           "sourceHash": "8e16a49c929d6fcb98d6a62c2027b1ca1d0fa078",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 1920,
+          "height": 1080
         },
         {
           "src": "/projects/mythcraft/gallery/612cec74a3c159eccf12f3c8ab28a368715fefc3.webp",
           "alt": "Mythcraft, image 16",
           "sourceHash": "612cec74a3c159eccf12f3c8ab28a368715fefc3",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 1920,
+          "height": 1080
         },
         {
           "src": "/projects/mythcraft/gallery/8d637fb4331919947f135b79b9169e5b43b322c3.webp",
           "alt": "Mythcraft, image 17",
           "sourceHash": "8d637fb4331919947f135b79b9169e5b43b322c3",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 2200,
+          "height": 1176
         }
       ],
       "initialSlide": 1,
@@ -1958,7 +2288,9 @@
               "alt": "Banner / BisectHosting, image 1",
               "sourceHash": "50512c7f30a40fa2f52b652582e7ec6e4924cdae",
               "fit": "cover",
-              "background": "#111418"
+              "background": "#111418",
+              "width": 1920,
+              "height": 1080
             }
           ],
           "logo": "/home/banners/2499df9dd61b6869e0b9c6839cee3a7dae0fa087.webp",
@@ -1974,7 +2306,25 @@
               "alt": "Banner / Kerberus, image 1",
               "sourceHash": "8a6176a8ea01f9bfd46a9aa9e794e85b0cb52fc7",
               "fit": "cover",
-              "background": "#111418"
+              "background": "#111418",
+              "crop": [
+                [
+                  1,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0.40551501512527466,
+                  0.09381017833948135
+                ]
+              ],
+              "frame": [
+                1096,
+                250
+              ],
+              "width": 2200,
+              "height": 1238
             },
             {
               "src": "/projects/mythcraft/hero/e7efd86df85ee2b6891e3898660b7709722565b2.webp",
@@ -1984,16 +2334,22 @@
               "background": "#111418",
               "crop": [
                 [
-                  3.7258286476135254,
+                  2.8122687339782715,
                   0,
-                  -2.5953638553619385
+                  -0.09284347295761108
                 ],
                 [
                   0,
-                  4.181400299072266,
-                  -2.8899409770965576
+                  1.4560209512710571,
+                  -0.3729323744773865
                 ]
-              ]
+              ],
+              "frame": [
+                1096,
+                250
+              ],
+              "width": 1464,
+              "height": 645
             }
           ],
           "title": "",
@@ -2014,7 +2370,9 @@
           "alt": "Poly Punch VR, image 1",
           "sourceHash": "1fcff8c429de657049332afb77557eccf21bb355",
           "fit": "cover",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 1024,
+          "height": 576
         }
       ],
       "contributions": [
@@ -2062,7 +2420,9 @@
           "alt": "Stick It, image 1",
           "sourceHash": "931fa381cb04455a0beb3c2c35008dfe623712ff",
           "fit": "cover",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 1024,
+          "height": 576
         }
       ],
       "url": "https://knitestudios.itch.io/stick-it",
@@ -2102,28 +2462,36 @@
           "alt": "Stick It, image 1",
           "sourceHash": "7ffa3b667a0a1e28e12eaa0184c1463acb3a2884",
           "fit": "cover",
-          "background": "#171c20"
+          "background": "#171c20",
+          "width": 500,
+          "height": 252
         },
         {
           "src": "/projects/stick-it/gallery/2533e40e89d6316a089206309d046d9f9b71bdac.webp",
           "alt": "Stick It, image 2",
           "sourceHash": "2533e40e89d6316a089206309d046d9f9b71bdac",
           "fit": "cover",
-          "background": "#171c20"
+          "background": "#171c20",
+          "width": 1024,
+          "height": 553
         },
         {
           "src": "/projects/stick-it/gallery/154b2eb41113a57b28fe16cc82f2e7ba14e86f8a.webp",
           "alt": "Stick It, image 3",
           "sourceHash": "154b2eb41113a57b28fe16cc82f2e7ba14e86f8a",
           "fit": "cover",
-          "background": "#171c20"
+          "background": "#171c20",
+          "width": 1024,
+          "height": 538
         },
         {
           "src": "/projects/stick-it/gallery/screenshot-03.avif",
           "alt": "Stick It, image 4",
           "sourceHash": "a9d8777965b352ba8a8424bb6b5b78eb3d073fd0",
           "fit": "contain",
-          "background": "#111418"
+          "background": "#111418",
+          "width": 1024,
+          "height": 624
         }
       ],
       "initialSlide": 1,

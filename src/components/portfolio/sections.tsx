@@ -1,4 +1,5 @@
 import "./media-treatment.css";
+import type { CSSProperties } from "react";
 import { FigmaShade, bannerShade, heroShade } from "./media-shade";
 import { MediaImage } from "./media-image";
 import type {
@@ -37,6 +38,7 @@ export function Hero({
 }) {
   return (
     <header className="pf-hero">
+      <div className="pf-hero-art" style={{ "--hero-art-ratio": images[0]?.width && images[0]?.height ? images[0].width / images[0].height : 16 / 9 } as CSSProperties}>
       {images[0] &&
         (video ? (
           <AmbientVideo
@@ -55,6 +57,8 @@ export function Hero({
       {images.slice(1).map((media, i) => media.crop ? (
         <MediaImage key={i} className="pf-hero-layer" media={{ ...media, background: "transparent" }} alt="" priority />
       ) : <img key={i} className="pf-hero-logo" src={media.src} alt="" />)}
+      {images.slice(1).map((media, i) => <img key={i} className="pf-hero-mobile-logo" src={media.src} alt="" />)}
+      </div>
       <div className="pf-container pf-hero-copy">
         <h1>{title}</h1>
         {description && <p>{description}</p>}
@@ -102,6 +106,7 @@ export function Banners({ items }: { items: BannerData[] }) {
           ))}
           <FigmaShade className="pf-banner-shade" {...bannerShade(b.images[0]?.sourceHash)} />
           <div className="pf-banner-copy">
+            {b.images.length === 2 && <img className="pf-banner-mobile-logo" src={b.images[1].src} alt="" loading="lazy" />}
             {b.logo && (
               <img
                 className="pf-banner-logo"
@@ -139,7 +144,7 @@ export function CaseStudyBody({ project: p }: { project: CaseStudy }) {
             <h2>Contributions</h2>
             <ul className="pf-contributions">
               {p.contributions.map((c, i) => (
-                <li key={i}>{c}</li>
+                <li key={i}><span aria-hidden="true">✦</span><span>{c.replace(/^[•·✦]\s*/, "")}</span></li>
               ))}
             </ul>
           </div>

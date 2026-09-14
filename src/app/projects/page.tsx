@@ -4,15 +4,13 @@ import type { Metadata } from "next";
 import { SiteNav } from "@/components/site/site-nav";
 import { SiteFooter } from "@/components/site/site-footer";
 import { featuredStudies } from "@/lib/portfolio";
-import { getProjects } from "@/lib/content";
+
 export const metadata: Metadata = {
   title: "Projects",
   alternates: { canonical: "/projects" },
 };
 export default function Projects() {
-  const personal = getProjects().filter(
-    (p) => !featuredStudies.some((c) => c.slug === p.slug),
-  );
+
   return (
     <>
       <SiteNav />
@@ -44,30 +42,7 @@ export default function Projects() {
             </article>
           ))}
         </section>
-        <section className="pf-container pf-section" id="sidequests">
-          <h2>Sidequests</h2>
-          <div className="pf-project-grid">
-            {personal.map((p) => (
-              <article className="pf-project-card" key={p.slug}>
-                {p.frontmatter.image && (
-                  <img
-                    src={p.frontmatter.image}
-                    alt={p.frontmatter.title}
-                    loading="lazy"
-                  />
-                )}
-                <h3>{p.frontmatter.title}</h3>
-                <p>{p.frontmatter.description}</p>
-                {!p.frontmatter.mediaOnly && (
-                  <Link className="pf-button" href={`/projects/${p.slug}`}>
-                    <Icon name="imgIconArrow" />
-                    Read More
-                  </Link>
-                )}
-              </article>
-            ))}
-          </div>
-        </section>
+        <section className="pf-container pf-section"><Link className="pf-button" href="/sidequests"><Icon name="imgIconArrow" />Explore sidequests</Link></section>
       </main>
       <SiteFooter />
     </>

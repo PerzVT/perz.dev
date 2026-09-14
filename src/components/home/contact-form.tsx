@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { sendContact } from "@/app/actions/contact";
-import { Button } from "@/components/site/button";
+import { Icon } from "@/components/portfolio/controls";
 
 /**
  * Client-validated contact form (name, email, message) with a honeypot,
@@ -28,7 +28,7 @@ export function ContactForm() {
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
 
-  async function onSubmit(e: React.FormEvent) {
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const next: Errors = {};
     if (!name.trim()) next.name = "Add your name.";
@@ -40,6 +40,12 @@ export function ContactForm() {
     if (Object.keys(next).length) {
       setErrors(next);
       setStatus("Fix the fields above.");
+      const field = Object.keys(next)[0];
+      const form = e.currentTarget;
+      requestAnimationFrame(() => {
+        const input = form.elements.namedItem(field);
+        if (input instanceof HTMLElement) input.focus();
+      });
       return;
     }
 
@@ -74,13 +80,13 @@ export function ContactForm() {
         <p className="text-sm leading-[1.65] text-pz-ink2">
           Thanks, expect a reply soon.
         </p>
-        <Button
+        <button
+          type="button"
           onClick={reset}
-          variant="secondary"
-          className="mt-1.5 self-start border border-pz-border2"
+          className="pf-button mt-1.5 self-start"
         >
           Send another
-        </Button>
+        </button>
       </div>
     );
   }
@@ -162,15 +168,16 @@ export function ContactForm() {
       />
 
       <div className="flex flex-wrap items-center gap-3.5">
-        <Button
+        <button
           type="submit"
-          size="lg"
           disabled={sending}
           data-sfx="toggle"
-          className="disabled:opacity-70"
+          className="pf-button disabled:opacity-70"
+          aria-busy={sending}
         >
+          <Icon name="imgIconArrow" />
           {sending ? "Sending…" : "Send message"}
-        </Button>
+        </button>
         <span
           aria-live="polite"
           className={`text-[12.5px] ${Object.keys(errors).length ? "text-pz-danger" : "text-pz-faint"}`}

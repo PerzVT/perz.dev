@@ -1,0 +1,30 @@
+.sq-intro { padding-block: 64px; }
+.sq-intro p { max-width: 900px; margin-top: 24px; }
+.sq-learning { padding-block: 64px; background: var(--pf-quiet); }
+.sq-learning p { max-width: 900px; }
+.sq-collection { padding-bottom: 72px; }
+.sq-collection .sq-card-art { object-fit: contain; background: var(--pf-quiet); }
+.sq-collection .pf-project-card { display: flex; flex-direction: column; align-items: flex-start; }
+.sq-collection .pf-project-card > a:first-child { width: 100%; }
+.sq-collection .pf-project-card > .pf-button { margin-top: auto; }
+.sq-collection .pf-project-card > p { margin-bottom: 24px; }
+.sq-art { display: block; border: 3px solid var(--pf-border); border-radius: 20px; background: var(--pf-surface); box-shadow: 0 9px 0 var(--pf-ink); }
+.sq-art img { display: block; width: 100%; height: auto; aspect-ratio: auto; object-fit: contain; border-radius: 17px; }
+.sq-detail-section { padding-block: 64px; }
+.sq-detail-section p { font-size: 18px; line-height: 1.55; }
+.sq-reading { max-width: 1096px; }
+.sq-reading > div { max-width: 760px; }
+.sq-paired { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+.sq-columns { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 32px; padding-block: 32px 64px; }
+.sq-columns .sq-art { margin-bottom: 24px; }
+.sq-columns .pf-project-card { padding: 24px; }
+.sq-columns p { margin: 0; }
+.sq-outcome > p { max-width: 760px; margin-bottom: 32px; }
+.sq-outcome-points { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 24px; }
+.sq-outcome-points li { display: flex; align-items: flex-start; gap: 12px; padding: 24px; border: 2px solid var(--pf-border); border-radius: 24px; background: var(--pf-surface); box-shadow: 0 8px 0 var(--pf-panel-base); }
+.sq-page .pf-feature-list { margin-bottom: 28px; }
+@media(max-width:700px) { .sq-columns,.sq-paired,.sq-outcome-points { grid-template-columns:1fr; } .sq-detail-section { padding-block:48px; } .sq-intro { padding-block:48px; } }
+.sq-art-facts { display: block; max-width: 600px; }
+
+.sq-page .pf-overview-top > div > .pf-button { margin-top: 24px; }
+

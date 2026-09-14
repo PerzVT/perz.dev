@@ -5,7 +5,8 @@ import { SiteFooter } from "@/components/site/site-footer";
 import { CaseStudyBody } from "@/components/portfolio/sections";
 import { caseStudies } from "@/lib/portfolio";
 import { getProjects } from "@/lib/content";
-import LegacyProjectPage, {
+import SidequestDetail from "@/components/portfolio/sidequests";
+import {
   generateMetadata as legacyMetadata,
 } from "@/components/portfolio/legacy-project";
 type Params = Promise<{ slug: string }>;
@@ -15,7 +16,7 @@ export function generateStaticParams() {
     ...new Set([
       ...caseStudies.map((p) => p.slug),
       ...getProjects()
-        .filter((p) => !p.frontmatter.mediaOnly)
+
         .map((p) => p.slug),
     ]),
   ].map((slug) => ({ slug }));
@@ -45,7 +46,7 @@ export default async function ProjectPage({ params }: { params: Params }) {
   const p = caseStudies.find((p) => p.slug === slug);
   if (!p) {
     if (!getProjects().some((p) => p.slug === slug)) notFound();
-    return <LegacyProjectPage params={params} />;
+    return <SidequestDetail params={params} />;
   }
   return (
     <>

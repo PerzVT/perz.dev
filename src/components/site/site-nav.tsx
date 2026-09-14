@@ -1,6 +1,5 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
 import { usePathname } from "next/navigation";
 import {
   AudioToggle,
@@ -10,7 +9,9 @@ import {
 
 export function SiteNav() {
   const pathname = usePathname();
-  const [sidequests, setSidequests] = useState(false);
+  const projectSlug = pathname.startsWith("/projects/") ? pathname.split("/")[2] : null;
+  const caseStudySlugs = ["highstreet-calamity-vr", "supercat", "bubble-buddy", "lurk", "poly-punch-vr", "stick-it", "bisecthosting", "dragoncraft", "mythcraft"];
+  const sidequests = pathname === "/sidequests" || (!!projectSlug && !caseStudySlugs.includes(projectSlug));
   return (
     <header className="pf-header">
       <nav className="pf-container pf-nav" aria-label="Main navigation">
@@ -28,12 +29,10 @@ export function SiteNav() {
           <Link
             href="/"
             aria-current={pathname === "/" ? "page" : undefined}
-            onClick={() => setSidequests(false)}
           >
             Home
           </Link>
           <Link
-            onClick={() => setSidequests(false)}
             href="/projects"
             aria-current={
               pathname.startsWith("/projects") && !sidequests
@@ -44,10 +43,9 @@ export function SiteNav() {
             Projects
           </Link>
           <Link
-            href="/projects#sidequests"
-            onClick={() => setSidequests(true)}
+            href="/sidequests"
             aria-current={
-              pathname === "/projects" && sidequests ? "page" : undefined
+              sidequests ? "page" : undefined
             }
           >
             Sidequests
