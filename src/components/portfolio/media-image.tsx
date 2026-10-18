@@ -3,8 +3,8 @@ import { getImageProps } from "next/image";
 import type { Media } from "@/lib/portfolio";
 import dimensions from "../../../content/portfolio/image-dimensions.json";
 
-export function MediaImage({ media, alt, className = "", priority = false, sizes = "(max-width: 800px) calc(100vw - 48px), 1096px", narrowMedia, narrowPosition = "50% 50%", narrowBreakpoint = 1100 }: {
-  media: Media; alt?: string; className?: string; priority?: boolean; sizes?: string; narrowMedia?: Media; narrowPosition?: string; narrowBreakpoint?: number;
+export function MediaImage({ media, alt, className = "", priority = false, eager = false, sizes = "(max-width: 800px) calc(100vw - 48px), 1096px", narrowMedia, narrowPosition = "50% 50%", narrowBreakpoint = 1100 }: {
+  media: Media; alt?: string; className?: string; priority?: boolean; eager?: boolean; sizes?: string; narrowMedia?: Media; narrowPosition?: string; narrowBreakpoint?: number;
 }) {
   const t = media.crop;
   const cropped = t && t[0][0] > 0 && t[1][1] > 0;
@@ -13,7 +13,7 @@ export function MediaImage({ media, alt, className = "", priority = false, sizes
   const height = media.height || size?.[1] || 900;
   const frame = media.frame || (cropped ? [1440, 712] : [width, height]);
   const { props } = getImageProps({ src: media.src, alt: alt ?? media.alt, width, height,
-    sizes, quality: 90, loading: priority ? "eager" : "lazy", fetchPriority: priority ? "high" : undefined,
+    sizes, quality: 90, loading: priority || eager ? "eager" : "lazy", fetchPriority: priority ? "high" : undefined,
     style: cropped ? {
       width: `${100 / t[0][0]}%`, height: `${100 / t[1][1]}%`,
       left: `${-100 * t[0][2] / t[0][0]}%`, top: `${-100 * t[1][2] / t[1][1]}%`,

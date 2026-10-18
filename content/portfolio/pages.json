@@ -131,7 +131,7 @@
         ],
         "logo": "/contact/banners/kerberus-network-logo.webp",
         "title": "Come build worlds with us.",
-        "body": "We are always looking for new aspiring developers, artists and designers to join our fold If you want to learn or get started making mods, join up!",
+        "body": "",
         "label": "Get started",
         "href": "https://discord.gg/draconia",
         "tone": "terracotta"
@@ -1155,15 +1155,6 @@
           "height": 1443
         },
         {
-          "src": "/projects/highstreet-calamity-vr/sections/01-gesture-casting-and-ability-design/calamity-ability-system-flowchart.jpg",
-          "alt": "Second Wind ability progression, read from level 1 at the bottom to level 10 at the top. Branches improve health or stamina regeneration and lead to two Adrenaline Rush variants with different health and stamina tradeoffs.",
-          "sourceHash": "7471e47ed0eb4a984298409d10fdbe68af696754",
-          "fit": "contain",
-          "background": "#111418",
-          "width": 1316,
-          "height": 1443
-        },
-        {
           "src": "/projects/highstreet-calamity-vr/sections/02-classes-progression-and-wave-systems/calamity-progression-skill-tree.png",
           "alt": "Calamity skill-tree diagram showing connected upgrade paths.",
           "sourceHash": "292dd7da4880d7230c197998af7bb68477cccc1d",
@@ -1334,11 +1325,13 @@
               "height": 1695
             },
             {
-              "src": "/projects/highstreet-calamity-vr/sections/01-gesture-casting-and-ability-design/calamity-ability-system-flowchart.jpg",
+              "src": "/projects/highstreet-calamity-vr/sections/01-gesture-casting-and-ability-design/arc-demo-poster.webp",
               "video": "/projects/highstreet-calamity-vr/sections/01-gesture-casting-and-ability-design/arc-demo.mp4",
               "alt": "arc demo",
               "fit": "contain",
-              "background": "#121212"
+              "background": "#121212",
+              "width": 1280,
+              "height": 720
             },
             {
               "src": "/projects/highstreet-calamity-vr/sections/01-gesture-casting-and-ability-design/calamity-gesture-casting-gameplay.webp",
@@ -1398,32 +1391,40 @@
               "height": 708
             },
             {
-              "src": "/projects/highstreet-calamity-vr/sections/03-multi-tool-ux-and-input-maps/calamity-controller-input-map.webp",
+              "src": "/projects/highstreet-calamity-vr/sections/03-multi-tool-ux-and-input-maps/multitool-base-poster.webp",
               "video": "/projects/highstreet-calamity-vr/sections/03-multi-tool-ux-and-input-maps/multitool-base.mp4",
               "alt": "multitool base",
               "fit": "contain",
-              "background": "#171c20"
+              "background": "#171c20",
+              "width": 1600,
+              "height": 1236
             },
             {
-              "src": "/projects/highstreet-calamity-vr/sections/03-multi-tool-ux-and-input-maps/calamity-controller-input-map.webp",
+              "src": "/projects/highstreet-calamity-vr/sections/03-multi-tool-ux-and-input-maps/multitool-concept-01-poster.webp",
               "video": "/projects/highstreet-calamity-vr/sections/03-multi-tool-ux-and-input-maps/multitool-concept-01.mp4",
               "alt": "multitool concept 01",
               "fit": "contain",
-              "background": "#171c20"
+              "background": "#171c20",
+              "width": 1600,
+              "height": 1236
             },
             {
-              "src": "/projects/highstreet-calamity-vr/sections/03-multi-tool-ux-and-input-maps/calamity-controller-input-map.webp",
+              "src": "/projects/highstreet-calamity-vr/sections/03-multi-tool-ux-and-input-maps/multitool-concept-02-poster.webp",
               "video": "/projects/highstreet-calamity-vr/sections/03-multi-tool-ux-and-input-maps/multitool-concept-02.mp4",
               "alt": "multitool concept 02",
               "fit": "contain",
-              "background": "#171c20"
+              "background": "#171c20",
+              "width": 1600,
+              "height": 1236
             },
             {
-              "src": "/projects/highstreet-calamity-vr/sections/03-multi-tool-ux-and-input-maps/calamity-controller-input-map.webp",
+              "src": "/projects/highstreet-calamity-vr/sections/03-multi-tool-ux-and-input-maps/multitool-concept-03-poster.webp",
               "video": "/projects/highstreet-calamity-vr/sections/03-multi-tool-ux-and-input-maps/multitool-concept-03.mp4",
               "alt": "multitool concept 03",
               "fit": "contain",
-              "background": "#171c20"
+              "background": "#171c20",
+              "width": 1600,
+              "height": 1236
             }
           ],
           "mediaFirst": true

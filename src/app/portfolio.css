@@ -269,10 +269,6 @@ body {
   background: var(--pf-quiet);
   overflow: hidden;
 }
-/* A trailer keeps its full frame; capping its height would crop it. */
-.pf-hero[data-video] {
-  max-height: none;
-}
 .pf-hero-image,
 .pf-hero-video,
 .pf-hero-shade {

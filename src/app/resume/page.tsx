@@ -9,7 +9,7 @@ import {
 import { Icon } from "@/components/portfolio/controls";
 import { portfolio } from "@/lib/portfolio";
 import { DemoReel } from "@/components/portfolio/demo-reel";
-import { ActivityPanel, ServicePanel } from "@/components/portfolio/resume-stats";
+import { ModpackUptime } from "@/components/portfolio/resume-stats";
 export const metadata: Metadata = {
   title: "Résumé",
   alternates: { canonical: "/resume" },
@@ -86,10 +86,9 @@ export default function Resume() {
           <h2>Education</h2>
           <Experience rows={r.education} />
         </section>
-        <section className="pf-container pf-section pf-trackers" id="trackers" aria-labelledby="trackers-heading">
-          <h2 id="trackers-heading">Trackers</h2>
-          <ActivityPanel />
-          <ServicePanel />
+        <section className="pf-container pf-section pf-trackers" id="modpacks" aria-labelledby="modpacks-heading">
+          <h2 id="modpacks-heading">Modpacks</h2>
+          <ModpackUptime />
         </section>
       </main>
       <SiteFooter />

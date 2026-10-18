@@ -37,6 +37,8 @@ export function Carousel({ items, label = "Gallery", initial = 0, compact = fals
       <div className="pf-stable-track">
         {items.map((item, itemIndex) => {
           const active = itemIndex === index;
+          const offset = Math.abs(itemIndex - index);
+          const near = Math.min(offset, items.length - offset) <= 1;
           // Large presentation frames fill edge to edge. Compact technical
           // figures keep their authored framing; originals open on click.
           const media: Slide = compact ? item : { ...item, fit: "cover", crop: undefined };
@@ -46,7 +48,7 @@ export function Carousel({ items, label = "Gallery", initial = 0, compact = fals
             <div className="pf-slide-art">
               {item.video && active ? <Video key={item.video} src={item.video} poster={item.src} alt={item.alt} fit={media.fit} background={item.background} /> :
                 <button type="button" className="pf-full-art" aria-label={`View artwork: ${item.alt || item.title || label}`} onClick={() => setViewer(true)}>
-                  <MediaImage media={media} alt={active ? item.alt : ""} />
+                  <MediaImage media={media} alt={active ? item.alt : ""} eager={near} />
                 </button>}
             </div>
             {featured && <div className="pf-slide-caption">
