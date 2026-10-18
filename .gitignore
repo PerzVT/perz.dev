@@ -15,6 +15,7 @@
 
 # next.js
 /.next/
+/.next-audit/
 /out/
 
 # production
@@ -45,3 +46,28 @@ next-env.d.ts
 # local screenshots and scratch pages
 /shots/
 .tmp-page.html
+
+# Source masters and recovery archives. The site serves the web encodes in
+# pages.json; the full-size originals are too large for git (one is 210 MB,
+# over GitHub's 100 MB blob limit).
+/media-source/
+/public/projects/highstreet-calamity-vr/sections/01-gesture-casting-and-ability-design/gesture-casting-demo.mp4
+
+# One-off audit and verification output. No source file reads any of it.
+/content/portfolio/verification/
+/content/portfolio/asset-audit/
+/ASSET-AUDIT.html
+/ASSET-AUDIT.md
+/MEDIA-REVIEW.html
+
+# Featured-work editor: runs only under next dev and writes
+# content/portfolio/featured-layout.json, which is committed.
+/src/app/dev/
+/src/app/api/dev/
+/src/components/portfolio/featured-editor.tsx
+/src/components/portfolio/featured-editor.css
+/content/portfolio/FEATURED-WORK.md
+
+# Media cleanup working notes. No source file reads them.
+/content/portfolio/media-cleanup.json
+/content/portfolio/media-folders.json
