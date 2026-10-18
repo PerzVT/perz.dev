@@ -18,6 +18,8 @@
 .sq-columns { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 32px; padding-block: 32px 64px; }
 .sq-columns .sq-art { margin-bottom: 24px; }
 .sq-columns .pf-project-card { padding: 20px; }
+.sq-columns .sq-art { outline: 0; }
+.sq-columns .pf-project-card :is(h3, p) { margin-inline: 0; }
 .sq-columns p { margin: 0; }
 .sq-outcome > p { max-width: 760px; margin-bottom: 32px; }
 .sq-outcome-points { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 24px; }
@@ -42,7 +44,7 @@
   .sq-media-only .pf-section, .sq-text-only .pf-section, .sq-text-only .sq-detail-section { padding-block: 24px; }
 }
 
-.sq-collection .pf-project-card > a:first-child { position: relative; overflow: hidden; border-radius: calc(var(--perz-radius-panel) - 9px); }
+.sq-collection .pf-project-card > a:first-child { position: relative; overflow: hidden; }
 .sq-collection .sq-poster-backdrop { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: blur(16px) brightness(.45); transform: scale(1.1); }
 .sq-collection .sq-card-poster { background: transparent !important; }
 .sq-collection .sq-card-poster > img { padding: 12px; border-radius: 0; }

@@ -1,53 +1,34 @@
-/* Featured geometry is owned here, independently of media-only galleries. */
-.pf-carousel.pf-featured-carousel { --pf-slide-size: min(var(--perz-layout-feature-width), 80cqw); }
-.pf-featured-carousel .pf-stable-track { align-items: stretch; }
+/* One image per slide with its caption below, inside a single bordered card.
+   The artwork runs to the card edge so there is one border, not two. */
+.pf-carousel.pf-featured-carousel {
+  --pf-slide-size: min(var(--perz-layout-feature-width), 80cqw);
+  /* Centre the arrows on the artwork, which is 16:9 across the slide. */
+  --arrow-y: calc(4px + var(--pf-slide-size) * 9 / 32);
+}
 .pf-carousel.pf-featured-carousel .pf-featured-card {
-  display: grid; grid-template-columns: minmax(0, 7fr) minmax(280px, 3fr);
-  grid-template-rows: minmax(0, 1fr); align-content: start;
-  aspect-ratio: auto; min-height: 0px; padding: 0; gap: 0;
+  display: flex; flex-direction: column; aspect-ratio: auto; padding: 0; gap: 0;
   overflow: hidden; border-radius: var(--perz-radius-panel);
 }
-.pf-featured-art { display: block; min-width: 0; min-height: 0; position: relative; align-self: stretch; aspect-ratio: 616/353; }
+.pf-featured-art { display: block; position: relative; aspect-ratio: 16 / 9; }
 .pf-featured-art > .pf-media-image { position: absolute; inset: 0; }
-.pf-featured-art:focus-visible { outline-offset: -6px; }
-.pf-featured-details { display: flex; flex-direction: column; gap: 12px; padding: 18px; min-width: 0; background: var(--pf-surface); }
-.pf-featured-details h3 { font-size: 20px; line-height: 1.2; margin: 0; }
-.pf-featured-thumbnails { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; }
-.pf-featured-thumbnails button { display: block; position: relative; aspect-ratio: 16/9; min-height: 44px; padding: 0; border: 2px solid transparent; border-radius: var(--perz-radius-small); overflow: hidden; background: var(--pf-quiet); outline: 1px solid var(--perz-image-edge); outline-offset: -1px; cursor: pointer; }
-.pf-featured-thumbnails button > .pf-media-image { position: absolute; inset: 0; }
-.pf-featured-thumbnails button:is(:hover, [aria-pressed="true"]) { border-color: var(--perz-focus); }
-.pf-featured-bottom { margin-top: auto; }
-.pf-featured-bottom .pf-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
-.pf-featured-art img, .pf-featured-thumbnails img { object-position: var(--featured-position, 50% 50%); }
-.pf-platforms { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
-.pf-platform-pill { display: inline-flex; align-items: center; gap: 6px; min-height: 26px; padding: 0 10px; border: 1px solid var(--pf-border-strong); border-radius: 999px; color: var(--pf-secondary); font: 500 var(--perz-type-metadata)/1.3 var(--perz-font-body); }
+.pf-featured-art:focus-visible { outline-offset: -4px; }
+.pf-featured-art img { object-position: var(--featured-position, 50% 50%); }
+.pf-featured-art .pf-responsive-picture img { position: absolute; inset: 0; width: 100%; height: 100%; }
+.pf-featured-caption {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px 24px;
+  padding: 16px 20px 18px;
+}
+.pf-page .pf-featured-caption h3 { margin: 0; }
+.pf-platforms { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.pf-platform-pill { display: inline-flex; align-items: center; gap: 6px; min-height: 26px; padding: 0 10px; border: 1px solid var(--pf-border-strong); border-radius: 999px; color: var(--pf-secondary); font: 500 var(--pf-type-pill)/1.3 var(--perz-font-body); }
 @media (hover: hover) and (pointer: fine) { a.pf-platform-pill:hover { color: var(--pf-text); background: var(--perz-hover-overlay); } }
 .pf-platform-icon { display: block; flex: 0 0 14px; width: 14px; height: 14px; background: currentColor; mask: var(--platform-icon) center / contain no-repeat; }
 .pf-platform-icon[data-brand="meta"] { color: #0081fb; }
+.pf-responsive-picture { display: contents; }
 @media (max-width: 1100px) {
-  /* Details stack under the art, so the arrows centre on the artwork. */
-  .pf-carousel.pf-featured-carousel { --arrow-y: calc(4px + var(--pf-slide-size) * 353 / 1232); }
-
-  .pf-carousel.pf-featured-carousel .pf-featured-card { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto 1fr; min-height: 0; }
-  .pf-featured-art { aspect-ratio: 616/353; align-self: start; width: 100%; }
-  .pf-featured-details { display: grid; grid-template-columns: minmax(0,1fr) auto; align-items: center; gap: 8px 24px; padding: 14px 16px 16px; }
-  .pf-featured-details > div:first-child { grid-column: 1; }
-  .pf-featured-thumbnails { display: none; }
-  .pf-featured-bottom { grid-column: 2; grid-row: 1; margin-top: 0; align-self: center; }
-  .pf-featured-details[data-sparse="true"] { grid-template-columns: minmax(0,1fr) auto; align-items: center; }
-  .pf-featured-details[data-sparse="true"] .pf-featured-bottom { grid-column: 2; grid-row: 1; }
+  .pf-featured-art .pf-responsive-picture img { object-position: var(--narrow-position, 50% 50%); }
 }
 @media (max-width: 800px) {
   .pf-carousel.pf-featured-carousel { --pf-slide-size: 88cqw; }
+  .pf-featured-caption { flex-direction: column; align-items: flex-start; padding: 14px 16px 16px; }
 }
-@media (max-width: 600px) {
-  .pf-featured-details, .pf-featured-details[data-sparse="true"] { display: flex; flex-direction: column; align-items: stretch; gap: 12px; padding: 14px 16px 16px; }
-  .pf-featured-thumbnails { grid-template-columns: repeat(4,minmax(0,1fr)); }
-  .pf-featured-bottom { align-self: start; margin-top: auto; }
-}
-
-.pf-responsive-picture { display: contents; }
-@media (max-width: 1100px) { .pf-featured-art .pf-responsive-picture img { object-position: var(--narrow-position,50% 50%); } }
-
-.pf-featured-art .pf-responsive-picture img { position: absolute; inset: 0; width: 100%; height: 100%; }
-

@@ -24,7 +24,6 @@ export type FeaturedProject = {
   title: string;
   main: FeaturedSlotView;
   mainNarrow: FeaturedSlotView;
-  thumbnails: FeaturedSlotView[];
   platforms: PlatformPill[];
 };
 
@@ -35,7 +34,7 @@ function view(project: CaseStudy, slot: FeaturedSlot): FeaturedSlotView {
 
 /**
  * The carousel's slots resolved against the case studies here, so the browser
- * receives four images and a title per project instead of the whole case study.
+ * receives its image and title instead of the whole case study.
  */
 export const featuredProjects: FeaturedProject[] = featuredStudies.map(project => {
   const layout = featuredLayouts[project.slug];
@@ -49,7 +48,6 @@ export const featuredProjects: FeaturedProject[] = featuredStudies.map(project =
     title: project.title,
     main: view(project, layout.main),
     mainNarrow: view(project, layout.mainNarrow || layout.main),
-    thumbnails: layout.thumbnails.filter(slot => slot.src).map(slot => view(project, slot)),
     platforms: layout.platforms,
   };
 });

@@ -18,14 +18,15 @@ body { user-select: text; -webkit-user-select: text; }
 .pf-contact-form :is(input, textarea) { border-color: var(--pf-field-border); }
 .pf-contact-form :is(input, textarea)::placeholder { color: var(--pf-placeholder); opacity: 1; }
 .pf-contact-form :is(input, textarea)[aria-invalid="true"] { border-color: var(--pf-error-border); }
-.pf-copy-status { flex-basis: 100%; margin-top: 8px; color: var(--pf-text); }
+.pf-contact-form [role="status"] { font-size: var(--pf-type-compact); }
+.pf-copy-status { flex-basis: 100%; font-size: var(--pf-type-compact); margin-top: 8px; color: var(--pf-text); }
 .pf-copy-status:empty { display: none; }
 .pf-video-error { position: absolute; bottom: 80px; right: 24px; left: 24px; padding: 12px 16px; border-radius: var(--perz-radius-media); background: var(--perz-canvas); color: var(--perz-text); z-index: 5; }
 .pf-video-icon { width: 20px; height: 20px; flex: none; }
 .pf-nav-controls { margin-left: 0; gap: 12px; }
 .pf-menu-toggle { display: none; }
 .pf-mobile-links { display: none; }
-.pf-about-grid p, .pf-role > div > p, .pf-quote blockquote { line-height: 1.6; }
+.pf-about-grid p, .pf-role > div > p, .pf-quote blockquote { font-size: var(--pf-type-compact); line-height: 1.6; }
 .pf-about-grid p { max-width: 68ch; }
 .pf-skill-section { margin-top: 24px; }
 .pf-skill-section h2 { margin-bottom: 20px; }
@@ -34,9 +35,9 @@ body { user-select: text; -webkit-user-select: text; }
 .pf-overview-top > * { min-width: 0; }
 .pf-facts dd { overflow-wrap: anywhere; }
 .pf-contents { margin-top: 40px; }
-.pf-contents p { margin-bottom: 12px; }
+.pf-contents p { font-size: var(--pf-type-compact); margin-bottom: 12px; }
 .pf-contents ul { list-style: none; display: flex; flex-wrap: wrap; gap: 12px 24px; padding: 0; }
-.pf-contents a { display: inline-flex; align-items: center; min-height: 44px; padding: 8px 12px; border-radius: var(--perz-radius-control); font-weight: 500; }
+.pf-contents a { display: inline-flex; align-items: center; min-height: 44px; padding: 8px 12px; border-radius: var(--perz-radius-control); font-size: var(--pf-type-compact); font-weight: 500; }
 @media (hover: hover) and (pointer: fine) { .pf-contents a:hover { background: var(--perz-hover-overlay); } }
 .pf-project-navigation { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 24px; }
 .pf-page [id^="project-section-"] { scroll-margin-top: 32px; }
@@ -45,7 +46,7 @@ body { user-select: text; -webkit-user-select: text; }
 .pf-viewer-panel { padding: 24px; }
 .pf-viewer-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; margin-bottom: 20px; }
 .pf-viewer-header h2 { margin: 0 0 8px; }
-.pf-viewer-header p { max-width: 70ch; line-height: 1.5; margin: 0; }
+.pf-viewer-header p { max-width: 70ch; font-size: var(--pf-type-compact); line-height: 1.5; margin: 0; }
 .pf-viewer-header button { flex: none; }
 .pf-viewer-image { overflow: auto; max-height: 62dvh; background: var(--pf-surface); border-radius: calc(var(--perz-radius-panel) - 8px); text-align: center; }
 .pf-viewer-image img { display: block; max-width: 100%; max-height: 62dvh; width: auto; height: auto; margin: auto; object-fit: contain; }
@@ -56,9 +57,9 @@ body { user-select: text; -webkit-user-select: text; }
 .sq-art > .pf-media-image { position: relative; width: 100%; aspect-ratio: var(--media-source-ratio); border-radius: var(--perz-radius-media); }
 .sq-columns .sq-art { border: 0; box-shadow: none; background: transparent; }
 .sq-columns .pf-project-card:has(h3:last-of-type):last-child:nth-child(odd) { grid-column: 1/-1; }
-.pf-project-card > a > .pf-media-image { height: auto; aspect-ratio: 16/9; position: relative; border-radius: calc(var(--perz-radius-panel) - 9px); outline: 1px solid var(--perz-image-edge); outline-offset: -1px; }
+.pf-project-card > a > .pf-media-image { height: auto; aspect-ratio: 16/9; position: relative; }
 
-.pf-project-status { display: block; color: var(--pf-secondary); font-size: var(--perz-type-metadata); margin: 0 0 12px 8px; }
+.pf-project-status { display: block; color: var(--pf-secondary); font-size: var(--pf-type-meta); margin: 0 0 12px; }
 .pf-page.pf-contact-page .pf-hero { height: 300px; min-height: 300px; }
 .pf-contact-page .pf-hero-copy { bottom: 32px; }
 .pf-contact-page .pf-hero-copy p { max-width: 54ch; }
