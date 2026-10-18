@@ -17,11 +17,11 @@
       }
     ],
     "title": "Percy",
-    "intro": "I'm a Game Designer and Developer who specializes in user experience and systems design with professional experience building PC and VR games. Get in touch if you would like to work together!",
+    "intro": "I'm a Game Designer and Developer who specializes in user experience and systems design with professional experience building PC and VR games.",
     "video": "/home/hero/percy-portfolio-reel.mp4",
     "about": {
       "title": "About me",
-      "body": "Percy is a game designer and developer based in Calgary, Alberta. He believes in subtractive design and the power of simplicity in systems.\n\nHe focuses on clear, straightforward goals that retain players through a strong engaging core loop with a focus towards rewarding design thru data and systems that provides a fair challenge.\n\nHe enjoys breaking complex ideas down into clean, functional experiences, always aiming for clarity in communication and design.\n\nOutside of work he is passionate about modding games and reverse engineering. \nHe founded Kerberus (2017) and Draconia (2021) , gaming networks that have served over 750,000 players till now. He created Mythcraft, Dragoncraft and contributes to numerous modding projects with in the curseforge space for games like Minecraft (Java) and Palworld.",
+      "body": "Percy is a game designer and developer based in Calgary, Alberta. He believes in subtractive design and the power of simplicity in systems.\n\nHe focuses on clear, straightforward goals that retain players through a strong engaging core loop with a focus towards rewarding design thru data and systems that provides a fair challenge.\n\nHe enjoys breaking complex ideas down into clean, functional experiences, always aiming for clarity in communication and design. Outside of work, he is passionate about modding games and reverse engineering, and contributes to and maintains multiple active projects.",
       "image": "/home/about/percy-bubble-buddy-presentation.webp"
     },
     "experience": [
@@ -35,14 +35,14 @@
       {
         "role": "Game Designer and Developer",
         "company": "Smooth Brain Games (prev. Knite Studios)",
-        "body": "Designed and developed multiple games and prototypes, assisted with level design and systems design.",
+        "body": "Designed and developed multiple games and prototypes, assisted with level design and systems design. Lead game designer on Supercat, an action platformer built by five full-time developers and over ten contributors, and pitched its vertical slice in Edmonton and Calgary through the Indie Ignition Accelerator. Designed and built the Poly Punch VR prototype on an experimental Meta hand-tracking kit, and designed Lurk and Stick It at Knite Studios.",
         "period": "Sep 2022 – Apr 2025",
         "logo": "/home/experience/smooth-brain-games-logo.png"
       },
       {
         "role": "Designer",
         "company": "BisectHosting",
-        "body": "Designed product and content for brand partners, campaigns, CurseForge projects, In-game assets, Major events, and company identity.",
+        "body": "Designed product and content for brand partners, campaigns, CurseForge projects, in-game assets, major events and company identity. Built press and partner kits, and designed partner work that ran on CurseForge, Twitch, Modrinth and Lunar Client, used in programs with GamersOutreach, Project Hope and Tiltify. Also designed for Meloncube Hosting and Bisect Studios.",
         "period": "Apr 2022 – Dec 2023",
         "logo": "/home/experience/bisecthosting-avatar.jpg"
       },
@@ -56,7 +56,7 @@
       {
         "role": "Senior Graphic Designer",
         "company": "Whiteboard Studios",
-        "body": "Led branding and motion design campaigns for mid-market and enterprise clients. Assisted with art direction and production.",
+        "body": "Led branding and motion design campaigns for mid-market and enterprise clients, mostly colleges, universities and companies. Assisted with art direction and production.",
         "period": "Jan 2020 – Jan 2021",
         "logo": "/home/experience/whiteboard-games-logo.png"
       }
@@ -129,12 +129,12 @@
             ]
           }
         ],
-        "logo": "/home/banners/frostbolt-studios-logo.webp",
+        "logo": "/contact/banners/kerberus-network-logo.webp",
         "title": "Come build worlds with us.",
         "body": "We are always looking for new aspiring developers, artists and designers to join our fold If you want to learn or get started making mods, join up!",
         "label": "Get started",
         "href": "https://discord.gg/draconia",
-        "tone": "green"
+        "tone": "terracotta"
       }
     ]
   },
@@ -158,14 +158,14 @@
       {
         "role": "Game Designer and Developer",
         "company": "Smooth Brain Games (prev. Knite Studios)",
-        "body": "Designed and developed multiple games and prototypes, assisted with level design and systems design.",
+        "body": "Designed and developed multiple games and prototypes, assisted with level design and systems design. Lead game designer on Supercat, an action platformer built by five full-time developers and over ten contributors, and pitched its vertical slice in Edmonton and Calgary through the Indie Ignition Accelerator. Designed and built the Poly Punch VR prototype on an experimental Meta hand-tracking kit, and designed Lurk and Stick It at Knite Studios.",
         "period": "Sep 2022 – Apr 2025",
         "logo": "/home/experience/smooth-brain-games-logo.png"
       },
       {
         "role": "Designer",
         "company": "BisectHosting",
-        "body": "Designed product and content for brand partners, campaigns, CurseForge projects, In-game assets, Major events, and company identity.",
+        "body": "Designed product and content for brand partners, campaigns, CurseForge projects, in-game assets, major events and company identity. Built press and partner kits, and designed partner work that ran on CurseForge, Twitch, Modrinth and Lunar Client, used in programs with GamersOutreach, Project Hope and Tiltify. Also designed for Meloncube Hosting and Bisect Studios.",
         "period": "Apr 2022 – Dec 2023",
         "logo": "/home/experience/bisecthosting-avatar.jpg"
       },
@@ -179,7 +179,7 @@
       {
         "role": "Senior Graphic Designer",
         "company": "Whiteboard Studios",
-        "body": "Led branding and motion design campaigns for mid-market and enterprise clients. Assisted with art direction and production.",
+        "body": "Led branding and motion design campaigns for mid-market and enterprise clients, mostly colleges, universities and companies. Assisted with art direction and production.",
         "period": "Jan 2020 – Jan 2021",
         "logo": "/home/experience/whiteboard-games-logo.png"
       }

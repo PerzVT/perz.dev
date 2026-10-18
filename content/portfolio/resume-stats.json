@@ -1,14 +1,22 @@
 {
-  "sample": true,
-  "activity": {
-    "title": "Activity",
-    "description": "GitHub contributions and modpack releases",
-    "period": "Last 52 weeks · contributions per day"
+  "github": {
+    "user": "PerzVT",
+    "description": "Public contributions on GitHub over the last year."
   },
-  "reliability": {
-    "title": "Uptime",
-    "description": "Hosted services, rolling 90 days",
-    "value": "99.6%",
-    "source": "Uptime monitor"
+  "service": {
+    "description": "Modpacks I build and keep online. They have stayed up without a break for six years.",
+    "source": "https://www.curseforge.com/members/perzvt/projects",
+    "snapshot": "October 2026",
+    "modpacks": [
+      { "name": "Dragoncraft", "downloads": "158.7K" },
+      { "name": "Plants vs Zombies Overgrowth", "downloads": "21.2K" },
+      { "name": "Toothless", "downloads": "17.6K" },
+      { "name": "Mythcraft Unleashed", "downloads": "16.8K" },
+      { "name": "Nightcraft", "downloads": "2.6K" },
+      { "name": "WarpDrive", "downloads": "1.8K" },
+      { "name": "Submerged", "downloads": "922" },
+      { "name": "Comfycraft", "downloads": "831" },
+      { "name": "Cobblemon High", "downloads": "533" }
+    ]
   }
 }

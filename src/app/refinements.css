@@ -205,7 +205,7 @@ html[data-motion="paused"] *, html[data-motion="paused"] *::before, html[data-mo
 .pf-heatmap i[data-level="1"] { background: color-mix(in srgb, var(--perz-blue-face) 45%, var(--pf-surface)); }
 .pf-heatmap i[data-level="2"] { background: color-mix(in srgb, var(--perz-blue-face) 75%, var(--pf-surface)); }
 .pf-heatmap i[data-level="3"] { background: var(--perz-blue-face); }
-@media print { #trackers-heading, .pf-tracker-links { display: none !important; } }
+@media print { .pf-trackers { display: none !important; } }
 
 /* Side index: lives in the left margin, so it only shows where the margin fits it. */
 .pf-section-index { display: none; }
@@ -288,3 +288,68 @@ a.pf-art-tile:focus-visible { outline: var(--perz-control-focus-width) solid var
 .pf-banners { gap: 24px; padding-block: 0 96px; }
 @media (max-width: 800px) { .pf-banners { gap: 16px; padding-block: 0 48px; } }
 .pf-contact-page .pf-banners { padding-top: 21px; }
+
+.pf-hero-actions { margin-top: 20px; pointer-events: auto; }
+.pf-hero-actions .pf-button { min-height: var(--perz-control-target); padding: 0 22px; }
+
+.pf-banner.pf-art-tile { height: 300px; padding: 32px; align-items: stretch; }
+.pf-art-tile .pf-banner-copy { display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-start; height: 100%; }
+.pf-art-tile .pf-banner-logo { width: auto; height: 72px; max-width: 260px; max-height: none; margin-bottom: auto; object-fit: contain; object-position: left center; }
+.pf-page .pf-art-tile h3 { margin: 0 0 8px; }
+.pf-art-tile .pf-art-tile-action { margin-top: 20px; }
+@media (max-width: 800px) {
+  .pf-banner.pf-art-tile { height: auto; min-height: 300px; padding: 20px; }
+  .pf-art-tile .pf-banner-logo { height: 56px; margin-bottom: 32px; }
+}
+
+.pf-socials { gap: 8px; }
+.pf-socials a { --brand: var(--perz-blue-face); min-height: var(--perz-control-height); padding: 0 14px; border-radius: var(--perz-radius-control); color: var(--pf-text); transition: background-color var(--perz-duration-enter) var(--perz-ease-out), color var(--perz-duration-enter) var(--perz-ease-out); }
+.pf-socials a[data-brand="github"] { --brand: #238636; }
+.pf-socials a[data-brand="discord"] { --brand: #5865f2; }
+.pf-socials a[data-brand="linkedin"] { --brand: #0a66c2; }
+.pf-socials a[data-brand="itch"] { --brand: #fa5c5c; }
+.pf-socials a[data-brand="curseforge"] { --brand: #f16436; }
+@media (hover: hover) {
+  .pf-socials a:hover { background: var(--brand); color: #fff; }
+}
+.pf-socials a:active { background: color-mix(in srgb, var(--brand) 80%, black); color: #fff; }
+@media (hover: hover) { .pf-socials a:hover .pf-icon { filter: brightness(0) invert(1); } }
+
+.pf-resume-intro { align-items: center; }
+.pf-resume-aside { display: flex; flex-direction: column; align-items: stretch; gap: 20px; }
+.pf-resume-intro .pf-resume-aside .pf-actions { margin-top: 0; justify-content: center; }
+.pf-resume-aside .pf-actions .pf-button, .pf-resume-aside .pf-actions button { width: 100%; justify-content: center; }
+.pf-reel-heading { justify-content: space-between; }
+.pf-reel-date { display: inline-flex; align-items: center; min-height: 28px; padding: 0 12px; border-radius: 999px; background: color-mix(in srgb, var(--perz-blue-face) 22%, transparent); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--perz-blue-face) 60%, transparent); color: var(--pf-text); font: 600 var(--pf-type-pill)/1 var(--perz-font-body); }
+@media print { .pf-resume-aside { display: none !important; } }
+
+.pf-proficiency { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; align-items: stretch; }
+.pf-proficiency .pf-checklist { columns: auto; }
+.pf-proficiency-level header { padding-bottom: 16px; border-bottom: 1px solid var(--pf-border); }
+@media (max-width: 900px) { .pf-proficiency { grid-template-columns: 1fr; } .pf-proficiency .pf-checklist { columns: 2 180px; } }
+
+.pf-trackers { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; }
+.pf-trackers > h2 { margin-bottom: 8px; }
+.pf-stat-header { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 8px; }
+.pf-page .pf-stat-header h3 { margin: 0; }
+.pf-stat-header a { color: var(--pf-secondary); font-size: var(--pf-type-meta); }
+.pf-trackers .pf-tracker-stats { margin: 0 0 20px; }
+.pf-heatmap i[data-level="4"] { background: color-mix(in srgb, var(--perz-blue-face) 70%, white); }
+.pf-heatmap i[data-level="1"] { background: color-mix(in srgb, var(--perz-blue-face) 35%, var(--pf-surface)); }
+.pf-heatmap i[data-level="2"] { background: color-mix(in srgb, var(--perz-blue-face) 65%, var(--pf-surface)); }
+.pf-service-state { display: inline-flex; align-items: center; gap: 8px; font-size: var(--pf-type-meta); color: var(--pf-text); }
+.pf-service-state i, .pf-service-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--pf-online); box-shadow: 0 0 0 3px color-mix(in srgb, var(--pf-online) 25%, transparent); flex: none; }
+.pf-service-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr)); gap: 8px; }
+.pf-service-list li { display: grid; grid-template-columns: auto 1fr auto; grid-template-areas: "dot name status" ". downloads downloads"; align-items: center; gap: 2px 12px; padding: 12px 14px; border: 1px solid var(--pf-border); border-radius: var(--perz-radius-control); }
+.pf-service-dot { grid-area: dot; }
+.pf-service-list strong { grid-area: name; font-size: var(--pf-type-compact); font-weight: 600; color: var(--pf-text); }
+.pf-service-downloads { grid-area: downloads; font-size: var(--pf-type-small); color: var(--pf-secondary); }
+.pf-service-status { grid-area: status; font-size: var(--pf-type-small); color: var(--pf-online); }
+.pf-stat-meta a { color: inherit; text-decoration: underline; }
+:root { --pf-online: #4cc38a; }
+:root[data-portfolio-theme="light"] { --pf-online: #1a7f4e; }
+@media (max-width: 600px) {
+  .pf-trackers .pf-tracker-stats { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+  .pf-trackers .pf-stats > div { padding: 10px 12px; }
+  .pf-trackers .pf-stats dd { font-size: var(--pf-type-sub); }
+}

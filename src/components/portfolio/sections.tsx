@@ -34,11 +34,13 @@ export function Hero({
   description,
   images,
   video,
+  action,
 }: {
   title: string;
   description?: string;
   images: Media[];
   video?: string;
+  action?: { href: string; label: string };
 }) {
   return (
     <header className="pf-hero" data-video={video ? "" : undefined} style={{ "--hero-art-ratio": images[0]?.width && images[0]?.height ? images[0].width / images[0].height : 16 / 9 } as CSSProperties}>
@@ -65,7 +67,8 @@ export function Hero({
       </div>
       <div className="pf-container pf-hero-copy">
         <h1>{title}</h1>
-        {description && <p>{title === "Percy" && description.includes("Get in touch") ? <>{description.split("Get in touch")[0]}<Link href="/contact">Get in touch<Icon name="imgIconArrow" /></Link>{description.split("Get in touch")[1]}</> : description}</p>}
+        {description && <p>{description}</p>}
+        {action && <div className="pf-actions pf-hero-actions"><Link className="pf-button" href={action.href}><Icon name="imgIconArrow" />{action.label}</Link></div>}
       </div>
     </header>
   );

@@ -1087,11 +1087,6 @@ body {
   gap: 12px;
 }
 
-.pf-banner:nth-child(2) .pf-banner-logo {
-  width: 236px;
-  max-height: 109px;
-}
-
 .pf-letter {
   grid-template-columns: 1fr;
 }
@@ -1114,9 +1109,6 @@ body {
   }
   .pf-footer .pf-email {
     flex-wrap: wrap;
-  }
-  .pf-banner:nth-child(2) .pf-banner-logo {
-    max-width: 100%;
   }
 }
 

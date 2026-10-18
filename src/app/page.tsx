@@ -22,7 +22,7 @@ export default function Home() {
     <>
       <SiteNav />
       <main id="main-content" className="pf-page pf-home">
-        <Hero title={h.title} images={h.hero} description={h.intro} />
+        <Hero title={h.title} images={h.hero} description={h.intro} action={{ href: "/contact", label: "Get in touch" }} />
         <section className="pf-section" id="work">
           <div className="pf-container">
             <h2>Featured work</h2>

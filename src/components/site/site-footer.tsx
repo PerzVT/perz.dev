@@ -18,7 +18,7 @@ export function SiteFooter() {
         </div>
         <div className="pf-socials">
           {socials.map(([label, key, icon]) => (
-            <a key={key} href={siteConfig.links[key]}>
+            <a key={key} href={siteConfig.links[key]} data-brand={key}>
               <Icon name={icon} />
               {label}
             </a>

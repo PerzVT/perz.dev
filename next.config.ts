@@ -48,11 +48,13 @@ const nextConfig: NextConfig = {
   // into _buildManifest.js for client-side route matching, which put 111 KB
   // of dead asset paths in front of every visitor. Redirects stay server-side.
   async redirects() {
-    // Projects and sidequests open from the nav menus, so their old index
-    // pages land on the home page instead.
+    // Projects and sidequests open from the nav menus and the trackers live
+    // in the résumé, so their old pages redirect.
     const pages = [
       { source: "/projects", destination: "/#work", permanent: false },
       { source: "/sidequests", destination: "/", permanent: false },
+      { source: "/activity", destination: "/resume#trackers", permanent: false },
+      { source: "/status", destination: "/resume#trackers", permanent: false },
     ];
     return [...pages, ...Object.entries(mediaAliases).map(([source, destination]) => ({
       source: source.replace(/[():*+?{}]/g, "\\$&"),

@@ -9,8 +9,7 @@ import {
 import { Icon } from "@/components/portfolio/controls";
 import { portfolio } from "@/lib/portfolio";
 import { DemoReel } from "@/components/portfolio/demo-reel";
-import { showResumeStats } from "@/components/portfolio/resume-stats";
-import Link from "next/link";
+import { ActivityPanel, ServicePanel } from "@/components/portfolio/resume-stats";
 export const metadata: Metadata = {
   title: "Résumé",
   alternates: { canonical: "/resume" },
@@ -47,16 +46,18 @@ export default function Resume() {
             {highlights.length > 0 && <ul className="pf-feature-list pf-resume-highlights">
               {highlights.map(line => <li key={line}><span aria-hidden="true">✦</span><span>{line}</span></li>)}
             </ul>}
+          </div>
+          <div className="pf-resume-aside">
+            <img
+              className="pf-about-photo"
+              src={r.image}
+              alt="Percy presenting at a games event"
+            />
             <div className="pf-actions"><PrintButton /></div>
           </div>
-          <img
-            className="pf-about-photo"
-            src={r.image}
-            alt="Percy presenting at a games event"
-          />
         </header>
         <section className="pf-container pf-resume-reel" aria-labelledby="reel-heading">
-          <div className="pf-reel-heading"><h2 id="reel-heading">Demo reel</h2><span className="pf-project-status">2024</span></div>
+          <div className="pf-reel-heading"><h2 id="reel-heading">Demo reel</h2><span className="pf-reel-date">Updated in 2024</span></div>
           <DemoReel src="/resume/demo-reel-2024.mp4" poster={{ src: "/resume/demo-reel-2024-poster.webp", alt: "" }} label="Demo reel, 2024" />
         </section>
         {philosophyLead && <section className="pf-section pf-quiet pf-resume-philosophy">
@@ -85,13 +86,11 @@ export default function Resume() {
           <h2>Education</h2>
           <Experience rows={r.education} />
         </section>
-        {showResumeStats && <section className="pf-container pf-section" aria-labelledby="trackers-heading">
+        <section className="pf-container pf-section pf-trackers" id="trackers" aria-labelledby="trackers-heading">
           <h2 id="trackers-heading">Trackers</h2>
-          <div className="pf-tracker-links">
-            <Link href="/activity"><strong>GitHub activity</strong><span>Contributions and modpack releases</span></Link>
-            <Link href="/status"><strong>Service status</strong><span>Uptime for the services I host</span></Link>
-          </div>
-        </section>}
+          <ActivityPanel />
+          <ServicePanel />
+        </section>
       </main>
       <SiteFooter />
     </>
