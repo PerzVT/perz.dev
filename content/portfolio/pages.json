@@ -460,7 +460,7 @@
       "slug": "supercat",
       "figmaNode": "398:2458",
       "title": "Supercat",
-      "description": "Supercat is an action platformer where the player uses fluid movement combined with combat moves that compliment the flow state to traverse levels and take down enemies.",
+      "description": "Supercat is an action platformer where the player uses fluid movement combined with combat moves that complement the flow state to traverse levels and take down enemies.",
       "hero": [
         {
           "src": "/projects/supercat/gallery/supercat-key-art.webp",
@@ -475,7 +475,7 @@
       "video": "/projects/supercat/hero/supercat-trailer.mp4",
       "contributions": [
         "Designed a modular movement kit with state-driven combat actions.",
-        "Built threats and challenges allowed this kit to be utilized fully.",
+        "Built threats and challenges that allowed this kit to be utilized fully.",
         "Blocked out tutorial levels that introduced mechanics through challenge."
       ],
       "facts": [
@@ -636,7 +636,7 @@
         {
           "type": "feature",
           "title": "Movement and combat",
-          "body": "Wall-running, pouncing, slide-jumps, ramp hops and other mobility tools shared a interwoven surface with combat helping combat feel fluid. The goal was to achieve a flow state during combat.",
+          "body": "Wall-running, pouncing, slide-jumps, ramp hops and other mobility tools shared an interwoven surface with combat, which helped combat feel fluid. The goal was to achieve a flow state during combat.",
           "media": [
             {
               "src": "/projects/supercat/sections/01-movement-and-combat/supercat-annotated-movement-route.webp",
@@ -653,7 +653,7 @@
         {
           "type": "feature",
           "title": "Weapons and player state",
-          "body": "The same weapon changes behavior while sliding, airborne or grounded. This let me build momentum based fighting combo’s that provided different uses for each weapon without overloading players with more inputs.",
+          "body": "The same weapon changes behavior while sliding, airborne or grounded. This let me build momentum-based fighting combos that provided different uses for each weapon without overloading players with more inputs.",
           "media": [
             {
               "src": "/projects/supercat/sections/02-weapons-and-player-state/supercat-character-concept-sheet.webp",
@@ -697,15 +697,15 @@
           "cards": [
             {
               "title": "Project Management",
-              "body": "This project included a team of 5 full time devs and over 10 contributors and commissioned artists.\n\nIt helped me learn how to plan, interact and coordinate between disciplines with talented artists, devs and designers to reach out goal with a first-principles approach."
+              "body": "This project included a team of 5 full-time devs and over 10 contributors and commissioned artists.\n\nIt helped me learn how to plan, interact and coordinate between disciplines with talented artists, devs and designers to reach our goal with a first-principles approach."
             },
             {
               "title": "Pitching to Publishers",
-              "body": "This project allowed me a chance to work with Indie Ignition Accelerator, pitch our vertical slice in Edmonton and Calgary at game fests and learn about the latter half of game development in detail. Publishing. \n\nGetting a game completed is a challenge but there is a lot more that goes into releasing it. The economics and logistics behind it is something I would have never learnt without this project."
+              "body": "This project allowed me a chance to work with Indie Ignition Accelerator, pitch our vertical slice in Edmonton and Calgary at game fests and learn about the latter half of game development in detail.\n\nGetting a game completed is a challenge but there is a lot more that goes into releasing it. The economics and logistics behind it are something I would have never learnt without this project."
             },
             {
               "title": "Team Leadership",
-              "body": "As a multi-disciplinary designer, this project tested my leadership skills to the max, I excel at communicating between developers, artists and designers to understand and help meet their needs to make sure production goes uninterrupted. \n\nThe massive team size combined with huge pool of outside collaborators made leadership a real challenge which I happy to have faced early in my career as it taught me a lot."
+              "body": "As a multi-disciplinary designer, this project tested my leadership skills to the max. I excel at communicating between developers, artists and designers to understand and help meet their needs to make sure production goes uninterrupted. \n\nThe massive team size combined with a huge pool of outside collaborators made leadership a real challenge, which I was happy to have faced early in my career as it taught me a lot."
             }
           ]
         }
