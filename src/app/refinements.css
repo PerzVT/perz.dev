@@ -215,3 +215,16 @@ html[data-motion="paused"] *, html[data-motion="paused"] *::before, html[data-mo
 
 /* Deterrent only: blocks the long-press "save image" menu on phones. */
 .pf-page img, .pf-page video { -webkit-touch-callout: none; }
+
+/* Skill rows with an illustration, alternating sides. The figures keep a dark
+   ground in both themes, as the design kit asks. */
+.pf-figure-rows { display: grid; gap: 56px; }
+.pf-figure-row { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 48px; align-items: center; }
+.pf-figure-row[data-flip] { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); }
+.pf-figure-row[data-flip] > .pf-figure-frame { order: 2; }
+.pf-figure-frame { display: block; width: 100%; aspect-ratio: 600 / 464; border: 0; border-radius: var(--perz-radius-panel); background: #121316; outline: 1px solid var(--perz-image-edge); outline-offset: -1px; }
+.pf-page .pf-figure-row h3 { font-size: var(--pf-type-sub); margin: 0 0 12px; }
+@media (max-width: 800px) {
+  .pf-figure-row, .pf-figure-row[data-flip] { grid-template-columns: 1fr; gap: 20px; }
+  .pf-figure-row[data-flip] > .pf-figure-frame { order: 0; }
+}

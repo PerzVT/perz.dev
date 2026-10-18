@@ -38,7 +38,9 @@ export type ProjectSection =
   | {
       type: "outcomes";
       title: string;
-      cards: { title: string; body: string }[];
+      /** `figure` names a built page in the project's public figures folder;
+       *  cards that carry one render as alternating rows beside it. */
+      cards: { title: string; body: string; figure?: string }[];
     };
 export type CaseStudy = {
   slug: string;

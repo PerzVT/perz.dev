@@ -220,7 +220,12 @@ export function CaseStudyBody({ project: p }: { project: CaseStudy }) {
         ) : (
           <section key={i} id={`project-section-${i}`} className="pf-container pf-section">
             {s.title.trim() && <h2>{s.title}</h2>}
-            <div
+            {s.cards.some(c => c.figure) ? <div className="pf-figure-rows">{s.cards.map((c, j) => (
+              <article key={j} className="pf-figure-row" data-flip={j % 2 === 1 || undefined}>
+                {c.figure && <iframe className="pf-figure-frame" src={`/projects/${p.slug}/figures/${c.figure}.html`} title={`${c.title}: interactive illustration`} loading="lazy" />}
+                <div><h3>{c.title}</h3><Paragraphs text={c.body} /></div>
+              </article>
+            ))}</div> : <div
               className={`pf-outcomes ${s.title === "Word from Highstreet" ? "pf-letter" : ""}`}
             >
               {s.cards.map((c, j) => (
@@ -240,7 +245,7 @@ export function CaseStudyBody({ project: p }: { project: CaseStudy }) {
                   )}
                 </article>
               ))}
-            </div>
+            </div>}
           </section>
         ),
       )}

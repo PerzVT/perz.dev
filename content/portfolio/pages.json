@@ -1483,14 +1483,17 @@
           "cards": [
             {
               "title": "Systems Design",
+              "figure": "systems-design",
               "body": "In this project I was able to learn and expand my skill set as a multi-disciplinary designer. I had the opportunity and was trusted to establish key systems and work with other designers in its refinement and overseeing the balancing of said systems. I focused on an quicker iteration and improving ways to tweak, balance gameplay and removing friction in that process. "
             },
             {
               "title": "Game Design (VR/AR)",
+              "figure": "vr-design",
               "body": "Designing for VR based on VR first principles and establishing frameworks to make interacting with the world feel more immersive was my goal. I focused on making combat and UX of the game feel integrated and take full advantage of the capabilities of the medium by utilizing unique mechanics which felt right in a spatial world."
             },
             {
               "title": "Playtesting and Tuning",
+              "figure": "playtesting",
               "body": "Hands on playtesting in engine, validating concepts and flows and iterating on this to bring values closer to our intended game feel was a major part of my process. With the clear hurdles in testing VR games unlike regular in-engine testing I designed tools with enabled testers to access dev menus from within the game and tweak changes and export said changes off the headset."
             }
           ]

@@ -23,11 +23,11 @@ const CSP = [
   "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
   "connect-src 'self' https:",
   // object-src blocks <object>/<embed>/<applet> (legacy Flash-era
-  // injection vectors). frame-src blocks <iframe> embeds. The site
-  // uses neither, so closing the door is free.
+  // injection vectors). Frames are same-site only: the case-study figures
+  // are pages of this site shown in iframes, and no other site may frame it.
   "object-src 'none'",
-  "frame-src 'none'",
-  "frame-ancestors 'none'",
+  "frame-src 'self'",
+  "frame-ancestors 'self'",
   "base-uri 'self'",
   "form-action 'self'",
 ].join("; ");
@@ -73,7 +73,7 @@ const nextConfig: NextConfig = {
             value:
               "camera=(), microphone=(), geolocation=(), interest-cohort=()",
           },
-          { key: "X-Frame-Options", value: "DENY" },
+          { key: "X-Frame-Options", value: "SAMEORIGIN" },
         ],
       },
     ];
