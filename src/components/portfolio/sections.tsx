@@ -14,8 +14,7 @@ import { AmbientVideo, Icon } from "./controls";
 import { Carousel } from "./carousel";
 import { LockedPreview } from "./locked-preview";
 import { SectionIndex } from "./section-index";
-import { EditorBar, MediaStrip } from "./content-editor";
-import { editable } from "@/lib/editable";
+import { editable, editableList } from "@/lib/editable";
 
 const EDITING = process.env.NODE_ENV === "development";
 
@@ -137,7 +136,7 @@ export function CaseStudyBody({ project: p }: { project: CaseStudy }) {
   const contents = p.sections.map((section, i) => ({ title: section.title, id: `project-section-${i}` })).filter(item => item.title.trim());
   const locked = p.status === "coming-soon";
   const base = `projects/slug:${p.slug}`;
-  const galleryStrip = EDITING && <div className="pf-container"><MediaStrip list={`${base}/gallery`} items={p.gallery} label="Gallery" /></div>;
+  const galleryStrip = EDITING && <div className="pf-container" {...editableList(`${base}/gallery`, "Gallery", p.gallery)} />;
   const gallery = p.gallery.length > 0 && (
     <section className="pf-section" id="project-gallery" data-full-bleed>
       <div className="pf-container">
@@ -196,7 +195,6 @@ export function CaseStudyBody({ project: p }: { project: CaseStudy }) {
       {overview}
       {contents.length >= 3 && <SectionIndex items={[...(p.gallery.length > 0 ? [{ id: "project-gallery", title: "Gallery" }] : []), ...contents]} />}
       {gallery || galleryStrip}
-      {EDITING && <EditorBar />}
       {p.sections.map((s, i) =>
         s.type === "feature" ? (
           <section
@@ -219,7 +217,7 @@ export function CaseStudyBody({ project: p }: { project: CaseStudy }) {
               </div>
               {s.media.length > 0 && <Carousel items={s.media} compact label={s.title || `${p.title} detail`} />}
             </div>
-            {EDITING && <div className="pf-container"><MediaStrip list={`${base}/sections/${i}/media`} items={s.media} label={s.title || `Section ${i + 1}`} /></div>}
+            {EDITING && <div className="pf-container" {...editableList(`${base}/sections/${i}/media`, s.title || `Section ${i + 1}`, s.media)} />}
           </section>
         ) : (
           <section key={i} id={`project-section-${i}`} className="pf-container pf-section">
