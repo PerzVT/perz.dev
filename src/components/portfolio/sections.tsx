@@ -14,6 +14,10 @@ import { AmbientVideo, Icon } from "./controls";
 import { Carousel } from "./carousel";
 import { LockedPreview } from "./locked-preview";
 import { SectionIndex } from "./section-index";
+import { EditorBar, MediaStrip } from "./content-editor";
+import { editable } from "@/lib/editable";
+
+const EDITING = process.env.NODE_ENV === "development";
 
 export function Paragraphs({ text }: { text: string }) {
   return (
@@ -132,6 +136,8 @@ export function CaseStudyBody({ project: p }: { project: CaseStudy }) {
   const next = featuredStudies[(featuredStudies.findIndex(item => item.slug === p.slug) + 1) % featuredStudies.length];
   const contents = p.sections.map((section, i) => ({ title: section.title, id: `project-section-${i}` })).filter(item => item.title.trim());
   const locked = p.status === "coming-soon";
+  const base = `projects/slug:${p.slug}`;
+  const galleryStrip = EDITING && <div className="pf-container"><MediaStrip list={`${base}/gallery`} items={p.gallery} label="Gallery" /></div>;
   const gallery = p.gallery.length > 0 && (
     <section className="pf-section" id="project-gallery" data-full-bleed>
       <div className="pf-container">
@@ -142,6 +148,7 @@ export function CaseStudyBody({ project: p }: { project: CaseStudy }) {
         initial={p.initialSlide}
         label={`${p.title} gallery`}
       />
+      {galleryStrip}
     </section>
   );
   const overview = (
@@ -149,12 +156,12 @@ export function CaseStudyBody({ project: p }: { project: CaseStudy }) {
       <div className="pf-overview-top">
         <div>
           {p.description && (
-            <div className="pf-description">
+            <div className="pf-description" {...editable(`${base}/description`, p.description)}>
               <Paragraphs text={p.description} />
             </div>
           )}
           <h2>Contributions</h2>
-          <ul className="pf-contributions">
+          <ul className="pf-contributions" {...editable(`${base}/contributions`, p.contributions)}>
             {p.contributions.map((c, i) => (
               <li key={i}><span aria-hidden="true">✦</span><span>{c.replace(/^[•·✦]\s*/, "")}</span></li>
             ))}
@@ -164,12 +171,12 @@ export function CaseStudyBody({ project: p }: { project: CaseStudy }) {
           {p.facts.map((f, i) => (
             <div key={i}>
               <dt>{f.label}</dt>
-              <dd>{f.value}</dd>
+              <dd {...editable(`${base}/facts/${i}/value`, f.value)}>{f.value}</dd>
             </div>
           ))}
         </dl>
       </div>
-      <div className="pf-skill-section"><h2>Skills</h2><Skills tags={p.skills} /></div>
+      <div className="pf-skill-section"><h2>Skills</h2><div {...editable(`${base}/skills`, p.skills)}><Skills tags={p.skills} /></div></div>
     </section>
   );
   if (locked) {
@@ -188,7 +195,8 @@ export function CaseStudyBody({ project: p }: { project: CaseStudy }) {
       <Hero title={p.title} images={p.hero} video={p.video} />
       {overview}
       {contents.length >= 3 && <SectionIndex items={[...(p.gallery.length > 0 ? [{ id: "project-gallery", title: "Gallery" }] : []), ...contents]} />}
-      {gallery}
+      {gallery || galleryStrip}
+      {EDITING && <EditorBar />}
       {p.sections.map((s, i) =>
         s.type === "feature" ? (
           <section
@@ -200,25 +208,26 @@ export function CaseStudyBody({ project: p }: { project: CaseStudy }) {
               className={`pf-container pf-feature-row ${s.mediaFirst ? "pf-media-first" : ""} ${s.media.length === 0 ? "pf-feature-text-only" : ""}`}
             >
               <div className="pf-feature-copy">
-                {s.title.trim() && <h2>{s.title}</h2>}
-                {s.body.includes("\n") ? (
+                {s.title.trim() && <h2 {...editable(`${base}/sections/${i}/title`, s.title)}>{s.title}</h2>}
+                <div {...editable(`${base}/sections/${i}/body`, s.body)}>{s.body.includes("\n") ? (
                   <ul className="pf-feature-list">
                     {s.body.split(/\n+/).map(line => line.trim()).filter(Boolean).map((line, index) => (
                       <li key={index}><span aria-hidden="true">✦</span><span>{line.replace(/^[•·✦]\s*/, "")}</span></li>
                     ))}
                   </ul>
-                ) : <Paragraphs text={s.body} />}
+                ) : <Paragraphs text={s.body} />}</div>
               </div>
               {s.media.length > 0 && <Carousel items={s.media} compact label={s.title || `${p.title} detail`} />}
             </div>
+            {EDITING && <div className="pf-container"><MediaStrip list={`${base}/sections/${i}/media`} items={s.media} label={s.title || `Section ${i + 1}`} /></div>}
           </section>
         ) : (
           <section key={i} id={`project-section-${i}`} className="pf-container pf-section">
-            {s.title.trim() && <h2>{s.title}</h2>}
+            {s.title.trim() && <h2 {...editable(`${base}/sections/${i}/title`, s.title)}>{s.title}</h2>}
             {s.cards.some(c => c.figure) ? <div className="pf-figure-rows">{s.cards.map((c, j) => (
               <article key={j} className="pf-figure-row" data-flip={j % 2 === 1 || undefined}>
                 {c.figure && <iframe className="pf-figure-frame" src={`/projects/${p.slug}/figures/${c.figure}.html`} title={`${c.title}: interactive illustration`} loading="lazy" />}
-                <div><h3>{c.title}</h3><Paragraphs text={c.body} /></div>
+                <div><h3 {...editable(`${base}/sections/${i}/cards/${j}/title`, c.title)}>{c.title}</h3><div {...editable(`${base}/sections/${i}/cards/${j}/body`, c.body)}><Paragraphs text={c.body} /></div></div>
               </article>
             ))}</div> : <div
               className={`pf-outcomes ${s.title === "Word from Highstreet" ? "pf-letter" : ""}`}
@@ -227,15 +236,15 @@ export function CaseStudyBody({ project: p }: { project: CaseStudy }) {
                 <article key={j}>
                   {c.title.startsWith(String.fromCharCode(34)) ? (
                     <>
-                      <blockquote>
+                      <blockquote {...editable(`${base}/sections/${i}/cards/${j}/title`, c.title)}>
                         <Paragraphs text={c.title} />
                       </blockquote>
-                      <p>{c.body}</p>
+                      <p {...editable(`${base}/sections/${i}/cards/${j}/body`, c.body)}>{c.body}</p>
                     </>
                   ) : (
                     <>
-                      <h3>{c.title}</h3>
-                      <Paragraphs text={c.body} />
+                      <h3 {...editable(`${base}/sections/${i}/cards/${j}/title`, c.title)}>{c.title}</h3>
+                      <div {...editable(`${base}/sections/${i}/cards/${j}/body`, c.body)}><Paragraphs text={c.body} /></div>
                     </>
                   )}
                 </article>
