@@ -34,9 +34,6 @@ export default function Home() {
             <div>
               <h2>{h.about.title}</h2>
               <Paragraphs text={h.about.body} />
-              <dl className="pf-stats">
-                {h.about.stats.map(stat => <div key={stat.label}><dt>{stat.label}</dt><dd>{stat.value}</dd></div>)}
-              </dl>
             </div>
             <img
               className="pf-about-photo"

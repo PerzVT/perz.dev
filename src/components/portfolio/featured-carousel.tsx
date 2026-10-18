@@ -28,7 +28,7 @@ function ProjectSlide({ project }: { project: FeaturedProject }) {
 }
 
 export function FeaturedCarousel({ projects }: { projects: FeaturedProject[] }) {
-  const { ref, viewportRef, index, running, previous, next, select } = useLoopingCarousel(projects.length);
+  const { ref, viewportRef, index, running, previous, next } = useLoopingCarousel(projects.length);
   const id = useId();
   if (!projects.length) return null;
   return <div ref={ref} className="pf-carousel pf-featured-carousel" role="region" aria-roledescription="carousel" aria-label="Featured work" tabIndex={0}
@@ -46,7 +46,7 @@ export function FeaturedCarousel({ projects }: { projects: FeaturedProject[] }) 
         </article>)}
       </div>
     </div>
-    <RailNavigation count={projects.length} index={index} label="Featured work" controls={id} onPrevious={previous} onNext={next} onSelect={select} />
+    <RailNavigation count={projects.length} label="Featured work" controls={id} onPrevious={previous} onNext={next} />
     <span className="sr-only" aria-live={running ? "off" : "polite"}>{projects[index].title}</span>
   </div>;
 }

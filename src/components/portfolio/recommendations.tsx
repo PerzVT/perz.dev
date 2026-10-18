@@ -8,7 +8,7 @@ const subscribeWidth = (notify: () => void) => { const query = matchMedia("(max-
 export function Recommendations() {
   const mobile = useSyncExternalStore(subscribeWidth, () => matchMedia("(max-width: 800px)").matches, () => false);
   const id = useId();
-  const { ref, viewportRef, index, running, previous, next, select } = useLoopingCarousel(quotes.length, 0, "start");
+  const { ref, viewportRef, index, running, previous, next } = useLoopingCarousel(quotes.length, 0, "start");
   return <section className="pf-container pf-section pf-recommendations" aria-label="Recommendations" aria-roledescription="carousel" tabIndex={0}
     onKeyDown={event => {
       if (event.target !== event.currentTarget) return;
@@ -31,7 +31,7 @@ export function Recommendations() {
           })}
         </div>
       </div>
-      <RailNavigation count={quotes.length} index={index} label="Recommendations" controls={id} onPrevious={previous} onNext={next} onSelect={select} />
+      <RailNavigation count={quotes.length} label="Recommendations" controls={id} onPrevious={previous} onNext={next} />
     </div>
     <span className="sr-only" aria-live={running ? "off" : "polite"}>Recommendation {index + 1} of {quotes.length}: {quotes[index].name}</span>
   </section>;

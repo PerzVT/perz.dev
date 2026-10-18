@@ -3,8 +3,7 @@
 .pf-carousel {
   container-type: inline-size;
   --pf-slide-size: min(var(--perz-layout-slide-width), 72cqw);
-  /* Middle of the 16:9 artwork, measured from the top so the dot row below
-     does not pull the arrows down. */
+  /* Middle of the 16:9 artwork, measured from the top. */
   --arrow-y: calc(4px + var(--pf-slide-size) * 9 / 32);
 }
 .pf-carousel .pf-track-viewport, .pf-recommendations .pf-track-viewport {
@@ -55,14 +54,14 @@
 }
 .pf-quiet .pf-carousel, .pf-home .pf-about .pf-carousel { --carousel-fade: var(--pf-quiet); }
 
-/* Arrows sit beside the slide; the position dots run centred underneath. */
+/* Arrows sit beside the slide, with no rail underneath. */
 .pf-carousel .pf-rail-navigation, .pf-recommendations .pf-rail-navigation {
   display: flex; align-items: center; justify-content: center; gap: 12px;
   min-height: 0; margin-top: 0;
 }
 .pf-carousel .pf-rail-navigation .pf-prev { left: max(10px, calc((100% - var(--pf-slide-size)) / 2 - 64px)); right: auto; }
 .pf-carousel .pf-rail-navigation .pf-next { right: max(10px, calc((100% - var(--pf-slide-size)) / 2 - 64px)); left: auto; }
-.pf-recommendations .pf-rail-navigation .pf-carousel-arrow { top: calc(50% - 23px); }
+.pf-recommendations .pf-rail-navigation .pf-carousel-arrow { top: calc(50% - 4px); }
 
 /* Compact figures keep the arrows inside the artwork. */
 .pf-carousel-compact .pf-rail-navigation {
@@ -93,11 +92,3 @@
   .pf-carousel .pf-stable-track > .pf-track-card { transition: none; }
 }
 
-.pf-dots { display: flex; align-items: center; justify-content: center; gap: 2px; margin-top: 14px; }
-.pf-dots button { display: grid; place-items: center; width: 24px; height: 24px; padding: 0; border: 0; background: none; cursor: pointer; }
-.pf-dots button::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--pf-border-strong); transition: width var(--perz-duration-enter) var(--perz-ease-out), background-color var(--perz-duration-enter) var(--perz-ease-out); }
-.pf-dots button[aria-current="true"]::before { width: 22px; border-radius: 4px; background: var(--pf-text); }
-@media (hover: hover) and (pointer: fine) { .pf-dots button:not([aria-current]):hover::before { background: var(--pf-secondary); } }
-/* Compact figures keep their dots in a pill over the bottom of the artwork. */
-.pf-carousel-compact .pf-dots { position: absolute; left: 50%; bottom: 10px; translate: -50% 0; margin: 0; padding: 0 8px; border-radius: 999px; background: var(--perz-media-control-face); pointer-events: auto; }
-.pf-carousel-compact .pf-dots button[aria-current="true"]::before { background: var(--perz-on-media); }

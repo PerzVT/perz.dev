@@ -235,7 +235,7 @@ html[data-motion="paused"] *, html[data-motion="paused"] *::before, html[data-mo
   .pf-figure-row[data-flip] > .pf-figure-frame { order: 0; }
 }
 
-/* About: the record as stat capsules beside the copy. */
+/* Stat capsules, used on the tracker pages. */
 .pf-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 24px 0 0; }
 .pf-stats > div { display: flex; flex-direction: column-reverse; justify-content: flex-end; gap: 2px; padding: 14px 16px; border: 1px solid var(--pf-border); border-radius: var(--perz-radius-panel); background: color-mix(in srgb, var(--pf-text) 5%, transparent); }
 .pf-stats dd { margin: 0; font-size: var(--pf-type-section); font-weight: 600; line-height: 1.15; color: var(--pf-text); }
@@ -271,7 +271,8 @@ html[data-motion="paused"] *, html[data-motion="paused"] *::before, html[data-mo
 .pf-art-tile-action { position: relative; z-index: 1; display: inline-flex; margin-top: 16px; align-items: center; gap: 8px; flex: none; min-height: var(--perz-control-height); padding: 0 16px; border-radius: var(--perz-radius-control); background: var(--perz-blue-face); box-shadow: inset 0 0 0 1px var(--rim); color: var(--perz-on-accent); font: 600 var(--pf-type-compact)/1.2 var(--perz-font-body); }
 .pf-art-tile-action .pf-icon { width: 18px; height: 18px; }
 @media (hover: hover) and (pointer: fine) {
-  a.pf-art-tile:hover { --rim: color-mix(in srgb, var(--tile) 15%, white); }
+  a.pf-art-tile:hover { --rim: var(--perz-illustration-glow); }
+  a.pf-art-tile:hover::after { border-width: 3px; }
   a.pf-art-tile:hover .pf-art-tile-action { background: var(--perz-blue-hover); }
 }
 a.pf-art-tile:active { transform: scale(0.98); }
@@ -281,3 +282,9 @@ a.pf-art-tile:focus-visible { outline: var(--perz-control-focus-width) solid var
   .pf-art-tile::before { background: color-mix(in srgb, var(--tile) 88%, transparent); }
   .pf-art-tile .pf-banner-copy { max-width: none; }
 }
+
+/* The banner stack follows a padded section, so it adds no top padding of its
+   own; the tiles keep a clear gap between them. */
+.pf-banners { gap: 24px; padding-block: 0 96px; }
+@media (max-width: 800px) { .pf-banners { gap: 16px; padding-block: 0 48px; } }
+.pf-contact-page .pf-banners { padding-top: 21px; }
