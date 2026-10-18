@@ -263,7 +263,8 @@ body {
   position: relative;
   aspect-ratio: var(--hero-art-ratio, 16 / 9);
   min-height: 420px;
-  max-height: calc(100svh - 64px);
+  /* 70% of the space under the header, so the next section shows below. */
+  max-height: calc((100svh - 64px) * 0.7);
   width: 100%;
   background: var(--pf-quiet);
   overflow: hidden;

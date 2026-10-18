@@ -5,11 +5,12 @@ import { SiteFooter } from "@/components/site/site-footer";
 import {
   Experience,
   Paragraphs,
-  Skills,
 } from "@/components/portfolio/sections";
+import { Icon } from "@/components/portfolio/controls";
 import { portfolio } from "@/lib/portfolio";
 import { DemoReel } from "@/components/portfolio/demo-reel";
-import { ActivityHeatmap, ServiceReliability, showResumeStats } from "@/components/portfolio/resume-stats";
+import { showResumeStats } from "@/components/portfolio/resume-stats";
+import Link from "next/link";
 export const metadata: Metadata = {
   title: "Résumé",
   alternates: { canonical: "/resume" },
@@ -71,16 +72,26 @@ export default function Resume() {
         </section>
         <section className="pf-container pf-section">
           <h2>Skills</h2>
-          <div className="pf-proficiency">{levels.map((level, i) => <section className="pf-proficiency-level" key={level.title}>
-            <h3><span className="pf-meter" aria-hidden="true">{levels.map((_, dot) => <i key={dot} data-on={dot < levels.length - i} />)}</span>{level.title}</h3>
-            <Skills tags={level.tags} />
+          <div className="pf-proficiency">{levels.map((level, i) => <section className="pf-proficiency-level" key={level.title} aria-label={`${level.title}: ${level.tags.length} skills`}>
+            <header>
+              <h3>{level.title}</h3>
+              <span className="pf-proficiency-count">{level.tags.length} skills</span>
+              <span className="pf-level-bar" aria-hidden="true">{levels.map((_, step) => <i key={step} data-on={step < levels.length - i} />)}</span>
+            </header>
+            <ul className="pf-checklist">{level.tags.map(tag => <li key={tag}><Icon name="imgIconCheck" />{tag}</li>)}</ul>
           </section>)}</div>
         </section>
         <section className="pf-container pf-section">
           <h2>Education</h2>
           <Experience rows={r.education} />
         </section>
-        {showResumeStats && <><ActivityHeatmap /><ServiceReliability /></>}
+        {showResumeStats && <section className="pf-container pf-section" aria-labelledby="trackers-heading">
+          <h2 id="trackers-heading">Trackers</h2>
+          <div className="pf-tracker-links">
+            <Link href="/activity"><strong>GitHub activity</strong><span>Contributions and modpack releases</span></Link>
+            <Link href="/status"><strong>Service status</strong><span>Uptime for the services I host</span></Link>
+          </div>
+        </section>}
       </main>
       <SiteFooter />
     </>

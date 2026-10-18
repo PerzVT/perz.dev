@@ -60,7 +60,7 @@ export function Carousel({ items, label = "Gallery", initial = 0, compact = fals
         })}
       </div>
     </div>
-    <RailNavigation count={items.length} label={label} controls={id} onPrevious={previous} onNext={next} />
+    <RailNavigation count={items.length} index={index} label={label} controls={id} onPrevious={previous} onNext={next} onSelect={select} />
     {items.length > 1 && <span className="sr-only" aria-live={running ? "off" : "polite"}>{current.title || current.alt || label}, {index + 1} of {items.length}</span>}
     {viewer && <MediaViewer items={items} index={index} label={label} onSelect={select} onClose={() => setViewer(false)} />}
   </div>;

@@ -21,7 +21,9 @@
     "video": "/home/hero/percy-portfolio-reel.mp4",
     "about": {
       "title": "About me",
-      "body": "Percy is a game designer and developer based in Calgary, Alberta. He believes in subtractive design and the power of simplicity in systems.\n\nHe focuses on clear, straightforward goals that retain players through a strong engaging core loop with a focus towards rewarding design thru data and systems that provides a fair challenge.\n\nHe enjoys breaking complex ideas down into clean, functional experiences, always aiming for clarity in communication and design.\n\nOutside of work he is passionate about modding games and reverse engineering. \nHe founded Kerberus (2015) and Draconia (2021) , gaming networks that have served over 750,000 players till now. He created Mythcraft, Dragoncraft and contributes to numerous modding projects with in the curseforge space for games like Minecraft (Java) and Palworld.",
+      "body": "Percy is a game designer and developer based in Calgary, Alberta. He believes in subtractive design and the power of simplicity in systems.\n\nOutside of work he is passionate about modding games and reverse engineering, with mods in the CurseForge space for games like Minecraft (Java) and Palworld.",
+      "principles": ["Clear, straightforward goals", "A strong, engaging core loop", "Rewarding design through data", "A fair challenge", "Clarity in communication and design"],
+      "stats": [{"value": "750,000+", "label": "players served by Kerberus and Draconia"}, {"value": "2015", "label": "founded Kerberus"}, {"value": "2021", "label": "founded Draconia"}, {"value": "2", "label": "modpacks created: Mythcraft and Dragoncraft"}],
       "image": "/home/about/percy-bubble-buddy-presentation.webp"
     },
     "experience": [

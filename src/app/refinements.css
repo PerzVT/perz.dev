@@ -81,11 +81,16 @@ button.sq-art { width: 100%; padding: 0; border: 0; cursor: zoom-in; }
 .pf-proficiency .pf-skills li { min-height: 32px; padding: 0 12px; font-size: var(--pf-type-meta); color: var(--pf-body); }
 .pf-resume-lead { font-size: var(--pf-type-lead); font-weight: 600; color: var(--pf-text); margin: 0 0 20px; }
 .pf-proficiency { display: grid; gap: 16px; }
-.pf-proficiency-level { padding: 20px; background: var(--pf-surface); border: 1px solid var(--pf-border); border-radius: var(--perz-radius-panel); }
-.pf-page .pf-proficiency-level h3 { display: flex; align-items: center; gap: 12px; margin: 0 0 14px; font-size: var(--pf-type-body); }
-.pf-meter { display: inline-flex; gap: 4px; }
-.pf-meter i { width: 8px; height: 8px; border-radius: 50%; background: var(--pf-border-strong); }
-.pf-meter i[data-on="true"] { background: var(--perz-link-line); }
+.pf-proficiency-level { padding: 20px 24px 24px; background: var(--pf-surface); border: 1px solid var(--pf-border); border-radius: var(--perz-radius-panel); }
+.pf-proficiency-level header { display: grid; grid-template-columns: auto 1fr; align-items: baseline; gap: 4px 12px; margin-bottom: 18px; }
+.pf-page .pf-proficiency-level h3 { margin: 0; font-size: var(--pf-type-sub); }
+.pf-proficiency-count { font-size: var(--pf-type-meta); color: var(--pf-secondary); }
+.pf-level-bar { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; max-width: 360px; margin-top: 10px; }
+.pf-level-bar i { height: 8px; border-radius: 4px; background: var(--pf-border-strong); }
+.pf-level-bar i[data-on="true"] { background: var(--perz-blue-face); }
+.pf-checklist { list-style: none; margin: 0; padding: 0; columns: 4 200px; column-gap: 24px; }
+.pf-checklist li { display: flex; align-items: center; gap: 8px; break-inside: avoid; padding: 5px 0; font-size: var(--pf-type-compact); color: var(--pf-body); }
+.pf-checklist .pf-icon { width: 16px; height: 16px; }
 .pf-resume-page .pf-section { padding-block: 40px; }
 .pf-resume-page .pf-prose { max-width: 72ch; }
 .pf-resume-page .pf-resume-summary { gap: 48px; }
@@ -131,9 +136,10 @@ html[data-motion="paused"] *, html[data-motion="paused"] *::before, html[data-mo
 }
 @media print {
   :root { --pf-canvas: #fff; --pf-surface: #fff; --pf-quiet: #fff; --pf-text: #26313a; --pf-secondary: #625b50; --pf-border: #c5bba8; }
-  .pf-header, .pf-footer, .pf-print-action, .pf-resume-intro .pf-about-photo, .pf-resume-reel, .pf-resume-philosophy, .pf-resume-intro .pf-actions, .pf-meter { display: none !important; }
+  .pf-header, .pf-footer, .pf-print-action, .pf-resume-intro .pf-about-photo, .pf-resume-reel, .pf-resume-philosophy, .pf-resume-intro .pf-actions { display: none !important; }
   .pf-resume-intro { display: block; padding-block: 0 8pt; }
   .pf-proficiency-level { padding: 0; border: 0; background: transparent; }
+  .pf-level-bar { display: none; }
   .pf-resume-page { overflow: visible; font-size: 11pt; line-height: 1.4; }
   .pf-resume-page .pf-container { width: 100%; }
   .pf-resume-page .pf-section { padding-block: 14pt; }
@@ -199,7 +205,7 @@ html[data-motion="paused"] *, html[data-motion="paused"] *::before, html[data-mo
 .pf-heatmap i[data-level="1"] { background: color-mix(in srgb, var(--perz-blue-face) 45%, var(--pf-surface)); }
 .pf-heatmap i[data-level="2"] { background: color-mix(in srgb, var(--perz-blue-face) 75%, var(--pf-surface)); }
 .pf-heatmap i[data-level="3"] { background: var(--perz-blue-face); }
-@media print { .pf-stat-panel, #activity-heading, #reliability-heading { display: none !important; } }
+@media print { #trackers-heading, .pf-tracker-links { display: none !important; } }
 
 /* Side index: lives in the left margin, so it only shows where the margin fits it. */
 .pf-section-index { display: none; }
@@ -228,3 +234,26 @@ html[data-motion="paused"] *, html[data-motion="paused"] *::before, html[data-mo
   .pf-figure-row, .pf-figure-row[data-flip] { grid-template-columns: 1fr; gap: 20px; }
   .pf-figure-row[data-flip] > .pf-figure-frame { order: 0; }
 }
+
+/* About: principles as chips, the record as stat capsules. */
+.pf-principles { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0 0; padding: 0; }
+.pf-principles li { display: inline-flex; align-items: center; min-height: 32px; padding: 0 12px; border: 1px solid var(--pf-border-strong); border-radius: 999px; font-size: var(--pf-type-meta); color: var(--pf-body); }
+.pf-stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 24px 0 0; }
+.pf-stats > div { display: flex; flex-direction: column-reverse; justify-content: flex-end; gap: 2px; padding: 14px 16px; border: 1px solid var(--pf-border); border-radius: var(--perz-radius-panel); background: color-mix(in srgb, var(--pf-text) 5%, transparent); }
+.pf-stats dd { margin: 0; font-size: var(--pf-type-section); font-weight: 600; line-height: 1.15; color: var(--pf-text); }
+.pf-stats dt { font-size: var(--pf-type-meta); color: var(--pf-secondary); }
+@media (max-width: 480px) { .pf-stats { grid-template-columns: 1fr; } }
+
+/* Tracker pages and the résumé links to them. */
+.pf-tracker-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.pf-tracker-links a { display: grid; gap: 4px; padding: 18px 20px; border: 1px solid var(--pf-border); border-radius: var(--perz-radius-panel); background: var(--pf-surface); color: var(--pf-text); text-decoration: none; transition: border-color var(--perz-duration-enter) var(--perz-ease-out); }
+.pf-tracker-links strong { font-size: var(--pf-type-body); font-weight: 600; }
+.pf-tracker-links span { font-size: var(--pf-type-meta); color: var(--pf-secondary); }
+@media (hover: hover) and (pointer: fine) { .pf-tracker-links a:hover { border-color: var(--pf-border-strong); background: color-mix(in srgb, var(--pf-surface) 80%, var(--pf-text) 4%); } }
+.pf-tracker-stats { grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 0 0 20px; }
+.pf-uptime { display: grid; grid-template-columns: repeat(90, minmax(0, 1fr)); gap: 2px; height: 36px; margin: 20px 0 0; }
+.pf-uptime i { border-radius: 2px; background: color-mix(in srgb, var(--perz-blue-face) 80%, var(--pf-surface)); }
+.pf-uptime i[data-state="dip"] { background: color-mix(in srgb, var(--perz-blue-face) 40%, var(--pf-surface)); }
+.pf-uptime i[data-state="down"] { background: var(--perz-error-text); }
+.pf-page .pf-stat-panel h2 { margin: 0 0 8px; }
+@media (max-width: 600px) { .pf-tracker-links, .pf-tracker-stats { grid-template-columns: 1fr; } .pf-uptime { gap: 1px; } }
