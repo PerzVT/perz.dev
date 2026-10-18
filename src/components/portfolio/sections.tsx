@@ -13,6 +13,7 @@ import type {
 import { AmbientVideo, Icon } from "./controls";
 import { Carousel } from "./carousel";
 import { LockedPreview } from "./locked-preview";
+import { SectionIndex } from "./section-index";
 
 export function Paragraphs({ text }: { text: string }) {
   return (
@@ -40,8 +41,8 @@ export function Hero({
   video?: string;
 }) {
   return (
-    <header className="pf-hero">
-      <div className="pf-hero-art" style={{ "--hero-art-ratio": images[0]?.width && images[0]?.height ? images[0].width / images[0].height : 16 / 9 } as CSSProperties}>
+    <header className="pf-hero" data-video={video ? "" : undefined} style={{ "--hero-art-ratio": images[0]?.width && images[0]?.height ? images[0].width / images[0].height : 16 / 9 } as CSSProperties}>
+      <div className="pf-hero-art">
       {images[0] &&
         (video ? (
           <AmbientVideo
@@ -137,7 +138,7 @@ export function CaseStudyBody({ project: p }: { project: CaseStudy }) {
   const contents = p.sections.map((section, i) => ({ title: section.title, id: `project-section-${i}` })).filter(item => item.title.trim());
   const locked = p.status === "coming-soon";
   const gallery = p.gallery.length > 0 && (
-    <section className="pf-section" id="project-gallery">
+    <section className="pf-section" id="project-gallery" data-full-bleed>
       <div className="pf-container">
         <h2>Gallery</h2>
       </div>
@@ -191,7 +192,7 @@ export function CaseStudyBody({ project: p }: { project: CaseStudy }) {
     <>
       <Hero title={p.title} images={p.hero} video={p.video} />
       {overview}
-      {contents.length >= 3 && <nav className="pf-container pf-contents" aria-label="On this page"><p>On this page</p><ul>{p.gallery.length > 0 && <li><a href="#project-gallery">Gallery</a></li>}{contents.map(item => <li key={item.id}><a href={`#${item.id}`}>{item.title}</a></li>)}</ul></nav>}
+      {contents.length >= 3 && <SectionIndex items={[...(p.gallery.length > 0 ? [{ id: "project-gallery", title: "Gallery" }] : []), ...contents]} />}
       {gallery}
       {p.sections.map((s, i) =>
         s.type === "feature" ? (

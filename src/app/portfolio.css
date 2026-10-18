@@ -261,12 +261,16 @@ body {
 }
 .pf-hero {
   position: relative;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: var(--hero-art-ratio, 16 / 9);
   min-height: 420px;
-  max-height: min(648px, 72svh);
+  max-height: calc(100svh - 64px);
   width: 100%;
   background: var(--pf-quiet);
   overflow: hidden;
+}
+/* A trailer keeps its full frame; capping its height would crop it. */
+.pf-hero[data-video] {
+  max-height: none;
 }
 .pf-hero-image,
 .pf-hero-video,
@@ -1119,18 +1123,6 @@ body {
   font-size: 26px;
 }
 
-/* Over artwork the action is light with dark text, so it reads on any picture. */
-.pf-banner > .pf-button,
-.pf-hero .pf-play {
-  --face: var(--perz-media-action-face);
-  --hover: var(--perz-media-action-hover);
-  color: var(--perz-media-action-text);
-}
-.pf-banner > .pf-button .pf-icon,
-.pf-hero .pf-play .pf-icon,
-.pf-hero .pf-play .pf-video-icon {
-  filter: brightness(0.15);
-}
 .pf-copy {
   color: var(--pf-text);
 }
@@ -1301,8 +1293,7 @@ body {
   transform: none;
   transition: none;
 }
-.pf-overview .pf-overview-top { align-items: stretch; }
-.pf-overview .pf-facts { justify-content: space-between; }
+.pf-overview .pf-facts { gap: 20px; }
 .pf-overview .pf-skills li { flex: 1 1 auto; text-align: center; }
 .pf-full-art { display: block; width: 100%; height: 100%; }
 .pf-full-art:focus-visible { outline-offset: -5px; }

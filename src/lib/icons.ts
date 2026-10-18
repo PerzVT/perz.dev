@@ -6,6 +6,7 @@
 export const ICON_SRC = {
   imgIconArrow: "/shared/icons/imgIconArrow.svg",
   imgIconCopy: "/shared/icons/imgIconCopy.svg",
+  imgIconClose: "/shared/icons/imgIconClose.svg",
   imgIconLeft: "/shared/icons/imgIconLeft.svg",
   imgIconRight: "/shared/icons/imgIconRight.svg",
   imgIconSound: "/shared/icons/imgIconSound.svg",

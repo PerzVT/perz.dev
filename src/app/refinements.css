@@ -8,8 +8,8 @@
 body { user-select: text; -webkit-user-select: text; }
 .pf-page a, .pf-header a, .pf-footer a, .pf-media-dialog a { text-decoration: none; }
 /* Links in running text keep an accent underline; navigation stays plain. */
-.pf-page :is(p, li, dd) a:not([class]):not(:where(.pf-contents a)) { color: var(--pf-text); text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: .22em; text-decoration-color: var(--perz-link-line); }
-@media (hover: hover) and (pointer: fine) { .pf-page :is(p, li, dd) a:not([class]):not(:where(.pf-contents a)):hover { text-decoration-color: currentColor; } }
+.pf-page :is(p, li, dd) a:not([class]):not(:where(.pf-contents a, .pf-section-index a)) { color: var(--pf-text); text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: .22em; text-decoration-color: var(--perz-link-line); }
+@media (hover: hover) and (pointer: fine) { .pf-page :is(p, li, dd) a:not([class]):not(:where(.pf-contents a, .pf-section-index a)):hover { text-decoration-color: currentColor; } }
 .pf-hero-copy p a:not([class]) { color: var(--perz-on-media); }
 .pf-hero-copy p a .pf-icon { display: inline-block; width: 16px; height: 16px; margin-left: 4px; vertical-align: middle; }
 .pf-page :is(button, a, input, textarea, [tabindex]):focus-visible,
@@ -41,19 +41,22 @@ body { user-select: text; -webkit-user-select: text; }
 @media (hover: hover) and (pointer: fine) { .pf-contents a:hover { background: var(--perz-hover-overlay); } }
 .pf-project-navigation { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 24px; }
 .pf-page [id^="project-section-"] { scroll-margin-top: 32px; }
-.pf-media-dialog { padding: 0; width: min(1240px, calc(100vw - 40px)); max-width: none; max-height: calc(100dvh - 40px); border: 1px solid var(--pf-border); border-radius: var(--perz-radius-panel); background: var(--perz-raised); color: var(--pf-text); overflow: auto; box-shadow: 0 16px 40px rgb(0 0 0 / .45); }
-.pf-media-dialog::backdrop { background: var(--perz-backdrop); }
-.pf-viewer-panel { padding: 24px; }
-.pf-viewer-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; margin-bottom: 20px; }
-.pf-viewer-header h2 { margin: 0 0 8px; }
-.pf-viewer-header p { max-width: 70ch; font-size: var(--pf-type-compact); line-height: 1.5; margin: 0; }
-.pf-viewer-header button { flex: none; }
-.pf-viewer-image { overflow: auto; max-height: 62dvh; background: var(--pf-surface); border-radius: calc(var(--perz-radius-panel) - 8px); text-align: center; }
-.pf-viewer-image img { display: block; max-width: 100%; max-height: 62dvh; width: auto; height: auto; margin: auto; object-fit: contain; }
-.pf-viewer-image[data-zoomed="true"] img { max-width: none; max-height: none; }
-.pf-viewer-actions { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 16px; padding-top: 24px; }
-.pf-viewer-actions button, .pf-viewer-header button { min-height: 44px; }
-.pf-viewer-actions a { min-height: 44px; }
+.pf-media-dialog { width: 100vw; height: 100dvh; max-width: none; max-height: none; margin: 0; padding: 0; border: 0; background: transparent; color: var(--pf-text); overflow: hidden; }
+.pf-media-dialog::backdrop { background: rgb(8 9 11 / .92); }
+.pf-viewer-stage { display: grid; place-items: center; width: 100%; height: 100%; padding: 64px 88px; }
+.pf-viewer-stage img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; border-radius: var(--perz-radius-media); user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; pointer-events: none; }
+.pf-media-dialog .pf-carousel-arrow { position: fixed; z-index: 2; }
+.pf-media-dialog .pf-viewer-prev { left: 20px; top: 50%; }
+.pf-media-dialog .pf-viewer-next { right: 20px; top: 50%; }
+.pf-media-dialog .pf-viewer-close { right: 20px; top: 20px; translate: none; }
+.pf-full-art { display: block; width: 100%; height: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; }
+button.sq-art { width: 100%; padding: 0; border: 0; cursor: zoom-in; }
+@media (max-width: 800px) {
+  .pf-viewer-stage { padding: 64px 12px 80px; }
+  .pf-media-dialog .pf-viewer-prev, .pf-media-dialog .pf-viewer-next { top: auto; bottom: 20px; translate: none; }
+  .pf-media-dialog .pf-viewer-prev { left: calc(50% - 52px); }
+  .pf-media-dialog .pf-viewer-next { right: calc(50% - 52px); }
+}
 .sq-art > .pf-media-image { position: relative; width: 100%; aspect-ratio: var(--media-source-ratio); border-radius: var(--perz-radius-media); }
 .sq-columns .sq-art { border: 0; box-shadow: none; background: transparent; }
 .sq-columns .pf-project-card:has(h3:last-of-type):last-child:nth-child(odd) { grid-column: 1/-1; }
@@ -113,12 +116,7 @@ html[data-motion="paused"] *, html[data-motion="paused"] *::before, html[data-mo
   .pf-contact-page .pf-contact-row { grid-template-columns: 1fr; gap: 32px; padding-top: 32px; }
   .pf-contact-page .pf-contact-row > div > p { margin-bottom: 16px; }
   .pf-contact-page .pf-contact-row h2 { margin-bottom: 16px; }
-  .pf-media-dialog { width: calc(100vw - 16px); max-height: calc(100dvh - 16px); }
-  .pf-viewer-panel { padding: 16px; }
-  .pf-viewer-header { gap: 12px; }
 
-  .pf-viewer-actions { gap: 12px; }
-  .pf-viewer-actions button { flex: 1 1 auto; }
   .pf-project-navigation { align-items: flex-start; flex-direction: column; }
   .pf-resume-page .pf-resume-summary, .pf-resume-intro { grid-template-columns: 1fr; gap: 32px; }
   .pf-resume-intro .pf-about-photo { max-width: 360px; height: auto; aspect-ratio: 4 / 3; }
@@ -150,7 +148,6 @@ html[data-motion="paused"] *, html[data-motion="paused"] *::before, html[data-mo
   .pf-resume-print-contact { display: block; font-size: 11pt; margin-top: 12pt; }
 }
 
-.pf-media-dialog { margin: auto; }
 .pf-hero-copy a { pointer-events: auto; }
 .pf-contact-page .pf-contact-row > div:first-child p { max-width: 42ch; }
 @media print {
@@ -169,11 +166,8 @@ html[data-motion="paused"] *, html[data-motion="paused"] *::before, html[data-mo
 .pf-page .pf-reel-heading h2 { margin: 0; }
 .pf-reel-heading .pf-project-status { display: inline-flex; align-items: center; min-height: 26px; margin: 0; padding: 0 10px; border: 1px solid var(--pf-border-strong); border-radius: 999px; font-size: var(--pf-type-pill); font-weight: 500; }
 
-/* Card footer: status on the left, the action on the right. */
-.pf-card-footer { display: flex; align-self: stretch; align-items: center; justify-content: flex-end; gap: 12px; margin: auto 20px 0; }
-.pf-card-footer .pf-project-status { display: inline-flex; align-items: center; min-height: 26px; margin: 0 auto 0 0; padding: 0 10px; border: 1px solid var(--pf-border-strong); border-radius: 999px; font-size: var(--pf-type-pill); font-weight: 500; }
-
-/* Projects menu in the header. */
+/* Project and sidequest menus in the header. */
+.pf-menu-thumb { display: block; background: var(--pf-quiet); }
 .pf-nav-menu { position: relative; }
 .pf-nav-menu-button { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border: 0; border-radius: var(--perz-radius-control); background: transparent; color: var(--pf-secondary); font: 500 var(--pf-type-compact)/1.45 var(--perz-font-body); cursor: pointer; }
 .pf-nav-menu-button[data-current="true"], .pf-nav-menu-button[aria-expanded="true"] { color: var(--pf-text); background: var(--perz-hover-overlay); }
@@ -187,7 +181,7 @@ html[data-motion="paused"] *, html[data-motion="paused"] *::before, html[data-mo
 .pf-projects-menu a, .pf-mobile-projects a { display: flex; align-items: center; gap: 12px; padding: 8px; border-radius: var(--perz-radius-control); color: var(--pf-text); font-weight: 500; text-decoration: none; }
 .pf-projects-menu a[aria-current="page"], .pf-mobile-projects a[aria-current="page"] { background: var(--perz-hover-overlay); }
 @media (hover: hover) and (pointer: fine) { .pf-projects-menu a:hover, .pf-mobile-projects a:hover { background: var(--perz-hover-overlay); } }
-.pf-projects-menu img, .pf-mobile-projects img { flex: none; width: 96px; height: 54px; object-fit: cover; border-radius: var(--perz-radius-small); outline: 1px solid var(--perz-image-edge); outline-offset: -1px; }
+.pf-projects-menu img, .pf-mobile-projects img, .pf-menu-thumb { flex: none; width: 96px; height: 54px; object-fit: cover; border-radius: var(--perz-radius-small); outline: 1px solid var(--perz-image-edge); outline-offset: -1px; }
 .pf-mobile-projects { grid-column: 1 / -1; }
 .pf-mobile-projects p { margin: 4px 0 8px; font-size: var(--pf-type-small); font-weight: 600; color: var(--pf-secondary); }
 @keyframes pf-menu-in { from { opacity: 0; transform: translateY(-4px); } }
@@ -206,3 +200,18 @@ html[data-motion="paused"] *, html[data-motion="paused"] *::before, html[data-mo
 .pf-heatmap i[data-level="2"] { background: color-mix(in srgb, var(--perz-blue-face) 75%, var(--pf-surface)); }
 .pf-heatmap i[data-level="3"] { background: var(--perz-blue-face); }
 @media print { .pf-stat-panel, #activity-heading, #reliability-heading { display: none !important; } }
+
+/* Side index: lives in the left margin, so it only shows where the margin fits it. */
+.pf-section-index { display: none; }
+@media (min-width: 1440px) {
+  .pf-section-index { display: block; position: fixed; top: 50%; left: max(16px, calc((100vw - 1096px) / 2 - 156px)); z-index: 10; width: 132px; translate: 0 -50%; opacity: 0; visibility: hidden; transition: opacity var(--perz-duration-enter) var(--perz-ease-out), visibility 0s linear var(--perz-duration-enter); }
+  .pf-section-index[data-visible="true"] { opacity: 1; visibility: visible; transition: opacity var(--perz-duration-enter) var(--perz-ease-out); }
+}
+.pf-section-index p { margin: 0 0 10px; font-size: var(--pf-type-small); font-weight: 600; color: var(--pf-secondary); }
+.pf-section-index ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; border-left: 1px solid var(--pf-border-strong); }
+.pf-section-index a { display: block; margin-left: -1px; padding: 6px 0 6px 12px; border-left: 2px solid transparent; font-size: var(--pf-type-small); line-height: 1.35; color: var(--pf-secondary); text-decoration: none; }
+.pf-section-index a[aria-current="location"] { color: var(--pf-text); border-left-color: var(--perz-link-line); font-weight: 600; }
+@media (hover: hover) and (pointer: fine) { .pf-section-index a:hover { color: var(--pf-text); } }
+
+/* Deterrent only: blocks the long-press "save image" menu on phones. */
+.pf-page img, .pf-page video { -webkit-touch-callout: none; }

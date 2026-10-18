@@ -45,10 +45,9 @@ export function Carousel({ items, label = "Gallery", initial = 0, compact = fals
             role="group" aria-roledescription="slide" aria-label={`${itemIndex + 1} of ${items.length}`}>
             <div className="pf-slide-art">
               {item.video && active ? <Video key={item.video} src={item.video} poster={item.src} alt={item.alt} fit={media.fit} background={item.background} /> :
-                <a className="pf-full-art" href={item.src} draggable={false} aria-label={`View full artwork: ${item.alt || item.title || label}`}
-                  onClick={event => { if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return; event.preventDefault(); setViewer(true); }}>
+                <button type="button" className="pf-full-art" aria-label={`View artwork: ${item.alt || item.title || label}`} onClick={() => setViewer(true)}>
                   <MediaImage media={media} alt={active ? item.alt : ""} />
-                </a>}
+                </button>}
             </div>
             {featured && <div className="pf-slide-caption">
               <div><h3>{item.title}</h3>{item.description && <p>{item.description}</p>}</div>

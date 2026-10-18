@@ -2,7 +2,7 @@ import { getProjects } from "./content";
 import { caseStudies } from "./portfolio";
 
 /** Top-level pages, in nav order. */
-export const topLevelRoutes = ["/", "/sidequests", "/resume", "/contact"];
+export const topLevelRoutes = ["/", "/resume", "/contact"];
 
 /** Every slug that renders a page at /projects/[slug]. Case studies come from
  *  pages.json, sidequests from the MDX files; getProjects() drops drafts. */
