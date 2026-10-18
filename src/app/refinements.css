@@ -64,8 +64,25 @@ body { user-select: text; -webkit-user-select: text; }
 .pf-contact-page .pf-hero-copy { bottom: 32px; }
 .pf-contact-page .pf-hero-copy p { max-width: 54ch; }
 .pf-contact-page .pf-contact-row { padding-top: 48px; gap: 64px; }
-.pf-resume-intro { padding-bottom: 32px; }
-.pf-resume-intro .pf-actions { margin-top: 24px; }
+.pf-resume-intro { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 312px); gap: 64px; align-items: start; padding-block: 60px 32px; }
+.pf-resume-intro h1 { margin: 0 0 8px; }
+.pf-resume-subtitle { margin: 0 0 24px; color: var(--pf-secondary); font-size: var(--pf-type-lead); }
+.pf-resume-intro .pf-prose { max-width: 68ch; }
+.pf-resume-highlights { margin-top: 20px; }
+.pf-resume-highlights li { font-weight: 500; color: var(--pf-text); }
+.pf-resume-intro .pf-actions { margin-top: 28px; }
+.pf-resume-intro .pf-about-photo { height: 360px; }
+.pf-page .pf-resume-philosophy p { max-width: none; margin: 0 0 16px; }
+.pf-page .pf-resume-philosophy p:last-child { margin-bottom: 0; }
+.pf-proficiency .pf-skills { gap: 8px; }
+.pf-proficiency .pf-skills li { min-height: 32px; padding: 0 12px; font-size: var(--pf-type-meta); color: var(--pf-body); }
+.pf-resume-lead { font-size: var(--pf-type-lead); font-weight: 600; color: var(--pf-text); margin: 0 0 20px; }
+.pf-proficiency { display: grid; gap: 16px; }
+.pf-proficiency-level { padding: 20px; background: var(--pf-surface); border: 1px solid var(--pf-border); border-radius: var(--perz-radius-panel); }
+.pf-page .pf-proficiency-level h3 { display: flex; align-items: center; gap: 12px; margin: 0 0 14px; font-size: var(--pf-type-body); }
+.pf-meter { display: inline-flex; gap: 4px; }
+.pf-meter i { width: 8px; height: 8px; border-radius: 50%; background: var(--pf-border-strong); }
+.pf-meter i[data-on="true"] { background: var(--perz-link-line); }
 .pf-resume-page .pf-section { padding-block: 40px; }
 .pf-resume-page .pf-prose { max-width: 72ch; }
 .pf-resume-page .pf-resume-summary { gap: 48px; }
@@ -103,7 +120,8 @@ html[data-motion="paused"] *, html[data-motion="paused"] *::before, html[data-mo
   .pf-viewer-actions { gap: 12px; }
   .pf-viewer-actions button { flex: 1 1 auto; }
   .pf-project-navigation { align-items: flex-start; flex-direction: column; }
-  .pf-resume-page .pf-resume-summary { grid-template-columns: 1fr; }
+  .pf-resume-page .pf-resume-summary, .pf-resume-intro { grid-template-columns: 1fr; gap: 32px; }
+  .pf-resume-intro .pf-about-photo { max-width: 360px; height: auto; aspect-ratio: 4 / 3; }
 }
 @media(max-width: 560px) {
   .pf-header .pf-container { width: calc(100% - 32px); }
@@ -115,7 +133,9 @@ html[data-motion="paused"] *, html[data-motion="paused"] *::before, html[data-mo
 }
 @media print {
   :root { --pf-canvas: #fff; --pf-surface: #fff; --pf-quiet: #fff; --pf-text: #26313a; --pf-secondary: #625b50; --pf-border: #c5bba8; }
-  .pf-header, .pf-footer, .pf-print-action, .pf-resume-page .pf-resume-summary, .pf-resume-philosophy, .pf-resume-intro .pf-actions { display: none !important; }
+  .pf-header, .pf-footer, .pf-print-action, .pf-resume-intro .pf-about-photo, .pf-resume-philosophy, .pf-resume-intro .pf-actions, .pf-meter { display: none !important; }
+  .pf-resume-intro { display: block; padding-block: 0 8pt; }
+  .pf-proficiency-level { padding: 0; border: 0; background: transparent; }
   .pf-resume-page { overflow: visible; font-size: 11pt; line-height: 1.4; }
   .pf-resume-page .pf-container { width: 100%; }
   .pf-resume-page .pf-section { padding-block: 14pt; }
@@ -141,7 +161,32 @@ html[data-motion="paused"] *, html[data-motion="paused"] *::before, html[data-mo
 .pf-contact-form .pz-field.pz-field,
 .pf-contact-form .pz-field.pz-field:is(:hover, :focus) { background: var(--pf-surface); }
 
-.pf-resume-skill-groups { display: grid; gap: 28px; }
-.pf-resume-skill-groups h3 { margin: 0 0 12px; }
-.pf-resume-skill-groups .pf-skills { gap: 8px; }
 .pf-page-heading + .pf-project-grid { padding-top: 32px; }
+
+.pf-reel-video { display: block; width: 100%; aspect-ratio: 16 / 9; border-radius: var(--perz-radius-media); background: #000; outline: 1px solid var(--perz-image-edge); outline-offset: -1px; }
+.pf-home .pf-reel { padding-bottom: 0; }
+
+/* Card footer: status on the left, the action on the right. */
+.pf-card-footer { display: flex; align-self: stretch; align-items: center; justify-content: flex-end; gap: 12px; margin: auto 20px 0; }
+.pf-card-footer .pf-project-status { display: inline-flex; align-items: center; min-height: 26px; margin: 0 auto 0 0; padding: 0 10px; border: 1px solid var(--pf-border-strong); border-radius: 999px; font-size: var(--pf-type-pill); font-weight: 500; }
+
+/* Projects menu in the header. */
+.pf-nav-menu { position: relative; }
+.pf-nav-menu-button { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border: 0; border-radius: 999px; background: transparent; color: var(--pf-secondary); font: 500 var(--pf-type-compact)/1.45 var(--perz-font-body); cursor: pointer; }
+.pf-nav-menu-button[data-current="true"], .pf-nav-menu-button[aria-expanded="true"] { color: var(--pf-text); background: var(--perz-hover-overlay); }
+@media (hover: hover) and (pointer: fine) { .pf-nav-menu-button:hover { color: var(--pf-text); } }
+.pf-nav-menu-button .pf-icon { width: 14px; height: 14px; rotate: 90deg; transition: rotate var(--perz-duration-enter) var(--perz-ease-out); }
+.pf-nav-menu-button[aria-expanded="true"] .pf-icon { rotate: -90deg; }
+:root[data-portfolio-theme="light"] .pf-nav-menu-button .pf-icon { filter: brightness(0.25); }
+.pf-projects-menu { position: absolute; top: calc(100% + 14px); left: 50%; translate: -50% 0; z-index: 30; width: min(640px, calc(100vw - 48px)); padding: 8px; background: var(--perz-raised); border: 1px solid var(--pf-border); border-radius: var(--perz-radius-panel); box-shadow: 0 16px 40px rgb(0 0 0 / .45); animation: pf-menu-in var(--perz-duration-enter) var(--perz-ease-out); }
+.pf-projects-menu[hidden] { display: none; }
+.pf-projects-menu ul, .pf-mobile-projects ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px; }
+.pf-projects-menu a, .pf-mobile-projects a { display: flex; align-items: center; gap: 12px; padding: 8px; border-radius: var(--perz-radius-control); color: var(--pf-text); font-weight: 500; text-decoration: none; }
+.pf-projects-menu a[aria-current="page"], .pf-mobile-projects a[aria-current="page"] { background: var(--perz-hover-overlay); }
+@media (hover: hover) and (pointer: fine) { .pf-projects-menu a:hover, .pf-mobile-projects a:hover { background: var(--perz-hover-overlay); } }
+.pf-projects-menu img, .pf-mobile-projects img { flex: none; width: 96px; height: 54px; object-fit: cover; border-radius: var(--perz-radius-small); outline: 1px solid var(--perz-image-edge); outline-offset: -1px; }
+.pf-projects-menu small, .pf-mobile-projects small { display: block; font-size: var(--pf-type-small); font-weight: 400; color: var(--pf-secondary); }
+.pf-mobile-projects { grid-column: 1 / -1; }
+.pf-mobile-projects p { margin: 4px 0 8px; font-size: var(--pf-type-small); font-weight: 600; color: var(--pf-secondary); }
+@keyframes pf-menu-in { from { opacity: 0; transform: translateY(-4px); } }
+@media (max-width: 560px) { .pf-mobile-projects ul { grid-template-columns: 1fr; } }

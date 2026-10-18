@@ -182,8 +182,8 @@ export function CaseStudyBody({ project: p }: { project: CaseStudy }) {
         <Hero title={p.title} images={p.hero} video={p.video} />
         {overview}
         <LockedPreview title={p.title} teaser={gallery || undefined}
-          primary={next ? { href: `/projects/${next.slug}`, label: `Next project: ${next.title}` } : { href: "/projects", label: "All projects" }}
-          secondary={{ href: "/projects", label: "All projects" }} />
+          primary={next ? { href: `/projects/${next.slug}`, label: `Next project: ${next.title}` } : { href: "/#work", label: "All projects" }}
+          secondary={{ href: "/#work", label: "All projects" }} />
       </>
     );
   }
@@ -244,7 +244,7 @@ export function CaseStudyBody({ project: p }: { project: CaseStudy }) {
         ),
       )}
       <Banners items={p.banners} />
-      <nav className="pf-container pf-section pf-project-navigation" aria-label="Project navigation"><Link className="pf-outline" href="/projects">All projects</Link>{next && <Link className="pf-button" href={`/projects/${next.slug}`}>Next project: {next.title}</Link>}</nav>
+      <nav className="pf-container pf-section pf-project-navigation" aria-label="Project navigation"><Link className="pf-outline" href="/#work">All projects</Link>{next && <Link className="pf-button" href={`/projects/${next.slug}`}>Next project: {next.title}</Link>}</nav>
     </>
   );
 }

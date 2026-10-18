@@ -36,8 +36,8 @@ export function SidequestCards() {
       {src && <Link href={`/projects/${p.slug}`} tabIndex={-1} aria-hidden="true">{heroDimensions[p.slug] && <img className="sq-poster-backdrop" src={src} alt="" loading="lazy" />}<MediaImage media={{src, alt: "", fit: heroDimensions[p.slug] ? "contain" : "cover"}} className={`sq-card-art ${heroDimensions[p.slug] ? "sq-card-poster" : ""}`} sizes="(max-width: 800px) calc(100vw - 48px), 530px" /></Link>}
       <h2>{p.frontmatter.title}</h2>
       <p>{caseStudies.find(c => c.slug === p.slug)?.description || p.frontmatter.description}</p>
-      {p.frontmatter.status === "coming-soon" && <span className="pf-project-status">Coming soon</span>}
-      <Link className="pf-button" href={`/projects/${p.slug}`} aria-label={`${p.frontmatter.mediaOnly ? "View artwork for" : p.frontmatter.status === "coming-soon" ? "Preview" : "Read more about"} ${p.frontmatter.title}`}><Icon name="imgIconArrow" />{p.frontmatter.mediaOnly ? "View artwork" : p.frontmatter.status === "coming-soon" ? "View preview" : "Read more"}</Link>
+      <div className="pf-card-footer">{p.frontmatter.status === "coming-soon" && <span className="pf-project-status">Coming soon</span>}
+      <Link className="pf-button" href={`/projects/${p.slug}`} aria-label={`${p.frontmatter.mediaOnly ? "View artwork for" : p.frontmatter.status === "coming-soon" ? "Preview" : "Read more about"} ${p.frontmatter.title}`}><Icon name="imgIconArrow" />{p.frontmatter.mediaOnly ? "View artwork" : p.frontmatter.status === "coming-soon" ? "View preview" : "Read more"}</Link></div>
     </article>;
   })}</div>;
 }
@@ -72,7 +72,7 @@ export default async function SidequestDetail({ params }: { params: Promise<{slu
     </div><dl className="pf-facts">{facts.map(([label,value]) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}</dl></div>{f.skills?.length ? <div className="pf-skill-section"><h2>Skills</h2><Skills tags={f.skills} /></div> : null}</section>
     {f.status === "coming-soon"
       ? <LockedPreview title={f.title} teaser={content.trim() ? <MDXRemote source={content} components={components} /> : undefined}
-          primary={{ href: "/sidequests", label: "All sidequests" }} secondary={{ href: "/projects", label: "Projects" }} />
+          primary={{ href: "/sidequests", label: "All sidequests" }} secondary={{ href: "/#work", label: "Featured work" }} />
       : <>
         {content.trim() && <MDXRemote source={content} components={components} />}
         <nav className="pf-container pf-section" aria-label="Sidequest navigation"><Link className="pf-outline" href="/sidequests">All sidequests</Link></nav>

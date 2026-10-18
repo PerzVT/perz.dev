@@ -6,6 +6,6 @@ export const metadata: Metadata = { title: "Page not found", robots: { index: fa
 export default function NotFound() {
   return <><SiteNav /><main id="main-content" className="pf-page pf-container pf-section pf-not-found">
     <p>404</p><h1>This page doesn&apos;t exist.</h1><p>The link may be out of date, or the page may have moved.</p>
-    <div className="pf-actions"><Link className="pf-button" href="/">Home</Link><Link className="pf-button pf-secondary" href="/projects">Projects</Link></div>
+    <div className="pf-actions"><Link className="pf-button" href="/">Home</Link><Link className="pf-outline" href="/#work">Featured work</Link></div>
   </main><SiteFooter /></>;
 }

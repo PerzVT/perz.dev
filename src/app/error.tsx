@@ -1,6 +1,6 @@
 "use client";
 
-import { SiteNav } from "@/components/site/site-nav";
+import { SiteNavClient as SiteNav } from "@/components/site/site-nav-client";
 import { SiteFooter } from "@/components/site/site-footer";
 import { Button } from "@/components/site/button";
 

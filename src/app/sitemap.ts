@@ -24,7 +24,6 @@ function projectMtime(slug: string, fallback: Date): Date {
 
 const topLevelPriority: Record<string, { priority: number; changeFrequency: "weekly" | "monthly" }> = {
   "/": { priority: 1, changeFrequency: "weekly" },
-  "/projects": { priority: 0.8, changeFrequency: "weekly" },
   "/sidequests": { priority: 0.8, changeFrequency: "weekly" },
   "/resume": { priority: 0.6, changeFrequency: "monthly" },
   "/contact": { priority: 0.6, changeFrequency: "monthly" },
