@@ -21,9 +21,8 @@
     "video": "/home/hero/percy-portfolio-reel.mp4",
     "about": {
       "title": "About me",
-      "body": "Percy is a game designer and developer based in Calgary, Alberta. He believes in subtractive design and the power of simplicity in systems.\n\nOutside of work he is passionate about modding games and reverse engineering, with mods in the CurseForge space for games like Minecraft (Java) and Palworld.",
-      "principles": ["Clear, straightforward goals", "A strong, engaging core loop", "Rewarding design through data", "A fair challenge", "Clarity in communication and design"],
-      "stats": [{"value": "750,000+", "label": "players served by Kerberus and Draconia"}, {"value": "2015", "label": "founded Kerberus"}, {"value": "2021", "label": "founded Draconia"}, {"value": "2", "label": "modpacks created: Mythcraft and Dragoncraft"}],
+      "body": "Percy is a game designer and developer based in Calgary, Alberta. He believes in subtractive design and the power of simplicity in systems.\n\nHe focuses on clear, straightforward goals that retain players through a strong engaging core loop with a focus towards rewarding design thru data and systems that provides a fair challenge.\n\nHe enjoys breaking complex ideas down into clean, functional experiences, always aiming for clarity in communication and design.\n\nOutside of work he is passionate about modding games and reverse engineering. \nHe founded Kerberus (2017) and Draconia (2021) , gaming networks that have served over 750,000 players till now. He created Mythcraft, Dragoncraft and contributes to numerous modding projects with in the curseforge space for games like Minecraft (Java) and Palworld.",
+      "stats": [{"value": "750,000+", "label": "players served by Kerberus and Draconia"}, {"value": "2017", "label": "founded Kerberus"}, {"value": "2", "label": "games created: Mythcraft and Dragoncraft"}],
       "image": "/home/about/percy-bubble-buddy-presentation.webp"
     },
     "experience": [
@@ -100,7 +99,8 @@
         "title": "Play with friends.",
         "body": "Use code “URMOM” to get 25% off your next purchase.",
         "label": "Get a server",
-        "href": "https://www.bisecthosting.com/"
+        "href": "https://www.bisecthosting.com/",
+        "tone": "blue"
       },
       {
         "images": [
@@ -134,7 +134,8 @@
         "title": "Come build worlds with us.",
         "body": "We are always looking for new aspiring developers, artists and designers to join our fold If you want to learn or get started making mods, join up!",
         "label": "Get started",
-        "href": "https://discord.gg/draconia"
+        "href": "https://discord.gg/draconia",
+        "tone": "green"
       }
     ]
   },
@@ -143,7 +144,7 @@
     "subtitle": "Game designer, user experience and player-focused systems",
     "summary": [
       "Hi, I'm Percy, a game designer and developer in Calgary. I've made games and gaming content since I was 15, starting with custom assets and mods for Roblox, Unturned, and Minecraft. I began in computer science, then earned a bachelor's in Media, Graphics and Animation, where I built my first game and trained as a product designer. I founded Draconia and Kerberus, gaming networks that have served over 750,000 players in the past five years. I created Mythcraft (play as demigods), Dragoncraft (play as dragons), and the Kerberus Network.",
-      "✦ Shipped on Meta Quest, Itch.io, Curseforge, Roblox, Steam\n✦ Founded Kerberus, served over 750,000+ players since 2019·\n✦ Founded Smooth Brain Games, In Calgary with the help of Indie Ignition Accelerator"
+      "✦ Shipped on Meta Quest, Itch.io, Curseforge, Roblox, Steam\n✦ Founded Kerberus, served over 750,000+ players since 2017·\n✦ Founded Smooth Brain Games, In Calgary with the help of Indie Ignition Accelerator"
     ],
     "image": "/home/about/percy-bubble-buddy-presentation.webp",
     "philosophy": "Designing mechanics that are easy to learn but difficult to master\n\nMy background in user experience and product design influences how I design. I love building out prototypes using a rapid-development pipeline that lets me test out the mechanic and game feel before committing to anything. This also eliminates any communication gaps between design and engineering. Iteration and user feedback shapes every single piece of design I make, I believe in simplicity and first principles method of design. If you cannot defend your idea, it was a stupid idea anyways. Every mechanic within the game plays a role in keeping the game running or brings out certain emotions within the player. If your idea fails to do either, it’s not a priority. \n\nI lead the vision through design, improve communication, and find fun through simplicity. I keep designs clear and grounded in strong core systems and well-structured data, and I break complex ideas into clean, functional experiences, aiming for clarity in the gameplay and the process behind it. If my design can be interpreted by different people as different things, I have failed at clearly communicating myself hence its a bad design.",
@@ -431,7 +432,8 @@
         "title": "Check out my games on Itch.io",
         "body": "",
         "label": "Browse games",
-        "href": "https://notperz.itch.io/"
+        "href": "https://notperz.itch.io/",
+        "tone": "terracotta"
       },
       {
         "images": [
@@ -449,7 +451,8 @@
         "title": "Check out my modpacks",
         "body": "",
         "label": "Browse modpacks",
-        "href": "https://www.curseforge.com/members/perzvt/projects"
+        "href": "https://www.curseforge.com/members/perzvt/projects",
+        "tone": "indigo"
       }
     ]
   },
@@ -1913,7 +1916,8 @@
           "title": "Play with friends.",
           "body": "Use code “URMOM” to get 25% off your next purchase.",
           "label": "Get a server",
-          "href": "https://www.bisecthosting.com/"
+          "href": "https://www.bisecthosting.com/",
+          "tone": "blue"
         },
         {
           "images": [
@@ -2350,7 +2354,8 @@
           "title": "Play with friends.",
           "body": "Use code “URMOM” to get 25% off your next purchase.",
           "label": "Get a server",
-          "href": "https://www.bisecthosting.com/"
+          "href": "https://www.bisecthosting.com/",
+          "tone": "blue"
         },
         {
           "images": [

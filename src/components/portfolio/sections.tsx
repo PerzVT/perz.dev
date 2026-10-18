@@ -2,7 +2,7 @@ import "./media-treatment.css";
 import Link from "next/link";
 import { featuredStudies } from "@/lib/portfolio";
 import type { CSSProperties } from "react";
-import { FigmaShade, bannerShade, heroShade } from "./media-shade";
+import { FigmaShade, heroShade } from "./media-shade";
 import { MediaImage } from "./media-image";
 import type {
   BannerData,
@@ -98,38 +98,30 @@ export function Experience({ rows }: { rows: ExperienceData[] }) {
     </div>
   );
 }
+/** Banners use the design kit's art tile: game art under a tone wash and a
+ *  bright rim, and the whole tile is one link, so its action is a label. */
 export function Banners({ items }: { items: BannerData[] }) {
   if (!items.length) return null;
   return (
     <section className="pf-container pf-banners">
-      {items.map((b, i) => (
-        <article className="pf-banner" key={i}>
+      {items.map((b, i) => {
+        const content = <>
           {b.images.map((media, layer) => (
             <MediaImage key={`${media.src}-${layer}`} className={`pf-banner-bg ${layer > 0 && b.images.length === 2 ? "pf-banner-foreground" : ""}`}
               media={{ ...media, background: layer ? "transparent" : media.background }} alt="" />
           ))}
-          <FigmaShade className="pf-banner-shade" {...bannerShade(b.images[0]?.sourceHash)} />
           <div className="pf-banner-copy">
             {b.images.length === 2 && <img className="pf-banner-mobile-logo" src={b.images[1].src} alt="" loading="lazy" />}
-            {b.logo && (
-              <img
-                className="pf-banner-logo"
-                src={b.logo}
-                alt=""
-                loading="lazy"
-              />
-            )}
+            {b.logo && <img className="pf-banner-logo" src={b.logo} alt="" loading="lazy" />}
             {b.title && <h3>{b.title}</h3>}
             {b.body && <p>{b.body}</p>}
+            {b.href && <span className="pf-art-tile-action"><Icon name="imgIconArrow" />{b.label || "View project"}</span>}
           </div>
-          {b.href && (
-            <a className="pf-button" href={b.href}>
-              <Icon name="imgIconArrow" />
-              {b.label || "View project"}
-            </a>
-          )}
-        </article>
-      ))}
+        </>;
+        return b.href
+          ? <a className="pf-banner pf-art-tile" data-tone={b.tone ?? "indigo"} href={b.href} key={i}>{content}</a>
+          : <article className="pf-banner pf-art-tile" data-tone={b.tone ?? "indigo"} key={i}>{content}</article>;
+      })}
     </section>
   );
 }

@@ -24,7 +24,7 @@ export const siteConfig = {
   /** Second hero paragraph, kept separate from `description` so the
    *  hero can break onto its own line. */
   descriptionExtra:
-    "Five years shaping design across startups, game studios, GSPs, and game-adjacent services. I run my own studio (Kerberus) putting out jam games and small indie titles, and in 2020 I founded Draconia, a gaming service that's served 750,000+ players since.",
+    "Five years shaping design across startups, game studios, GSPs, and game-adjacent services. I run my own studio (Kerberus) putting out jam games and small indie titles, and in 2021 I founded Draconia, a gaming service that's served 750,000+ players since.",
   url: "https://perz.dev",
   links: {
     github: "https://github.com/PerzVT",

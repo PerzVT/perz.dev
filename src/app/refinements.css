@@ -235,10 +235,8 @@ html[data-motion="paused"] *, html[data-motion="paused"] *::before, html[data-mo
   .pf-figure-row[data-flip] > .pf-figure-frame { order: 0; }
 }
 
-/* About: principles as chips, the record as stat capsules. */
-.pf-principles { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0 0; padding: 0; }
-.pf-principles li { display: inline-flex; align-items: center; min-height: 32px; padding: 0 12px; border: 1px solid var(--pf-border-strong); border-radius: 999px; font-size: var(--pf-type-meta); color: var(--pf-body); }
-.pf-stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 24px 0 0; }
+/* About: the record as stat capsules beside the copy. */
+.pf-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 24px 0 0; }
 .pf-stats > div { display: flex; flex-direction: column-reverse; justify-content: flex-end; gap: 2px; padding: 14px 16px; border: 1px solid var(--pf-border); border-radius: var(--perz-radius-panel); background: color-mix(in srgb, var(--pf-text) 5%, transparent); }
 .pf-stats dd { margin: 0; font-size: var(--pf-type-section); font-weight: 600; line-height: 1.15; color: var(--pf-text); }
 .pf-stats dt { font-size: var(--pf-type-meta); color: var(--pf-secondary); }
@@ -257,3 +255,29 @@ html[data-motion="paused"] *, html[data-motion="paused"] *::before, html[data-mo
 .pf-uptime i[data-state="down"] { background: var(--perz-error-text); }
 .pf-page .pf-stat-panel h2 { margin: 0 0 8px; }
 @media (max-width: 600px) { .pf-tracker-links, .pf-tracker-stats { grid-template-columns: 1fr; } .pf-uptime { gap: 1px; } }
+
+/* Banners as the design kit's art tile (banner layout): art under a tone
+   wash that reaches 92% behind the text, a bright rim, and one link. */
+.pf-art-tile { --tile: var(--perz-blue-section-face); --rim: color-mix(in srgb, var(--tile) 45%, white); isolation: isolate; outline: 0; background: var(--tile); color: var(--perz-on-media); text-decoration: none; justify-content: flex-start; align-items: center; padding: 28px 32px; transition: transform var(--perz-duration-press) var(--perz-ease-out); }
+.pf-art-tile[data-tone="blue"] { --tile: var(--perz-blue-face); }
+.pf-art-tile[data-tone="green"] { --tile: var(--perz-green-face); }
+.pf-art-tile[data-tone="terracotta"] { --tile: var(--perz-terracotta-face); }
+.pf-art-tile > .pf-media-image { z-index: -2; }
+.pf-art-tile::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, color-mix(in srgb, var(--tile) 94%, transparent), color-mix(in srgb, var(--tile) 92%, transparent) 45%, color-mix(in srgb, var(--tile) 35%, transparent)); pointer-events: none; }
+.pf-art-tile::after { content: ""; position: absolute; inset: 0; border: 2px solid var(--rim); border-radius: inherit; background: none; box-shadow: none; pointer-events: none; transition: border-color var(--perz-duration-enter) var(--perz-ease-out); }
+.pf-art-tile .pf-banner-copy { max-width: 55%; }
+.pf-page .pf-art-tile h3, .pf-art-tile .pf-banner-copy p { color: var(--perz-on-media); }
+.pf-art-tile .pf-banner-copy p { color: color-mix(in srgb, var(--perz-on-media) 90%, transparent); }
+.pf-art-tile-action { position: relative; z-index: 1; display: inline-flex; margin-top: 16px; align-items: center; gap: 8px; flex: none; min-height: var(--perz-control-height); padding: 0 16px; border-radius: var(--perz-radius-control); background: var(--perz-blue-face); box-shadow: inset 0 0 0 1px var(--rim); color: var(--perz-on-accent); font: 600 var(--pf-type-compact)/1.2 var(--perz-font-body); }
+.pf-art-tile-action .pf-icon { width: 18px; height: 18px; }
+@media (hover: hover) and (pointer: fine) {
+  a.pf-art-tile:hover { --rim: color-mix(in srgb, var(--tile) 15%, white); }
+  a.pf-art-tile:hover .pf-art-tile-action { background: var(--perz-blue-hover); }
+}
+a.pf-art-tile:active { transform: scale(0.98); }
+a.pf-art-tile:focus-visible { outline: var(--perz-control-focus-width) solid var(--perz-focus); outline-offset: 3px; }
+@media (max-width: 800px) {
+  .pf-art-tile { padding: 20px; align-items: flex-start; flex-direction: column; justify-content: flex-end; }
+  .pf-art-tile::before { background: color-mix(in srgb, var(--tile) 88%, transparent); }
+  .pf-art-tile .pf-banner-copy { max-width: none; }
+}

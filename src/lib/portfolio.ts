@@ -14,6 +14,9 @@ export type Media = {
 };
 export type BannerData = {
   images: Media[];
+  /** The design kit's art-tile wash: "indigo" (default), "blue", "green" or
+   *  "terracotta". Any other value falls back to indigo. */
+  tone?: string;
   logo?: string;
   title: string;
   body: string;
