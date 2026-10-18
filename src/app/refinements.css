@@ -356,3 +356,7 @@ a.pf-art-tile:focus-visible { outline: var(--perz-control-focus-width) solid var
 .pf-art-tile .pf-art-tile-action { background: var(--perz-media-action-face); box-shadow: none; color: var(--perz-media-action-text); }
 .pf-art-tile .pf-art-tile-action .pf-icon { filter: brightness(0); }
 @media (hover: hover) { a.pf-art-tile:hover .pf-art-tile-action { background: var(--perz-media-action-hover); } }
+.pf-art-tile .pf-art-tile-action { background: color-mix(in srgb, var(--tile) 22%, var(--perz-media-action-face)); }
+@media (hover: hover) { a.pf-art-tile:hover .pf-art-tile-action { background: color-mix(in srgb, var(--tile) 10%, var(--perz-media-action-hover)); } }
+.pf-art-tile::before { background: linear-gradient(90deg, color-mix(in srgb, var(--tile) 94%, transparent), color-mix(in srgb, var(--tile) 92%, transparent) 55%, color-mix(in srgb, var(--tile) 60%, transparent)); }
+@media (max-width: 800px) { .pf-art-tile::before { background: color-mix(in srgb, var(--tile) 92%, transparent); } }
