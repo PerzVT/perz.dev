@@ -1,0 +1,14 @@
+{
+  "sample": true,
+  "activity": {
+    "title": "Activity",
+    "description": "GitHub contributions and modpack releases",
+    "period": "Last 52 weeks · contributions per day"
+  },
+  "reliability": {
+    "title": "Uptime",
+    "description": "Hosted services, rolling 90 days",
+    "value": "99.6%",
+    "source": "Uptime monitor"
+  }
+}

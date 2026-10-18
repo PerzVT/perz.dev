@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { AudioToggle, ThemeToggle, Icon } from "@/components/portfolio/controls";
 
-export type NavProject = { slug: string; title: string; image: string; position: string; locked: boolean };
+export type NavProject = { slug: string; title: string; image: string; position: string };
 
 /** Sidequest detail pages live under /projects/, so only the page that renders
  *  one can say which nav link is current. Without `projects` (the error page,
@@ -38,7 +38,7 @@ export function SiteNavClient({ section, projects = [] }: { section?: "sidequest
   const projectLinks = projects.map(project => <li key={project.slug}>
     <Link href={`/projects/${project.slug}`} aria-current={pathname === `/projects/${project.slug}` ? "page" : undefined} onClick={closeAll}>
       <Image src={project.image} alt="" width={192} height={108} sizes="96px" style={{ objectPosition: project.position } as CSSProperties} />
-      <span>{project.title}{project.locked && <small>Coming soon</small>}</span>
+      <span>{project.title}</span>
     </Link>
   </li>);
 

@@ -15,7 +15,7 @@ export const siteConfig = {
   /** "About me" paragraph, used in the home About section and résumé
    *  summary. */
   about:
-    "Hi, I'm Percy, a game designer and developer in Calgary. I've made games and gaming content since I was 15, starting with custom assets and mods for Roblox, Unturned, and Minecraft. I began in computer science, then earned a bachelor's in Media, Graphics and Animation, where I built my first game and trained as a product designer. I founded Draconia and Kerberus, gaming networks that have served over 400,000 players in the past five years. I created Mythcraft (play as demigods), Dragoncraft (play as dragons), and the Kerberus Network.",
+    "Hi, I'm Percy, a game designer and developer in Calgary. I've made games and gaming content since I was 15, starting with custom assets and mods for Roblox, Unturned, and Minecraft. I began in computer science, then earned a bachelor's in Media, Graphics and Animation, where I built my first game and trained as a product designer. I founded Draconia and Kerberus, gaming networks that have served over 750,000 players in the past five years. I created Mythcraft (play as demigods), Dragoncraft (play as dragons), and the Kerberus Network.",
   /** "My design philosophy" paragraph, used in the home About section. */
   philosophy:
     "My background shapes how I design. Product design and UX training keeps me focused on the player's experience, and my technical side helps design and engineering teams work together. I lead the vision through design, sharpen communication, and find fun through simplicity. I keep designs clear and grounded in strong core systems and well-structured data, and I break complex ideas into clean, functional experiences, aiming for clarity in the gameplay and the process behind it.",
@@ -24,7 +24,7 @@ export const siteConfig = {
   /** Second hero paragraph, kept separate from `description` so the
    *  hero can break onto its own line. */
   descriptionExtra:
-    "Five years shaping design across startups, game studios, GSPs, and game-adjacent services. I run my own studio (Kerberus) putting out jam games and small indie titles, and in 2020 I founded Draconia, a gaming service that's served 400,000+ players since.",
+    "Five years shaping design across startups, game studios, GSPs, and game-adjacent services. I run my own studio (Kerberus) putting out jam games and small indie titles, and in 2020 I founded Draconia, a gaming service that's served 750,000+ players since.",
   url: "https://perz.dev",
   links: {
     github: "https://github.com/PerzVT",

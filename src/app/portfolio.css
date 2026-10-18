@@ -1184,7 +1184,7 @@ body {
 }
 .pf-nav-links > a:not(.pf-outline) {
   padding: 6px 12px;
-  border-radius: 999px;
+  border-radius: var(--perz-radius-control);
   font-weight: 500;
   color: var(--pf-secondary);
   white-space: nowrap;

@@ -8,7 +8,6 @@ import {
   Paragraphs,
 } from "@/components/portfolio/sections";
 import { FeaturedCarousel } from "@/components/portfolio/featured-carousel";
-import { DemoReel } from "@/components/portfolio/demo-reel";
 import { portfolio } from "@/lib/portfolio";
 import { featuredProjects } from "@/lib/featured-layout";
 import type { Metadata } from "next";
@@ -24,14 +23,6 @@ export default function Home() {
       <SiteNav />
       <main id="main-content" className="pf-page pf-home">
         <Hero title={h.title} images={h.hero} description={h.intro} />
-        {h.video && (
-          <section className="pf-section pf-reel" aria-labelledby="reel-heading">
-            <div className="pf-container">
-              <h2 id="reel-heading">Demo reel</h2>
-              <DemoReel src={h.video} poster={{ src: "/home/reel/percy-portfolio-reel-poster.webp", alt: "" }} label="Percy's demo reel" />
-            </div>
-          </section>
-        )}
         <section className="pf-section" id="work">
           <div className="pf-container">
             <h2>Featured work</h2>

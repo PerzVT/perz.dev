@@ -8,6 +8,8 @@ import {
   Skills,
 } from "@/components/portfolio/sections";
 import { portfolio } from "@/lib/portfolio";
+import { DemoReel } from "@/components/portfolio/demo-reel";
+import { ActivityHeatmap, ServiceReliability, showResumeStats } from "@/components/portfolio/resume-stats";
 export const metadata: Metadata = {
   title: "Résumé",
   alternates: { canonical: "/resume" },
@@ -52,6 +54,10 @@ export default function Resume() {
             alt="Percy presenting at a games event"
           />
         </header>
+        <section className="pf-container pf-resume-reel" aria-labelledby="reel-heading">
+          <div className="pf-reel-heading"><h2 id="reel-heading">Demo reel</h2><span className="pf-project-status">2024</span></div>
+          <DemoReel src="/resume/demo-reel-2024.mp4" poster={{ src: "/resume/demo-reel-2024-poster.webp", alt: "" }} label="Demo reel, 2024" />
+        </section>
         {philosophyLead && <section className="pf-section pf-quiet pf-resume-philosophy">
           <div className="pf-container">
             <h2>Design philosophy</h2>
@@ -74,6 +80,7 @@ export default function Resume() {
           <h2>Education</h2>
           <Experience rows={r.education} />
         </section>
+        {showResumeStats && <><ActivityHeatmap /><ServiceReliability /></>}
       </main>
       <SiteFooter />
     </>
