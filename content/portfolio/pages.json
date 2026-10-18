@@ -505,33 +505,6 @@
       ],
       "gallery": [
         {
-          "src": "/projects/supercat/gallery/supercat-level-design-collage.webp",
-          "alt": "Supercat level-design studies combining blockout views and movement spaces.",
-          "sourceHash": "5780a3e6306065555a7e9588a4d5c51eddda03df",
-          "fit": "cover",
-          "background": "#171c20",
-          "width": 1024,
-          "height": 751
-        },
-        {
-          "src": "/projects/supercat/sections/01-movement-and-combat/supercat-annotated-movement-route.webp",
-          "alt": "Supercat level blockout with arrows connecting a wall run, wall jump, slam, pounce, ramp hop and barrel slash into one movement route.",
-          "sourceHash": "a8f8d3096e7fbcad39b900e8ad5423b3812c3310",
-          "fit": "cover",
-          "background": "#171c20",
-          "width": 1256,
-          "height": 708
-        },
-        {
-          "src": "/projects/supercat/gallery/supercat-character-concept-sheet.webp",
-          "alt": "Supercat character concept sheet.",
-          "sourceHash": "9215d959139c2288aebdcc8053658ea40c630d57",
-          "fit": "cover",
-          "background": "#171c20",
-          "width": 1024,
-          "height": 576
-        },
-        {
           "src": "/projects/supercat/gallery/supercat-key-art.webp",
           "alt": "Supercat key art.",
           "sourceHash": "4ef92749bb70ae031a48aebf44a21ef9af7c3229",
@@ -541,42 +514,6 @@
           "height": 1238
         },
         {
-          "src": "/projects/supercat/gallery/supercat-wallrun-jump-blockout.webp",
-          "alt": "Supercat wallrun jump blockout.",
-          "sourceHash": "7efefc7b3f08f1dfe872bd737a9d12e76eef2ddc",
-          "fit": "cover",
-          "background": "#111418",
-          "width": 1672,
-          "height": 941
-        },
-        {
-          "src": "/projects/supercat/gallery/supercat-ramp-jump-blockout.webp",
-          "alt": "Supercat ramp jump blockout.",
-          "sourceHash": "a8e5ecfd8fd7e83131c79bcd3e837c64c1d9709e",
-          "fit": "cover",
-          "background": "#111418",
-          "width": 1672,
-          "height": 941
-        },
-        {
-          "src": "/projects/supercat/gallery/supercat-wallrun-blockout.webp",
-          "alt": "Supercat wallrun blockout.",
-          "sourceHash": "1f904b812672ad93dfc8a6165b95ffbe97571c1f",
-          "fit": "cover",
-          "background": "#111418",
-          "width": 1672,
-          "height": 941
-        },
-        {
-          "src": "/projects/supercat/sections/03-teaching-through-level-design/supercat-energy-trap-stairwell.webp",
-          "alt": "Supercat energy trap stairwell.",
-          "sourceHash": "1722479746fcb1801eff3b3f607e28848a38b3ab",
-          "fit": "cover",
-          "background": "#111418",
-          "width": 1558,
-          "height": 857
-        },
-        {
           "src": "/projects/supercat/gallery/supercat-green-orb-weapon.webp",
           "alt": "Supercat green orb weapon.",
           "sourceHash": "0272de2805038d7123bd870a67d8fe898e43f050",
@@ -584,54 +521,9 @@
           "background": "#111418",
           "width": 1599,
           "height": 907
-        },
-        {
-          "src": "/projects/supercat/gallery/supercat-industrial-catwalk.webp",
-          "alt": "Supercat industrial catwalk.",
-          "sourceHash": "0472d942f54211680bf5d6c3c7dfff164b94ecfd",
-          "fit": "cover",
-          "background": "#111418",
-          "width": 1558,
-          "height": 882
-        },
-        {
-          "src": "/projects/supercat/gallery/supercat-reactor-room.webp",
-          "alt": "Supercat reactor room.",
-          "sourceHash": "c9ecb131a9a948e8c1d9857acabc777fefb5ddeb",
-          "fit": "cover",
-          "background": "#111418",
-          "width": 1586,
-          "height": 912
-        },
-        {
-          "src": "/projects/supercat/gallery/supercat-lower-catwalk.webp",
-          "alt": "Supercat lower catwalk.",
-          "sourceHash": "fcddd0581ef14daf22d97b5e13dc93ebe34d235e",
-          "fit": "cover",
-          "background": "#111418",
-          "width": 1563,
-          "height": 873
-        },
-        {
-          "src": "/projects/supercat/gallery/supercat-industrial-walkway.webp",
-          "alt": "Supercat industrial walkway.",
-          "sourceHash": "36bdb36eb11d08bedec3a593961aed7b6b8e7594",
-          "fit": "cover",
-          "background": "#111418",
-          "width": 1642,
-          "height": 836
-        },
-        {
-          "src": "/projects/supercat/gallery/supercat-action-storyboard.webp",
-          "alt": "Supercat action storyboard showing movement and combat beats in sequence.",
-          "sourceHash": "09b9bab979495f7271fdd81de6bd19c3066a4753",
-          "fit": "cover",
-          "background": "#111418",
-          "width": 1024,
-          "height": 576
         }
       ],
-      "initialSlide": 1,
+      "initialSlide": 0,
       "sections": [
         {
           "type": "feature",
@@ -646,6 +538,33 @@
               "background": "#171c20",
               "width": 1256,
               "height": 708
+            },
+            {
+              "src": "/projects/supercat/sections/01-movement-and-combat/supercat-wallrun-blockout.webp",
+              "alt": "Supercat wallrun blockout.",
+              "sourceHash": "1f904b812672ad93dfc8a6165b95ffbe97571c1f",
+              "fit": "cover",
+              "background": "#111418",
+              "width": 1672,
+              "height": 941
+            },
+            {
+              "src": "/projects/supercat/sections/01-movement-and-combat/supercat-wallrun-jump-blockout.webp",
+              "alt": "Supercat wallrun jump blockout.",
+              "sourceHash": "7efefc7b3f08f1dfe872bd737a9d12e76eef2ddc",
+              "fit": "cover",
+              "background": "#111418",
+              "width": 1672,
+              "height": 941
+            },
+            {
+              "src": "/projects/supercat/sections/01-movement-and-combat/supercat-ramp-jump-blockout.webp",
+              "alt": "Supercat ramp jump blockout.",
+              "sourceHash": "a8e5ecfd8fd7e83131c79bcd3e837c64c1d9709e",
+              "fit": "cover",
+              "background": "#111418",
+              "width": 1672,
+              "height": 941
             }
           ],
           "mediaFirst": false
@@ -687,6 +606,51 @@
               "background": "#171c20",
               "width": 1558,
               "height": 857
+            },
+            {
+              "src": "/projects/supercat/sections/03-teaching-through-level-design/supercat-reactor-room.webp",
+              "alt": "Supercat reactor room.",
+              "sourceHash": "c9ecb131a9a948e8c1d9857acabc777fefb5ddeb",
+              "fit": "cover",
+              "background": "#111418",
+              "width": 1586,
+              "height": 912
+            },
+            {
+              "src": "/projects/supercat/sections/03-teaching-through-level-design/supercat-industrial-catwalk.webp",
+              "alt": "Supercat industrial catwalk.",
+              "sourceHash": "0472d942f54211680bf5d6c3c7dfff164b94ecfd",
+              "fit": "cover",
+              "background": "#111418",
+              "width": 1558,
+              "height": 882
+            },
+            {
+              "src": "/projects/supercat/sections/03-teaching-through-level-design/supercat-industrial-walkway.webp",
+              "alt": "Supercat industrial walkway.",
+              "sourceHash": "36bdb36eb11d08bedec3a593961aed7b6b8e7594",
+              "fit": "cover",
+              "background": "#111418",
+              "width": 1642,
+              "height": 836
+            },
+            {
+              "src": "/projects/supercat/sections/03-teaching-through-level-design/supercat-lower-catwalk.webp",
+              "alt": "Supercat lower catwalk.",
+              "sourceHash": "fcddd0581ef14daf22d97b5e13dc93ebe34d235e",
+              "fit": "cover",
+              "background": "#111418",
+              "width": 1563,
+              "height": 873
+            },
+            {
+              "src": "/projects/supercat/sections/03-teaching-through-level-design/supercat-level-design-collage.webp",
+              "alt": "Supercat level-design studies combining blockout views and movement spaces.",
+              "sourceHash": "5780a3e6306065555a7e9588a4d5c51eddda03df",
+              "fit": "cover",
+              "background": "#171c20",
+              "width": 1024,
+              "height": 751
             }
           ],
           "mediaFirst": false
