@@ -353,3 +353,6 @@ a.pf-art-tile:focus-visible { outline: var(--perz-control-focus-width) solid var
   .pf-trackers .pf-stats > div { padding: 10px 12px; }
   .pf-trackers .pf-stats dd { font-size: var(--pf-type-sub); }
 }
+.pf-art-tile .pf-art-tile-action { background: var(--perz-media-action-face); box-shadow: none; color: var(--perz-media-action-text); }
+.pf-art-tile .pf-art-tile-action .pf-icon { filter: brightness(0); }
+@media (hover: hover) { a.pf-art-tile:hover .pf-art-tile-action { background: var(--perz-media-action-hover); } }
