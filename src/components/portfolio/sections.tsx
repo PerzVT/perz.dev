@@ -151,7 +151,7 @@ export function CaseStudyBody({ project: p }: { project: CaseStudy }) {
     </section>
   );
   const overview = (
-    <section className="pf-container pf-section pf-overview">
+    <section className="pf-container pf-section pf-overview" id="project-overview">
       <div className="pf-overview-top">
         <div>
           {p.description && (
@@ -193,7 +193,7 @@ export function CaseStudyBody({ project: p }: { project: CaseStudy }) {
     <>
       <Hero title={p.title} images={p.hero} video={p.video} />
       {overview}
-      {contents.length >= 3 && <SectionIndex items={[...(p.gallery.length > 0 ? [{ id: "project-gallery", title: "Gallery" }] : []), ...contents]} />}
+      {contents.length >= 3 && <SectionIndex items={[{ id: "project-overview", title: "Overview" }, ...(p.gallery.length > 0 ? [{ id: "project-gallery", title: "Gallery" }] : []), ...contents]} />}
       {gallery || galleryStrip}
       {p.sections.map((s, i) =>
         s.type === "feature" ? (
