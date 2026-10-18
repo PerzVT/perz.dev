@@ -2,81 +2,49 @@ import fs from "fs";
 import path from "path";
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/config";
-import { getProjects } from "@/lib/content";
 import { caseStudies } from "@/lib/portfolio";
+import { indexableProjectSlugs, topLevelRoutes } from "@/lib/routes";
 
 const contentDir = path.join(process.cwd(), "content");
 
-// mtime of each project's MDX file, so "last modified" reflects real
+// mtime of each project's source file, so "last modified" reflects real
 // content changes rather than deploy time. Falls back to deploy time if
-// statSync fails. Home page has no single source file, so it always
-// uses deploy time.
+// statSync fails. Top-level pages have no single source file, so they
+// always use deploy time.
 function projectMtime(slug: string, fallback: Date): Date {
+  const source = caseStudies.some((p) => p.slug === slug)
+    ? path.join(contentDir, "portfolio", "pages.json")
+    : path.join(contentDir, "projects", `${slug}.mdx`);
   try {
-    return fs.statSync(path.join(contentDir, "projects", `${slug}.mdx`)).mtime;
+    return fs.statSync(source).mtime;
   } catch {
     return fallback;
   }
 }
 
+const topLevelPriority: Record<string, { priority: number; changeFrequency: "weekly" | "monthly" }> = {
+  "/": { priority: 1, changeFrequency: "weekly" },
+  "/projects": { priority: 0.8, changeFrequency: "weekly" },
+  "/sidequests": { priority: 0.8, changeFrequency: "weekly" },
+  "/resume": { priority: 0.6, changeFrequency: "monthly" },
+  "/contact": { priority: 0.6, changeFrequency: "monthly" },
+};
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = siteConfig.url;
   const now = new Date();
 
-  // mediaOnly projects have no detail route (they 404), so they're
-  // excluded here just as they are from generateStaticParams. Drafts
-  // are already dropped by getProjects().
-  const legacyProjects = getProjects()
-    .filter((p) => !p.frontmatter.mediaOnly)
-    // Coming-soon pages are a placeholder sign-in with no content yet.
-    .filter(
-      (p) =>
-        p.frontmatter.status !== "coming-soon" &&
-        !caseStudies.some((c) => c.slug === p.slug),
-    )
-    .map((p) => ({
-      url: `${base}/projects/${p.slug}`,
-      lastModified: projectMtime(p.slug, now),
-      changeFrequency: "monthly" as const,
-      priority: 0.7,
-    }));
-
-  const projects = [
-    ...legacyProjects,
-    ...caseStudies.map((p) => ({
-      url: `${base}/projects/${p.slug}`,
-      lastModified: fs.statSync(
-        path.join(contentDir, "portfolio", "pages.json"),
-      ).mtime,
+  return [
+    ...topLevelRoutes.map((route) => ({
+      url: route === "/" ? base : `${base}${route}`,
+      lastModified: now,
+      ...(topLevelPriority[route] ?? { priority: 0.6, changeFrequency: "monthly" as const }),
+    })),
+    ...indexableProjectSlugs().map((slug) => ({
+      url: `${base}/projects/${slug}`,
+      lastModified: projectMtime(slug, now),
       changeFrequency: "monthly" as const,
       priority: 0.7,
     })),
-  ];
-  return [
-    {
-      url: base,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 1,
-    },
-    {
-      url: `${base}/projects`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-    {
-      url: `${base}/resume`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.6,
-    },
-    {
-      url: `${base}/contact`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.6,
-    },
-    ...projects,
   ];
 }

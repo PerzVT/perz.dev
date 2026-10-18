@@ -55,10 +55,15 @@ export type CaseStudy = {
   initialSlide: number;
   sections: ProjectSection[];
   banners: BannerData[];
+  /** "coming-soon" shows the hero and overview, then ends the page at a
+   *  locked panel. Omit it once the write-up is ready. */
+  status?: "live" | "coming-soon";
 };
 export const portfolio = source;
 export const caseStudies = source.projects as CaseStudy[];
-export const featuredStudies = [
+
+/** Display order for the home carousel and the projects grid. */
+const featuredOrder = [
   "highstreet-calamity-vr",
   "supercat",
   "bubble-buddy",
@@ -68,4 +73,14 @@ export const featuredStudies = [
   "bisecthosting",
   "dragoncraft",
   "mythcraft",
-].map((slug) => caseStudies.find((p) => p.slug === slug)!);
+];
+
+export const featuredStudies = featuredOrder.map((slug) => {
+  const study = caseStudies.find((p) => p.slug === slug);
+  if (!study) {
+    throw new Error(
+      `featuredOrder lists "${slug}", which is not a project in content/portfolio/pages.json.`,
+    );
+  }
+  return study;
+});

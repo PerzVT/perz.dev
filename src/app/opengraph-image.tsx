@@ -14,13 +14,13 @@ export const contentType = "image/png";
  * the image, so duplicating the title in the card just steals visual
  * real estate from the art.
  *
- * The source `cover-art.png` is 1218×648 (≈1.88:1). next/og scales it
+ * The source `percy-gaming-room-social-card.png` is 1218×648 (≈1.88:1). next/og scales it
  * to the spec 1200×630 (1.91:1) with object-fit: cover, which crops a
  * few pixels off the long edges. Keep the perz wordmark inside a safe
  * margin on the source PNG so it doesn't get clipped.
  */
 export default async function Image() {
-  const cover = await readFile(join(process.cwd(), "public", "shared", "social", "cover-art.png"));
+  const cover = await readFile(join(process.cwd(), "public", "shared", "social", "percy-gaming-room-social-card.png"));
   // ImageResponse runs in the edge runtime where fs lives at build
   // time. The file is read once during prerender and inlined as a
   // base64 data URL so the runtime doesn't re-touch disk.

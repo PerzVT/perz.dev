@@ -1,0 +1,52 @@
+.pf-intro { display: none; }
+html[data-intro] .pf-intro {
+  display: grid;
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  place-items: center;
+  overflow: hidden;
+  background: var(--pf-canvas);
+  color: var(--pf-text);
+  animation: pf-intro-lift 600ms 1150ms cubic-bezier(.76,0,.24,1) forwards;
+}
+.pf-intro-logo {
+  display: grid;
+  width: clamp(88px, 12vw, 128px);
+  aspect-ratio: 1;
+}
+.pf-intro-logo img {
+  grid-area: 1 / 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.pf-intro-logo-base { opacity: .16; }
+.pf-intro-logo-fill {
+  animation: pf-intro-fill 1000ms 100ms cubic-bezier(.65,0,.35,1) both;
+}
+.pf-intro-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  transform-origin: left;
+  animation: pf-intro-line 1000ms 100ms cubic-bezier(.65,0,.35,1) both;
+}
+@keyframes pf-intro-fill {
+  from { clip-path: inset(0 100% 0 0); }
+  to { clip-path: inset(0 0 0 0); }
+}
+@keyframes pf-intro-line {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+@keyframes pf-intro-lift {
+  to { transform: translateY(-100%); visibility: hidden; pointer-events: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html[data-intro] .pf-intro { display: none; animation: none; }
+}

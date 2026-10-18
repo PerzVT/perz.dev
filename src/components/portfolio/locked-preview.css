@@ -1,0 +1,20 @@
+.pf-locked { position: relative; padding-bottom: var(--perz-space-96); }
+.pf-locked-teaser {
+  max-height: 420px; overflow: hidden; pointer-events: none; user-select: none;
+  mask-image: linear-gradient(to bottom, #000 0%, #000 25%, transparent 100%);
+}
+.pf-locked-teaser + .pf-container { position: relative; margin-top: -160px; }
+.pf-locked:not(:has(.pf-locked-teaser)) { padding-top: var(--perz-space-32); }
+.pf-locked-panel {
+  max-width: var(--perz-layout-reading-width); margin-inline: auto; padding: 24px;
+  background: var(--pf-surface); border: 1px solid var(--pf-border); border-radius: var(--perz-radius-panel);
+  text-align: center;
+}
+.pf-page .pf-locked-panel h2 { margin: 0 0 8px; }
+.pf-locked-panel p { margin: 0 auto 20px; color: var(--pf-secondary); }
+.pf-locked-panel .pf-actions { justify-content: center; }
+@media (max-width: 800px) {
+  .pf-locked-teaser { max-height: 280px; }
+  .pf-locked-teaser + .pf-container { margin-top: -120px; }
+  .pf-locked-panel { padding: 20px 16px; }
+}

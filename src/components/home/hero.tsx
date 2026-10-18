@@ -6,7 +6,7 @@ import { useReveal } from "@/lib/reveal";
 
 /**
  * Positioning line over a looping, low-opacity background video
- * (public/home/hero/port.mp4). Autoplay is gated on prefers-reduced-motion, paused
+ * (public/home/hero/percy-portfolio-reel.mp4). Autoplay is gated on prefers-reduced-motion, paused
  * on the first frame when reduced motion is on. Hovering or focusing the
  * nav wordmark brightens the reel via the reveal store.
  */
@@ -39,7 +39,7 @@ export function Hero() {
       >
         <video
           ref={videoRef}
-          src="/home/hero/port.mp4"
+          src="/home/hero/percy-portfolio-reel.mp4"
           muted
           loop
           playsInline

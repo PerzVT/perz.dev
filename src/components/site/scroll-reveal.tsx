@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 /**
  * Fades and lifts children into place the first time they scroll into
@@ -18,24 +18,23 @@ export function Reveal({
   className?: string;
 }) {
   const ref = useRef<HTMLDivElement>(null);
-  const [shown, setShown] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
     if (!("IntersectionObserver" in window)) {
-      setShown(true);
+      el.classList.add("pz-in");
       return;
     }
     const r = el.getBoundingClientRect();
     if (r.top < window.innerHeight * 0.92 && r.bottom > 0) {
-      setShown(true);
+      el.classList.add("pz-in");
       return;
     }
     const io = new IntersectionObserver(
       (entries) => {
         if (entries.some((e) => e.isIntersecting)) {
-          setShown(true);
+          el.classList.add("pz-in");
           io.disconnect();
         }
       },
@@ -48,7 +47,7 @@ export function Reveal({
   return (
     <div
       ref={ref}
-      className={`pz-reveal${shown ? " pz-in" : ""}${className ? " " + className : ""}`}
+      className={`pz-reveal${className ? " " + className : ""}`}
     >
       {children}
     </div>

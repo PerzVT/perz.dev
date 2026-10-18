@@ -14,7 +14,7 @@ export default function Contact() {
   return (
     <>
       <SiteNav />
-      <main className="pf-page" id="main-content">
+      <main className="pf-page pf-contact-page" id="main-content">
         <Hero title="Contact" images={c.hero} description={c.intro} />
         <section className="pf-container pf-section pf-contact-row">
           <div>

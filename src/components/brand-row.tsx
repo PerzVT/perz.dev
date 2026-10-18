@@ -33,7 +33,7 @@ export function BrandRow({
     <div className="mt-6 flex flex-wrap items-center justify-center gap-8 sm:gap-12">
       {sources.map((src, i) => {
         // Filename → fallback alt. Strips path and extension, swaps
-        // delimiters for spaces. "MC_Logo_Horizontal_Light.png" →
+        // delimiters for spaces. "meloncube-logo.png" →
         // "MC Logo Horizontal Light".
         const filename =
           src.split("/").pop()?.replace(/\.[^.]+$/, "") ?? "";

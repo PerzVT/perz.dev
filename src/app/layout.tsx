@@ -3,13 +3,15 @@ import type { Metadata } from "next";
 import { SfxProvider } from "@/components/sfx-provider";
 import { ContentGuard } from "@/components/content-guard";
 
+import { IntroLoader } from "@/components/site/intro-loader";
 import { PagePolish } from "@/components/site/page-polish";
-import { SmoothScroll } from "@/components/site/smooth-scroll";
 import { siteConfig } from "@/lib/config";
 import { portfolio } from "@/lib/portfolio";
-import "lenis/dist/lenis.css";
 import "./globals.css";
+import "./perz-tokens.css";
 import "./portfolio.css";
+import "./refinements.css";
+import "@/components/portfolio/carousel-track.css";
 
 /* No mono font is loaded; numerals hold alignment with `tabular-nums`
    instead. `--font-mono` falls back to a system stack in globals.css if
@@ -37,12 +39,15 @@ export const metadata: Metadata = {
     description: portfolio.home.intro,
   },
   metadataBase: new URL(siteConfig.url),
-  alternates: { canonical: "/" },
 };
 
 // Stamps `data-pz-js` on <html> before paint. Scroll-reveal CSS is
 // gated on it, so a no-JS visitor never gets stuck with hidden sections.
-const JS_FLAG_SCRIPT = `(function(){try{document.documentElement.dataset.pzJs='1';}catch(e){}})();`;
+// The intro is decorative: once per tab session, homepage only, and never blocks
+// on network readiness. CSS dismisses it even if hydration fails.
+const INTRO_SCRIPT = `(function(){try{if(location.pathname!=='/'||location.hash||matchMedia('(prefers-reduced-motion: reduce)').matches)return;var replay=new URLSearchParams(location.search).get('intro')==='1';if(!replay&&sessionStorage.getItem('perz:intro-seen'))return;sessionStorage.setItem('perz:intro-seen','1');document.documentElement.setAttribute('data-intro','');}catch(e){}})();`;
+
+const JS_FLAG_SCRIPT = `(function(){try{var root=document.documentElement;root.dataset.pzJs='1';var theme=localStorage.getItem('perz:theme')==='light'?'light':'dark';root.dataset.portfolioTheme=theme;root.dataset.perzTheme=theme;root.dataset.motion=matchMedia('(prefers-reduced-motion: reduce)').matches?'paused':'running';}catch(e){}})();`;
 
 export default function RootLayout({
   children,
@@ -60,9 +65,10 @@ export default function RootLayout({
         >
           Skip to content
         </a>
+        <script dangerouslySetInnerHTML={{ __html: INTRO_SCRIPT }} />
+        <IntroLoader />
         <SfxProvider />
         <ContentGuard />
-        <SmoothScroll />
         <PagePolish />
         {children}
       </body>

@@ -1,4 +1,6 @@
 import "./media-treatment.css";
+import Link from "next/link";
+import { featuredStudies } from "@/lib/portfolio";
 import type { CSSProperties } from "react";
 import { FigmaShade, bannerShade, heroShade } from "./media-shade";
 import { MediaImage } from "./media-image";
@@ -10,6 +12,7 @@ import type {
 } from "@/lib/portfolio";
 import { AmbientVideo, Icon } from "./controls";
 import { Carousel } from "./carousel";
+import { LockedPreview } from "./locked-preview";
 
 export function Paragraphs({ text }: { text: string }) {
   return (
@@ -61,7 +64,7 @@ export function Hero({
       </div>
       <div className="pf-container pf-hero-copy">
         <h1>{title}</h1>
-        {description && <p>{description}</p>}
+        {description && <p>{title === "Percy" && description.includes("Get in touch") ? <>{description.split("Get in touch")[0]}<Link href="/contact">Get in touch<Icon name="imgIconArrow" /></Link>{description.split("Get in touch")[1]}</> : description}</p>}
       </div>
     </header>
   );
@@ -130,61 +133,78 @@ export function Banners({ items }: { items: BannerData[] }) {
   );
 }
 export function CaseStudyBody({ project: p }: { project: CaseStudy }) {
+  const next = featuredStudies[(featuredStudies.findIndex(item => item.slug === p.slug) + 1) % featuredStudies.length];
+  const contents = p.sections.map((section, i) => ({ title: section.title, id: `project-section-${i}` })).filter(item => item.title.trim());
+  const locked = p.status === "coming-soon";
+  const gallery = p.gallery.length > 0 && (
+    <section className="pf-section" id="project-gallery">
+      <div className="pf-container">
+        <h2>Gallery</h2>
+      </div>
+      <Carousel
+        items={p.gallery}
+        initial={p.initialSlide}
+        label={`${p.title} gallery`}
+      />
+    </section>
+  );
+  const overview = (
+    <section className="pf-container pf-section pf-overview">
+      <div className="pf-overview-top">
+        <div>
+          {p.description && (
+            <div className="pf-description">
+              <Paragraphs text={p.description} />
+            </div>
+          )}
+          <h2>Contributions</h2>
+          <ul className="pf-contributions">
+            {p.contributions.map((c, i) => (
+              <li key={i}><span aria-hidden="true">✦</span><span>{c.replace(/^[•·✦]\s*/, "")}</span></li>
+            ))}
+          </ul>
+        </div>
+        <dl className="pf-facts">
+          {p.facts.map((f, i) => (
+            <div key={i}>
+              <dt>{f.label}</dt>
+              <dd>{f.value}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+      <div className="pf-skill-section"><h2>Skills</h2><Skills tags={p.skills} /></div>
+    </section>
+  );
+  if (locked) {
+    return (
+      <>
+        <Hero title={p.title} images={p.hero} video={p.video} />
+        {overview}
+        <LockedPreview title={p.title} teaser={gallery || undefined}
+          primary={next ? { href: `/projects/${next.slug}`, label: `Next project: ${next.title}` } : { href: "/projects", label: "All projects" }}
+          secondary={{ href: "/projects", label: "All projects" }} />
+      </>
+    );
+  }
   return (
     <>
       <Hero title={p.title} images={p.hero} video={p.video} />
-      <section className="pf-container pf-section pf-overview">
-        <div className="pf-overview-top">
-          <div>
-            {p.description && (
-              <div className="pf-description">
-                <Paragraphs text={p.description} />
-              </div>
-            )}
-            <h2>Contributions</h2>
-            <ul className="pf-contributions">
-              {p.contributions.map((c, i) => (
-                <li key={i}><span aria-hidden="true">✦</span><span>{c.replace(/^[•·✦]\s*/, "")}</span></li>
-              ))}
-            </ul>
-          </div>
-          <dl className="pf-facts">
-            {p.facts.map((f, i) => (
-              <div key={i}>
-                <dt>{f.label}</dt>
-                <dd>{f.value}</dd>
-              </div>
-            ))}
-          </dl>
-        </div>
-        <div className="pf-skill-section">
-          <h2>Skills</h2>
-          <Skills tags={p.skills} />
-        </div>
-      </section>
-      {p.gallery.length > 0 && (
-        <section className="pf-section">
-          <div className="pf-container">
-            <h2>Gallery</h2>
-          </div>
-          <Carousel
-            items={p.gallery}
-            initial={p.initialSlide}
-            label={`${p.title} gallery`}
-          />
-        </section>
-      )}
+      {overview}
+      {contents.length >= 3 && <nav className="pf-container pf-contents" aria-label="On this page"><p>On this page</p><ul>{p.gallery.length > 0 && <li><a href="#project-gallery">Gallery</a></li>}{contents.map(item => <li key={item.id}><a href={`#${item.id}`}>{item.title}</a></li>)}</ul></nav>}
+      {gallery}
       {p.sections.map((s, i) =>
         s.type === "feature" ? (
           <section
             key={i}
+            id={`project-section-${i}`}
             className={`pf-section pf-feature ${s.mediaFirst ? "pf-quiet" : ""}`}
           >
             <div
-              className={`pf-container pf-feature-row ${s.mediaFirst ? "pf-media-first" : ""}`}
+              className={`pf-container pf-feature-row ${s.mediaFirst ? "pf-media-first" : ""} ${s.media.length === 0 ? "pf-feature-text-only" : ""}`}
             >
               <div className="pf-feature-copy">
-                <h2>{s.title}</h2>
+                {s.title.trim() && <h2>{s.title}</h2>}
                 {s.body.includes("\n") ? (
                   <ul className="pf-feature-list">
                     {s.body.split(/\n+/).map(line => line.trim()).filter(Boolean).map((line, index) => (
@@ -193,12 +213,12 @@ export function CaseStudyBody({ project: p }: { project: CaseStudy }) {
                   </ul>
                 ) : <Paragraphs text={s.body} />}
               </div>
-              <Carousel items={s.media} compact label={s.title} />
+              {s.media.length > 0 && <Carousel items={s.media} compact label={s.title || `${p.title} detail`} />}
             </div>
           </section>
         ) : (
-          <section key={i} className="pf-container pf-section">
-            <h2>{s.title}</h2>
+          <section key={i} id={`project-section-${i}`} className="pf-container pf-section">
+            {s.title.trim() && <h2>{s.title}</h2>}
             <div
               className={`pf-outcomes ${s.title === "Word from Highstreet" ? "pf-letter" : ""}`}
             >
@@ -224,6 +244,7 @@ export function CaseStudyBody({ project: p }: { project: CaseStudy }) {
         ),
       )}
       <Banners items={p.banners} />
+      <nav className="pf-container pf-section pf-project-navigation" aria-label="Project navigation"><Link className="pf-outline" href="/projects">All projects</Link>{next && <Link className="pf-button" href={`/projects/${next.slug}`}>Next project: {next.title}</Link>}</nav>
     </>
   );
 }

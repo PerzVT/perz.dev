@@ -1,3 +1,4 @@
+import { MediaImage } from "@/components/portfolio/media-image";
 import { Icon } from "@/components/portfolio/controls";
 import Link from "next/link";
 import type { Metadata } from "next";
@@ -22,22 +23,14 @@ export default function Projects() {
           {featuredStudies.map((p) => (
             <article className="pf-project-card" key={p.slug}>
               <Link href={`/projects/${p.slug}`}>
-                <img
-                  src={p.hero[0].src}
-                  alt={p.title}
-                  loading="lazy"
-                  style={{
-                    objectFit:
-                      p.hero[0].fit === "contain" ? "contain" : "cover",
-                    background: p.hero[0].background,
-                  }}
-                />
+                <MediaImage media={p.hero[0]} alt="" sizes="(max-width: 800px) calc(100vw - 48px), 530px" />
                 <h2>{p.title}</h2>
               </Link>
               <p>{p.description}</p>
-              <Link className="pf-button" href={`/projects/${p.slug}`}>
+              {p.sections.length === 0 && <span className="pf-project-status">Project overview</span>}
+              <Link className="pf-button" href={`/projects/${p.slug}`} aria-label={`${p.sections.length === 0 ? "View overview of" : "Read more about"} ${p.title}`}>
                 <Icon name="imgIconArrow" />
-                Read More
+                {p.sections.length === 0 ? "View overview" : "Read more"}
               </Link>
             </article>
           ))}

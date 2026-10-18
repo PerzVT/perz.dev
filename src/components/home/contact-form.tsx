@@ -7,8 +7,8 @@ import { Icon } from "@/components/portfolio/controls";
 /**
  * Client-validated contact form (name, email, message) with a honeypot,
  * an aria-live status line, and a success state with reset. Submits via
- * the sendContact server action (real email when configured, mocked
- * success on staging). Errors are announced via aria-invalid and
+ * the sendContact server action (real email when configured, a delivery-unavailable
+ * error otherwise). Errors are announced via aria-invalid and
  * aria-describedby.
  */
 const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
@@ -30,6 +30,7 @@ export function ContactForm() {
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (sending) return;
     const next: Errors = {};
     if (!name.trim()) next.name = "Add your name.";
     if (!EMAIL_RE.test(email.trim()))
@@ -50,12 +51,17 @@ export function ContactForm() {
     }
 
     setErrors({});
-    setStatus("");
+    setStatus("Sending your message…");
     setSending(true);
-    const res = await sendContact({ name, email, message, company });
-    setSending(false);
-    if (res.ok) setSent(true);
-    else setStatus(res.error ?? "Something went wrong.");
+    try {
+      const res = await sendContact({ name, email, message, company });
+      if (res.ok) setSent(true);
+      else setStatus(res.error ?? "Message could not send. Your message is saved here. Please try again.");
+    } catch {
+      setStatus("Message could not send. Your message is saved here. Please try again.");
+    } finally {
+      setSending(false);
+    }
   }
 
   function reset() {
@@ -179,8 +185,9 @@ export function ContactForm() {
           {sending ? "Sending…" : "Send message"}
         </button>
         <span
+          role="status"
           aria-live="polite"
-          className={`text-[12.5px] ${Object.keys(errors).length ? "text-pz-danger" : "text-pz-faint"}`}
+          className={`text-base ${status && !sending ? "text-pz-danger" : "text-pz-ink2"}`}
         >
           {status}
         </span>

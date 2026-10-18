@@ -96,7 +96,9 @@ export const getProjects = cache((): ProjectEntry[] => {
   return interleaved;
 });
 
-export function getProject(slug: string): ProjectEntry | null {
+// Memoized for the same reason as getProjects: generateMetadata and the page
+// body each ask for the same slug, which otherwise parses the file twice.
+export const getProject = cache((slug: string): ProjectEntry | null => {
   const filePath = path.join(contentDir, "projects", `${slug}.mdx`);
 
   if (!fs.existsSync(filePath)) return null;
@@ -109,7 +111,7 @@ export function getProject(slug: string): ProjectEntry | null {
     frontmatter: data as ProjectFrontmatter,
     content,
   };
-}
+});
 
 // ---------------------------------------------------------------------
 // Visual work

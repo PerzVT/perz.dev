@@ -1,24 +1,91 @@
-/* The viewport clips moving artwork, while navigation stays outside it. */
+/* One physical slide per item; Embla repositions slides at the loop boundary.
+   The rail is a size container so the arrows can be placed from the slide width. */
+.pf-carousel {
+  container-type: inline-size;
+  --pf-slide-size: min(var(--perz-layout-slide-width), 72cqw);
+  --arrow-y: calc(50% - 4px);
+}
 .pf-carousel .pf-track-viewport, .pf-recommendations .pf-track-viewport {
   overflow: hidden; position: relative; padding: 4px 0 12px; min-width: 0;
-  touch-action: pan-y;
+  touch-action: pan-y pinch-zoom; cursor: grab;
 }
+.pf-carousel[data-dragging="true"] .pf-track-viewport,
+.pf-recommendation-stage[data-dragging="true"] .pf-track-viewport { cursor: grabbing; }
 .pf-stable-track { display: flex; gap: 32px; position: relative; width: 100%; align-items: stretch; }
+.pf-carousel .pf-stable-track {
+  transform: translateX(calc((100% - var(--pf-slide-size)) / 2 - var(--initial-slide, 0) * (var(--pf-slide-size) + 32px)));
+}
 .pf-carousel .pf-stable-track > .pf-track-card {
-  flex: 0 0 min(1096px, calc(100vw - 160px)); margin: 0; position: relative;
-  opacity: .45; transition: opacity 420ms cubic-bezier(.22,1,.36,1);
+  flex: 0 0 var(--pf-slide-size); margin: 0; position: relative;
+  opacity: .5; transition: opacity var(--perz-duration-slide) var(--perz-ease-out);
 }
 .pf-carousel .pf-stable-track > .pf-track-card[data-active="true"] { opacity: 1; }
-.pf-carousel .pf-track-card:not([data-active="true"]) .pf-slide-caption { visibility: hidden; }
-.pf-carousel-compact .pf-stable-track > .pf-track-card { flex-basis: 100%; }
+.pf-carousel.pf-carousel-compact { --pf-slide-size: 100cqw; padding-bottom: 0; }
 .pf-recommendations .pf-quotes-track { gap: 32px; }
 .pf-recommendations .pf-quotes-track > .pf-track-quote {
   display: flex; flex: 0 0 calc((100% - 64px) / 3); min-width: 0;
 }
+/* Flex gap has no trailing space; retain that gap at the last-to-first seam. */
+.pf-carousel .pf-stable-track > .pf-track-card:last-child,
+.pf-recommendations .pf-quotes-track > .pf-track-quote:last-child { margin-right: 32px; }
+
+/* Gallery is media only: the artwork is the slide, with no frame around it. */
+.pf-carousel:not(.pf-featured-carousel):not(.pf-carousel-featured) .pf-slide {
+  aspect-ratio: 16 / 9; padding: 0; border: 0; background: none; box-shadow: none;
+  border-radius: var(--perz-radius-media);
+}
+.pf-carousel:not(.pf-featured-carousel):not(.pf-carousel-featured) .pf-slide-art {
+  border-radius: var(--perz-radius-media);
+  outline: 1px solid var(--perz-image-edge); outline-offset: -1px;
+}
+
+/* Neighbours fade into the page on both sides of the current slide. */
+.pf-carousel:not(.pf-carousel-compact) .pf-track-viewport::before,
+.pf-carousel:not(.pf-carousel-compact) .pf-track-viewport::after {
+  content: ""; position: absolute; top: 0; bottom: 0; z-index: 1;
+  width: calc((100% - var(--pf-slide-size)) / 2); pointer-events: none;
+}
+.pf-carousel:not(.pf-carousel-compact) .pf-track-viewport::before {
+  left: 0; background: linear-gradient(90deg, var(--carousel-fade, var(--pf-canvas)) 10%, transparent);
+}
+.pf-carousel:not(.pf-carousel-compact) .pf-track-viewport::after {
+  right: 0; background: linear-gradient(270deg, var(--carousel-fade, var(--pf-canvas)) 10%, transparent);
+}
+.pf-quiet .pf-carousel, .pf-home .pf-about .pf-carousel { --carousel-fade: var(--pf-quiet); }
+
+/* Arrows sit beside the slide, never below it, with no pagination rail. */
+.pf-carousel .pf-rail-navigation, .pf-recommendations .pf-rail-navigation {
+  display: flex; align-items: center; justify-content: center; gap: 12px;
+  min-height: 0; margin-top: 0;
+}
+.pf-carousel .pf-rail-navigation .pf-prev { left: max(10px, calc((100% - var(--pf-slide-size)) / 2 - 64px)); right: auto; }
+.pf-carousel .pf-rail-navigation .pf-next { right: max(10px, calc((100% - var(--pf-slide-size)) / 2 - 64px)); left: auto; }
+.pf-recommendations .pf-rail-navigation .pf-carousel-arrow { top: calc(50% - 4px); }
+
+/* Compact figures keep the arrows inside the artwork. */
+.pf-carousel-compact .pf-rail-navigation {
+  position: absolute; inset: 4px 0 12px; margin: 0; min-height: 0;
+  pointer-events: none; z-index: 3;
+}
+.pf-carousel-compact .pf-rail-navigation .pf-carousel-arrow { top: 50%; pointer-events: auto; }
+.pf-carousel.pf-carousel-compact .pf-rail-navigation .pf-prev { left: 12px; }
+.pf-carousel.pf-carousel-compact .pf-rail-navigation .pf-next { right: 12px; }
+
 @media (max-width: 800px) {
-  .pf-carousel .pf-stable-track > .pf-track-card { flex-basis: calc(100vw - 48px); }
-  .pf-carousel-compact .pf-stable-track > .pf-track-card { flex-basis: 100%; }
+  .pf-carousel { --pf-slide-size: 86cqw; --arrow-y: calc(4px + var(--pf-slide-size) * 9 / 32); }
+  .pf-stable-track, .pf-carousel .pf-stable-track { gap: 10px; }
+  .pf-carousel .pf-stable-track {
+    transform: translateX(calc((100% - var(--pf-slide-size)) / 2 - var(--initial-slide, 0) * (var(--pf-slide-size) + 10px)));
+  }
+  .pf-carousel .pf-stable-track > .pf-track-card:last-child { margin-right: 10px; }
+  .pf-carousel .pf-carousel-arrow { width: 36px; height: 36px; }
+  .pf-carousel .pf-rail-navigation .pf-prev { left: 4px; }
+  .pf-carousel .pf-rail-navigation .pf-next { right: 4px; }
   .pf-recommendations .pf-quotes-track > .pf-track-quote { flex-basis: 100%; }
+  .pf-recommendations .pf-rail-navigation {
+    position: static; margin-top: 8px; min-height: 48px; pointer-events: auto;
+  }
+  .pf-recommendations .pf-rail-navigation .pf-carousel-arrow { position: static; translate: none; flex: 0 0 auto; }
 }
 @media (prefers-reduced-motion: reduce) {
   .pf-carousel .pf-stable-track > .pf-track-card { transition: none; }

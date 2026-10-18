@@ -7,24 +7,17 @@ import {
   Hero,
   Paragraphs,
 } from "@/components/portfolio/sections";
-import { Carousel } from "@/components/portfolio/carousel";
-import { featuredStudies, portfolio } from "@/lib/portfolio";
+import { FeaturedCarousel } from "@/components/portfolio/featured-carousel";
+import { portfolio } from "@/lib/portfolio";
+import { featuredProjects } from "@/lib/featured-layout";
+import type { Metadata } from "next";
+
+// Carried here rather than on the root layout, where it would also label the
+// 404 and error pages as the homepage.
+export const metadata: Metadata = { alternates: { canonical: "/" } };
 
 export default function Home() {
   const h = portfolio.home;
-  const slides = featuredStudies.map((p) => ({
-    ...p.hero[0],
-    title: p.title,
-    description:
-      p.slug === "highstreet-calamity-vr"
-        ? "Multiplayer VR roguelike"
-        : p.facts.find((f) => f.label === "Development")?.value,
-    href: `/projects/${p.slug}`,
-    external: p.url,
-    externalLabel:
-      p.slug === "highstreet-calamity-vr" ? "Meta Quest" : undefined,
-  }));
-  const centered = [...slides.slice(5), ...slides.slice(0, 5)];
   return (
     <>
       <SiteNav />
@@ -39,7 +32,7 @@ export default function Home() {
           <div className="pf-container">
             <h2>Featured work</h2>
           </div>
-          <Carousel items={centered} initial={4} label="Featured work" />
+          <FeaturedCarousel projects={featuredProjects} />
         </section>
         <section className="pf-section pf-about">
           <div className="pf-container pf-about-grid">

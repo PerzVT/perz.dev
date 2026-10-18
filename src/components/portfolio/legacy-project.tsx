@@ -7,7 +7,6 @@ import { LazyVideo } from "@/components/lazy-video";
 import { BLUR_DATA_URL } from "@/lib/blur";
 import {
   getProject,
-  getProjects,
   type ProjectFrontmatter,
 } from "@/lib/content";
 import { mdxComponents } from "@/components/mdx";
@@ -18,15 +17,6 @@ import { ComingSoonGate } from "@/components/site/coming-soon-gate";
 import { Button } from "@/components/site/button";
 
 type Params = Promise<{ slug: string }>;
-
-export const dynamicParams = false;
-
-export async function generateStaticParams() {
-  // mediaOnly + draft projects have no detail page.
-  return getProjects()
-    .filter((p) => !p.frontmatter.mediaOnly)
-    .map((p) => ({ slug: p.slug }));
-}
 
 export async function generateMetadata({
   params,

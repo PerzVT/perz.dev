@@ -5,6 +5,7 @@ import { SiteFooter } from "@/components/site/site-footer";
 import { CaseStudyBody } from "@/components/portfolio/sections";
 import { caseStudies } from "@/lib/portfolio";
 import { getProjects } from "@/lib/content";
+import { projectSlugs } from "@/lib/routes";
 import SidequestDetail from "@/components/portfolio/sidequests";
 import {
   generateMetadata as legacyMetadata,
@@ -12,14 +13,7 @@ import {
 type Params = Promise<{ slug: string }>;
 export const dynamicParams = false;
 export function generateStaticParams() {
-  return [
-    ...new Set([
-      ...caseStudies.map((p) => p.slug),
-      ...getProjects()
-
-        .map((p) => p.slug),
-    ]),
-  ].map((slug) => ({ slug }));
+  return projectSlugs().map((slug) => ({ slug }));
 }
 export async function generateMetadata({
   params,

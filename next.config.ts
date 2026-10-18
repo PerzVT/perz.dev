@@ -33,6 +33,7 @@ const CSP = [
 ].join("; ");
 
 const nextConfig: NextConfig = {
+  distDir: process.env.PERZ_BUILD_DIR || ".next",
   devIndicators: false,
   agentRules: false,
   // Next 16 restricts images.qualities to [75] by default. The
@@ -42,10 +43,15 @@ const nextConfig: NextConfig = {
   images: {
     qualities: [75, 90],
   },
-  async rewrites() {
+  // The media rename left ~600 old asset URLs outstanding. These are
+  // redirects rather than rewrites because Next serializes the rewrite table
+  // into _buildManifest.js for client-side route matching, which put 111 KB
+  // of dead asset paths in front of every visitor. Redirects stay server-side.
+  async redirects() {
     return Object.entries(mediaAliases).map(([source, destination]) => ({
       source: source.replace(/[():*+?{}]/g, "\\$&"),
       destination: encodeURI(destination),
+      permanent: true,
     }));
   },
   async headers() {
