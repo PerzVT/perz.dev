@@ -7,8 +7,8 @@
   "home": {
     "hero": [
       {
-        "src": "/home/hero/dc5b9baf4c4ebbea949a7615324e89328e3bafe8.webp",
-        "alt": "Percy portfolio artwork, image 1",
+        "src": "/home/hero/percy-gaming-room-hero.webp",
+        "alt": "Illustrated gaming room with Percy, a cat, and glowing computer screens.",
         "sourceHash": "dc5b9baf4c4ebbea949a7615324e89328e3bafe8",
         "fit": "cover",
         "background": "#111418",
@@ -18,11 +18,11 @@
     ],
     "title": "Percy",
     "intro": "I'm a Game Designer and Developer who specializes in user experience and systems design with professional experience building PC and VR games. Get in touch if you would like to work together!",
-    "video": "/home/hero/port.mp4",
+    "video": "/home/hero/percy-portfolio-reel.mp4",
     "about": {
       "title": "About me",
       "body": "Percy is a game designer and developer based in Calgary, Alberta. He believes in subtractive design and the power of simplicity in systems.\n\nHe focuses on clear, straightforward goals that retain players through a strong engaging core loop with a focus towards rewarding design thru data and systems that provides a fair challenge.\n\nHe enjoys breaking complex ideas down into clean, functional experiences, always aiming for clarity in communication and design.\n\nOutside of work he is passionate about modding games and reverse engineering. \nHe founded Kerberus (2015) and Draconia (2021) , gaming networks that have served over 750,000 players till now. He created Mythcraft, Dragoncraft and contributes to numerous modding projects with in the curseforge space for games like Minecraft (Java) and Palworld.",
-      "image": "/home/about/a475d582d206e1736eb36c7acb5f5edf74f6f4d8.webp"
+      "image": "/home/about/percy-bubble-buddy-presentation.webp"
     },
     "experience": [
       {
@@ -30,35 +30,35 @@
         "company": "Highstreet",
         "body": "Key contributor on Calamity VR, Echoes of Solera and Oren’s Adventures. Led design for multiple systems and developed internal authoring tools. Led design on UX/UI and defined the interaction language. Assisted with Unity implementation during prototyping.",
         "period": "Dec 2023 – Present",
-        "logo": "/home/experience/c21d54bb686dd393294c3a81c80b527716f4f9d1.webp"
+        "logo": "/home/experience/highstreet-logo.jpg"
       },
       {
         "role": "Game Designer and Developer",
         "company": "Smooth Brain Games (prev. Knite Studios)",
         "body": "Designed and developed multiple games and prototypes, assisted with level design and systems design.",
         "period": "Sep 2022 – Apr 2025",
-        "logo": "/home/experience/f833687939d74f6352893a6f19b2bcc2c9167a18.webp"
+        "logo": "/home/experience/smooth-brain-games-logo.png"
       },
       {
         "role": "Designer",
         "company": "BisectHosting",
         "body": "Designed product and content for brand partners, campaigns, CurseForge projects, In-game assets, Major events, and company identity.",
         "period": "Apr 2022 – Dec 2023",
-        "logo": "/home/experience/bc39db06e3144c901bfa1b0e535501f49c3a5168.webp"
+        "logo": "/home/experience/bisecthosting-avatar.jpg"
       },
       {
         "role": "Graphic Designer",
         "company": "Sennovate",
         "body": "Designed Campaign and product design for a B2B security platform. Assisted with content strategy and production.",
         "period": "Jan 2022 – Mar 2022",
-        "logo": "/home/experience/ac0d99662aed087116aa8cb8a0f808a9cf1790c2.webp"
+        "logo": "/home/experience/sennovate-logo.jpg"
       },
       {
         "role": "Senior Graphic Designer",
         "company": "Whiteboard Studios",
         "body": "Led branding and motion design campaigns for mid-market and enterprise clients. Assisted with art direction and production.",
         "period": "Jan 2020 – Jan 2021",
-        "logo": "/home/experience/2044450f093bfd12fc061a115b0e23b081a96552.webp"
+        "logo": "/home/experience/whiteboard-games-logo.png"
       }
     ],
     "quotes": [
@@ -66,27 +66,27 @@
         "quote": "He developed into an amazing multifunctional designer who could do just about anything I threw at him, with a rare mix of creative and technical. If you need someone who can get features done, I can't recommend him enough.",
         "name": "Matt Fleming",
         "role": "Lead Game Designer",
-        "image": "/home/quotes/c39e47b4880e9e0bfa5f9ff91e987b3a20f489e3.webp"
+        "image": "/home/quotes/matt-fleming-portrait.jpg"
       },
       {
         "quote": "Percy is a fantastic Game Designer, as well as a true savant of UI/UX design. Incredibly proactive, he would often jump into my DMs with solutions to problems I didn't even know existed yet.",
         "name": "Arron Ferguson",
         "role": "Lead Writer & Narrative Designer",
-        "image": "/home/quotes/96e766bfd71622336a9096d286c4933c15529f44.webp"
+        "image": "/home/quotes/arron-ferguson-portrait.jpg"
       },
       {
         "quote": "A creative powerhouse with an incredible work ethic. Percy has the ability to balance creative vision with systems thinking, which makes him an outstanding general designer.",
         "name": "Emma Gallaher",
         "role": "Game Designer",
-        "image": "/home/quotes/1cb915fb32c00a09491cc9b8edc3967bb96edc76.webp"
+        "image": "/home/quotes/emma-gallagher-portrait.jpg"
       }
     ],
     "banners": [
       {
         "images": [
           {
-            "src": "/home/banners/50512c7f30a40fa2f52b652582e7ec6e4924cdae.webp",
-            "alt": "Banner / BisectHosting, image 1",
+            "src": "/home/banners/bisecthosting-minecraft-cat-banner.webp",
+            "alt": "BisectHosting minecraft cat banner.",
             "sourceHash": "50512c7f30a40fa2f52b652582e7ec6e4924cdae",
             "fit": "cover",
             "background": "#111418",
@@ -94,17 +94,17 @@
             "height": 1080
           }
         ],
-        "logo": "/home/banners/2499df9dd61b6869e0b9c6839cee3a7dae0fa087.webp",
+        "logo": "/home/banners/bisecthosting-logo.webp",
         "title": "Play with friends.",
         "body": "Use code “URMOM” to get 25% off your next purchase.",
-        "label": "Get a Server",
+        "label": "Get a server",
         "href": "https://www.bisecthosting.com/"
       },
       {
         "images": [
           {
-            "src": "/home/banners/b340df9225991f0cc47c1d99b633e333811c33c6.webp",
-            "alt": "Banner / Kerberus, image 1",
+            "src": "/home/banners/frostbolt-dragon-banner.webp",
+            "alt": "Frostbolt dragon banner.",
             "sourceHash": "b340df9225991f0cc47c1d99b633e333811c33c6",
             "fit": "cover",
             "background": "#111418",
@@ -128,10 +128,10 @@
             ]
           }
         ],
-        "logo": "/home/banners/1cab2a7bbc6adb69aabd8bcb6d6d50df2c384156.webp",
+        "logo": "/home/banners/frostbolt-studios-logo.webp",
         "title": "Come build worlds with us.",
         "body": "We are always looking for new aspiring developers, artists and designers to join our fold If you want to learn or get started making mods, join up!",
-        "label": "Get Started",
+        "label": "Get started",
         "href": "https://discord.gg/draconia"
       }
     ]
@@ -143,7 +143,7 @@
       "Hi, I'm Percy, a game designer and developer in Calgary. I've made games and gaming content since I was 15, starting with custom assets and mods for Roblox, Unturned, and Minecraft. I began in computer science, then earned a bachelor's in Media, Graphics and Animation, where I built my first game and trained as a product designer. I founded Draconia and Kerberus, gaming networks that have served over 400,000 players in the past five years. I created Mythcraft (play as demigods), Dragoncraft (play as dragons), and the Kerberus Network.",
       "✦ Shipped on Meta Quest, Itch.io, Curseforge, Roblox, Steam\n✦ Founded Kerberus, served over 750,000+ players since 2019·\n✦ Founded Smooth Brain Games, In Calgary with the help of Indie Ignition Accelerator"
     ],
-    "image": "/home/about/a475d582d206e1736eb36c7acb5f5edf74f6f4d8.webp",
+    "image": "/home/about/percy-bubble-buddy-presentation.webp",
     "philosophy": "Designing mechanics that are easy to learn but difficult to master\n\nMy background in user experience and product design influences how I design. I love building out prototypes using a rapid-development pipeline that lets me test out the mechanic and game feel before committing to anything. This also eliminates any communication gaps between design and engineering. Iteration and user feedback shapes every single piece of design I make, I believe in simplicity and first principles method of design. If you cannot defend your idea, it was a stupid idea anyways. Every mechanic within the game plays a role in keeping the game running or brings out certain emotions within the player. If your idea fails to do either, it’s not a priority. \n\nI lead the vision through design, improve communication, and find fun through simplicity. I keep designs clear and grounded in strong core systems and well-structured data, and I break complex ideas into clean, functional experiences, aiming for clarity in the gameplay and the process behind it. If my design can be interpreted by different people as different things, I have failed at clearly communicating myself hence its a bad design.",
     "experience": [
       {
@@ -151,35 +151,35 @@
         "company": "Highstreet",
         "body": "Key contributor on Calamity VR, Echoes of Solera and Oren’s Adventures. Led design for multiple systems and developed internal authoring tools. Led design on UX/UI and defined the interaction language. Assisted with Unity implementation during prototyping.",
         "period": "Dec 2023 – Present",
-        "logo": "/home/experience/c21d54bb686dd393294c3a81c80b527716f4f9d1.webp"
+        "logo": "/home/experience/highstreet-logo.jpg"
       },
       {
         "role": "Game Designer and Developer",
         "company": "Smooth Brain Games (prev. Knite Studios)",
         "body": "Designed and developed multiple games and prototypes, assisted with level design and systems design.",
         "period": "Sep 2022 – Apr 2025",
-        "logo": "/home/experience/f833687939d74f6352893a6f19b2bcc2c9167a18.webp"
+        "logo": "/home/experience/smooth-brain-games-logo.png"
       },
       {
         "role": "Designer",
         "company": "BisectHosting",
         "body": "Designed product and content for brand partners, campaigns, CurseForge projects, In-game assets, Major events, and company identity.",
         "period": "Apr 2022 – Dec 2023",
-        "logo": "/home/experience/bc39db06e3144c901bfa1b0e535501f49c3a5168.webp"
+        "logo": "/home/experience/bisecthosting-avatar.jpg"
       },
       {
         "role": "Graphic Designer",
         "company": "Sennovate",
         "body": "Designed Campaign and product design for a B2B security platform. Assisted with content strategy and production.",
         "period": "Jan 2022 – Mar 2022",
-        "logo": "/home/experience/ac0d99662aed087116aa8cb8a0f808a9cf1790c2.webp"
+        "logo": "/home/experience/sennovate-logo.jpg"
       },
       {
         "role": "Senior Graphic Designer",
         "company": "Whiteboard Studios",
         "body": "Led branding and motion design campaigns for mid-market and enterprise clients. Assisted with art direction and production.",
         "period": "Jan 2020 – Jan 2021",
-        "logo": "/home/experience/2044450f093bfd12fc061a115b0e23b081a96552.webp"
+        "logo": "/home/experience/whiteboard-games-logo.png"
       }
     ],
     "skills": [
@@ -236,7 +236,7 @@
         "tags": [
           "3D Modelling",
           "Blender",
-          "Houdine",
+          "Houdini",
           "Zbrush",
           "Substance Painter",
           "Substance Designer",
@@ -256,22 +256,22 @@
         "company": "CEA, Bow Valley College. Calgary, CA​. ",
         "body": "",
         "period": "September, 2022 – December 2024",
-        "logo": "/resume/education/912146189e501fc3fa5a48b66d91c0c15832d52b.webp"
+        "logo": "/resume/education/education-geometric-logo.webp"
       },
       {
         "role": "Bachelor’s in Media, Graphics and Animation",
         "company": "P.A.Inamdar College of Visual Effect, Design & Art, Pune",
         "body": "",
         "period": "2018 – 2021",
-        "logo": "/resume/education/950ab4e0fab17776718083633f27c6dc24e19605.webp"
+        "logo": "/resume/education/dr-pauls-school-logo.webp"
       }
     ]
   },
   "contact": {
     "hero": [
       {
-        "src": "/home/hero/dc5b9baf4c4ebbea949a7615324e89328e3bafe8.webp",
-        "alt": "Portfolio artwork, image 1",
+        "src": "/home/hero/percy-gaming-room-hero.webp",
+        "alt": "Illustrated gaming room with Percy, a cat, and glowing computer screens.",
         "sourceHash": "dc5b9baf4c4ebbea949a7615324e89328e3bafe8",
         "fit": "cover",
         "background": "#111418",
@@ -296,13 +296,13 @@
       }
     ],
     "intro": "Open to game design roles, and always up to talk shop.",
-    "invitation": "INTERESTED IN MY WORK? \n\nLET'S TALK ABOUT YOUR NEXT GAME PROJECT \nAND HOW WE CAN BRING YOUR VISION TO LIFE.\r",
+    "invitation": "Interested in my work? Let’s talk about your next game project and how we can bring your vision to life.",
     "banners": [
       {
         "images": [
           {
-            "src": "/contact/banners/8d0643a9e6f754dd5ae26067ede0d55c272a7f56.webp",
-            "alt": "Banner / Games, image 1",
+            "src": "/contact/banners/stick-it-title-art.webp",
+            "alt": "Stick it title art.",
             "sourceHash": "8d0643a9e6f754dd5ae26067ede0d55c272a7f56",
             "fit": "cover",
             "background": "#ff2449",
@@ -326,8 +326,8 @@
             ]
           },
           {
-            "src": "/contact/banners/b3516cfc50a3110647cc3976d7ba39fc1aaadac0.webp",
-            "alt": "Banner / Games, image 2",
+            "src": "/contact/banners/bubble-buddy-title-card.webp",
+            "alt": "Bubble buddy title card.",
             "sourceHash": "b3516cfc50a3110647cc3976d7ba39fc1aaadac0",
             "fit": "cover",
             "background": "#ff2449",
@@ -351,8 +351,8 @@
             ]
           },
           {
-            "src": "/contact/banners/be4d31abc7853fb2d900aade72a45c89ac44a60c.webp",
-            "alt": "Banner / Games, image 3",
+            "src": "/contact/banners/the-red-button-title-art.webp",
+            "alt": "The red button title art.",
             "sourceHash": "be4d31abc7853fb2d900aade72a45c89ac44a60c",
             "fit": "cover",
             "background": "#ff2449",
@@ -376,8 +376,8 @@
             ]
           },
           {
-            "src": "/contact/banners/6150390faa164fe64f22fd6866202f2e5c634e4d.webp",
-            "alt": "Banner / Games, image 4",
+            "src": "/contact/banners/kairo-title-art.webp",
+            "alt": "Kairo title art.",
             "sourceHash": "6150390faa164fe64f22fd6866202f2e5c634e4d",
             "fit": "cover",
             "background": "#ff2449",
@@ -401,8 +401,8 @@
             ]
           },
           {
-            "src": "/contact/banners/bce543ba824e3820c16f97311fc2616086112cf8.webp",
-            "alt": "Banner / Games, image 5",
+            "src": "/contact/banners/itch-io-available-badge.webp",
+            "alt": "Itch.io available badge.",
             "sourceHash": "bce543ba824e3820c16f97311fc2616086112cf8",
             "fit": "cover",
             "background": "#ff2449",
@@ -434,8 +434,8 @@
       {
         "images": [
           {
-            "src": "/contact/banners/bf4525ba594a20733305ae311d8ddd9f46629c9d.webp",
-            "alt": "Banner / Modpacks, image 1",
+            "src": "/contact/banners/kerberus-mod-icons-banner.webp",
+            "alt": "Kerberus mod icons banner.",
             "sourceHash": "bf4525ba594a20733305ae311d8ddd9f46629c9d",
             "fit": "cover",
             "background": "#111418",
@@ -443,7 +443,7 @@
             "height": 734
           }
         ],
-        "logo": "/contact/banners/d7b0210f83207cba002bc0aa881e77b06183ea3c.webp",
+        "logo": "/contact/banners/kerberus-network-logo.webp",
         "title": "Check out my modpacks",
         "body": "",
         "label": "Browse modpacks",
@@ -459,16 +459,16 @@
       "description": "Supercat is an action platformer where the player uses fluid movement combined with combat moves that compliment the flow state to traverse levels and take down enemies.",
       "hero": [
         {
-          "src": "/projects/supercat/hero/3b2839645af21abc347d1d0d0db8b107ed9fb60e.webp",
-          "alt": "Supercat, image 1",
+          "src": "/projects/supercat/gallery/supercat-key-art.webp",
+          "alt": "Supercat key art.",
           "sourceHash": "3b2839645af21abc347d1d0d0db8b107ed9fb60e",
           "fit": "cover",
           "background": "#111418",
-          "width": 1672,
-          "height": 941
+          "width": 2200,
+          "height": 1238
         }
       ],
-      "video": "/projects/supercat/hero/trailer.mp4",
+      "video": "/projects/supercat/hero/supercat-trailer.mp4",
       "contributions": [
         "Designed a modular movement kit with state-driven combat actions.",
         "Built threats and challenges allowed this kit to be utilized fully.",
@@ -501,8 +501,8 @@
       ],
       "gallery": [
         {
-          "src": "/projects/supercat/gallery/5780a3e6306065555a7e9588a4d5c51eddda03df.webp",
-          "alt": "Supercat, image 1",
+          "src": "/projects/supercat/gallery/supercat-level-design-collage.webp",
+          "alt": "Supercat level-design studies combining blockout views and movement spaces.",
           "sourceHash": "5780a3e6306065555a7e9588a4d5c51eddda03df",
           "fit": "cover",
           "background": "#171c20",
@@ -510,17 +510,17 @@
           "height": 751
         },
         {
-          "src": "/projects/supercat/gallery/a8f8d3096e7fbcad39b900e8ad5423b3812c3310.webp",
-          "alt": "Supercat, image 2",
+          "src": "/projects/supercat/sections/01-movement-and-combat/supercat-annotated-movement-route.webp",
+          "alt": "Supercat level blockout with arrows connecting a wall run, wall jump, slam, pounce, ramp hop and barrel slash into one movement route.",
           "sourceHash": "a8f8d3096e7fbcad39b900e8ad5423b3812c3310",
           "fit": "cover",
           "background": "#171c20",
-          "width": 1024,
-          "height": 573
+          "width": 1256,
+          "height": 708
         },
         {
-          "src": "/projects/supercat/gallery/9215d959139c2288aebdcc8053658ea40c630d57.webp",
-          "alt": "Supercat, image 3",
+          "src": "/projects/supercat/gallery/supercat-character-concept-sheet.webp",
+          "alt": "Supercat character concept sheet.",
           "sourceHash": "9215d959139c2288aebdcc8053658ea40c630d57",
           "fit": "cover",
           "background": "#171c20",
@@ -528,109 +528,100 @@
           "height": 576
         },
         {
-          "src": "/projects/supercat/gallery/4ef92749bb70ae031a48aebf44a21ef9af7c3229.webp",
-          "alt": "Supercat, image 4",
+          "src": "/projects/supercat/gallery/supercat-key-art.webp",
+          "alt": "Supercat key art.",
           "sourceHash": "4ef92749bb70ae031a48aebf44a21ef9af7c3229",
-          "fit": "contain",
+          "fit": "cover",
           "background": "#111418",
           "width": 2200,
           "height": 1238
         },
         {
-          "src": "/projects/supercat/gallery/7efefc7b3f08f1dfe872bd737a9d12e76eef2ddc.webp",
-          "alt": "Supercat, image 5",
+          "src": "/projects/supercat/gallery/supercat-wallrun-jump-blockout.webp",
+          "alt": "Supercat wallrun jump blockout.",
           "sourceHash": "7efefc7b3f08f1dfe872bd737a9d12e76eef2ddc",
-          "fit": "contain",
+          "fit": "cover",
           "background": "#111418",
           "width": 1672,
           "height": 941
         },
         {
-          "src": "/projects/supercat/gallery/a8e5ecfd8fd7e83131c79bcd3e837c64c1d9709e.webp",
-          "alt": "Supercat, image 6",
+          "src": "/projects/supercat/gallery/supercat-ramp-jump-blockout.webp",
+          "alt": "Supercat ramp jump blockout.",
           "sourceHash": "a8e5ecfd8fd7e83131c79bcd3e837c64c1d9709e",
-          "fit": "contain",
+          "fit": "cover",
           "background": "#111418",
           "width": 1672,
           "height": 941
         },
         {
-          "src": "/projects/supercat/gallery/1f904b812672ad93dfc8a6165b95ffbe97571c1f.webp",
-          "alt": "Supercat, image 7",
+          "src": "/projects/supercat/gallery/supercat-wallrun-blockout.webp",
+          "alt": "Supercat wallrun blockout.",
           "sourceHash": "1f904b812672ad93dfc8a6165b95ffbe97571c1f",
-          "fit": "contain",
+          "fit": "cover",
           "background": "#111418",
           "width": 1672,
           "height": 941
         },
         {
-          "src": "/projects/supercat/sections/02-weapons-and-player-state/e9920b065ade58cbcee0bce964bc0d79c413f169.webp",
-          "alt": "Supercat, image 8",
-          "sourceHash": "e9920b065ade58cbcee0bce964bc0d79c413f169",
-          "fit": "contain",
-          "background": "#171c20",
-          "width": 1024,
-          "height": 576
-        },
-        {
-          "src": "/projects/supercat/gallery/1722479746fcb1801eff3b3f607e28848a38b3ab.webp",
-          "alt": "Supercat, image 9",
+          "src": "/projects/supercat/sections/03-teaching-through-level-design/supercat-energy-trap-stairwell.webp",
+          "alt": "Supercat energy trap stairwell.",
           "sourceHash": "1722479746fcb1801eff3b3f607e28848a38b3ab",
-          "fit": "contain",
+          "fit": "cover",
           "background": "#111418",
           "width": 1558,
           "height": 857
         },
         {
-          "src": "/projects/supercat/gallery/0272de2805038d7123bd870a67d8fe898e43f050.webp",
-          "alt": "Supercat, image 10",
+          "src": "/projects/supercat/gallery/supercat-green-orb-weapon.webp",
+          "alt": "Supercat green orb weapon.",
           "sourceHash": "0272de2805038d7123bd870a67d8fe898e43f050",
-          "fit": "contain",
+          "fit": "cover",
           "background": "#111418",
           "width": 1599,
           "height": 907
         },
         {
-          "src": "/projects/supercat/gallery/0472d942f54211680bf5d6c3c7dfff164b94ecfd.webp",
-          "alt": "Supercat, image 11",
+          "src": "/projects/supercat/gallery/supercat-industrial-catwalk.webp",
+          "alt": "Supercat industrial catwalk.",
           "sourceHash": "0472d942f54211680bf5d6c3c7dfff164b94ecfd",
-          "fit": "contain",
+          "fit": "cover",
           "background": "#111418",
           "width": 1558,
           "height": 882
         },
         {
-          "src": "/projects/supercat/gallery/c9ecb131a9a948e8c1d9857acabc777fefb5ddeb.webp",
-          "alt": "Supercat, image 12",
+          "src": "/projects/supercat/gallery/supercat-reactor-room.webp",
+          "alt": "Supercat reactor room.",
           "sourceHash": "c9ecb131a9a948e8c1d9857acabc777fefb5ddeb",
-          "fit": "contain",
+          "fit": "cover",
           "background": "#111418",
           "width": 1586,
           "height": 912
         },
         {
-          "src": "/projects/supercat/gallery/fcddd0581ef14daf22d97b5e13dc93ebe34d235e.webp",
-          "alt": "Supercat, image 13",
+          "src": "/projects/supercat/gallery/supercat-lower-catwalk.webp",
+          "alt": "Supercat lower catwalk.",
           "sourceHash": "fcddd0581ef14daf22d97b5e13dc93ebe34d235e",
-          "fit": "contain",
+          "fit": "cover",
           "background": "#111418",
           "width": 1563,
           "height": 873
         },
         {
-          "src": "/projects/supercat/gallery/36bdb36eb11d08bedec3a593961aed7b6b8e7594.webp",
-          "alt": "Supercat, image 14",
+          "src": "/projects/supercat/gallery/supercat-industrial-walkway.webp",
+          "alt": "Supercat industrial walkway.",
           "sourceHash": "36bdb36eb11d08bedec3a593961aed7b6b8e7594",
-          "fit": "contain",
+          "fit": "cover",
           "background": "#111418",
           "width": 1642,
           "height": 836
         },
         {
-          "src": "/projects/supercat/gallery/09b9bab979495f7271fdd81de6bd19c3066a4753.webp",
-          "alt": "Supercat, image 15",
+          "src": "/projects/supercat/gallery/supercat-action-storyboard.webp",
+          "alt": "Supercat action storyboard showing movement and combat beats in sequence.",
           "sourceHash": "09b9bab979495f7271fdd81de6bd19c3066a4753",
-          "fit": "contain",
+          "fit": "cover",
           "background": "#111418",
           "width": 1024,
           "height": 576
@@ -644,8 +635,8 @@
           "body": "Wall-running, pouncing, slide-jumps, ramp hops and other mobility tools shared a interwoven surface with combat helping combat feel fluid. The goal was to achieve a flow state during combat.",
           "media": [
             {
-              "src": "/projects/supercat/sections/01-movement-and-combat/3887dfd6d4a291084778e22a828eb06a91cc89b0.webp",
-              "alt": "Movement and combat, image 1",
+              "src": "/projects/supercat/sections/01-movement-and-combat/supercat-annotated-movement-route.webp",
+              "alt": "Supercat level blockout with arrows connecting a wall run, wall jump, slam, pounce, ramp hop and barrel slash into one movement route.",
               "sourceHash": "3887dfd6d4a291084778e22a828eb06a91cc89b0",
               "fit": "cover",
               "background": "#171c20",
@@ -661,11 +652,18 @@
           "body": "The same weapon changes behavior while sliding, airborne or grounded. This let me build momentum based fighting combo’s that provided different uses for each weapon without overloading players with more inputs.",
           "media": [
             {
-              "src": "/projects/supercat/sections/02-weapons-and-player-state/e9920b065ade58cbcee0bce964bc0d79c413f169.webp",
-              "alt": "Weapons and player state, image 1",
-              "sourceHash": "e9920b065ade58cbcee0bce964bc0d79c413f169",
+              "src": "/projects/supercat/sections/02-weapons-and-player-state/supercat-character-concept-sheet.webp",
+              "alt": "Supercat character and mechanical claw concept sheet, created by Evalina Javorsky",
               "fit": "contain",
-              "background": "#171c20",
+              "background": "#ffffff",
+              "width": 1024,
+              "height": 576
+            },
+            {
+              "src": "/projects/supercat/sections/02-weapons-and-player-state/supercat-action-storyboard.webp",
+              "alt": "Supercat first-person movement and claw attack storyboard",
+              "fit": "contain",
+              "background": "#ffffff",
               "width": 1024,
               "height": 576
             }
@@ -678,13 +676,13 @@
           "body": "I used blockouts to introduce mechanics through the space itself, then gave players opportunities to try out different paths to achieve the goal by combining them in combat. There was always the recommended path, but curiosity was rewarded.",
           "media": [
             {
-              "src": "/projects/supercat/sections/03-teaching-through-level-design/047891972e19ec658accdd345c08d67983a31507.webp",
-              "alt": "Teaching through level design, image 1",
+              "src": "/projects/supercat/sections/03-teaching-through-level-design/supercat-energy-trap-stairwell.webp",
+              "alt": "Supercat energy trap stairwell.",
               "sourceHash": "047891972e19ec658accdd345c08d67983a31507",
               "fit": "cover",
               "background": "#171c20",
-              "width": 1256,
-              "height": 708
+              "width": 1558,
+              "height": 857
             }
           ],
           "mediaFirst": false
@@ -717,8 +715,8 @@
       "description": "",
       "hero": [
         {
-          "src": "/projects/bisecthosting/hero/d75066063c83210fa3762b9a272a98ece8058262.webp",
-          "alt": "BisectHosting, image 1",
+          "src": "/projects/bisecthosting/hero/bisecthosting-press-kit-hero.webp",
+          "alt": "BisectHosting press kit hero.",
           "sourceHash": "d75066063c83210fa3762b9a272a98ece8058262",
           "fit": "cover",
           "background": "#111418",
@@ -761,8 +759,8 @@
       ],
       "gallery": [
         {
-          "src": "/projects/bisecthosting/gallery/93e7d502d7a3cc9fcc7cae208479d958cc61b772.webp",
-          "alt": "BisectHosting, image 1",
+          "src": "/projects/bisecthosting/sections/02-partner-projects/black-friday-sale-banner.png",
+          "alt": "Black friday sale banner.",
           "sourceHash": "93e7d502d7a3cc9fcc7cae208479d958cc61b772",
           "fit": "cover",
           "background": "#171c20",
@@ -770,8 +768,8 @@
           "height": 1081
         },
         {
-          "src": "/projects/bisecthosting/sections/01-branding-and-press-kits/404e19d28b03ba0bd815ff7e4e863663361c6086.webp",
-          "alt": "BisectHosting, image 2",
+          "src": "/projects/bisecthosting/sections/01-branding-and-press-kits/bisecthosting-brand-guidelines-page.webp",
+          "alt": "BisectHosting brand guidelines page.",
           "sourceHash": "404e19d28b03ba0bd815ff7e4e863663361c6086",
           "fit": "cover",
           "background": "#020525",
@@ -795,8 +793,8 @@
           "height": 708
         },
         {
-          "src": "/projects/bisecthosting/gallery/da70a5a474240e6e3d2d525f90efced4f21cd3f2.webp",
-          "alt": "BisectHosting, image 3",
+          "src": "/projects/bisecthosting/sections/01-branding-and-press-kits/bisecthosting-branding-kits-page.png",
+          "alt": "BisectHosting branding kits page.",
           "sourceHash": "da70a5a474240e6e3d2d525f90efced4f21cd3f2",
           "fit": "cover",
           "background": "#171c20",
@@ -804,8 +802,8 @@
           "height": 675
         },
         {
-          "src": "/projects/bisecthosting/gallery/2418ccb17908ccb292f78922ebacd68a6945bf60.webp",
-          "alt": "BisectHosting, image 4",
+          "src": "/projects/bisecthosting/gallery/bisecthosting-brand-guidelines-overview.webp",
+          "alt": "BisectHosting brand guidelines overview.",
           "sourceHash": "2418ccb17908ccb292f78922ebacd68a6945bf60",
           "fit": "contain",
           "background": "#111418",
@@ -813,8 +811,8 @@
           "height": 1336
         },
         {
-          "src": "/projects/bisecthosting/gallery/246eee7c2e1b135ef87c1308f3c2f940e137eceb.webp",
-          "alt": "BisectHosting, image 5",
+          "src": "/projects/bisecthosting/gallery/bisecthosting-branding-kits-overview.webp",
+          "alt": "BisectHosting branding kits overview.",
           "sourceHash": "246eee7c2e1b135ef87c1308f3c2f940e137eceb",
           "fit": "contain",
           "background": "#111418",
@@ -822,8 +820,8 @@
           "height": 1128
         },
         {
-          "src": "/projects/bisecthosting/sections/03-events/83054cbcf2d8e0d160a721fb57c9e365931f91cf.webp",
-          "alt": "BisectHosting, image 6",
+          "src": "/projects/bisecthosting/sections/02-partner-projects/mars-100-players-event-banner.png",
+          "alt": "Mars 100 players event banner.",
           "sourceHash": "83054cbcf2d8e0d160a721fb57c9e365931f91cf",
           "fit": "contain",
           "background": "#171c20",
@@ -831,8 +829,8 @@
           "height": 1080
         },
         {
-          "src": "/projects/bisecthosting/gallery/7e7ba288421997efb1db128d6a23500dfc24f2cc.webp",
-          "alt": "BisectHosting, image 7",
+          "src": "/projects/bisecthosting/gallery/zombie-island-event-banner.webp",
+          "alt": "Zombie island event banner.",
           "sourceHash": "7e7ba288421997efb1db128d6a23500dfc24f2cc",
           "fit": "contain",
           "background": "#111418",
@@ -840,8 +838,8 @@
           "height": 1238
         },
         {
-          "src": "/projects/bisecthosting/gallery/f9d1a5911f6ed4fd5877fe1b0e4e37fabe9ec217.webp",
-          "alt": "BisectHosting, image 8",
+          "src": "/projects/bisecthosting/gallery/minecraft-inventory-compact-theme.webp",
+          "alt": "Minecraft inventory compact theme.",
           "sourceHash": "f9d1a5911f6ed4fd5877fe1b0e4e37fabe9ec217",
           "fit": "contain",
           "background": "#111418",
@@ -849,8 +847,8 @@
           "height": 1212
         },
         {
-          "src": "/projects/bisecthosting/gallery/462a2bbf70814161b7f2665ff7383b20a8c53c7d.webp",
-          "alt": "BisectHosting, image 9",
+          "src": "/projects/bisecthosting/gallery/minecraft-inventory-red-theme.webp",
+          "alt": "Minecraft inventory red theme.",
           "sourceHash": "462a2bbf70814161b7f2665ff7383b20a8c53c7d",
           "fit": "contain",
           "background": "#111418",
@@ -858,8 +856,8 @@
           "height": 1216
         },
         {
-          "src": "/projects/bisecthosting/gallery/416248ca47a842f76903042318aa4a4d3cff5135.webp",
-          "alt": "BisectHosting, image 10",
+          "src": "/projects/bisecthosting/gallery/minecraft-inventory-blue-theme.webp",
+          "alt": "Minecraft inventory blue theme.",
           "sourceHash": "416248ca47a842f76903042318aa4a4d3cff5135",
           "fit": "contain",
           "background": "#111418",
@@ -867,8 +865,8 @@
           "height": 1218
         },
         {
-          "src": "/projects/bisecthosting/sections/04-across-the-brands/6cbe8a7e51bc112ecc916ef780211e4f2d030028.webp",
-          "alt": "BisectHosting, image 11",
+          "src": "/projects/bisecthosting/sections/04-across-the-brands/bisect-studios-meloncube-brands.webp",
+          "alt": "Bisect studios meloncube brands.",
           "sourceHash": "d2cfed9f49cf0f771266773e6cbe9a8ec4c74fe0",
           "fit": "contain",
           "background": "#111418",
@@ -876,8 +874,8 @@
           "height": 708
         },
         {
-          "src": "/projects/bisecthosting/gallery/7f83659bf74d1a94c5b3c8fc8ee91e090d0c1c0e.webp",
-          "alt": "BisectHosting, image 12",
+          "src": "/projects/bisecthosting/sections/02-partner-projects/mc-eternal-2-promo.png",
+          "alt": "MC Eternal 2 promo.",
           "sourceHash": "7f83659bf74d1a94c5b3c8fc8ee91e090d0c1c0e",
           "fit": "contain",
           "background": "#111418",
@@ -885,8 +883,8 @@
           "height": 506
         },
         {
-          "src": "/projects/bisecthosting/gallery/5f3948d9a930ed8d696209d381c61cb8cc40cc8c.webp",
-          "alt": "BisectHosting, image 13",
+          "src": "/projects/bisecthosting/sections/02-partner-projects/bisecthosting-dice-render.png",
+          "alt": "BisectHosting dice render.",
           "sourceHash": "5f3948d9a930ed8d696209d381c61cb8cc40cc8c",
           "fit": "contain",
           "background": "#111418",
@@ -894,17 +892,17 @@
           "height": 1080
         },
         {
-          "src": "/projects/bisecthosting/gallery/1f4f8fb6d73ac85c458aa96a48423fbe28a14498.webp",
-          "alt": "BisectHosting, image 14",
+          "src": "/projects/bisecthosting/sections/02-partner-projects/avalon-banner.png",
+          "alt": "Avalon banner.",
           "sourceHash": "1f4f8fb6d73ac85c458aa96a48423fbe28a14498",
           "fit": "contain",
           "background": "#111418",
-          "width": 2200,
-          "height": 754
+          "width": 2380,
+          "height": 816
         },
         {
-          "src": "/projects/bisecthosting/gallery/604208c1daf461376839754b08c0139a86dc82d6.webp",
-          "alt": "BisectHosting, image 15",
+          "src": "/projects/bisecthosting/gallery/minecraft-brick-texture.webp",
+          "alt": "Minecraft brick texture.",
           "sourceHash": "604208c1daf461376839754b08c0139a86dc82d6",
           "fit": "contain",
           "background": "#111418",
@@ -912,17 +910,17 @@
           "height": 1315
         },
         {
-          "src": "/projects/bisecthosting/gallery/a99140c17fb923bd444b432a66dfa9921e870646.webp",
-          "alt": "BisectHosting, image 16",
+          "src": "/projects/bisecthosting/sections/02-partner-projects/bigchadguys-banner.png",
+          "alt": "BigChadGuys banner.",
           "sourceHash": "a99140c17fb923bd444b432a66dfa9921e870646",
           "fit": "contain",
           "background": "#111418",
-          "width": 2200,
-          "height": 809
+          "width": 2380,
+          "height": 875
         },
         {
-          "src": "/projects/bisecthosting/gallery/f27de61331667cbfdd28a9e4b28b5982f1b9afc8.webp",
-          "alt": "BisectHosting, image 17",
+          "src": "/projects/bisecthosting/gallery/gamerpotion-official-banner.webp",
+          "alt": "GamerPotion official banner.",
           "sourceHash": "f27de61331667cbfdd28a9e4b28b5982f1b9afc8",
           "fit": "contain",
           "background": "#111418",
@@ -930,8 +928,8 @@
           "height": 1080
         },
         {
-          "src": "/projects/bisecthosting/gallery/c828d5dd8cc37e3f94dff071379ee04258784469.webp",
-          "alt": "BisectHosting, image 18",
+          "src": "/projects/bisecthosting/gallery/refresh-studios-logo.webp",
+          "alt": "Refresh studios logo.",
           "sourceHash": "c828d5dd8cc37e3f94dff071379ee04258784469",
           "fit": "contain",
           "background": "#111418",
@@ -939,8 +937,8 @@
           "height": 1081
         },
         {
-          "src": "/projects/bisecthosting/gallery/c1f282f843d2da2c71a92b389f523a77db129e90.webp",
-          "alt": "BisectHosting, image 19",
+          "src": "/projects/bisecthosting/gallery/bisect-town-hall-promo.webp",
+          "alt": "Bisect town hall promo.",
           "sourceHash": "c1f282f843d2da2c71a92b389f523a77db129e90",
           "fit": "contain",
           "background": "#111418",
@@ -948,17 +946,17 @@
           "height": 301
         },
         {
-          "src": "/projects/bisecthosting/gallery/d9d49b09c691b5a741a91c455430bfaa6a556e80.webp",
-          "alt": "BisectHosting, image 20",
+          "src": "/projects/bisecthosting/sections/02-partner-projects/capy2ara-banner.png",
+          "alt": "Capy2ara banner.",
           "sourceHash": "d9d49b09c691b5a741a91c455430bfaa6a556e80",
           "fit": "contain",
           "background": "#111418",
-          "width": 2200,
-          "height": 865
+          "width": 3208,
+          "height": 1262
         },
         {
-          "src": "/projects/bisecthosting/gallery/2bc86783930a39fc5f490987f047f0e93462c0ea.webp",
-          "alt": "BisectHosting, image 21",
+          "src": "/projects/bisecthosting/gallery/mceventures-space-age-banner.webp",
+          "alt": "MCEventures space age banner.",
           "sourceHash": "2bc86783930a39fc5f490987f047f0e93462c0ea",
           "fit": "contain",
           "background": "#111418",
@@ -966,17 +964,17 @@
           "height": 792
         },
         {
-          "src": "/projects/bisecthosting/gallery/1b4e16a29231b8962b2026f085a658f6b71bb4e3.webp",
-          "alt": "BisectHosting, image 22",
+          "src": "/projects/bisecthosting/sections/02-partner-projects/fantasy-minecraft-banner.png",
+          "alt": "Fantasy minecraft banner.",
           "sourceHash": "1b4e16a29231b8962b2026f085a658f6b71bb4e3",
           "fit": "contain",
           "background": "#111418",
-          "width": 2200,
-          "height": 754
+          "width": 2380,
+          "height": 816
         },
         {
-          "src": "/projects/bisecthosting/gallery/9cbd4efcf7583564a99fdfe42ec2581c276ee780.webp",
-          "alt": "BisectHosting, image 23",
+          "src": "/projects/bisecthosting/gallery/kaupenjoe-modding-workshop.webp",
+          "alt": "Kaupenjoe modding workshop.",
           "sourceHash": "9cbd4efcf7583564a99fdfe42ec2581c276ee780",
           "fit": "contain",
           "background": "#111418",
@@ -992,8 +990,8 @@
           "body": "Contributed towards the branding and design language, the goal was a small enforceable system so anyone compose on-brand content with minimum friction. \nContributed towards Press Kits and partner-facing kits\nDesigned for official communications, brand activations and collaborations.",
           "media": [
             {
-              "src": "/projects/bisecthosting/sections/01-branding-and-press-kits/404e19d28b03ba0bd815ff7e4e863663361c6086.webp",
-              "alt": "Branding and Press Kits, image 1",
+              "src": "/projects/bisecthosting/sections/01-branding-and-press-kits/bisecthosting-brand-guidelines-page.webp",
+              "alt": "BisectHosting brand guidelines page.",
               "sourceHash": "404e19d28b03ba0bd815ff7e4e863663361c6086",
               "fit": "cover",
               "background": "#020525",
@@ -1009,13 +1007,20 @@
           "body": "Designed content and strategy for partner projects: designing identity, promotions and channel content shipped to CurseForge, Twitch, Modrinth, Lunar client and adjacent platforms. \nDesigned I worked on ended up in programs at GamersOutreach, Twitch, Project Hope, Tiltify and more.",
           "media": [
             {
-              "src": "/projects/bisecthosting/sections/02-partner-projects/b177270db0f6577737cd69b3d5515d401cd15e2c.webp",
-              "alt": "Partner projects, image 1",
+              "src": "/projects/bisecthosting/sections/02-partner-projects/eternal-worlds-key-art.webp",
+              "alt": "Eternal worlds key art.",
               "sourceHash": "b177270db0f6577737cd69b3d5515d401cd15e2c",
               "fit": "cover",
               "background": "#171c20",
               "width": 1920,
               "height": 1081
+            },
+            {
+              "src": "/projects/bisecthosting/sections/02-partner-projects/eternal-worlds-key-art.webp",
+              "video": "/projects/bisecthosting/sections/02-partner-projects/mc-eternal-feature-demo.mp4",
+              "alt": "mc eternal feature demo",
+              "fit": "contain",
+              "background": "#171c20"
             }
           ],
           "mediaFirst": true
@@ -1026,8 +1031,8 @@
           "body": "Contributed towards the design and pre-production of key events, charities and gaming initiatives\nDesigned assets for in-game, promotional material and identity.\nPlayed a role during the events to coordinate and assist with behind-the-scenes work.",
           "media": [
             {
-              "src": "/projects/bisecthosting/sections/02-partner-projects/b177270db0f6577737cd69b3d5515d401cd15e2c.webp",
-              "alt": "Events, image 1",
+              "src": "/projects/bisecthosting/sections/02-partner-projects/eternal-worlds-key-art.webp",
+              "alt": "Eternal worlds key art.",
               "sourceHash": "b177270db0f6577737cd69b3d5515d401cd15e2c",
               "fit": "cover",
               "background": "#171c20",
@@ -1035,8 +1040,8 @@
               "height": 1081
             },
             {
-              "src": "/projects/bisecthosting/sections/03-events/83054cbcf2d8e0d160a721fb57c9e365931f91cf.webp",
-              "alt": "Events, image 2",
+              "src": "/projects/bisecthosting/sections/02-partner-projects/mars-100-players-event-banner.png",
+              "alt": "Mars 100 players event banner.",
               "sourceHash": "83054cbcf2d8e0d160a721fb57c9e365931f91cf",
               "fit": "contain",
               "background": "#171c20",
@@ -1052,8 +1057,8 @@
           "body": "Designed Brand and content work for Meloncube Hosting and Bisect Studios alongside the main BisectHosting role.\nContributed towards social media campaigns, specialty projects for partners, Fancymenu’s and in-game art assets",
           "media": [
             {
-              "src": "/projects/bisecthosting/sections/04-across-the-brands/6cbe8a7e51bc112ecc916ef780211e4f2d030028.webp",
-              "alt": "Across the brands, image 1",
+              "src": "/projects/bisecthosting/sections/04-across-the-brands/bisect-studios-meloncube-brands.webp",
+              "alt": "Bisect studios meloncube brands.",
               "sourceHash": "6cbe8a7e51bc112ecc916ef780211e4f2d030028",
               "fit": "contain",
               "background": "#171c20",
@@ -1073,16 +1078,16 @@
       "description": "Highstreet Calamity is a multiplayer rogue-like VR game, where the players fight waves of mobs to reach the end with the boss, earning currency to build their character and enjoy with friends.",
       "hero": [
         {
-          "src": "/projects/highstreet-calamity-vr/hero/f32a891342c4148e75113159ef6aacd563c92fb9.webp",
-          "alt": "Highstreet: Calamity VR, image 1",
+          "src": "/projects/highstreet-calamity-vr/gallery/calamity-party-key-art.webp",
+          "alt": "Calamity VR party key art.",
           "sourceHash": "f32a891342c4148e75113159ef6aacd563c92fb9",
           "fit": "cover",
           "background": "#111418",
-          "width": 1024,
-          "height": 571
+          "width": 2060,
+          "height": 1154
         }
       ],
-      "video": "/projects/highstreet-calamity-vr/hero/trailer.mp4",
+      "video": "/projects/highstreet-calamity-vr/hero/highstreet-calamity-vr-trailer.mp4",
       "url": "https://www.meta.com/experiences/highstreet-calamity/9352017631510878/",
       "contributions": [
         "Owned the design for class archetypes, the stats and the elemental system. ",
@@ -1119,8 +1124,8 @@
       ],
       "gallery": [
         {
-          "src": "/projects/highstreet-calamity-vr/gallery/4e4d0a1eebce64bf1efaf9bf6d9e21dfedab53b2.webp",
-          "alt": "Highstreet: Calamity VR, image 1",
+          "src": "/projects/highstreet-calamity-vr/sections/02-classes-progression-and-wave-systems/calamity-character-progression-overview.webp",
+          "alt": "Calamity character progression overview, showing how class choices and upgrades connect.",
           "sourceHash": "4e4d0a1eebce64bf1efaf9bf6d9e21dfedab53b2",
           "fit": "cover",
           "background": "#171c20",
@@ -1128,17 +1133,17 @@
           "height": 576
         },
         {
-          "src": "/projects/highstreet-calamity-vr/gallery/129e3b139748b081f8a0be59040bb7d0c58a77e2.webp",
-          "alt": "Highstreet: Calamity VR, image 2",
+          "src": "/projects/highstreet-calamity-vr/sections/03-multi-tool-ux-and-input-maps/calamity-controller-input-map.webp",
+          "alt": "Calamity VR controller input map, assigning actions to the main-hand and off-hand controls.",
           "sourceHash": "129e3b139748b081f8a0be59040bb7d0c58a77e2",
           "fit": "cover",
           "background": "#171c20",
-          "width": 1024,
-          "height": 576
+          "width": 1256,
+          "height": 708
         },
         {
-          "src": "/projects/highstreet-calamity-vr/gallery/839f216419f6b1f0b3c4620f3a9a673e396c337d.webp",
-          "alt": "Highstreet: Calamity VR, image 3",
+          "src": "/projects/highstreet-calamity-vr/sections/03-multi-tool-ux-and-input-maps/calamity-vr-multitool-interaction-flow.webp",
+          "alt": "Calamity VR interaction flow for switching between multi-tool modes and their actions.",
           "sourceHash": "839f216419f6b1f0b3c4620f3a9a673e396c337d",
           "fit": "cover",
           "background": "#171c20",
@@ -1146,8 +1151,8 @@
           "height": 576
         },
         {
-          "src": "/projects/highstreet-calamity-vr/sections/04-authoring-pipeline-and-systems/855a35ebd1d457700b62def2820f36c370c85af7.webp",
-          "alt": "Highstreet: Calamity VR, image 4",
+          "src": "/projects/highstreet-calamity-vr/sections/04-authoring-pipeline-and-systems/calamity-authoring-spreadsheets.webp",
+          "alt": "Calamity authoring spreadsheets used to configure and balance game systems.",
           "sourceHash": "855a35ebd1d457700b62def2820f36c370c85af7",
           "fit": "contain",
           "background": "#111418",
@@ -1155,8 +1160,8 @@
           "height": 576
         },
         {
-          "src": "/projects/highstreet-calamity-vr/gallery/2f1de34e72a85acf18c6e3fe400769cfa8ce45e7.webp",
-          "alt": "Highstreet: Calamity VR, image 5",
+          "src": "/projects/highstreet-calamity-vr/gallery/calamity-title-screen.webp",
+          "alt": "Calamity VR title screen.",
           "sourceHash": "2f1de34e72a85acf18c6e3fe400769cfa8ce45e7",
           "fit": "contain",
           "background": "#111418",
@@ -1164,8 +1169,8 @@
           "height": 1154
         },
         {
-          "src": "/projects/highstreet-calamity-vr/gallery/5e659ebd90a36b10509b2eaecd861f89bff6847a.webp",
-          "alt": "Highstreet: Calamity VR, image 6",
+          "src": "/projects/highstreet-calamity-vr/gallery/calamity-party-key-art.webp",
+          "alt": "Calamity VR party key art.",
           "sourceHash": "5e659ebd90a36b10509b2eaecd861f89bff6847a",
           "fit": "contain",
           "background": "#111418",
@@ -1173,17 +1178,17 @@
           "height": 1154
         },
         {
-          "src": "/projects/highstreet-calamity-vr/sections/01-gesture-casting-and-ability-design/a26996d983047f82054072340fcf86d25dd923c9.webp",
-          "alt": "Highstreet: Calamity VR, image 7",
+          "src": "/projects/highstreet-calamity-vr/sections/01-gesture-casting-and-ability-design/calamity-ability-system-flowchart.jpg",
+          "alt": "Second Wind ability progression, read from level 1 at the bottom to level 10 at the top. Branches improve health or stamina regeneration and lead to two Adrenaline Rush variants with different health and stamina tradeoffs.",
           "sourceHash": "a26996d983047f82054072340fcf86d25dd923c9",
           "fit": "contain",
           "background": "#121212",
-          "width": 2200,
-          "height": 1695
+          "width": 1316,
+          "height": 1443
         },
         {
-          "src": "/projects/highstreet-calamity-vr/gallery/7471e47ed0eb4a984298409d10fdbe68af696754.webp",
-          "alt": "Highstreet: Calamity VR, image 8",
+          "src": "/projects/highstreet-calamity-vr/sections/01-gesture-casting-and-ability-design/calamity-ability-system-flowchart.jpg",
+          "alt": "Second Wind ability progression, read from level 1 at the bottom to level 10 at the top. Branches improve health or stamina regeneration and lead to two Adrenaline Rush variants with different health and stamina tradeoffs.",
           "sourceHash": "7471e47ed0eb4a984298409d10fdbe68af696754",
           "fit": "contain",
           "background": "#111418",
@@ -1191,8 +1196,8 @@
           "height": 1443
         },
         {
-          "src": "/projects/highstreet-calamity-vr/gallery/292dd7da4880d7230c197998af7bb68477cccc1d.webp",
-          "alt": "Highstreet: Calamity VR, image 9",
+          "src": "/projects/highstreet-calamity-vr/sections/02-classes-progression-and-wave-systems/calamity-progression-skill-tree.png",
+          "alt": "Calamity skill-tree diagram showing connected upgrade paths.",
           "sourceHash": "292dd7da4880d7230c197998af7bb68477cccc1d",
           "fit": "contain",
           "background": "#111418",
@@ -1200,26 +1205,26 @@
           "height": 997
         },
         {
-          "src": "/projects/highstreet-calamity-vr/gallery/0a06a5c7f07ee3fefee2aae0cab44f9078322708.webp",
-          "alt": "Highstreet: Calamity VR, image 10",
+          "src": "/projects/highstreet-calamity-vr/sections/03-multi-tool-ux-and-input-maps/calamity-off-hand-tool-concepts-v2.png",
+          "alt": "Calamity VR off hand tool concepts v2.",
           "sourceHash": "0a06a5c7f07ee3fefee2aae0cab44f9078322708",
           "fit": "contain",
           "background": "#111418",
-          "width": 2200,
-          "height": 1529
+          "width": 2360,
+          "height": 1640
         },
         {
-          "src": "/projects/highstreet-calamity-vr/gallery/c4e4b2385e82c974a751e25a9f3c861d388adbda.webp",
-          "alt": "Highstreet: Calamity VR, image 11",
+          "src": "/projects/highstreet-calamity-vr/sections/03-multi-tool-ux-and-input-maps/calamity-off-hand-tool-concepts-v1.png",
+          "alt": "Calamity VR off hand tool concepts v1.",
           "sourceHash": "c4e4b2385e82c974a751e25a9f3c861d388adbda",
           "fit": "contain",
           "background": "#111418",
-          "width": 2200,
-          "height": 1529
+          "width": 2360,
+          "height": 1640
         },
         {
-          "src": "/projects/highstreet-calamity-vr/gallery/2ec840fdbf064437eedfcd228f63f7bf917c8ccd.webp",
-          "alt": "Highstreet: Calamity VR, image 12",
+          "src": "/projects/highstreet-calamity-vr/sections/03-multi-tool-ux-and-input-maps/calamity-daves-stall-wireframe.webp",
+          "alt": "Calamity VR daves stall wireframe.",
           "sourceHash": "2ec840fdbf064437eedfcd228f63f7bf917c8ccd",
           "fit": "contain",
           "background": "#111418",
@@ -1227,8 +1232,8 @@
           "height": 1100
         },
         {
-          "src": "/projects/highstreet-calamity-vr/gallery/1bc6a8cce21848b3fa1c0bc3f9008349b55e0367.webp",
-          "alt": "Highstreet: Calamity VR, image 13",
+          "src": "/projects/highstreet-calamity-vr/sections/03-multi-tool-ux-and-input-maps/calamity-stall-building-colors.webp",
+          "alt": "Calamity VR stall building colors.",
           "sourceHash": "1bc6a8cce21848b3fa1c0bc3f9008349b55e0367",
           "fit": "contain",
           "background": "#111418",
@@ -1236,8 +1241,8 @@
           "height": 1100
         },
         {
-          "src": "/projects/highstreet-calamity-vr/gallery/2f94e33aa0e9d8c07f6f4a96462160ec02ccc4bf.webp",
-          "alt": "Highstreet: Calamity VR, image 14",
+          "src": "/projects/highstreet-calamity-vr/sections/03-multi-tool-ux-and-input-maps/calamity-fair-game-color-studies.webp",
+          "alt": "Calamity VR fair game color studies.",
           "sourceHash": "2f94e33aa0e9d8c07f6f4a96462160ec02ccc4bf",
           "fit": "contain",
           "background": "#111418",
@@ -1245,8 +1250,8 @@
           "height": 1100
         },
         {
-          "src": "/projects/highstreet-calamity-vr/gallery/1954e2f33ab50653801177249bf83890199b7f0d.webp",
-          "alt": "Highstreet: Calamity VR, image 15",
+          "src": "/projects/highstreet-calamity-vr/sections/03-multi-tool-ux-and-input-maps/calamity-stall-building-props.webp",
+          "alt": "Calamity VR stall building props.",
           "sourceHash": "1954e2f33ab50653801177249bf83890199b7f0d",
           "fit": "contain",
           "background": "#111418",
@@ -1254,8 +1259,8 @@
           "height": 1100
         },
         {
-          "src": "/projects/highstreet-calamity-vr/gallery/65956331ef8d7bbf4b8cefb7b130dbbae7c6d31d.webp",
-          "alt": "Highstreet: Calamity VR, image 16",
+          "src": "/projects/highstreet-calamity-vr/sections/03-multi-tool-ux-and-input-maps/calamity-toy-stall-overview.webp",
+          "alt": "Calamity VR toy stall overview.",
           "sourceHash": "65956331ef8d7bbf4b8cefb7b130dbbae7c6d31d",
           "fit": "contain",
           "background": "#111418",
@@ -1263,8 +1268,8 @@
           "height": 1100
         },
         {
-          "src": "/projects/highstreet-calamity-vr/gallery/1e0fb11586c080d2c9c2a7840ba7f5e9de3f5396.webp",
-          "alt": "Highstreet: Calamity VR, image 17",
+          "src": "/projects/highstreet-calamity-vr/sections/03-multi-tool-ux-and-input-maps/calamity-consumables-stall-concept.webp",
+          "alt": "Calamity VR consumables stall concept.",
           "sourceHash": "1e0fb11586c080d2c9c2a7840ba7f5e9de3f5396",
           "fit": "contain",
           "background": "#111418",
@@ -1272,8 +1277,8 @@
           "height": 1100
         },
         {
-          "src": "/projects/highstreet-calamity-vr/gallery/4c109c423ba572898d8df4c4cf83abb283147ee7.webp",
-          "alt": "Highstreet: Calamity VR, image 18",
+          "src": "/projects/highstreet-calamity-vr/sections/02-classes-progression-and-wave-systems/calamity-rogue-level-6-10-outfits.webp",
+          "alt": "Calamity VR rogue level 6 10 outfits.",
           "sourceHash": "4c109c423ba572898d8df4c4cf83abb283147ee7",
           "fit": "contain",
           "background": "#111418",
@@ -1281,8 +1286,8 @@
           "height": 1238
         },
         {
-          "src": "/projects/highstreet-calamity-vr/gallery/bd78502f8a2a2d80615b45d2ef63729cc8e79713.webp",
-          "alt": "Highstreet: Calamity VR, image 19",
+          "src": "/projects/highstreet-calamity-vr/sections/02-classes-progression-and-wave-systems/calamity-apprentice-level-1-5-outfits.webp",
+          "alt": "Calamity VR apprentice level 1 5 outfits.",
           "sourceHash": "bd78502f8a2a2d80615b45d2ef63729cc8e79713",
           "fit": "contain",
           "background": "#111418",
@@ -1290,8 +1295,8 @@
           "height": 1238
         },
         {
-          "src": "/projects/highstreet-calamity-vr/gallery/faa469eb394c5074ca4263a7af77af4a4efc727e.webp",
-          "alt": "Highstreet: Calamity VR, image 20",
+          "src": "/projects/highstreet-calamity-vr/sections/03-multi-tool-ux-and-input-maps/calamity-main-hand-tool-concepts.webp",
+          "alt": "Calamity VR main hand tool concepts.",
           "sourceHash": "faa469eb394c5074ca4263a7af77af4a4efc727e",
           "fit": "contain",
           "background": "#111418",
@@ -1299,8 +1304,8 @@
           "height": 1238
         },
         {
-          "src": "/projects/highstreet-calamity-vr/gallery/7e81ae4785333423a27d30bfa0aa9922dbb0de3b.webp",
-          "alt": "Highstreet: Calamity VR, image 21",
+          "src": "/projects/highstreet-calamity-vr/sections/02-classes-progression-and-wave-systems/calamity-hero-level-11-20-outfits.webp",
+          "alt": "Calamity VR hero level 11 20 outfits.",
           "sourceHash": "7e81ae4785333423a27d30bfa0aa9922dbb0de3b",
           "fit": "contain",
           "background": "#111418",
@@ -1308,8 +1313,8 @@
           "height": 1238
         },
         {
-          "src": "/projects/highstreet-calamity-vr/gallery/00271a8ae5ee21b51f2a5dff37248edd92b50c22.webp",
-          "alt": "Highstreet: Calamity VR, image 22",
+          "src": "/projects/highstreet-calamity-vr/sections/02-classes-progression-and-wave-systems/calamity-wizard-outfit-concepts.webp",
+          "alt": "Calamity VR wizard outfit concepts.",
           "sourceHash": "00271a8ae5ee21b51f2a5dff37248edd92b50c22",
           "fit": "contain",
           "background": "#111418",
@@ -1317,8 +1322,8 @@
           "height": 1238
         },
         {
-          "src": "/projects/highstreet-calamity-vr/gallery/7b2afd36f41b3f48e3d776d3c7ca55579f4c65bb.webp",
-          "alt": "Highstreet: Calamity VR, image 23",
+          "src": "/projects/highstreet-calamity-vr/sections/02-classes-progression-and-wave-systems/calamity-shrieker-character-sheet.webp",
+          "alt": "Calamity VR shrieker character sheet.",
           "sourceHash": "7b2afd36f41b3f48e3d776d3c7ca55579f4c65bb",
           "fit": "contain",
           "background": "#111418",
@@ -1326,8 +1331,8 @@
           "height": 1100
         },
         {
-          "src": "/projects/highstreet-calamity-vr/gallery/5d4ecd15bc89138486657ab387f89cdfd9e71e2c.webp",
-          "alt": "Highstreet: Calamity VR, image 24",
+          "src": "/projects/highstreet-calamity-vr/sections/02-classes-progression-and-wave-systems/calamity-mushroom-creature-evolution.webp",
+          "alt": "Calamity VR mushroom creature evolution.",
           "sourceHash": "5d4ecd15bc89138486657ab387f89cdfd9e71e2c",
           "fit": "contain",
           "background": "#111418",
@@ -1343,22 +1348,36 @@
           "body": "Designed in-game abilities and a gesture based casting system to cast them.\nDesigned an Authoring tool to allow recording of gestures at runtime and curated gestures based on natural fluid motions within the VR space and real life combat motion studies.\nCreated internal systems to ensure fluid testing and handoff’s, worked with engineering closely to prototype and refine the system.",
           "media": [
             {
-              "src": "/projects/highstreet-calamity-vr/sections/01-gesture-casting-and-ability-design/a26996d983047f82054072340fcf86d25dd923c9.webp",
-              "alt": "Gesture-casting and Ability Design, image 1",
+              "src": "/projects/highstreet-calamity-vr/sections/01-gesture-casting-and-ability-design/calamity-ability-system-flowchart.jpg",
+              "alt": "Second Wind ability progression, read from level 1 at the bottom to level 10 at the top. Branches improve health or stamina regeneration and lead to two Adrenaline Rush variants with different health and stamina tradeoffs.",
               "sourceHash": "a26996d983047f82054072340fcf86d25dd923c9",
+              "fit": "contain",
+              "background": "#121212",
+              "width": 1316,
+              "height": 1443
+            },
+            {
+              "src": "/projects/highstreet-calamity-vr/sections/01-gesture-casting-and-ability-design/calamity-element-ability-trees.webp",
+              "alt": "Calamity elemental ability trees showing the branching paths for each element.",
+              "sourceHash": "fccd5c21c7eeb8508a66b2621fabb9b86bf8194c",
               "fit": "contain",
               "background": "#121212",
               "width": 2200,
               "height": 1695
             },
             {
-              "src": "/projects/highstreet-calamity-vr/sections/01-gesture-casting-and-ability-design/fccd5c21c7eeb8508a66b2621fabb9b86bf8194c.webp",
-              "alt": "Gesture-casting and Ability Design, image 2",
-              "sourceHash": "fccd5c21c7eeb8508a66b2621fabb9b86bf8194c",
+              "src": "/projects/highstreet-calamity-vr/sections/01-gesture-casting-and-ability-design/calamity-ability-system-flowchart.jpg",
+              "video": "/projects/highstreet-calamity-vr/sections/01-gesture-casting-and-ability-design/arc-demo.mp4",
+              "alt": "arc demo",
               "fit": "contain",
-              "background": "#121212",
-              "width": 449,
-              "height": 250
+              "background": "#121212"
+            },
+            {
+              "src": "/projects/highstreet-calamity-vr/sections/01-gesture-casting-and-ability-design/calamity-gesture-casting-gameplay.webp",
+              "video": "/projects/highstreet-calamity-vr/sections/01-gesture-casting-and-ability-design/gesture-casting-demo-web.mp4",
+              "alt": "gesture casting demo",
+              "fit": "contain",
+              "background": "#121212"
             }
           ],
           "mediaFirst": true
@@ -1369,8 +1388,8 @@
           "body": "Led design for and established the foundation of our core player stats (Resources, Resistances, etc) to support distinct class fantasy and playstyles.\nKey contributor to overall stat scaling and progression systems for player progression and enemy waves.\nEstablished the foundations and design premises for wave structures, game modes, wave compositions and iteration loops for balancing.",
           "media": [
             {
-              "src": "/projects/highstreet-calamity-vr/sections/02-classes-progression-and-wave-systems/8fc7aeb53629bda495626a033f98b17cea2d4b57.webp",
-              "alt": "Classes, Progression and Wave Systems, image 1",
+              "src": "/projects/highstreet-calamity-vr/sections/02-classes-progression-and-wave-systems/calamity-fighter-wizard-rogue-silhouettes.webp",
+              "alt": "Calamity VR fighter wizard rogue silhouettes.",
               "sourceHash": "8fc7aeb53629bda495626a033f98b17cea2d4b57",
               "fit": "cover",
               "background": "#111418",
@@ -1402,13 +1421,41 @@
           "body": "Designed Input Maps and coordinated with the design team to achieve accessibility and good UX\nLed design on decisions regarding the UX and accessibility features.\nLed design on the Multi-tool, our unified interface hub into the game to improve the VR experience for our players. \nLed design and prototype on Daveys Demure Designs, our physical interactive cosmetic system.",
           "media": [
             {
-              "src": "/projects/highstreet-calamity-vr/sections/03-multi-tool-ux-and-input-maps/963f8b4cc15124608feecca383edbb6bf49fb5c3.webp",
-              "alt": "Multi-tool, UX and input maps, image 1",
+              "src": "/projects/highstreet-calamity-vr/sections/03-multi-tool-ux-and-input-maps/calamity-controller-input-map.webp",
+              "alt": "Calamity VR controller input map, assigning actions to the main-hand and off-hand controls.",
               "sourceHash": "963f8b4cc15124608feecca383edbb6bf49fb5c3",
               "fit": "contain",
               "background": "#171c20",
               "width": 1256,
               "height": 708
+            },
+            {
+              "src": "/projects/highstreet-calamity-vr/sections/03-multi-tool-ux-and-input-maps/calamity-controller-input-map.webp",
+              "video": "/projects/highstreet-calamity-vr/sections/03-multi-tool-ux-and-input-maps/multitool-base.mp4",
+              "alt": "multitool base",
+              "fit": "contain",
+              "background": "#171c20"
+            },
+            {
+              "src": "/projects/highstreet-calamity-vr/sections/03-multi-tool-ux-and-input-maps/calamity-controller-input-map.webp",
+              "video": "/projects/highstreet-calamity-vr/sections/03-multi-tool-ux-and-input-maps/multitool-concept-01.mp4",
+              "alt": "multitool concept 01",
+              "fit": "contain",
+              "background": "#171c20"
+            },
+            {
+              "src": "/projects/highstreet-calamity-vr/sections/03-multi-tool-ux-and-input-maps/calamity-controller-input-map.webp",
+              "video": "/projects/highstreet-calamity-vr/sections/03-multi-tool-ux-and-input-maps/multitool-concept-02.mp4",
+              "alt": "multitool concept 02",
+              "fit": "contain",
+              "background": "#171c20"
+            },
+            {
+              "src": "/projects/highstreet-calamity-vr/sections/03-multi-tool-ux-and-input-maps/calamity-controller-input-map.webp",
+              "video": "/projects/highstreet-calamity-vr/sections/03-multi-tool-ux-and-input-maps/multitool-concept-03.mp4",
+              "alt": "multitool concept 03",
+              "fit": "contain",
+              "background": "#171c20"
             }
           ],
           "mediaFirst": true
@@ -1419,8 +1466,8 @@
           "body": "Designed multiple tools (python and unity) and spreadsheets to help team understand and tweak values within game\nDesigned a spreadsheet-based tool letting the design team create and tune abilities, enemies, waves, and rewards, saving engineering time and improving design’s ability to iterate.\nDesigned systems and data for the roguelike gameloop, rewards and incentives and established a balanced progression framework and game economy.",
           "media": [
             {
-              "src": "/projects/highstreet-calamity-vr/sections/04-authoring-pipeline-and-systems/855a35ebd1d457700b62def2820f36c370c85af7.webp",
-              "alt": "Authoring pipeline and  Systems, image 1",
+              "src": "/projects/highstreet-calamity-vr/sections/04-authoring-pipeline-and-systems/calamity-authoring-spreadsheets.webp",
+              "alt": "Calamity authoring spreadsheets used to configure and balance game systems.",
               "sourceHash": "855a35ebd1d457700b62def2820f36c370c85af7",
               "fit": "contain",
               "background": "#111418",
@@ -1468,8 +1515,8 @@
       "description": "A 2D action game made for Global Game Jam 2025 (“Bubbles”) and Pirate Software - Game Jam 16 “You are the weapon”, where you shoot parts of yourself to defeat waves of enemies while managing trade-offs.",
       "hero": [
         {
-          "src": "/projects/bubble-buddy/hero/02090a83bf84f2c3a6373ce1196e5dd80bb0fd9a.webp",
-          "alt": "Bubble Buddy, image 1",
+          "src": "/projects/bubble-buddy/hero/bubble-buddy-hero-art.webp",
+          "alt": "Bubble buddy hero art.",
           "sourceHash": "02090a83bf84f2c3a6373ce1196e5dd80bb0fd9a",
           "fit": "cover",
           "background": "#111418",
@@ -1528,8 +1575,8 @@
       ],
       "gallery": [
         {
-          "src": "/projects/bubble-buddy/sections/04-user-interface-and-animations/580e6934e9d8d234d3571a2d3ddf04714210f642.webp",
-          "alt": "Bubble Buddy, image 1",
+          "src": "/projects/bubble-buddy/sections/04-user-interface-and-animations/bubble-buddy-team-credits.png",
+          "alt": "Bubble buddy team credits.",
           "sourceHash": "580e6934e9d8d234d3571a2d3ddf04714210f642",
           "fit": "cover",
           "background": "#171c20",
@@ -1537,8 +1584,8 @@
           "height": 1081
         },
         {
-          "src": "/projects/bubble-buddy/gallery/3f1c062c014f6423e7f871c2c826b23d2ce533ff.webp",
-          "alt": "Bubble Buddy, image 2",
+          "src": "/projects/bubble-buddy/sections/01-game-design-and-balancing/bubble-buddy-arena-gameplay.png",
+          "alt": "Bubble buddy arena gameplay.",
           "sourceHash": "3f1c062c014f6423e7f871c2c826b23d2ce533ff",
           "fit": "contain",
           "background": "#171c20",
@@ -1546,8 +1593,8 @@
           "height": 827
         },
         {
-          "src": "/projects/bubble-buddy/sections/01-game-design-and-balancing/de7489da004d850b2cdcb7a3efc80519301dbd79.webp",
-          "alt": "Bubble Buddy, image 3",
+          "src": "/projects/bubble-buddy/sections/01-game-design-and-balancing/bubble-buddy-controls-guide.png",
+          "alt": "Bubble Buddy controls guide illustrating movement and combat inputs.",
           "sourceHash": "de7489da004d850b2cdcb7a3efc80519301dbd79",
           "fit": "cover",
           "background": "#171c20",
@@ -1555,8 +1602,8 @@
           "height": 1081
         },
         {
-          "src": "/projects/bubble-buddy/sections/02-enemy-archetypes-and-behaviours/e5bd8e17fc2602d99745769ba3f212cce4a476c1.webp",
-          "alt": "Bubble Buddy, image 4",
+          "src": "/projects/bubble-buddy/sections/02-enemy-archetypes-and-behaviours/bubble-buddy-enemy-archetypes.png",
+          "alt": "Bubble Buddy enemy archetypes, showing the distinct enemy designs used in combat.",
           "sourceHash": "e5bd8e17fc2602d99745769ba3f212cce4a476c1",
           "fit": "contain",
           "background": "#184693",
@@ -1572,8 +1619,8 @@
           "body": "Designed the core gameplay loop and worked on the implementation for the prototype\nDefined the player inputs and interactions with different mechanic types.\nIterated design always grounded in feedback and testing",
           "media": [
             {
-              "src": "/projects/bubble-buddy/sections/01-game-design-and-balancing/de7489da004d850b2cdcb7a3efc80519301dbd79.webp",
-              "alt": "Game Design and Balancing, image 1",
+              "src": "/projects/bubble-buddy/sections/01-game-design-and-balancing/bubble-buddy-controls-guide.png",
+              "alt": "Bubble Buddy controls guide illustrating movement and combat inputs.",
               "sourceHash": "de7489da004d850b2cdcb7a3efc80519301dbd79",
               "fit": "contain",
               "background": "#171c20",
@@ -1589,8 +1636,8 @@
           "body": "Defined enemy archetypes with distinct behavior patterns, designed simple identifiable patterns\nDesigned enemy behaviors which complimented horde mechanics and introduced evasion mechanics for players to adapt to challenges and come up with their own strategies. \nDesigned the resource drops, spawn patterns, and difficulty scaling. \nThe design premise was making players feel the squeeze without making the scaling feel unfair.",
           "media": [
             {
-              "src": "/projects/bubble-buddy/sections/02-enemy-archetypes-and-behaviours/e5bd8e17fc2602d99745769ba3f212cce4a476c1.webp",
-              "alt": "Enemy Archetypes and Behaviours, image 1",
+              "src": "/projects/bubble-buddy/sections/02-enemy-archetypes-and-behaviours/bubble-buddy-enemy-archetypes.png",
+              "alt": "Bubble Buddy enemy archetypes, showing the distinct enemy designs used in combat.",
               "sourceHash": "e5bd8e17fc2602d99745769ba3f212cce4a476c1",
               "fit": "contain",
               "background": "#184693",
@@ -1606,8 +1653,8 @@
           "body": "Defined the wave structures for an endless incremental style gameplay mode,\nDesigned enemy pacing, wave composition, and difficulty progression.\nBalanced waves by adjusting enemy stats, spawn counts, and encounter modifiers ensuring the challenge felt fair.\nModelled expected run scaling with spreadsheet Monte Carlo simulations (formulas & repeated random trials) to inform balancing.",
           "media": [
             {
-              "src": "/projects/bubble-buddy/sections/03-wave-systems-and-game-economy/2317d3da89c5f359bd4a87a25b00784a10fef381.webp",
-              "alt": "Wave Systems and Game Economy, image 1",
+              "src": "/projects/bubble-buddy/sections/03-wave-systems-and-game-economy/bubble-buddy-leaderboard.webp",
+              "alt": "Bubble buddy leaderboard.",
               "sourceHash": "2317d3da89c5f359bd4a87a25b00784a10fef381",
               "fit": "contain",
               "background": "#184693",
@@ -1623,8 +1670,8 @@
           "body": "Designed and prototyped all User interface screens and flows\nAnimated all motion programmatically and tweaked values using DoTween and Animator.\nAchieved a bouncy game-feel and popping feeling mimicking and bubble pop!",
           "media": [
             {
-              "src": "/projects/bubble-buddy/sections/04-user-interface-and-animations/580e6934e9d8d234d3571a2d3ddf04714210f642.webp",
-              "alt": "User Interface and Animations, image 1",
+              "src": "/projects/bubble-buddy/sections/04-user-interface-and-animations/bubble-buddy-team-credits.png",
+              "alt": "Bubble buddy team credits.",
               "sourceHash": "580e6934e9d8d234d3571a2d3ddf04714210f642",
               "fit": "contain",
               "background": "#171c20",
@@ -1639,13 +1686,14 @@
     },
     {
       "slug": "dragoncraft",
+      "status": "coming-soon",
       "figmaNode": "372:917",
       "title": "Dragoncraft",
-      "description": "Be a dragon. A Minecraft modpack of 30+ species, each with its own restrictions, abilities, and path to power, curated from 350+ mods into one balanced world with an expansive questline for players to play. Over ",
+      "description": "Be a dragon. A Minecraft modpack of 30+ species, each with its own restrictions, abilities, and path to power, curated from 350+ mods into one balanced world with an expansive questline for players to play.",
       "hero": [
         {
-          "src": "/projects/dragoncraft/hero/327d11da149ca9ca805978b32275482358fce0b1.webp",
-          "alt": "Dragoncraft, image 1",
+          "src": "/projects/dragoncraft/hero/dragoncraft-mountain-key-art.webp",
+          "alt": "Dragoncraft mountain key art.",
           "sourceHash": "327d11da149ca9ca805978b32275482358fce0b1",
           "fit": "cover",
           "background": "#111418",
@@ -1669,8 +1717,8 @@
           ]
         },
         {
-          "src": "/projects/dragoncraft/hero/54b9998e4ad5b47d613c00d8c94ee207b6d7c570.webp",
-          "alt": "Dragoncraft, image 2",
+          "src": "/projects/dragoncraft/hero/dragoncraft-logo.webp",
+          "alt": "Dragoncraft logo.",
           "sourceHash": "54b9998e4ad5b47d613c00d8c94ee207b6d7c570",
           "fit": "cover",
           "background": "#111418",
@@ -1724,8 +1772,8 @@
       ],
       "gallery": [
         {
-          "src": "/projects/dragoncraft/gallery/a22b550170a5c886e4fb990f296bacf8a385859d.webp",
-          "alt": "Dragoncraft, image 1",
+          "src": "/projects/dragoncraft/gallery/dragoncraft-dragon-at-night.webp",
+          "alt": "Dragoncraft dragon at night.",
           "sourceHash": "a22b550170a5c886e4fb990f296bacf8a385859d",
           "fit": "cover",
           "background": "#171c20",
@@ -1733,8 +1781,8 @@
           "height": 760
         },
         {
-          "src": "/projects/dragoncraft/gallery/b5ea3a17c2a24de35a65dec2eea332293fb244a0.webp",
-          "alt": "Dragoncraft, image 2",
+          "src": "/projects/dragoncraft/gallery/dragoncraft-courtyard-dragons.webp",
+          "alt": "Dragoncraft courtyard dragons.",
           "sourceHash": "b5ea3a17c2a24de35a65dec2eea332293fb244a0",
           "fit": "cover",
           "background": "#171c20",
@@ -1742,8 +1790,8 @@
           "height": 718
         },
         {
-          "src": "/projects/dragoncraft/gallery/c110d1f08ec3e30a96769a72668c05e46afe0e97.webp",
-          "alt": "Dragoncraft, image 3",
+          "src": "/projects/dragoncraft/gallery/dragoncraft-training-yard.webp",
+          "alt": "Dragoncraft training yard.",
           "sourceHash": "c110d1f08ec3e30a96769a72668c05e46afe0e97",
           "fit": "cover",
           "background": "#171c20",
@@ -1751,8 +1799,8 @@
           "height": 631
         },
         {
-          "src": "/projects/dragoncraft/gallery/03c65f20457426340b1e6e3b79e44ead9458f184.webp",
-          "alt": "Dragoncraft, image 4",
+          "src": "/projects/dragoncraft/gallery/dragoncraft-key-art-with-logo.webp",
+          "alt": "Dragoncraft key art with logo.",
           "sourceHash": "03c65f20457426340b1e6e3b79e44ead9458f184",
           "fit": "contain",
           "background": "#111418",
@@ -1760,8 +1808,8 @@
           "height": 1238
         },
         {
-          "src": "/projects/dragoncraft/gallery/18d5d594fab1020ec88c5d9a32893629fc385c92.webp",
-          "alt": "Dragoncraft, image 5",
+          "src": "/projects/dragoncraft/gallery/dragoncraft-flying-cage.webp",
+          "alt": "Dragoncraft flying cage.",
           "sourceHash": "18d5d594fab1020ec88c5d9a32893629fc385c92",
           "fit": "contain",
           "background": "#111418",
@@ -1769,8 +1817,8 @@
           "height": 743
         },
         {
-          "src": "/projects/dragoncraft/gallery/3aa0c3fefbad8208d4e3b9ec6d349099abcb1a6f.webp",
-          "alt": "Dragoncraft, image 6",
+          "src": "/projects/dragoncraft/gallery/dragoncraft-nether-flight.webp",
+          "alt": "Dragoncraft nether flight.",
           "sourceHash": "3aa0c3fefbad8208d4e3b9ec6d349099abcb1a6f",
           "fit": "contain",
           "background": "#111418",
@@ -1778,8 +1826,8 @@
           "height": 614
         },
         {
-          "src": "/projects/dragoncraft/gallery/cd665fbc3b3cfe79d49b5c5dd1a16822d2734ec4.webp",
-          "alt": "Dragoncraft, image 7",
+          "src": "/projects/dragoncraft/gallery/dragoncraft-stone-monument.webp",
+          "alt": "Dragoncraft stone monument.",
           "sourceHash": "cd665fbc3b3cfe79d49b5c5dd1a16822d2734ec4",
           "fit": "contain",
           "background": "#111418",
@@ -1787,8 +1835,8 @@
           "height": 632
         },
         {
-          "src": "/projects/dragoncraft/gallery/af098d609cd837fbf72b0dac27dbc656423d0365.webp",
-          "alt": "Dragoncraft, image 8",
+          "src": "/projects/dragoncraft/gallery/dragoncraft-forest-stream.webp",
+          "alt": "Dragoncraft forest stream.",
           "sourceHash": "af098d609cd837fbf72b0dac27dbc656423d0365",
           "fit": "contain",
           "background": "#111418",
@@ -1796,8 +1844,8 @@
           "height": 596
         },
         {
-          "src": "/projects/dragoncraft/gallery/3d0ee2648d4520eb018c0fe0065a58359497c7b8.webp",
-          "alt": "Dragoncraft, image 9",
+          "src": "/projects/dragoncraft/gallery/dragoncraft-training-dummies.webp",
+          "alt": "Dragoncraft training dummies.",
           "sourceHash": "3d0ee2648d4520eb018c0fe0065a58359497c7b8",
           "fit": "contain",
           "background": "#111418",
@@ -1805,8 +1853,8 @@
           "height": 678
         },
         {
-          "src": "/projects/dragoncraft/gallery/c1d373c32f31974119477a68238d30e903e827d2.webp",
-          "alt": "Dragoncraft, image 10",
+          "src": "/projects/dragoncraft/gallery/dragoncraft-purple-dragon.webp",
+          "alt": "Dragoncraft purple dragon.",
           "sourceHash": "c1d373c32f31974119477a68238d30e903e827d2",
           "fit": "contain",
           "background": "#111418",
@@ -1814,8 +1862,8 @@
           "height": 688
         },
         {
-          "src": "/projects/dragoncraft/gallery/ad09d6f62d2689c81d25d90e184c0bd18066f99b.webp",
-          "alt": "Dragoncraft, image 11",
+          "src": "/projects/dragoncraft/gallery/dragoncraft-beacon-overlook.webp",
+          "alt": "Dragoncraft beacon overlook.",
           "sourceHash": "ad09d6f62d2689c81d25d90e184c0bd18066f99b",
           "fit": "contain",
           "background": "#111418",
@@ -1823,8 +1871,8 @@
           "height": 680
         },
         {
-          "src": "/projects/dragoncraft/gallery/77d64bd6bca82416d3949993df37955f9a027e61.webp",
-          "alt": "Dragoncraft, image 12",
+          "src": "/projects/dragoncraft/gallery/dragoncraft-castle.webp",
+          "alt": "Dragoncraft castle.",
           "sourceHash": "77d64bd6bca82416d3949993df37955f9a027e61",
           "fit": "contain",
           "background": "#111418",
@@ -1832,8 +1880,8 @@
           "height": 658
         },
         {
-          "src": "/projects/dragoncraft/gallery/6342245281dcf6f56f166fd679ff691b58a95d4c.webp",
-          "alt": "Dragoncraft, image 13",
+          "src": "/projects/dragoncraft/gallery/dragoncraft-lava-crossing.webp",
+          "alt": "Dragoncraft lava crossing.",
           "sourceHash": "6342245281dcf6f56f166fd679ff691b58a95d4c",
           "fit": "contain",
           "background": "#111418",
@@ -1847,8 +1895,8 @@
         {
           "images": [
             {
-              "src": "/home/banners/50512c7f30a40fa2f52b652582e7ec6e4924cdae.webp",
-              "alt": "Banner / BisectHosting, image 1",
+              "src": "/home/banners/bisecthosting-minecraft-cat-banner.webp",
+              "alt": "BisectHosting minecraft cat banner.",
               "sourceHash": "50512c7f30a40fa2f52b652582e7ec6e4924cdae",
               "fit": "cover",
               "background": "#111418",
@@ -1856,17 +1904,17 @@
               "height": 1080
             }
           ],
-          "logo": "/home/banners/2499df9dd61b6869e0b9c6839cee3a7dae0fa087.webp",
+          "logo": "/home/banners/bisecthosting-logo.webp",
           "title": "Play with friends.",
           "body": "Use code “URMOM” to get 25% off your next purchase.",
-          "label": "Get a Server",
+          "label": "Get a server",
           "href": "https://www.bisecthosting.com/"
         },
         {
           "images": [
             {
-              "src": "/projects/dragoncraft/hero/327d11da149ca9ca805978b32275482358fce0b1.webp",
-              "alt": "Banner / Kerberus, image 1",
+              "src": "/projects/dragoncraft/hero/dragoncraft-mountain-key-art.webp",
+              "alt": "Dragoncraft mountain key art.",
               "sourceHash": "327d11da149ca9ca805978b32275482358fce0b1",
               "fit": "cover",
               "background": "#111418",
@@ -1890,8 +1938,8 @@
               "height": 1238
             },
             {
-              "src": "/shared/branding/8efde7740a2ded957faceb89d4c5c26d50eb2c13.webp",
-              "alt": "Banner / Kerberus, image 2",
+              "src": "/projects/dragoncraft/hero/dragoncraft-logo.webp",
+              "alt": "Dragoncraft logo.",
               "sourceHash": "8efde7740a2ded957faceb89d4c5c26d50eb2c13",
               "fit": "cover",
               "background": "#111418",
@@ -1911,8 +1959,8 @@
                 1096,
                 250
               ],
-              "width": 1659,
-              "height": 561
+              "width": 2200,
+              "height": 743
             }
           ],
           "title": "",
@@ -1929,13 +1977,12 @@
       "description": "A single-player first-person horror game set in an haunted 1800s house. where the player explores, solve puzzles, and uncovers the house's dark history.",
       "hero": [
         {
-          "src": "/projects/lurk/sections/01-core-loop/524cb0b55e2651ab800dcddc03bb1a7e068a1fdf.webp",
-          "alt": "Lurk, image 1",
-          "sourceHash": "524cb0b55e2651ab800dcddc03bb1a7e068a1fdf",
-          "fit": "cover",
+          "src": "/projects/lurk/hero/lurk-staircase-wordmark-cover.png",
+          "alt": "Lurk horror game cover: a dim mansion staircase with the Lurk wordmark",
+          "fit": "contain",
           "background": "#111418",
-          "width": 1024,
-          "height": 585
+          "width": 1660,
+          "height": 948
         }
       ],
       "contributions": [
@@ -1971,8 +2018,8 @@
       ],
       "gallery": [
         {
-          "src": "/projects/lurk/sections/02-puzzles/8d0c5d698e25841993916be71831e80f2f32dfcd.webp",
-          "alt": "Lurk, image 1",
+          "src": "/projects/lurk/sections/02-puzzles/lurk-wall-puzzle.webp",
+          "alt": "Lurk wall puzzle.",
           "sourceHash": "8d0c5d698e25841993916be71831e80f2f32dfcd",
           "fit": "cover",
           "background": "#171c20",
@@ -1980,8 +2027,8 @@
           "height": 580
         },
         {
-          "src": "/projects/lurk/sections/03-spacial-effects-and-lighting/1e16cf196baaf2fc5241586a9bac3742aeb30491.webp",
-          "alt": "Lurk, image 2",
+          "src": "/projects/lurk/sections/03-spacial-effects-and-lighting/lurk-desk-lighting.webp",
+          "alt": "Lurk desk lighting.",
           "sourceHash": "1e16cf196baaf2fc5241586a9bac3742aeb30491",
           "fit": "cover",
           "background": "#171c20",
@@ -1989,8 +2036,8 @@
           "height": 585
         },
         {
-          "src": "/projects/lurk/gallery/82f049a0e7b5d2434107437eb51c002e7a2c8c82.webp",
-          "alt": "Lurk, image 3",
+          "src": "/projects/lurk/gallery/lurk-oxygen-camera-view.webp",
+          "alt": "Lurk oxygen camera view.",
           "sourceHash": "82f049a0e7b5d2434107437eb51c002e7a2c8c82",
           "fit": "cover",
           "background": "#171c20",
@@ -2006,8 +2053,8 @@
           "body": "The player inherited a house from the 1800s, and as they explore they uncover the building's dark paranormal history .\nThe experience is built to be a narrative puzzle-solving where the player is constantly trapped and directed towards completing certain tasks while keeping their sanity in check.\nCertain risky encounters leads to sanity drain and induce paranormal effects to the player which affects their perception of the world. ",
           "media": [
             {
-              "src": "/projects/lurk/sections/01-core-loop/524cb0b55e2651ab800dcddc03bb1a7e068a1fdf.webp",
-              "alt": "Core loop, image 1",
+              "src": "/projects/lurk/sections/01-core-loop/lurk-hallway-lighting.webp",
+              "alt": "Lurk hallway lighting.",
               "sourceHash": "524cb0b55e2651ab800dcddc03bb1a7e068a1fdf",
               "fit": "contain",
               "background": "#111418",
@@ -2023,8 +2070,8 @@
           "body": "Puzzle mechanics are deterministic and built on a set of rules and a probability system, so the house stays unpredictable across playthroughs without the puzzles themselves becoming unfair.\nThere are simpler fetch quests which ensure that story progression stays unaffected and the narrative remains serviceable.",
           "media": [
             {
-              "src": "/projects/lurk/sections/02-puzzles/8d0c5d698e25841993916be71831e80f2f32dfcd.webp",
-              "alt": "Puzzles, image 1",
+              "src": "/projects/lurk/sections/02-puzzles/lurk-wall-puzzle.webp",
+              "alt": "Lurk wall puzzle.",
               "sourceHash": "8d0c5d698e25841993916be71831e80f2f32dfcd",
               "fit": "contain",
               "background": "#171c20",
@@ -2036,12 +2083,12 @@
         },
         {
           "type": "feature",
-          "title": "Spacial effects and lighting",
+          "title": "Spatial effects and lighting",
           "body": "Contributed towards the Level design and encounter. \nWorked in-engine on the lighting and optimization work for the level which included Draw calls reduction, LODs, light baking, Performance Profiling, Occlusion.\nDesigned shaders and assisted with technical art work carrying the visual language. ",
           "media": [
             {
-              "src": "/projects/lurk/sections/03-spacial-effects-and-lighting/1e16cf196baaf2fc5241586a9bac3742aeb30491.webp",
-              "alt": "Spacial effects and lighting, image 1",
+              "src": "/projects/lurk/sections/03-spacial-effects-and-lighting/lurk-desk-lighting.webp",
+              "alt": "Lurk desk lighting.",
               "sourceHash": "1e16cf196baaf2fc5241586a9bac3742aeb30491",
               "fit": "contain",
               "background": "#171c20",
@@ -2056,13 +2103,14 @@
     },
     {
       "slug": "mythcraft",
+      "status": "coming-soon",
       "figmaNode": "372:1871",
       "title": "Mythcraft",
       "description": "Play as a demigod. A Minecraft RPG of 20+ mythic races and divine paths built on the Greek gods, with dungeon-crawling and boss progression across a world steeped in myth.",
       "hero": [
         {
-          "src": "/projects/mythcraft/hero/8a6176a8ea01f9bfd46a9aa9e794e85b0cb52fc7.webp",
-          "alt": "Mythcraft, image 1",
+          "src": "/projects/mythcraft/hero/mythcraft-temple-key-art.webp",
+          "alt": "Mythcraft temple key art.",
           "sourceHash": "8a6176a8ea01f9bfd46a9aa9e794e85b0cb52fc7",
           "fit": "cover",
           "background": "#111418",
@@ -2070,8 +2118,8 @@
           "height": 1238
         },
         {
-          "src": "/projects/mythcraft/hero/e7efd86df85ee2b6891e3898660b7709722565b2.webp",
-          "alt": "Mythcraft, image 2",
+          "src": "/projects/mythcraft/hero/mythcraft-logo.webp",
+          "alt": "Mythcraft logo.",
           "sourceHash": "e7efd86df85ee2b6891e3898660b7709722565b2",
           "fit": "cover",
           "background": "#111418",
@@ -2125,8 +2173,8 @@
       ],
       "gallery": [
         {
-          "src": "/projects/mythcraft/gallery/21ca426bfd437c8ea83f05079fad8ce378c3277c.webp",
-          "alt": "Mythcraft, image 1",
+          "src": "/projects/mythcraft/gallery/mythcraft-autumn-forest.webp",
+          "alt": "Mythcraft autumn forest.",
           "sourceHash": "21ca426bfd437c8ea83f05079fad8ce378c3277c",
           "fit": "cover",
           "background": "#171c20",
@@ -2134,8 +2182,8 @@
           "height": 1176
         },
         {
-          "src": "/projects/mythcraft/gallery/423c919db699049826e022193950d3f54458b713.webp",
-          "alt": "Mythcraft, image 2",
+          "src": "/projects/mythcraft/gallery/mythcraft-underground-combat.webp",
+          "alt": "Mythcraft underground combat.",
           "sourceHash": "423c919db699049826e022193950d3f54458b713",
           "fit": "cover",
           "background": "#171c20",
@@ -2143,8 +2191,8 @@
           "height": 450
         },
         {
-          "src": "/projects/mythcraft/gallery/24a970c69ea6a26b491098428f7fc3cbf103ae21.webp",
-          "alt": "Mythcraft, image 3",
+          "src": "/projects/mythcraft/gallery/mythcraft-mountain-ridge.webp",
+          "alt": "Mythcraft mountain ridge.",
           "sourceHash": "24a970c69ea6a26b491098428f7fc3cbf103ae21",
           "fit": "cover",
           "background": "#171c20",
@@ -2152,8 +2200,8 @@
           "height": 1176
         },
         {
-          "src": "/projects/mythcraft/gallery/5424f6089840d4ff0e5a46446549e8c5171a7dfa.webp",
-          "alt": "Mythcraft, image 4",
+          "src": "/projects/mythcraft/gallery/mythcraft-ancient-city.webp",
+          "alt": "Mythcraft ancient city.",
           "sourceHash": "5424f6089840d4ff0e5a46446549e8c5171a7dfa",
           "fit": "contain",
           "background": "#111418",
@@ -2161,8 +2209,8 @@
           "height": 478
         },
         {
-          "src": "/projects/mythcraft/gallery/b3c8c3e97f878163cf9dd0e71b25ff85dabbae03.webp",
-          "alt": "Mythcraft, image 5",
+          "src": "/projects/mythcraft/gallery/mythcraft-purple-portal.webp",
+          "alt": "Mythcraft purple portal.",
           "sourceHash": "b3c8c3e97f878163cf9dd0e71b25ff85dabbae03",
           "fit": "contain",
           "background": "#111418",
@@ -2170,8 +2218,8 @@
           "height": 1080
         },
         {
-          "src": "/projects/mythcraft/gallery/bc4334243addedd5690c284efc824f839afef760.webp",
-          "alt": "Mythcraft, image 6",
+          "src": "/projects/mythcraft/gallery/mythcraft-sky-structure.webp",
+          "alt": "Mythcraft sky structure.",
           "sourceHash": "bc4334243addedd5690c284efc824f839afef760",
           "fit": "contain",
           "background": "#111418",
@@ -2179,8 +2227,8 @@
           "height": 1080
         },
         {
-          "src": "/projects/mythcraft/gallery/e76b888023aed2a95e0f8ebf494adcc26a67b700.webp",
-          "alt": "Mythcraft, image 7",
+          "src": "/projects/mythcraft/gallery/mythcraft-forest-overlook-alt.webp",
+          "alt": "Mythcraft forest overlook alt.",
           "sourceHash": "e76b888023aed2a95e0f8ebf494adcc26a67b700",
           "fit": "contain",
           "background": "#111418",
@@ -2188,8 +2236,8 @@
           "height": 1176
         },
         {
-          "src": "/projects/mythcraft/gallery/41de742cbbfaa84fa77d350d86ddd6b50712ba9a.webp",
-          "alt": "Mythcraft, image 8",
+          "src": "/projects/mythcraft/gallery/mythcraft-dragon-at-night.webp",
+          "alt": "Mythcraft dragon at night.",
           "sourceHash": "41de742cbbfaa84fa77d350d86ddd6b50712ba9a",
           "fit": "contain",
           "background": "#111418",
@@ -2197,8 +2245,8 @@
           "height": 1080
         },
         {
-          "src": "/projects/mythcraft/gallery/89e4f1e6eb352c39588bdf5797f55e7daa329fba.webp",
-          "alt": "Mythcraft, image 9",
+          "src": "/projects/mythcraft/gallery/mythcraft-snowy-mountains.webp",
+          "alt": "Mythcraft snowy mountains.",
           "sourceHash": "89e4f1e6eb352c39588bdf5797f55e7daa329fba",
           "fit": "contain",
           "background": "#111418",
@@ -2206,8 +2254,8 @@
           "height": 1176
         },
         {
-          "src": "/projects/mythcraft/gallery/70b62541574e62b4670970f67d1f3dd43b938906.webp",
-          "alt": "Mythcraft, image 10",
+          "src": "/projects/mythcraft/gallery/mythcraft-timber-house.webp",
+          "alt": "Mythcraft timber house.",
           "sourceHash": "70b62541574e62b4670970f67d1f3dd43b938906",
           "fit": "contain",
           "background": "#111418",
@@ -2215,8 +2263,8 @@
           "height": 1080
         },
         {
-          "src": "/projects/mythcraft/gallery/74184ededa916b05da18ef3194dedcefbb767d24.webp",
-          "alt": "Mythcraft, image 11",
+          "src": "/projects/mythcraft/gallery/mythcraft-village-at-night.webp",
+          "alt": "Mythcraft village at night.",
           "sourceHash": "74184ededa916b05da18ef3194dedcefbb767d24",
           "fit": "contain",
           "background": "#111418",
@@ -2224,8 +2272,8 @@
           "height": 1080
         },
         {
-          "src": "/projects/mythcraft/gallery/05e4b8df995cb2c8d14b6cfcd6a2407dd3980364.webp",
-          "alt": "Mythcraft, image 12",
+          "src": "/projects/mythcraft/gallery/mythcraft-forest-overlook.webp",
+          "alt": "Mythcraft forest overlook.",
           "sourceHash": "05e4b8df995cb2c8d14b6cfcd6a2407dd3980364",
           "fit": "contain",
           "background": "#111418",
@@ -2233,8 +2281,8 @@
           "height": 1176
         },
         {
-          "src": "/projects/mythcraft/gallery/9cd0468fc69847885bf40a94c6c531e87ef91f64.webp",
-          "alt": "Mythcraft, image 13",
+          "src": "/projects/mythcraft/gallery/mythcraft-portal-courtyard.webp",
+          "alt": "Mythcraft portal courtyard.",
           "sourceHash": "9cd0468fc69847885bf40a94c6c531e87ef91f64",
           "fit": "contain",
           "background": "#111418",
@@ -2242,8 +2290,8 @@
           "height": 1080
         },
         {
-          "src": "/projects/mythcraft/gallery/b6f31d2e04e39cca6ec62791cc7f337b518072cd.webp",
-          "alt": "Mythcraft, image 14",
+          "src": "/projects/mythcraft/gallery/mythcraft-beacon-plaza.webp",
+          "alt": "Mythcraft beacon plaza.",
           "sourceHash": "b6f31d2e04e39cca6ec62791cc7f337b518072cd",
           "fit": "contain",
           "background": "#111418",
@@ -2251,8 +2299,8 @@
           "height": 1080
         },
         {
-          "src": "/projects/mythcraft/gallery/8e16a49c929d6fcb98d6a62c2027b1ca1d0fa078.webp",
-          "alt": "Mythcraft, image 15",
+          "src": "/projects/mythcraft/gallery/mythcraft-emblem-plaza.webp",
+          "alt": "Mythcraft emblem plaza.",
           "sourceHash": "8e16a49c929d6fcb98d6a62c2027b1ca1d0fa078",
           "fit": "contain",
           "background": "#111418",
@@ -2260,8 +2308,8 @@
           "height": 1080
         },
         {
-          "src": "/projects/mythcraft/gallery/612cec74a3c159eccf12f3c8ab28a368715fefc3.webp",
-          "alt": "Mythcraft, image 16",
+          "src": "/projects/mythcraft/gallery/mythcraft-night-watchtower.webp",
+          "alt": "Mythcraft night watchtower.",
           "sourceHash": "612cec74a3c159eccf12f3c8ab28a368715fefc3",
           "fit": "contain",
           "background": "#111418",
@@ -2269,8 +2317,8 @@
           "height": 1080
         },
         {
-          "src": "/projects/mythcraft/gallery/8d637fb4331919947f135b79b9169e5b43b322c3.webp",
-          "alt": "Mythcraft, image 17",
+          "src": "/projects/mythcraft/gallery/mythcraft-lava-cavern.webp",
+          "alt": "Mythcraft lava cavern.",
           "sourceHash": "8d637fb4331919947f135b79b9169e5b43b322c3",
           "fit": "contain",
           "background": "#111418",
@@ -2284,8 +2332,8 @@
         {
           "images": [
             {
-              "src": "/home/banners/50512c7f30a40fa2f52b652582e7ec6e4924cdae.webp",
-              "alt": "Banner / BisectHosting, image 1",
+              "src": "/home/banners/bisecthosting-minecraft-cat-banner.webp",
+              "alt": "BisectHosting minecraft cat banner.",
               "sourceHash": "50512c7f30a40fa2f52b652582e7ec6e4924cdae",
               "fit": "cover",
               "background": "#111418",
@@ -2293,17 +2341,17 @@
               "height": 1080
             }
           ],
-          "logo": "/home/banners/2499df9dd61b6869e0b9c6839cee3a7dae0fa087.webp",
+          "logo": "/home/banners/bisecthosting-logo.webp",
           "title": "Play with friends.",
           "body": "Use code “URMOM” to get 25% off your next purchase.",
-          "label": "Get a Server",
+          "label": "Get a server",
           "href": "https://www.bisecthosting.com/"
         },
         {
           "images": [
             {
-              "src": "/projects/mythcraft/hero/8a6176a8ea01f9bfd46a9aa9e794e85b0cb52fc7.webp",
-              "alt": "Banner / Kerberus, image 1",
+              "src": "/projects/mythcraft/hero/mythcraft-temple-key-art.webp",
+              "alt": "Mythcraft temple key art.",
               "sourceHash": "8a6176a8ea01f9bfd46a9aa9e794e85b0cb52fc7",
               "fit": "cover",
               "background": "#111418",
@@ -2327,8 +2375,8 @@
               "height": 1238
             },
             {
-              "src": "/projects/mythcraft/hero/e7efd86df85ee2b6891e3898660b7709722565b2.webp",
-              "alt": "Banner / Kerberus, image 2",
+              "src": "/projects/mythcraft/hero/mythcraft-logo.webp",
+              "alt": "Mythcraft logo.",
               "sourceHash": "e7efd86df85ee2b6891e3898660b7709722565b2",
               "fit": "cover",
               "background": "#111418",
@@ -2361,13 +2409,14 @@
     },
     {
       "slug": "poly-punch-vr",
+      "status": "coming-soon",
       "figmaNode": "372:2039",
       "title": "Poly Punch VR",
       "description": "A VR rhythm game built on an experimental Meta hand-tracking kit, extending a Beat-Saber-like prototype into a full combat-gesture design space.",
       "hero": [
         {
-          "src": "/projects/poly-punch-vr/hero/1fcff8c429de657049332afb77557eccf21bb355.webp",
-          "alt": "Poly Punch VR, image 1",
+          "src": "/projects/poly-punch-vr/hero/poly-punch-vr-arcade.webp",
+          "alt": "Poly Punch VR arcade environment.",
           "sourceHash": "1fcff8c429de657049332afb77557eccf21bb355",
           "fit": "cover",
           "background": "#111418",
@@ -2411,13 +2460,14 @@
     },
     {
       "slug": "stick-it",
+      "status": "coming-soon",
       "figmaNode": "372:2379",
       "title": "Stick It",
       "description": "A 2D stealth-action game where you play as Pedro, a farmer fighting back against a corrupt agri-corp and sneak past their goons to take back your farm",
       "hero": [
         {
-          "src": "/projects/stick-it/hero/931fa381cb04455a0beb3c2c35008dfe623712ff.webp",
-          "alt": "Stick It, image 1",
+          "src": "/projects/stick-it/hero/stick-it-hero-art.webp",
+          "alt": "Stick it hero art.",
           "sourceHash": "931fa381cb04455a0beb3c2c35008dfe623712ff",
           "fit": "cover",
           "background": "#111418",
@@ -2458,8 +2508,8 @@
       ],
       "gallery": [
         {
-          "src": "/projects/stick-it/gallery/7ffa3b667a0a1e28e12eaa0184c1463acb3a2884.webp",
-          "alt": "Stick It, image 1",
+          "src": "/projects/stick-it/gallery/stick-it-truck-searchlights.webp",
+          "alt": "Stick it truck searchlights.",
           "sourceHash": "7ffa3b667a0a1e28e12eaa0184c1463acb3a2884",
           "fit": "cover",
           "background": "#171c20",
@@ -2467,8 +2517,8 @@
           "height": 252
         },
         {
-          "src": "/projects/stick-it/gallery/2533e40e89d6316a089206309d046d9f9b71bdac.webp",
-          "alt": "Stick It, image 2",
+          "src": "/projects/stick-it/gallery/stick-it-road-at-night.avif",
+          "alt": "Stick it road at night.",
           "sourceHash": "2533e40e89d6316a089206309d046d9f9b71bdac",
           "fit": "cover",
           "background": "#171c20",
@@ -2476,8 +2526,8 @@
           "height": 553
         },
         {
-          "src": "/projects/stick-it/gallery/154b2eb41113a57b28fe16cc82f2e7ba14e86f8a.webp",
-          "alt": "Stick It, image 3",
+          "src": "/projects/stick-it/gallery/stick-it-greenhouse-at-night.avif",
+          "alt": "Stick it greenhouse at night.",
           "sourceHash": "154b2eb41113a57b28fe16cc82f2e7ba14e86f8a",
           "fit": "cover",
           "background": "#171c20",
@@ -2485,8 +2535,8 @@
           "height": 538
         },
         {
-          "src": "/projects/stick-it/gallery/screenshot-03.avif",
-          "alt": "Stick It, image 4",
+          "src": "/projects/stick-it/gallery/stick-it-foggy-yard.avif",
+          "alt": "Stick it foggy yard.",
           "sourceHash": "a9d8777965b352ba8a8424bb6b5b78eb3d073fd0",
           "fit": "contain",
           "background": "#111418",

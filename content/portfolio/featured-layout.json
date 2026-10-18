@@ -1,0 +1,292 @@
+{
+  "highstreet-calamity-vr": {
+    "main": {
+      "src": "/projects/highstreet-calamity-vr/gallery/calamity-party-key-art.webp",
+      "position": "50% 50%"
+    },
+    "thumbnails": [
+      {
+        "src": "/projects/highstreet-calamity-vr/sections/02-classes-progression-and-wave-systems/calamity-character-progression-overview.webp",
+        "position": "50% 50%"
+      },
+      {
+        "src": "/projects/highstreet-calamity-vr/sections/03-multi-tool-ux-and-input-maps/calamity-controller-input-map.webp",
+        "position": "50% 50%"
+      },
+      {
+        "src": "/projects/highstreet-calamity-vr/sections/03-multi-tool-ux-and-input-maps/calamity-vr-multitool-interaction-flow.webp",
+        "position": "50% 50%"
+      },
+      {
+        "src": "/projects/highstreet-calamity-vr/sections/04-authoring-pipeline-and-systems/calamity-authoring-spreadsheets.webp",
+        "position": "50% 50%"
+      }
+    ],
+    "platforms": [
+      {
+        "label": "Meta Quest",
+        "icon": "meta",
+        "href": "https://www.meta.com/experiences/highstreet-calamity/9352017631510878/"
+      },
+      {
+        "label": "Unity 6",
+        "icon": "unity"
+      }
+    ]
+  },
+  "supercat": {
+    "main": {
+      "src": "/projects/supercat/gallery/supercat-key-art.webp",
+      "position": "50% 50%"
+    },
+    "thumbnails": [
+      {
+        "src": "/projects/supercat/gallery/supercat-level-design-collage.webp",
+        "position": "50% 50%"
+      },
+      {
+        "src": "/projects/supercat/sections/01-movement-and-combat/supercat-annotated-movement-route.webp",
+        "position": "50% 50%"
+      },
+      {
+        "src": "/projects/supercat/gallery/supercat-character-concept-sheet.webp",
+        "position": "50% 50%"
+      },
+      {
+        "src": "/projects/supercat/gallery/supercat-wallrun-jump-blockout.webp",
+        "position": "50% 50%"
+      }
+    ],
+    "platforms": [
+      {
+        "label": "Unity 6",
+        "icon": "unity"
+      }
+    ]
+  },
+  "bubble-buddy": {
+    "main": {
+      "src": "/projects/bubble-buddy/hero/bubble-buddy-hero-art.webp",
+      "position": "50% 50%"
+    },
+    "thumbnails": [
+      {
+        "src": "/projects/bubble-buddy/sections/04-user-interface-and-animations/bubble-buddy-team-credits.png",
+        "position": "50% 50%"
+      },
+      {
+        "src": "/projects/bubble-buddy/sections/01-game-design-and-balancing/bubble-buddy-arena-gameplay.png",
+        "position": "50% 50%"
+      },
+      {
+        "src": "/projects/bubble-buddy/sections/01-game-design-and-balancing/bubble-buddy-controls-guide.png",
+        "position": "50% 50%"
+      },
+      {
+        "src": "/projects/bubble-buddy/sections/02-enemy-archetypes-and-behaviours/bubble-buddy-enemy-archetypes.png",
+        "position": "50% 50%"
+      }
+    ],
+    "platforms": [
+      {
+        "label": "Unity 6",
+        "icon": "unity"
+      },
+      {
+        "label": "itch.io",
+        "icon": "itchdotio",
+        "href": "https://notperz.itch.io/bubble-buddy"
+      }
+    ]
+  },
+  "lurk": {
+    "main": {
+      "src": "/projects/lurk/hero/lurk-staircase-wordmark-cover.png",
+      "position": "50% 50%"
+    },
+    "thumbnails": [
+      {
+        "src": "/projects/lurk/sections/02-puzzles/lurk-wall-puzzle.webp",
+        "position": "50% 50%"
+      },
+      {
+        "src": "/projects/lurk/sections/03-spacial-effects-and-lighting/lurk-desk-lighting.webp",
+        "position": "50% 50%"
+      },
+      {
+        "src": "/projects/lurk/gallery/lurk-oxygen-camera-view.webp",
+        "position": "50% 50%"
+      },
+      {
+        "src": "/projects/lurk/sections/01-core-loop/lurk-hallway-lighting.webp",
+        "position": "50% 50%"
+      }
+    ],
+    "platforms": [
+      {
+        "label": "Unity 6",
+        "icon": "unity"
+      },
+      {
+        "label": "Steam",
+        "icon": "steam"
+      }
+    ]
+  },
+  "poly-punch-vr": {
+    "main": {
+      "src": "/projects/poly-punch-vr/hero/poly-punch-vr-arcade.webp",
+      "position": "50% 50%"
+    },
+    "thumbnails": [
+      {
+        "src": "",
+        "position": "50% 50%"
+      },
+      {
+        "src": "",
+        "position": "50% 50%"
+      },
+      {
+        "src": "",
+        "position": "50% 50%"
+      },
+      {
+        "src": "",
+        "position": "50% 50%"
+      }
+    ],
+    "platforms": [
+      {
+        "label": "Unity 6",
+        "icon": "unity"
+      },
+      {
+        "label": "Steam",
+        "icon": "steam"
+      }
+    ]
+  },
+  "stick-it": {
+    "main": {
+      "src": "/projects/stick-it/hero/stick-it-hero-art.webp",
+      "position": "50% 50%"
+    },
+    "thumbnails": [
+      {
+        "src": "/projects/stick-it/gallery/stick-it-truck-searchlights.webp",
+        "position": "50% 50%"
+      },
+      {
+        "src": "/projects/stick-it/gallery/stick-it-road-at-night.avif",
+        "position": "50% 50%"
+      },
+      {
+        "src": "/projects/stick-it/gallery/stick-it-greenhouse-at-night.avif",
+        "position": "50% 50%"
+      },
+      {
+        "src": "/projects/stick-it/gallery/stick-it-foggy-yard.avif",
+        "position": "50% 50%"
+      }
+    ],
+    "platforms": [
+      {
+        "label": "Unity 6",
+        "icon": "unity"
+      },
+      {
+        "label": "itch.io",
+        "icon": "itchdotio",
+        "href": "https://knitestudios.itch.io/stick-it"
+      }
+    ]
+  },
+  "bisecthosting": {
+    "main": {
+      "src": "/projects/bisecthosting/hero/bisecthosting-press-kit-hero.webp",
+      "position": "50% 50%"
+    },
+    "thumbnails": [
+      {
+        "src": "/projects/bisecthosting/sections/02-partner-projects/black-friday-sale-banner.png",
+        "position": "50% 50%"
+      },
+      {
+        "src": "/projects/bisecthosting/sections/01-branding-and-press-kits/bisecthosting-brand-guidelines-page.webp",
+        "position": "50% 50%"
+      },
+      {
+        "src": "/projects/bisecthosting/sections/01-branding-and-press-kits/bisecthosting-branding-kits-page.png",
+        "position": "50% 50%"
+      },
+      {
+        "src": "/projects/bisecthosting/gallery/bisecthosting-brand-guidelines-overview.webp",
+        "position": "50% 50%"
+      }
+    ],
+    "platforms": []
+  },
+  "dragoncraft": {
+    "main": {
+      "src": "/projects/dragoncraft/hero/dragoncraft-mountain-key-art.webp",
+      "position": "50% 50%"
+    },
+    "thumbnails": [
+      {
+        "src": "/projects/dragoncraft/gallery/dragoncraft-dragon-at-night.webp",
+        "position": "50% 50%"
+      },
+      {
+        "src": "/projects/dragoncraft/gallery/dragoncraft-courtyard-dragons.webp",
+        "position": "50% 50%"
+      },
+      {
+        "src": "/projects/dragoncraft/gallery/dragoncraft-training-yard.webp",
+        "position": "50% 50%"
+      },
+      {
+        "src": "/projects/dragoncraft/gallery/dragoncraft-key-art-with-logo.webp",
+        "position": "50% 50%"
+      }
+    ],
+    "platforms": [
+      {
+        "label": "CurseForge",
+        "icon": "curseforge",
+        "href": "https://www.curseforge.com/minecraft/modpacks/dragoncraft"
+      }
+    ]
+  },
+  "mythcraft": {
+    "main": {
+      "src": "/projects/mythcraft/hero/mythcraft-temple-key-art.webp",
+      "position": "50% 50%"
+    },
+    "thumbnails": [
+      {
+        "src": "/projects/mythcraft/gallery/mythcraft-autumn-forest.webp",
+        "position": "50% 50%"
+      },
+      {
+        "src": "/projects/mythcraft/gallery/mythcraft-underground-combat.webp",
+        "position": "50% 50%"
+      },
+      {
+        "src": "/projects/mythcraft/gallery/mythcraft-mountain-ridge.webp",
+        "position": "50% 50%"
+      },
+      {
+        "src": "/projects/mythcraft/gallery/mythcraft-ancient-city.webp",
+        "position": "50% 50%"
+      }
+    ],
+    "platforms": [
+      {
+        "label": "CurseForge",
+        "icon": "curseforge",
+        "href": "https://www.curseforge.com/minecraft/modpacks/mythcraft"
+      }
+    ]
+  }
+}

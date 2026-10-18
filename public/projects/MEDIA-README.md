@@ -1,15 +1,11 @@
-# Media authoring folders
+# Project media
 
-Use `public/projects/<project>/hero/`, `gallery/`, and `sections/NN-section-name/`. Put all images AND videos for a section together in that section folder. Banners have their own folder. Main pages have `public/home/`, `public/resume/`, `public/contact/`, and index cards use `public/projects/cards/`.
+Open `D:/Git/perz.dev/MEDIA-REVIEW.html` for the visual review sheet, grouped by page and section, with checkboxes for marking artwork. The sheet references the actual media files; it does not create duplicate thumbnails.
 
-The full folder inventory is `content/portfolio/media-sections.csv`. Empty folders are retained with `.gitkeep`. Case-study sections reflect the current website; unfinished Sidequest folders follow the legacy MDX headings and are marked pending. Pages with no feature sections do not have invented feature folders.
+Every retained raster image has a descriptive subject name. Reused images share one canonical file, including across gallery and section references. Different crops or compositions that contain different content remain separate and are named accordingly. Exact duplicate copies and visually verified alternate-format exports were consolidated.
 
-## Where the unique files are
+Put section images and videos together in `sections/<section>/`. Each folder has a README naming the section and its files. Update `content/portfolio/pages.json` for case studies or `content/projects/*.mdx` for Sidequests after adding files. Files do not publish automatically.
 
-`content/portfolio/unique-media.csv` lists the retained files. Exact duplicate copies have been removed and website references now point to the retained page/section asset. Shared artwork can be referenced by several sections without another physical copy. `content/portfolio/removed-duplicates.json` records each removal; `media-aliases.json` preserves old URLs through server rewrites. Empty section folders remain available for authoring.
+Section clips autoplay muted, loop and have no player controls. Hero reels remain click-to-play. Motion preferences and offscreen visibility pause section clips.
 
-The audit compares file contents, not filenames. Different encodings, crops or resolutions of the same artwork can still appear separately. Reused art in two sections can intentionally share one file reference; it does not need another physical copy.
-
-## Adding a carousel image or video
-
-Place the files in the matching section folder, then update that section's `media` array in `content/portfolio/pages.json`. Images use `src`, `alt`, `fit` and `background`. A video item uses `src` for its poster and `video` for the video file. Multiple items automatically use the section carousel. Keep `sourceHash` when available to trace Figma sources. New files are not automatically displayed just by dropping them in a folder. Legacy/Sidequest content remains in `content/projects/*.mdx` until its final design is implemented.
+`content/portfolio/media-cleanup.json` records the canonical assets and old-to-new names. `unique-media.csv` is the current file/hash inventory. Compressed recovery archives are outside public in `media-source/`.
