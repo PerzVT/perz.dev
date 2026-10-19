@@ -1043,7 +1043,7 @@
       "slug": "highstreet-calamity-vr",
       "figmaNode": "372:1085",
       "title": "Highstreet: Calamity VR",
-      "description": "Highstreet Calamity is a multiplayer roguelike VR game where players fight waves of mobs to reach the end with the boss, earning currency to build their character and enjoy with friends.",
+      "description": "Highstreet Calamity is a multiplayer roguelike VR game where players fight waves of mobs to reach the end with the boss, earning currency to build their character, together with friends.",
       "hero": [
         {
           "src": "/projects/highstreet-calamity-vr/gallery/calamity-party-key-art.webp",
@@ -1165,7 +1165,7 @@
         },
         {
           "src": "/projects/highstreet-calamity-vr/sections/03-multi-tool-ux-and-input-maps/calamity-off-hand-tool-concepts-v2.png",
-          "alt": "Calamity VR off hand tool concepts v2.",
+          "alt": "Calamity VR off-hand tool concepts, second version.",
           "sourceHash": "0a06a5c7f07ee3fefee2aae0cab44f9078322708",
           "fit": "contain",
           "background": "#111418",
@@ -1183,7 +1183,7 @@
         },
         {
           "src": "/projects/highstreet-calamity-vr/sections/03-multi-tool-ux-and-input-maps/calamity-daves-stall-wireframe.webp",
-          "alt": "Calamity VR daves stall wireframe.",
+          "alt": "Calamity VR stall wireframe.",
           "sourceHash": "2ec840fdbf064437eedfcd228f63f7bf917c8ccd",
           "fit": "contain",
           "background": "#111418",
@@ -1255,7 +1255,7 @@
         },
         {
           "src": "/projects/highstreet-calamity-vr/sections/03-multi-tool-ux-and-input-maps/calamity-main-hand-tool-concepts.webp",
-          "alt": "Calamity VR main hand tool concepts.",
+          "alt": "Calamity VR main-hand tool concepts.",
           "sourceHash": "faa469eb394c5074ca4263a7af77af4a4efc727e",
           "fit": "contain",
           "background": "#111418",
@@ -1264,7 +1264,7 @@
         },
         {
           "src": "/projects/highstreet-calamity-vr/sections/02-classes-progression-and-wave-systems/calamity-hero-level-11-20-outfits.webp",
-          "alt": "Calamity VR hero level 11 20 outfits.",
+          "alt": "Calamity VR hero outfits for levels 11 to 20.",
           "sourceHash": "7e81ae4785333423a27d30bfa0aa9922dbb0de3b",
           "fit": "contain",
           "background": "#111418",
@@ -1379,7 +1379,7 @@
         {
           "type": "feature",
           "title": "Multi-tool, UX and input maps",
-          "body": "Designed input maps and coordinated with the design team to achieve accessibility and good UX.\nLed design on decisions regarding the UX and accessibility features.\nLed design on the Multi-tool, our unified interface hub into the game to improve the VR experience for our players.\nLed design and prototype on Daveys Demure Designs, our physical interactive cosmetic system.",
+          "body": "Designed input maps and coordinated with the design team to achieve accessibility and good UX.\nLed design on decisions regarding the UX and accessibility features.\nLed design on the Multi-tool, our unified interface hub into the game to improve the VR experience for our players.\nLed design and prototype on Davey’s Demure Designs, our physical interactive cosmetic system.",
           "media": [
             {
               "src": "/projects/highstreet-calamity-vr/sections/03-multi-tool-ux-and-input-maps/calamity-controller-input-map.webp",
@@ -1448,7 +1448,7 @@
         },
         {
           "type": "outcomes",
-          "title": "Key Skills Applied",
+          "title": "Key skills applied",
           "cards": [
             {
               "title": "Systems design",

@@ -1,14 +1,15 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export type IndexItem = { id: string; title: string };
 
 /** Section links in the left margin, shown once the hero has scrolled away
  *  and marking the section under the reading line. Sections marked
- *  data-full-bleed fill the margin, so the index steps aside over them. */
+ *  data-full-bleed fill the margin, so the index steps aside while one passes behind it. */
 export function SectionIndex({ items }: { items: IndexItem[] }) {
   const [active, setActive] = useState<string | null>(null);
   const [visible, setVisible] = useState(false);
+  const nav = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const targets = items.map(item => document.getElementById(item.id)).filter((el): el is HTMLElement => !!el);
@@ -21,7 +22,9 @@ export function SectionIndex({ items }: { items: IndexItem[] }) {
       const last = targets[targets.length - 1].getBoundingClientRect();
       const current = [...targets].reverse().find(el => el.getBoundingClientRect().top <= line) ?? targets[0];
       setActive(current.id);
-      setVisible((hero ? hero.bottom < window.innerHeight * 0.15 : true) && last.bottom > line && !("fullBleed" in current.dataset));
+      const band = nav.current?.getBoundingClientRect();
+      const behind = band && [...document.querySelectorAll("[data-full-bleed]")].some(el => { const r = el.getBoundingClientRect(); return r.top < band.bottom && r.bottom > band.top; });
+      setVisible((hero ? hero.bottom < window.innerHeight * 0.15 : true) && last.bottom > line && !behind);
     };
     const schedule = () => { if (!frame) frame = requestAnimationFrame(update); };
     update();
@@ -34,7 +37,7 @@ export function SectionIndex({ items }: { items: IndexItem[] }) {
     };
   }, [items]);
 
-  return <nav className="pf-section-index" aria-label="On this page" data-visible={visible}>
+  return <nav ref={nav} className="pf-section-index" aria-label="On this page" data-visible={visible}>
     <p>On this page</p>
     <ol>{items.map(item => <li key={item.id}>
       <a href={`#${item.id}`} aria-current={active === item.id ? "location" : undefined}>{item.title}</a>
