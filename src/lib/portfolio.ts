@@ -29,8 +29,6 @@ export type ExperienceData = {
   body: string;
   period: string;
   logo?: string;
-  /** Projects inside this role. When present the row opens to list them. */
-  projects?: { title: string; href?: string; lines: string[] }[];
 };
 export type ProjectSection =
   | {

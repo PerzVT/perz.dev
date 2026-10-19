@@ -92,8 +92,8 @@ export function Experience({ rows, edit }: { rows: ExperienceData[]; edit?: stri
   const at = (i: number, key: string, value: string) => (edit ? editable(`${edit}/${i}/${key}`, value) : {});
   return (
     <div className="pf-experience">
-      {rows.map((r, i) => {
-        const row = <>
+      {rows.map((r, i) => (
+        <article key={i} className="pf-role">
           {r.logo && (
             <img src={r.logo} alt="" width={44} height={44} loading="lazy" />
           )}
@@ -103,20 +103,8 @@ export function Experience({ rows, edit }: { rows: ExperienceData[]; edit?: stri
             {r.body && <p {...at(i, "body", r.body)}>{r.body}</p>}
           </div>
           <p className="pf-period" {...at(i, "period", r.period)}>{r.period}</p>
-        </>;
-        if (!r.projects?.length) return <article key={i} className="pf-role">{row}</article>;
-        return <details key={i} className="pf-role-group">
-          <summary className="pf-role">{row}<span className="pf-role-toggle" aria-hidden="true"><Icon name="imgIconRight" /></span></summary>
-          <div className="pf-role-projects">
-            {r.projects.map((project, j) => <section key={j} className="pf-role-project">
-              <h4 {...(edit ? editable(`${edit}/${i}/projects/${j}/title`, project.title) : {})}>{project.href ? <Link href={project.href}>{project.title}</Link> : project.title}</h4>
-              <ul className="pf-feature-list" {...(edit ? editable(`${edit}/${i}/projects/${j}/lines`, project.lines) : {})}>
-                {project.lines.map(line => <li key={line}><span aria-hidden="true">✦</span><span>{line}</span></li>)}
-              </ul>
-            </section>)}
-          </div>
-        </details>;
-      })}
+        </article>
+      ))}
     </div>
   );
 }

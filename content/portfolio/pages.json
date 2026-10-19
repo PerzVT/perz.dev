@@ -30,63 +30,14 @@
         "company": "Highstreet",
         "body": "Key contributor on Calamity VR, Echoes of Solera and Oren’s Adventures. Led design for multiple systems and developed internal authoring tools. Led design on UX/UI and defined the interaction language. Assisted with Unity implementation during prototyping.",
         "period": "Dec 2023 – Present",
-        "logo": "/home/experience/highstreet-logo.jpg",
-        "projects": [
-          {
-            "title": "Highstreet: Calamity VR",
-            "href": "/projects/highstreet-calamity-vr",
-            "lines": [
-              "Owned the design for class archetypes, the stats and the elemental system.",
-              "Led the design for the overall user experience, systems design, gesture-casting system and global UI language",
-              "Key contributor to the combat design, meta-progression systems and economy structures.",
-              "Built multiple internal authoring tools including a spreadsheet based authoring pipeline connected in-game data containers which enabled the design team to iterate faster."
-            ]
-          }
-        ]
+        "logo": "/home/experience/highstreet-logo.jpg"
       },
       {
         "role": "Game Designer and Developer",
         "company": "Smooth Brain Games (prev. Knite Studios)",
         "body": "Designed and developed multiple games and prototypes, assisted with level design and systems design. Lead game designer on Supercat, an action platformer built by five full-time developers and over ten contributors, and pitched its vertical slice in Edmonton and Calgary through the Indie Ignition Accelerator. Designed and built the Poly Punch VR prototype on an experimental Meta hand-tracking kit, and designed Lurk and Stick It at Knite Studios.",
         "period": "Sep 2022 – Apr 2025",
-        "logo": "/home/experience/smooth-brain-games-logo.png",
-        "projects": [
-          {
-            "title": "Supercat",
-            "href": "/projects/supercat",
-            "lines": [
-              "Designed a modular movement kit with state-driven combat actions.",
-              "Built threats and challenges that allowed this kit to be utilized fully.",
-              "Blocked out tutorial levels that introduced mechanics through challenge."
-            ]
-          },
-          {
-            "title": "Poly Punch VR",
-            "href": "/projects/poly-punch-vr",
-            "lines": [
-              "Designed the core loop and progression curve for controller-free combat using hand and palm poses.",
-              "Built a functional prototype that uses a variety of hand poses to deal with specific challenges and tied it into a multiplier based score and combo system"
-            ]
-          },
-          {
-            "title": "Lurk",
-            "href": "/projects/lurk",
-            "lines": [
-              "Led design for the core loop which complimented the broader narrative of the game and build mini-games and puzzles which strengthened the premise.",
-              "Designed the puzzle, challenges and the mechanics to integrate with the environment to fit the environmental horror premise.",
-              "Created the level designs, triggers and volumes to affect global effects and lighting elements to play out the narrative beats"
-            ]
-          },
-          {
-            "title": "Stick It",
-            "href": "/projects/stick-it",
-            "lines": [
-              "Designed the stealth loop: detection cones, noise, distraction, and cover rules",
-              "Designed guard AI across patrol, suspicion, and pursuit states",
-              "Ran the team across art, programming, design, and UI on a seven-day deadline"
-            ]
-          }
-        ]
+        "logo": "/home/experience/smooth-brain-games-logo.png"
       },
       {
         "role": "Designer",
@@ -180,7 +131,7 @@
         ],
         "logo": "/contact/banners/kerberus-network-logo.webp",
         "title": "Come build worlds with us.",
-        "body": "",
+        "body": "We're always looking for developers, artists and designers.",
         "label": "Get started",
         "href": "https://discord.gg/draconia",
         "tone": "terracotta"
