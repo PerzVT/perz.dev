@@ -218,9 +218,11 @@ export function AmbientVideo({
         onEnded={() => {
           setPlaying(false);
           setEnded(true);
+          // Without a separate cover image, reloading puts the poster back.
+          if (!posterMedia) ref.current?.load();
         }}
       />
-      {posterMedia && !started && <MediaImage className="pf-video-poster" media={posterMedia} alt="" priority />}
+      {posterMedia && (!started || ended) && <MediaImage className="pf-video-poster" media={posterMedia} alt="" priority />}
       <button
         className="pf-button pf-play"
         onClick={play}

@@ -17,6 +17,11 @@ import { editable, editableList } from "@/lib/editable";
 
 const EDITING = process.env.NODE_ENV === "development";
 
+/** Copy marks names (studios, programs, places) as **name**; they render in the accent colour. */
+export function Rich({ text }: { text: string }) {
+  const parts = text.split(/\*\*(.+?)\*\*/);
+  return <>{parts.map((part, i) => i % 2 ? <strong key={i} className="pf-name">{part}</strong> : part)}</>;
+}
 export function Paragraphs({ text }: { text: string }) {
   return (
     <>
@@ -25,7 +30,7 @@ export function Paragraphs({ text }: { text: string }) {
         .filter(Boolean)
         .map((p, i) => (
           <p key={i} className="pf-prose">
-            {p}
+            <Rich text={p} />
           </p>
         ))}
     </>
@@ -102,7 +107,7 @@ export function Experience({ rows, edit }: { rows: ExperienceData[]; edit?: stri
           <div>
             <h3 {...at(i, "role", r.role)}>{r.role}</h3>
             <p className="pf-company" {...at(i, "company", r.company)}>{r.company}</p>
-            {r.body && <p {...at(i, "body", r.body)}>{r.body}</p>}
+            {r.body && <p {...at(i, "body", r.body)}><Rich text={r.body} /></p>}
           </div>
           <p className="pf-period" {...at(i, "period", r.period)}>{r.period}</p>
         </article>
@@ -169,7 +174,7 @@ export function CaseStudyBody({ project: p }: { project: CaseStudy }) {
           <h2>Contributions</h2>
           <ul className="pf-contributions" {...editable(`${base}/contributions`, p.contributions)}>
             {p.contributions.map((c, i) => (
-              <li key={i}><span aria-hidden="true">✦</span><span>{c.replace(/^[•·✦]\s*/, "")}</span></li>
+              <li key={i}><span aria-hidden="true">✦</span><span><Rich text={c.replace(/^[•·✦]\s*/, "")} /></span></li>
             ))}
           </ul>
         </div>
@@ -217,7 +222,7 @@ export function CaseStudyBody({ project: p }: { project: CaseStudy }) {
                 <div {...editable(`${base}/sections/${i}/body`, s.body)}>{s.body.includes("\n") ? (
                   <ul className="pf-feature-list">
                     {s.body.split(/\n+/).map(line => line.trim()).filter(Boolean).map((line, index) => (
-                      <li key={index}><span aria-hidden="true">✦</span><span>{line.replace(/^[•·✦]\s*/, "")}</span></li>
+                      <li key={index}><span aria-hidden="true">✦</span><span><Rich text={line.replace(/^[•·✦]\s*/, "")} /></span></li>
                     ))}
                   </ul>
                 ) : <Paragraphs text={s.body} />}</div>

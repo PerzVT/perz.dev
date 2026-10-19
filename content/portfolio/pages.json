@@ -35,7 +35,7 @@
       {
         "role": "Game Designer and Developer",
         "company": "Smooth Brain Games (prev. Knite Studios)",
-        "body": "Designed and developed multiple games and prototypes, assisted with level design and systems design. Lead game designer on Supercat, an action platformer built by five full-time developers and over ten contributors, and pitched its vertical slice in Edmonton and Calgary through the Indie Ignition Accelerator. Designed and built the Poly Punch VR prototype on an experimental Meta hand-tracking kit, and designed Lurk and Stick It at Knite Studios.",
+        "body": "Designed and developed multiple games and prototypes, assisted with level design and systems design. Lead game designer on Supercat, an action platformer built by five full-time developers and over ten contributors, and pitched its vertical slice in **Edmonton** and **Calgary** through the **Indie Ignition Accelerator**. Designed and built the Poly Punch VR prototype on an experimental Meta hand-tracking kit, and designed Lurk and Stick It at Knite Studios.",
         "period": "Sep 2022 – Apr 2025",
         "logo": "/home/experience/smooth-brain-games-logo.png"
       },
@@ -158,7 +158,7 @@
       {
         "role": "Game Designer and Developer",
         "company": "Smooth Brain Games (prev. Knite Studios)",
-        "body": "Designed and developed multiple games and prototypes, assisted with level design and systems design. Lead game designer on Supercat, an action platformer built by five full-time developers and over ten contributors, and pitched its vertical slice in Edmonton and Calgary through the Indie Ignition Accelerator. Designed and built the Poly Punch VR prototype on an experimental Meta hand-tracking kit, and designed Lurk and Stick It at Knite Studios.",
+        "body": "Designed and developed multiple games and prototypes, assisted with level design and systems design. Lead game designer on Supercat, an action platformer built by five full-time developers and over ten contributors, and pitched its vertical slice in **Edmonton** and **Calgary** through the **Indie Ignition Accelerator**. Designed and built the Poly Punch VR prototype on an experimental Meta hand-tracking kit, and designed Lurk and Stick It at Knite Studios.",
         "period": "Sep 2022 – Apr 2025",
         "logo": "/home/experience/smooth-brain-games-logo.png"
       },
@@ -460,7 +460,7 @@
       "slug": "supercat",
       "figmaNode": "398:2458",
       "title": "Supercat",
-      "description": "Supercat is an action platformer where the player uses fluid movement combined with combat moves that complement the flow state to traverse levels and take down enemies.",
+      "description": "Supercat is an action platformer about fluid movement. Movement and combat share one set of moves, so players chain wall-runs, pounces and attacks into one flow to cross levels and take down enemies.",
       "hero": [
         {
           "src": "/projects/supercat/gallery/supercat-cover-logo.webp",
@@ -473,9 +473,9 @@
       ],
       "video": "/projects/supercat/hero/supercat-trailer.mp4",
       "contributions": [
-        "Designed a modular movement kit with state-driven combat actions.",
-        "Built threats and challenges that allowed this kit to be utilized fully.",
-        "Blocked out tutorial levels that introduced mechanics through challenge."
+        "Designed a modular movement kit with combat actions that change with the player's state.",
+        "Built the threats and challenges that push players to use the whole kit.",
+        "Blocked out tutorial levels that teach each mechanic through a challenge."
       ],
       "facts": [
         {
@@ -519,6 +519,112 @@
           "background": "#111418",
           "width": 1599,
           "height": 907
+        },
+        {
+          "src": "/projects/supercat/sections/01-movement-and-combat/supercat-annotated-movement-route.webp",
+          "alt": "Supercat level blockout with arrows connecting a wall run, wall jump, slam, pounce, ramp hop and barrel slash into one movement route.",
+          "sourceHash": "3887dfd6d4a291084778e22a828eb06a91cc89b0",
+          "fit": "cover",
+          "background": "#171c20",
+          "width": 1256,
+          "height": 708
+        },
+        {
+          "src": "/projects/supercat/sections/01-movement-and-combat/supercat-wallrun-blockout.webp",
+          "alt": "Supercat wallrun blockout.",
+          "sourceHash": "1f904b812672ad93dfc8a6165b95ffbe97571c1f",
+          "fit": "cover",
+          "background": "#111418",
+          "width": 1672,
+          "height": 941
+        },
+        {
+          "src": "/projects/supercat/sections/01-movement-and-combat/supercat-wallrun-jump-blockout.webp",
+          "alt": "Supercat wallrun jump blockout.",
+          "sourceHash": "7efefc7b3f08f1dfe872bd737a9d12e76eef2ddc",
+          "fit": "cover",
+          "background": "#111418",
+          "width": 1672,
+          "height": 941
+        },
+        {
+          "src": "/projects/supercat/sections/01-movement-and-combat/supercat-ramp-jump-blockout.webp",
+          "alt": "Supercat ramp jump blockout.",
+          "sourceHash": "a8e5ecfd8fd7e83131c79bcd3e837c64c1d9709e",
+          "fit": "cover",
+          "background": "#111418",
+          "width": 1672,
+          "height": 941
+        },
+        {
+          "src": "/projects/supercat/sections/02-weapons-and-player-state/supercat-character-concept-sheet.webp",
+          "alt": "Supercat character and mechanical claw concept sheet, created by Evalina Javorsky",
+          "fit": "contain",
+          "background": "#ffffff",
+          "width": 1024,
+          "height": 576
+        },
+        {
+          "src": "/projects/supercat/sections/02-weapons-and-player-state/supercat-action-storyboard.webp",
+          "alt": "Supercat first-person movement and claw attack storyboard",
+          "fit": "contain",
+          "background": "#ffffff",
+          "width": 1024,
+          "height": 576
+        },
+        {
+          "src": "/projects/supercat/sections/03-teaching-through-level-design/supercat-energy-trap-stairwell.webp",
+          "alt": "Supercat energy trap stairwell.",
+          "sourceHash": "047891972e19ec658accdd345c08d67983a31507",
+          "fit": "cover",
+          "background": "#171c20",
+          "width": 1558,
+          "height": 857
+        },
+        {
+          "src": "/projects/supercat/sections/03-teaching-through-level-design/supercat-reactor-room.webp",
+          "alt": "Supercat reactor room.",
+          "sourceHash": "c9ecb131a9a948e8c1d9857acabc777fefb5ddeb",
+          "fit": "cover",
+          "background": "#111418",
+          "width": 1586,
+          "height": 912
+        },
+        {
+          "src": "/projects/supercat/sections/03-teaching-through-level-design/supercat-industrial-catwalk.webp",
+          "alt": "Supercat industrial catwalk.",
+          "sourceHash": "0472d942f54211680bf5d6c3c7dfff164b94ecfd",
+          "fit": "cover",
+          "background": "#111418",
+          "width": 1558,
+          "height": 882
+        },
+        {
+          "src": "/projects/supercat/sections/03-teaching-through-level-design/supercat-industrial-walkway.webp",
+          "alt": "Supercat industrial walkway.",
+          "sourceHash": "36bdb36eb11d08bedec3a593961aed7b6b8e7594",
+          "fit": "cover",
+          "background": "#111418",
+          "width": 1642,
+          "height": 836
+        },
+        {
+          "src": "/projects/supercat/sections/03-teaching-through-level-design/supercat-lower-catwalk.webp",
+          "alt": "Supercat lower catwalk.",
+          "sourceHash": "fcddd0581ef14daf22d97b5e13dc93ebe34d235e",
+          "fit": "cover",
+          "background": "#111418",
+          "width": 1563,
+          "height": 873
+        },
+        {
+          "src": "/projects/supercat/sections/03-teaching-through-level-design/supercat-level-design-collage.webp",
+          "alt": "Supercat level-design studies combining blockout views and movement spaces.",
+          "sourceHash": "5780a3e6306065555a7e9588a4d5c51eddda03df",
+          "fit": "cover",
+          "background": "#171c20",
+          "width": 1024,
+          "height": 751
         }
       ],
       "initialSlide": 0,
@@ -526,7 +632,7 @@
         {
           "type": "feature",
           "title": "Movement and combat",
-          "body": "Wall-running, pouncing, slide-jumps, ramp hops and other mobility tools shared an interwoven surface with combat, which helped combat feel fluid. The goal was to achieve a flow state during combat.",
+          "body": "Wall-running, pouncing, slide-jumps and ramp hops share one surface with combat, so a move that carries you across a gap also sets up an attack. The goal was a flow state where moving and fighting feel like one action.",
           "media": [
             {
               "src": "/projects/supercat/sections/01-movement-and-combat/supercat-annotated-movement-route.webp",
@@ -570,7 +676,7 @@
         {
           "type": "feature",
           "title": "Weapons and player state",
-          "body": "The same weapon changes behavior while sliding, airborne or grounded. This let me build momentum-based fighting combos that provided different uses for each weapon without overloading players with more inputs.",
+          "body": "Each weapon behaves differently while sliding, airborne or grounded. That gave every weapon three uses from the same input, so players build momentum-based combos without learning more buttons.",
           "media": [
             {
               "src": "/projects/supercat/sections/02-weapons-and-player-state/supercat-character-concept-sheet.webp",
@@ -594,7 +700,7 @@
         {
           "type": "feature",
           "title": "Teaching through level design",
-          "body": "I used blockouts to introduce mechanics through the space itself, then gave players opportunities to try out different paths to achieve the goal by combining them in combat. There was always the recommended path, but curiosity was rewarded.",
+          "body": "I used blockouts to teach each mechanic through the space itself, then opened up routes that combine them in combat. There is always a recommended path, and curiosity pays off.",
           "media": [
             {
               "src": "/projects/supercat/sections/03-teaching-through-level-design/supercat-energy-trap-stairwell.webp",
@@ -659,17 +765,17 @@
           "cards": [
             {
               "title": "Project management",
-              "body": "This project included a team of 5 full-time devs and over 10 contributors and commissioned artists.\n\nIt helped me learn how to plan, interact and coordinate between disciplines with talented artists, devs and designers to reach our goal with a first-principles approach.",
+              "body": "Supercat had five full-time developers and more than ten contributors and commissioned artists. I planned the work across art, code and design, and kept every discipline pointed at the same goal from first principles.",
               "figure": "project-management"
             },
             {
               "title": "Pitching to publishers",
-              "body": "This project allowed me a chance to work with Indie Ignition Accelerator, pitch our vertical slice in Edmonton and Calgary at game fests and learn about the latter half of game development in detail.\n\nGetting a game completed is a challenge but there is a lot more that goes into releasing it. The economics and logistics behind it are something I would have never learnt without this project.",
+              "body": "Through the **Indie Ignition Accelerator** I pitched our vertical slice at game festivals in **Edmonton** and **Calgary**.\n\nFinishing a game is one challenge and releasing it is another. The project taught me the economics and logistics of publishing, which I could not have learned any other way.",
               "figure": "pitching"
             },
             {
               "title": "Team leadership",
-              "body": "As a multi-disciplinary designer, this project tested my leadership skills to the max. I excel at communicating between developers, artists and designers to understand and help meet their needs to make sure production goes uninterrupted. \n\nThe massive team size combined with a huge pool of outside collaborators made leadership a real challenge, which I was happy to have faced early in my career as it taught me a lot.",
+              "body": "As lead designer I was the link between developers, artists and designers: I learned what each of them needed and made sure they got it, so production kept moving.\n\nLeading a team this size, with a large pool of outside collaborators, was a real challenge this early in my career, and it taught me a lot.",
               "figure": "team-leadership"
             }
           ]
