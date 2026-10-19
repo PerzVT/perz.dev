@@ -69,7 +69,7 @@ export default function Resume() {
         </section>}
         <section className="pf-container pf-section">
           <h2>Experience</h2>
-          <Experience rows={r.experience} />
+          <Experience rows={r.experience} edit="resume/experience" />
         </section>
         <section className="pf-container pf-section">
           <h2>Skills</h2>
@@ -84,7 +84,7 @@ export default function Resume() {
         </section>
         <section className="pf-container pf-section">
           <h2>Education</h2>
-          <Experience rows={r.education} />
+          <Experience rows={r.education} edit="resume/education" />
         </section>
         <section className="pf-container pf-section pf-trackers" id="modpacks" aria-labelledby="modpacks-heading">
           <h2 id="modpacks-heading">Modpacks</h2>

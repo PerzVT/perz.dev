@@ -10,6 +10,7 @@ import {
 import { FeaturedCarousel } from "@/components/portfolio/featured-carousel";
 import { portfolio } from "@/lib/portfolio";
 import { featuredProjects } from "@/lib/featured-layout";
+import { editable } from "@/lib/editable";
 import type { Metadata } from "next";
 
 // Carried here rather than on the root layout, where it would also label the
@@ -22,7 +23,7 @@ export default function Home() {
     <>
       <SiteNav />
       <main id="main-content" className="pf-page pf-home">
-        <Hero title={h.title} images={h.hero} description={h.intro} action={{ href: "/contact", label: "Get in touch" }} />
+        <Hero title={h.title} images={h.hero} description={h.intro} action={{ href: "/contact", label: "Get in touch" }} edit={{ title: "home/title", description: "home/intro" }} />
         <section className="pf-section" id="work">
           <div className="pf-container">
             <h2>Featured work</h2>
@@ -32,8 +33,8 @@ export default function Home() {
         <section className="pf-section pf-about">
           <div className="pf-container pf-about-grid">
             <div>
-              <h2>{h.about.title}</h2>
-              <Paragraphs text={h.about.body} />
+              <h2 {...editable("home/about/title", h.about.title)}>{h.about.title}</h2>
+              <div {...editable("home/about/body", h.about.body)}><Paragraphs text={h.about.body} /></div>
             </div>
             <img
               className="pf-about-photo"
@@ -45,10 +46,10 @@ export default function Home() {
         </section>
         <section className="pf-container pf-section">
           <h2>Experience</h2>
-          <Experience rows={h.experience} />
+          <Experience rows={h.experience} edit="home/experience" />
         </section>
         <Recommendations />
-        <Banners items={h.banners} />
+        <Banners items={h.banners} edit="home/banners" />
       </main>
       <SiteFooter />
     </>

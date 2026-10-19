@@ -38,12 +38,15 @@ export function Hero({
   images,
   video,
   action,
+  edit,
 }: {
   title: string;
   description?: string;
   images: Media[];
   video?: string;
   action?: { href: string; label: string };
+  /** Content paths for the local editor: where the title and description live. */
+  edit?: { title?: string; description?: string };
 }) {
   return (
     <header className="pf-hero" data-video={video ? "" : undefined} style={{ "--hero-art-ratio": images[0]?.width && images[0]?.height ? images[0].width / images[0].height : 16 / 9 } as CSSProperties}>
@@ -69,8 +72,8 @@ export function Hero({
       {images.slice(1).map((media, i) => <img key={i} className="pf-hero-mobile-logo" src={media.src} alt="" />)}
       </div>
       <div className="pf-container pf-hero-copy">
-        <h1>{title}</h1>
-        {description && <p>{description}</p>}
+        <h1 {...(edit?.title ? editable(edit.title, title) : {})}>{title}</h1>
+        {description && <p {...(edit?.description ? editable(edit.description, description) : {})}>{description}</p>}
         {action && <div className="pf-actions pf-hero-actions"><Link className="pf-button" href={action.href}><Icon name="imgIconArrow" />{action.label}</Link></div>}
       </div>
     </header>
@@ -85,7 +88,8 @@ export function Skills({ tags }: { tags: string[] }) {
     </ul>
   );
 }
-export function Experience({ rows }: { rows: ExperienceData[] }) {
+export function Experience({ rows, edit }: { rows: ExperienceData[]; edit?: string }) {
+  const at = (i: number, key: string, value: string) => (edit ? editable(`${edit}/${i}/${key}`, value) : {});
   return (
     <div className="pf-experience">
       {rows.map((r, i) => (
@@ -94,11 +98,11 @@ export function Experience({ rows }: { rows: ExperienceData[] }) {
             <img src={r.logo} alt="" width={44} height={44} loading="lazy" />
           )}
           <div>
-            <h3>{r.role}</h3>
-            <p className="pf-company">{r.company}</p>
-            {r.body && <p>{r.body}</p>}
+            <h3 {...at(i, "role", r.role)}>{r.role}</h3>
+            <p className="pf-company" {...at(i, "company", r.company)}>{r.company}</p>
+            {r.body && <p {...at(i, "body", r.body)}>{r.body}</p>}
           </div>
-          <p className="pf-period">{r.period}</p>
+          <p className="pf-period" {...at(i, "period", r.period)}>{r.period}</p>
         </article>
       ))}
     </div>
@@ -106,8 +110,9 @@ export function Experience({ rows }: { rows: ExperienceData[] }) {
 }
 /** Banners use the design kit's art tile: game art under a tone wash and a
  *  bright rim, and the whole tile is one link, so its action is a label. */
-export function Banners({ items }: { items: BannerData[] }) {
+export function Banners({ items, edit }: { items: BannerData[]; edit?: string }) {
   if (!items.length) return null;
+  const at = (i: number, key: string, value: string) => (edit ? editable(`${edit}/${i}/${key}`, value) : {});
   return (
     <section className="pf-container pf-banners">
       {items.map((b, i) => {
@@ -119,9 +124,9 @@ export function Banners({ items }: { items: BannerData[] }) {
           <div className="pf-banner-copy">
             {b.images.length === 2 && <img className="pf-banner-mobile-logo" src={b.images[1].src} alt="" loading="lazy" />}
             {b.logo && <img className="pf-banner-logo" src={b.logo} alt="" loading="lazy" />}
-            {b.title && <h3>{b.title}</h3>}
-            {b.body && <p>{b.body}</p>}
-            {b.href && <span className="pf-art-tile-action"><Icon name="imgIconArrow" />{b.label || "View project"}</span>}
+            {b.title && <h3 {...at(i, "title", b.title)}>{b.title}</h3>}
+            {b.body && <p {...at(i, "body", b.body)}>{b.body}</p>}
+            {b.href && <span className="pf-art-tile-action"><Icon name="imgIconArrow" /><span {...(b.label ? at(i, "label", b.label) : {})}>{b.label || "View project"}</span></span>}
           </div>
         </>;
         return b.href
@@ -181,7 +186,7 @@ export function CaseStudyBody({ project: p }: { project: CaseStudy }) {
   if (locked) {
     return (
       <>
-        <Hero title={p.title} images={p.hero} video={p.video} />
+        <Hero title={p.title} images={p.hero} video={p.video} edit={{ title: `${base}/title` }} />
         {overview}
         <LockedPreview title={p.title} teaser={gallery || undefined}
           primary={next ? { href: `/projects/${next.slug}`, label: `Next project: ${next.title}` } : { href: "/#work", label: "All projects" }}
@@ -191,7 +196,7 @@ export function CaseStudyBody({ project: p }: { project: CaseStudy }) {
   }
   return (
     <>
-      <Hero title={p.title} images={p.hero} video={p.video} />
+      <Hero title={p.title} images={p.hero} video={p.video} edit={{ title: `${base}/title` }} />
       {overview}
       {contents.length >= 3 && <SectionIndex items={[{ id: "project-overview", title: "Overview" }, ...(p.gallery.length > 0 ? [{ id: "project-gallery", title: "Gallery" }] : []), ...contents]} />}
       {gallery || galleryStrip}
@@ -251,7 +256,7 @@ export function CaseStudyBody({ project: p }: { project: CaseStudy }) {
           </section>
         ),
       )}
-      <Banners items={p.banners} />
+      <Banners items={p.banners} edit={`${base}/banners`} />
       <nav className="pf-container pf-section pf-project-navigation" aria-label="Project navigation"><Link className="pf-outline" href="/#work">All projects</Link>{next && <Link className="pf-button" href={`/projects/${next.slug}`}>Next project: {next.title}</Link>}</nav>
     </>
   );
