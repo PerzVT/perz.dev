@@ -491,7 +491,7 @@
           "value": "Unity 6 · PC"
         },
         {
-          "label": "Period",
+          "label": "Duration",
           "value": "August to December 2024"
         }
       ],
@@ -655,19 +655,22 @@
         },
         {
           "type": "outcomes",
-          "title": "",
+          "title": "Key skills applied",
           "cards": [
             {
               "title": "Project management",
-              "body": "This project included a team of 5 full-time devs and over 10 contributors and commissioned artists.\n\nIt helped me learn how to plan, interact and coordinate between disciplines with talented artists, devs and designers to reach our goal with a first-principles approach."
+              "body": "This project included a team of 5 full-time devs and over 10 contributors and commissioned artists.\n\nIt helped me learn how to plan, interact and coordinate between disciplines with talented artists, devs and designers to reach our goal with a first-principles approach.",
+              "figure": "project-management"
             },
             {
               "title": "Pitching to publishers",
-              "body": "This project allowed me a chance to work with Indie Ignition Accelerator, pitch our vertical slice in Edmonton and Calgary at game fests and learn about the latter half of game development in detail.\n\nGetting a game completed is a challenge but there is a lot more that goes into releasing it. The economics and logistics behind it are something I would have never learnt without this project."
+              "body": "This project allowed me a chance to work with Indie Ignition Accelerator, pitch our vertical slice in Edmonton and Calgary at game fests and learn about the latter half of game development in detail.\n\nGetting a game completed is a challenge but there is a lot more that goes into releasing it. The economics and logistics behind it are something I would have never learnt without this project.",
+              "figure": "pitching"
             },
             {
               "title": "Team leadership",
-              "body": "As a multi-disciplinary designer, this project tested my leadership skills to the max. I excel at communicating between developers, artists and designers to understand and help meet their needs to make sure production goes uninterrupted. \n\nThe massive team size combined with a huge pool of outside collaborators made leadership a real challenge, which I was happy to have faced early in my career as it taught me a lot."
+              "body": "As a multi-disciplinary designer, this project tested my leadership skills to the max. I excel at communicating between developers, artists and designers to understand and help meet their needs to make sure production goes uninterrupted. \n\nThe massive team size combined with a huge pool of outside collaborators made leadership a real challenge, which I was happy to have faced early in my career as it taught me a lot.",
+              "figure": "team-leadership"
             }
           ]
         }
@@ -711,7 +714,7 @@
           "value": "Adobe CC\nFigma\nAseprite\nMinecraft"
         },
         {
-          "label": "Period",
+          "label": "Duration",
           "value": "Apr 2022 – Dec 2023"
         }
       ],
@@ -1968,7 +1971,7 @@
           "value": "Unity 6 · PC (Steam)"
         },
         {
-          "label": "Period",
+          "label": "Duration",
           "value": "Aug 2024 – Dec 2024"
         }
       ],
@@ -2407,7 +2410,7 @@
           "value": "Unity 6 · VR · PC (Steam)"
         },
         {
-          "label": "Period",
+          "label": "Duration",
           "value": "Jun 2024 – Jul 2024"
         }
       ],
@@ -2460,7 +2463,7 @@
           "value": "Unity 6 · PC (itch.io)"
         },
         {
-          "label": "Period",
+          "label": "Duration",
           "value": "Aug 2024 – Dec 2024"
         }
       ],
