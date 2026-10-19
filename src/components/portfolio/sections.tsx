@@ -17,10 +17,15 @@ import { editable, editableList } from "@/lib/editable";
 
 const EDITING = process.env.NODE_ENV === "development";
 
-/** Copy marks names (studios, programs, places) as **name**; they render in the accent colour. */
+/** Copy marks names (studios, programs, places) as **name**, shown in the accent colour, and links as [text](url). */
 export function Rich({ text }: { text: string }) {
-  const parts = text.split(/\*\*(.+?)\*\*/);
-  return <>{parts.map((part, i) => i % 2 ? <strong key={i} className="pf-name">{part}</strong> : part)}</>;
+  return <>{text.split(/(\*\*.+?\*\*|\[[^\]]+\]\([^)\s]+\))/).map((part, i) => {
+    const name = part.match(/^\*\*(.+)\*\*$/);
+    if (name) return <strong key={i} className="pf-name">{name[1]}</strong>;
+    const link = part.match(/^\[([^\]]+)\]\(([^)\s]+)\)$/);
+    if (link) return <a key={i} href={link[2]}>{link[1]}</a>;
+    return part;
+  })}</>;
 }
 export function Paragraphs({ text }: { text: string }) {
   return (

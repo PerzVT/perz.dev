@@ -17,46 +17,46 @@
       }
     ],
     "title": "Percy",
-    "intro": "I'm a Game Designer and Developer who specializes in user experience and systems design with professional experience building PC and VR games.",
+    "intro": "I'm a multidisciplinary game designer specializing in VR, with systems and UX design at the core of my work.",
     "video": "/home/hero/percy-portfolio-reel.mp4",
     "about": {
       "title": "About me",
-      "body": "Percy is a game designer and developer based in Calgary, Alberta. He believes in subtractive design and the power of simplicity in systems.\n\nHe focuses on clear, straightforward goals that retain players through a strong engaging core loop with a focus towards rewarding design thru data and systems that provides a fair challenge.\n\nHe enjoys breaking complex ideas down into clean, functional experiences, always aiming for clarity in communication and design. Outside of work, he is passionate about modding games and reverse engineering, and contributes to and maintains multiple active projects.",
+      "body": "I'm a game designer and developer based in Calgary, Alberta. I design by subtraction: simple systems, clear goals and a strong core loop that keeps players coming back.\n\nI tune with data so the challenge stays fair and rewarding, and I break complex ideas down into clean, functional experiences, with clarity in both communication and design.\n\nOutside of work I mod and reverse engineer games, and I build and maintain several active projects on [CurseForge](https://www.curseforge.com/members/perzvt/projects) and [GitHub](https://github.com/PerzVT).",
       "image": "/home/about/percy-bubble-buddy-presentation.webp"
     },
     "experience": [
       {
         "role": "Senior Game Designer",
         "company": "Highstreet",
-        "body": "Key contributor on Calamity VR, Echoes of Solera and Oren’s Adventures. Led design for multiple systems and developed internal authoring tools. Led design on UX/UI and defined the interaction language. Assisted with Unity implementation during prototyping.",
+        "body": "Key contributor on Calamity VR, Echoes of Solera and Oren’s Adventures. Led design for core systems and UX/UI, defined the interaction language and built the design team’s internal authoring tools.",
         "period": "Dec 2023 – Present",
         "logo": "/home/experience/highstreet-logo.jpg"
       },
       {
         "role": "Game Designer and Developer",
         "company": "Smooth Brain Games (prev. Knite Studios)",
-        "body": "Designed and developed multiple games and prototypes, assisted with level design and systems design. Lead game designer on Supercat, an action platformer built by five full-time developers and over ten contributors, and pitched its vertical slice in **Edmonton** and **Calgary** through the **Indie Ignition Accelerator**. Designed and built the Poly Punch VR prototype on an experimental Meta hand-tracking kit, and designed Lurk and Stick It at Knite Studios.",
+        "body": "Lead game designer on Supercat, which I pitched through the **Indie Ignition Accelerator**. Designed and built prototypes including Poly Punch VR, and designed Lurk and Stick It at Knite Studios.",
         "period": "Sep 2022 – Apr 2025",
         "logo": "/home/experience/smooth-brain-games-logo.png"
       },
       {
         "role": "Designer",
         "company": "BisectHosting",
-        "body": "Designed product and content for brand partners, campaigns, CurseForge projects, in-game assets, major events and company identity. Built press and partner kits, and designed partner work that ran on CurseForge, Twitch, Modrinth and Lunar Client, used in programs with GamersOutreach, Project Hope and Tiltify. Also designed for Meloncube Hosting and Bisect Studios.",
+        "body": "Designed company identity, campaigns, major events, in-game assets, and press and partner kits. Also designed for Meloncube Hosting and Bisect Studios.",
         "period": "Apr 2022 – Dec 2023",
         "logo": "/home/experience/bisecthosting-avatar.jpg"
       },
       {
         "role": "Graphic Designer",
         "company": "Sennovate",
-        "body": "Designed Campaign and product design for a B2B security platform. Assisted with content strategy and production.",
+        "body": "Designed campaigns and product visuals for a B2B security platform.",
         "period": "Jan 2022 – Mar 2022",
         "logo": "/home/experience/sennovate-logo.jpg"
       },
       {
         "role": "Senior Graphic Designer",
         "company": "Whiteboard Studios",
-        "body": "Led branding and motion design campaigns for mid-market and enterprise clients, mostly colleges, universities and companies. Assisted with art direction and production.",
+        "body": "Led branding and motion design campaigns, and assisted with art direction and production.",
         "period": "Jan 2020 – Jan 2021",
         "logo": "/home/experience/whiteboard-games-logo.png"
       }
@@ -165,21 +165,21 @@
       {
         "role": "Designer",
         "company": "BisectHosting",
-        "body": "Designed product and content for brand partners, campaigns, CurseForge projects, in-game assets, major events and company identity. Built press and partner kits, and designed partner work that ran on CurseForge, Twitch, Modrinth and Lunar Client, used in programs with GamersOutreach, Project Hope and Tiltify. Also designed for Meloncube Hosting and Bisect Studios.",
+        "body": "Designed company identity, campaigns, major events, in-game assets, and press and partner kits. Also designed for Meloncube Hosting and Bisect Studios.",
         "period": "Apr 2022 – Dec 2023",
         "logo": "/home/experience/bisecthosting-avatar.jpg"
       },
       {
         "role": "Graphic Designer",
         "company": "Sennovate",
-        "body": "Designed Campaign and product design for a B2B security platform. Assisted with content strategy and production.",
+        "body": "Designed campaigns and product visuals for a B2B security platform.",
         "period": "Jan 2022 – Mar 2022",
         "logo": "/home/experience/sennovate-logo.jpg"
       },
       {
         "role": "Senior Graphic Designer",
         "company": "Whiteboard Studios",
-        "body": "Led branding and motion design campaigns for mid-market and enterprise clients, mostly colleges, universities and companies. Assisted with art direction and production.",
+        "body": "Led branding and motion design campaigns, and assisted with art direction and production.",
         "period": "Jan 2020 – Jan 2021",
         "logo": "/home/experience/whiteboard-games-logo.png"
       }
