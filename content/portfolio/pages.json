@@ -1043,7 +1043,7 @@
       "slug": "highstreet-calamity-vr",
       "figmaNode": "372:1085",
       "title": "Highstreet: Calamity VR",
-      "description": "Highstreet Calamity is a multiplayer rogue-like VR game, where the players fight waves of mobs to reach the end with the boss, earning currency to build their character and enjoy with friends.",
+      "description": "Highstreet Calamity is a multiplayer roguelike VR game where players fight waves of mobs to reach the end with the boss, earning currency to build their character and enjoy with friends.",
       "hero": [
         {
           "src": "/projects/highstreet-calamity-vr/gallery/calamity-party-key-art.webp",
@@ -1058,10 +1058,10 @@
       "video": "/projects/highstreet-calamity-vr/hero/highstreet-calamity-vr-trailer.mp4",
       "url": "https://www.meta.com/experiences/highstreet-calamity/9352017631510878/",
       "contributions": [
-        "Owned the design for class archetypes, the stats and the elemental system. ",
-        "Led the design for the overall user experience, systems design, gesture-casting system and global UI language",
+        "Owned the design for class archetypes, the stats and the elemental system.",
+        "Led the design for the overall user experience, systems design, gesture-casting system and global UI language.",
         "Key contributor to the combat design, meta-progression systems and economy structures.",
-        "Built multiple internal authoring tools including a spreadsheet based authoring pipeline connected in-game data containers which enabled the design team to iterate faster."
+        "Built multiple internal authoring tools including a spreadsheet-based authoring pipeline connected to in-game data containers which enabled the design team to iterate faster."
       ],
       "facts": [
         {
@@ -1074,7 +1074,7 @@
         },
         {
           "label": "Development",
-          "value": "Unity 6 · DOTS · VR "
+          "value": "Unity 6 · DOTS · VR"
         },
         {
           "label": "Duration",
@@ -1084,9 +1084,9 @@
       "skills": [
         "Game design",
         "Systems design",
-        "User Experience Design",
-        "Multiplayer Systems",
-        "Combat Design",
+        "User experience design",
+        "Multiplayer systems",
+        "Combat design",
         "Unity 6",
         "DOTS"
       ],
@@ -1303,8 +1303,8 @@
       "sections": [
         {
           "type": "feature",
-          "title": "Gesture-casting and Ability Design",
-          "body": "Designed in-game abilities and a gesture based casting system to cast them.\nDesigned an Authoring tool to allow recording of gestures at runtime and curated gestures based on natural fluid motions within the VR space and real life combat motion studies.\nCreated internal systems to ensure fluid testing and handoff’s, worked with engineering closely to prototype and refine the system.",
+          "title": "Gesture casting and ability design",
+          "body": "Designed in-game abilities and a gesture-based casting system to cast them.\nDesigned an authoring tool to allow recording of gestures at runtime and curated gestures based on natural fluid motions within the VR space and real life combat motion studies.\nCreated internal systems to ensure fluid testing and handoffs, worked with engineering closely to prototype and refine the system.",
           "media": [
             {
               "src": "/projects/highstreet-calamity-vr/sections/01-gesture-casting-and-ability-design/calamity-ability-system-flowchart.jpg",
@@ -1345,8 +1345,8 @@
         },
         {
           "type": "feature",
-          "title": "Classes, Progression and Wave Systems",
-          "body": "Led design for and established the foundation of our core player stats (Resources, Resistances, etc) to support distinct class fantasy and playstyles.\nKey contributor to overall stat scaling and progression systems for player progression and enemy waves.\nEstablished the foundations and design premises for wave structures, game modes, wave compositions and iteration loops for balancing.",
+          "title": "Classes, progression and wave systems",
+          "body": "Led design for and established the foundation of our core player stats (Resources, Resistances, etc.) to support distinct class fantasy and playstyles.\nKey contributor to overall stat scaling and progression systems for player progression and enemy waves.\nEstablished the foundations and design premises for wave structures, game modes, wave compositions and iteration loops for balancing.",
           "media": [
             {
               "src": "/projects/highstreet-calamity-vr/sections/02-classes-progression-and-wave-systems/calamity-fighter-wizard-rogue-silhouettes.webp",
@@ -1379,7 +1379,7 @@
         {
           "type": "feature",
           "title": "Multi-tool, UX and input maps",
-          "body": "Designed Input Maps and coordinated with the design team to achieve accessibility and good UX\nLed design on decisions regarding the UX and accessibility features.\nLed design on the Multi-tool, our unified interface hub into the game to improve the VR experience for our players. \nLed design and prototype on Daveys Demure Designs, our physical interactive cosmetic system.",
+          "body": "Designed input maps and coordinated with the design team to achieve accessibility and good UX.\nLed design on decisions regarding the UX and accessibility features.\nLed design on the Multi-tool, our unified interface hub into the game to improve the VR experience for our players.\nLed design and prototype on Daveys Demure Designs, our physical interactive cosmetic system.",
           "media": [
             {
               "src": "/projects/highstreet-calamity-vr/sections/03-multi-tool-ux-and-input-maps/calamity-controller-input-map.webp",
@@ -1431,8 +1431,8 @@
         },
         {
           "type": "feature",
-          "title": "Authoring pipeline and  Systems",
-          "body": "Designed multiple tools (python and unity) and spreadsheets to help team understand and tweak values within game\nDesigned a spreadsheet-based tool letting the design team create and tune abilities, enemies, waves, and rewards, saving engineering time and improving design’s ability to iterate.\nDesigned systems and data for the roguelike gameloop, rewards and incentives and established a balanced progression framework and game economy.",
+          "title": "Authoring pipeline and systems",
+          "body": "Designed multiple tools (Python and Unity) and spreadsheets to help team understand and tweak values in the game.\nDesigned a spreadsheet-based tool letting the design team create and tune abilities, enemies, waves, and rewards, saving engineering time and improving design’s ability to iterate.\nDesigned systems and data for the roguelike gameloop, rewards and incentives and established a balanced progression framework and game economy.",
           "media": [
             {
               "src": "/projects/highstreet-calamity-vr/sections/04-authoring-pipeline-and-systems/calamity-authoring-spreadsheets.webp",
@@ -1451,19 +1451,19 @@
           "title": "Key Skills Applied",
           "cards": [
             {
-              "title": "Systems Design",
+              "title": "Systems design",
               "figure": "systems-design",
-              "body": "In this project I was able to learn and expand my skill set as a multi-disciplinary designer. I had the opportunity and was trusted to establish key systems and work with other designers in its refinement and overseeing the balancing of said systems. I focused on an quicker iteration and improving ways to tweak, balance gameplay and removing friction in that process. "
+              "body": "In this project I was able to learn and expand my skill set as a multi-disciplinary designer. I had the opportunity and was trusted to establish key systems and work with other designers in its refinement and overseeing the balancing of said systems. I focused on quicker iteration and improving ways to tweak, balance gameplay and removing friction in that process."
             },
             {
-              "title": "Game Design (VR/AR)",
+              "title": "Game design (VR/AR)",
               "figure": "vr-design",
               "body": "Designing for VR based on VR first principles and establishing frameworks to make interacting with the world feel more immersive was my goal. I focused on making combat and UX of the game feel integrated and take full advantage of the capabilities of the medium by utilizing unique mechanics which felt right in a spatial world."
             },
             {
-              "title": "Playtesting and Tuning",
+              "title": "Playtesting and tuning",
               "figure": "playtesting",
-              "body": "Hands on playtesting in engine, validating concepts and flows and iterating on this to bring values closer to our intended game feel was a major part of my process. With the clear hurdles in testing VR games unlike regular in-engine testing I designed tools with enabled testers to access dev menus from within the game and tweak changes and export said changes off the headset."
+              "body": "Hands-on playtesting in engine, validating concepts and flows and iterating on this to bring values closer to our intended game feel was a major part of my process. With the clear hurdles in testing VR games unlike regular in-engine testing I designed tools that let testers to access dev menus from within the game and tweak changes and export said changes off the headset."
             }
           ]
         },
