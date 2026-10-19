@@ -44,6 +44,8 @@ export type ProjectSection =
       /** `figure` names a built page in the project's public figures folder;
        *  cards that carry one render as alternating rows beside it. */
       cards: { title: string; body: string; figure?: string }[];
+      /** Kept in the content but left off the page, for a section waiting on new copy. */
+      hidden?: boolean;
     };
 export type CaseStudy = {
   slug: string;

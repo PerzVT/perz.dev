@@ -1092,6 +1092,15 @@
       ],
       "gallery": [
         {
+          "src": "/projects/highstreet-calamity-vr/gallery/calamity-title-screen.webp",
+          "alt": "Calamity VR title screen.",
+          "sourceHash": "2f1de34e72a85acf18c6e3fe400769cfa8ce45e7",
+          "fit": "contain",
+          "background": "#111418",
+          "width": 2060,
+          "height": 1154
+        },
+        {
           "src": "/projects/highstreet-calamity-vr/sections/02-classes-progression-and-wave-systems/calamity-character-progression-overview.webp",
           "alt": "Calamity character progression overview, showing how class choices and upgrades connect.",
           "sourceHash": "4e4d0a1eebce64bf1efaf9bf6d9e21dfedab53b2",
@@ -1126,24 +1135,6 @@
           "background": "#111418",
           "width": 1024,
           "height": 576
-        },
-        {
-          "src": "/projects/highstreet-calamity-vr/gallery/calamity-title-screen.webp",
-          "alt": "Calamity VR title screen.",
-          "sourceHash": "2f1de34e72a85acf18c6e3fe400769cfa8ce45e7",
-          "fit": "contain",
-          "background": "#111418",
-          "width": 2060,
-          "height": 1154
-        },
-        {
-          "src": "/projects/highstreet-calamity-vr/gallery/calamity-party-key-art.webp",
-          "alt": "Calamity VR party key art.",
-          "sourceHash": "5e659ebd90a36b10509b2eaecd861f89bff6847a",
-          "fit": "contain",
-          "background": "#111418",
-          "width": 2060,
-          "height": 1154
         },
         {
           "src": "/projects/highstreet-calamity-vr/sections/01-gesture-casting-and-ability-design/calamity-ability-system-flowchart.jpg",
@@ -1299,13 +1290,20 @@
           "height": 1100
         }
       ],
-      "initialSlide": 1,
+      "initialSlide": 0,
       "sections": [
         {
           "type": "feature",
           "title": "Gesture casting and ability design",
           "body": "Designed in-game abilities and a gesture-based casting system to cast them.\nDesigned an authoring tool to allow recording of gestures at runtime and curated gestures based on natural fluid motions within the VR space and real life combat motion studies.\nCreated internal systems to ensure fluid testing and handoffs, worked with engineering closely to prototype and refine the system.",
           "media": [
+            {
+              "src": "/projects/highstreet-calamity-vr/sections/01-gesture-casting-and-ability-design/calamity-gesture-casting-gameplay.webp",
+              "video": "/projects/highstreet-calamity-vr/sections/01-gesture-casting-and-ability-design/gesture-casting-demo-web.mp4",
+              "alt": "gesture casting demo",
+              "fit": "contain",
+              "background": "#121212"
+            },
             {
               "src": "/projects/highstreet-calamity-vr/sections/01-gesture-casting-and-ability-design/calamity-ability-system-flowchart.jpg",
               "alt": "Second Wind ability progression, read from level 1 at the bottom to level 10 at the top. Branches improve health or stamina regeneration and lead to two Adrenaline Rush variants with different health and stamina tradeoffs.",
@@ -1323,22 +1321,6 @@
               "background": "#121212",
               "width": 2200,
               "height": 1695
-            },
-            {
-              "src": "/projects/highstreet-calamity-vr/sections/01-gesture-casting-and-ability-design/arc-demo-poster.webp",
-              "video": "/projects/highstreet-calamity-vr/sections/01-gesture-casting-and-ability-design/arc-demo.mp4",
-              "alt": "arc demo",
-              "fit": "contain",
-              "background": "#121212",
-              "width": 1280,
-              "height": 720
-            },
-            {
-              "src": "/projects/highstreet-calamity-vr/sections/01-gesture-casting-and-ability-design/calamity-gesture-casting-gameplay.webp",
-              "video": "/projects/highstreet-calamity-vr/sections/01-gesture-casting-and-ability-design/gesture-casting-demo-web.mp4",
-              "alt": "gesture casting demo",
-              "fit": "contain",
-              "background": "#121212"
             }
           ],
           "mediaFirst": true
@@ -1348,6 +1330,15 @@
           "title": "Classes, progression and wave systems",
           "body": "Led design for and established the foundation of our core player stats (Resources, Resistances, etc.) to support distinct class fantasy and playstyles.\nKey contributor to overall stat scaling and progression systems for player progression and enemy waves.\nEstablished the foundations and design premises for wave structures, game modes, wave compositions and iteration loops for balancing.",
           "media": [
+            {
+              "src": "/projects/highstreet-calamity-vr/sections/01-gesture-casting-and-ability-design/arc-demo-poster.webp",
+              "video": "/projects/highstreet-calamity-vr/sections/01-gesture-casting-and-ability-design/arc-demo.mp4",
+              "alt": "arc demo",
+              "fit": "contain",
+              "background": "#121212",
+              "width": 1280,
+              "height": 720
+            },
             {
               "src": "/projects/highstreet-calamity-vr/sections/02-classes-progression-and-wave-systems/calamity-fighter-wizard-rogue-silhouettes.webp",
               "alt": "Calamity VR fighter wizard rogue silhouettes.",
@@ -1381,15 +1372,6 @@
           "title": "Multi-tool, UX and input maps",
           "body": "Designed input maps and coordinated with the design team to achieve accessibility and good UX.\nLed design on decisions regarding the UX and accessibility features.\nLed design on the Multi-tool, our unified interface hub into the game to improve the VR experience for our players.\nLed design and prototype on Davey’s Demure Designs, our physical interactive cosmetic system.",
           "media": [
-            {
-              "src": "/projects/highstreet-calamity-vr/sections/03-multi-tool-ux-and-input-maps/calamity-controller-input-map.webp",
-              "alt": "Calamity VR controller input map, assigning actions to the main-hand and off-hand controls.",
-              "sourceHash": "963f8b4cc15124608feecca383edbb6bf49fb5c3",
-              "fit": "contain",
-              "background": "#171c20",
-              "width": 1256,
-              "height": 708
-            },
             {
               "src": "/projects/highstreet-calamity-vr/sections/03-multi-tool-ux-and-input-maps/multitool-base-poster.webp",
               "video": "/projects/highstreet-calamity-vr/sections/03-multi-tool-ux-and-input-maps/multitool-base.mp4",
@@ -1425,6 +1407,15 @@
               "background": "#171c20",
               "width": 1600,
               "height": 1236
+            },
+            {
+              "src": "/projects/highstreet-calamity-vr/sections/03-multi-tool-ux-and-input-maps/calamity-controller-input-map.webp",
+              "alt": "Calamity VR controller input map, assigning actions to the main-hand and off-hand controls.",
+              "sourceHash": "963f8b4cc15124608feecca383edbb6bf49fb5c3",
+              "fit": "contain",
+              "background": "#171c20",
+              "width": 1256,
+              "height": 708
             }
           ],
           "mediaFirst": true
@@ -1475,7 +1466,8 @@
               "title": "\"It is my pleasure to recommend Percy Ali, who served as a Game Designer at RETINAD VIRTUAL REALITY INC. from December 4, 2023, to September 30, 2026. During his time with us, Percy consistently demonstrated professionalism, creativity, and a strong commitment to his role, making a positive impact on our team.\n\nPercy demonstrated strong design and production skills, making significant contributions to gameplay systems, content design, and project coordination. He demonstrated creativity in developing engaging player experiences, while also balancing technical and operational constraints. Percy collaborated effectively with cross-functional teams, supporting smooth workflows and ensuring deliverables were completed on time.\n\nIn addition to his technical contributions, Percy was a collaborative and approachable colleague, respected by peers and supervisors alike. I am confident he will make a valuable contribution to any organization he joins.\n \nPlease feel free to contact me at jack@highstreet.market should you require additional information.​\"",
               "body": "Jack Qiao,  CTO"
             }
-          ]
+          ],
+          "hidden": true
         }
       ],
       "banners": []

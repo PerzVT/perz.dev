@@ -138,7 +138,8 @@ export function Banners({ items, edit }: { items: BannerData[]; edit?: string })
 }
 export function CaseStudyBody({ project: p }: { project: CaseStudy }) {
   const next = featuredStudies[(featuredStudies.findIndex(item => item.slug === p.slug) + 1) % featuredStudies.length];
-  const contents = p.sections.map((section, i) => ({ title: section.title, id: `project-section-${i}` })).filter(item => item.title.trim());
+  const shown = (section: CaseStudy["sections"][number]) => !("hidden" in section && section.hidden);
+  const contents = p.sections.map((section, i) => ({ title: section.title, id: `project-section-${i}`, shown: shown(section) })).filter(item => item.shown && item.title.trim()).map(({ title, id }) => ({ title, id }));
   const locked = p.status === "coming-soon";
   const base = `projects/slug:${p.slug}`;
   const galleryStrip = EDITING && <div className="pf-container" {...editableList(`${base}/gallery`, "Gallery", p.gallery)} />;
@@ -200,7 +201,7 @@ export function CaseStudyBody({ project: p }: { project: CaseStudy }) {
       {overview}
       {contents.length >= 3 && <SectionIndex items={[{ id: "project-overview", title: "Overview" }, ...(p.gallery.length > 0 ? [{ id: "project-gallery", title: "Gallery" }] : []), ...contents]} />}
       {gallery || galleryStrip}
-      {p.sections.map((s, i) =>
+      {p.sections.map((s, i) => !shown(s) ? null :
         s.type === "feature" ? (
           <section
             key={i}
