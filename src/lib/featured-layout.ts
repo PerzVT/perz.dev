@@ -4,7 +4,7 @@ import { featuredStudies, type CaseStudy, type Media } from "./portfolio";
 export type FeaturedSlot = { src: string; position: string };
 export type PlatformPill = { label: string; icon: string; href?: string };
 /** `logo` is a transparent wordmark drawn centred over the cover, which fades on hover so the art shows. */
-export type FeaturedLayout = { main: FeaturedSlot; mainNarrow?: FeaturedSlot; thumbnails: FeaturedSlot[]; platforms: PlatformPill[]; logo?: string };
+export type FeaturedLayout = { main: FeaturedSlot; mainNarrow?: FeaturedSlot; platforms: PlatformPill[]; logo?: string };
 
 /** Indexing can miss, so callers have to handle it. */
 export const featuredLayouts = layouts as Record<string, FeaturedLayout | undefined>;
