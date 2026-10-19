@@ -1552,17 +1552,17 @@
             {
               "title": "Systems design",
               "figure": "systems-design",
-              "body": "In this project I was able to learn and expand my skill set as a multi-disciplinary designer. I had the opportunity and was trusted to establish key systems and work with other designers in its refinement and overseeing the balancing of said systems. I focused on quicker iteration and improving ways to tweak, balance gameplay and removing friction in that process."
+              "body": "I established key systems as a multidisciplinary designer, refined them with the other designers and oversaw their balancing. I built faster iteration into the process, so gameplay was quicker to tune and balance."
             },
             {
               "title": "Game design (VR/AR)",
               "figure": "vr-design",
-              "body": "Designing for VR based on VR first principles and establishing frameworks to make interacting with the world feel more immersive was my goal. I focused on making combat and UX of the game feel integrated and take full advantage of the capabilities of the medium by utilizing unique mechanics which felt right in a spatial world."
+              "body": "I designed from VR-first principles and built frameworks that make interacting with the world feel immersive. Combat and UX work as one system and use the medium fully, with mechanics that feel right in a spatial world."
             },
             {
               "title": "Playtesting and tuning",
               "figure": "playtesting",
-              "body": "Hands-on playtesting in engine, validating concepts and flows and iterating on this to bring values closer to our intended game feel was a major part of my process. With the clear hurdles in testing VR games unlike regular in-engine testing I designed tools that let testers to access dev menus from within the game and tweak changes and export said changes off the headset."
+              "body": "I playtested hands-on in engine, validating concepts and flows and tuning values toward the intended game feel. VR is harder to test than a flat game, so I designed tools that let testers open dev menus inside the headset, tweak values and export the changes."
             }
           ]
         },
@@ -1584,7 +1584,7 @@
       "slug": "bubble-buddy",
       "figmaNode": "372:642",
       "title": "Bubble Buddy",
-      "description": "A 2D action game made for Global Game Jam 2025 (“Bubbles”) and Pirate Software - Game Jam 16 “You are the weapon”, where you shoot parts of yourself to defeat waves of enemies while managing trade-offs.",
+      "description": "Bubble Buddy is a 2D action game built for **Global Game Jam 2025** (theme: Bubbles) and **Pirate Software Game Jam 16** (theme: You are the weapon). You shoot parts of yourself to fight off waves of enemies, so every shot is a trade-off.",
       "hero": [
         {
           "src": "/projects/bubble-buddy/hero/bubble-buddy-hero-art.webp",
@@ -1614,9 +1614,9 @@
       ],
       "url": "https://notperz.itch.io/bubble-buddy",
       "contributions": [
-        "Designed the game design documentation and systems. Assisted with programming for the prototype.",
-        "Designed and setup all the Art Assets and animations.",
-        "Designed and setup all user interfaces and components within engine."
+        "Wrote the game design documentation, designed the systems and helped program the prototype.",
+        "Designed and implemented all art assets and animations.",
+        "Designed and built every user interface screen and component in engine."
       ],
       "facts": [
         {
@@ -1629,7 +1629,7 @@
         },
         {
           "label": "Development",
-          "value": "Unity 6 · PC "
+          "value": "Unity 6 · PC"
         },
         {
           "label": "Jam",
@@ -1641,19 +1641,35 @@
         "Systems design",
         "2D art",
         "Animation",
-        "UI Design",
+        "UI design",
         "Prototyping",
         "Unity 6"
       ],
       "gallery": [
         {
-          "src": "/projects/bubble-buddy/sections/04-user-interface-and-animations/bubble-buddy-team-credits.png",
-          "alt": "Bubble buddy team credits.",
-          "sourceHash": "580e6934e9d8d234d3571a2d3ddf04714210f642",
+          "src": "/projects/bubble-buddy/hero/bubble-buddy-hero-art.webp",
+          "alt": "Bubble buddy hero art.",
+          "sourceHash": "02090a83bf84f2c3a6373ce1196e5dd80bb0fd9a",
           "fit": "cover",
-          "background": "#171c20",
-          "width": 1921,
-          "height": 1081
+          "background": "#111418",
+          "crop": [
+            [
+              0.8439242839813232,
+              0,
+              0.09978409856557846
+            ],
+            [
+              0,
+              1,
+              0
+            ]
+          ],
+          "frame": [
+            1440,
+            712
+          ],
+          "width": 961,
+          "height": 401
         },
         {
           "src": "/projects/bubble-buddy/sections/01-game-design-and-balancing/bubble-buddy-arena-gameplay.png",
@@ -1668,7 +1684,7 @@
           "src": "/projects/bubble-buddy/sections/01-game-design-and-balancing/bubble-buddy-controls-guide.png",
           "alt": "Bubble Buddy controls guide illustrating movement and combat inputs.",
           "sourceHash": "de7489da004d850b2cdcb7a3efc80519301dbd79",
-          "fit": "cover",
+          "fit": "contain",
           "background": "#171c20",
           "width": 1921,
           "height": 1081
@@ -1681,15 +1697,42 @@
           "background": "#184693",
           "width": 716,
           "height": 496
+        },
+        {
+          "src": "/projects/bubble-buddy/sections/03-wave-systems-and-game-economy/bubble-buddy-leaderboard.webp",
+          "alt": "Bubble buddy leaderboard.",
+          "sourceHash": "2317d3da89c5f359bd4a87a25b00784a10fef381",
+          "fit": "contain",
+          "background": "#184693",
+          "width": 1459,
+          "height": 814
+        },
+        {
+          "src": "/projects/bubble-buddy/sections/04-user-interface-and-animations/bubble-buddy-team-credits.png",
+          "alt": "Bubble buddy team credits.",
+          "sourceHash": "580e6934e9d8d234d3571a2d3ddf04714210f642",
+          "fit": "contain",
+          "background": "#171c20",
+          "width": 1921,
+          "height": 1081
         }
       ],
-      "initialSlide": 1,
+      "initialSlide": 0,
       "sections": [
         {
           "type": "feature",
-          "title": "Game Design and Balancing",
-          "body": "Designed the core gameplay loop and worked on the implementation for the prototype\nDefined the player inputs and interactions with different mechanic types.\nIterated design always grounded in feedback and testing",
+          "title": "Game design and balancing",
+          "body": "Designed the core gameplay loop and helped implement it in the prototype.\nDefined the player inputs and how they interact with each mechanic type.\nIterated on the design from playtest feedback.",
           "media": [
+            {
+              "src": "/projects/bubble-buddy/sections/01-game-design-and-balancing/bubble-buddy-arena-gameplay.png",
+              "alt": "Bubble buddy arena gameplay.",
+              "sourceHash": "3f1c062c014f6423e7f871c2c826b23d2ce533ff",
+              "fit": "contain",
+              "background": "#171c20",
+              "width": 1480,
+              "height": 827
+            },
             {
               "src": "/projects/bubble-buddy/sections/01-game-design-and-balancing/bubble-buddy-controls-guide.png",
               "alt": "Bubble Buddy controls guide illustrating movement and combat inputs.",
@@ -1704,8 +1747,8 @@
         },
         {
           "type": "feature",
-          "title": "Enemy Archetypes and Behaviours",
-          "body": "Defined enemy archetypes with distinct behavior patterns, designed simple identifiable patterns\nDesigned enemy behaviors which complimented horde mechanics and introduced evasion mechanics for players to adapt to challenges and come up with their own strategies. \nDesigned the resource drops, spawn patterns, and difficulty scaling. \nThe design premise was making players feel the squeeze without making the scaling feel unfair.",
+          "title": "Enemy archetypes and behaviours",
+          "body": "Defined enemy archetypes with distinct, readable behaviour patterns.\nDesigned enemy behaviours that complement the horde mechanics and evasion options, so players adapt and form their own strategies.\nDesigned the resource drops, spawn patterns and difficulty scaling.\nThe premise: players feel the squeeze without the scaling ever feeling unfair.",
           "media": [
             {
               "src": "/projects/bubble-buddy/sections/02-enemy-archetypes-and-behaviours/bubble-buddy-enemy-archetypes.png",
@@ -1721,8 +1764,8 @@
         },
         {
           "type": "feature",
-          "title": "Wave Systems and Game Economy",
-          "body": "Defined the wave structures for an endless incremental style gameplay mode,\nDesigned enemy pacing, wave composition, and difficulty progression.\nBalanced waves by adjusting enemy stats, spawn counts, and encounter modifiers ensuring the challenge felt fair.\nModelled expected run scaling with spreadsheet Monte Carlo simulations (formulas & repeated random trials) to inform balancing.",
+          "title": "Wave systems and game economy",
+          "body": "Defined the wave structure for an endless, incremental game mode.\nDesigned enemy pacing, wave composition and difficulty progression.\nBalanced waves through enemy stats, spawn counts and encounter modifiers, keeping the challenge fair.\nModelled run scaling with Monte Carlo simulations in spreadsheets to guide balancing.",
           "media": [
             {
               "src": "/projects/bubble-buddy/sections/03-wave-systems-and-game-economy/bubble-buddy-leaderboard.webp",
@@ -1738,8 +1781,8 @@
         },
         {
           "type": "feature",
-          "title": "User Interface and Animations",
-          "body": "Designed and prototyped all User interface screens and flows\nAnimated all motion programmatically and tweaked values using DoTween and Animator.\nAchieved a bouncy game-feel and popping feeling mimicking and bubble pop!",
+          "title": "User interface and animations",
+          "body": "Designed and prototyped every UI screen and flow.\nAnimated all motion in code with DOTween and the Animator, tuning the values by hand.\nGave the interface a bouncy game feel, like a bubble popping.",
           "media": [
             {
               "src": "/projects/bubble-buddy/sections/04-user-interface-and-animations/bubble-buddy-team-credits.png",
@@ -1754,7 +1797,9 @@
           "mediaFirst": true
         }
       ],
-      "banners": []
+      "banners": [],
+      "video": "/projects/bubble-buddy/hero/bubble-buddy-trailer.mp4",
+      "titleInArt": true
     },
     {
       "slug": "dragoncraft",
