@@ -256,7 +256,8 @@
         "icon": "curseforge",
         "href": "https://www.curseforge.com/minecraft/modpacks/dragoncraft"
       }
-    ]
+    ],
+    "logo": "/projects/dragoncraft/hero/dragoncraft-logo.webp"
   },
   "mythcraft": {
     "main": {
@@ -287,6 +288,7 @@
         "icon": "curseforge",
         "href": "https://www.curseforge.com/minecraft/modpacks/mythcraft"
       }
-    ]
+    ],
+    "logo": "/projects/mythcraft/hero/mythcraft-logo.webp"
   }
 }

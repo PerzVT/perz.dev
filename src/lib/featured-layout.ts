@@ -3,7 +3,8 @@ import { featuredStudies, type CaseStudy, type Media } from "./portfolio";
 
 export type FeaturedSlot = { src: string; position: string };
 export type PlatformPill = { label: string; icon: string; href?: string };
-export type FeaturedLayout = { main: FeaturedSlot; mainNarrow?: FeaturedSlot; thumbnails: FeaturedSlot[]; platforms: PlatformPill[] };
+/** `logo` is a transparent wordmark drawn centred over the cover, which fades on hover so the art shows. */
+export type FeaturedLayout = { main: FeaturedSlot; mainNarrow?: FeaturedSlot; thumbnails: FeaturedSlot[]; platforms: PlatformPill[]; logo?: string };
 
 /** Indexing can miss, so callers have to handle it. */
 export const featuredLayouts = layouts as Record<string, FeaturedLayout | undefined>;
@@ -25,6 +26,7 @@ export type FeaturedProject = {
   main: FeaturedSlotView;
   mainNarrow: FeaturedSlotView;
   platforms: PlatformPill[];
+  logo?: string;
 };
 
 function view(project: CaseStudy, slot: FeaturedSlot): FeaturedSlotView {
@@ -49,5 +51,6 @@ export const featuredProjects: FeaturedProject[] = featuredStudies.map(project =
     main: view(project, layout.main),
     mainNarrow: view(project, layout.mainNarrow || layout.main),
     platforms: layout.platforms,
+    logo: layout.logo,
   };
 });

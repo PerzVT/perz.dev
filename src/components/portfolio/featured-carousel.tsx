@@ -13,6 +13,7 @@ function ProjectSlide({ project }: { project: FeaturedProject }) {
   return <>
     <Link className="pf-featured-art" href={`/projects/${project.slug}`} draggable={false} style={{ "--featured-position": main.position } as CSSProperties} aria-label={`Explore ${project.title}`}>
       <MediaImage media={main.media} alt={main.media.alt} narrowMedia={narrow.media} narrowPosition={narrow.position} narrowBreakpoint={1100} sizes="(max-width: 800px) 88vw, 1096px" />
+      {project.logo && <img className="pf-featured-logo" src={project.logo} alt="" draggable={false} />}
     </Link>
     <div className="pf-featured-caption">
       <div>
