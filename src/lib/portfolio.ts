@@ -48,6 +48,8 @@ export type ProjectSection =
       hidden?: boolean;
     };
 export type CaseStudy = {
+  /** True when the hero art carries the title as a wordmark; the text title is then hidden on screen. */
+  titleInArt?: boolean;
   slug: string;
   figmaNode: string;
   title: string;

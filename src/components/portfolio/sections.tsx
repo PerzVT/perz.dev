@@ -1,6 +1,5 @@
 import "./media-treatment.css";
 import Link from "next/link";
-import { featuredStudies } from "@/lib/portfolio";
 import type { CSSProperties } from "react";
 import { FigmaShade, heroShade } from "./media-shade";
 import { MediaImage } from "./media-image";
@@ -39,6 +38,7 @@ export function Hero({
   video,
   action,
   edit,
+  titleInArt,
 }: {
   title: string;
   description?: string;
@@ -47,6 +47,8 @@ export function Hero({
   action?: { href: string; label: string };
   /** Content paths for the local editor: where the title and description live. */
   edit?: { title?: string; description?: string };
+  /** The hero art already shows the title as a wordmark, so the heading stays for screen readers only. */
+  titleInArt?: boolean;
 }) {
   return (
     <header className="pf-hero" data-video={video ? "" : undefined} style={{ "--hero-art-ratio": images[0]?.width && images[0]?.height ? images[0].width / images[0].height : 16 / 9 } as CSSProperties}>
@@ -72,7 +74,7 @@ export function Hero({
       {images.slice(1).map((media, i) => <img key={i} className="pf-hero-mobile-logo" src={media.src} alt="" />)}
       </div>
       <div className="pf-container pf-hero-copy">
-        <h1 {...(edit?.title ? editable(edit.title, title) : {})}>{title}</h1>
+        <h1 className={titleInArt ? "sr-only" : undefined} {...(edit?.title ? editable(edit.title, title) : {})}>{title}</h1>
         {description && <p {...(edit?.description ? editable(edit.description, description) : {})}>{description}</p>}
         {action && <div className="pf-actions pf-hero-actions"><Link className="pf-button" href={action.href}><Icon name="imgIconArrow" />{action.label}</Link></div>}
       </div>
@@ -137,7 +139,6 @@ export function Banners({ items, edit }: { items: BannerData[]; edit?: string })
   );
 }
 export function CaseStudyBody({ project: p }: { project: CaseStudy }) {
-  const next = featuredStudies[(featuredStudies.findIndex(item => item.slug === p.slug) + 1) % featuredStudies.length];
   const shown = (section: CaseStudy["sections"][number]) => !("hidden" in section && section.hidden);
   const contents = p.sections.map((section, i) => ({ title: section.title, id: `project-section-${i}`, shown: shown(section) })).filter(item => item.shown && item.title.trim()).map(({ title, id }) => ({ title, id }));
   const locked = p.status === "coming-soon";
@@ -187,17 +188,17 @@ export function CaseStudyBody({ project: p }: { project: CaseStudy }) {
   if (locked) {
     return (
       <>
-        <Hero title={p.title} images={p.hero} video={p.video} edit={{ title: `${base}/title` }} />
+        <Hero title={p.title} images={p.hero} video={p.video} titleInArt={p.titleInArt} edit={{ title: `${base}/title` }} />
         {overview}
         <LockedPreview title={p.title} teaser={gallery || undefined}
-          primary={next ? { href: `/projects/${next.slug}`, label: `Next project: ${next.title}` } : { href: "/#work", label: "All projects" }}
-          secondary={{ href: "/#work", label: "All projects" }} />
+          primary={{ href: "/#work", label: "All projects" }}
+          secondary={{ href: "/", label: "Home" }} />
       </>
     );
   }
   return (
     <>
-      <Hero title={p.title} images={p.hero} video={p.video} edit={{ title: `${base}/title` }} />
+      <Hero title={p.title} images={p.hero} video={p.video} titleInArt={p.titleInArt} edit={{ title: `${base}/title` }} />
       {overview}
       {contents.length >= 3 && <SectionIndex items={[{ id: "project-overview", title: "Overview" }, ...(p.gallery.length > 0 ? [{ id: "project-gallery", title: "Gallery" }] : []), ...contents]} />}
       {gallery || galleryStrip}
@@ -258,7 +259,7 @@ export function CaseStudyBody({ project: p }: { project: CaseStudy }) {
         ),
       )}
       <Banners items={p.banners} edit={`${base}/banners`} />
-      <nav className="pf-container pf-section pf-project-navigation" aria-label="Project navigation"><Link className="pf-outline" href="/#work">All projects</Link>{next && <Link className="pf-button" href={`/projects/${next.slug}`}>Next project: {next.title}</Link>}</nav>
+      <nav className="pf-container pf-section pf-project-navigation" aria-label="Project navigation"><Link className="pf-outline" href="/">Home</Link><Link className="pf-button" href="/#work">All projects</Link></nav>
     </>
   );
 }

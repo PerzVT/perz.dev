@@ -463,13 +463,12 @@
       "description": "Supercat is an action platformer where the player uses fluid movement combined with combat moves that complement the flow state to traverse levels and take down enemies.",
       "hero": [
         {
-          "src": "/projects/supercat/gallery/supercat-key-art.webp",
-          "alt": "Supercat key art.",
-          "sourceHash": "3b2839645af21abc347d1d0d0db8b107ed9fb60e",
+          "src": "/projects/supercat/gallery/supercat-cover-logo.webp",
+          "alt": "Supercat key art with the Supercat wordmark.",
           "fit": "cover",
           "background": "#111418",
-          "width": 2200,
-          "height": 1238
+          "width": 1672,
+          "height": 941
         }
       ],
       "video": "/projects/supercat/hero/supercat-trailer.mp4",
@@ -500,18 +499,17 @@
         "Game design",
         "Combat design",
         "Level design",
-        "Project Management",
-        "Systems Design"
+        "Project management",
+        "Systems design"
       ],
       "gallery": [
         {
-          "src": "/projects/supercat/gallery/supercat-key-art.webp",
-          "alt": "Supercat key art.",
-          "sourceHash": "4ef92749bb70ae031a48aebf44a21ef9af7c3229",
+          "src": "/projects/supercat/gallery/supercat-cover-logo.webp",
+          "alt": "Supercat key art with the Supercat wordmark.",
           "fit": "cover",
           "background": "#111418",
-          "width": 2200,
-          "height": 1238
+          "width": 1672,
+          "height": 941
         },
         {
           "src": "/projects/supercat/gallery/supercat-green-orb-weapon.webp",
@@ -660,21 +658,22 @@
           "title": "",
           "cards": [
             {
-              "title": "Project Management",
+              "title": "Project management",
               "body": "This project included a team of 5 full-time devs and over 10 contributors and commissioned artists.\n\nIt helped me learn how to plan, interact and coordinate between disciplines with talented artists, devs and designers to reach our goal with a first-principles approach."
             },
             {
-              "title": "Pitching to Publishers",
+              "title": "Pitching to publishers",
               "body": "This project allowed me a chance to work with Indie Ignition Accelerator, pitch our vertical slice in Edmonton and Calgary at game fests and learn about the latter half of game development in detail.\n\nGetting a game completed is a challenge but there is a lot more that goes into releasing it. The economics and logistics behind it are something I would have never learnt without this project."
             },
             {
-              "title": "Team Leadership",
+              "title": "Team leadership",
               "body": "As a multi-disciplinary designer, this project tested my leadership skills to the max. I excel at communicating between developers, artists and designers to understand and help meet their needs to make sure production goes uninterrupted. \n\nThe massive team size combined with a huge pool of outside collaborators made leadership a real challenge, which I was happy to have faced early in my career as it taught me a lot."
             }
           ]
         }
       ],
-      "banners": []
+      "banners": [],
+      "titleInArt": true
     },
     {
       "slug": "bisecthosting",
