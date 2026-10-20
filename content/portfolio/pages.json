@@ -17,11 +17,11 @@
       }
     ],
     "title": "Percy",
-    "intro": "I'm a multidisciplinary game designer specializing in VR, with systems and UX design at the core of my work.",
+    "intro": "I'm a Game Designer and Developer who specializes in user experience and systems design with professional experience building PC and VR games.",
     "video": "/home/hero/percy-portfolio-reel.mp4",
     "about": {
       "title": "About me",
-      "body": "I'm a game designer and developer based in Calgary, Alberta. I design by subtraction: simple systems, clear goals and a strong core loop that keeps players coming back.\n\nI tune with data so the challenge stays fair and rewarding, and I break complex ideas down into clean, functional experiences, with clarity in both communication and design.\n\nOutside of work I mod and reverse engineer games, and I build and maintain several active projects on [CurseForge](https://www.curseforge.com/members/perzvt/projects) and [GitHub](https://github.com/PerzVT).",
+      "body": "I'm a game designer and developer based in Calgary, Alberta. I believe in subtractive design and the power of simplicity in systems.\n\nI focus on clear, straightforward goals that retain players through a strong engaging core loop with a focus towards rewarding design thru data and systems that provides a fair challenge.\n\nI enjoy breaking complex ideas down into clean, functional experiences, always aiming for clarity in communication and design. Outside of work, I'm passionate about modding games and reverse engineering, and contribute to and maintain multiple active projects on [CurseForge](https://www.curseforge.com/members/perzvt/projects) and [GitHub](https://github.com/PerzVT).",
       "image": "/home/about/percy-bubble-buddy-presentation.webp"
     },
     "experience": [
@@ -42,7 +42,7 @@
       {
         "role": "Designer",
         "company": "BisectHosting",
-        "body": "Designed company identity, campaigns, major events, in-game assets, and press and partner kits. Also designed for Meloncube Hosting and Bisect Studios.",
+        "body": "Designed product and content for brand partners, campaigns, CurseForge projects, in-game assets, major events and company identity. Built press and partner kits, and designed partner work that ran on CurseForge, Twitch, Modrinth and Lunar Client, used in programs with GamersOutreach, Project Hope and Tiltify. Also designed for Meloncube Hosting and Bisect Studios.",
         "period": "Apr 2022 – Dec 2023",
         "logo": "/home/experience/bisecthosting-avatar.jpg"
       },
@@ -158,14 +158,14 @@
       {
         "role": "Game Designer and Developer",
         "company": "Smooth Brain Games (prev. Knite Studios)",
-        "body": "Designed and developed multiple games and prototypes, assisted with level design and systems design. Lead game designer on Supercat, an action platformer built by five full-time developers and over ten contributors, and pitched its vertical slice in **Edmonton** and **Calgary** through the **Indie Ignition Accelerator**. Designed and built the Poly Punch VR prototype on an experimental Meta hand-tracking kit, and designed Lurk and Stick It at Knite Studios.",
+        "body": "Designed and developed multiple games and prototypes, assisted with level design and systems design. Lead game designer on Supercat, an action platformer built by five full-time developers and over ten contributors, and pitched its vertical slice in Edmonton and Calgary through the **Indie Ignition Accelerator**. Designed and built the Poly Punch VR prototype on an experimental Meta hand-tracking kit, and designed Lurk and Stick It at Knite Studios.",
         "period": "Sep 2022 – Apr 2025",
         "logo": "/home/experience/smooth-brain-games-logo.png"
       },
       {
         "role": "Designer",
         "company": "BisectHosting",
-        "body": "Designed company identity, campaigns, major events, in-game assets, and press and partner kits. Also designed for Meloncube Hosting and Bisect Studios.",
+        "body": "Designed product and content for brand partners, campaigns, CurseForge projects, in-game assets, major events and company identity. Built press and partner kits, and designed partner work that ran on CurseForge, Twitch, Modrinth and Lunar Client, used in programs with GamersOutreach, Project Hope and Tiltify. Also designed for Meloncube Hosting and Bisect Studios.",
         "period": "Apr 2022 – Dec 2023",
         "logo": "/home/experience/bisecthosting-avatar.jpg"
       },
@@ -770,7 +770,7 @@
             },
             {
               "title": "Pitching to publishers",
-              "body": "I pitched Supercat's vertical slice to publishers through the **Indie Ignition Accelerator** and at game festivals in **Edmonton** and **Calgary**.\n\nTaking the game to market meant owning the business side of release as well as the design: the economics and logistics of publishing.",
+              "body": "I pitched Supercat's vertical slice to publishers through the **Indie Ignition Accelerator** and at game festivals in Edmonton and Calgary.\n\nTaking the game to market meant owning the business side of release as well as the design: the economics and logistics of publishing.",
               "figure": "pitching"
             },
             {
