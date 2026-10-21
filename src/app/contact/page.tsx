@@ -4,6 +4,7 @@ import { SiteFooter } from "@/components/site/site-footer";
 import { Banners, Hero } from "@/components/portfolio/sections";
 import { CopyEmail } from "@/components/portfolio/controls";
 import { ContactForm } from "@/components/home/contact-form";
+import { SocialLinks } from "@/components/site/social-links";
 import { portfolio } from "@/lib/portfolio";
 export const metadata: Metadata = {
   title: "Contact",
@@ -21,6 +22,7 @@ export default function Contact() {
             <h2>Say hi</h2>
             <p>{c.invitation}</p>
             <CopyEmail />
+            <SocialLinks variant="tiles" />
           </div>
           <div className="pf-contact-form">
             <h2>Send a message</h2>

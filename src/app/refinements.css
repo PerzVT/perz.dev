@@ -301,11 +301,11 @@ a.pf-art-tile:focus-visible { outline: var(--perz-control-focus-width) solid var
 
 .pf-socials { gap: 8px; }
 .pf-socials a { --brand: var(--perz-blue-face); min-height: var(--perz-control-height); padding: 0 14px; border-radius: var(--perz-radius-control); color: var(--pf-text); transition: background-color var(--perz-duration-enter) var(--perz-ease-out), color var(--perz-duration-enter) var(--perz-ease-out); }
-.pf-socials a[data-brand="github"] { --brand: #238636; }
-.pf-socials a[data-brand="discord"] { --brand: #5865f2; }
-.pf-socials a[data-brand="linkedin"] { --brand: #0a66c2; }
-.pf-socials a[data-brand="itch"] { --brand: #fa5c5c; }
-.pf-socials a[data-brand="curseforge"] { --brand: #f16436; }
+:is(.pf-socials, .pf-social-tiles) a[data-brand="github"] { --brand: #238636; }
+:is(.pf-socials, .pf-social-tiles) a[data-brand="discord"] { --brand: #5865f2; }
+:is(.pf-socials, .pf-social-tiles) a[data-brand="linkedin"] { --brand: #0a66c2; }
+:is(.pf-socials, .pf-social-tiles) a[data-brand="itch"] { --brand: #fa5c5c; }
+:is(.pf-socials, .pf-social-tiles) a[data-brand="curseforge"] { --brand: #f16436; }
 @media (hover: hover) {
   .pf-socials a:hover { background: var(--brand); color: #fff; }
 }
@@ -416,3 +416,12 @@ html { scrollbar-gutter: stable; }
 
 .pf-philosophy-row { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 48px; align-items: center; }
 @media (max-width: 900px) { .pf-philosophy-row { grid-template-columns: 1fr; gap: 24px; } }
+
+/* Contact: the channels sit under the email, before the form. */
+.pf-contact-row { align-items: center; }
+.pf-social-tiles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 28px; max-width: 440px; }
+.pf-social-tiles a { --brand: var(--perz-blue-face); display: flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 16px; border: 1px solid var(--pf-border-strong); border-radius: var(--perz-radius-control); color: var(--pf-text); font: 600 var(--pf-type-compact)/1 var(--perz-font-body); transition: background-color var(--perz-duration-enter) var(--perz-ease-out), border-color var(--perz-duration-enter) var(--perz-ease-out); }
+.pf-social-tiles a .pf-icon { width: 20px; height: 20px; }
+@media (hover: hover) { .pf-social-tiles a:hover { background: var(--brand); border-color: var(--brand); color: #fff; } .pf-social-tiles a:hover .pf-icon { filter: brightness(0) invert(1); } }
+.pf-social-tiles a:focus-visible { outline: var(--perz-control-focus-width) solid var(--perz-focus); outline-offset: 2px; }
+@media (max-width: 800px) { .pf-contact-row { align-items: start; } }
