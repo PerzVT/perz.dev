@@ -33,7 +33,7 @@
         "logo": "/home/experience/highstreet-logo.jpg"
       },
       {
-        "role": "Game Designer and Developer",
+        "role": "Co-founder, Game Designer and Developer",
         "company": "Smooth Brain Games (prev. Knite Studios)",
         "body": "Lead game designer on Supercat, which I pitched through the **Indie Ignition Accelerator**. Designed and built prototypes including Poly Punch VR, and designed Lurk and Stick It at Knite Studios.",
         "period": "Sep 2022 – Apr 2025",
@@ -142,8 +142,8 @@
     "title": "Résumé",
     "subtitle": "Game designer, user experience and player-focused systems",
     "summary": [
-      "Hi, I'm Percy, a game designer and developer in Calgary. I've made games and gaming content since I was 15, starting with custom assets and mods for Roblox, Unturned, and Minecraft. I began in computer science, then earned a bachelor's in Media, Graphics and Animation, where I built my first game and trained as a product designer. I founded Draconia and Kerberus, gaming networks that have served over 750,000 players in the past five years. I created Mythcraft (play as demigods), Dragoncraft (play as dragons), and the Kerberus Network.",
-      "✦ Shipped on Meta Quest, itch.io, CurseForge, Roblox, Steam\n✦ Founded Kerberus, served over 750,000 players since 2017\n✦ Founded Smooth Brain Games in Calgary with the help of Indie Ignition Accelerator"
+      "Hi, I'm Percy, a game designer and developer in Calgary. I've made games and gaming content since I was 15, starting with custom assets and mods for Roblox, Unturned, and Minecraft. I began in computer science, then earned a bachelor's in Media, Graphics and Animation, where I built my first game and trained as a product designer. I founded Kerberus and its child company, Draconia, and created Mythcraft (play as demigods), Dragoncraft (play as dragons) and the Kerberus Network.",
+      "✦ Shipped on Meta Quest, itch.io, CurseForge, Roblox, Steam\n✦ Founded Kerberus, served over 750,000 players since 2017\n✦ Co-founded Smooth Brain Games in Calgary with the help of Indie Ignition Accelerator"
     ],
     "image": "/home/about/percy-bubble-buddy-presentation.webp",
     "philosophy": "Designing mechanics that are easy to learn but difficult to master\n\nMy background in user experience and product design influences how I design. I love building out prototypes using a rapid-development pipeline that lets me test out the mechanic and game feel before committing to anything. This also eliminates any communication gaps between design and engineering. Iteration and user feedback shapes every single piece of design I make. I believe in simplicity and following the fun. Every mechanic within the game plays a role in keeping the game running or brings out certain emotions within the player. If your idea fails to do either, it’s not a priority. \n\nI lead the vision through design, improve communication, and find fun through simplicity. I keep designs clear and grounded in strong core systems and well-structured data, and I break complex ideas into clean, functional experiences, aiming for clarity in the gameplay and the process behind it. If my design can be interpreted by different people as different things, I have failed at clearly communicating myself hence its a bad design.",
@@ -151,14 +151,14 @@
       {
         "role": "Senior Game Designer",
         "company": "Highstreet",
-        "body": "Key contributor on Calamity VR, Echoes of Solera and Oren’s Adventures. Led design for multiple systems and developed internal authoring tools. Led design on UX/UI and defined the interaction language. Assisted with Unity implementation during prototyping.",
+        "body": "Key contributor on Calamity VR, Echoes of Solera and Oren’s Adventures. Led design for core systems and UX/UI, defined the interaction language and built the design team’s internal authoring tools.",
         "period": "Dec 2023 – Present",
         "logo": "/home/experience/highstreet-logo.jpg"
       },
       {
-        "role": "Game Designer and Developer",
+        "role": "Co-founder, Game Designer and Developer",
         "company": "Smooth Brain Games (prev. Knite Studios)",
-        "body": "Designed and developed multiple games and prototypes, assisted with level design and systems design. Lead game designer on Supercat, an action platformer built by five full-time developers and over ten contributors, and pitched its vertical slice in Edmonton and Calgary through the **Indie Ignition Accelerator**. Designed and built the Poly Punch VR prototype on an experimental Meta hand-tracking kit, and designed Lurk and Stick It at Knite Studios.",
+        "body": "Lead game designer on Supercat, which I pitched through the **Indie Ignition Accelerator**. Designed and built prototypes including Poly Punch VR, and designed Lurk and Stick It at Knite Studios.",
         "period": "Sep 2022 – Apr 2025",
         "logo": "/home/experience/smooth-brain-games-logo.png"
       },
