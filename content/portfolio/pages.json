@@ -1185,8 +1185,16 @@
           "value": "Unity 6 · DOTS · VR"
         },
         {
+          "label": "Platform",
+          "value": "Meta Quest"
+        },
+        {
           "label": "Duration",
           "value": "Dec 2023 – Present"
+        },
+        {
+          "label": "Release",
+          "value": "April 2026"
         }
       ],
       "skills": [
@@ -1403,7 +1411,7 @@
         {
           "type": "feature",
           "title": "Gesture casting and ability design",
-          "body": "Designed in-game abilities and a gesture-based casting system to cast them.\nDesigned an authoring tool to allow recording of gestures at runtime and curated gestures based on natural fluid motions within the VR space and real life combat motion studies.\nCreated internal systems to ensure fluid testing and handoffs, worked with engineering closely to prototype and refine the system.",
+          "body": "Designed the abilities and the gesture-casting system players use to cast them.\nDesigned a tool that records gestures at runtime, and built the gesture set from natural VR motion and studies of real combat moves.\nSet up the testing and handoff process, and prototyped and refined the system with engineering.",
           "media": [
             {
               "src": "/projects/highstreet-calamity-vr/sections/01-gesture-casting-and-ability-design/calamity-gesture-casting-gameplay.webp",
@@ -1435,8 +1443,8 @@
         },
         {
           "type": "feature",
-          "title": "Classes, progression and wave systems",
-          "body": "Led design for and established the foundation of our core player stats (Resources, Resistances, etc.) to support distinct class fantasy and playstyles.\nKey contributor to overall stat scaling and progression systems for player progression and enemy waves.\nEstablished the foundations and design premises for wave structures, game modes, wave compositions and iteration loops for balancing.",
+          "title": "Class archetypes, progression and waves",
+          "body": "Designed the core player stats, such as resources and resistances, so each class plays differently.\nKey contributor to stat scaling for player progression and enemy waves.\nSet the foundations for wave structures, game modes, wave mixes and the balancing loop.",
           "media": [
             {
               "src": "/projects/highstreet-calamity-vr/sections/01-gesture-casting-and-ability-design/arc-demo-poster.webp",
@@ -1478,7 +1486,7 @@
         {
           "type": "feature",
           "title": "Multi-tool, UX and input maps",
-          "body": "Designed input maps and coordinated with the design team to achieve accessibility and good UX.\nLed design on decisions regarding the UX and accessibility features.\nLed design on the Multi-tool, our unified interface hub into the game to improve the VR experience for our players.\nLed design and prototype on Davey’s Demure Designs, our physical interactive cosmetic system.",
+          "body": "Designed the multi-tool, the single hub players use to reach every part of the game in VR.\nOwned UX and accessibility decisions, and designed the input maps with the design team.\nDesigned and prototyped Davey's Demure Designs, a cosmetic system players handle in the world.",
           "media": [
             {
               "src": "/projects/highstreet-calamity-vr/sections/03-multi-tool-ux-and-input-maps/multitool-base-poster.webp",
@@ -1531,7 +1539,7 @@
         {
           "type": "feature",
           "title": "Authoring pipeline and systems",
-          "body": "Designed multiple tools (Python and Unity) and spreadsheets to help team understand and tweak values in the game.\nDesigned a spreadsheet-based tool letting the design team create and tune abilities, enemies, waves, and rewards, saving engineering time and improving design’s ability to iterate.\nDesigned systems and data for the roguelike gameloop, rewards and incentives and established a balanced progression framework and game economy.",
+          "body": "Designed a spreadsheet tool the design team used to create and tune abilities, enemies, waves and rewards, which saved engineering time.\nDesigned Python and Unity tools and spreadsheets that let the team read and adjust game values.\nDesigned the systems and data for the roguelike loop, rewards and incentives, and set up a balanced progression framework and economy.",
           "media": [
             {
               "src": "/projects/highstreet-calamity-vr/sections/04-authoring-pipeline-and-systems/calamity-authoring-spreadsheets.webp",
