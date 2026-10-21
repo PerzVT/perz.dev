@@ -883,11 +883,31 @@ function tone(ramp, n) {
   const A = hex(a), B = hex(b);
   return "rgb(" + A.map((v, i) => Math.round(v + (B[i] - v) * s)).join(",") + ")";
 }
+/** The ground every figure stands on: a round plinth with an inset top. */
+function pad(cx, cy, r, R) {
+  return [...cylinder(cx, cy, -14, r, 14, R.stone, 48), ...cylinder(cx, cy, 0, r - 12, 1.5, R.ink, 48)];
+}
+/** The four accent cubes, at the same spots around the blob in every figure. */
+function floaters(t, P, R) {
+  const SPOTS = [[118, 112, R.lime], [486, 50, R.cyan], [532, 232, R.lime], [104, 292, R.cyan]];
+  const [ox, oy] = iso([0, 0, 0], P), size = 12 / Math.hypot(...iso([1, 0, 0], P).map((v, i) => v - [ox, oy][i]));
+  return SPOTS.map(([x, y, ramp], i) => '<g transform="translate(' + (x - ox).toFixed(1) + " " + (y - oy + Math.sin(t * 1.3 + i * 1.7) * 4).toFixed(1) + ')">'
+    + paint(box(-size / 2, -size / 2, -size / 2, size, size, size, ramp), P) + "</g>").join("");
+}
+/** Convex hull of 2D points, for soft light shapes. */
+function hull(pts) {
+  const p = pts.slice().sort((a, b) => a[0] - b[0] || a[1] - b[1]);
+  const cross = (o, a, b) => (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0]);
+  const lower = [], upper = [];
+  for (const q of p) { while (lower.length > 1 && cross(lower[lower.length - 2], lower[lower.length - 1], q) <= 0) lower.pop(); lower.push(q); }
+  for (const q of p.reverse()) { while (upper.length > 1 && cross(upper[upper.length - 2], upper[upper.length - 1], q) <= 0) upper.pop(); upper.push(q); }
+  return lower.slice(0, -1).concat(upper.slice(0, -1));
+}
 /** Faces to SVG polygons, back to front, culling the ones facing away. */
 function paint(faces, P, opacity) {
   const live = [];
-  for (const f of faces) {
-    if (depthOf(f.n, P) <= 1e-4) continue;
+  for (let f of faces) {
+    if (depthOf(f.n, P) <= 1e-4) { if (!f.twoSided) continue; f = { ...f, n: f.n.map((v) => -v) }; }
     let c = [0, 0, 0];
     for (const p of f.pts) c = V.add(c, p);
     const depth = depthOf(c.map((v) => v / f.pts.length), P) + (f.bias || 0);
@@ -912,11 +932,11 @@ function loop(stage, draw, still, rest) {
   draw(reduce.matches ? rest : 0);
 }
 
-const P = {"origin":[316.77436636531905,269.6679099154085],"scale":1.172144483510606,"azimuth":45,"elevation":30}, R = {"lilac":["#4d4c9b","#807ebb","#dfdff7"],"stone":["#2a2765","#352785","#4d4c9b"],"ink":["#1d1b4a","#2a2765","#3d3a86"],"cyan":["#08a7ff","#03ddff","#5ff0ff"],"lime":["#5e8f33","#7fb846","#a5e05b"]};
-const HEADSET = [-40,40,0], PANEL = [64,-64,124], W = 116, H = 84;
+const P = {"origin":[329.7488522349242,253.75055799978966],"scale":1.1086742641647835,"azimuth":45,"elevation":30}, R = {"lilac":["#4d4c9b","#807ebb","#dfdff7"],"stone":["#2a2765","#352785","#4d4c9b"],"ink":["#1d1b4a","#2a2765","#3d3a86"],"cyan":["#08a7ff","#03ddff","#5ff0ff"],"lime":["#5e8f33","#7fb846","#a5e05b"]};
+const HEADSET = [-40,40,0], PANEL = [50,-50,104], W = 116, H = 84;
 const CYCLE = 8;
 // Slider values, start and tuned, as a share of the track.
-const FROM = [0.2, 0.75, 0.45], TO = [0.65, 0.35, 0.8];
+const FROM = [0.2, 0.75, 0.25], TO = [0.65, 0.35, 0.55];
 const smooth = (x) => (x <= 0 ? 0 : x >= 1 ? 1 : x * x * (3 - 2 * x));
 /** A rounded rectangle in the xz plane at depth y, as a superellipse. */
 const slab = (n, rx, rz, y, cz) => Array.from({ length: n }, (_, i) => {
@@ -934,14 +954,26 @@ function band(rx, ry, w, h, cy, z, ramp, n = 40) {
   return out;
 }
 const CZ = 34;
-// Painted in layers, back to front: the strap lies on the pad behind the visor.
-const strap = band(48, 56, 7, 12, -62, 2, R.stone);
-const visor = [...loft(slab(28, 44, 26, -10, CZ), slab(28, 44, 26, 0, CZ), R.ink), ...loft(slab(28, 50, 30, 0, CZ), slab(28, 50, 30, 36, CZ), R.lilac)];
-const front = [...loft(slab(28, 44, 25, 36, CZ), slab(28, 44, 25, 38, CZ), R.stone), ...[-26, 0, 26].flatMap((x) => box(x - 4, 38, CZ - 9, 8, 2, 18, R.ink))];
+/** The top strap: a ribbon arching from the visor back to the rear of the side strap. */
+function arch(w, ramp, n = 24) {
+  const out = [], at = (a, r, x) => [x, -44 + r * Math.cos(a), CZ + 6 + (r - 4) * Math.sin(a)];
+  for (let i = 0; i < n; i++) {
+    const a = (i / n) * Math.PI, b = ((i + 1) / n) * Math.PI;
+    out.push(face([at(a, 44, -w), at(a, 44, w), at(b, 44, w), at(b, 44, -w)], ramp));
+    out.push(face([at(a, 44, w), at(a, 39, w), at(b, 39, w), at(b, 44, w)], ramp));
+    out.push(face([at(a, 39, -w), at(a, 44, -w), at(b, 44, -w), at(b, 39, -w)], ramp));
+  }
+  return out.map((f) => ({ ...f, twoSided: true }));
+}
+// Painted in layers, back to front: straps, visor shell, face plate, sensors.
+const straps = [...band(50, 46, 6, 12, -42, CZ - 6, R.stone).map((f) => ({ ...f, twoSided: true })), ...arch(7, R.stone)];
+const visor = [...loft(slab(28, 44, 26, -10, CZ), slab(28, 44, 26, 0, CZ), R.ink), ...loft(slab(36, 50, 30, 0, CZ), slab(36, 50, 30, 36, CZ), R.lilac)];
+const plate = loft(slab(36, 44, 25, 36, CZ), slab(36, 44, 25, 38, CZ), R.stone);
+const sensors = [-28, 0, 28].flatMap((x) => box(x - 3.5, 38, CZ - 9, 7, 2, 18, R.ink));
 const put = (faces) => mapFaces(faces, chain(rotZ(-0.6), move(HEADSET)));
-const headsetLayers = [put(strap), put(visor), put(front)];
-const pad = [...box(HEADSET[0] - 82, HEADSET[1] - 82, -14, 164, 164, 14, R.stone), ...box(HEADSET[0] - 70, HEADSET[1] - 70, 0, 140, 140, 2, R.ink)];
-const FLOAT = [[-160, -30, 150, R.cyan], [-10, -170, 40, R.lime], [140, 20, 20, R.cyan], [-120, 150, 120, R.lime]];
+const headsetLayers = [put(straps), put(visor), put(plate), put(sensors)];
+const ground = pad(HEADSET[0], HEADSET[1], 86, R);
+const VISOR_FRONT = [[-40, 38, CZ - 20], [40, 38, CZ - 20], [40, 38, CZ + 20], [-40, 38, CZ + 20]].map(chain(rotZ(-0.6), move(HEADSET)));
 const stage = document.querySelector(".iso-stage");
 const group = stage.querySelector('[data-part="scene"]');
 // The panel is built facing +y and turned to face the viewer.
@@ -952,29 +984,30 @@ function draw(t) {
   const press = c > 3.6 && c < 4.1 ? Math.sin(((c - 3.6) / 0.5) * Math.PI) : 0;
   const lit = smooth((c - 3.4) / 0.3) * (1 - smooth((c - 6.8) / 0.4));
   const board = box(-W / 2, -10, -H / 2, W, 10, H, R.lilac);
-  const panel = [...box(-W / 2 + 8, 0, H / 2 - 16, W - 16, 1.5, 7, R.cyan)];
+  const panel = [...box(-W / 2 + 8, 0, H / 2 - 16, W - 16, 1.5, 7, R.cyan)], knobs = [];
   [0, 1, 2].forEach((i) => {
-    const z = H / 2 - 38 - i * 18, v = FROM[i] + (TO[i] - FROM[i]) * tune(i);
+    const z = H / 2 - 28 - i * 16, v = FROM[i] + (TO[i] - FROM[i]) * tune(i);
     const x0 = -W / 2 + 12, len = W - 24;
     panel.push(...box(x0, 0, z, len, 1.5, 4, R.ink));
-    panel.push(...box(x0 + v * len - 5, 0, z - 4, 10, 7, 12, i === 1 ? R.lime : R.cyan));
+    knobs.push(...box(x0 + v * len - 5, 0, z - 4, 10, 7, 12, i === 1 ? R.lime : R.cyan));
   });
   const exportRamp = lit > 0.5 ? R.lime : R.stone;
-  panel.push(...box(W / 2 - 40, 0, -H / 2 + 8, 28, 6 - press * 4, 12, exportRamp));
+  knobs.push(...box(W / 2 - 40, 0, -H / 2 + 5, 28, 6 - press * 4, 10, exportRamp));
   const pose = facePanel(bob);
-  const layers = [pad, ...headsetLayers, mapFaces(board, pose), mapFaces(panel, pose)];
+  // A faint view cone from the visor to the menu: the menu lives in the headset.
+  const corners = [[-W / 2, 0, -H / 2], [W / 2, 0, -H / 2], [W / 2, 0, H / 2], [-W / 2, 0, H / 2]].map(pose);
+  const cone = '<polygon points="' + hull([...VISOR_FRONT, ...corners].map((p) => iso(p, P))).map((q) => q.map((v) => v.toFixed(1)).join(" ")).join(" ") + '" fill="#5ff0ff" opacity=".09"/>';
+  const layers = [ground, ...headsetLayers];
   // The exported changes: a cube that pops out of the button and drifts up.
   const fly = (c - 4) / 2.6;
+  let flying = null;
   if (fly > 0 && fly < 1) {
-    const start = pose([W / 2 - 26, 20, -H / 2 + 14]);
-    const e = smooth(fly), up = e * 90, out = Math.sin(fly * Math.PI) * 30;
-    const cube = box(start[0] + out - 9, start[1] + out - 9, start[2] + up, 18, 18, 18, R.lime);
-    layers.push(cube.map((f) => ({ ...f, opacity: 1 - smooth((fly - 0.6) / 0.4) })));
+    const start = pose([W / 2 - 26, 8, -H / 2 + 6]), o = pose([0, 0, 0]), ahead = pose([0, 1, 0]).map((v, i) => v - o[i]);
+    const e = smooth(fly), size = 18 * smooth(fly / 0.2), out = 34 * e, up = 70 * e;
+    const cube = box(start[0] + ahead[0] * out - size / 2, start[1] + ahead[1] * out - size / 2, start[2] + up, size, size, size, R.lime);
+    flying = cube.map((f) => ({ ...f, opacity: 1 - smooth((fly - 0.6) / 0.4) }));
   }
-  const floats = FLOAT.map(([x, y, z, col], i) => box(x - 7, y - 7, z + Math.sin(t * 1.3 + i * 1.7) * 5, 14, 14, 14, col));
-  // Floating cubes behind the scene go under it, the rest over it.
-  const behind = (f) => depthOf([f[0].pts[0][0], f[0].pts[0][1], 0], P) < 0;
-  group.innerHTML = floats.filter(behind).map((f) => paint(f, P)).join("") + layers.map((l) => paint(l, P)).join("") + floats.filter((f) => !behind(f)).map((f) => paint(f, P)).join("");
+  group.innerHTML = layers.map((l) => paint(l, P)).join("") + cone + paint(mapFaces(board, pose), P) + paint(mapFaces(panel, pose), P) + paint(mapFaces(knobs, pose), P) + (flying ? paint(flying, P) : "") + floaters(t, P, R);
 }
 loop(stage, draw, null, 5);
 }</script></body></html>

@@ -883,11 +883,31 @@ function tone(ramp, n) {
   const A = hex(a), B = hex(b);
   return "rgb(" + A.map((v, i) => Math.round(v + (B[i] - v) * s)).join(",") + ")";
 }
+/** The ground every figure stands on: a round plinth with an inset top. */
+function pad(cx, cy, r, R) {
+  return [...cylinder(cx, cy, -14, r, 14, R.stone, 48), ...cylinder(cx, cy, 0, r - 12, 1.5, R.ink, 48)];
+}
+/** The four accent cubes, at the same spots around the blob in every figure. */
+function floaters(t, P, R) {
+  const SPOTS = [[118, 112, R.lime], [486, 50, R.cyan], [532, 232, R.lime], [104, 292, R.cyan]];
+  const [ox, oy] = iso([0, 0, 0], P), size = 12 / Math.hypot(...iso([1, 0, 0], P).map((v, i) => v - [ox, oy][i]));
+  return SPOTS.map(([x, y, ramp], i) => '<g transform="translate(' + (x - ox).toFixed(1) + " " + (y - oy + Math.sin(t * 1.3 + i * 1.7) * 4).toFixed(1) + ')">'
+    + paint(box(-size / 2, -size / 2, -size / 2, size, size, size, ramp), P) + "</g>").join("");
+}
+/** Convex hull of 2D points, for soft light shapes. */
+function hull(pts) {
+  const p = pts.slice().sort((a, b) => a[0] - b[0] || a[1] - b[1]);
+  const cross = (o, a, b) => (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0]);
+  const lower = [], upper = [];
+  for (const q of p) { while (lower.length > 1 && cross(lower[lower.length - 2], lower[lower.length - 1], q) <= 0) lower.pop(); lower.push(q); }
+  for (const q of p.reverse()) { while (upper.length > 1 && cross(upper[upper.length - 2], upper[upper.length - 1], q) <= 0) upper.pop(); upper.push(q); }
+  return lower.slice(0, -1).concat(upper.slice(0, -1));
+}
 /** Faces to SVG polygons, back to front, culling the ones facing away. */
 function paint(faces, P, opacity) {
   const live = [];
-  for (const f of faces) {
-    if (depthOf(f.n, P) <= 1e-4) continue;
+  for (let f of faces) {
+    if (depthOf(f.n, P) <= 1e-4) { if (!f.twoSided) continue; f = { ...f, n: f.n.map((v) => -v) }; }
     let c = [0, 0, 0];
     for (const p of f.pts) c = V.add(c, p);
     const depth = depthOf(c.map((v) => v / f.pts.length), P) + (f.bias || 0);
@@ -912,18 +932,17 @@ function loop(stage, draw, still, rest) {
   draw(reduce.matches ? rest : 0);
 }
 
-const P = {"origin":[300,318.39083706314517],"scale":1.0292909851016392,"azimuth":45,"elevation":30}, R = {"lilac":["#4d4c9b","#807ebb","#dfdff7"],"stone":["#2a2765","#352785","#4d4c9b"],"ink":["#1d1b4a","#2a2765","#3d3a86"],"cyan":["#08a7ff","#03ddff","#5ff0ff"],"lime":["#5e8f33","#7fb846","#a5e05b"]};
+const P = {"origin":[300,271.15257694368233],"scale":0.987238386132154,"azimuth":45,"elevation":30}, R = {"lilac":["#4d4c9b","#807ebb","#dfdff7"],"stone":["#2a2765","#352785","#4d4c9b"],"ink":["#1d1b4a","#2a2765","#3d3a86"],"cyan":["#08a7ff","#03ddff","#5ff0ff"],"lime":["#5e8f33","#7fb846","#a5e05b"]};
 const PIVOT = 136, ARM = 104, DROP = 60, CUBE = 18;
 const RIGHT = [[0,null],[1.4,null],[2.8,null],[4.2,5.8]], LIT_AT = 7, RESET = 10.2, CYCLE = 11;
 const YAW = -0.7853981633974483, toWorld = (p) => [p[0] * Math.cos(YAW) - p[1] * Math.sin(YAW), p[0] * Math.sin(YAW) + p[1] * Math.cos(YAW), p[2]];
 const mixHex = (a, b, s) => "#" + [1, 3, 5].map((i) => Math.round(parseInt(a.slice(i, i + 2), 16) * (1 - s) + parseInt(b.slice(i, i + 2), 16) * s).toString(16).padStart(2, "0")).join("");
 const mixRamp = (a, b, s) => a.map((c, i) => mixHex(c, b[i], s));
 const smooth = (x) => (x <= 0 ? 0 : x >= 1 ? 1 : x * x * (3 - 2 * x));
-const base = [...cylinder(0, 0, -16, 64, 16, R.stone, 36), ...cylinder(0, 0, 0, 50, 3, R.ink, 36)];
-const post = [...cylinder(0, 0, 3, 9, PIVOT - 16, R.lilac, 18), ...cylinder(0, 0, PIVOT - 16, 16, 6, R.stone, 18)];
+const base = pad(0, 0, 70, R);
+const post = [...cylinder(0, 0, 1.5, 9, PIVOT - 18, R.lilac, 24), ...cylinder(0, 0, PIVOT - 30, 13, 5, R.stone, 24)];
 // Cube slots on a pan: two side by side, then two more, then one on top.
 const SLOTS = [[-CUBE - 1, -CUBE / 2, 0], [1, -CUBE / 2, 0], [-CUBE / 2, -CUBE - 1, CUBE], [-CUBE / 2, 1, CUBE], [-CUBE / 2, -CUBE / 2, CUBE * 2]];
-const FLOAT = [[-150, -10, 150, R.lime], [40, -120, 165, R.cyan], [130, 30, 20, R.lime], [-20, 150, 10, R.cyan]];
 const stage = document.querySelector(".iso-stage");
 const group = stage.querySelector('[data-part="scene"]');
 let angle = null, speed = 0, lastT = null;
@@ -942,13 +961,15 @@ function draw(t) {
   const end = (side) => beamPose([side * ARM, 0, 0]);
   const faces = [...base, ...post], cubes3d = [];
   faces.push(...mapFaces(box(-ARM - 8, -5, -5, ARM * 2 + 16, 10, 10, R.lilac), beamPose));
-  faces.push(...mapFaces(cylinder(0, 0, -11, 9, 22, mixRamp(R.stone, R.cyan, lit), 16), chain(rotX(Math.PI / 2), move([0, 0, PIVOT]))));
+  // The fulcrum: one block the beam rocks on, lit when the scale balances.
+  faces.push(...box(-12, -10, PIVOT - 17, 24, 20, 12, mixRamp(R.stone, R.cyan, lit)));
   for (const side of [-1, 1]) {
     const [ex, , ez] = end(side), pz = ez - DROP;
-    // A yoke: a short bar under the beam end and a rod down to each side of the pan rim.
-    faces.push(...box(ex - 31, -2, ez - 8, 62, 4, 4, R.stone));
-    for (const r of [-30, 27]) faces.push(...box(ex + r, -1.5, pz + 5, 3, 3, DROP - 9, R.stone));
-    faces.push(...box(ex - 2, -2, ez - 4, 4, 4, 4, R.stone));
+    // A yoke behind the pan, so its rods never cross the cubes: an arm back from
+    // the beam end, a short crossbar and a rod down to each side of the rim.
+    faces.push(...box(ex - 2, -28, ez - 9, 4, 28, 4, R.stone));
+    faces.push(...box(ex - 18, -29, ez - 9, 36, 4, 4, R.stone));
+    for (const r of [-16, 16]) faces.push(...box(ex + r - 1.5, -28.5, pz + 5, 3, 3, DROP - 14, R.stone));
     faces.push(...cylinder(ex, 0, pz, 34, 5, R.stone, 28), ...cylinder(ex, 0, pz + 5, 28, 0.6, R.ink, 28));
     const cubes = side < 0 ? [[-1, null], [-1, null], [-1, null]] : RIGHT;
     cubes.forEach(([on, off], i) => {
@@ -960,8 +981,7 @@ function draw(t) {
       cubes3d.push(...box(wx - CUBE / 2, wy - CUBE / 2, pz + 5.6 + sz + lift, CUBE, CUBE, CUBE, cubeRamp).map((f) => ({ ...f, opacity: alpha })));
     });
   }
-  const floats = FLOAT.flatMap(([x, y, z, col], i) => box(x - 7, y - 7, z + Math.sin(t * 1.3 + i * 1.7) * 5, 14, 14, 14, col));
-  group.innerHTML = paint([...mapFaces(faces, toWorld), ...cubes3d, ...floats], P);
+  group.innerHTML = paint([...mapFaces(faces, toWorld), ...cubes3d], P) + floaters(t, P, R);
 }
 loop(stage, draw, null, 8.5);
 }</script></body></html>
