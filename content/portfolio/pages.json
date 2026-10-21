@@ -488,7 +488,11 @@
         },
         {
           "label": "Development",
-          "value": "Unity 6 · PC"
+          "value": "Unity 6"
+        },
+        {
+          "label": "Platform",
+          "value": "PC"
         },
         {
           "label": "Duration",
