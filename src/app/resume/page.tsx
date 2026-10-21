@@ -62,10 +62,13 @@ export default function Resume() {
           <DemoReel src="/resume/demo-reel-2024.mp4" poster={{ src: "/resume/demo-reel-2024-poster.webp", alt: "" }} label="Demo reel, 2024" />
         </section>
         {philosophyLead && <section className="pf-section pf-quiet pf-resume-philosophy">
-          <div className="pf-container">
-            <h2>Design philosophy</h2>
-            <p className="pf-resume-lead">{philosophyLead}</p>
-            {philosophy.map(text => <p key={text.slice(0, 32)}>{text}</p>)}
+          <div className="pf-container pf-philosophy-row">
+            <div>
+              <h2>Design philosophy</h2>
+              <p className="pf-resume-lead">{philosophyLead}</p>
+              {philosophy.map(text => <p key={text.slice(0, 32)}>{text}</p>)}
+            </div>
+            <iframe className="pf-figure-frame" src="/resume/figures/philosophy.html" title="Subtractive design: interactive illustration" loading="lazy" />
           </div>
         </section>}
         <section className="pf-container pf-section">

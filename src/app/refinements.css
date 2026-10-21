@@ -414,3 +414,6 @@ html { scrollbar-gutter: stable; }
 :root { --pf-name: color-mix(in srgb, var(--perz-link-line) 55%, white); }
 :root[data-portfolio-theme="light"] { --pf-name: var(--perz-link-line); }
 .pf-name { color: var(--pf-name); font-weight: 600; }
+
+.pf-philosophy-row { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 48px; align-items: center; }
+@media (max-width: 900px) { .pf-philosophy-row { grid-template-columns: 1fr; gap: 24px; } }
