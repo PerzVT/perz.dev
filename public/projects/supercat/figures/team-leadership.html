@@ -896,13 +896,6 @@ function lathe(profile, cx, cy, z, ramp, n = 20) {
 function pad(cx, cy, r, R) {
   return [...cylinder(cx, cy, -14, r, 14, R.stone, 48), ...cylinder(cx, cy, 0, r - 12, 1.5, R.ink, 48)];
 }
-/** The four accent cubes, at the same spots around the blob in every figure. */
-function floaters(t, P, R) {
-  const SPOTS = [[118, 112, R.lime], [486, 50, R.cyan], [532, 232, R.lime], [104, 292, R.cyan]];
-  const [ox, oy] = iso([0, 0, 0], P), size = 12 / Math.hypot(...iso([1, 0, 0], P).map((v, i) => v - [ox, oy][i]));
-  return SPOTS.map(([x, y, ramp], i) => '<g transform="translate(' + (x - ox).toFixed(1) + " " + (y - oy + Math.sin(t * 1.3 + i * 1.7) * 4).toFixed(1) + ')">'
-    + paint(box(-size / 2, -size / 2, -size / 2, size, size, size, ramp), P) + "</g>").join("");
-}
 /** Convex hull of 2D points, for soft light shapes. */
 function hull(pts) {
   const p = pts.slice().sort((a, b) => a[0] - b[0] || a[1] - b[1]);
@@ -951,7 +944,12 @@ const facing = (x, y) => chain(rotZ(-Math.PI / 4 + 0.35), move([x, y, 0]));
 // Each station's object, built facing +y: an easel for art, a monitor for code
 // and a level blockout for design.
 const OBJECTS = [
-  [...box(-3, -6, 11.5, 3, 3, 30, R.stone), ...box(14, -6, 11.5, 3, 3, 30, R.stone), ...box(-14, -3, 18, 34, 3, 26, R.lime)],
+  // An A-frame easel: two front legs leaning in, a rear leg, a ledge and a painted canvas.
+  [...mapFaces(box(-1.5, -1.5, 0, 3, 3, 50, R.stone), chain(rotY(0.2), move([-15, 0, 11.5]))),
+    ...mapFaces(box(-1.5, -1.5, 0, 3, 3, 50, R.stone), chain(rotY(-0.2), move([15, 0, 11.5]))),
+    ...mapFaces(box(-1.5, -1.5, 0, 3, 3, 46, R.stone), chain(rotX(0.4), move([0, -4, 11.5]))),
+    ...box(-17, -1, 24, 34, 6, 3, R.stone),
+    ...box(-14, 0, 27, 28, 2.5, 24, SHELL), ...box(-10, 2.5, 31, 20, 1, 9, R.lime), ...box(-2, 2.5, 42, 8, 1, 6, R.cyan)],
   [...box(-4, -4, 11.5, 8, 6, 10, R.stone), ...box(-18, -6, 21.5, 36, 5, 24, R.stone), ...box(-14, -1, 25, 28, 1.5, 17, R.ink),
     ...box(-11, -0.5, 36, 16, 1, 2.5, R.cyan), ...box(-11, -0.5, 31, 22, 1, 2.5, R.cyan), ...box(-11, -0.5, 26, 12, 1, 2.5, R.cyan)],
   [...box(-16, -12, 11.5, 14, 14, 22, SHELL), ...box(0, -12, 11.5, 14, 14, 12, SHELL), ...box(-8, 4, 11.5, 14, 10, 8, SHELL)],
@@ -979,7 +977,7 @@ function draw(t) {
   if (show) stations.push({ depth: depthOf([mx, my, 0], P), faces: box(mx - 6, my - 6, 4 + Math.sin(Math.min(1, s / 1.8) * Math.PI) * 8, 12, 12, 12, R.cyan) });
   stations.sort((p, q) => p.depth - q.depth);
   group.innerHTML = paint(ground, P) + paint(tracks, P) + paint(hub, P)
-    + stations.map((st) => paint(st.faces, P)).join("") + floaters(t, P, R);
+    + stations.map((st) => paint(st.faces, P)).join("");
 }
 loop(stage, draw, null, 1.2);
 }</script></body></html>

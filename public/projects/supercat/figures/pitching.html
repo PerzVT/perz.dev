@@ -896,13 +896,6 @@ function lathe(profile, cx, cy, z, ramp, n = 20) {
 function pad(cx, cy, r, R) {
   return [...cylinder(cx, cy, -14, r, 14, R.stone, 48), ...cylinder(cx, cy, 0, r - 12, 1.5, R.ink, 48)];
 }
-/** The four accent cubes, at the same spots around the blob in every figure. */
-function floaters(t, P, R) {
-  const SPOTS = [[118, 112, R.lime], [486, 50, R.cyan], [532, 232, R.lime], [104, 292, R.cyan]];
-  const [ox, oy] = iso([0, 0, 0], P), size = 12 / Math.hypot(...iso([1, 0, 0], P).map((v, i) => v - [ox, oy][i]));
-  return SPOTS.map(([x, y, ramp], i) => '<g transform="translate(' + (x - ox).toFixed(1) + " " + (y - oy + Math.sin(t * 1.3 + i * 1.7) * 4).toFixed(1) + ')">'
-    + paint(box(-size / 2, -size / 2, -size / 2, size, size, size, ramp), P) + "</g>").join("");
-}
 /** Convex hull of 2D points, for soft light shapes. */
 function hull(pts) {
   const p = pts.slice().sort((a, b) => a[0] - b[0] || a[1] - b[1]);
@@ -944,9 +937,9 @@ function loop(stage, draw, still, rest) {
 const P = {"origin":[300,250.56021142655908],"scale":1.1022837835080226,"azimuth":45,"elevation":30}, R = {"lilac":["#4d4c9b","#807ebb","#dfdff7"],"stone":["#2a2765","#352785","#4d4c9b"],"ink":["#1d1b4a","#2a2765","#3d3a86"],"cyan":["#08a7ff","#03ddff","#5ff0ff"],"lime":["#5e8f33","#7fb846","#a5e05b"]};
 const SHELL = ["#8f8dcc", "#d6d5f5", "#ffffff"];
 const smooth = (x) => (x <= 0 ? 0 : x >= 1 ? 1 : x * x * (3 - 2 * x));
-const ground = pad(0, 0, 104, R);
+const ground = pad(0, 0, 108, R);
 // The booth is built facing +y and turned towards the viewer.
-const turn = chain(rotZ(-Math.PI / 4 + 0.35), move([-46, 4, 0]));
+const turn = chain(rotZ(-Math.PI / 4 + 0.35), move([-30, 24, 0]));
 const counter = [...box(-40, -60, 1.5, 80, 40, 46, R.lilac), ...box(-44, -64, 47.5, 88, 48, 5, R.stone)];
 const stand = box(-5, -50, 52.5, 10, 8, 20, R.stone);
 const screen = box(-46, -54, 72, 92, 8, 58, R.stone);
@@ -985,7 +978,7 @@ function draw(t) {
   people.sort((a, b) => a.depth - b.depth);
   group.innerHTML = paint(ground, P) + paint(mapFaces([...counter, ...stand], turn), P) + paint(mapFaces(screen, turn), P)
     + paint(mapFaces(glass, turn), P) + paint(mapFaces([...platforms, ...runner], turn), P)
-    + people.map((p) => '<g opacity="' + p.alpha.toFixed(2) + '">' + paint(p.faces, P) + "</g>").join("") + floaters(t, P, R);
+    + people.map((p) => '<g opacity="' + p.alpha.toFixed(2) + '">' + paint(p.faces, P) + "</g>").join("");
 }
 loop(stage, draw, null, 2);
 }</script></body></html>

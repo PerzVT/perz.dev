@@ -883,16 +883,18 @@ function tone(ramp, n) {
   const A = hex(a), B = hex(b);
   return "rgb(" + A.map((v, i) => Math.round(v + (B[i] - v) * s)).join(",") + ")";
 }
+/** A turned solid from a [radius, height] profile, bottom to top. */
+function lathe(profile, cx, cy, z, ramp, n = 20) {
+  const out = [];
+  for (let i = 1; i < profile.length; i++) {
+    const [r0, z0] = profile[i - 1], [r1, z1] = profile[i];
+    out.push(...loft(ring(n, Math.max(r0, 0.01), Math.max(r0, 0.01), z + z0, cx, cy), ring(n, Math.max(r1, 0.01), Math.max(r1, 0.01), z + z1, cx, cy), ramp, [i === 1, i === profile.length - 1]));
+  }
+  return out;
+}
 /** The ground every figure stands on: a round plinth with an inset top. */
 function pad(cx, cy, r, R) {
   return [...cylinder(cx, cy, -14, r, 14, R.stone, 48), ...cylinder(cx, cy, 0, r - 12, 1.5, R.ink, 48)];
-}
-/** The four accent cubes, at the same spots around the blob in every figure. */
-function floaters(t, P, R) {
-  const SPOTS = [[118, 112, R.lime], [486, 50, R.cyan], [532, 232, R.lime], [104, 292, R.cyan]];
-  const [ox, oy] = iso([0, 0, 0], P), size = 12 / Math.hypot(...iso([1, 0, 0], P).map((v, i) => v - [ox, oy][i]));
-  return SPOTS.map(([x, y, ramp], i) => '<g transform="translate(' + (x - ox).toFixed(1) + " " + (y - oy + Math.sin(t * 1.3 + i * 1.7) * 4).toFixed(1) + ')">'
-    + paint(box(-size / 2, -size / 2, -size / 2, size, size, size, ramp), P) + "</g>").join("");
 }
 /** Convex hull of 2D points, for soft light shapes. */
 function hull(pts) {
@@ -932,16 +934,16 @@ function loop(stage, draw, still, rest) {
   draw(reduce.matches ? rest : 0);
 }
 
-const P = {"origin":[300,284.2317639752344],"scale":1.1712252211390708,"azimuth":45,"elevation":30}, R = {"lilac":["#4d4c9b","#807ebb","#dfdff7"],"stone":["#2a2765","#352785","#4d4c9b"],"ink":["#1d1b4a","#2a2765","#3d3a86"],"cyan":["#08a7ff","#03ddff","#5ff0ff"],"lime":["#5e8f33","#7fb846","#a5e05b"]}, LIFT = 40, SPIN = 14;
+const P = {"origin":[300,293.7742503359266],"scale":1.061403127973395,"azimuth":45,"elevation":30}, R = {"lilac":["#4d4c9b","#807ebb","#dfdff7"],"stone":["#2a2765","#352785","#4d4c9b"],"ink":["#1d1b4a","#2a2765","#3d3a86"],"cyan":["#08a7ff","#03ddff","#5ff0ff"],"lime":["#5e8f33","#7fb846","#a5e05b"]}, LIFT = 40, SPIN = 14;
 // The shell takes the mid tones so the tracking ring, in the lightest, stands off it.
 const SHELL = ["#3d3c86", "#6d6bb0", "#b4b2e4"], HOOP = ["#8f8dcc", "#d6d5f5", "#ffffff"];
 // The controller in its own frame: z up the grip, +y towards the trigger.
 const GRIP = [[-6, 9, 11, 4], [0, 13, 16, 4], [20, 15, 18, 0], [40, 16, 19, -3], [58, 18, 21, 0]];
 const grip = GRIP.slice(1).flatMap(([z, rx, ry, y], i) => {
   const [z0, rx0, ry0, y0] = GRIP[i];
-  return loft(ring(28, rx0, ry0, z0, 0, y0), ring(28, rx, ry, z, 0, y), SHELL, [i === 0, false]);
+  return loft(ring(48, rx0, ry0, z0, 0, y0), ring(48, rx, ry, z, 0, y), SHELL, [i === 0, false]);
 });
-const head = loft(ring(36, 28, 25, 56, 0, 0), ring(36, 28, 25, 68, 0, 0), SHELL);
+const head = loft(ring(48, 28, 25, 56, 0, 0), ring(48, 28, 25, 68, 0, 0), SHELL);
 const plate = loft(ring(36, 23, 20, 68, 0, 0), ring(36, 23, 20, 69.5, 0, 0), R.stone);
 const stick = [...cylinder(-8, -6, 69.5, 4, 6, R.ink, 16), ...cylinder(-8, -6, 75.5, 8.5, 4, R.ink, 24)];
 const buttons = [...cylinder(9, 4, 69.5, 4.4, 2.5, R.cyan, 16), ...cylinder(12, -9, 69.5, 4.4, 2.5, R.cyan, 16)];
@@ -949,7 +951,7 @@ const trigger = box(-6, 15, 36, 12, 8, 16, R.stone);
 // The tracking ring: a hoop over the face, rising from the thumb side towards the front,
 // joined to the back of the head by a short neck.
 const band = mapFaces(torus(48, 9, HOOP, 48), chain(rotX(0.9), move([0, 8, 106])));
-const neck = box(-8, -28, 62, 16, 12, 12, HOOP);
+const neck = cylinder(0, -22, 64, 6, 10, HOOP, 20);
 const body = [...grip, ...head, ...plate, ...stick, ...buttons, ...trigger, ...neck, ...band];
 const ground = pad(0, 0, 76, R);
 const glowRing = mapFaces(torus(54, 5, R.cyan, 48), move([0, 0, 4]));
@@ -961,7 +963,7 @@ function draw(t) {
   const turn = (t / SPIN) * Math.PI * 2 + 0.6;
   const pose = chain(move([0, -12, -72]), rotX(-0.32), rotZ(turn), move([0, 0, LIFT + 72 + bob]));
   const pulse = 0.55 + 0.35 * ease((t % 3) / 3);
-  group.innerHTML = paint(ground, P) + '<g opacity="' + (pulse + 0.1).toFixed(2) + '">' + paint(glowRing, P) + '</g>' + paint(mapFaces(body, pose), P) + floaters(t, P, R);
+  group.innerHTML = paint(ground, P) + '<g opacity="' + (pulse + 0.1).toFixed(2) + '">' + paint(glowRing, P) + '</g>' + paint(mapFaces(body, pose), P);
 }
 loop(stage, draw, null, 3.2);
 }
