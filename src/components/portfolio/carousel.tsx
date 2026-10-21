@@ -2,7 +2,7 @@
 import { useLoopingCarousel } from "./use-looping-carousel";
 import { RailNavigation } from "./rail-navigation";
 import Link from "next/link";
-import { useId, useState, type CSSProperties } from "react";
+import { Suspense, useId, useState, type CSSProperties } from "react";
 import dynamic from "next/dynamic";
 import { MediaImage } from "./media-image";
 import type { Media } from "@/lib/portfolio";
@@ -64,6 +64,7 @@ export function Carousel({ items, label = "Gallery", initial = 0, compact = fals
     </div>
     <RailNavigation count={items.length} label={label} controls={id} onPrevious={previous} onNext={next} />
     {items.length > 1 && <span className="sr-only" aria-live={running ? "off" : "polite"}>{current.title || current.alt || label}, {index + 1} of {items.length}</span>}
-    {viewer && <MediaViewer items={items} index={index} label={label} onSelect={select} onClose={() => setViewer(false)} />}
+    {/* Without a local boundary the first open suspends to the route's loading screen, which collapses the page and loses the scroll. */}
+    {viewer && <Suspense fallback={null}><MediaViewer items={items} index={index} label={label} onSelect={select} onClose={() => setViewer(false)} /></Suspense>}
   </div>;
 }
