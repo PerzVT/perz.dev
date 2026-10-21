@@ -77,10 +77,9 @@ export default function Resume() {
         </section>
         <section className="pf-container pf-section">
           <h2>Skills</h2>
-          <div className="pf-proficiency">{levels.map((level, i) => <section className="pf-proficiency-level" key={level.title} aria-label={`${level.title}: ${level.tags.length} skills`}>
+          <div className="pf-proficiency">{levels.map((level, i) => <section className="pf-proficiency-level" key={level.title} aria-label={`${level.title} skills`}>
             <header>
               <h3>{level.title}</h3>
-              <span className="pf-proficiency-count">{level.tags.length} skills</span>
               <span className="pf-level-bar" aria-hidden="true">{levels.map((_, step) => <i key={step} data-on={step < levels.length - i} />)}</span>
             </header>
             <ul className="pf-checklist">{level.tags.map(tag => <li key={tag}><Icon name="imgIconCheck" />{tag}</li>)}</ul>
