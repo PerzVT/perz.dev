@@ -53,8 +53,8 @@ const nextConfig: NextConfig = {
     const pages = [
       { source: "/projects", destination: "/#work", permanent: false },
       { source: "/sidequests", destination: "/", permanent: false },
-      { source: "/activity", destination: "/resume#modpacks", permanent: false },
-      { source: "/status", destination: "/resume#modpacks", permanent: false },
+      { source: "/activity", destination: "/resume", permanent: false },
+      { source: "/status", destination: "/resume", permanent: false },
     ];
     return [...pages, ...Object.entries(mediaAliases).map(([source, destination]) => ({
       source: source.replace(/[():*+?{}]/g, "\\$&"),
