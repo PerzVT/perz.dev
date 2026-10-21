@@ -61,7 +61,7 @@ export default function Resume() {
           <div className="pf-reel-heading"><h2 id="reel-heading">Demo reel</h2><span className="pf-reel-date">Updated in 2024</span></div>
           <DemoReel src="/resume/demo-reel-2024.mp4" poster={{ src: "/resume/demo-reel-2024-poster.webp", alt: "" }} label="Demo reel, 2024" />
         </section>
-        {philosophyLead && <section className="pf-section pf-quiet pf-resume-philosophy">
+        {philosophyLead && !("philosophyHidden" in r && r.philosophyHidden) && <section className="pf-section pf-quiet pf-resume-philosophy">
           <div className="pf-container pf-philosophy-row">
             <div>
               <h2>Design philosophy</h2>
