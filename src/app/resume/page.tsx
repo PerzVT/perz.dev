@@ -7,7 +7,7 @@ import {
   Paragraphs,
 } from "@/components/portfolio/sections";
 import { Icon } from "@/components/portfolio/controls";
-import { SKILL_ICON } from "@/lib/icons";
+import { SKILL_GROUP_ICON, SKILL_ICON } from "@/lib/icons";
 import { portfolio } from "@/lib/portfolio";
 import { DemoReel } from "@/components/portfolio/demo-reel";
 import { ModpackUptime } from "@/components/portfolio/resume-stats";
@@ -80,7 +80,10 @@ export default function Resume() {
           <h2>Skills</h2>
           <div className="pf-skill-groups">{skillGroups.map(group => <section className="pf-skill-group" key={group.title} aria-label={`${group.title} skills`}>
             <h3>{group.title}</h3>
-            <ul className="pf-chips">{group.tags.map(tag => <li key={tag}>{SKILL_ICON[tag] && <Icon name={SKILL_ICON[tag]} />}{tag}</li>)}</ul>
+            <ul className="pf-chips">{group.tags.map(tag => {
+              const icon = SKILL_ICON[tag] ?? SKILL_GROUP_ICON[group.title];
+              return <li key={tag}>{icon && <Icon name={icon} />}{tag}</li>;
+            })}</ul>
           </section>)}</div>
         </section>
         <section className="pf-container pf-section">

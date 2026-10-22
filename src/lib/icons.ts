@@ -38,6 +38,8 @@ export const ICON_SRC = {
   imgSkillMeta: "/shared/skills/imgSkillMeta.svg",
   imgSkillCsharp: "/shared/skills/imgSkillCsharp.svg",
   imgSkillPico8: "/shared/skills/imgSkillPico8.svg",
+  imgSkillDesign: "/shared/skills/imgSkillDesign.svg",
+  imgSkillCode: "/shared/skills/imgSkillCode.svg",
 } as const;
 
 export type IconName = keyof typeof ICON_SRC;
@@ -62,7 +64,13 @@ export const SKILL_ICON: Record<string, IconName> = {
   "Figma": "imgSkillFigma",
   "Jira": "imgSkillJira",
   "Confluence": "imgSkillConfluence",
-  "VR/AR Development": "imgSkillMeta",
-  "C# Scripting": "imgSkillCsharp",
+  "VR/XR Development": "imgSkillMeta",
+  "C#": "imgSkillCsharp",
   "Pico-8": "imgSkillPico8",
+};
+
+/** The mark a skill without its own brand falls back to, by its résumé group. */
+export const SKILL_GROUP_ICON: Record<string, IconName> = {
+  "Design": "imgSkillDesign",
+  "Development": "imgSkillCode",
 };
