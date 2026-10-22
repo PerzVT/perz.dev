@@ -201,21 +201,16 @@
           "Illustration",
           "Motion Graphics",
           "Animation",
+          "Video Editing",
           "Web Design"
         ]
       },
       {
-        "title": "Engines & code",
+        "title": "Development",
         "tags": [
-          "Unity",
-          "Unreal Engine 5 (Blueprints)",
-          "Godot",
-          "Three.js",
-          "Raylib",
-          "Sokol",
-          "DOTS",
           "C# Scripting",
           "C++",
+          "DOTS",
           "Advanced Gameplay Programming",
           "Game architecture patterns",
           "Tool Engineering",
@@ -230,10 +225,23 @@
         ]
       },
       {
-        "title": "Tools",
+        "title": "Software",
         "tags": [
+          "Unity",
+          "Unreal Engine 5 (Blueprints)",
+          "Godot",
+          "Three.js",
+          "Raylib",
+          "Sokol",
+          "Pico-8",
+          "JetBrains Rider",
+          "Visual Studio",
+          "Git",
+          "GitHub",
+          "Bitbucket",
+          "Figma",
+          "Claude",
           "DaVinci Resolve",
-          "Video Editing",
           "Miro",
           "Draw.io"
         ]
@@ -241,6 +249,9 @@
       {
         "title": "Workflow",
         "tags": [
+          "Agile",
+          "Jira",
+          "Confluence",
           "Project Management",
           "Publishing"
         ]
