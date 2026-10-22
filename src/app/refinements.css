@@ -32,6 +32,11 @@ body { user-select: text; -webkit-user-select: text; }
 .pf-skill-section h2 { margin-bottom: 20px; }
 .pf-overview .pf-skills li, .pf-skills li { flex: 0 1 auto; border: 1px solid var(--pf-border-strong); }
 .pf-skills { gap: 6px; }
+.pf-skill-groups { display: grid; gap: 28px; }
+.pf-page .pf-skill-group h3 { margin: 0 0 12px; font: 600 var(--pf-type-meta)/1.2 var(--perz-font-body); letter-spacing: .08em; text-transform: uppercase; color: var(--pf-secondary); }
+.pf-chips { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.pf-chips li { display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 16px; border: 1px solid var(--pf-border-strong); border-radius: 999px; background: var(--pf-surface); color: var(--pf-text); font-size: var(--pf-type-compact); }
+.pf-chips .pf-icon { width: 18px; height: 18px; }
 .pf-overview-top > * { min-width: 0; }
 .pf-facts dd { overflow-wrap: anywhere; }
 .pf-contents { margin-top: 40px; }
@@ -77,19 +82,7 @@ button.sq-art { width: 100%; padding: 0; border: 0; cursor: zoom-in; }
 .pf-resume-intro .pf-about-photo { height: 360px; }
 .pf-page .pf-resume-philosophy p { max-width: none; margin: 0 0 16px; }
 .pf-page .pf-resume-philosophy p:last-child { margin-bottom: 0; }
-.pf-proficiency .pf-skills { gap: 8px; }
-.pf-proficiency .pf-skills li { min-height: 32px; padding: 0 12px; font-size: var(--pf-type-meta); color: var(--pf-body); }
 .pf-resume-lead { font-size: var(--pf-type-lead); font-weight: 600; color: var(--pf-text); margin: 0 0 20px; }
-.pf-proficiency { display: grid; gap: 16px; }
-.pf-proficiency-level { padding: 20px 24px 24px; background: var(--pf-surface); border: 1px solid var(--pf-border); border-radius: var(--perz-radius-panel); }
-.pf-proficiency-level header { display: grid; grid-template-columns: auto 1fr; align-items: baseline; gap: 4px 12px; margin-bottom: 18px; }
-.pf-page .pf-proficiency-level h3 { margin: 0; font-size: var(--pf-type-sub); }
-.pf-level-bar { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; max-width: 360px; margin-top: 10px; }
-.pf-level-bar i { height: 8px; border-radius: 4px; background: var(--pf-border-strong); }
-.pf-level-bar i[data-on="true"] { background: var(--perz-blue-face); }
-.pf-checklist { list-style: none; margin: 0; padding: 0; columns: 4 200px; column-gap: 24px; }
-.pf-checklist li { display: flex; align-items: center; gap: 8px; break-inside: avoid; padding: 5px 0; font-size: var(--pf-type-compact); color: var(--pf-body); }
-.pf-checklist .pf-icon { width: 16px; height: 16px; }
 .pf-resume-page .pf-section { padding-block: 40px; }
 .pf-resume-page .pf-prose { max-width: 72ch; }
 .pf-resume-page .pf-resume-summary { gap: 48px; }
@@ -137,8 +130,6 @@ html[data-motion="paused"] *, html[data-motion="paused"] *::before, html[data-mo
   :root { --pf-canvas: #fff; --pf-surface: #fff; --pf-quiet: #fff; --pf-text: #26313a; --pf-secondary: #625b50; --pf-border: #c5bba8; }
   .pf-header, .pf-footer, .pf-print-action, .pf-resume-intro .pf-about-photo, .pf-resume-reel, .pf-resume-philosophy, .pf-resume-intro .pf-actions { display: none !important; }
   .pf-resume-intro { display: block; padding-block: 0 8pt; }
-  .pf-proficiency-level { padding: 0; border: 0; background: transparent; }
-  .pf-level-bar { display: none; }
   .pf-resume-page { overflow: visible; font-size: 11pt; line-height: 1.4; }
   .pf-resume-page .pf-container { width: 100%; }
   .pf-resume-page .pf-section { padding-block: 14pt; }
@@ -148,8 +139,9 @@ html[data-motion="paused"] *, html[data-motion="paused"] *::before, html[data-mo
   .pf-resume-page .pf-role { break-inside: avoid; padding-block: 10pt; }
   .pf-resume-page .pf-role p { font-size: 10.5pt; }
   .pf-resume-page .pf-role img { width: 30pt; height: 30pt; }
-  .pf-resume-page .pf-skills { gap: 4pt 12pt; }
-  .pf-resume-page .pf-skills li { border: 0; background: transparent; padding: 0; font-size: 10pt; box-shadow: none; }
+  .pf-resume-page .pf-skills, .pf-resume-page .pf-chips { gap: 4pt 12pt; }
+  .pf-skill-groups { gap: 10pt; }
+  .pf-resume-page :is(.pf-skills, .pf-chips) li { min-height: 0; border: 0; background: transparent; padding: 0; font-size: 10pt; box-shadow: none; }
   .pf-resume-print-contact { display: block; font-size: 11pt; margin-top: 12pt; }
 }
 
@@ -320,10 +312,6 @@ a.pf-art-tile:focus-visible { outline: var(--perz-control-focus-width) solid var
 .pf-reel-date { display: inline-flex; align-items: center; min-height: 28px; padding: 0 12px; border-radius: 999px; background: color-mix(in srgb, var(--perz-blue-face) 22%, transparent); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--perz-blue-face) 60%, transparent); color: var(--pf-text); font: 600 var(--pf-type-pill)/1 var(--perz-font-body); }
 @media print { .pf-resume-aside { display: none !important; } }
 
-.pf-proficiency { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; align-items: stretch; }
-.pf-proficiency .pf-checklist { columns: auto; }
-.pf-proficiency-level header { padding-bottom: 16px; border-bottom: 1px solid var(--pf-border); }
-@media (max-width: 900px) { .pf-proficiency { grid-template-columns: 1fr; } .pf-proficiency .pf-checklist { columns: 2 180px; } }
 
 .pf-trackers { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; }
 .pf-trackers > h2 { margin-bottom: 8px; }

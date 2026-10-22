@@ -186,68 +186,63 @@
     ],
     "skills": [
       {
-        "title": "Advanced",
+        "title": "Design",
         "tags": [
           "Game Design Documentation",
           "System Design",
-          "Illustration",
-          "Tool Engineering",
-          "Unity",
-          "Prototyping",
-          "Post Processing",
           "Combat Design",
-          "Advanced Gameplay Programming",
-          "UI systems",
-          "2D/3D projects",
           "User Experience",
-          "C# Scripting",
           "Product Design",
-          "Project Management",
-          "Game architecture patterns",
-          "VR/AR Development",
-          "DOTS",
-          "Shader Creation",
+          "UI systems",
+          "Prototyping",
           "Grayboxing",
-          "Motion Graphics",
-          "Miro/Draw.io"
-        ]
-      },
-      {
-        "title": "Intermediate",
-        "tags": [
-          "Unreal Engine 5",
-          "Blueprints",
-          "C++",
-          "Basic Game Optimization",
-          "Lighting",
-          "Performance Profiling",
-          "Web Design",
-          "Frontend Development",
           "Narrative Design",
           "Script Writing",
-          "Video Editing",
-          "Godot",
-          "Raylib",
-          "Sokol",
-          "Three.js"
+          "Illustration",
+          "Motion Graphics",
+          "Animation",
+          "Web Design"
         ]
       },
       {
-        "title": "Beginner",
+        "title": "Engines & code",
         "tags": [
-          "3D Modelling",
-          "Blender",
-          "Houdini",
-          "Zbrush",
-          "Substance Painter",
-          "Substance Designer",
-          "Maya",
-          "3ds Max",
-          "Davinci Resolve",
-          "Publishing",
-          "Rigging",
-          "Texturing",
-          "Animation"
+          "Unity",
+          "Unreal Engine 5 (Blueprints)",
+          "Godot",
+          "Three.js",
+          "Raylib",
+          "Sokol",
+          "DOTS",
+          "C# Scripting",
+          "C++",
+          "Advanced Gameplay Programming",
+          "Game architecture patterns",
+          "Tool Engineering",
+          "Shader Creation",
+          "Post Processing",
+          "Lighting",
+          "VR/AR Development",
+          "2D/3D projects",
+          "Frontend Development",
+          "Performance Profiling",
+          "Basic Game Optimization"
+        ]
+      },
+      {
+        "title": "Tools",
+        "tags": [
+          "DaVinci Resolve",
+          "Video Editing",
+          "Miro",
+          "Draw.io"
+        ]
+      },
+      {
+        "title": "Workflow",
+        "tags": [
+          "Project Management",
+          "Publishing"
         ]
       }
     ],

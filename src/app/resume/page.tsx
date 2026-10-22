@@ -7,6 +7,7 @@ import {
   Paragraphs,
 } from "@/components/portfolio/sections";
 import { Icon } from "@/components/portfolio/controls";
+import { SKILL_ICON } from "@/lib/icons";
 import { portfolio } from "@/lib/portfolio";
 import { DemoReel } from "@/components/portfolio/demo-reel";
 import { ModpackUptime } from "@/components/portfolio/resume-stats";
@@ -23,9 +24,9 @@ export default function Resume() {
     .map(line => line.replace(/^[✦•·]\s*/, "").replace(/[·\s]+$/, ""))
     .filter(Boolean);
   const [philosophyLead, ...philosophy] = r.philosophy.split(/\n\s*\n/).map(p => p.trim()).filter(Boolean);
-  // A skill listed at two levels shows once, at the higher one.
+  // A skill listed under two categories shows once, under the first.
   const seen = new Set<string>();
-  const levels = r.skills.map(group => ({
+  const skillGroups = r.skills.map(group => ({
     title: group.title,
     tags: group.tags.map(tag => tag.trim()).filter(tag => {
       const key = tag.toLowerCase();
@@ -77,12 +78,9 @@ export default function Resume() {
         </section>
         <section className="pf-container pf-section">
           <h2>Skills</h2>
-          <div className="pf-proficiency">{levels.map((level, i) => <section className="pf-proficiency-level" key={level.title} aria-label={`${level.title} skills`}>
-            <header>
-              <h3>{level.title}</h3>
-              <span className="pf-level-bar" aria-hidden="true">{levels.map((_, step) => <i key={step} data-on={step < levels.length - i} />)}</span>
-            </header>
-            <ul className="pf-checklist">{level.tags.map(tag => <li key={tag}><Icon name="imgIconCheck" />{tag}</li>)}</ul>
+          <div className="pf-skill-groups">{skillGroups.map(group => <section className="pf-skill-group" key={group.title} aria-label={`${group.title} skills`}>
+            <h3>{group.title}</h3>
+            <ul className="pf-chips">{group.tags.map(tag => <li key={tag}>{SKILL_ICON[tag] && <Icon name={SKILL_ICON[tag]} />}{tag}</li>)}</ul>
           </section>)}</div>
         </section>
         <section className="pf-container pf-section">

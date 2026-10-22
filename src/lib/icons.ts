@@ -17,6 +17,28 @@ export const ICON_SRC = {
   imgBrandLinkedin: "/shared/branding/imgBrandLinkedin.svg",
   imgBrandItch: "/shared/branding/imgBrandItch.svg",
   imgBrandCurseforge: "/shared/branding/imgBrandCurseforge.svg",
+  imgSkillUnity: "/shared/skills/imgSkillUnity.svg",
+  imgSkillUnrealEngine: "/shared/skills/imgSkillUnrealEngine.svg",
+  imgSkillGodot: "/shared/skills/imgSkillGodot.svg",
+  imgSkillThreejs: "/shared/skills/imgSkillThreejs.svg",
+  imgSkillRaylib: "/shared/skills/imgSkillRaylib.svg",
+  imgSkillCplusplus: "/shared/skills/imgSkillCplusplus.svg",
+  imgSkillDavinciResolve: "/shared/skills/imgSkillDavinciResolve.svg",
+  imgSkillMiro: "/shared/skills/imgSkillMiro.svg",
+  imgSkillDrawio: "/shared/skills/imgSkillDrawio.svg",
 } as const;
 
 export type IconName = keyof typeof ICON_SRC;
+
+/** Brand marks for résumé skills, keyed by the skill name as authored in pages.json. */
+export const SKILL_ICON: Record<string, IconName> = {
+  "Unity": "imgSkillUnity",
+  "Unreal Engine 5 (Blueprints)": "imgSkillUnrealEngine",
+  "Godot": "imgSkillGodot",
+  "Three.js": "imgSkillThreejs",
+  "Raylib": "imgSkillRaylib",
+  "C++": "imgSkillCplusplus",
+  "DaVinci Resolve": "imgSkillDavinciResolve",
+  "Miro": "imgSkillMiro",
+  "Draw.io": "imgSkillDrawio",
+};
