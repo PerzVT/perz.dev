@@ -1,989 +1,924 @@
-<!doctype html><html lang="en"><head><meta name="robots" content="noindex"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Systems design</title><style>
-.iso{
-  --anatomy-page:#0b0b0b;--anatomy-card:#131313;--anatomy-text:#a3a3a3;--anatomy-strong:#e6e6e6;--anatomy-muted:#6e6e6e;
-  --anatomy-paper:#131313;--anatomy-face:#1b1b1b;--anatomy-top:#1c1c1c;
-  --anatomy-shade-0:#0f0f0f;--anatomy-shade-1:#121212;--anatomy-shade-2:#151515;--anatomy-shade-3:#181818;
-  --anatomy-lit-top:#262626;--anatomy-lit-shade:#1d1d1d;
-  --anatomy-hi:#d4d4d4;--anatomy-mid:#6a6a6a;--anatomy-lo:#3e3e3e;--anatomy-faint:#2a2a2a;--anatomy-lit:#ffffff;
-  --anatomy-halo:#050505;--anatomy-halo-opacity:.9;--anatomy-dot:#e6e6e6;
-  --anatomy-red:#ff6b6b;--anatomy-green:#6be0a0;--anatomy-blue:#6b9bff;
-  --anatomy-weight:.6px;--anatomy-ease:cubic-bezier(.32,.72,0,1);
-  --anatomy-mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
-  --anatomy-lift:inset 0 1px 0 0 #ffffff0a,inset 0 0 0 1px #ffffff06,0 0 0 1px #00000026,0 1px 1px -.5px #00000014,0 3px 3px -1.5px #00000014,0 6px 6px -3px #00000014,0 12px 12px -6px #00000014;
-}
-.iso[data-theme="light"]{
-  --anatomy-page:#f2f2ef;--anatomy-card:#fbfbfa;--anatomy-text:#57575a;--anatomy-strong:#18181a;--anatomy-muted:#8c8c90;
-  --anatomy-paper:#fbfbfa;--anatomy-face:#ffffff;--anatomy-top:#ffffff;
-  --anatomy-shade-0:#dcdcd9;--anatomy-shade-1:#e5e5e2;--anatomy-shade-2:#ededea;--anatomy-shade-3:#f4f4f1;
-  --anatomy-lit-top:#ffffff;--anatomy-lit-shade:#eeeeeb;
-  --anatomy-hi:#26262a;--anatomy-mid:#8a8a8f;--anatomy-lo:#b4b4b8;--anatomy-faint:#d4d4d6;--anatomy-lit:#000000;
-  --anatomy-halo:#8a8a80;--anatomy-halo-opacity:.32;--anatomy-dot:#3a3a3e;
-  --anatomy-red:#e5484d;--anatomy-green:#30a46c;--anatomy-blue:#3e63dd;
-  --anatomy-lift:inset 0 1px 0 0 #ffffff,0 0 0 1px #0000000f,0 1px 1px -.5px #0000000a,0 3px 3px -1.5px #0000000a,0 6px 6px -3px #0000000a,0 12px 12px -6px #0000000a;
-}
-.iso-svg{display:block;width:100%;height:auto;overflow:visible}
-.iso-svg path,.iso-svg circle{vector-effect:non-scaling-stroke}
-.iso-fill{fill:var(--anatomy-paper);stroke:none}
-.iso-solid[data-lit]>.iso-fill{fill:var(--anatomy-face)}
-.iso-shade,.iso-top{stroke:none}
-.iso-shade[data-shade="0"]{fill:var(--anatomy-shade-0)}
-.iso-shade[data-shade="1"]{fill:var(--anatomy-shade-1)}
-.iso-shade[data-shade="2"]{fill:var(--anatomy-shade-2)}
-.iso-shade[data-shade="3"]{fill:var(--anatomy-shade-3)}
-.iso-top{fill:var(--anatomy-top)}
-.iso-solid[data-lit]>.iso-top{fill:var(--anatomy-lit-top)}
-.iso-solid[data-lit]>.iso-shade{fill:var(--anatomy-lit-shade)}
-.iso-solid[data-seamless]>.iso-shade,.iso-solid[data-seamless]>.iso-top{stroke-width:.4;stroke-linejoin:round}
-.iso-solid[data-seamless]>.iso-shade[data-shade="0"]{stroke:var(--anatomy-shade-0)}
-.iso-solid[data-seamless]>.iso-shade[data-shade="1"]{stroke:var(--anatomy-shade-1)}
-.iso-solid[data-seamless]>.iso-shade[data-shade="2"]{stroke:var(--anatomy-shade-2)}
-.iso-solid[data-seamless]>.iso-shade[data-shade="3"]{stroke:var(--anatomy-shade-3)}
-.iso-solid[data-seamless]>.iso-top{stroke:var(--anatomy-top)}
-.iso-solid[data-seamless][data-lit]>.iso-top{stroke:var(--anatomy-lit-top)}
-.iso-solid[data-seamless][data-lit]>.iso-shade{stroke:var(--anatomy-lit-shade)}
-.iso-solid[data-lit]>.iso-edge{stroke:var(--anatomy-lit)}
-.iso-halo{fill:var(--anatomy-halo);stroke:none;filter:blur(9px);opacity:var(--anatomy-halo-opacity);transform:translateY(3px)}
-.iso-line{fill:none;stroke:var(--anatomy-lo);stroke-width:var(--anatomy-weight);stroke-linecap:round;stroke-linejoin:round}
-.iso-line[data-tone="hi"]{stroke:var(--anatomy-hi)}
-.iso-line[data-tone="mid"]{stroke:var(--anatomy-mid)}
-.iso-line[data-tone="lo"]{stroke:var(--anatomy-lo)}
-.iso-line[data-tone="faint"]{stroke:var(--anatomy-faint)}
-.iso-line[data-tone="lit"]{stroke:var(--anatomy-lit)}
-.iso-line[data-tone="red"]{stroke:var(--anatomy-red)}
-.iso-line[data-tone="green"]{stroke:var(--anatomy-green)}
-.iso-line[data-tone="blue"]{stroke:var(--anatomy-blue)}
-.iso-line[data-dotted]{stroke-dasharray:.01 3.5;stroke-width:1}
-.iso-line[data-dashed]{stroke-dasharray:3 3}
-.iso-line[data-flow]{stroke-dasharray:2 6}
-.iso-wire-end{fill:var(--anatomy-paper);stroke:var(--anatomy-lo);stroke-width:var(--anatomy-weight)}
-.iso-wire[data-tone="hi"] .iso-wire-end{stroke:var(--anatomy-hi)}
-.iso-wire[data-tone="mid"] .iso-wire-end{stroke:var(--anatomy-mid)}
-.iso-wire[data-tone="faint"] .iso-wire-end{stroke:var(--anatomy-faint)}
-.iso-wire[data-tone="lit"] .iso-wire-end{stroke:var(--anatomy-lit)}
-.iso-dots circle{fill:var(--anatomy-dot);stroke:none;opacity:.32}
-.iso-dots[data-tone="hi"] circle{opacity:.85}
-.iso-dots[data-tone="mid"] circle{opacity:.45}
-.iso-dots[data-tone="lo"] circle{opacity:.22}
-.iso-dots[data-tone="faint"] circle{opacity:.12}
-.iso-face-text{fill:var(--anatomy-mid);font-family:var(--anatomy-mono);letter-spacing:.04em}
-.iso-face-text[data-tone="hi"]{fill:var(--anatomy-hi)}
-.iso-face-text[data-tone="lo"]{fill:var(--anatomy-lo)}
-.iso-face-text[data-tone="faint"]{fill:var(--anatomy-faint)}
-.tb-body{fill:var(--anatomy-shade-2);stroke:none}
-.tb-shine{fill:var(--anatomy-top);stroke:none}
-.tb-shade{fill:var(--anatomy-shade-0);stroke:none}
-.tb-ring{fill:none;stroke:var(--anatomy-lo);stroke-width:.45;stroke-linecap:butt;stroke-linejoin:round}
-.tb-ring[data-tone="mid"]{stroke:var(--anatomy-mid)}
-.tb-ring[data-tone="faint"]{stroke:var(--anatomy-faint)}
-.tb-ring[data-tone="hi"]{stroke:var(--anatomy-hi)}
-@keyframes iso-flow{to{stroke-dashoffset:-32}}
-@keyframes iso-pulse{0%,100%{opacity:.18}12%{opacity:1}40%{opacity:.18}}
-.iso-line[data-flow]{animation:iso-flow 1600ms linear infinite}
-.iso-dots circle[data-pulse]{animation:iso-pulse 1600ms steps(1,end) infinite;animation-delay:var(--pulse-at,0ms)}
-.iso-figure{margin:32px 0 36px}
-.iso-plate{position:relative;padding:52px 24px;border-radius:0;background:var(--anatomy-card);box-shadow:0 0 0 1px var(--anatomy-mid);--anatomy-paper:var(--anatomy-card)}
-.iso-plate-corners{position:absolute;inset:18px 20px;pointer-events:none}
-.iso-plate-corner{position:absolute;color:var(--anatomy-muted);font-family:var(--anatomy-mono);font-size:10.5px;line-height:1;letter-spacing:.04em;white-space:nowrap}
-.iso-plate-corner[data-corner="fig"]{top:0;left:0;color:var(--anatomy-text)}
-.iso-plate-corner[data-corner="title"]{top:0;right:0;text-transform:uppercase;letter-spacing:.1em}
-.iso-plate-corner[data-corner="hint"]{bottom:0;left:0;text-transform:uppercase;letter-spacing:.1em}
-.iso-plate-corner[data-corner="readout"]{right:0;bottom:0;color:var(--anatomy-text);font-variant-numeric:tabular-nums}
-.iso-plate .iso-svg{margin:0 auto}
-.iso-legend{display:grid;gap:8px;margin-top:12px;color:var(--anatomy-muted);font-size:13px;line-height:1.55}
-.iso-keys{display:flex;flex-wrap:wrap;gap:6px 18px}
-.iso-key{display:inline-flex;align-items:center;gap:7px}
-.iso-swatch{width:16px;height:10px;flex:none;overflow:visible}
-.iso-swatch path{fill:none;stroke:var(--anatomy-hi);stroke-width:1;vector-effect:non-scaling-stroke;stroke-linejoin:round;stroke-linecap:round}
-.iso-swatch[data-mark="raised"] path,.iso-swatch[data-mark="flat"] path{stroke:var(--anatomy-mid)}
-.iso-swatch[data-mark="lit"] path{stroke:var(--anatomy-lit)}
-.iso-swatch[data-mark="dim"] path{stroke:var(--anatomy-lo)}
-.iso-swatch[data-mark="dotted"] path{stroke-dasharray:.01 3;stroke-width:1.4}
-.iso-swatch[data-mark="dashed"] path{stroke-dasharray:3 2.5}
-.iso-swatch[data-mark="red"] path{stroke:var(--anatomy-red)}
-.iso-swatch[data-mark="green"] path{stroke:var(--anatomy-green)}
-.iso-swatch[data-mark="blue"] path{stroke:var(--anatomy-blue)}
-.iso-swatch-crease{stroke:var(--anatomy-lo)!important}
-@media (max-width:560px){.iso-plate{padding:48px 12px 70px}.iso-plate-corner[data-corner="hint"]{bottom:18px}}
-@media (prefers-reduced-motion:reduce){.iso-line[data-flow],.iso-dots circle[data-pulse]{animation:none}}
+<!doctype html>
+<html lang="en" class="dark" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Figure</title>
+<link rel="icon" href="data:,">
+<style>
+  :root { color-scheme: dark;
+    --hairline-plate: #121316; --hairline-hi: #5ff0ff; --hairline-edge: #dfdff7;
+    --hairline-mid: #807ebb; --hairline-lo: #352785; --hairline-stroke: 1.1; }
+  html, body { height: 100%; margin: 0; background: transparent; overflow: hidden; }
+  /* hairline draws 5:4 at its host's width; the card is 3:2, so the host is a 5:4 box at full height. */
+  #stage { position: absolute; top: 0; bottom: 0; left: 50%; aspect-ratio: 5 / 4; translate: -50% 0; }
+  #read { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+</style>
+</head>
+<body>
+<div id="stage"></div>
+<span id="read" aria-live="polite"></span>
+<script>/* hairline kernel sha256:346b48bdef2cdfafd5343eba01494255cf75f9c078e6fcd1aafc62bab62980a1 */
+/*
+ * HL: everything a figure may call. Read this index; the code under it is the
+ * package's src/core, unchanged, and a figure should not need to read it.
+ *
+ * Every figure is drawn in a 400 × 320 viewBox. World space is x/y on the
+ * ground and z up. Plates are filled with the ground colour and painted back
+ * to front, so a nearer one covers a farther one: append in that order. At
+ * the default camera, Cam(45, 0.5, S), +x runs down to the right and +y down
+ * to the left, so the corner with the largest x and y is nearest the viewer:
+ * append by ascending x + y, from the far corner (smallest x and y) to it.
+ *
+ * Camera
+ *   Cam(azDeg, k, S)                       a camera: azimuth in degrees, k = sin(elevation) (0.5 is the 2:1 view), S = scale
+ *   fit(C, points, cx, cy)                 centres the box of [x, y, z] points on (cx, cy); call it once, before proj
+ *                                          it only centres, it never scales: choose S by trying values, with the most extreme pose in points.
+ *                                          The six figures use S 1.42 to 2.12; the boxes they fit come out 230 to 310 wide and 180 to 245 tall
+ *   proj(C)                                returns P(x, y, z), which gives [sx, sy]
+ *   unproj(C, sx, sy, z)                   the world [x, y] under a screen point, on the plane at height z
+ *   facing(C)                              returns front(sample): whether a ring sample faces the camera
+ * Rounded solids
+ *   rrect(u0, v0, u1, v1, r, n)            a rounded rectangle, as a ring of samples {u, v, nu, nv}
+ *   circ(R, n)                             a circle, as a ring
+ *   rings(x0, y0, x1, y1, r, b)            [ring, inner]: a rounded footprint and its crease ring, inset by b
+ *                                          r, the corner radius, is cut to half the shorter side. b, the crease's inset in world units
+ *                                          (0.6 to 2.2 in the figures), must stay under half the shorter side or the crease turns inside out
+ *   prism(P, front, ring, inner, z0, z1)   {sil, crease}: a solid standing from z0 to z1, as two path strings
+ *   ringAt(P, ring, z)                     the ring's points, projected at height z
+ *   run(ring, keep)                        the one cyclic run of samples that pass keep
+ *   hull(points)                           the convex hull of screen points
+ *   extremes(P, ring)                      [left, right, nearest] samples: where dashed drops fall from
+ *   fillet(points, radii, n)               rounds every vertex of a closed polygon; returns the new points
+ *                                          radii is an array, one radius per vertex, each cut to half its shorter edge; a single number gives NaN.
+ *                                          n is the steps round each corner, default 4: each vertex becomes n + 1 points
+ *   ghost(P, front, ring, z0, depth)       a reflection's path {d, y0, y1}; reflect() draws it for you
+ * Paths and numbers
+ *   poly(points)                           a closed path string
+ *   open(points)                           an open polyline string
+ *   seg(a, b)                              one segment between two screen points [sx, sy], as its own subpath; project world points with P first
+ *   clamp(v, a, b)
+ *   lerp(a, b, t)
+ *   rad(deg)
+ *   r2(n)                                  two decimals
+ * The continuous clock: one spring per moving number
+ *   spring(x, opts)                        at rest on x; write .t to retarget; opts {k, c, m, eps}, default k 100, c 18, m 1
+ *   stepS(sp, dt)                          advances by dt seconds; returns whether it is still moving
+ * The discrete clock: a 700ms tween on (.32, .72, 0, 1)
+ *   tween(v, dur)                          at rest on v; dur defaults to 700 (ms)
+ *   tset(tw, to, now, delay)               retargets from where it is, after delay ms: the stagger
+ *                                          the same target again does nothing, so calling it on every pointer move is safe
+ *   tval(tw, now)                          its value at now
+ *   tdone(tw, now)                         whether it has landed
+ *   bezier(x1, y1, x2, y2)                 a CSS cubic-bezier, as a function of progress
+ *   EASE_LIFT                              the lift curve itself
+ *   reducedMotion()                        true when the reader asked for less motion; springs and tweens already land at once
+ *   setReducedMotion(on)                   the loop's business, not a figure's
+ * Drawing
+ *   mk(tag, attrs, parent)                 one svg element: the only way a figure makes a node
+ *   solid(parent)                          {g, sil, cr}: a group holding a silhouette path and a crease path
+ *   put(solid, paths)                      writes prism()'s {sil, crease} into solid()'s {sil, cr}: sil into sil, crease into cr
+ *   flatDot(parent, C, r, cls)             a dot lying on the ground plane; cls is "dot", "dot m" or "dot off"
+ *   place(el, point)                       moves a dot or a circle to [sx, sy]
+ *   reflect(svg, parent, P, front, ring, z0, depth)   a fading mirror under a solid
+ *   fade(svg, y0, y1, a0)                  a vertical fade, as a mask; returns the value for a mask attribute
+ * Life
+ *   register(stage, tick)                  joins the one frame loop; tick(dt in seconds, now in ms) returns true to ask for another frame; gives {wake, unregister}
+ *   pointer(stage, handlers)               {move(point), down(point), leave()}, points in viewBox units; returns its disposer
+ *   disposer()                             {add, on, dispose}: collects tear-down, so destroy is bag.dispose
+ * The bench's business, not a figure's
+ *   css(lightDark)
+ *   inject(root)
+ *   tour(stage, stops, onStop)             an unseen pointer that walks the stops, [x, y] in viewBox units or null to leave, and gives way to a real one; onStop(i) on each arrival; returns {stop}
+ *   LAP                                    the default stops: a diamond around the centre, then a leave
+ *
+ * Classes, on path, polygon, ellipse and line. They are the whole palette; a
+ * figure sets no colour, width or fill of its own.
+ *     (none)   filled with the ground colour, medium stroke
+ *     sil      the silhouette's stroke        hi    the bright stroke: the only highlight
+ *     lo       the dim stroke                 nf    no fill        fo   fill only, no stroke
+ *     dash     a dashed guide
+ *     dot      a bright dot                   dot m   a medium dot     dot off   a dim dot
+ */
+var HL = (() => {
+  var __defProp = Object.defineProperty;
+  var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+  var __getOwnPropNames = Object.getOwnPropertyNames;
+  var __hasOwnProp = Object.prototype.hasOwnProperty;
+  var __export = (target, all) => {
+    for (var name in all)
+      __defProp(target, name, { get: all[name], enumerable: true });
+  };
+  var __copyProps = (to, from, except, desc) => {
+    if (from && typeof from === "object" || typeof from === "function") {
+      for (let key of __getOwnPropNames(from))
+        if (!__hasOwnProp.call(to, key) && key !== except)
+          __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
+    }
+    return to;
+  };
+  var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
-*{box-sizing:border-box}
-html{color-scheme:dark}
-body[data-theme="light"]{color-scheme:light}
-body{margin:0;background:var(--anatomy-page);color:var(--anatomy-text);font:14px/1.6 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
-.iso-page{width:min(650px,100% - 32px);margin:64px auto 96px}
-</style></head><body class="iso" data-theme="dark"><main class="iso-page"><style>
-@font-face{font-family:Fredoka;src:url('/fonts/Fredoka.woff2') format('woff2');font-weight:300 700;font-display:swap}
-.iso{
-  --anatomy-page:#121316;--anatomy-card:#121316;--anatomy-paper:#121316;
-  --anatomy-text:#A2A4A9;--anatomy-strong:#EFECE6;--anatomy-muted:#6E7177;
-  --anatomy-face:#DFDFF7;--anatomy-top:#DFDFF7;
-  --anatomy-shade-0:#352785;--anatomy-shade-1:#4D4C9B;--anatomy-shade-2:#807EBB;--anatomy-shade-3:url(#perz-side);
-  --anatomy-lit-top:#5FF0FF;--anatomy-lit-shade:#08A7FF;
-  --anatomy-hi:#FFFFFF;--anatomy-mid:#AFADD5;--anatomy-lo:#2A2765;--anatomy-faint:#BDBBDD;--anatomy-lit:#03DDFF;
-  --anatomy-halo:#000000;--anatomy-halo-opacity:.85;--anatomy-dot:#FFFFFF;
-  --anatomy-weight:.8px;--anatomy-mono:Fredoka,ui-rounded,system-ui,sans-serif;
-}
-html,body{height:100%;overflow:hidden}
-body{background:var(--anatomy-page)}
-.iso-page{width:100%;height:100%;margin:0}
-.iso-figure{height:100%;margin:0}
-.iso-plate{height:100%;padding:0;background:transparent;box-shadow:none}
-.iso-plate-corners{inset:14px 16px}
-.iso-plate-corner{font-size:12px;letter-spacing:.02em}
-.iso-plate-corner[data-corner="title"],.iso-plate-corner[data-corner="hint"]{text-transform:none;letter-spacing:.02em}
-.iso-stage{position:absolute;inset:34px 12px 30px;outline:none;border-radius:12px}
-.iso-stage:focus-visible{box-shadow:0 0 0 2px #6FAEFF}
-.iso-stage .iso-svg{position:absolute;inset:0;width:100%;height:100%}
-.perz-earth>.iso-top{fill:#C5774C}.perz-earth>.iso-shade{fill:#C5774C}.perz-earth>.iso-shade[data-shade="0"]{fill:#784D25}
-.perz-grass>.iso-top{fill:#C6DB5D}.perz-grass>.iso-shade{fill:#9CB747}.perz-grass>.iso-shade[data-shade="0"]{fill:#6E8A2E}
-.perz-bench>.iso-top{fill:#8D8CC3}.perz-bench>.iso-shade[data-shade="3"]{fill:#6F6DB0}.perz-bench>.iso-shade[data-shade="0"]{fill:#2A2765}
-.perz-slot{fill:#2A2765;stroke:none}
-.perz-well{fill:#2A2765;stroke:none}
-.perz-face{fill:#2D3A60;stroke:none}
-.perz-face+.iso-line{stroke:#2A2765}
-.perz-glow{fill:url(#perz-glow);opacity:0;transition:opacity 150ms ease-out;pointer-events:none}
-.perz-glow.on,[data-part="pool"]{opacity:.9}
-[data-part="pool"]{opacity:.55}
-.perz-sparkle{fill:#FFFFFF}
-.perz-sparkle.late{fill:#5FF0FF}
-.twinkle{transform-box:fill-box;transform-origin:center;animation:perz-twinkle 2.4s ease-in-out infinite}
-.twinkle.late{animation-delay:1.2s}
-@keyframes perz-twinkle{0%,100%{opacity:.35;transform:scale(.7)}50%{opacity:1;transform:scale(1)}}
-@media (prefers-reduced-motion:reduce){.twinkle{animation:none}.perz-glow{transition:none}}
-@media (max-width:480px){.iso-plate-corner[data-corner="title"],.iso-plate-corner[data-corner="hint"]{display:none}.iso-stage{inset:30px 4px 34px}}
-</style><style>html,body{background:transparent}.iso-stage{inset:0}.iso-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}</style><figure class="iso-figure"><div class="iso-plate"><div class="iso-stage" tabindex="0" role="group" aria-label="A balance scale tuned until it sits level"><svg class="iso-svg" viewBox="0 0 600 400" role="img" aria-label="A balance scale. Cubes drop onto one pan until it tips too far, one comes back off, and when the beam settles level the cubes light up."><path d="M70 300C40 220 90 120 190 92 290 64 330 20 430 52 540 88 570 200 520 280 470 360 330 372 230 356 150 344 92 352 70 300Z" fill="#1c1d33"/><g data-part="scene"></g></svg></div><span class="iso-sr" data-readout aria-live="polite">balance scale</span></div></figure></main><script type="module">const AZIMUTH = 45;
-const ELEVATION = 30;
-const SHADES = 4;
-const RADIANS = Math.PI / 180;
-const UNIT = Math.sqrt(1.6);
-function cameraOf({ scale, azimuth = AZIMUTH, elevation = ELEVATION }) {
-    const a = azimuth * RADIANS;
-    const e = elevation * RADIANS;
-    return { sinA: Math.sin(a), cosA: Math.cos(a), sinE: Math.sin(e), cosE: Math.cos(e), k: scale * UNIT };
-}
-function iso([x, y, z], projection) {
-    const { origin } = projection;
-    const { sinA, cosA, sinE, cosE, k } = cameraOf(projection);
-    return [origin[0] + (x * sinA - y * cosA) * k, origin[1] + ((x * cosA + y * sinA) * sinE - z * cosE) * k];
-}
-function towardViewer(projection) {
-    const { sinA, cosA } = cameraOf(projection);
-    return [cosA, sinA];
-}
-function depthOf([x, y, z], projection) {
-    const { sinA, cosA, sinE, cosE } = cameraOf(projection);
-    return (x * cosA + y * sinA) * cosE + z * sinE;
-}
-const tenth = (value) => {
-    const text = (Math.round(value * 10) / 10).toFixed(1).replace(/\.0$/, "");
-    return text === "-0" ? "0" : text;
-};
-function pathOf(points, closed = false) {
-    if (!points.length)
-        return "";
-    return points.map(([x, y], at) => `${at ? "L" : "M"}${tenth(x)} ${tenth(y)}`).join("") + (closed ? "Z" : "");
-}
-const joinPaths = (paths) => paths.filter(Boolean).join("");
-function roundedPlan({ x, y, w, d, r }, steps = 8) {
-    const radius = Math.max(0, Math.min(r, w / 2, d / 2));
-    const corners = [
-        [x + w - radius, y + radius, -90],
-        [x + w - radius, y + d - radius, 0],
-        [x + radius, y + d - radius, 90],
-        [x + radius, y + radius, 180],
-    ];
+  // packages/hairline/src/core/kernel.ts
+  var kernel_exports = {};
+  __export(kernel_exports, {
+    Cam: () => Cam,
+    EASE_LIFT: () => EASE_LIFT,
+    LAP: () => LAP,
+    bezier: () => bezier,
+    circ: () => circ,
+    clamp: () => clamp,
+    css: () => css,
+    disposer: () => disposer,
+    extremes: () => extremes,
+    facing: () => facing,
+    fade: () => fade,
+    fillet: () => fillet,
+    fit: () => fit,
+    flatDot: () => flatDot,
+    ghost: () => ghost,
+    hull: () => hull,
+    inject: () => inject,
+    lerp: () => lerp,
+    mk: () => mk,
+    open: () => open,
+    place: () => place,
+    pointer: () => pointer,
+    poly: () => poly,
+    prism: () => prism,
+    proj: () => proj,
+    put: () => put,
+    r2: () => r2,
+    rad: () => rad,
+    reducedMotion: () => reducedMotion,
+    reflect: () => reflect,
+    register: () => register,
+    ringAt: () => ringAt,
+    rings: () => rings,
+    rrect: () => rrect,
+    run: () => run,
+    seg: () => seg,
+    setReducedMotion: () => setReducedMotion,
+    solid: () => solid,
+    spring: () => spring,
+    stepS: () => stepS,
+    tdone: () => tdone,
+    tour: () => tour,
+    tset: () => tset,
+    tval: () => tval,
+    tween: () => tween,
+    unproj: () => unproj
+  });
+
+  // packages/hairline/src/core/iso.ts
+  var clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+  var lerp = (a, b, t) => a + (b - a) * t;
+  var rad = (d) => d * Math.PI / 180;
+  var r2 = (n) => Math.round(n * 100) / 100;
+  var poly = (pts) => "M" + pts.map((p) => r2(p[0]) + " " + r2(p[1])).join("L") + "Z";
+  var seg = (a, b) => `M${r2(a[0])} ${r2(a[1])}L${r2(b[0])} ${r2(b[1])}`;
+  var open = (pts) => pts.length < 2 ? "" : "M" + pts.map((p) => r2(p[0]) + " " + r2(p[1])).join("L");
+  var Cam = (azDeg, k, S) => ({ az: rad(azDeg), k, S, ox: 0, oy: 0 });
+  function proj(C) {
+    const c = Math.cos(C.az), s = Math.sin(C.az), zf = Math.sqrt(1 - C.k * C.k);
+    return (x, y, z) => {
+      const X = x * c - y * s, Y = x * s + y * c;
+      return [C.ox + C.S * X, C.oy + C.S * (Y * C.k - z * zf)];
+    };
+  }
+  function unproj(C, sx, sy, z) {
+    const c = Math.cos(C.az), s = Math.sin(C.az), zf = Math.sqrt(1 - C.k * C.k);
+    const X = (sx - C.ox) / C.S, Y = ((sy - C.oy) / C.S + z * zf) / C.k;
+    return [X * c + Y * s, -X * s + Y * c];
+  }
+  function fit(C, pts, cx, cy) {
+    C.ox = 0;
+    C.oy = 0;
+    const P = proj(C);
+    let a = 1e9, b = -1e9, c = 1e9, d = -1e9;
+    for (const p of pts) {
+      const q = P(p[0], p[1], p[2]);
+      a = Math.min(a, q[0]);
+      b = Math.max(b, q[0]);
+      c = Math.min(c, q[1]);
+      d = Math.max(d, q[1]);
+    }
+    C.ox = cx - (a + b) / 2;
+    C.oy = cy - (c + d) / 2;
+  }
+  function rrect(u0, v0, u1, v1, r, n = 4) {
+    r = Math.max(0, Math.min(r, (u1 - u0) / 2, (v1 - v0) / 2));
     const out = [];
-    for (const [cx, cy, start] of corners) {
-        const count = radius > 0 ? steps : 0;
-        for (let step = 0; step <= count; step++) {
-            const angle = (start + (count ? (90 * step) / count : 45)) * RADIANS;
-            out.push([cx + radius * Math.cos(angle), cy + radius * Math.sin(angle)]);
-        }
+    for (const [cu, cv, a0] of [[u1 - r, v1 - r, 0], [u0 + r, v1 - r, 90], [u0 + r, v0 + r, 180], [u1 - r, v0 + r, 270]])
+      for (let k = 0; k <= n; k++) {
+        const a = rad(a0 + 90 * k / n), ca = Math.cos(a), sa = Math.sin(a);
+        out.push({ u: cu + r * ca, v: cv + r * sa, nu: ca, nv: sa });
+      }
+    return out;
+  }
+  function circ(R, n = 96) {
+    const out = [];
+    for (let k = 0; k < n; k++) {
+      const a = k / n * Math.PI * 2, ca = Math.cos(a), sa = Math.sin(a);
+      out.push({ u: R * ca, v: R * sa, nu: ca, nv: sa });
     }
     return out;
-}
-function signedArea(points) {
-    let area = 0;
-    for (let index = 0; index < points.length; index++) {
-        const [ax, ay] = points[index];
-        const [bx, by] = points[(index + 1) % points.length];
-        area += ax * by - bx * ay;
+  }
+  function hull(input) {
+    const pts = input.slice().sort((a, b) => a[0] - b[0] || a[1] - b[1]);
+    const x = (o, a, b) => (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0]);
+    const lo = [], up = [];
+    for (const p of pts) {
+      while (lo.length > 1 && x(lo[lo.length - 2], lo[lo.length - 1], p) <= 0) lo.pop();
+      lo.push(p);
     }
-    return area / 2;
-}
-const oriented = (points) => (signedArea(points) < 0 ? [...points].reverse() : points);
-function convexHull(points) {
-    const sorted = [...points].sort((a, b) => a[0] - b[0] || a[1] - b[1]);
-    if (sorted.length < 3)
-        return sorted;
-    const cross = (o, a, b) => (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0]);
-    const lower = [];
-    for (const point of sorted) {
-        while (lower.length >= 2 && cross(lower[lower.length - 2], lower[lower.length - 1], point) <= 0)
-            lower.pop();
-        lower.push(point);
+    for (let i = pts.length - 1; i >= 0; i--) {
+      const p = pts[i];
+      while (up.length > 1 && x(up[up.length - 2], up[up.length - 1], p) <= 0) up.pop();
+      up.push(p);
     }
-    const upper = [];
-    for (let index = sorted.length - 1; index >= 0; index--) {
-        const point = sorted[index];
-        while (upper.length >= 2 && cross(upper[upper.length - 2], upper[upper.length - 1], point) <= 0)
-            upper.pop();
-        upper.push(point);
+    lo.pop();
+    up.pop();
+    return lo.concat(up);
+  }
+  var ringAt = (P, ring, z) => ring.map((q) => P(q.u, q.v, z));
+  var facing = (C) => {
+    const s = Math.sin(C.az), c = Math.cos(C.az);
+    return (q) => q.nu * s + q.nv * c >= -1e-6;
+  };
+  function run(ring, keep) {
+    const n = ring.length;
+    let s = -1;
+    for (let i = 0; i < n; i++) if (keep(ring[i]) && !keep(ring[(i + n - 1) % n])) {
+      s = i;
+      break;
     }
-    return [...lower.slice(0, -1), ...upper.slice(0, -1)];
-}
-function runsOf(flags, want) {
-    const count = flags.length;
-    const runs = [];
-    const start = flags.findIndex((flag, index) => flag !== flags[(index + count - 1) % count]);
-    if (start < 0)
-        return flags[0] === want ? [Array.from({ length: count + 1 }, (_, index) => index % count)] : [];
-    let run = null;
-    for (let step = 0; step < count; step++) {
-        const index = (start + step) % count;
-        if (flags[index] === want) {
-            if (!run)
-                run = [index];
-            run.push((index + 1) % count);
-        }
-        else if (run) {
-            runs.push(run);
-            run = null;
-        }
-    }
-    if (run)
-        runs.push(run);
-    return runs;
-}
-function extrude(ring, z, height, projection, options = {}) {
-    const convex = options.convex ?? true;
-    const count = ring.length;
-    const counter = signedArea(ring) > 0;
-    const [vx, vy] = towardViewer(projection);
-    const { sinA, cosA } = cameraOf(projection);
-    const normals = ring.map(([ax, ay], index) => {
-        const [bx, by] = ring[(index + 1) % count];
-        const dx = bx - ax;
-        const dy = by - ay;
-        const length = Math.hypot(dx, dy) || 1;
-        return (counter ? [dy / length, -dx / length] : [-dy / length, dx / length]);
-    });
-    const facing = normals.map(([nx, ny]) => nx * vx + ny * vy > 1e-9);
-    const top = ring.map(([x, y]) => iso([x, y, z + height], projection));
-    const bottom = ring.map(([x, y]) => iso([x, y, z], projection));
-    const outline = [];
-    const crease = [];
-    for (const run of runsOf(facing, false))
-        outline.push(pathOf(run.map((index) => top[index])));
-    for (const run of runsOf(facing, true)) {
-        crease.push(pathOf(run.map((index) => top[index])));
-        if (height > 0)
-            outline.push(pathOf(run.map((index) => bottom[index])));
-    }
-    if (height > 0) {
-        for (let index = 0; index < count; index++) {
-            if (facing[(index + count - 1) % count] !== facing[index])
-                outline.push(pathOf([top[index], bottom[index]]));
-        }
-    }
-    let fill;
-    if (convex) {
-        fill = pathOf(convexHull([...top, ...bottom]), true);
-    }
-    else {
-        const parts = [pathOf(oriented(top), true), pathOf(oriented(bottom), true)];
-        for (let index = 0; index < count; index++) {
-            if (!facing[index])
-                continue;
-            const next = (index + 1) % count;
-            parts.push(pathOf(oriented([top[index], top[next], bottom[next], bottom[index]]), true));
-        }
-        fill = parts.join("");
-    }
-    const buckets = Array.from({ length: SHADES }, () => []);
-    if (height > 0) {
-        const [lx, ly] = [-sinA, cosA];
-        for (let index = 0; index < count; index++) {
-            if (!facing[index])
-                continue;
-            const [nx, ny] = normals[index];
-            const lit = (nx * lx + ny * ly + 1) / 2;
-            const shade = Math.min(SHADES - 1, Math.max(0, Math.floor(lit * SHADES)));
-            const next = (index + 1) % count;
-            buckets[shade].push(pathOf(oriented([top[index], top[next], bottom[next], bottom[index]]), true));
-        }
-    }
-    let bevel;
-    if (options.bevel && options.bevel > 0) {
-        const by = options.bevel;
-        const inset = ring.map(([x, y], index) => {
-            const [ax, ay] = normals[(index + count - 1) % count];
-            const [bx, by2] = normals[index];
-            const mx = ax + bx;
-            const my = ay + by2;
-            const length = Math.hypot(mx, my) || 1;
-            return [x - (mx / length) * by, y - (my / length) * by];
-        });
-        const insetTop = inset.map(([x, y]) => iso([x, y, z + height], projection));
-        bevel = runsOf(facing, true)
-            .map((run) => pathOf([top[run[0]], ...run.slice(1, -1).map((index) => insetTop[index]), top[run[run.length - 1]]]))
-            .join("");
-    }
+    if (s < 0) return keep(ring[0]) ? ring.slice() : [];
+    const out = [];
+    for (let k = 0; k < n && keep(ring[(s + k) % n]); k++) out.push(ring[(s + k) % n]);
+    return out;
+  }
+  function prism(P, front, ring, inner, z0, z1) {
     return {
-        fill,
-        outline: outline.join(""),
-        crease: crease.join(""),
-        top: pathOf(oriented(top), true),
-        shades: buckets.map((paths) => paths.join("")),
-        bevel,
+      sil: poly(hull(ringAt(P, ring, z1).concat(ringAt(P, ring, z0)))),
+      crease: inner ? open(ringAt(P, run(inner, front), z1)) : ""
     };
-}
-const ringOf = (plan, steps = 8) => roundedPlan(plan, steps);
-function slabOf(plan, z, height, projection, steps = 8, bevel = 0) {
-    return extrude(ringOf(plan, steps), z, height, projection, { convex: true, bevel });
-}
-function circleRing(cx, cy, radius, steps = 40) {
-    return Array.from({ length: steps }, (_, step) => {
-        const angle = (step / steps) * Math.PI * 2;
-        return [cx + radius * Math.cos(angle), cy + radius * Math.sin(angle)];
+  }
+  var rings = (x0, y0, x1, y1, r, b) => [
+    rrect(x0, y0, x1, y1, r),
+    rrect(x0 + b, y0 + b, x1 - b, y1 - b, Math.max(0.3, r - b))
+  ];
+  function extremes(P, ring) {
+    const pr = ring.map((q) => P(q.u, q.v, 0));
+    let a = 0, b = 0, c = 0;
+    pr.forEach((p, k) => {
+      if (p[0] < pr[a][0]) a = k;
+      if (p[0] > pr[b][0]) b = k;
+      if (p[1] > pr[c][1]) c = k;
     });
-}
-function cylinder(cx, cy, radius, z, height, projection, steps = 32, bevel = 0) {
-    return extrude(circleRing(cx, cy, radius, steps), z, height, projection, { convex: true, bevel });
-}
-const insetPlan = ({ x, y, w, d, r }, by) => ({ x: x + by, y: y + by, w: w - by * 2, d: d - by * 2, r: Math.max(0, r - by) });
-function onTop(points, z, projection, closed = false) {
-    return pathOf(points.map(([x, y]) => iso([x, y, z], projection)), closed);
-}
-const planOutline = (plan, z, projection, steps = 8) => onTop(ringOf(plan, steps), z, projection, true);
-const lineOnTop = (from, to, z, projection) => onTop([from, to], z, projection);
-const segment = (from, to, projection) => pathOf([iso(from, projection), iso(to, projection)]);
-const rise = (at, from, to, projection) => segment([at[0], at[1], from], [at[0], at[1], to], projection);
-const ring = (cx, cy, radius, z, projection, steps = 40) => onTop(circleRing(cx, cy, radius, steps), z, projection, true);
-const pointsAt = (points, projection) => points.map((point) => iso(point, projection));
-function dotGrid(x, y, columns, rows, gap, z, projection) {
-    const dots = [];
-    for (let row = 0; row < rows; row++) {
-        for (let column = 0; column < columns; column++)
-            dots.push(iso([x + column * gap, y + row * gap, z], projection));
+    return [ring[a], ring[b], ring[c]];
+  }
+  function fillet(pts, rs, n = 4) {
+    const m = pts.length, out = [];
+    for (let i = 0; i < m; i++) {
+      const a = pts[(i + m - 1) % m], p = pts[i], b = pts[(i + 1) % m];
+      const la = Math.hypot(a[0] - p[0], a[1] - p[1]), lb = Math.hypot(b[0] - p[0], b[1] - p[1]);
+      const t = Math.min(rs[i], la / 2, lb / 2);
+      const p1 = [p[0] + (a[0] - p[0]) / la * t, p[1] + (a[1] - p[1]) / la * t];
+      const p2 = [p[0] + (b[0] - p[0]) / lb * t, p[1] + (b[1] - p[1]) / lb * t];
+      for (let k = 0; k <= n; k++) {
+        const s = k / n, w = 1 - s;
+        out.push([w * w * p1[0] + 2 * w * s * p[0] + s * s * p2[0], w * w * p1[1] + 2 * w * s * p[1] + s * s * p2[1]]);
+      }
     }
-    return dots;
-}
-function corners({ x, y, w, d }, inset = 0) {
+    return out;
+  }
+  function ghost(P, front, ring, z0, depth) {
+    const f = run(ring, front), lowP = ringAt(P, f, z0 - depth);
+    return {
+      d: open(lowP) + [f[0], f[f.length - 1]].map((q) => seg(P(q.u, q.v, z0), P(q.u, q.v, z0 - depth))).join(""),
+      y0: Math.min(...ringAt(P, f, z0).map((p) => p[1])),
+      y1: Math.max(...lowP.map((p) => p[1])) + 2
+    };
+  }
+
+  // packages/hairline/src/core/motion.ts
+  var reduced = false;
+  var setReducedMotion = (on) => {
+    reduced = on;
+  };
+  var reducedMotion = () => reduced;
+  function spring(x, o = {}) {
+    return { x, v: 0, t: x, k: o.k ?? 100, c: o.c ?? 18, m: o.m ?? 1, eps: o.eps ?? 0.01 };
+  }
+  function stepS(sp, dt) {
+    if (reduced) {
+      sp.x = sp.t;
+      sp.v = 0;
+      return false;
+    }
+    const n = Math.max(1, Math.ceil(dt * 240)), h = dt / n;
+    for (let i = 0; i < n; i++) {
+      const a = (-sp.k * (sp.x - sp.t) - sp.c * sp.v) / sp.m;
+      sp.v += a * h;
+      sp.x += sp.v * h;
+    }
+    if (Math.abs(sp.x - sp.t) < sp.eps && Math.abs(sp.v) < sp.eps * 10) {
+      sp.x = sp.t;
+      sp.v = 0;
+      return false;
+    }
+    return true;
+  }
+  function bezier(x1, y1, x2, y2) {
+    const cx = 3 * x1, bx = 3 * (x2 - x1) - cx, ax = 1 - cx - bx;
+    const cy = 3 * y1, by = 3 * (y2 - y1) - cy, ay = 1 - cy - by;
+    const X = (u) => ((ax * u + bx) * u + cx) * u;
+    const Y = (u) => ((ay * u + by) * u + cy) * u;
+    const dX = (u) => (3 * ax * u + 2 * bx) * u + cx;
+    return (t) => {
+      if (t <= 0) return 0;
+      if (t >= 1) return 1;
+      let u = t;
+      for (let i = 0; i < 8; i++) {
+        const e = X(u) - t;
+        if (Math.abs(e) < 1e-5) break;
+        const d = dX(u);
+        if (Math.abs(d) < 1e-6) break;
+        u -= e / d;
+      }
+      if (!(u >= 0 && u <= 1) || Math.abs(X(u) - t) > 1e-4) {
+        let lo = 0, hi = 1;
+        u = t;
+        for (let i = 0; i < 24; i++) {
+          if (X(u) < t) lo = u;
+          else hi = u;
+          u = (lo + hi) / 2;
+        }
+      }
+      return Y(u);
+    };
+  }
+  var EASE_LIFT = bezier(0.32, 0.72, 0, 1);
+  var tween = (v, dur = 700) => ({ from: v, to: v, t0: -1e9, dur });
+  var tval = (tw, now) => {
+    const p = clamp((now - tw.t0) / tw.dur, 0, 1);
+    return tw.from + (tw.to - tw.from) * (reduced ? 1 : EASE_LIFT(p));
+  };
+  var tset = (tw, to, now, delay) => {
+    if (tw.to === to) return;
+    tw.from = tval(tw, now);
+    tw.to = to;
+    tw.t0 = now + delay;
+  };
+  var tdone = (tw, now) => reduced || now >= tw.t0 + tw.dur;
+
+  // packages/hairline/src/core/stage.ts
+  var NS = "http://www.w3.org/2000/svg";
+  function mk(tag, attrs, parent) {
+    const e = document.createElementNS(NS, tag);
+    if (attrs) for (const k in attrs) e.setAttribute(k, String(attrs[k]));
+    if (parent) parent.appendChild(e);
+    return e;
+  }
+  function solid(parent) {
+    const g = mk("g", {}, parent);
+    return { g, sil: mk("path", { class: "sil" }, g), cr: mk("path", { class: "nf lo" }, g) };
+  }
+  var put = (el, s) => {
+    el.sil.setAttribute("d", s.sil);
+    el.cr.setAttribute("d", s.crease);
+  };
+  var flatDot = (parent, C, r, cls) => mk("ellipse", { rx: r2(r * C.S), ry: r2(r * C.S * C.k), class: cls }, parent);
+  var place = (el, q) => {
+    el.setAttribute("cx", String(r2(q[0])));
+    el.setAttribute("cy", String(r2(q[1])));
+  };
+  var fid = 0;
+  function fade(svg, y0, y1, a0 = 0.7) {
+    const id = "hl-fd" + ++fid, defs = mk("defs", {}, svg);
+    const lg = mk("linearGradient", { id: id + "g", gradientUnits: "userSpaceOnUse", x1: 0, y1: r2(y0), x2: 0, y2: r2(y1) }, defs);
+    mk("stop", { offset: 0, "stop-color": "#fff", "stop-opacity": a0 }, lg);
+    mk("stop", { offset: 1, "stop-color": "#fff", "stop-opacity": 0 }, lg);
+    const m = mk("mask", { id, maskUnits: "userSpaceOnUse", x: 0, y: 0, width: 400, height: 320 }, defs);
+    mk("rect", { x: 0, y: 0, width: 400, height: 320, fill: `url(#${id}g)` }, m);
+    return `url(#${id})`;
+  }
+  function reflect(svg, parent, P, front, ring, z0, depth) {
+    const r = ghost(P, front, ring, z0, depth);
+    const gh = mk("g", { class: "ghost", mask: fade(svg, r.y0, r.y1) }, parent);
+    mk("path", { d: r.d }, gh);
+  }
+  var boards = [];
+  var byStage = /* @__PURE__ */ new Map();
+  var raf = 0;
+  var last = 0;
+  var io = null;
+  var rm = null;
+  function frame() {
+    const now = performance.now();
+    const dt = Math.min(0.05, Math.max(0, (now - last) / 1e3));
+    last = now;
+    let any = false;
+    for (const b of boards.slice()) if (b.vis && b.awake) {
+      try {
+        b.awake = !!b.tick(dt, now);
+      } catch (err) {
+        b.awake = false;
+        setTimeout(() => {
+          throw err;
+        });
+      }
+      any = any || b.awake;
+    }
+    raf = any ? requestAnimationFrame(frame) : 0;
+  }
+  function wake(b) {
+    b.awake = true;
+    if (!raf) {
+      last = performance.now();
+      raf = requestAnimationFrame(frame);
+    }
+  }
+  var onMotion = () => {
+    setReducedMotion(!!rm?.matches);
+    boards.forEach(wake);
+  };
+  function start() {
+    if (io) return;
+    io = new IntersectionObserver((es) => {
+      for (const e of es) {
+        const set = byStage.get(e.target);
+        if (!set) continue;
+        for (const b of set) {
+          b.vis = e.isIntersecting;
+          if (b.vis) wake(b);
+        }
+      }
+    }, { rootMargin: "80px" });
+    rm = matchMedia("(prefers-reduced-motion: reduce)");
+    setReducedMotion(rm.matches);
+    rm.addEventListener("change", onMotion);
+  }
+  function stop() {
+    if (raf) cancelAnimationFrame(raf);
+    raf = 0;
+    io?.disconnect();
+    io = null;
+    rm?.removeEventListener("change", onMotion);
+    rm = null;
+  }
+  function register(stage, tick) {
+    start();
+    const b = { stage, tick, vis: false, awake: true };
+    boards.push(b);
+    const peers = byStage.get(stage);
+    if (peers) {
+      for (const p of peers) b.vis = p.vis;
+      peers.add(b);
+      if (b.vis) wake(b);
+    } else {
+      byStage.set(stage, /* @__PURE__ */ new Set([b]));
+      io.observe(stage);
+    }
+    tick(0, performance.now());
+    let gone = false;
+    return {
+      wake: () => {
+        if (!gone) wake(b);
+      },
+      unregister: () => {
+        if (gone) return;
+        gone = true;
+        boards = boards.filter((x) => x !== b);
+        const set = byStage.get(stage);
+        if (set) {
+          set.delete(b);
+          if (!set.size) {
+            byStage.delete(stage);
+            io?.unobserve(stage);
+          }
+        }
+        if (!boards.length) stop();
+      }
+    };
+  }
+  var handlers = /* @__PURE__ */ new WeakMap();
+  var touring = /* @__PURE__ */ new WeakMap();
+  function pointer(stage, on) {
+    handlers.set(stage, on);
+    let tm = 0;
+    const pt = (e) => {
+      const r = stage.getBoundingClientRect();
+      return [(e.clientX - r.left) / r.width * 400, (e.clientY - r.top) / r.height * 320];
+    };
+    const move = (e) => {
+      clearTimeout(tm);
+      touring.get(stage)?.hold();
+      on.move(pt(e), e);
+    };
+    const down = (e) => {
+      clearTimeout(tm);
+      touring.get(stage)?.hold();
+      if (e.pointerType !== "mouse") stage.releasePointerCapture?.(e.pointerId);
+      if (on.down) on.down(pt(e), e);
+      else on.move(pt(e), e);
+    };
+    const leave = (e) => {
+      clearTimeout(tm);
+      tm = window.setTimeout(() => {
+        on.leave(e);
+        touring.get(stage)?.release();
+      }, e.pointerType === "mouse" ? 0 : 1400);
+    };
+    stage.addEventListener("pointermove", move);
+    stage.addEventListener("pointerdown", down);
+    stage.addEventListener("pointerleave", leave);
+    return () => {
+      clearTimeout(tm);
+      if (handlers.get(stage) === on) handlers.delete(stage);
+      stage.removeEventListener("pointermove", move);
+      stage.removeEventListener("pointerdown", down);
+      stage.removeEventListener("pointerleave", leave);
+    };
+  }
+  var LAP = [[128, 150], [200, 118], [272, 150], [200, 206], null];
+  var TRAVEL = 900;
+  var DWELL = 1200;
+  var REST = 1800;
+  var RESUME = 1200;
+  var STAGGER = 450;
+  var GHOST = { pointerType: "ghost" };
+  var started = 0;
+  function entry([x, y]) {
+    const dx = x - 200, dy = y - 160;
+    if (!dx && !dy) return [200, 320];
+    const k = Math.min(dx ? (dx > 0 ? 200 : -200) / dx : Infinity, dy ? (dy > 0 ? 160 : -160) / dy : Infinity);
+    return [200 + dx * k, 160 + dy * k];
+  }
+  function tour(stage, stops, onStop) {
+    let i = 0;
+    let wait = RESUME + STAGGER * (started++ % 4);
+    let t = -1;
+    let at = null;
+    let origin = [200, 320];
+    let hand = false, keys = stage.contains(stage.ownerDocument.activeElement);
+    let gone = false;
+    const leave = () => {
+      at = null;
+      t = -1;
+      handlers.get(stage)?.leave(GHOST);
+    };
+    const tick = (dt) => {
+      if (hand || keys || !stops.length) return false;
+      if (reducedMotion()) {
+        if (at) leave();
+        return false;
+      }
+      if (wait > 0) {
+        wait -= dt * 1e3;
+        return true;
+      }
+      const stop2 = stops[i];
+      if (stop2 === null) {
+        if (at) leave();
+        onStop?.(i);
+        i = (i + 1) % stops.length;
+        wait = REST;
+        return true;
+      }
+      const h = handlers.get(stage);
+      if (!h) return true;
+      if (t < 0) {
+        origin = at ?? entry(stop2);
+        t = 0;
+      }
+      t = Math.min(TRAVEL, t + dt * 1e3);
+      const k = EASE_LIFT(t / TRAVEL);
+      at = [origin[0] + (stop2[0] - origin[0]) * k, origin[1] + (stop2[1] - origin[1]) * k];
+      h.move(at, GHOST);
+      if (t < TRAVEL) return true;
+      onStop?.(i);
+      i = (i + 1) % stops.length;
+      t = -1;
+      wait = DWELL;
+      return true;
+    };
+    const take = () => {
+      at = null;
+      t = -1;
+    };
+    const give = () => {
+      if (hand || keys) return;
+      i = 0;
+      t = -1;
+      wait = RESUME;
+      board.wake();
+    };
+    const me = {
+      hold: () => {
+        hand = true;
+        take();
+      },
+      release: () => {
+        if (!hand) return;
+        hand = false;
+        give();
+      }
+    };
+    const focusIn = () => {
+      keys = true;
+      take();
+    };
+    const focusOut = (e) => {
+      if (keys && !stage.contains(e.relatedTarget)) {
+        keys = false;
+        give();
+      }
+    };
+    stage.addEventListener("focusin", focusIn);
+    stage.addEventListener("focusout", focusOut);
+    touring.set(stage, me);
+    const board = register(stage, tick);
+    return {
+      stop: () => {
+        if (gone) return;
+        gone = true;
+        board.unregister();
+        stage.removeEventListener("focusin", focusIn);
+        stage.removeEventListener("focusout", focusOut);
+        if (touring.get(stage) === me) touring.delete(stage);
+        if (at) leave();
+      }
+    };
+  }
+  function disposer() {
+    let fns = [];
+    return {
+      add: (fn) => {
+        fns.push(fn);
+      },
+      on: (target, type, fn, opts) => {
+        const h = fn;
+        target.addEventListener(type, h, opts);
+        fns.push(() => target.removeEventListener(type, h, opts));
+      },
+      dispose: () => {
+        const run2 = fns;
+        fns = [];
+        for (let i = run2.length - 1; i >= 0; i--) run2[i]();
+      }
+    };
+  }
+
+  // packages/hairline/src/core/styles.ts
+  var LIGHT = { plate: "#ffffff", hi: "#232327", edge: "#a4a4ac", mid: "#c3c3c9", lo: "#e0e0e4" };
+  var DARK = { plate: "#08090a", hi: "#d0d6e0", edge: "#5b5d64", mid: "#3e3e44", lo: "#29292d" };
+  var KEYS = ["plate", "hi", "edge", "mid", "lo"];
+  var vars = (p) => KEYS.map((k) => `--hl-${k}:var(--hairline-${k},${p[k]});`).join("");
+  var EASE = "cubic-bezier(0.5,0,0.1,1)";
+  var SVG = ":where([data-hairline]>svg)";
+  function css(lightDark) {
+    const both = Object.fromEntries(KEYS.map((k) => [k, `light-dark(${LIGHT[k]},${DARK[k]})`]));
     return [
-        [x + inset, y + inset],
-        [x + w - inset, y + inset],
-        [x + inset, y + d - inset],
-        [x + w - inset, y + d - inset],
-    ];
-}
-function boxCorners({ x, y, w, d }, z0, z1) {
-    const out = [];
-    for (const px of [x, x + w])
-        for (const py of [y, y + d])
-            for (const z of [z0, z1])
-                out.push([px, py, z]);
-    return out;
-}
-function knurl(cx, cy, radius, z0, z1, count, projection, inset = 0.4) {
-    const [vx, vy] = towardViewer(projection);
-    const lines = [];
-    for (let index = 0; index < count; index++) {
-        const angle = (index / count) * Math.PI * 2;
-        const nx = Math.cos(angle);
-        const ny = Math.sin(angle);
-        if (nx * vx + ny * vy < 0.15)
-            continue;
-        lines.push(segment([cx + radius * nx, cy + radius * ny, z0 + inset], [cx + radius * nx, cy + radius * ny, z1 - inset], projection));
+      // the box, and the palette: light unless something below says otherwise
+      `:where([data-hairline]){display:block;position:relative;aspect-ratio:5/4;touch-action:pan-y;user-select:none;-webkit-user-select:none;--hl-sw:var(--hairline-stroke,0.9);${vars(LIGHT)}}`,
+      // the page's color-scheme
+      lightDark ? `:where([data-hairline]){${vars(both)}}` : "",
+      // an ancestor that says dark
+      `:where(.dark,[data-theme="dark"]) :where([data-hairline]){${vars(DARK)}}`,
+      // the figure's own theme option
+      `:where([data-hairline][data-hairline-theme="light"]){${vars(LIGHT)}}`,
+      `:where([data-hairline][data-hairline-theme="dark"]){${vars(DARK)}}`,
+      `:where([data-hairline]:focus-visible){outline:1.5px solid var(--hl-hi);outline-offset:2px}`,
+      `${SVG}{position:absolute;inset:0;width:100%;height:100%;display:block}`,
+      // Riffle's live region: read, not seen
+      `:where([data-hairline]>[data-hairline-live]){position:absolute;width:1px;height:1px;margin:-1px;padding:0;border:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}`,
+      // the drawing: plates are filled with the plate colour and painted back to front
+      `${SVG} :where(path,polygon,ellipse,line){fill:var(--hl-plate);stroke:var(--hl-mid);stroke-width:var(--hl-sw);vector-effect:non-scaling-stroke;stroke-linejoin:round;stroke-linecap:round;transition:stroke 260ms ${EASE}}`,
+      `${SVG} :where(.nf){fill:none}`,
+      `${SVG} :where(.fo){stroke:none}`,
+      `${SVG} :where(.sil){stroke:var(--hl-edge)}`,
+      `${SVG} :where(.hi){stroke:var(--hl-hi)}`,
+      `${SVG} :where(.lo){stroke:var(--hl-lo)}`,
+      `${SVG} :where(.dash){stroke-dasharray:1 3}`,
+      `${SVG} :where(.dot){stroke:none;fill:var(--hl-hi);transition:fill 260ms ${EASE}}`,
+      `${SVG} :where(.dot.m){fill:var(--hl-edge)}`,
+      `${SVG} :where(.dot.off){fill:var(--hl-lo)}`,
+      `${SVG} :where(.ghost path){fill:none;stroke:var(--hl-mid)}`
+    ].join("");
+  }
+  var done = /* @__PURE__ */ new WeakSet();
+  function inject(root) {
+    if (done.has(root)) return;
+    done.add(root);
+    const doc = root.nodeType === 9 ? root : root.ownerDocument;
+    const win = doc.defaultView;
+    const text = css(!!win?.CSS?.supports?.("color", "light-dark(#000,#fff)"));
+    if (win && "adoptedStyleSheets" in root) {
+      try {
+        const sheet = new win.CSSStyleSheet();
+        sheet.replaceSync(text);
+        root.adoptedStyleSheets = [...root.adoptedStyleSheets, sheet];
+        return;
+      } catch {
+      }
     }
-    return lines.join("");
-}
-function sideArc(cx, cy, radius, z, projection, steps = 24) {
-    const [vx, vy] = towardViewer(projection);
-    const facing = Math.atan2(vy, vx);
-    const points = [];
-    for (let step = 0; step <= steps; step++) {
-        const angle = facing - Math.PI / 2 + (step / steps) * Math.PI;
-        points.push(iso([cx + radius * Math.cos(angle), cy + radius * Math.sin(angle), z], projection));
-    }
-    return pathOf(points);
-}
-function ringSeam(ring, z, projection) {
-    const count = ring.length;
-    const counter = signedArea(ring) > 0;
-    const [vx, vy] = towardViewer(projection);
-    const facing = ring.map(([ax, ay], index) => {
-        const [bx, by] = ring[(index + 1) % count];
-        const dx = bx - ax;
-        const dy = by - ay;
-        const [nx, ny] = counter ? [dy, -dx] : [-dy, dx];
-        return nx * vx + ny * vy > 1e-9;
-    });
-    return runsOf(facing, true).map((run) => pathOf(run.map((index) => iso([ring[index][0], ring[index][1], z], projection)))).join("");
-}
-const sideSeam = (plan, z, projection, steps = 8) => ringSeam(ringOf(plan, steps), z, projection);
-function sideRing(center, radius, axis, projection, steps = 20) {
-    const [px, py, pz] = center;
-    const points = [];
-    for (let step = 0; step < steps; step++) {
-        const angle = (step / steps) * Math.PI * 2;
-        const u = radius * Math.cos(angle);
-        const v = radius * Math.sin(angle);
-        points.push(iso(axis === "x" ? [px, py + u, pz + v] : [px + u, py, pz + v], projection));
-    }
-    return pathOf(points, true);
-}
-function coil(from, to, center, radius, turns, axis, projection, perTurn = 16) {
-    const count = Math.max(1, Math.round(turns * perTurn));
-    const back = [];
-    const front = [];
-    let run = [];
-    let near = null;
-    for (let index = 0; index <= count; index++) {
-        const share = index / count;
-        const angle = share * turns * Math.PI * 2;
-        const u = radius * Math.cos(angle);
-        const v = radius * Math.sin(angle);
-        const along = from + (to - from) * share;
-        const point = axis === "x" ? [along, center[0] + u, center[1] + v] : [center[0] + u, along, center[1] + v];
-        const normal = axis === "x" ? [0, Math.cos(angle), Math.sin(angle)] : [Math.cos(angle), 0, Math.sin(angle)];
-        const facing = depthOf(normal, projection) > 0;
-        const flat = iso(point, projection);
-        if (near === null)
-            near = facing;
-        if (facing !== near) {
-            run.push(flat);
-            (near ? front : back).push(pathOf(run));
-            run = [flat];
-            near = facing;
-            continue;
-        }
-        run.push(flat);
-    }
-    if (run.length > 1)
-        (near ? front : back).push(pathOf(run));
-    return { back: back.join(""), front: front.join("") };
-}
-function topTicks(from, to, step, every, edge, z, lengths, projection, axis = "x") {
-    const minor = [];
-    const major = [];
-    const first = Math.ceil(from / step) * step;
-    for (let at = first, index = Math.round(first / step); at <= to + 1e-9; at += step, index++) {
-        const big = index % every === 0;
-        const length = big ? lengths[1] : lengths[0];
-        const a = axis === "x" ? [at, edge] : [edge, at];
-        const b = axis === "x" ? [at, edge + length] : [edge + length, at];
-        (big ? major : minor).push(lineOnTop(a, b, z, projection));
-    }
-    return { minor: minor.join(""), major: major.join("") };
-}
-function sideTicks(from, to, step, every, face, top, lengths, projection, axis = "x") {
-    const minor = [];
-    const major = [];
-    const first = Math.ceil(from / step) * step;
-    for (let at = first, index = Math.round(first / step); at <= to + 1e-9; at += step, index++) {
-        const big = index % every === 0;
-        const length = big ? lengths[1] : lengths[0];
-        const a = axis === "x" ? [at, face, top] : [face, at, top];
-        const b = axis === "x" ? [at, face, top - length] : [face, at, top - length];
-        (big ? major : minor).push(segment(a, b, projection));
-    }
-    return { minor: minor.join(""), major: major.join("") };
-}
-function radialTicks(cx, cy, radius, count, every, z, lengths, projection, from = 0, span = Math.PI * 2) {
-    const minor = [];
-    const major = [];
-    const closed = Math.abs(span - Math.PI * 2) < 1e-9;
-    const steps = closed ? count : count + 1;
-    for (let index = 0; index < steps; index++) {
-        const angle = from + (index / count) * span;
-        const big = index % every === 0;
-        const inner = radius - (big ? lengths[1] : lengths[0]);
-        const sx = Math.sin(angle);
-        const sy = -Math.cos(angle);
-        (big ? major : minor).push(lineOnTop([cx + sx * inner, cy + sy * inner], [cx + sx * radius, cy + sy * radius], z, projection));
-    }
-    return { minor: minor.join(""), major: major.join("") };
-}
-const haloOf = (plan, z, height, projection) => slabOf(plan, z, height, projection).fill;
-function axisVector(projection, [dx, dy, dz]) {
-    const origin = iso([0, 0, 0], projection);
-    const moved = iso([dx, dy, dz], projection);
-    return [moved[0] - origin[0], moved[1] - origin[1]];
-}
-const fine = (value) => Math.round(value * 100) / 100;
-function translateAlong(projection, by) {
-    const [x, y] = axisVector(projection, by);
-    return `translate(${fine(x)} ${fine(y)})`;
-}
-const thousandth = (value) => Math.round(value * 1000) / 1000;
-function axesAt(at, z, projection) {
-    const origin = iso([at[0], at[1], z], projection);
-    const along = (point) => {
-        const [px, py] = iso(point, projection);
-        return [px - origin[0], py - origin[1]];
-    };
-    return { origin, x: along([at[0] + 1, at[1], z]), y: along([at[0], at[1] + 1, z]), z: along([at[0], at[1], z + 1]) };
-}
-const matrixOf = (u, v, origin) => `matrix(${thousandth(u[0])} ${thousandth(u[1])} ${thousandth(v[0])} ${thousandth(v[1])} ${thousandth(origin[0])} ${thousandth(origin[1])})`;
-function holdStill(element, [dx, dy]) {
-    const text = dx || dy ? `translate(${-dx} ${-dy})` : "";
-    element.querySelectorAll("[data-hold]").forEach((node) => (text ? node.setAttribute("transform", text) : node.removeAttribute("transform")));
-}
-function topMatrix(at, z, projection, along = "x") {
-    const { origin, x, y } = axesAt(at, z, projection);
-    return along === "x" ? matrixOf(x, y, origin) : matrixOf([-y[0], -y[1]], x, origin);
-}
-function sideMatrix(at, z, projection, face) {
-    const { origin, x, y, z: up } = axesAt(at, z, projection);
-    const down = [-up[0], -up[1]];
-    return face === "left" ? matrixOf(x, down, origin) : matrixOf([-y[0], -y[1]], down, origin);
-}
-function screenRise(height, projection) {
-    const { cosE, k } = cameraOf(projection);
-    return height * cosE * k;
-}
-function fitProjection(points, width, height, { pad = 24, headroom = 0, azimuth = AZIMUTH, elevation = ELEVATION } = {}) {
-    const unit = { origin: [0, 0], scale: 1, azimuth, elevation };
-    const flat = points.map((point) => iso(point, unit));
-    const xs = flat.map(([x]) => x);
-    const ys = flat.map(([, y]) => y);
-    const left = Math.min(...xs);
-    const right = Math.max(...xs);
-    const up = Math.min(...ys);
-    const down = Math.max(...ys);
-    const scale = Math.min((width - pad * 2) / (right - left), (height - pad * 2 - headroom) / (down - up));
-    return {
-        origin: [width / 2 - ((left + right) / 2) * scale, headroom + (height - headroom) / 2 - ((up + down) / 2) * scale],
-        scale,
-        azimuth,
-        elevation,
-    };
-}
-const escape = (text) => text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
-const attrs = (pairs) => Object.entries(pairs)
-    .filter(([, value]) => value !== undefined && value !== false)
-    .map(([key, value]) => ` ${key}="${escape(String(value))}"`)
-    .join("");
-function solidSvg(paths, { tone = "hi", crease = "faint", halo = false, lit = false, flat = false, className, inner = "" } = {}) {
-    const parts = [];
-    if (halo)
-        parts.push(`<path class="iso-halo" d="${paths.fill}"/>`);
-    parts.push(`<path class="iso-fill" d="${paths.fill}"/>`);
-    if (!flat) {
-        paths.shades.forEach((d, shade) => {
-            if (d)
-                parts.push(`<path class="iso-shade" data-shade="${shade}" d="${d}"/>`);
-        });
-        parts.push(`<path class="iso-top" d="${paths.top}"/>`);
-    }
-    if (crease !== "none" && paths.crease)
-        parts.push(`<path class="iso-line iso-crease" data-tone="${crease}" d="${paths.crease}"/>`);
-    if (crease !== "none" && paths.bevel)
-        parts.push(`<path class="iso-line iso-bevel" data-tone="${crease}" d="${paths.bevel}"/>`);
-    if (inner)
-        parts.push(inner);
-    parts.push(`<path class="iso-line iso-edge" data-tone="${tone}" d="${paths.outline}"/>`);
-    return `<g${attrs({ class: className ? `iso-solid ${className}` : "iso-solid", "data-lit": lit ? "" : undefined, "data-seamless": paths.seamless ? "" : undefined })}>${parts.join("")}</g>`;
-}
-function lineSvg(d, { tone = "lo", dotted = false, dashed = false, flow = false, className, free } = {}) {
-    if (!d)
-        return "";
-    return `<path${attrs({
-        class: className ? `iso-line ${className}` : "iso-line",
-        "data-tone": tone,
-        "data-free": free === true ? "" : free || undefined,
-        "data-dotted": dotted ? "" : undefined,
-        "data-dashed": dashed ? "" : undefined,
-        "data-flow": flow ? "" : undefined,
-        d,
-    })}/>`;
-}
-function dotsSvg(points, { size = 0.5, tone = "mid", pulse = false } = {}) {
-    const dots = points
-        .map(([x, y, alpha], index) => `<circle cx="${tenth(x)}" cy="${tenth(y)}" r="${size}"${alpha !== undefined && alpha < 1 ? ` fill-opacity="${Math.max(0, alpha).toFixed(2)}"` : ""}${pulse ? ` data-pulse="" style="--pulse-at:${(index * 137) % 1600}ms"` : ""}/>`)
-        .join("");
-    return `<g class="iso-dots" data-tone="${tone}">${dots}</g>`;
-}
-function fadedSvg(list, style = {}) {
-    const groups = new Map();
-    for (const entry of list) {
-        const [d, alpha] = Array.isArray(entry) ? entry : [entry.d, entry.alpha];
-        if (!d || !(alpha > 0.02))
-            continue;
-        const level = Math.min(1, Math.round(alpha * 20) / 20);
-        groups.set(level, (groups.get(level) ?? "") + d);
-    }
-    return [...groups].map(([alpha, d]) => (alpha >= 1 ? lineSvg(d, style) : `<g opacity="${alpha.toFixed(2)}">${lineSvg(d, style)}</g>`)).join("");
-}
-function fadeLineSvg(points, { fade = [0, 0], tone = "lo", className, stops = 6 } = {}) {
-    if (points.length < 2)
-        return "";
-    const ease = (t) => t * t * (3 - 2 * t);
-    const hashOf = (text) => {
-        let hash = 2166136261;
-        for (let index = 0; index < text.length; index++)
-            hash = Math.imul(hash ^ text.charCodeAt(index), 16777619);
-        return (hash >>> 0).toString(36);
-    };
-    const lengths = [0];
-    for (let index = 1; index < points.length; index++)
-        lengths.push(lengths[index - 1] + Math.hypot(points[index][0] - points[index - 1][0], points[index][1] - points[index - 1][1]));
-    const at = (length) => {
-        let index = 1;
-        while (index < points.length - 1 && lengths[index] < length)
-            index++;
-        const span = lengths[index] - lengths[index - 1] || 1;
-        const t = Math.max(0, Math.min(1, (length - lengths[index - 1]) / span));
-        return [points[index - 1][0] + (points[index][0] - points[index - 1][0]) * t, points[index - 1][1] + (points[index][1] - points[index - 1][1]) * t];
-    };
-    const pieceOf = (from, to) => [at(from), ...points.filter((_, index) => lengths[index] > from + 1e-6 && lengths[index] < to - 1e-6), at(to)];
-    const total = lengths[lengths.length - 1];
-    if (total < 1e-6)
-        return "";
-    let [start, end] = Array.isArray(fade) ? fade : [fade, fade];
-    if (start + end > total) {
-        const share = total / (start + end);
-        start *= share;
-        end *= share;
-    }
-    const paint = `var(--anatomy-${tone})`;
-    const ramp = (piece, rising) => {
-        const d = pathOf(piece);
-        const [x1, y1] = piece[0];
-        const [x2, y2] = piece[piece.length - 1];
-        const id = `iso-fade-${hashOf(`${d}|${tone}|${rising}`)}`;
-        const marks = Array.from({ length: stops + 1 }, (_, index) => {
-            const t = index / stops;
-            const alpha = ease(rising ? t : 1 - t);
-            return `<stop offset="${t.toFixed(3)}" stop-opacity="${alpha.toFixed(3)}" style="stop-color:${paint}"/>`;
-        }).join("");
-        const gradient = `<linearGradient id="${id}" gradientUnits="userSpaceOnUse" x1="${tenth(x1)}" y1="${tenth(y1)}" x2="${tenth(x2)}" y2="${tenth(y2)}">${marks}</linearGradient>`;
-        return `<defs>${gradient}</defs><path${attrs({ class: className ? `iso-line ${className}` : "iso-line", "data-tone": tone, "data-free": rising ? "start" : "end", d, style: `stroke:url(#${id})` })}/>`;
-    };
-    const parts = [];
-    if (start > 0.05)
-        parts.push(ramp(pieceOf(0, start), true));
-    if (total - end - start > 0.05)
-        parts.push(lineSvg(pathOf(pieceOf(start, total - end)), { tone, className }));
-    if (end > 0.05)
-        parts.push(ramp(pieceOf(total - end, total), false));
-    return `<g class="iso-fade">${parts.join("")}</g>`;
-}
-function wireSvg(from, to, { via = [], tone = "lo", dotted = false, dashed = false, flow = false, ends = "both", size = 1.2 } = {}) {
-    const d = pathOf([from, ...via, to]);
-    const end = ([x, y]) => `<circle class="iso-wire-end" cx="${tenth(x)}" cy="${tenth(y)}" r="${size}"/>`;
-    return `<g class="iso-wire" data-tone="${tone}">${lineSvg(d, { tone, dotted, dashed, flow })}${ends === "both" || ends === "from" ? end(from) : ""}${ends === "both" || ends === "to" ? end(to) : ""}</g>`;
-}
-function faceTextSvg(transform, text, { size = 3, tone = "mid", anchor = "start" } = {}) {
-    return `<text class="iso-face-text" data-tone="${tone}" transform="${transform}" font-size="${size}" text-anchor="${anchor}">${escape(text)}</text>`;
-}
-function groupSvg(children, extra = {}) {
-    return `<g${attrs(extra)}>${Array.isArray(children) ? children.join("") : children}</g>`;
-}
-function figureSvg({ width, height, label, body, standalone = false, className }) {
-    const style = standalone ? `<style>${ISO_CSS}</style>` : "";
-    return `<svg${attrs({
-        xmlns: "http://www.w3.org/2000/svg",
-        class: `iso-svg${standalone ? " iso" : ""}${className ? ` ${className}` : ""}`,
-        "data-theme": standalone || undefined,
-        viewBox: `0 0 ${width} ${height}`,
-        role: "img",
-        "aria-label": label,
-    })}>${style}${Array.isArray(body) ? body.join("") : body}</svg>`;
-}
-function swatchSvg(mark) {
-    if (mark === "raised" || mark === "flat" || mark === "lit") {
-        const body = mark === "flat" ? "M2 6.5 8 3.5 14 6.5 8 9.5Z" : "M2 4.5 8 1.5 14 4.5 14 6 8 9 2 6Z";
-        const crease = mark === "flat" ? "" : `<path class="iso-swatch-crease" d="M2 4.5 8 7.5 14 4.5"/>`;
-        return `<svg class="iso-swatch" data-mark="${mark}" viewBox="0 0 16 10" aria-hidden="true"><path d="${body}"/>${crease}</svg>`;
-    }
-    return `<svg class="iso-swatch" data-mark="${mark}" viewBox="0 0 16 10" aria-hidden="true"><path d="M1.5 5h13"/></svg>`;
-}
-function plateHtml({ fig, title, hint, readout = "", keys = [], caption, body }) {
-    const corner = (name, text, extra = "") => `<span class="iso-plate-corner" data-corner="${name}"${extra}>${escape(text)}</span>`;
-    const legend = keys.length || caption
-        ? `<figcaption class="iso-legend">${keys.length ? `<span class="iso-keys">${keys.map((key) => `<span class="iso-key">${swatchSvg(key.mark)}${escape(key.label)}</span>`).join("")}</span>` : ""}${caption ? `<span class="iso-caption">${escape(caption)}</span>` : ""}</figcaption>`
-        : "";
-    return `<figure class="iso-figure"><div class="iso-plate"><div class="iso-plate-corners" aria-hidden="true">${corner("fig", fig)}${title ? corner("title", title) : ""}${hint ? corner("hint", hint) : ""}${corner("readout", readout, " data-readout")}</div>${body}</div>${legend}</figure>`;
-}
-function pageHtml({ title, theme = "dark", body, script = "", width = 650 }) {
-    return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${escape(title)}</title><style>${ISO_CSS}${PAGE_CSS.replace("__WIDTH__", String(width))}</style></head><body class="iso" data-theme="${theme}"><main class="iso-page">${body}</main>${script ? `<script type="module">${script.replace(/<\/(script)/gi, "<\\/$1")}<\/script>` : ""}</body></html>`;
-}
-const PAGE_CSS = `
-*{box-sizing:border-box}
-html{color-scheme:dark}
-body[data-theme="light"]{color-scheme:light}
-body{margin:0;background:var(--anatomy-page);color:var(--anatomy-text);font:14px/1.6 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
-.iso-page{width:min(__WIDTH__px,100% - 32px);margin:64px auto 96px}
-`;
-const ISO_CSS = `
-.iso{
-  --anatomy-page:#0b0b0b;--anatomy-card:#131313;--anatomy-text:#a3a3a3;--anatomy-strong:#e6e6e6;--anatomy-muted:#6e6e6e;
-  --anatomy-paper:#131313;--anatomy-face:#1b1b1b;--anatomy-top:#1c1c1c;
-  --anatomy-shade-0:#0f0f0f;--anatomy-shade-1:#121212;--anatomy-shade-2:#151515;--anatomy-shade-3:#181818;
-  --anatomy-lit-top:#262626;--anatomy-lit-shade:#1d1d1d;
-  --anatomy-hi:#d4d4d4;--anatomy-mid:#6a6a6a;--anatomy-lo:#3e3e3e;--anatomy-faint:#2a2a2a;--anatomy-lit:#ffffff;
-  --anatomy-halo:#050505;--anatomy-halo-opacity:.9;--anatomy-dot:#e6e6e6;
-  --anatomy-red:#ff6b6b;--anatomy-green:#6be0a0;--anatomy-blue:#6b9bff;
-  --anatomy-weight:.6px;--anatomy-ease:cubic-bezier(.32,.72,0,1);
-  --anatomy-mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
-  --anatomy-lift:inset 0 1px 0 0 #ffffff0a,inset 0 0 0 1px #ffffff06,0 0 0 1px #00000026,0 1px 1px -.5px #00000014,0 3px 3px -1.5px #00000014,0 6px 6px -3px #00000014,0 12px 12px -6px #00000014;
-}
-.iso[data-theme="light"]{
-  --anatomy-page:#f2f2ef;--anatomy-card:#fbfbfa;--anatomy-text:#57575a;--anatomy-strong:#18181a;--anatomy-muted:#8c8c90;
-  --anatomy-paper:#fbfbfa;--anatomy-face:#ffffff;--anatomy-top:#ffffff;
-  --anatomy-shade-0:#dcdcd9;--anatomy-shade-1:#e5e5e2;--anatomy-shade-2:#ededea;--anatomy-shade-3:#f4f4f1;
-  --anatomy-lit-top:#ffffff;--anatomy-lit-shade:#eeeeeb;
-  --anatomy-hi:#26262a;--anatomy-mid:#8a8a8f;--anatomy-lo:#b4b4b8;--anatomy-faint:#d4d4d6;--anatomy-lit:#000000;
-  --anatomy-halo:#8a8a80;--anatomy-halo-opacity:.32;--anatomy-dot:#3a3a3e;
-  --anatomy-red:#e5484d;--anatomy-green:#30a46c;--anatomy-blue:#3e63dd;
-  --anatomy-lift:inset 0 1px 0 0 #ffffff,0 0 0 1px #0000000f,0 1px 1px -.5px #0000000a,0 3px 3px -1.5px #0000000a,0 6px 6px -3px #0000000a,0 12px 12px -6px #0000000a;
-}
-.iso-svg{display:block;width:100%;height:auto;overflow:visible}
-.iso-svg path,.iso-svg circle{vector-effect:non-scaling-stroke}
-.iso-fill{fill:var(--anatomy-paper);stroke:none}
-.iso-solid[data-lit]>.iso-fill{fill:var(--anatomy-face)}
-.iso-shade,.iso-top{stroke:none}
-.iso-shade[data-shade="0"]{fill:var(--anatomy-shade-0)}
-.iso-shade[data-shade="1"]{fill:var(--anatomy-shade-1)}
-.iso-shade[data-shade="2"]{fill:var(--anatomy-shade-2)}
-.iso-shade[data-shade="3"]{fill:var(--anatomy-shade-3)}
-.iso-top{fill:var(--anatomy-top)}
-.iso-solid[data-lit]>.iso-top{fill:var(--anatomy-lit-top)}
-.iso-solid[data-lit]>.iso-shade{fill:var(--anatomy-lit-shade)}
-.iso-solid[data-seamless]>.iso-shade,.iso-solid[data-seamless]>.iso-top{stroke-width:.4;stroke-linejoin:round}
-.iso-solid[data-seamless]>.iso-shade[data-shade="0"]{stroke:var(--anatomy-shade-0)}
-.iso-solid[data-seamless]>.iso-shade[data-shade="1"]{stroke:var(--anatomy-shade-1)}
-.iso-solid[data-seamless]>.iso-shade[data-shade="2"]{stroke:var(--anatomy-shade-2)}
-.iso-solid[data-seamless]>.iso-shade[data-shade="3"]{stroke:var(--anatomy-shade-3)}
-.iso-solid[data-seamless]>.iso-top{stroke:var(--anatomy-top)}
-.iso-solid[data-seamless][data-lit]>.iso-top{stroke:var(--anatomy-lit-top)}
-.iso-solid[data-seamless][data-lit]>.iso-shade{stroke:var(--anatomy-lit-shade)}
-.iso-solid[data-lit]>.iso-edge{stroke:var(--anatomy-lit)}
-.iso-halo{fill:var(--anatomy-halo);stroke:none;filter:blur(9px);opacity:var(--anatomy-halo-opacity);transform:translateY(3px)}
-.iso-line{fill:none;stroke:var(--anatomy-lo);stroke-width:var(--anatomy-weight);stroke-linecap:round;stroke-linejoin:round}
-.iso-line[data-tone="hi"]{stroke:var(--anatomy-hi)}
-.iso-line[data-tone="mid"]{stroke:var(--anatomy-mid)}
-.iso-line[data-tone="lo"]{stroke:var(--anatomy-lo)}
-.iso-line[data-tone="faint"]{stroke:var(--anatomy-faint)}
-.iso-line[data-tone="lit"]{stroke:var(--anatomy-lit)}
-.iso-line[data-tone="red"]{stroke:var(--anatomy-red)}
-.iso-line[data-tone="green"]{stroke:var(--anatomy-green)}
-.iso-line[data-tone="blue"]{stroke:var(--anatomy-blue)}
-.iso-line[data-dotted]{stroke-dasharray:.01 3.5;stroke-width:1}
-.iso-line[data-dashed]{stroke-dasharray:3 3}
-.iso-line[data-flow]{stroke-dasharray:2 6}
-.iso-wire-end{fill:var(--anatomy-paper);stroke:var(--anatomy-lo);stroke-width:var(--anatomy-weight)}
-.iso-wire[data-tone="hi"] .iso-wire-end{stroke:var(--anatomy-hi)}
-.iso-wire[data-tone="mid"] .iso-wire-end{stroke:var(--anatomy-mid)}
-.iso-wire[data-tone="faint"] .iso-wire-end{stroke:var(--anatomy-faint)}
-.iso-wire[data-tone="lit"] .iso-wire-end{stroke:var(--anatomy-lit)}
-.iso-dots circle{fill:var(--anatomy-dot);stroke:none;opacity:.32}
-.iso-dots[data-tone="hi"] circle{opacity:.85}
-.iso-dots[data-tone="mid"] circle{opacity:.45}
-.iso-dots[data-tone="lo"] circle{opacity:.22}
-.iso-dots[data-tone="faint"] circle{opacity:.12}
-.iso-face-text{fill:var(--anatomy-mid);font-family:var(--anatomy-mono);letter-spacing:.04em}
-.iso-face-text[data-tone="hi"]{fill:var(--anatomy-hi)}
-.iso-face-text[data-tone="lo"]{fill:var(--anatomy-lo)}
-.iso-face-text[data-tone="faint"]{fill:var(--anatomy-faint)}
-.tb-body{fill:var(--anatomy-shade-2);stroke:none}
-.tb-shine{fill:var(--anatomy-top);stroke:none}
-.tb-shade{fill:var(--anatomy-shade-0);stroke:none}
-.tb-ring{fill:none;stroke:var(--anatomy-lo);stroke-width:.45;stroke-linecap:butt;stroke-linejoin:round}
-.tb-ring[data-tone="mid"]{stroke:var(--anatomy-mid)}
-.tb-ring[data-tone="faint"]{stroke:var(--anatomy-faint)}
-.tb-ring[data-tone="hi"]{stroke:var(--anatomy-hi)}
-@keyframes iso-flow{to{stroke-dashoffset:-32}}
-@keyframes iso-pulse{0%,100%{opacity:.18}12%{opacity:1}40%{opacity:.18}}
-.iso-line[data-flow]{animation:iso-flow 1600ms linear infinite}
-.iso-dots circle[data-pulse]{animation:iso-pulse 1600ms steps(1,end) infinite;animation-delay:var(--pulse-at,0ms)}
-.iso-figure{margin:32px 0 36px}
-.iso-plate{position:relative;padding:52px 24px;border-radius:0;background:var(--anatomy-card);box-shadow:0 0 0 1px var(--anatomy-mid);--anatomy-paper:var(--anatomy-card)}
-.iso-plate-corners{position:absolute;inset:18px 20px;pointer-events:none}
-.iso-plate-corner{position:absolute;color:var(--anatomy-muted);font-family:var(--anatomy-mono);font-size:10.5px;line-height:1;letter-spacing:.04em;white-space:nowrap}
-.iso-plate-corner[data-corner="fig"]{top:0;left:0;color:var(--anatomy-text)}
-.iso-plate-corner[data-corner="title"]{top:0;right:0;text-transform:uppercase;letter-spacing:.1em}
-.iso-plate-corner[data-corner="hint"]{bottom:0;left:0;text-transform:uppercase;letter-spacing:.1em}
-.iso-plate-corner[data-corner="readout"]{right:0;bottom:0;color:var(--anatomy-text);font-variant-numeric:tabular-nums}
-.iso-plate .iso-svg{margin:0 auto}
-.iso-legend{display:grid;gap:8px;margin-top:12px;color:var(--anatomy-muted);font-size:13px;line-height:1.55}
-.iso-keys{display:flex;flex-wrap:wrap;gap:6px 18px}
-.iso-key{display:inline-flex;align-items:center;gap:7px}
-.iso-swatch{width:16px;height:10px;flex:none;overflow:visible}
-.iso-swatch path{fill:none;stroke:var(--anatomy-hi);stroke-width:1;vector-effect:non-scaling-stroke;stroke-linejoin:round;stroke-linecap:round}
-.iso-swatch[data-mark="raised"] path,.iso-swatch[data-mark="flat"] path{stroke:var(--anatomy-mid)}
-.iso-swatch[data-mark="lit"] path{stroke:var(--anatomy-lit)}
-.iso-swatch[data-mark="dim"] path{stroke:var(--anatomy-lo)}
-.iso-swatch[data-mark="dotted"] path{stroke-dasharray:.01 3;stroke-width:1.4}
-.iso-swatch[data-mark="dashed"] path{stroke-dasharray:3 2.5}
-.iso-swatch[data-mark="red"] path{stroke:var(--anatomy-red)}
-.iso-swatch[data-mark="green"] path{stroke:var(--anatomy-green)}
-.iso-swatch[data-mark="blue"] path{stroke:var(--anatomy-blue)}
-.iso-swatch-crease{stroke:var(--anatomy-lo)!important}
-@media (max-width:560px){.iso-plate{padding:48px 12px 70px}.iso-plate-corner[data-corner="hint"]{bottom:18px}}
-@media (prefers-reduced-motion:reduce){.iso-line[data-flow],.iso-dots circle[data-pulse]{animation:none}}
-`;
-{
-
-const V = {
-  add: (a, b) => [a[0] + b[0], a[1] + b[1], a[2] + b[2]],
-  sub: (a, b) => [a[0] - b[0], a[1] - b[1], a[2] - b[2]],
-  cross: (a, b) => [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]],
-  norm: (a) => { const l = Math.hypot(a[0], a[1], a[2]) || 1; return [a[0] / l, a[1] / l, a[2] / l]; },
+    const style = doc.createElement("style");
+    style.setAttribute("data-hairline-style", "");
+    style.textContent = text;
+    (root.nodeType === 9 ? doc.head ?? doc.documentElement : root).appendChild(style);
+  }
+  return __toCommonJS(kernel_exports);
+})();
+/* /hairline kernel */
+</script>
+<script>
+window.hairline = (figure) => {
+  const stage = document.getElementById("stage"), out = document.getElementById("read");
+  HL.inject(document);
+  stage.setAttribute("data-hairline", figure.name);
+  stage.setAttribute("role", "img");
+  stage.setAttribute("aria-label", figure.means);
+  const svg = HL.mk("svg", { viewBox: "0 0 400 320", "aria-hidden": "true" }, stage);
+  const read = { textContent: "rest" };
+  Object.defineProperty(read, "textContent", { get: () => out.textContent, set: (v) => { out.textContent = v == null ? "" : String(v); } });
+  figure.mount({ stage, svg, read }, figure.range[1]);
+  // The lap shows a stranger what the figure does; a real pointer takes over from it.
+  if (!matchMedia("(prefers-reduced-motion: reduce)").matches) HL.tour(stage, figure.tour || HL.LAP);
 };
-// Faces wind counter-clockwise seen from outside, so the normal points out.
-function face(pts, ramp) {
-  const n = V.norm(V.cross(V.sub(pts[1], pts[0]), V.sub(pts[2], pts[0])));
-  return { pts, n, ramp };
-}
-const ring = (n, rx, ry, z, cx = 0, cy = 0, phase = 0) =>
-  Array.from({ length: n }, (_, i) => { const a = phase + (i / n) * Math.PI * 2; return [cx + rx * Math.cos(a), cy + ry * Math.sin(a), z]; });
-/** A solid between two rings of equal count (bottom, top): sides plus both caps. */
-function loft(bottom, top, ramp, caps = [true, true]) {
-  const out = [], n = bottom.length;
-  for (let i = 0; i < n; i++) { const j = (i + 1) % n; out.push(face([bottom[i], bottom[j], top[j], top[i]], ramp)); }
-  if (caps[1]) out.push(face(top.slice(), ramp));
-  if (caps[0]) out.push(face(bottom.slice().reverse(), ramp));
-  return out;
-}
-function box(x, y, z, w, d, h, ramp) {
-  return loft([[x, y, z], [x + w, y, z], [x + w, y + d, z], [x, y + d, z]], [[x, y, z + h], [x + w, y, z + h], [x + w, y + d, z + h], [x, y + d, z + h]], ramp);
-}
-function cylinder(cx, cy, z, r, h, ramp, n = 20, ry = r) {
-  return loft(ring(n, r, ry, z, cx, cy), ring(n, r, ry, z + h, cx, cy), ramp);
-}
-/** A torus with a square tube, in the xy plane around the origin. */
-function torus(R, t, ramp, n = 28) {
-  const out = [];
-  const at = (a, dr, dz) => [(R + dr) * Math.cos(a), (R + dr) * Math.sin(a), dz];
-  for (let i = 0; i < n; i++) {
-    const a = (i / n) * Math.PI * 2, b = ((i + 1) / n) * Math.PI * 2, h = t / 2;
-    out.push(face([at(a, -h, h), at(a, h, h), at(b, h, h), at(b, -h, h)], ramp));
-    out.push(face([at(a, h, -h), at(a, -h, -h), at(b, -h, -h), at(b, h, -h)], ramp));
-    out.push(face([at(a, h, h), at(a, h, -h), at(b, h, -h), at(b, h, h)], ramp));
-    out.push(face([at(a, -h, -h), at(a, -h, h), at(b, -h, h), at(b, -h, -h)], ramp));
-  }
-  return out;
-}
-function mapFaces(faces, fn) {
-  return faces.map((f) => { const pts = f.pts.map(fn); return { ...f, pts, n: V.norm(V.cross(V.sub(pts[1], pts[0]), V.sub(pts[2], pts[0]))) }; });
-}
-const rotX = (a) => (p) => [p[0], p[1] * Math.cos(a) - p[2] * Math.sin(a), p[1] * Math.sin(a) + p[2] * Math.cos(a)];
-const rotY = (a) => (p) => [p[0] * Math.cos(a) + p[2] * Math.sin(a), p[1], -p[0] * Math.sin(a) + p[2] * Math.cos(a)];
-const rotZ = (a) => (p) => [p[0] * Math.cos(a) - p[1] * Math.sin(a), p[0] * Math.sin(a) + p[1] * Math.cos(a), p[2]];
-const move = (d) => (p) => [p[0] + d[0], p[1] + d[1], p[2] + d[2]];
-const chain = (...fns) => (p) => fns.reduce((q, f) => f(q), p);
-const hex = (c) => [1, 3, 5].map((i) => parseInt(c.slice(i, i + 2), 16));
-function tone(ramp, n) {
-  // Top faces take the light tone, +x sides the mid and +y sides the dark, as in the 2D figures.
-  const t = Math.max(0, Math.min(1, n[2] * 0.95 + n[0] * 0.5 + 0.05 - Math.max(0, -n[2]) * 0.4));
-  const [a, b, s] = t < 0.5 ? [ramp[0], ramp[1], t / 0.5] : [ramp[1], ramp[2], (t - 0.5) / 0.5];
-  const A = hex(a), B = hex(b);
-  return "rgb(" + A.map((v, i) => Math.round(v + (B[i] - v) * s)).join(",") + ")";
-}
-/** A turned solid from a [radius, height] profile, bottom to top. */
-function lathe(profile, cx, cy, z, ramp, n = 20) {
-  const out = [];
-  for (let i = 1; i < profile.length; i++) {
-    const [r0, z0] = profile[i - 1], [r1, z1] = profile[i];
-    out.push(...loft(ring(n, Math.max(r0, 0.01), Math.max(r0, 0.01), z + z0, cx, cy), ring(n, Math.max(r1, 0.01), Math.max(r1, 0.01), z + z1, cx, cy), ramp, [i === 1, i === profile.length - 1]));
-  }
-  return out;
-}
-/** The ground every figure stands on: a round plinth with an inset top. */
-function pad(cx, cy, r, R) {
-  return [...cylinder(cx, cy, -14, r, 14, R.stone, 48), ...cylinder(cx, cy, 0, r - 12, 1.5, R.ink, 48)];
-}
-/** Convex hull of 2D points, for soft light shapes. */
-function hull(pts) {
-  const p = pts.slice().sort((a, b) => a[0] - b[0] || a[1] - b[1]);
-  const cross = (o, a, b) => (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0]);
-  const lower = [], upper = [];
-  for (const q of p) { while (lower.length > 1 && cross(lower[lower.length - 2], lower[lower.length - 1], q) <= 0) lower.pop(); lower.push(q); }
-  for (const q of p.reverse()) { while (upper.length > 1 && cross(upper[upper.length - 2], upper[upper.length - 1], q) <= 0) upper.pop(); upper.push(q); }
-  return lower.slice(0, -1).concat(upper.slice(0, -1));
-}
-/** Faces to SVG polygons, back to front, culling the ones facing away. */
-function paint(faces, P, opacity) {
-  const live = [];
-  for (let f of faces) {
-    if (depthOf(f.n, P) <= 1e-4) { if (!f.twoSided) continue; f = { ...f, n: f.n.map((v) => -v) }; }
-    let c = [0, 0, 0];
-    for (const p of f.pts) c = V.add(c, p);
-    const depth = depthOf(c.map((v) => v / f.pts.length), P) + (f.bias || 0);
-    live.push({ f, depth });
-  }
-  live.sort((a, b) => a.depth - b.depth);
-  return live.map(({ f }) => {
-    const fill = tone(f.ramp, f.n);
-    const pts = f.pts.map((p) => iso(p, P).map((v) => v.toFixed(1)).join(" ")).join(" ");
-    const o = f.opacity ?? opacity;
-    return '<polygon points="' + pts + '" fill="' + fill + '" stroke="' + fill + '" stroke-width=".6" stroke-linejoin="round"' + (o !== undefined && o < 1 ? ' opacity="' + o.toFixed(2) + '"' : "") + "/>";
-  }).join("");
-}
+</script>
+<script type="module">/**
+ * Gears: a gearbox plate with four meshed spur gears on pins. The pointer's
+ * angle round the driver's centre sets the driver's angle on a spring, so its
+ * crank post follows the hand; every other gear turns in step through the
+ * mesh, at its own ratio and the opposite way to its neighbour. The gear under
+ * the pointer, or the driver, takes the bright edge, and the read-out gives
+ * its ratio to the driver. The slider is the drive's stiffness, k.
+ *
+ * The pattern: one continuous input. One spring, a hit test on the gears'
+ * fixed footprints (they turn, they never move), and phases that keep the
+ * teeth interleaved at every angle.
+ */
+const {
+  Cam, circ, facing, fillet, fit, open, poly, prism, proj, ringAt, rings, run, unproj,
+  spring, stepS, mk, pointer, put, register, disposer, solid,
+} = HL;
 
+const M = 3, Z0 = 2, Z1 = 7, HUB = 10, PIN = 13, POST = 18, PB = 6, REST = 2.9;
+// [teeth, centre x, centre y, holes]; gear 0 drives, and MESH lists who turns whom.
+const GEARS = [[16, 0, 0, 0], [8, 25.46, -25.46, 0], [24, -42.43, 42.43, 6], [12, 8.31, 60.9, 3]];
+const MESH = [[0, 1], [0, 2], [2, 3]];
+const TAU = Math.PI * 2;
+const wrap = (a) => a - TAU * Math.round(a / TAU);
+const gcd = (a, b) => (b ? gcd(b, a % b) : a);
 
-function loop(stage, draw, still, rest) {
-  const reduce = matchMedia("(prefers-reduced-motion: reduce)");
-  let frame = 0, last = 0, clock = 0, visible = false;
-  const tick = (now) => { const dt = last ? Math.min((now - last) / 1000, 1 / 30) : 1 / 60; last = now; clock += dt; draw(clock); frame = visible ? requestAnimationFrame(tick) : 0; };
-  const run = () => { if (!frame && visible && !reduce.matches) { last = 0; frame = requestAnimationFrame(tick); } };
-  new IntersectionObserver((e) => { visible = e[e.length - 1].isIntersecting; if (visible) run(); }, { rootMargin: "120px 0px" }).observe(stage);
-  draw(reduce.matches ? rest : 0);
-}
-
-const P = {"origin":[300,271.15257694368233],"scale":0.987238386132154,"azimuth":45,"elevation":30}, R = {"lilac":["#4d4c9b","#807ebb","#dfdff7"],"stone":["#2a2765","#352785","#4d4c9b"],"ink":["#1d1b4a","#2a2765","#3d3a86"],"cyan":["#08a7ff","#03ddff","#5ff0ff"],"lime":["#5e8f33","#7fb846","#a5e05b"]};
-const PIVOT = 136, ARM = 104, DROP = 60, CUBE = 18;
-const RIGHT = [[0,null],[1.4,null],[2.8,null],[4.2,5.8]], LIT_AT = 7, RESET = 10.2, CYCLE = 11;
-const YAW = -0.7853981633974483, toWorld = (p) => [p[0] * Math.cos(YAW) - p[1] * Math.sin(YAW), p[0] * Math.sin(YAW) + p[1] * Math.cos(YAW), p[2]];
-const mixHex = (a, b, s) => "#" + [1, 3, 5].map((i) => Math.round(parseInt(a.slice(i, i + 2), 16) * (1 - s) + parseInt(b.slice(i, i + 2), 16) * s).toString(16).padStart(2, "0")).join("");
-const mixRamp = (a, b, s) => a.map((c, i) => mixHex(c, b[i], s));
-const smooth = (x) => (x <= 0 ? 0 : x >= 1 ? 1 : x * x * (3 - 2 * x));
-const base = pad(0, 0, 70, R);
-const post = [...cylinder(0, 0, 1.5, 9, PIVOT - 18, R.lilac, 24), ...cylinder(0, 0, PIVOT - 30, 13, 5, R.stone, 24)];
-// Cube slots on a pan: two side by side, then two more, then one on top.
-const SLOTS = [[-CUBE - 1, -CUBE / 2, 0], [1, -CUBE / 2, 0], [-CUBE / 2, -CUBE - 1, CUBE], [-CUBE / 2, 1, CUBE], [-CUBE / 2, -CUBE / 2, CUBE * 2]];
-const stage = document.querySelector(".iso-stage");
-const group = stage.querySelector('[data-part="scene"]');
-let angle = null, speed = 0, lastT = null;
-function draw(t) {
-  const c = t % CYCLE;
-  const n = RIGHT.filter(([on, off]) => c >= on + 0.4 && (off === null || c < off)).length;
-  const fade = smooth((c - RESET) / 0.6);
-  const target = Math.max(-0.28, Math.min(0.28, (n - 3) * 0.13));
-  const dt = lastT === null || t < lastT ? 1 : Math.min(t - lastT, 1 / 20);
-  lastT = t;
-  if (angle === null || dt === 1) { angle = target; speed = 0; }
-  else { speed += ((target - angle) * 60 - speed * 9) * dt; angle += speed * dt; }
-  const lit = smooth((c - LIT_AT) / 0.5) * (1 - fade);
-  const cubeRamp = mixRamp(R.lilac, R.cyan, lit);
-  const beamPose = chain(rotY(angle), move([0, 0, PIVOT]));
-  const end = (side) => beamPose([side * ARM, 0, 0]);
-  const faces = [...base, ...post], cubes3d = [];
-  faces.push(...mapFaces(box(-ARM - 8, -5, -5, ARM * 2 + 16, 10, 10, R.lilac), beamPose));
-  // The fulcrum: one block the beam rocks on, lit when the scale balances.
-  faces.push(...box(-12, -10, PIVOT - 17, 24, 20, 12, mixRamp(R.stone, R.cyan, lit)));
-  for (const side of [-1, 1]) {
-    const [ex, , ez] = end(side), pz = ez - DROP;
-    // A yoke behind the pan, so its rods never cross the cubes: an arm back from
-    // the beam end, a short crossbar and a rod down to each side of the rim.
-    faces.push(...box(ex - 2, -28, ez - 9, 4, 28, 4, R.stone));
-    faces.push(...box(ex - 18, -29, ez - 9, 36, 4, 4, R.stone));
-    for (const r of [-16, 16]) faces.push(...box(ex + r - 1.5, -28.5, pz + 5, 3, 3, DROP - 14, R.stone));
-    faces.push(...cylinder(ex, 0, pz, 34, 5, R.stone, 28), ...cylinder(ex, 0, pz + 5, 28, 0.6, R.ink, 28));
-    const cubes = side < 0 ? [[-1, null], [-1, null], [-1, null]] : RIGHT;
-    cubes.forEach(([on, off], i) => {
-      if (c < on) return;
-      let lift = on >= 0 ? (1 - smooth((c - on) / 0.45)) * 70 : 0, alpha = 1 - fade;
-      if (off !== null && c >= off) { const f = smooth((c - off) / 0.7); if (f >= 1) return; lift = f * 50; alpha *= 1 - f; }
-      const [sx, sy, sz] = SLOTS[i];
-      const [wx, wy] = toWorld([ex + sx + CUBE / 2, sy + CUBE / 2, 0]);
-      cubes3d.push(...box(wx - CUBE / 2, wy - CUBE / 2, pz + 5.6 + sz + lift, CUBE, CUBE, CUBE, cubeRamp).map((f) => ({ ...f, opacity: alpha })));
+/** A gear's toothed outline in its own frame, a tooth centred on +x, filleted at root and tip. */
+function outline(n) {
+  const R = (M * n) / 2, ra = R + 0.85 * M, rr = R - M, T = TAU / n, pts = [], radii = [];
+  for (let k = 0; k < n; k++) {
+    const a = k * T;
+    [[rr, -0.5, 1.4], [rr, -0.26, 0.9], [ra, -0.12, 0.7], [ra, 0.12, 0.7], [rr, 0.26, 0.9]].forEach(([r, f, fr]) => {
+      pts.push([r * Math.cos(a + f * T), r * Math.sin(a + f * T)]);
+      radii.push(fr);
     });
   }
-  group.innerHTML = paint([...mapFaces(faces, toWorld), ...cubes3d], P);
+  return { R, ra, rr, pts: fillet(pts, radii, 2) };
 }
-loop(stage, draw, null, 8.5);
-}</script></body></html>
+
+/** A ring of samples translated to (x, y), for a round part on a gear's face. */
+const at = (ring, x, y) => ring.map((q) => ({ u: q.u + x, v: q.v + y, nu: q.nu, nv: q.nv }));
+
+function mount({ stage, svg, read }, value) {
+  const bag = disposer();
+  const gears = GEARS.map(([n, cx, cy, holes]) => ({ n, cx, cy, holes, ...outline(n), mult: 1, base: 0 }));
+  for (const [p, q] of MESH) {
+    const a = gears[p], b = gears[q], phi = Math.atan2(b.cy - a.cy, b.cx - a.cx), r = a.n / b.n;
+    b.mult = -r * a.mult;
+    b.base = phi + Math.PI - Math.PI / b.n - r * (a.base - phi);
+  }
+
+  let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+  for (const g of gears) {
+    x0 = Math.min(x0, g.cx - g.ra); y0 = Math.min(y0, g.cy - g.ra);
+    x1 = Math.max(x1, g.cx + g.ra); y1 = Math.max(y1, g.cy + g.ra);
+  }
+  x0 -= 9; y0 -= 9; x1 += 9; y1 += 9;
+
+  const C = Cam(45, 0.5, 1.6);
+  fit(C, [[x0, y0, -PB], [x1, y1, -PB], [x1, y0, -PB], [x0, y1, -PB], [x0, y0, POST]], 200, 166);
+  const P = proj(C), front = facing(C);
+
+  const g = mk("g", {}, svg);
+  const [pr, pi] = rings(x0, y0, x1, y1, 12, 2.2);
+  put(solid(g), prism(P, front, pr, pi, -PB, 0));
+  const screw = circ(2.6, 12), slot = circ(1.2, 8);
+  for (const [sx, sy] of [[x0 + 7, y0 + 7], [x1 - 7, y0 + 7], [x0 + 7, y1 - 7], [x1 - 7, y1 - 7]]) {
+    mk("path", { d: poly(ringAt(P, at(screw, sx, sy), 0)), class: "nf" }, g);
+    mk("path", { d: poly(ringAt(P, at(slot, sx, sy), 0)), class: "nf lo" }, g);
+  }
+
+  const hubRing = (g0) => circ(Math.max(4, g0.rr * 0.28), 16);
+  const pinRing = circ(1.7, 12), pinIn = circ(0.9, 12), hole = circ(1, 12), post = circ(2.6, 12), postIn = circ(1.7, 12);
+  // Painted far to near by the centre's x + y; gears level with each other only meet at the mesh.
+  const order = gears.map((_, i) => i).sort((a, b) => gears[a].cx + gears[a].cy - (gears[b].cx + gears[b].cy));
+  for (const i of order) {
+    const q = gears[i], grp = mk("g", {}, g);
+    q.bot = mk("path", { class: "sil" }, grp);
+    q.top = mk("path", { class: "lo" }, grp);
+    q.back = mk("path", { class: "nf sil" }, grp);
+    if (q.holes) q.web = mk("path", { d: poly(ringAt(P, at(circ(q.rr - 2.6, 32), q.cx, q.cy), Z1)), class: "nf lo" }, grp);
+    q.holeEls = [];
+    for (let h = 0; h < q.holes; h++) q.holeEls.push(mk("path", { class: "nf lo" }, grp));
+    const hr = hubRing(q), hin = circ(Math.max(4, q.rr * 0.28) - 1, 16);
+    q.hub = solid(grp);
+    put(q.hub, prism(P, front, at(hr, q.cx, q.cy), at(hin, q.cx, q.cy), Z1, HUB));
+    put(solid(grp), prism(P, front, at(pinRing, q.cx, q.cy), at(pinIn, q.cx, q.cy), HUB, PIN));
+    if (i === 0) q.post = solid(grp);
+  }
+
+  /** Gear q's paths at driver angle th: teeth, its holes, and the driver's crank post. */
+  function drawGear(q, th) {
+    const a = q.base + q.mult * th, c = Math.cos(a), s = Math.sin(a);
+    const ring = q.pts.map(([x, y]) => {
+      const l = Math.hypot(x, y);
+      return { u: q.cx + x * c - y * s, v: q.cy + x * s + y * c, nu: (x * c - y * s) / l, nv: (x * s + y * c) / l };
+    });
+    q.bot.setAttribute("d", poly(ringAt(P, ring, Z0)));
+    q.top.setAttribute("d", poly(ringAt(P, ring, Z1)));
+    q.back.setAttribute("d", open(ringAt(P, run(ring, (p) => !front(p)), Z1)));
+    const hr = (Math.max(4, q.rr * 0.28) + q.rr - 2.6) / 2, hs = Math.min(3.4, (q.rr - 2.6 - Math.max(4, q.rr * 0.28)) * 0.32);
+    q.holeEls.forEach((el, h) => {
+      const b = a + (h * TAU) / q.holes + Math.PI / q.holes;
+      el.setAttribute("d", poly(ringAt(P, at(hole.map((p) => ({ ...p, u: p.u * hs, v: p.v * hs })), q.cx + hr * Math.cos(b), q.cy + hr * Math.sin(b)), Z1)));
+    });
+    if (q.post) {
+      const px = q.cx + (q.rr - 6) * c, py = q.cy + (q.rr - 6) * s;
+      put(q.post, prism(P, front, at(post, px, py), at(postIn, px, py), Z1, POST));
+      // the post stands beside the hub: whichever is nearer the viewer is painted last
+      if (px + py > q.cx + q.cy) q.post.g.parentNode.appendChild(q.post.g);
+      else q.hub.g.before(q.post.g);
+    }
+  }
+
+  const k0 = value;
+  const sp = spring(REST, { k: k0, c: 1.8 * Math.sqrt(k0), eps: 0.0005 });
+  let drawn = NaN;
+  const B = register(stage, (dt) => {
+    const m = stepS(sp, dt);
+    if (sp.x !== drawn) { drawn = sp.x; gears.forEach((q) => drawGear(q, sp.x)); }
+    return m;
+  });
+  bag.add(B.unregister);
+  gears.forEach((q) => drawGear(q, REST));
+
+  let lit = -1, raw = null;
+  function light(i) {
+    if (i === lit) return;
+    lit = i;
+    gears.forEach((q, j) => { q.bot.classList.toggle("hi", j === i); q.back.classList.toggle("hi", j === i); });
+  }
+  const ratio = (q) => { const d = gcd(gears[0].n, q.n); return `ratio ${gears[0].n / d}:${q.n / d}`; };
+  light(0);
+  read.textContent = "rest";
+
+  bag.add(pointer(stage, {
+    move: (p) => {
+      const [wx, wy] = unproj(C, p[0], p[1], Z1);
+      const ang = Math.atan2(wy - gears[0].cy, wx - gears[0].cx);
+      sp.t = raw === null ? ang + TAU * Math.round((sp.x - ang) / TAU) : sp.t + wrap(ang - raw);
+      raw = ang;
+      // the gears turn but never move, so their footprints are a fixed hit test
+      const over = gears.findIndex((q) => Math.hypot(wx - q.cx, wy - q.cy) <= q.ra);
+      light(over < 0 ? 0 : over);
+      read.textContent = ratio(gears[over < 0 ? 0 : over]);
+      B.wake();
+    },
+    leave: () => {
+      raw = null;
+      sp.t = REST + TAU * Math.round((sp.x - REST) / TAU);
+      light(0);
+      read.textContent = "rest";
+      B.wake();
+    },
+  }));
+  bag.add(() => svg.replaceChildren());
+
+  return {
+    set: (v) => { sp.k = v; sp.c = 1.8 * Math.sqrt(v); },
+    destroy: bag.dispose,
+  };
+}
+
+hairline({
+  name: "gears",
+  means: "Four meshed gears on a plate: turn the driver and each one follows at its own ratio, the opposite way to its neighbour.",
+  rules: [1, 4, 5, 8, 9],
+  range: [40, 100, 220],
+  tour: [[200, 120], [150, 150], [200, 200], null],
+  mount,
+});
+</script>
+</body>
+</html>

@@ -4,8 +4,9 @@ import { ACCESS_COOKIE, accessToken, lockedProjects } from "@/lib/access";
 /** Locked case studies serve the access page at their own URL until the visitor holds a valid code cookie. */
 export async function proxy(request: NextRequest) {
   const code = process.env.ACCESS_CODE;
-  // No code configured means no gate, so a missing variable never locks the owner out.
-  if (!code) return NextResponse.next();
+  // No code configured means no gate, so a missing variable never locks the owner out;
+  // the dev server never gates, so local review needs no code.
+  if (!code || process.env.NODE_ENV === "development") return NextResponse.next();
   const slug = request.nextUrl.pathname.split("/")[2];
   if (!lockedProjects.has(slug)) return NextResponse.next();
   if (request.cookies.get(ACCESS_COOKIE)?.value === await accessToken(code)) return NextResponse.next();
