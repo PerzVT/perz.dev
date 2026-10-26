@@ -13,6 +13,7 @@ const navSidequests: NavProject[] = sidequestProjects().map(project => ({
   slug: project.slug,
   title: project.frontmatter.title,
   image: sidequestImage(project.slug, project.frontmatter.image) ?? undefined,
+  link: project.frontmatter.link,
 }));
 
 export function SiteNav({ section }: { section?: "sidequests" }) {

@@ -40,6 +40,8 @@ export interface ProjectFrontmatter {
   mediaOnly?: boolean;
   /** caseStudy: MDX body uses the structured Context/Problem/Approach/Solution/Impact layout with a sticky TOC, instead of a plain single-column article. */
   caseStudy?: boolean;
+  /** link: the entry has no detail page; its sidequest card opens this URL in a new tab. */
+  link?: string;
   /** draft: hides the project everywhere (home grid, /projects index, terminal slugs, sitemap, detail route) without deleting the file. */
   draft?: boolean;
   /** cardStyle: "cover" (default) fills the card edge-to-edge; "frame" insets the image with padding and moves title/year outside it. Use frame for UI screenshots and branding work. */

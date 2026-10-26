@@ -37,7 +37,7 @@ export default async function SidequestDetail({ params }: { params: Promise<{slu
   if (!project || project.frontmatter.draft) notFound();
   const { frontmatter: f, content } = project;
   const art = pendingArtwork.has(slug) ? null : resolveImg(slug, f.hero ?? f.image);
-  const others = sidequestProjects();
+  const others = sidequestProjects().filter(p => !p.frontmatter.link);
   const nextQuest = others[(others.findIndex(p => p.slug === slug) + 1) % others.length];
   const next = nextQuest && nextQuest.slug !== slug ? { href: `/projects/${nextQuest.slug}`, label: `Next sidequest: ${nextQuest.frontmatter.title}` } : { href: "/#work", label: "Featured work" };
   const facts = [

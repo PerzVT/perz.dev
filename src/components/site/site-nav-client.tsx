@@ -5,18 +5,21 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState, type CSSProperties, type RefObject } from "react";
 import { AudioToggle, ThemeToggle, Icon } from "@/components/portfolio/controls";
 
-export type NavProject = { slug: string; title: string; image?: string; position?: string };
+export type NavProject = { slug: string; title: string; image?: string; position?: string; link?: string };
 type MenuKey = "projects" | "sidequests";
 
 function ProjectList({ items, pathname, onPick }: { items: NavProject[]; pathname: string; onPick: () => void }) {
-  return <ul>{items.map(item => <li key={item.slug}>
-    <Link href={`/projects/${item.slug}`} aria-current={pathname === `/projects/${item.slug}` ? "page" : undefined} onClick={onPick}>
+  return <ul>{items.map(item => {
+    const inner = <>
       {item.image
         ? <Image src={item.image} alt="" width={192} height={108} sizes="96px" style={{ objectPosition: item.position } as CSSProperties} />
         : <span className="pf-menu-thumb" aria-hidden="true" />}
       <span>{item.title}</span>
-    </Link>
-  </li>)}</ul>;
+    </>;
+    return <li key={item.slug}>{item.link
+      ? <a href={item.link} target="_blank" rel="noopener noreferrer" onClick={onPick}>{inner}</a>
+      : <Link href={`/projects/${item.slug}`} aria-current={pathname === `/projects/${item.slug}` ? "page" : undefined} onClick={onPick}>{inner}</Link>}</li>;
+  })}</ul>;
 }
 
 /** Sidequest detail pages live under /projects/, so only the page that renders
