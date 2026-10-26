@@ -16,8 +16,6 @@ export interface ProjectFrontmatter {
   url?: string;
   /** factsBar: the facts run as one horizontal bar under the hero, for pages that are only media. */
   factsBar?: boolean;
-  /** heroFit: "cover" stretches the hero art to fill its frame; the default "contain" letterboxes it. */
-  heroFit?: "cover" | "contain";
   featured?: boolean;
   span?: "1x1" | "2x1" | "1x2" | "2x2";
 
