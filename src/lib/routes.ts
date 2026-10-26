@@ -7,8 +7,7 @@ export const topLevelRoutes = ["/", "/resume", "/contact"];
 /** Every slug that renders a page at /projects/[slug]. Case studies come from
  *  pages.json, sidequests from the MDX files; getProjects() drops drafts. */
 export function projectSlugs(): string[] {
-  const pages = getProjects().filter((p) => !p.frontmatter.link);
-  return [...new Set([...caseStudies.map((p) => p.slug), ...pages.map((p) => p.slug)])];
+  return [...new Set([...caseStudies.map((p) => p.slug), ...getProjects().map((p) => p.slug)])];
 }
 
 /**

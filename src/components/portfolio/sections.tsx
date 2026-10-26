@@ -269,7 +269,6 @@ export function CaseStudyBody({ project: p }: { project: CaseStudy }) {
         ),
       )}
       <Banners items={p.banners} edit={`${base}/banners`} />
-      <nav className="pf-container pf-section pf-project-navigation" aria-label="Project navigation"><Link className="pf-outline" href="/">Home</Link><Link className="pf-button" href="/#work">All projects</Link></nav>
     </>
   );
 }

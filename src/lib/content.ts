@@ -14,6 +14,10 @@ export interface ProjectFrontmatter {
   image?: string;
   video?: string;
   url?: string;
+  /** factsBar: the facts run as one horizontal bar under the hero, for pages that are only media. */
+  factsBar?: boolean;
+  /** heroFit: "cover" stretches the hero art to fill its frame; the default "contain" letterboxes it. */
+  heroFit?: "cover" | "contain";
   featured?: boolean;
   span?: "1x1" | "2x1" | "1x2" | "2x2";
 
@@ -40,8 +44,6 @@ export interface ProjectFrontmatter {
   mediaOnly?: boolean;
   /** caseStudy: MDX body uses the structured Context/Problem/Approach/Solution/Impact layout with a sticky TOC, instead of a plain single-column article. */
   caseStudy?: boolean;
-  /** link: the entry has no detail page; its sidequest card opens this URL in a new tab. */
-  link?: string;
   /** draft: hides the project everywhere (home grid, /projects index, terminal slugs, sitemap, detail route) without deleting the file. */
   draft?: boolean;
   /** cardStyle: "cover" (default) fills the card edge-to-edge; "frame" insets the image with padding and moves title/year outside it. Use frame for UI screenshots and branding work. */

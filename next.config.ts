@@ -3,7 +3,7 @@ import type { NextConfig } from "next";
 
 /**
  * Security headers for every route. CSP is strict: no third-party
- * scripts, no embeds. JSON-LD runs inline via
+ * scripts, and the only embed is YouTube's privacy-enhanced player. JSON-LD runs inline via
  * <script type="application/ld+json">, which CSP allows by default
  * since it isn't executed as script. Adding Google Analytics, Vercel
  * Insights, or a Calendly embed later means relaxing script-src /
@@ -24,9 +24,10 @@ const CSP = [
   "connect-src 'self' https:",
   // object-src blocks <object>/<embed>/<applet> (legacy Flash-era
   // injection vectors). Frames are same-site only: the case-study figures
-  // are pages of this site shown in iframes, and no other site may frame it.
+  // are pages of this site shown in iframes, plus YouTube's privacy-enhanced
+  // player for sidequest videos. No other site may frame this one.
   "object-src 'none'",
-  "frame-src 'self'",
+  "frame-src 'self' https://www.youtube-nocookie.com",
   "frame-ancestors 'self'",
   "base-uri 'self'",
   "form-action 'self'",
