@@ -56,7 +56,7 @@ export default async function SidequestDetail({ params }: { params: Promise<{slu
     ["Platform", f.platform], ["Status", f.status === "coming-soon" ? "Coming soon" : undefined],
   ].filter((row): row is [string,string] => Boolean(row[1]));
   return <><SiteNav section="sidequests" /><main id="main-content" className={`pf-page sq-page ${f.mediaOnly ? "sq-media-only" : !art ? "sq-text-only" : ""}`}>
-    {art && !f.mediaOnly ? <Hero title={f.title} description={f.description} images={[{src:art,alt:f.title,fit:"contain",...heroDimensions[slug]}]} /> : <header className="pf-container pf-page-heading sq-intro"><h1>{f.title}</h1><p>{f.description}</p></header>}
+    {art && !f.mediaOnly ? <Hero title={f.title} description={f.description} images={[{src:art,alt:f.title,fit:"contain",...heroDimensions[slug]}]} backdrop /> : <header className="pf-container pf-page-heading sq-intro"><h1>{f.title}</h1><p>{f.description}</p></header>}
     {f.mediaOnly && art && <section className="pf-container pf-section"><Art src={art} title={f.title} /></section>}
     <section className="pf-container pf-section"><div className={`pf-overview-top ${f.mediaOnly ? "sq-art-facts" : ""} ${f.factsBar ? "sq-facts-bar" : ""}`}><div>
       {f.contributions?.length ? <><h2>Contributions</h2><ul className="pf-feature-list">{f.contributions.map(c => <li key={c}><span aria-hidden="true">✦</span><span>{c}</span></li>)}</ul></> : null}

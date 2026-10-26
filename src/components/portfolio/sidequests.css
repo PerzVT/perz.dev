@@ -21,7 +21,8 @@
 .sq-page .pf-feature-list { margin-bottom: 28px; }
 @media(max-width:700px) { .sq-columns,.sq-paired,.sq-outcome-points { grid-template-columns:1fr; } .sq-detail-section { padding-block:48px; } .sq-intro { padding-block:48px; } }
 .sq-art-facts { display: block; max-width: 600px; }
-.sq-facts-bar { display: flex; flex-direction: row-reverse; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px 48px; }
+.sq-facts-bar { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 24px 48px; }
+.sq-facts-bar > .pf-facts { order: -1; }
 .sq-facts-bar .pf-facts { flex-direction: row; flex-wrap: wrap; gap: 16px 48px; padding-left: 20px; }
 .sq-facts-bar .pf-facts > div { display: block; }
 .sq-facts-bar .pf-facts dt { margin-bottom: 4px; }
@@ -29,6 +30,7 @@
 .sq-video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 
 .sq-page .pf-overview-top > div > .pf-button { margin-top: 24px; }
+.sq-page .sq-facts-bar > div > .pf-button { margin-top: 0; }
 
 
 .sq-intro-more { margin-top: 16px; max-width: 70ch; }

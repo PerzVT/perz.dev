@@ -49,6 +49,7 @@ export function Hero({
   action,
   edit,
   titleInArt,
+  backdrop,
 }: {
   title: string;
   description?: string;
@@ -59,10 +60,14 @@ export function Hero({
   edit?: { title?: string; description?: string };
   /** The hero art already shows the title as a wordmark, so the heading stays for screen readers only. */
   titleInArt?: boolean;
+  /** A blurred copy of the art fills the space around contained art. */
+  backdrop?: boolean;
 }) {
   return (
     <header className="pf-hero" data-video={video ? "" : undefined} style={{ "--hero-art-ratio": images[0]?.width && images[0]?.height ? images[0].width / images[0].height : 16 / 9 } as CSSProperties}>
       <div className="pf-hero-art">
+      {/* eslint-disable-next-line @next/next/no-img-element -- a small optimiser copy, blurred, so the full-size art is not fetched twice */}
+      {backdrop && images[0] && <img className="pf-hero-backdrop" src={`/_next/image?url=${encodeURIComponent(images[0].src)}&w=640&q=75`} alt="" aria-hidden="true" />}
       {images[0] &&
         (video ? (
           <AmbientVideo
@@ -75,7 +80,7 @@ export function Hero({
             posterMedia={images[0]}
           />
         ) : (
-          <MediaImage className="pf-hero-image" media={images[0]} alt="" priority />
+          <MediaImage className="pf-hero-image" media={backdrop ? { ...images[0], background: "transparent" } : images[0]} alt="" priority />
         ))}
       <FigmaShade className="pf-hero-shade" {...heroShade(images[0]?.sourceHash, title)} />
       {images.slice(1).map((media, i) => media.crop ? (

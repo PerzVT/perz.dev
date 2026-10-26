@@ -281,6 +281,19 @@ body {
   object-fit: cover;
   object-position: center;
 }
+/* A static filter, not backdrop-filter: it blurs one small image once and never re-samples the page. */
+.pf-hero-backdrop {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Scaled up so the blur's soft edge falls outside the frame. */
+  transform: scale(1.2);
+  filter: blur(48px) saturate(1.2);
+  opacity: 0.55;
+  pointer-events: none;
+}
 .pf-hero-logo {
   position: absolute;
   width: 30%;
